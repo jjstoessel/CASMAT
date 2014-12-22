@@ -1,3 +1,0 @@
-/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_chord.cpp: In function 'S_IMUSANT_chord IMUSANT::new_IMUSANT_chord()':
-/Users/jasonstoessel/Projects/Music Intertextuality/imusant/inc/IMUSANT_chord.h:37: error: 'IMUSANT_chord::IMUSANT_chord()' is protected
-/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_chord.cpp:17: error: within this context

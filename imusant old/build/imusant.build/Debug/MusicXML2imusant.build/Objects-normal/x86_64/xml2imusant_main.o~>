@@ -1,8 +1,0 @@
-/Users/Jason/Musicology/computer_analysis/imusant/xml2imusant_main.cpp: In function 'int main(int, char* const*)':
-/Users/Jason/Musicology/computer_analysis/imusant/xml2imusant_main.cpp:58: error: 'class boost::filesystem3::directory_entry' has no member named 'leaf'
-/Users/Jason/Musicology/computer_analysis/imusant/xml2imusant_main.cpp: In function 'int convert(boost::filesystem3::path&)':
-/Users/Jason/Musicology/computer_analysis/imusant/xml2imusant_main.cpp:78: error: no matching function for call to 'MusicXML::TMusicXMLFile::read(boost::filesystem3::path&)'
-/Users/Jason/Musicology/computer_analysis/imusant/../libMusicXML-1.00-src/src/include/TMusicXMLFile.h:44: note: candidates are: MusicXML::SScore MusicXML::TMusicXMLFile::read(const std::string&)
-/Users/Jason/Musicology/computer_analysis/imusant/xml2imusant_main.cpp:93: error: no matching function for call to 'IMUSANT::IMUSANT_XMLFile::write(SMARTP<IMUSANT::IMUSANT_score>&, boost::filesystem3::path&)'
-/Users/Jason/Musicology/computer_analysis/imusant/inc/IMUSANT_XMLFile.h:30: note: candidates are: bool IMUSANT::IMUSANT_XMLFile::write(IMUSANT::S_IMUSANT_score, const std::string&)
-/Users/Jason/Musicology/computer_analysis/imusant/inc/IMUSANT_XMLFile.h:31: note:                 bool IMUSANT::IMUSANT_XMLFile::write(IMUSANT::S_IMUSANT_score, std::ostream&)

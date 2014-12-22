@@ -1,3 +1,0 @@
-/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_ivec_collection.cpp: In function 'S_IMUSANT_ivec_collection IMUSANT::new_IMUSANT_ivec_collection(long int, long int)':
-/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_ivec_collection.h:26: error: 'IMUSANT_ivec_collection::IMUSANT_ivec_collection(long int, long int)' is protected
-/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_ivec_collection.cpp:16: error: within this context

@@ -1,3 +1,0 @@
-/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_measure.cpp: In function 'S_IMUSANT_measure IMUSANT::new_IMUSANT_measure()':
-/Users/jasonstoessel/Projects/Music Intertextuality/imusant/inc/IMUSANT_measure.h:51: error: 'IMUSANT_measure::IMUSANT_measure()' is protected
-/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_measure.cpp:19: error: within this context

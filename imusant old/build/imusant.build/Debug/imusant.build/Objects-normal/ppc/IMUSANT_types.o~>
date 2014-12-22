@@ -1,9 +1,0 @@
-/Users/Jason/Development/WORK DRIVE/Music Intertextuality/imusant/../../libMusicXML-1.00-src/src/include/smartpointer.h: In constructor 'SMARTP<T>::SMARTP(T*) [with T = IMUSANT_accidental]':
-/Users/Jason/Development/WORK DRIVE/Music Intertextuality/imusant/src/IMUSANT_types.cpp:34:   instantiated from here
-/Users/Jason/Development/WORK DRIVE/Music Intertextuality/imusant/../../libMusicXML-1.00-src/src/include/smartpointer.h:76: error: 'class IMUSANT_accidental' has no member named 'addReference'
-/Users/Jason/Development/WORK DRIVE/Music Intertextuality/imusant/../../libMusicXML-1.00-src/src/include/smartpointer.h: In destructor 'SMARTP<T>::~SMARTP() [with T = IMUSANT_accidental]':
-/Users/Jason/Development/WORK DRIVE/Music Intertextuality/imusant/src/IMUSANT_types.cpp:34:   instantiated from here
-/Users/Jason/Development/WORK DRIVE/Music Intertextuality/imusant/../../libMusicXML-1.00-src/src/include/smartpointer.h:84: error: 'class IMUSANT_accidental' has no member named 'removeReference'
-/Users/Jason/Development/WORK DRIVE/Music Intertextuality/imusant/../../libMusicXML-1.00-src/src/include/smartpointer.h: In copy constructor 'SMARTP<T>::SMARTP(const SMARTP<T>&) [with T = IMUSANT_accidental]':
-/Users/Jason/Development/WORK DRIVE/Music Intertextuality/imusant/src/IMUSANT_types.cpp:34:   instantiated from here
-/Users/Jason/Development/WORK DRIVE/Music Intertextuality/imusant/../../libMusicXML-1.00-src/src/include/smartpointer.h:81: error: 'class IMUSANT_accidental' has no member named 'addReference'
