@@ -1,0 +1,3 @@
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_interval_vector.cpp: In function 'S_IMUSANT_interval_vector IMUSANT::new_IMUSANT_interval_vector()':
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_interval_vector.h:42: error: 'IMUSANT_interval_vector::IMUSANT_interval_vector()' is protected
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_interval_vector.cpp:16: error: within this context

@@ -1,0 +1,12 @@
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.h:19: error: invalid function declaration
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.h:79: error: expected initializer before '<' token
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:15: error: 'IMUSANT_pitch' has not been declared
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:15: error: variable or field 'set' declared void
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:15: error: 'type' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:15: error: expected primary-expression before 'unsigned'
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:15: error: expected primary-expression before 'unsigned'
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:15: error: expected primary-expression before 'signed'
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:16: error: expected primary-expression before 'bool'
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:16: error: 'type' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:16: error: initializer expression list treated as compound expression
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_pitch.cpp:17: error: expected ',' or ';' before '{' token

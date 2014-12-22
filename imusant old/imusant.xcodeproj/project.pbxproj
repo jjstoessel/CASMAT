@@ -1,0 +1,1294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DD76F650486A84900D96B5E /* xml2imusant_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */; settings = {ATTRIBUTES = (); }; };
+		8DD76F6A0486A84900D96B5E /* imusant.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* imusant.1 */; };
+		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
+		9652086B0A4CDDC9006AFD81 /* bimap.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471309D8C598000B0808 /* bimap.h */; };
+		9652086C0A4CDDC9006AFD81 /* common.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471409D8C598000B0808 /* common.h */; };
+		9652086D0A4CDDC9006AFD81 /* conversions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471509D8C598000B0808 /* conversions.h */; };
+		9652086E0A4CDDC9006AFD81 /* exports.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471609D8C598000B0808 /* exports.h */; };
+		9652086F0A4CDDC9006AFD81 /* guido.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471709D8C598000B0808 /* guido.h */; };
+		965208700A4CDDC9006AFD81 /* guidovisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471809D8C598000B0808 /* guidovisitor.h */; };
+		965208710A4CDDC9006AFD81 /* LibMusicXML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471909D8C598000B0808 /* LibMusicXML.h */; };
+		965208720A4CDDC9006AFD81 /* smartclasses.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471A09D8C598000B0808 /* smartclasses.h */; };
+		965208730A4CDDC9006AFD81 /* smartpointer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471B09D8C598000B0808 /* smartpointer.h */; };
+		965208740A4CDDC9006AFD81 /* TArpeggiate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471C09D8C598000B0808 /* TArpeggiate.h */; };
+		965208750A4CDDC9006AFD81 /* TAttributes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471D09D8C598000B0808 /* TAttributes.h */; };
+		965208760A4CDDC9006AFD81 /* TBackupForward.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471E09D8C598000B0808 /* TBackupForward.h */; };
+		965208770A4CDDC9006AFD81 /* TBarline.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A471F09D8C598000B0808 /* TBarline.h */; };
+		965208780A4CDDC9006AFD81 /* TChord.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472009D8C598000B0808 /* TChord.h */; };
+		965208790A4CDDC9006AFD81 /* TClef.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472109D8C598000B0808 /* TClef.h */; };
+		9652087A0A4CDDC9006AFD81 /* TDirection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472209D8C598000B0808 /* TDirection.h */; };
+		9652087B0A4CDDC9006AFD81 /* TFiguredBass.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472309D8C598000B0808 /* TFiguredBass.h */; };
+		9652087C0A4CDDC9006AFD81 /* THarmony.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472409D8C598000B0808 /* THarmony.h */; };
+		9652087D0A4CDDC9006AFD81 /* TIdentification.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472509D8C598000B0808 /* TIdentification.h */; };
+		9652087E0A4CDDC9006AFD81 /* TKey.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472609D8C598000B0808 /* TKey.h */; };
+		9652087F0A4CDDC9006AFD81 /* TMeasure.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472709D8C598000B0808 /* TMeasure.h */; };
+		965208800A4CDDC9006AFD81 /* TMeasureStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472809D8C598000B0808 /* TMeasureStyle.h */; };
+		965208810A4CDDC9006AFD81 /* TMidiContextVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472909D8C598000B0808 /* TMidiContextVisitor.h */; };
+		965208820A4CDDC9006AFD81 /* TMidiDevice.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472A09D8C598000B0808 /* TMidiDevice.h */; };
+		965208830A4CDDC9006AFD81 /* TMidiInstrument.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472B09D8C598000B0808 /* TMidiInstrument.h */; };
+		965208840A4CDDC9006AFD81 /* TMusicXMLFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472C09D8C598000B0808 /* TMusicXMLFile.h */; };
+		965208850A4CDDC9006AFD81 /* TNodeVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472D09D8C598000B0808 /* TNodeVisitor.h */; };
+		965208860A4CDDC9006AFD81 /* TNotation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472E09D8C598000B0808 /* TNotation.h */; };
+		965208870A4CDDC9006AFD81 /* TNote.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A472F09D8C598000B0808 /* TNote.h */; };
+		965208880A4CDDC9006AFD81 /* TOrnaments.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473009D8C598000B0808 /* TOrnaments.h */; };
+		965208890A4CDDC9006AFD81 /* TOtherDirections.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473109D8C598000B0808 /* TOtherDirections.h */; };
+		9652088A0A4CDDC9006AFD81 /* TPart.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473209D8C598000B0808 /* TPart.h */; };
+		9652088B0A4CDDC9006AFD81 /* TPartGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473309D8C598000B0808 /* TPartGroup.h */; };
+		9652088C0A4CDDC9006AFD81 /* TPartList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473409D8C598000B0808 /* TPartList.h */; };
+		9652088D0A4CDDC9006AFD81 /* TPitch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473509D8C598000B0808 /* TPitch.h */; };
+		9652088E0A4CDDC9006AFD81 /* TRational.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473609D8C598000B0808 /* TRational.h */; };
+		9652088F0A4CDDC9006AFD81 /* TRolledVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473709D8C598000B0808 /* TRolledVisitor.h */; };
+		965208900A4CDDCA006AFD81 /* TRoutedVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473809D8C598000B0808 /* TRoutedVisitor.h */; };
+		965208910A4CDDCA006AFD81 /* TScanVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473909D8C598000B0808 /* TScanVisitor.h */; };
+		965208920A4CDDCA006AFD81 /* TScore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473A09D8C598000B0808 /* TScore.h */; };
+		965208930A4CDDCA006AFD81 /* TScoreHeader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473B09D8C598000B0808 /* TScoreHeader.h */; };
+		965208940A4CDDCA006AFD81 /* TScoreInstrument.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473C09D8C598000B0808 /* TScoreInstrument.h */; };
+		965208950A4CDDCA006AFD81 /* TScorePart.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473D09D8C598000B0808 /* TScorePart.h */; };
+		965208960A4CDDCA006AFD81 /* TScorePartwise.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473E09D8C598000B0808 /* TScorePartwise.h */; };
+		965208970A4CDDCA006AFD81 /* TScoreTimewise.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A473F09D8C598000B0808 /* TScoreTimewise.h */; };
+		965208980A4CDDCA006AFD81 /* TScoreVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474009D8C598000B0808 /* TScoreVisitor.h */; };
+		965208990A4CDDCA006AFD81 /* TSound.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474109D8C598000B0808 /* TSound.h */; };
+		9652089A0A4CDDCA006AFD81 /* TStaffDetails.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474209D8C598000B0808 /* TStaffDetails.h */; };
+		9652089B0A4CDDCA006AFD81 /* TTechnical.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474309D8C598000B0808 /* TTechnical.h */; };
+		9652089C0A4CDDCA006AFD81 /* TTimeModification.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474409D8C598000B0808 /* TTimeModification.h */; };
+		9652089D0A4CDDCA006AFD81 /* TTimeSign.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474509D8C598000B0808 /* TTimeSign.h */; };
+		9652089E0A4CDDCA006AFD81 /* TTranspose.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474609D8C598000B0808 /* TTranspose.h */; };
+		9652089F0A4CDDCA006AFD81 /* TUnrolledVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474709D8C598000B0808 /* TUnrolledVisitor.h */; };
+		965208A00A4CDDCA006AFD81 /* TWork.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474809D8C598000B0808 /* TWork.h */; };
+		965208A10A4CDDCA006AFD81 /* TXML2GuidoVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474909D8C598000B0808 /* TXML2GuidoVisitor.h */; };
+		965208A20A4CDDCA006AFD81 /* UTools.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474A09D8C598000B0808 /* UTools.h */; };
+		965208A30A4CDDCA006AFD81 /* xml.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A474B09D8C598000B0808 /* xml.h */; };
+		965208A40A4CDE08006AFD81 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46A609D8C573000B0808 /* common.cpp */; };
+		965208A90A4CDF4B006AFD81 /* conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46A709D8C573000B0808 /* conversions.cpp */; };
+		965208AA0A4CDF4C006AFD81 /* Iexpat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46A809D8C573000B0808 /* Iexpat.cpp */; };
+		965208AB0A4CDF4D006AFD81 /* IMusicXMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46AA09D8C573000B0808 /* IMusicXMLReader.cpp */; };
+		965208AC0A4CDF4E006AFD81 /* IMusicXMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46AC09D8C573000B0808 /* IMusicXMLVisitor.cpp */; };
+		965208AD0A4CDF4F006AFD81 /* smartpointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B009D8C573000B0808 /* smartpointer.cpp */; };
+		965208AE0A4CDF50006AFD81 /* TArpeggiate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B109D8C573000B0808 /* TArpeggiate.cpp */; };
+		965208AF0A4CDF51006AFD81 /* TAttributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B209D8C573000B0808 /* TAttributes.cpp */; };
+		965208B00A4CDF53006AFD81 /* TBackupForward.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B309D8C573000B0808 /* TBackupForward.cpp */; };
+		965208B10A4CDF54006AFD81 /* TBarline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B409D8C573000B0808 /* TBarline.cpp */; };
+		965208B20A4CDF57006AFD81 /* TChord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B509D8C573000B0808 /* TChord.cpp */; };
+		965208B30A4CDF57006AFD81 /* TClef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B609D8C573000B0808 /* TClef.cpp */; };
+		965208B40A4CDF58006AFD81 /* TDirection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B709D8C573000B0808 /* TDirection.cpp */; };
+		965208B50A4CDF59006AFD81 /* TFiguredBass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B809D8C573000B0808 /* TFiguredBass.cpp */; };
+		965208B60A4CDF5A006AFD81 /* THarmony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B909D8C573000B0808 /* THarmony.cpp */; };
+		965208B70A4CDF5B006AFD81 /* TIdentification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BA09D8C573000B0808 /* TIdentification.cpp */; };
+		965208B80A4CDF5C006AFD81 /* TKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BB09D8C573000B0808 /* TKey.cpp */; };
+		965208B90A4CDF5C006AFD81 /* TMeasure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BC09D8C573000B0808 /* TMeasure.cpp */; };
+		965208BA0A4CDF5D006AFD81 /* TMeasureStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BD09D8C573000B0808 /* TMeasureStyle.cpp */; };
+		965208BB0A4CDF60006AFD81 /* TMidiDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BE09D8C573000B0808 /* TMidiDevice.cpp */; };
+		965208BC0A4CDF61006AFD81 /* TMidiInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BF09D8C573000B0808 /* TMidiInstrument.cpp */; };
+		965208BD0A4CDF61006AFD81 /* TMusicXMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C009D8C573000B0808 /* TMusicXMLFile.cpp */; };
+		965208BE0A4CDF62006AFD81 /* TNotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C109D8C573000B0808 /* TNotation.cpp */; };
+		965208BF0A4CDF63006AFD81 /* TNote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C209D8C573000B0808 /* TNote.cpp */; };
+		965208C00A4CDF63006AFD81 /* TOrnaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C309D8C573000B0808 /* TOrnaments.cpp */; };
+		965208C10A4CDF64006AFD81 /* TOtherDirections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C409D8C573000B0808 /* TOtherDirections.cpp */; };
+		965208C20A4CDF65006AFD81 /* TPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C509D8C573000B0808 /* TPart.cpp */; };
+		965208C30A4CDF66006AFD81 /* TPartGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C609D8C573000B0808 /* TPartGroup.cpp */; };
+		965208C40A4CDF68006AFD81 /* TPartList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C709D8C573000B0808 /* TPartList.cpp */; };
+		965208C50A4CDF69006AFD81 /* TPitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C809D8C573000B0808 /* TPitch.cpp */; };
+		965208C60A4CDF6A006AFD81 /* TRational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C909D8C573000B0808 /* TRational.cpp */; };
+		965208C70A4CDF6B006AFD81 /* TRoutedVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CA09D8C573000B0808 /* TRoutedVisitor.cpp */; };
+		965208C80A4CDF6B006AFD81 /* TScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CB09D8C573000B0808 /* TScore.cpp */; };
+		965208C90A4CDF6C006AFD81 /* TScoreHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CC09D8C573000B0808 /* TScoreHeader.cpp */; };
+		965208CA0A4CDF6D006AFD81 /* TScoreInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CD09D8C573000B0808 /* TScoreInstrument.cpp */; };
+		965208CB0A4CDF6D006AFD81 /* TScorePart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CE09D8C573000B0808 /* TScorePart.cpp */; };
+		965208CC0A4CDF70006AFD81 /* TScorePartwise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CF09D8C573000B0808 /* TScorePartwise.cpp */; };
+		965208CD0A4CDF71006AFD81 /* TScoreTimewise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D009D8C573000B0808 /* TScoreTimewise.cpp */; };
+		965208CE0A4CDF71006AFD81 /* TSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D109D8C573000B0808 /* TSound.cpp */; };
+		965208CF0A4CDF72006AFD81 /* TStaffDetails.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D209D8C573000B0808 /* TStaffDetails.cpp */; };
+		965208D00A4CDF73006AFD81 /* TTechnical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D309D8C573000B0808 /* TTechnical.cpp */; };
+		965208D10A4CDF73006AFD81 /* TTimeModification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D409D8C573000B0808 /* TTimeModification.cpp */; };
+		965208D20A4CDF74006AFD81 /* TTimeSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D509D8C573000B0808 /* TTimeSign.cpp */; };
+		965208D30A4CDF75006AFD81 /* TTranspose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D609D8C573000B0808 /* TTranspose.cpp */; };
+		965208D40A4CDF75006AFD81 /* TWork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D709D8C573000B0808 /* TWork.cpp */; };
+		965208D50A4CDF76006AFD81 /* xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D809D8C573000B0808 /* xml.cpp */; };
+		965208D60A4CDF77006AFD81 /* xmllex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D909D8C574000B0808 /* xmllex.cpp */; };
+		965208D70A4CDF77006AFD81 /* xmlparse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46DA09D8C574000B0808 /* xmlparse.cpp */; };
+		965208D80A4CDF9D006AFD81 /* IMUSANT_barline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */; };
+		965208D90A4CDF9E006AFD81 /* IMUSANT_chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC777F0A22939500A4FACD /* IMUSANT_chord.cpp */; };
+		965208DA0A4CDF9F006AFD81 /* IMUSANT_comment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77A10A22963B00A4FACD /* IMUSANT_comment.cpp */; };
+		965208DB0A4CDFA0006AFD81 /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAF8D4E0A3E35FE00E5157F /* IMUSANT_conversions.cpp */; };
+		965208DC0A4CDFA1006AFD81 /* IMUSANT_element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */; };
+		965208DD0A4CDFA1006AFD81 /* IMUSANT_measure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77870A22944800A4FACD /* IMUSANT_measure.cpp */; };
+		965208DE0A4CDFA2006AFD81 /* IMUSANT_note.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77350A228FDB00A4FACD /* IMUSANT_note.cpp */; };
+		965208DF0A4CDFA2006AFD81 /* IMUSANT_part.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC778F0A22949700A4FACD /* IMUSANT_part.cpp */; };
+		965208E00A4CDFA3006AFD81 /* IMUSANT_partlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77950A22952100A4FACD /* IMUSANT_partlist.cpp */; };
+		965208E10A4CDFA4006AFD81 /* IMUSANT_score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC779B0A22956E00A4FACD /* IMUSANT_score.cpp */; };
+		965208E20A4CDFA4006AFD81 /* IMUSANT_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */; };
+		965208E30A4CDFA5006AFD81 /* IMUSANT_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAB1A2F09D0B26700673D3D /* IMUSANT_visitor.cpp */; };
+		965208E40A4CDFA6006AFD81 /* IMUSANT_XMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAD4055C0A36589900634B37 /* IMUSANT_XMLFile.cpp */; };
+		965208E50A4CDFA6006AFD81 /* IMUSANT_XMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 968641230A325C6D0031AC4A /* IMUSANT_XMLReader.cpp */; };
+		965208E60A4CDFA7006AFD81 /* IMUSANT_XMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BADC73A00A2BE239004F76BD /* IMUSANT_XMLVisitor.cpp */; };
+		965208E70A4CDFA9006AFD81 /* TXML2IMUSANTVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A463709D8B116000B0808 /* TXML2IMUSANTVisitor.cpp */; };
+		965208EA0A4CE743006AFD81 /* TScanVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A478A09D8C5C6000B0808 /* TScanVisitor.cpp */; };
+		965209860A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
+		9652098B0A4D1CBE006AFD81 /* IMUSANT_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098A0A4D1CBE006AFD81 /* IMUSANT_interval.cpp */; };
+		965209900A4D1CD8006AFD81 /* IMUSANT_record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */; };
+		965209A60A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */; };
+		965209AB0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */; };
+		966AC6A21A39607A0074CE2A /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 966AC6A11A39607A0074CE2A /* libboost_filesystem.dylib */; };
+		966AC6A31A39607A0074CE2A /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 966AC6A11A39607A0074CE2A /* libboost_filesystem.dylib */; };
+		966AC6AF1A396D250074CE2A /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 966AC6AE1A396D250074CE2A /* libboost_system.dylib */; };
+		966AC6B01A396D250074CE2A /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 966AC6AE1A396D250074CE2A /* libboost_system.dylib */; };
+		966AC6B51A3A57160074CE2A /* guido.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A478609D8C5C6000B0808 /* guido.cpp */; };
+		968641240A325C6D0031AC4A /* IMUSANT_XMLReader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 968641220A325C6D0031AC4A /* IMUSANT_XMLReader.h */; };
+		968641250A325C6D0031AC4A /* IMUSANT_XMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 968641230A325C6D0031AC4A /* IMUSANT_XMLReader.cpp */; };
+		96A61E8A0A45073A005E4CBF /* IMUSANT_barline.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96A61E880A45073A005E4CBF /* IMUSANT_barline.h */; };
+		96A61E8B0A45073A005E4CBF /* IMUSANT_barline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */; };
+		BA4462690A9196520033DB86 /* IMUSANT_contour_symbol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */; };
+		BA4A463809D8B116000B0808 /* TXML2IMUSANTVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A463609D8B115000B0808 /* TXML2IMUSANTVisitor.h */; };
+		BA4A463909D8B116000B0808 /* TXML2IMUSANTVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A463709D8B116000B0808 /* TXML2IMUSANTVisitor.cpp */; };
+		BA4A46DC09D8C574000B0808 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46A609D8C573000B0808 /* common.cpp */; };
+		BA4A46DD09D8C574000B0808 /* conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46A709D8C573000B0808 /* conversions.cpp */; };
+		BA4A46DE09D8C574000B0808 /* Iexpat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46A809D8C573000B0808 /* Iexpat.cpp */; };
+		BA4A46DF09D8C574000B0808 /* Iexpat.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A46A909D8C573000B0808 /* Iexpat.h */; };
+		BA4A46E009D8C574000B0808 /* IMusicXMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46AA09D8C573000B0808 /* IMusicXMLReader.cpp */; };
+		BA4A46E109D8C574000B0808 /* IMusicXMLReader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A46AB09D8C573000B0808 /* IMusicXMLReader.h */; };
+		BA4A46E209D8C574000B0808 /* IMusicXMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46AC09D8C573000B0808 /* IMusicXMLVisitor.cpp */; };
+		BA4A46E309D8C574000B0808 /* IMusicXMLVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A46AD09D8C573000B0808 /* IMusicXMLVisitor.h */; };
+		BA4A46E509D8C574000B0808 /* reader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A46AF09D8C573000B0808 /* reader.h */; };
+		BA4A46E609D8C574000B0808 /* smartpointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B009D8C573000B0808 /* smartpointer.cpp */; };
+		BA4A46E709D8C574000B0808 /* TArpeggiate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B109D8C573000B0808 /* TArpeggiate.cpp */; };
+		BA4A46E809D8C574000B0808 /* TAttributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B209D8C573000B0808 /* TAttributes.cpp */; };
+		BA4A46E909D8C574000B0808 /* TBackupForward.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B309D8C573000B0808 /* TBackupForward.cpp */; };
+		BA4A46EA09D8C574000B0808 /* TBarline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B409D8C573000B0808 /* TBarline.cpp */; };
+		BA4A46EB09D8C574000B0808 /* TChord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B509D8C573000B0808 /* TChord.cpp */; };
+		BA4A46EC09D8C574000B0808 /* TClef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B609D8C573000B0808 /* TClef.cpp */; };
+		BA4A46ED09D8C574000B0808 /* TDirection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B709D8C573000B0808 /* TDirection.cpp */; };
+		BA4A46EE09D8C574000B0808 /* TFiguredBass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B809D8C573000B0808 /* TFiguredBass.cpp */; };
+		BA4A46EF09D8C574000B0808 /* THarmony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46B909D8C573000B0808 /* THarmony.cpp */; };
+		BA4A46F009D8C574000B0808 /* TIdentification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BA09D8C573000B0808 /* TIdentification.cpp */; };
+		BA4A46F109D8C574000B0808 /* TKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BB09D8C573000B0808 /* TKey.cpp */; };
+		BA4A46F209D8C574000B0808 /* TMeasure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BC09D8C573000B0808 /* TMeasure.cpp */; };
+		BA4A46F309D8C574000B0808 /* TMeasureStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BD09D8C573000B0808 /* TMeasureStyle.cpp */; };
+		BA4A46F409D8C574000B0808 /* TMidiDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BE09D8C573000B0808 /* TMidiDevice.cpp */; };
+		BA4A46F509D8C574000B0808 /* TMidiInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46BF09D8C573000B0808 /* TMidiInstrument.cpp */; };
+		BA4A46F609D8C574000B0808 /* TMusicXMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C009D8C573000B0808 /* TMusicXMLFile.cpp */; };
+		BA4A46F709D8C574000B0808 /* TNotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C109D8C573000B0808 /* TNotation.cpp */; };
+		BA4A46F809D8C574000B0808 /* TNote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C209D8C573000B0808 /* TNote.cpp */; };
+		BA4A46F909D8C574000B0808 /* TOrnaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C309D8C573000B0808 /* TOrnaments.cpp */; };
+		BA4A46FA09D8C574000B0808 /* TOtherDirections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C409D8C573000B0808 /* TOtherDirections.cpp */; };
+		BA4A46FB09D8C574000B0808 /* TPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C509D8C573000B0808 /* TPart.cpp */; };
+		BA4A46FC09D8C574000B0808 /* TPartGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C609D8C573000B0808 /* TPartGroup.cpp */; };
+		BA4A46FD09D8C574000B0808 /* TPartList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C709D8C573000B0808 /* TPartList.cpp */; };
+		BA4A46FE09D8C574000B0808 /* TPitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C809D8C573000B0808 /* TPitch.cpp */; };
+		BA4A46FF09D8C574000B0808 /* TRational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46C909D8C573000B0808 /* TRational.cpp */; };
+		BA4A470009D8C574000B0808 /* TRoutedVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CA09D8C573000B0808 /* TRoutedVisitor.cpp */; };
+		BA4A470109D8C574000B0808 /* TScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CB09D8C573000B0808 /* TScore.cpp */; };
+		BA4A470209D8C574000B0808 /* TScoreHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CC09D8C573000B0808 /* TScoreHeader.cpp */; };
+		BA4A470309D8C574000B0808 /* TScoreInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CD09D8C573000B0808 /* TScoreInstrument.cpp */; };
+		BA4A470409D8C574000B0808 /* TScorePart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CE09D8C573000B0808 /* TScorePart.cpp */; };
+		BA4A470509D8C574000B0808 /* TScorePartwise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46CF09D8C573000B0808 /* TScorePartwise.cpp */; };
+		BA4A470609D8C574000B0808 /* TScoreTimewise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D009D8C573000B0808 /* TScoreTimewise.cpp */; };
+		BA4A470709D8C574000B0808 /* TSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D109D8C573000B0808 /* TSound.cpp */; };
+		BA4A470809D8C574000B0808 /* TStaffDetails.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D209D8C573000B0808 /* TStaffDetails.cpp */; };
+		BA4A470909D8C574000B0808 /* TTechnical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D309D8C573000B0808 /* TTechnical.cpp */; };
+		BA4A470A09D8C574000B0808 /* TTimeModification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D409D8C573000B0808 /* TTimeModification.cpp */; };
+		BA4A470B09D8C574000B0808 /* TTimeSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D509D8C573000B0808 /* TTimeSign.cpp */; };
+		BA4A470C09D8C574000B0808 /* TTranspose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D609D8C573000B0808 /* TTranspose.cpp */; };
+		BA4A470D09D8C574000B0808 /* TWork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D709D8C573000B0808 /* TWork.cpp */; };
+		BA4A470E09D8C574000B0808 /* xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D809D8C573000B0808 /* xml.cpp */; };
+		BA4A470F09D8C574000B0808 /* xmllex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46D909D8C574000B0808 /* xmllex.cpp */; };
+		BA4A471009D8C574000B0808 /* xmlparse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A46DA09D8C574000B0808 /* xmlparse.cpp */; };
+		BA4A471109D8C574000B0808 /* xmlparse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A46DB09D8C574000B0808 /* xmlparse.h */; };
+		BA4A478D09D8C5C6000B0808 /* guido.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A478609D8C5C6000B0808 /* guido.cpp */; };
+		BA4A478F09D8C5C6000B0808 /* TMidiContextVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A478809D8C5C6000B0808 /* TMidiContextVisitor.cpp */; };
+		BA4A479009D8C5C6000B0808 /* TRolledVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A478909D8C5C6000B0808 /* TRolledVisitor.cpp */; };
+		BA4A479109D8C5C6000B0808 /* TScanVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A478A09D8C5C6000B0808 /* TScanVisitor.cpp */; };
+		BA4A479209D8C5C6000B0808 /* TUnrolledVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A478B09D8C5C6000B0808 /* TUnrolledVisitor.cpp */; };
+		BA4A479309D8C5C6000B0808 /* TXML2GuidoVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A478C09D8C5C6000B0808 /* TXML2GuidoVisitor.cpp */; };
+		BA4F185A0A50C58900CB7438 /* IMUSANT_rvec_collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */; };
+		BA670D210A10049A0072CE20 /* IMUSANT_types.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA670D1F0A10049A0072CE20 /* IMUSANT_types.h */; };
+		BA670D220A10049A0072CE20 /* IMUSANT_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */; };
+		BA697EFE0AA4FBD7002DC3B2 /* IMUSANT_pitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697EFD0AA4FBD7002DC3B2 /* IMUSANT_pitch.cpp */; };
+		BA697F7E0AA500E4002DC3B2 /* IMUSANT_duration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697F7D0AA500E4002DC3B2 /* IMUSANT_duration.cpp */; };
+		BA697F7F0AA500E4002DC3B2 /* IMUSANT_duration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA697F7C0AA500E4002DC3B2 /* IMUSANT_duration.h */; };
+		BA697F800AA500E4002DC3B2 /* IMUSANT_duration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697F7D0AA500E4002DC3B2 /* IMUSANT_duration.cpp */; };
+		BA697F810AA500F6002DC3B2 /* IMUSANT_pitch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA697EFC0AA4FBD7002DC3B2 /* IMUSANT_pitch.h */; };
+		BA697F820AA500FE002DC3B2 /* IMUSANT_pitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697EFD0AA4FBD7002DC3B2 /* IMUSANT_pitch.cpp */; };
+		BA697FAE0AA50A60002DC3B2 /* IMUSANT_key.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA697FAC0AA50A60002DC3B2 /* IMUSANT_key.h */; };
+		BA697FAF0AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */; };
+		BA697FB00AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */; };
+		BAAB1A3009D0B26700673D3D /* IMUSANT_visitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAAB1A2E09D0B26700673D3D /* IMUSANT_visitor.h */; };
+		BAAB1A3109D0B26700673D3D /* IMUSANT_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAB1A2F09D0B26700673D3D /* IMUSANT_visitor.cpp */; };
+		BAAB1A4509D0B32800673D3D /* IMUSANT_element.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */; };
+		BAAB1A4609D0B32800673D3D /* IMUSANT_element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */; };
+		BAAF8D4F0A3E35FE00E5157F /* IMUSANT_conversions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAAF8D4D0A3E35FE00E5157F /* IMUSANT_conversions.h */; };
+		BAAF8D500A3E35FE00E5157F /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAF8D4E0A3E35FE00E5157F /* IMUSANT_conversions.cpp */; };
+		BAC604930A76F8F8000C1DF9 /* IMUSANT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */; };
+		BAD4055D0A36589A00634B37 /* IMUSANT_XMLFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAD4055B0A36589900634B37 /* IMUSANT_XMLFile.h */; };
+		BAD4055E0A36589A00634B37 /* IMUSANT_XMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAD4055C0A36589900634B37 /* IMUSANT_XMLFile.cpp */; };
+		BADC73A10A2BE239004F76BD /* IMUSANT_XMLVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BADC739F0A2BE239004F76BD /* IMUSANT_XMLVisitor.h */; };
+		BADC73A20A2BE239004F76BD /* IMUSANT_XMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BADC73A00A2BE239004F76BD /* IMUSANT_XMLVisitor.cpp */; };
+		BAFC77360A228FDB00A4FACD /* IMUSANT_note.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAFC77340A228FDB00A4FACD /* IMUSANT_note.h */; };
+		BAFC77370A228FDB00A4FACD /* IMUSANT_note.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77350A228FDB00A4FACD /* IMUSANT_note.cpp */; };
+		BAFC77800A22939500A4FACD /* IMUSANT_chord.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAFC777E0A22939500A4FACD /* IMUSANT_chord.h */; };
+		BAFC77810A22939500A4FACD /* IMUSANT_chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC777F0A22939500A4FACD /* IMUSANT_chord.cpp */; };
+		BAFC77880A22944800A4FACD /* IMUSANT_measure.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAFC77860A22944800A4FACD /* IMUSANT_measure.h */; };
+		BAFC77890A22944800A4FACD /* IMUSANT_measure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77870A22944800A4FACD /* IMUSANT_measure.cpp */; };
+		BAFC77900A22949700A4FACD /* IMUSANT_part.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAFC778E0A22949700A4FACD /* IMUSANT_part.h */; };
+		BAFC77910A22949700A4FACD /* IMUSANT_part.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC778F0A22949700A4FACD /* IMUSANT_part.cpp */; };
+		BAFC77960A22952100A4FACD /* IMUSANT_partlist.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAFC77940A22952100A4FACD /* IMUSANT_partlist.h */; };
+		BAFC77970A22952100A4FACD /* IMUSANT_partlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77950A22952100A4FACD /* IMUSANT_partlist.cpp */; };
+		BAFC779C0A22956E00A4FACD /* IMUSANT_score.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAFC779A0A22956E00A4FACD /* IMUSANT_score.h */; };
+		BAFC779D0A22956E00A4FACD /* IMUSANT_score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC779B0A22956E00A4FACD /* IMUSANT_score.cpp */; };
+		BAFC77A20A22963B00A4FACD /* IMUSANT_comment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAFC77A00A22963B00A4FACD /* IMUSANT_comment.h */; };
+		BAFC77A30A22963B00A4FACD /* IMUSANT_comment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77A10A22963B00A4FACD /* IMUSANT_comment.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F690486A84900D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				8DD76F6A0486A84900D96B5E /* imusant.1 in CopyFiles */,
+				BAAB1A3009D0B26700673D3D /* IMUSANT_visitor.h in CopyFiles */,
+				BAAB1A4509D0B32800673D3D /* IMUSANT_element.h in CopyFiles */,
+				BA4A463809D8B116000B0808 /* TXML2IMUSANTVisitor.h in CopyFiles */,
+				BA4A46DF09D8C574000B0808 /* Iexpat.h in CopyFiles */,
+				BA4A46E109D8C574000B0808 /* IMusicXMLReader.h in CopyFiles */,
+				BA4A46E309D8C574000B0808 /* IMusicXMLVisitor.h in CopyFiles */,
+				BA4A46E509D8C574000B0808 /* reader.h in CopyFiles */,
+				BA4A471109D8C574000B0808 /* xmlparse.h in CopyFiles */,
+				BA670D210A10049A0072CE20 /* IMUSANT_types.h in CopyFiles */,
+				BAFC77360A228FDB00A4FACD /* IMUSANT_note.h in CopyFiles */,
+				BAFC77800A22939500A4FACD /* IMUSANT_chord.h in CopyFiles */,
+				BAFC77880A22944800A4FACD /* IMUSANT_measure.h in CopyFiles */,
+				BAFC77900A22949700A4FACD /* IMUSANT_part.h in CopyFiles */,
+				BAFC77960A22952100A4FACD /* IMUSANT_partlist.h in CopyFiles */,
+				BAFC779C0A22956E00A4FACD /* IMUSANT_score.h in CopyFiles */,
+				BAFC77A20A22963B00A4FACD /* IMUSANT_comment.h in CopyFiles */,
+				BADC73A10A2BE239004F76BD /* IMUSANT_XMLVisitor.h in CopyFiles */,
+				968641240A325C6D0031AC4A /* IMUSANT_XMLReader.h in CopyFiles */,
+				BAD4055D0A36589A00634B37 /* IMUSANT_XMLFile.h in CopyFiles */,
+				BAAF8D4F0A3E35FE00E5157F /* IMUSANT_conversions.h in CopyFiles */,
+				96A61E8A0A45073A005E4CBF /* IMUSANT_barline.h in CopyFiles */,
+				9652086B0A4CDDC9006AFD81 /* bimap.h in CopyFiles */,
+				9652086C0A4CDDC9006AFD81 /* common.h in CopyFiles */,
+				9652086D0A4CDDC9006AFD81 /* conversions.h in CopyFiles */,
+				9652086E0A4CDDC9006AFD81 /* exports.h in CopyFiles */,
+				9652086F0A4CDDC9006AFD81 /* guido.h in CopyFiles */,
+				965208700A4CDDC9006AFD81 /* guidovisitor.h in CopyFiles */,
+				965208710A4CDDC9006AFD81 /* LibMusicXML.h in CopyFiles */,
+				965208720A4CDDC9006AFD81 /* smartclasses.h in CopyFiles */,
+				965208730A4CDDC9006AFD81 /* smartpointer.h in CopyFiles */,
+				965208740A4CDDC9006AFD81 /* TArpeggiate.h in CopyFiles */,
+				965208750A4CDDC9006AFD81 /* TAttributes.h in CopyFiles */,
+				965208760A4CDDC9006AFD81 /* TBackupForward.h in CopyFiles */,
+				965208770A4CDDC9006AFD81 /* TBarline.h in CopyFiles */,
+				965208780A4CDDC9006AFD81 /* TChord.h in CopyFiles */,
+				965208790A4CDDC9006AFD81 /* TClef.h in CopyFiles */,
+				9652087A0A4CDDC9006AFD81 /* TDirection.h in CopyFiles */,
+				9652087B0A4CDDC9006AFD81 /* TFiguredBass.h in CopyFiles */,
+				9652087C0A4CDDC9006AFD81 /* THarmony.h in CopyFiles */,
+				9652087D0A4CDDC9006AFD81 /* TIdentification.h in CopyFiles */,
+				9652087E0A4CDDC9006AFD81 /* TKey.h in CopyFiles */,
+				9652087F0A4CDDC9006AFD81 /* TMeasure.h in CopyFiles */,
+				965208800A4CDDC9006AFD81 /* TMeasureStyle.h in CopyFiles */,
+				965208810A4CDDC9006AFD81 /* TMidiContextVisitor.h in CopyFiles */,
+				965208820A4CDDC9006AFD81 /* TMidiDevice.h in CopyFiles */,
+				965208830A4CDDC9006AFD81 /* TMidiInstrument.h in CopyFiles */,
+				965208840A4CDDC9006AFD81 /* TMusicXMLFile.h in CopyFiles */,
+				965208850A4CDDC9006AFD81 /* TNodeVisitor.h in CopyFiles */,
+				965208860A4CDDC9006AFD81 /* TNotation.h in CopyFiles */,
+				965208870A4CDDC9006AFD81 /* TNote.h in CopyFiles */,
+				965208880A4CDDC9006AFD81 /* TOrnaments.h in CopyFiles */,
+				965208890A4CDDC9006AFD81 /* TOtherDirections.h in CopyFiles */,
+				9652088A0A4CDDC9006AFD81 /* TPart.h in CopyFiles */,
+				9652088B0A4CDDC9006AFD81 /* TPartGroup.h in CopyFiles */,
+				9652088C0A4CDDC9006AFD81 /* TPartList.h in CopyFiles */,
+				9652088D0A4CDDC9006AFD81 /* TPitch.h in CopyFiles */,
+				9652088E0A4CDDC9006AFD81 /* TRational.h in CopyFiles */,
+				9652088F0A4CDDC9006AFD81 /* TRolledVisitor.h in CopyFiles */,
+				965208900A4CDDCA006AFD81 /* TRoutedVisitor.h in CopyFiles */,
+				965208910A4CDDCA006AFD81 /* TScanVisitor.h in CopyFiles */,
+				965208920A4CDDCA006AFD81 /* TScore.h in CopyFiles */,
+				965208930A4CDDCA006AFD81 /* TScoreHeader.h in CopyFiles */,
+				965208940A4CDDCA006AFD81 /* TScoreInstrument.h in CopyFiles */,
+				965208950A4CDDCA006AFD81 /* TScorePart.h in CopyFiles */,
+				965208960A4CDDCA006AFD81 /* TScorePartwise.h in CopyFiles */,
+				965208970A4CDDCA006AFD81 /* TScoreTimewise.h in CopyFiles */,
+				965208980A4CDDCA006AFD81 /* TScoreVisitor.h in CopyFiles */,
+				965208990A4CDDCA006AFD81 /* TSound.h in CopyFiles */,
+				9652089A0A4CDDCA006AFD81 /* TStaffDetails.h in CopyFiles */,
+				9652089B0A4CDDCA006AFD81 /* TTechnical.h in CopyFiles */,
+				9652089C0A4CDDCA006AFD81 /* TTimeModification.h in CopyFiles */,
+				9652089D0A4CDDCA006AFD81 /* TTimeSign.h in CopyFiles */,
+				9652089E0A4CDDCA006AFD81 /* TTranspose.h in CopyFiles */,
+				9652089F0A4CDDCA006AFD81 /* TUnrolledVisitor.h in CopyFiles */,
+				965208A00A4CDDCA006AFD81 /* TWork.h in CopyFiles */,
+				965208A10A4CDDCA006AFD81 /* TXML2GuidoVisitor.h in CopyFiles */,
+				965208A20A4CDDCA006AFD81 /* UTools.h in CopyFiles */,
+				965208A30A4CDDCA006AFD81 /* xml.h in CopyFiles */,
+				BA697F7F0AA500E4002DC3B2 /* IMUSANT_duration.h in CopyFiles */,
+				BA697F810AA500F6002DC3B2 /* IMUSANT_pitch.h in CopyFiles */,
+				BA697FAE0AA50A60002DC3B2 /* IMUSANT_key.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xml2imusant_main.cpp; sourceTree = "<group>"; };
+		8DD76F6C0486A84900D96B5E /* MusicXML2imusant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MusicXML2imusant; sourceTree = BUILT_PRODUCTS_DIR; };
+		965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imusantcat_main.cpp; sourceTree = "<group>"; };
+		965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_collectionvisitor.h; path = imusantcat/src/IMUSANT_collectionvisitor.h; sourceTree = "<group>"; };
+		965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_collectionvisitor.cpp; path = imusantcat/src/IMUSANT_collectionvisitor.cpp; sourceTree = "<group>"; };
+		965209890A4D1CBE006AFD81 /* IMUSANT_interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_interval.h; path = imusantcat/src/IMUSANT_interval.h; sourceTree = "<group>"; };
+		9652098A0A4D1CBE006AFD81 /* IMUSANT_interval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_interval.cpp; path = imusantcat/src/IMUSANT_interval.cpp; sourceTree = "<group>"; };
+		9652098E0A4D1CD8006AFD81 /* IMUSANT_record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_record.h; path = imusantcat/src/IMUSANT_record.h; sourceTree = "<group>"; };
+		9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_record.cpp; path = imusantcat/src/IMUSANT_record.cpp; sourceTree = "<group>"; };
+		965209A40A4D1E8B006AFD81 /* IMUSANT_interval_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_interval_vector.h; path = imusantcat/src/IMUSANT_interval_vector.h; sourceTree = "<group>"; };
+		965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_interval_vector.cpp; path = imusantcat/src/IMUSANT_interval_vector.cpp; sourceTree = "<group>"; };
+		965209A90A4D1F37006AFD81 /* IMUSANT_ivec_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_ivec_collection.h; path = imusantcat/src/IMUSANT_ivec_collection.h; sourceTree = "<group>"; };
+		965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_ivec_collection.cpp; path = imusantcat/src/IMUSANT_ivec_collection.cpp; sourceTree = "<group>"; };
+		966AC6A11A39607A0074CE2A /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libboost_filesystem.dylib; sourceTree = "<group>"; };
+		966AC6AE1A396D250074CE2A /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libboost_system.dylib; sourceTree = "<group>"; };
+		968641220A325C6D0031AC4A /* IMUSANT_XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLReader.h; sourceTree = "<group>"; };
+		968641230A325C6D0031AC4A /* IMUSANT_XMLReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_XMLReader.cpp; sourceTree = "<group>"; };
+		96A61E880A45073A005E4CBF /* IMUSANT_barline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_barline.h; path = ../src/IMUSANT_barline.h; sourceTree = "<group>"; };
+		96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_barline.cpp; sourceTree = "<group>"; };
+		96A620CE0A458DE3005E4CBF /* imusantcat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = imusantcat; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA4462600A918B3F0033DB86 /* repeats.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = repeats.h; path = "Suffix tree/repeats.h"; sourceTree = "<group>"; };
+		BA4462670A9196520033DB86 /* IMUSANT_contour_symbol.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = IMUSANT_contour_symbol.h; path = imusantcat/src/IMUSANT_contour_symbol.h; sourceTree = "<group>"; };
+		BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_contour_symbol.cpp; path = imusantcat/src/IMUSANT_contour_symbol.cpp; sourceTree = "<group>"; };
+		BA4A463609D8B115000B0808 /* TXML2IMUSANTVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXML2IMUSANTVisitor.h; sourceTree = "<group>"; };
+		BA4A463709D8B116000B0808 /* TXML2IMUSANTVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TXML2IMUSANTVisitor.cpp; sourceTree = "<group>"; };
+		BA4A46A609D8C573000B0808 /* common.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
+		BA4A46A709D8C573000B0808 /* conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = conversions.cpp; sourceTree = "<group>"; };
+		BA4A46A809D8C573000B0808 /* Iexpat.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Iexpat.cpp; sourceTree = "<group>"; };
+		BA4A46A909D8C573000B0808 /* Iexpat.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Iexpat.h; sourceTree = "<group>"; };
+		BA4A46AA09D8C573000B0808 /* IMusicXMLReader.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = IMusicXMLReader.cpp; sourceTree = "<group>"; };
+		BA4A46AB09D8C573000B0808 /* IMusicXMLReader.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = IMusicXMLReader.h; sourceTree = "<group>"; };
+		BA4A46AC09D8C573000B0808 /* IMusicXMLVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = IMusicXMLVisitor.cpp; sourceTree = "<group>"; };
+		BA4A46AD09D8C573000B0808 /* IMusicXMLVisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = IMusicXMLVisitor.h; sourceTree = "<group>"; };
+		BA4A46AF09D8C573000B0808 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		BA4A46B009D8C573000B0808 /* smartpointer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = smartpointer.cpp; sourceTree = "<group>"; };
+		BA4A46B109D8C573000B0808 /* TArpeggiate.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TArpeggiate.cpp; sourceTree = "<group>"; };
+		BA4A46B209D8C573000B0808 /* TAttributes.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TAttributes.cpp; sourceTree = "<group>"; };
+		BA4A46B309D8C573000B0808 /* TBackupForward.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TBackupForward.cpp; sourceTree = "<group>"; };
+		BA4A46B409D8C573000B0808 /* TBarline.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TBarline.cpp; sourceTree = "<group>"; };
+		BA4A46B509D8C573000B0808 /* TChord.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TChord.cpp; sourceTree = "<group>"; };
+		BA4A46B609D8C573000B0808 /* TClef.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TClef.cpp; sourceTree = "<group>"; };
+		BA4A46B709D8C573000B0808 /* TDirection.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TDirection.cpp; sourceTree = "<group>"; };
+		BA4A46B809D8C573000B0808 /* TFiguredBass.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TFiguredBass.cpp; sourceTree = "<group>"; };
+		BA4A46B909D8C573000B0808 /* THarmony.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = THarmony.cpp; sourceTree = "<group>"; };
+		BA4A46BA09D8C573000B0808 /* TIdentification.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TIdentification.cpp; sourceTree = "<group>"; };
+		BA4A46BB09D8C573000B0808 /* TKey.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TKey.cpp; sourceTree = "<group>"; };
+		BA4A46BC09D8C573000B0808 /* TMeasure.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TMeasure.cpp; sourceTree = "<group>"; };
+		BA4A46BD09D8C573000B0808 /* TMeasureStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TMeasureStyle.cpp; sourceTree = "<group>"; };
+		BA4A46BE09D8C573000B0808 /* TMidiDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TMidiDevice.cpp; sourceTree = "<group>"; };
+		BA4A46BF09D8C573000B0808 /* TMidiInstrument.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TMidiInstrument.cpp; sourceTree = "<group>"; };
+		BA4A46C009D8C573000B0808 /* TMusicXMLFile.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TMusicXMLFile.cpp; sourceTree = "<group>"; };
+		BA4A46C109D8C573000B0808 /* TNotation.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TNotation.cpp; sourceTree = "<group>"; };
+		BA4A46C209D8C573000B0808 /* TNote.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TNote.cpp; sourceTree = "<group>"; };
+		BA4A46C309D8C573000B0808 /* TOrnaments.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TOrnaments.cpp; sourceTree = "<group>"; };
+		BA4A46C409D8C573000B0808 /* TOtherDirections.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TOtherDirections.cpp; sourceTree = "<group>"; };
+		BA4A46C509D8C573000B0808 /* TPart.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TPart.cpp; sourceTree = "<group>"; };
+		BA4A46C609D8C573000B0808 /* TPartGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TPartGroup.cpp; sourceTree = "<group>"; };
+		BA4A46C709D8C573000B0808 /* TPartList.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TPartList.cpp; sourceTree = "<group>"; };
+		BA4A46C809D8C573000B0808 /* TPitch.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TPitch.cpp; sourceTree = "<group>"; };
+		BA4A46C909D8C573000B0808 /* TRational.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TRational.cpp; sourceTree = "<group>"; };
+		BA4A46CA09D8C573000B0808 /* TRoutedVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TRoutedVisitor.cpp; sourceTree = "<group>"; };
+		BA4A46CB09D8C573000B0808 /* TScore.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TScore.cpp; sourceTree = "<group>"; };
+		BA4A46CC09D8C573000B0808 /* TScoreHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TScoreHeader.cpp; sourceTree = "<group>"; };
+		BA4A46CD09D8C573000B0808 /* TScoreInstrument.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TScoreInstrument.cpp; sourceTree = "<group>"; };
+		BA4A46CE09D8C573000B0808 /* TScorePart.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TScorePart.cpp; sourceTree = "<group>"; };
+		BA4A46CF09D8C573000B0808 /* TScorePartwise.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TScorePartwise.cpp; sourceTree = "<group>"; };
+		BA4A46D009D8C573000B0808 /* TScoreTimewise.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TScoreTimewise.cpp; sourceTree = "<group>"; };
+		BA4A46D109D8C573000B0808 /* TSound.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TSound.cpp; sourceTree = "<group>"; };
+		BA4A46D209D8C573000B0808 /* TStaffDetails.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TStaffDetails.cpp; sourceTree = "<group>"; };
+		BA4A46D309D8C573000B0808 /* TTechnical.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TTechnical.cpp; sourceTree = "<group>"; };
+		BA4A46D409D8C573000B0808 /* TTimeModification.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TTimeModification.cpp; sourceTree = "<group>"; };
+		BA4A46D509D8C573000B0808 /* TTimeSign.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TTimeSign.cpp; sourceTree = "<group>"; };
+		BA4A46D609D8C573000B0808 /* TTranspose.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TTranspose.cpp; sourceTree = "<group>"; };
+		BA4A46D709D8C573000B0808 /* TWork.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TWork.cpp; sourceTree = "<group>"; };
+		BA4A46D809D8C573000B0808 /* xml.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = xml.cpp; sourceTree = "<group>"; };
+		BA4A46D909D8C574000B0808 /* xmllex.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = xmllex.cpp; sourceTree = "<group>"; };
+		BA4A46DA09D8C574000B0808 /* xmlparse.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = xmlparse.cpp; sourceTree = "<group>"; };
+		BA4A46DB09D8C574000B0808 /* xmlparse.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = xmlparse.h; sourceTree = "<group>"; };
+		BA4A471309D8C598000B0808 /* bimap.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = bimap.h; sourceTree = "<group>"; };
+		BA4A471409D8C598000B0808 /* common.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		BA4A471509D8C598000B0808 /* conversions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = conversions.h; sourceTree = "<group>"; };
+		BA4A471609D8C598000B0808 /* exports.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = exports.h; sourceTree = "<group>"; };
+		BA4A471709D8C598000B0808 /* guido.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = guido.h; sourceTree = "<group>"; };
+		BA4A471809D8C598000B0808 /* guidovisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = guidovisitor.h; sourceTree = "<group>"; };
+		BA4A471909D8C598000B0808 /* LibMusicXML.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = LibMusicXML.h; sourceTree = "<group>"; };
+		BA4A471A09D8C598000B0808 /* smartclasses.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = smartclasses.h; sourceTree = "<group>"; };
+		BA4A471B09D8C598000B0808 /* smartpointer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = smartpointer.h; sourceTree = "<group>"; };
+		BA4A471C09D8C598000B0808 /* TArpeggiate.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TArpeggiate.h; sourceTree = "<group>"; };
+		BA4A471D09D8C598000B0808 /* TAttributes.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TAttributes.h; sourceTree = "<group>"; };
+		BA4A471E09D8C598000B0808 /* TBackupForward.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TBackupForward.h; sourceTree = "<group>"; };
+		BA4A471F09D8C598000B0808 /* TBarline.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TBarline.h; sourceTree = "<group>"; };
+		BA4A472009D8C598000B0808 /* TChord.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TChord.h; sourceTree = "<group>"; };
+		BA4A472109D8C598000B0808 /* TClef.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TClef.h; sourceTree = "<group>"; };
+		BA4A472209D8C598000B0808 /* TDirection.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TDirection.h; sourceTree = "<group>"; };
+		BA4A472309D8C598000B0808 /* TFiguredBass.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TFiguredBass.h; sourceTree = "<group>"; };
+		BA4A472409D8C598000B0808 /* THarmony.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = THarmony.h; sourceTree = "<group>"; };
+		BA4A472509D8C598000B0808 /* TIdentification.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TIdentification.h; sourceTree = "<group>"; };
+		BA4A472609D8C598000B0808 /* TKey.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TKey.h; sourceTree = "<group>"; };
+		BA4A472709D8C598000B0808 /* TMeasure.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TMeasure.h; sourceTree = "<group>"; };
+		BA4A472809D8C598000B0808 /* TMeasureStyle.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TMeasureStyle.h; sourceTree = "<group>"; };
+		BA4A472909D8C598000B0808 /* TMidiContextVisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TMidiContextVisitor.h; sourceTree = "<group>"; };
+		BA4A472A09D8C598000B0808 /* TMidiDevice.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TMidiDevice.h; sourceTree = "<group>"; };
+		BA4A472B09D8C598000B0808 /* TMidiInstrument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TMidiInstrument.h; sourceTree = "<group>"; };
+		BA4A472C09D8C598000B0808 /* TMusicXMLFile.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TMusicXMLFile.h; sourceTree = "<group>"; };
+		BA4A472D09D8C598000B0808 /* TNodeVisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TNodeVisitor.h; sourceTree = "<group>"; };
+		BA4A472E09D8C598000B0808 /* TNotation.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TNotation.h; sourceTree = "<group>"; };
+		BA4A472F09D8C598000B0808 /* TNote.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TNote.h; sourceTree = "<group>"; };
+		BA4A473009D8C598000B0808 /* TOrnaments.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TOrnaments.h; sourceTree = "<group>"; };
+		BA4A473109D8C598000B0808 /* TOtherDirections.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TOtherDirections.h; sourceTree = "<group>"; };
+		BA4A473209D8C598000B0808 /* TPart.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPart.h; sourceTree = "<group>"; };
+		BA4A473309D8C598000B0808 /* TPartGroup.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPartGroup.h; sourceTree = "<group>"; };
+		BA4A473409D8C598000B0808 /* TPartList.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPartList.h; sourceTree = "<group>"; };
+		BA4A473509D8C598000B0808 /* TPitch.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPitch.h; sourceTree = "<group>"; };
+		BA4A473609D8C598000B0808 /* TRational.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TRational.h; sourceTree = "<group>"; };
+		BA4A473709D8C598000B0808 /* TRolledVisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TRolledVisitor.h; sourceTree = "<group>"; };
+		BA4A473809D8C598000B0808 /* TRoutedVisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TRoutedVisitor.h; sourceTree = "<group>"; };
+		BA4A473909D8C598000B0808 /* TScanVisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TScanVisitor.h; sourceTree = "<group>"; };
+		BA4A473A09D8C598000B0808 /* TScore.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TScore.h; sourceTree = "<group>"; };
+		BA4A473B09D8C598000B0808 /* TScoreHeader.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TScoreHeader.h; sourceTree = "<group>"; };
+		BA4A473C09D8C598000B0808 /* TScoreInstrument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TScoreInstrument.h; sourceTree = "<group>"; };
+		BA4A473D09D8C598000B0808 /* TScorePart.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TScorePart.h; sourceTree = "<group>"; };
+		BA4A473E09D8C598000B0808 /* TScorePartwise.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TScorePartwise.h; sourceTree = "<group>"; };
+		BA4A473F09D8C598000B0808 /* TScoreTimewise.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TScoreTimewise.h; sourceTree = "<group>"; };
+		BA4A474009D8C598000B0808 /* TScoreVisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TScoreVisitor.h; sourceTree = "<group>"; };
+		BA4A474109D8C598000B0808 /* TSound.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TSound.h; sourceTree = "<group>"; };
+		BA4A474209D8C598000B0808 /* TStaffDetails.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TStaffDetails.h; sourceTree = "<group>"; };
+		BA4A474309D8C598000B0808 /* TTechnical.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TTechnical.h; sourceTree = "<group>"; };
+		BA4A474409D8C598000B0808 /* TTimeModification.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TTimeModification.h; sourceTree = "<group>"; };
+		BA4A474509D8C598000B0808 /* TTimeSign.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TTimeSign.h; sourceTree = "<group>"; };
+		BA4A474609D8C598000B0808 /* TTranspose.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TTranspose.h; sourceTree = "<group>"; };
+		BA4A474709D8C598000B0808 /* TUnrolledVisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TUnrolledVisitor.h; sourceTree = "<group>"; };
+		BA4A474809D8C598000B0808 /* TWork.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TWork.h; sourceTree = "<group>"; };
+		BA4A474909D8C598000B0808 /* TXML2GuidoVisitor.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TXML2GuidoVisitor.h; sourceTree = "<group>"; };
+		BA4A474A09D8C598000B0808 /* UTools.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UTools.h; sourceTree = "<group>"; };
+		BA4A474B09D8C598000B0808 /* xml.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
+		BA4A478609D8C5C6000B0808 /* guido.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = guido.cpp; path = ../visitors/guido.cpp; sourceTree = "<group>"; };
+		BA4A478809D8C5C6000B0808 /* TMidiContextVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TMidiContextVisitor.cpp; sourceTree = "<group>"; };
+		BA4A478909D8C5C6000B0808 /* TRolledVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TRolledVisitor.cpp; sourceTree = "<group>"; };
+		BA4A478A09D8C5C6000B0808 /* TScanVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TScanVisitor.cpp; sourceTree = "<group>"; };
+		BA4A478B09D8C5C6000B0808 /* TUnrolledVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TUnrolledVisitor.cpp; sourceTree = "<group>"; };
+		BA4A478C09D8C5C6000B0808 /* TXML2GuidoVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = TXML2GuidoVisitor.cpp; sourceTree = "<group>"; };
+		BA4F18580A50C58900CB7438 /* IMUSANT_rvec_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_rvec_collection.h; path = imusantcat/src/IMUSANT_rvec_collection.h; sourceTree = "<group>"; };
+		BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_rvec_collection.cpp; path = imusantcat/src/IMUSANT_rvec_collection.cpp; sourceTree = "<group>"; };
+		BA670D1F0A10049A0072CE20 /* IMUSANT_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_types.h; sourceTree = "<group>"; };
+		BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_types.cpp; sourceTree = "<group>"; };
+		BA697EFC0AA4FBD7002DC3B2 /* IMUSANT_pitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_pitch.h; path = ../src/IMUSANT_pitch.h; sourceTree = "<group>"; };
+		BA697EFD0AA4FBD7002DC3B2 /* IMUSANT_pitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_pitch.cpp; sourceTree = "<group>"; };
+		BA697F7C0AA500E4002DC3B2 /* IMUSANT_duration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_duration.h; path = ../src/IMUSANT_duration.h; sourceTree = "<group>"; };
+		BA697F7D0AA500E4002DC3B2 /* IMUSANT_duration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_duration.cpp; sourceTree = "<group>"; };
+		BA697FAC0AA50A60002DC3B2 /* IMUSANT_key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_key.h; path = ../src/IMUSANT_key.h; sourceTree = "<group>"; };
+		BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_key.cpp; sourceTree = "<group>"; };
+		BA71926E0A59F57000CAA1D9 /* search.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = search.h; path = imusantcat/inc/search.h; sourceTree = "<group>"; };
+		BA990E0B0A5A173F008918F0 /* iterator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = iterator.h; path = "Suffix tree/iterator.h"; sourceTree = "<group>"; };
+		BA990E0C0A5A173F008918F0 /* suffixtree_inter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree_inter.h; path = "Suffix tree/suffixtree_inter.h"; sourceTree = "<group>"; };
+		BA990E0D0A5A173F008918F0 /* suffixtree.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree.h; path = "Suffix tree/suffixtree.h"; sourceTree = "<group>"; };
+		BA990E0F0A5A173F008918F0 /* suffixtree_impl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree_impl.h; path = "Suffix tree/suffixtree_impl.h"; sourceTree = "<group>"; };
+		BAAB1A2E09D0B26700673D3D /* IMUSANT_visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_visitor.h; sourceTree = "<group>"; };
+		BAAB1A2F09D0B26700673D3D /* IMUSANT_visitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_visitor.cpp; sourceTree = "<group>"; };
+		BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_element.h; sourceTree = "<group>"; };
+		BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_element.cpp; sourceTree = "<group>"; };
+		BAAF8D4D0A3E35FE00E5157F /* IMUSANT_conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_conversions.h; sourceTree = "<group>"; };
+		BAAF8D4E0A3E35FE00E5157F /* IMUSANT_conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_conversions.cpp; sourceTree = "<group>"; };
+		BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processing.h; path = imusantcat/inc/IMUSANT_processing.h; sourceTree = "<group>"; };
+		BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_processing.cpp; path = imusantcat/src/IMUSANT_processing.cpp; sourceTree = "<group>"; };
+		BAD4055B0A36589900634B37 /* IMUSANT_XMLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLFile.h; sourceTree = "<group>"; };
+		BAD4055C0A36589900634B37 /* IMUSANT_XMLFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_XMLFile.cpp; sourceTree = "<group>"; };
+		BADC739F0A2BE239004F76BD /* IMUSANT_XMLVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLVisitor.h; sourceTree = "<group>"; };
+		BADC73A00A2BE239004F76BD /* IMUSANT_XMLVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_XMLVisitor.cpp; sourceTree = "<group>"; };
+		BAF1F3D50A9C15D30065AECF /* compare.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = compare.h; path = mindiff/compare.h; sourceTree = "<group>"; };
+		BAFC77340A228FDB00A4FACD /* IMUSANT_note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_note.h; sourceTree = "<group>"; };
+		BAFC77350A228FDB00A4FACD /* IMUSANT_note.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_note.cpp; sourceTree = "<group>"; };
+		BAFC777E0A22939500A4FACD /* IMUSANT_chord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_chord.h; sourceTree = "<group>"; };
+		BAFC777F0A22939500A4FACD /* IMUSANT_chord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_chord.cpp; sourceTree = "<group>"; };
+		BAFC77860A22944800A4FACD /* IMUSANT_measure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_measure.h; sourceTree = "<group>"; };
+		BAFC77870A22944800A4FACD /* IMUSANT_measure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_measure.cpp; sourceTree = "<group>"; };
+		BAFC778E0A22949700A4FACD /* IMUSANT_part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_part.h; sourceTree = "<group>"; };
+		BAFC778F0A22949700A4FACD /* IMUSANT_part.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_part.cpp; sourceTree = "<group>"; };
+		BAFC77940A22952100A4FACD /* IMUSANT_partlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_partlist.h; sourceTree = "<group>"; };
+		BAFC77950A22952100A4FACD /* IMUSANT_partlist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_partlist.cpp; sourceTree = "<group>"; };
+		BAFC779A0A22956E00A4FACD /* IMUSANT_score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_score.h; sourceTree = "<group>"; };
+		BAFC779B0A22956E00A4FACD /* IMUSANT_score.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_score.cpp; sourceTree = "<group>"; };
+		BAFC77A00A22963B00A4FACD /* IMUSANT_comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_comment.h; sourceTree = "<group>"; };
+		BAFC77A10A22963B00A4FACD /* IMUSANT_comment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_comment.cpp; sourceTree = "<group>"; };
+		C6859E8B029090EE04C91782 /* imusant.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = imusant.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F660486A84900D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				966AC6A21A39607A0074CE2A /* libboost_filesystem.dylib in Frameworks */,
+				966AC6AF1A396D250074CE2A /* libboost_system.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96A620CC0A458DE3005E4CBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				966AC6A31A39607A0074CE2A /* libboost_filesystem.dylib in Frameworks */,
+				966AC6B01A396D250074CE2A /* libboost_system.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* imusant */ = {
+			isa = PBXGroup;
+			children = (
+				BA4A479509D8C5F2000B0808 /* libMusicXML-1.00-src */,
+				08FB7795FE84155DC02AAC07 /* IMUSANT */,
+				C6859E8C029090F304C91782 /* Documentation */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				96BC9F83133B09AF00A65384 /* External Frameworks and Libraries */,
+			);
+			name = imusant;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* IMUSANT */ = {
+			isa = PBXGroup;
+			children = (
+				965209690A4D189B006AFD81 /* Musicxml2imusant */,
+				9652096C0A4D18BD006AFD81 /* imusantcat */,
+			);
+			name = IMUSANT;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76F6C0486A84900D96B5E /* MusicXML2imusant */,
+				96A620CE0A458DE3005E4CBF /* imusantcat */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		965209690A4D189B006AFD81 /* Musicxml2imusant */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */,
+				BA8A84730A23C3FB0081D4BB /* inc */,
+				BA8A84760A23C41D0081D4BB /* src */,
+			);
+			name = Musicxml2imusant;
+			sourceTree = "<group>";
+		};
+		9652096C0A4D18BD006AFD81 /* imusantcat */ = {
+			isa = PBXGroup;
+			children = (
+				965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */,
+				BAC604630A76E935000C1DF9 /* Suffix and search */,
+				965209770A4D190A006AFD81 /* inc */,
+				9652096F0A4D18E5006AFD81 /* src */,
+			);
+			name = imusantcat;
+			sourceTree = "<group>";
+		};
+		9652096F0A4D18E5006AFD81 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9652098A0A4D1CBE006AFD81 /* IMUSANT_interval.cpp */,
+				BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */,
+				9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */,
+				965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */,
+				965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */,
+				BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */,
+				965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */,
+				BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		965209770A4D190A006AFD81 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				965209890A4D1CBE006AFD81 /* IMUSANT_interval.h */,
+				BA4462670A9196520033DB86 /* IMUSANT_contour_symbol.h */,
+				9652098E0A4D1CD8006AFD81 /* IMUSANT_record.h */,
+				965209A40A4D1E8B006AFD81 /* IMUSANT_interval_vector.h */,
+				965209A90A4D1F37006AFD81 /* IMUSANT_ivec_collection.h */,
+				BA4F18580A50C58900CB7438 /* IMUSANT_rvec_collection.h */,
+				965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */,
+				BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */,
+			);
+			name = inc;
+			sourceTree = "<group>";
+		};
+		96BC9F83133B09AF00A65384 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				966AC6A11A39607A0074CE2A /* libboost_filesystem.dylib */,
+				966AC6AE1A396D250074CE2A /* libboost_system.dylib */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = SOURCE_ROOT;
+		};
+		BA4A46A509D8C573000B0808 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				BA4A46A609D8C573000B0808 /* common.cpp */,
+				BA4A46A709D8C573000B0808 /* conversions.cpp */,
+				BA4A478609D8C5C6000B0808 /* guido.cpp */,
+				BA4A46A809D8C573000B0808 /* Iexpat.cpp */,
+				BA4A46A909D8C573000B0808 /* Iexpat.h */,
+				BA4A46AA09D8C573000B0808 /* IMusicXMLReader.cpp */,
+				BA4A46AB09D8C573000B0808 /* IMusicXMLReader.h */,
+				BA4A46AC09D8C573000B0808 /* IMusicXMLVisitor.cpp */,
+				BA4A46AD09D8C573000B0808 /* IMusicXMLVisitor.h */,
+				BA4A46AF09D8C573000B0808 /* reader.h */,
+				BA4A46B009D8C573000B0808 /* smartpointer.cpp */,
+				BA4A46B109D8C573000B0808 /* TArpeggiate.cpp */,
+				BA4A46B209D8C573000B0808 /* TAttributes.cpp */,
+				BA4A46B309D8C573000B0808 /* TBackupForward.cpp */,
+				BA4A46B409D8C573000B0808 /* TBarline.cpp */,
+				BA4A46B509D8C573000B0808 /* TChord.cpp */,
+				BA4A46B609D8C573000B0808 /* TClef.cpp */,
+				BA4A46B709D8C573000B0808 /* TDirection.cpp */,
+				BA4A46B809D8C573000B0808 /* TFiguredBass.cpp */,
+				BA4A46B909D8C573000B0808 /* THarmony.cpp */,
+				BA4A46BA09D8C573000B0808 /* TIdentification.cpp */,
+				BA4A46BB09D8C573000B0808 /* TKey.cpp */,
+				BA4A46BC09D8C573000B0808 /* TMeasure.cpp */,
+				BA4A46BD09D8C573000B0808 /* TMeasureStyle.cpp */,
+				BA4A46BE09D8C573000B0808 /* TMidiDevice.cpp */,
+				BA4A46BF09D8C573000B0808 /* TMidiInstrument.cpp */,
+				BA4A46C009D8C573000B0808 /* TMusicXMLFile.cpp */,
+				BA4A46C109D8C573000B0808 /* TNotation.cpp */,
+				BA4A46C209D8C573000B0808 /* TNote.cpp */,
+				BA4A46C309D8C573000B0808 /* TOrnaments.cpp */,
+				BA4A46C409D8C573000B0808 /* TOtherDirections.cpp */,
+				BA4A46C509D8C573000B0808 /* TPart.cpp */,
+				BA4A46C609D8C573000B0808 /* TPartGroup.cpp */,
+				BA4A46C709D8C573000B0808 /* TPartList.cpp */,
+				BA4A46C809D8C573000B0808 /* TPitch.cpp */,
+				BA4A46C909D8C573000B0808 /* TRational.cpp */,
+				BA4A46CA09D8C573000B0808 /* TRoutedVisitor.cpp */,
+				BA4A46CB09D8C573000B0808 /* TScore.cpp */,
+				BA4A46CC09D8C573000B0808 /* TScoreHeader.cpp */,
+				BA4A46CD09D8C573000B0808 /* TScoreInstrument.cpp */,
+				BA4A46CE09D8C573000B0808 /* TScorePart.cpp */,
+				BA4A46CF09D8C573000B0808 /* TScorePartwise.cpp */,
+				BA4A46D009D8C573000B0808 /* TScoreTimewise.cpp */,
+				BA4A46D109D8C573000B0808 /* TSound.cpp */,
+				BA4A46D209D8C573000B0808 /* TStaffDetails.cpp */,
+				BA4A46D309D8C573000B0808 /* TTechnical.cpp */,
+				BA4A46D409D8C573000B0808 /* TTimeModification.cpp */,
+				BA4A46D509D8C573000B0808 /* TTimeSign.cpp */,
+				BA4A46D609D8C573000B0808 /* TTranspose.cpp */,
+				BA4A46D709D8C573000B0808 /* TWork.cpp */,
+				BA4A46D809D8C573000B0808 /* xml.cpp */,
+				BA4A46D909D8C574000B0808 /* xmllex.cpp */,
+				BA4A46DA09D8C574000B0808 /* xmlparse.cpp */,
+				BA4A46DB09D8C574000B0808 /* xmlparse.h */,
+			);
+			name = core;
+			path = src/core;
+			sourceTree = "<group>";
+		};
+		BA4A471209D8C598000B0808 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				BA4A471309D8C598000B0808 /* bimap.h */,
+				BA4A471409D8C598000B0808 /* common.h */,
+				BA4A471509D8C598000B0808 /* conversions.h */,
+				BA4A471609D8C598000B0808 /* exports.h */,
+				BA4A471709D8C598000B0808 /* guido.h */,
+				BA4A471809D8C598000B0808 /* guidovisitor.h */,
+				BA4A471909D8C598000B0808 /* LibMusicXML.h */,
+				BA4A471A09D8C598000B0808 /* smartclasses.h */,
+				BA4A471B09D8C598000B0808 /* smartpointer.h */,
+				BA4A471C09D8C598000B0808 /* TArpeggiate.h */,
+				BA4A471D09D8C598000B0808 /* TAttributes.h */,
+				BA4A471E09D8C598000B0808 /* TBackupForward.h */,
+				BA4A471F09D8C598000B0808 /* TBarline.h */,
+				BA4A472009D8C598000B0808 /* TChord.h */,
+				BA4A472109D8C598000B0808 /* TClef.h */,
+				BA4A472209D8C598000B0808 /* TDirection.h */,
+				BA4A472309D8C598000B0808 /* TFiguredBass.h */,
+				BA4A472409D8C598000B0808 /* THarmony.h */,
+				BA4A472509D8C598000B0808 /* TIdentification.h */,
+				BA4A472609D8C598000B0808 /* TKey.h */,
+				BA4A472709D8C598000B0808 /* TMeasure.h */,
+				BA4A472809D8C598000B0808 /* TMeasureStyle.h */,
+				BA4A472909D8C598000B0808 /* TMidiContextVisitor.h */,
+				BA4A472A09D8C598000B0808 /* TMidiDevice.h */,
+				BA4A472B09D8C598000B0808 /* TMidiInstrument.h */,
+				BA4A472C09D8C598000B0808 /* TMusicXMLFile.h */,
+				BA4A472D09D8C598000B0808 /* TNodeVisitor.h */,
+				BA4A472E09D8C598000B0808 /* TNotation.h */,
+				BA4A472F09D8C598000B0808 /* TNote.h */,
+				BA4A473009D8C598000B0808 /* TOrnaments.h */,
+				BA4A473109D8C598000B0808 /* TOtherDirections.h */,
+				BA4A473209D8C598000B0808 /* TPart.h */,
+				BA4A473309D8C598000B0808 /* TPartGroup.h */,
+				BA4A473409D8C598000B0808 /* TPartList.h */,
+				BA4A473509D8C598000B0808 /* TPitch.h */,
+				BA4A473609D8C598000B0808 /* TRational.h */,
+				BA4A473709D8C598000B0808 /* TRolledVisitor.h */,
+				BA4A473809D8C598000B0808 /* TRoutedVisitor.h */,
+				BA4A473909D8C598000B0808 /* TScanVisitor.h */,
+				BA4A473A09D8C598000B0808 /* TScore.h */,
+				BA4A473B09D8C598000B0808 /* TScoreHeader.h */,
+				BA4A473C09D8C598000B0808 /* TScoreInstrument.h */,
+				BA4A473D09D8C598000B0808 /* TScorePart.h */,
+				BA4A473E09D8C598000B0808 /* TScorePartwise.h */,
+				BA4A473F09D8C598000B0808 /* TScoreTimewise.h */,
+				BA4A474009D8C598000B0808 /* TScoreVisitor.h */,
+				BA4A474109D8C598000B0808 /* TSound.h */,
+				BA4A474209D8C598000B0808 /* TStaffDetails.h */,
+				BA4A474309D8C598000B0808 /* TTechnical.h */,
+				BA4A474409D8C598000B0808 /* TTimeModification.h */,
+				BA4A474509D8C598000B0808 /* TTimeSign.h */,
+				BA4A474609D8C598000B0808 /* TTranspose.h */,
+				BA4A474709D8C598000B0808 /* TUnrolledVisitor.h */,
+				BA4A474809D8C598000B0808 /* TWork.h */,
+				BA4A474909D8C598000B0808 /* TXML2GuidoVisitor.h */,
+				BA4A474A09D8C598000B0808 /* UTools.h */,
+				BA4A474B09D8C598000B0808 /* xml.h */,
+			);
+			name = include;
+			path = src/include;
+			sourceTree = "<group>";
+		};
+		BA4A478509D8C5C6000B0808 /* visitors */ = {
+			isa = PBXGroup;
+			children = (
+				BA4A478809D8C5C6000B0808 /* TMidiContextVisitor.cpp */,
+				BA4A478909D8C5C6000B0808 /* TRolledVisitor.cpp */,
+				BA4A478A09D8C5C6000B0808 /* TScanVisitor.cpp */,
+				BA4A478B09D8C5C6000B0808 /* TUnrolledVisitor.cpp */,
+				BA4A478C09D8C5C6000B0808 /* TXML2GuidoVisitor.cpp */,
+			);
+			name = visitors;
+			path = src/visitors;
+			sourceTree = "<group>";
+		};
+		BA4A479509D8C5F2000B0808 /* libMusicXML-1.00-src */ = {
+			isa = PBXGroup;
+			children = (
+				BA4A46A509D8C573000B0808 /* core */,
+				BA4A471209D8C598000B0808 /* include */,
+				BA4A478509D8C5C6000B0808 /* visitors */,
+			);
+			name = "libMusicXML-1.00-src";
+			path = "../libMusicXML-1.00-src";
+			sourceTree = "<group>";
+		};
+		BA8A84730A23C3FB0081D4BB /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				BAAF8D4D0A3E35FE00E5157F /* IMUSANT_conversions.h */,
+				BA670D1F0A10049A0072CE20 /* IMUSANT_types.h */,
+				BA697EFC0AA4FBD7002DC3B2 /* IMUSANT_pitch.h */,
+				BA697F7C0AA500E4002DC3B2 /* IMUSANT_duration.h */,
+				BA697FAC0AA50A60002DC3B2 /* IMUSANT_key.h */,
+				BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */,
+				BAFC77340A228FDB00A4FACD /* IMUSANT_note.h */,
+				BAFC777E0A22939500A4FACD /* IMUSANT_chord.h */,
+				BAFC77A00A22963B00A4FACD /* IMUSANT_comment.h */,
+				96A61E880A45073A005E4CBF /* IMUSANT_barline.h */,
+				BAFC77860A22944800A4FACD /* IMUSANT_measure.h */,
+				BAFC778E0A22949700A4FACD /* IMUSANT_part.h */,
+				BAFC77940A22952100A4FACD /* IMUSANT_partlist.h */,
+				BAFC779A0A22956E00A4FACD /* IMUSANT_score.h */,
+				BAAB1A2E09D0B26700673D3D /* IMUSANT_visitor.h */,
+				BA4A463609D8B115000B0808 /* TXML2IMUSANTVisitor.h */,
+				BADC739F0A2BE239004F76BD /* IMUSANT_XMLVisitor.h */,
+				968641220A325C6D0031AC4A /* IMUSANT_XMLReader.h */,
+				BAD4055B0A36589900634B37 /* IMUSANT_XMLFile.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		BA8A84760A23C41D0081D4BB /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BAAF8D4E0A3E35FE00E5157F /* IMUSANT_conversions.cpp */,
+				BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */,
+				BA697EFD0AA4FBD7002DC3B2 /* IMUSANT_pitch.cpp */,
+				BA697F7D0AA500E4002DC3B2 /* IMUSANT_duration.cpp */,
+				BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */,
+				BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */,
+				BAFC77350A228FDB00A4FACD /* IMUSANT_note.cpp */,
+				96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */,
+				BAFC777F0A22939500A4FACD /* IMUSANT_chord.cpp */,
+				BAFC77A10A22963B00A4FACD /* IMUSANT_comment.cpp */,
+				BAFC77870A22944800A4FACD /* IMUSANT_measure.cpp */,
+				BAFC778F0A22949700A4FACD /* IMUSANT_part.cpp */,
+				BAFC77950A22952100A4FACD /* IMUSANT_partlist.cpp */,
+				BAFC779B0A22956E00A4FACD /* IMUSANT_score.cpp */,
+				BAAB1A2F09D0B26700673D3D /* IMUSANT_visitor.cpp */,
+				BA4A463709D8B116000B0808 /* TXML2IMUSANTVisitor.cpp */,
+				BADC73A00A2BE239004F76BD /* IMUSANT_XMLVisitor.cpp */,
+				968641230A325C6D0031AC4A /* IMUSANT_XMLReader.cpp */,
+				BAD4055C0A36589900634B37 /* IMUSANT_XMLFile.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		BAC604630A76E935000C1DF9 /* Suffix and search */ = {
+			isa = PBXGroup;
+			children = (
+				BA990E0B0A5A173F008918F0 /* iterator.h */,
+				BA990E0C0A5A173F008918F0 /* suffixtree_inter.h */,
+				BA990E0D0A5A173F008918F0 /* suffixtree.h */,
+				BA990E0F0A5A173F008918F0 /* suffixtree_impl.h */,
+				BA71926E0A59F57000CAA1D9 /* search.h */,
+				BA4462600A918B3F0033DB86 /* repeats.h */,
+				BAF1F3D50A9C15D30065AECF /* compare.h */,
+			);
+			name = "Suffix and search";
+			sourceTree = "<group>";
+		};
+		C6859E8C029090F304C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				C6859E8B029090EE04C91782 /* imusant.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F620486A84900D96B5E /* MusicXML2imusant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "MusicXML2imusant" */;
+			buildPhases = (
+				8DD76F640486A84900D96B5E /* Sources */,
+				8DD76F660486A84900D96B5E /* Frameworks */,
+				8DD76F690486A84900D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusicXML2imusant;
+			productInstallPath = "$(HOME)/bin";
+			productName = imusant;
+			productReference = 8DD76F6C0486A84900D96B5E /* MusicXML2imusant */;
+			productType = "com.apple.product-type.tool";
+		};
+		96A620CD0A458DE3005E4CBF /* imusantcat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96A620D20A458E02005E4CBF /* Build configuration list for PBXNativeTarget "imusantcat" */;
+			buildPhases = (
+				96A620CB0A458DE3005E4CBF /* Sources */,
+				96A620CC0A458DE3005E4CBF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = imusantcat;
+			productName = imusantcat;
+			productReference = 96A620CE0A458DE3005E4CBF /* imusantcat */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+			};
+			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "imusant" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* imusant */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F620486A84900D96B5E /* MusicXML2imusant */,
+				96A620CD0A458DE3005E4CBF /* imusantcat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F640486A84900D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F650486A84900D96B5E /* xml2imusant_main.cpp in Sources */,
+				BAAB1A3109D0B26700673D3D /* IMUSANT_visitor.cpp in Sources */,
+				BAAB1A4609D0B32800673D3D /* IMUSANT_element.cpp in Sources */,
+				BA4A463909D8B116000B0808 /* TXML2IMUSANTVisitor.cpp in Sources */,
+				BA4A46DC09D8C574000B0808 /* common.cpp in Sources */,
+				BA4A46DD09D8C574000B0808 /* conversions.cpp in Sources */,
+				BA4A46DE09D8C574000B0808 /* Iexpat.cpp in Sources */,
+				BA4A46E009D8C574000B0808 /* IMusicXMLReader.cpp in Sources */,
+				BA4A46E209D8C574000B0808 /* IMusicXMLVisitor.cpp in Sources */,
+				BA4A46E609D8C574000B0808 /* smartpointer.cpp in Sources */,
+				BA4A46E709D8C574000B0808 /* TArpeggiate.cpp in Sources */,
+				BA4A46E809D8C574000B0808 /* TAttributes.cpp in Sources */,
+				BA4A46E909D8C574000B0808 /* TBackupForward.cpp in Sources */,
+				BA4A46EA09D8C574000B0808 /* TBarline.cpp in Sources */,
+				BA4A46EB09D8C574000B0808 /* TChord.cpp in Sources */,
+				BA4A46EC09D8C574000B0808 /* TClef.cpp in Sources */,
+				BA4A46ED09D8C574000B0808 /* TDirection.cpp in Sources */,
+				BA4A46EE09D8C574000B0808 /* TFiguredBass.cpp in Sources */,
+				BA4A46EF09D8C574000B0808 /* THarmony.cpp in Sources */,
+				BA4A46F009D8C574000B0808 /* TIdentification.cpp in Sources */,
+				BA4A46F109D8C574000B0808 /* TKey.cpp in Sources */,
+				BA4A46F209D8C574000B0808 /* TMeasure.cpp in Sources */,
+				BA4A46F309D8C574000B0808 /* TMeasureStyle.cpp in Sources */,
+				BA4A46F409D8C574000B0808 /* TMidiDevice.cpp in Sources */,
+				BA4A46F509D8C574000B0808 /* TMidiInstrument.cpp in Sources */,
+				BA4A46F609D8C574000B0808 /* TMusicXMLFile.cpp in Sources */,
+				BA4A46F709D8C574000B0808 /* TNotation.cpp in Sources */,
+				BA4A46F809D8C574000B0808 /* TNote.cpp in Sources */,
+				BA4A46F909D8C574000B0808 /* TOrnaments.cpp in Sources */,
+				BA4A46FA09D8C574000B0808 /* TOtherDirections.cpp in Sources */,
+				BA4A46FB09D8C574000B0808 /* TPart.cpp in Sources */,
+				BA4A46FC09D8C574000B0808 /* TPartGroup.cpp in Sources */,
+				BA4A46FD09D8C574000B0808 /* TPartList.cpp in Sources */,
+				BA4A46FE09D8C574000B0808 /* TPitch.cpp in Sources */,
+				BA4A46FF09D8C574000B0808 /* TRational.cpp in Sources */,
+				BA4A470009D8C574000B0808 /* TRoutedVisitor.cpp in Sources */,
+				BA4A470109D8C574000B0808 /* TScore.cpp in Sources */,
+				BA4A470209D8C574000B0808 /* TScoreHeader.cpp in Sources */,
+				BA4A470309D8C574000B0808 /* TScoreInstrument.cpp in Sources */,
+				BA4A470409D8C574000B0808 /* TScorePart.cpp in Sources */,
+				BA4A470509D8C574000B0808 /* TScorePartwise.cpp in Sources */,
+				BA4A470609D8C574000B0808 /* TScoreTimewise.cpp in Sources */,
+				BA4A470709D8C574000B0808 /* TSound.cpp in Sources */,
+				BA4A470809D8C574000B0808 /* TStaffDetails.cpp in Sources */,
+				BA4A470909D8C574000B0808 /* TTechnical.cpp in Sources */,
+				BA4A470A09D8C574000B0808 /* TTimeModification.cpp in Sources */,
+				BA4A470B09D8C574000B0808 /* TTimeSign.cpp in Sources */,
+				BA4A470C09D8C574000B0808 /* TTranspose.cpp in Sources */,
+				BA4A470D09D8C574000B0808 /* TWork.cpp in Sources */,
+				BA4A470E09D8C574000B0808 /* xml.cpp in Sources */,
+				BA4A470F09D8C574000B0808 /* xmllex.cpp in Sources */,
+				BA4A471009D8C574000B0808 /* xmlparse.cpp in Sources */,
+				BA4A478D09D8C5C6000B0808 /* guido.cpp in Sources */,
+				BA4A478F09D8C5C6000B0808 /* TMidiContextVisitor.cpp in Sources */,
+				BA4A479009D8C5C6000B0808 /* TRolledVisitor.cpp in Sources */,
+				BA4A479109D8C5C6000B0808 /* TScanVisitor.cpp in Sources */,
+				BA4A479209D8C5C6000B0808 /* TUnrolledVisitor.cpp in Sources */,
+				BA4A479309D8C5C6000B0808 /* TXML2GuidoVisitor.cpp in Sources */,
+				BA670D220A10049A0072CE20 /* IMUSANT_types.cpp in Sources */,
+				BAFC77370A228FDB00A4FACD /* IMUSANT_note.cpp in Sources */,
+				BAFC77810A22939500A4FACD /* IMUSANT_chord.cpp in Sources */,
+				BAFC77890A22944800A4FACD /* IMUSANT_measure.cpp in Sources */,
+				BAFC77910A22949700A4FACD /* IMUSANT_part.cpp in Sources */,
+				BAFC77970A22952100A4FACD /* IMUSANT_partlist.cpp in Sources */,
+				BAFC779D0A22956E00A4FACD /* IMUSANT_score.cpp in Sources */,
+				BAFC77A30A22963B00A4FACD /* IMUSANT_comment.cpp in Sources */,
+				BADC73A20A2BE239004F76BD /* IMUSANT_XMLVisitor.cpp in Sources */,
+				968641250A325C6D0031AC4A /* IMUSANT_XMLReader.cpp in Sources */,
+				BAD4055E0A36589A00634B37 /* IMUSANT_XMLFile.cpp in Sources */,
+				BAAF8D500A3E35FE00E5157F /* IMUSANT_conversions.cpp in Sources */,
+				96A61E8B0A45073A005E4CBF /* IMUSANT_barline.cpp in Sources */,
+				BA697F800AA500E4002DC3B2 /* IMUSANT_duration.cpp in Sources */,
+				BA697F820AA500FE002DC3B2 /* IMUSANT_pitch.cpp in Sources */,
+				BA697FAF0AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96A620CB0A458DE3005E4CBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
+				965208A40A4CDE08006AFD81 /* common.cpp in Sources */,
+				965208A90A4CDF4B006AFD81 /* conversions.cpp in Sources */,
+				965208AA0A4CDF4C006AFD81 /* Iexpat.cpp in Sources */,
+				965208AB0A4CDF4D006AFD81 /* IMusicXMLReader.cpp in Sources */,
+				965208AC0A4CDF4E006AFD81 /* IMusicXMLVisitor.cpp in Sources */,
+				965208AD0A4CDF4F006AFD81 /* smartpointer.cpp in Sources */,
+				965208AE0A4CDF50006AFD81 /* TArpeggiate.cpp in Sources */,
+				965208AF0A4CDF51006AFD81 /* TAttributes.cpp in Sources */,
+				965208B00A4CDF53006AFD81 /* TBackupForward.cpp in Sources */,
+				965208B10A4CDF54006AFD81 /* TBarline.cpp in Sources */,
+				965208B20A4CDF57006AFD81 /* TChord.cpp in Sources */,
+				965208B30A4CDF57006AFD81 /* TClef.cpp in Sources */,
+				965208B40A4CDF58006AFD81 /* TDirection.cpp in Sources */,
+				965208B50A4CDF59006AFD81 /* TFiguredBass.cpp in Sources */,
+				965208B60A4CDF5A006AFD81 /* THarmony.cpp in Sources */,
+				965208B70A4CDF5B006AFD81 /* TIdentification.cpp in Sources */,
+				965208B80A4CDF5C006AFD81 /* TKey.cpp in Sources */,
+				965208B90A4CDF5C006AFD81 /* TMeasure.cpp in Sources */,
+				965208BA0A4CDF5D006AFD81 /* TMeasureStyle.cpp in Sources */,
+				965208BB0A4CDF60006AFD81 /* TMidiDevice.cpp in Sources */,
+				965208BC0A4CDF61006AFD81 /* TMidiInstrument.cpp in Sources */,
+				965208BD0A4CDF61006AFD81 /* TMusicXMLFile.cpp in Sources */,
+				965208BE0A4CDF62006AFD81 /* TNotation.cpp in Sources */,
+				965208BF0A4CDF63006AFD81 /* TNote.cpp in Sources */,
+				965208C00A4CDF63006AFD81 /* TOrnaments.cpp in Sources */,
+				965208C10A4CDF64006AFD81 /* TOtherDirections.cpp in Sources */,
+				965208C20A4CDF65006AFD81 /* TPart.cpp in Sources */,
+				965208C30A4CDF66006AFD81 /* TPartGroup.cpp in Sources */,
+				965208C40A4CDF68006AFD81 /* TPartList.cpp in Sources */,
+				965208C50A4CDF69006AFD81 /* TPitch.cpp in Sources */,
+				965208C60A4CDF6A006AFD81 /* TRational.cpp in Sources */,
+				965208C70A4CDF6B006AFD81 /* TRoutedVisitor.cpp in Sources */,
+				965208C80A4CDF6B006AFD81 /* TScore.cpp in Sources */,
+				965208C90A4CDF6C006AFD81 /* TScoreHeader.cpp in Sources */,
+				965208CA0A4CDF6D006AFD81 /* TScoreInstrument.cpp in Sources */,
+				966AC6B51A3A57160074CE2A /* guido.cpp in Sources */,
+				965208CB0A4CDF6D006AFD81 /* TScorePart.cpp in Sources */,
+				965208CC0A4CDF70006AFD81 /* TScorePartwise.cpp in Sources */,
+				965208CD0A4CDF71006AFD81 /* TScoreTimewise.cpp in Sources */,
+				965208CE0A4CDF71006AFD81 /* TSound.cpp in Sources */,
+				965208CF0A4CDF72006AFD81 /* TStaffDetails.cpp in Sources */,
+				965208D00A4CDF73006AFD81 /* TTechnical.cpp in Sources */,
+				965208D10A4CDF73006AFD81 /* TTimeModification.cpp in Sources */,
+				965208D20A4CDF74006AFD81 /* TTimeSign.cpp in Sources */,
+				965208D30A4CDF75006AFD81 /* TTranspose.cpp in Sources */,
+				965208D40A4CDF75006AFD81 /* TWork.cpp in Sources */,
+				965208D50A4CDF76006AFD81 /* xml.cpp in Sources */,
+				965208D60A4CDF77006AFD81 /* xmllex.cpp in Sources */,
+				965208D70A4CDF77006AFD81 /* xmlparse.cpp in Sources */,
+				965208D80A4CDF9D006AFD81 /* IMUSANT_barline.cpp in Sources */,
+				965208D90A4CDF9E006AFD81 /* IMUSANT_chord.cpp in Sources */,
+				965208DA0A4CDF9F006AFD81 /* IMUSANT_comment.cpp in Sources */,
+				965208DB0A4CDFA0006AFD81 /* IMUSANT_conversions.cpp in Sources */,
+				965208DC0A4CDFA1006AFD81 /* IMUSANT_element.cpp in Sources */,
+				965208DD0A4CDFA1006AFD81 /* IMUSANT_measure.cpp in Sources */,
+				965208DE0A4CDFA2006AFD81 /* IMUSANT_note.cpp in Sources */,
+				965208DF0A4CDFA2006AFD81 /* IMUSANT_part.cpp in Sources */,
+				965208E00A4CDFA3006AFD81 /* IMUSANT_partlist.cpp in Sources */,
+				965208E10A4CDFA4006AFD81 /* IMUSANT_score.cpp in Sources */,
+				965208E20A4CDFA4006AFD81 /* IMUSANT_types.cpp in Sources */,
+				965208E30A4CDFA5006AFD81 /* IMUSANT_visitor.cpp in Sources */,
+				965208E40A4CDFA6006AFD81 /* IMUSANT_XMLFile.cpp in Sources */,
+				965208E50A4CDFA6006AFD81 /* IMUSANT_XMLReader.cpp in Sources */,
+				965208E60A4CDFA7006AFD81 /* IMUSANT_XMLVisitor.cpp in Sources */,
+				965208E70A4CDFA9006AFD81 /* TXML2IMUSANTVisitor.cpp in Sources */,
+				965208EA0A4CE743006AFD81 /* TScanVisitor.cpp in Sources */,
+				965209860A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp in Sources */,
+				9652098B0A4D1CBE006AFD81 /* IMUSANT_interval.cpp in Sources */,
+				965209900A4D1CD8006AFD81 /* IMUSANT_record.cpp in Sources */,
+				965209A60A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp in Sources */,
+				965209AB0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp in Sources */,
+				BA4F185A0A50C58900CB7438 /* IMUSANT_rvec_collection.cpp in Sources */,
+				BAC604930A76F8F8000C1DF9 /* IMUSANT_processing.cpp in Sources */,
+				BA4462690A9196520033DB86 /* IMUSANT_contour_symbol.cpp in Sources */,
+				BA697EFE0AA4FBD7002DC3B2 /* IMUSANT_pitch.cpp in Sources */,
+				BA697F7E0AA500E4002DC3B2 /* IMUSANT_duration.cpp in Sources */,
+				BA697FB00AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB923208733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					"$(SRCROOT)/../boost_1_57_0/boost/",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = (
+					"$(LIBRARY_SEARCH_PATHS)",
+					"$(SRCROOT)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)/../boost_1_57_0/",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\" \"usr/lib\"";
+				"LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1[arch=*]" = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				PRODUCT_NAME = MusicXML2imusant;
+				SDKROOT = macosx10.10;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../boost_1_57_0/";
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB923308733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				FRAMEWORK_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					"\"$(SRCROOT)/../boost_1_57_0/boost/\"",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = " /usr/lib/";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = (
+					"$(LIBRARY_SEARCH_PATHS)",
+					"$(SRCROOT)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)/../boost_1_57_0/boost/",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"/\"usr/lib";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				PRODUCT_NAME = imusant;
+				SDKROOT = macosx10.10;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../boost_1_57_0/";
+			};
+			name = Release;
+		};
+		1DEB923608733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = ../boost_1_46_1/stage/lib/;
+				GCC_MODEL_TUNING = "";
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../boost_1_46_1/;
+				LIBRARY_SEARCH_PATHS = ../boost_1_46_1/stage/lib/;
+				ONLY_ACTIVE_ARCH = YES;
+				USER_HEADER_SEARCH_PATHS = ../boost_1_46_1/;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB923708733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				USER_HEADER_SEARCH_PATHS = ../boost_1_46_1/;
+			};
+			name = Release;
+		};
+		96A620D30A458E02005E4CBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "compiler-default";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = "";
+				GCC_OPTIMIZATION_LEVEL = 1;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../boost_1_57_0/";
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = (
+					"$(LIBRARY_SEARCH_PATHS)",
+					"$(SRCROOT)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(PROJECT_DIR)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "";
+				PRODUCT_NAME = imusantcat;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 x86_64";
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		96A620D40A458E02005E4CBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "compiler-default";
+				COPY_PHASE_STRIP = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = (
+					"$(LIBRARY_SEARCH_PATHS)",
+					"$(SRCROOT)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
+					"$(PROJECT_DIR)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "";
+				PRODUCT_NAME = imusantcat;
+				USER_HEADER_SEARCH_PATHS = "";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "MusicXML2imusant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923208733DC60010E9CD /* Debug */,
+				1DEB923308733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "imusant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923608733DC60010E9CD /* Debug */,
+				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96A620D20A458E02005E4CBF /* Build configuration list for PBXNativeTarget "imusantcat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96A620D30A458E02005E4CBF /* Debug */,
+				96A620D40A458E02005E4CBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

@@ -1,0 +1,3 @@
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_comment.cpp: In function 'S_IMUSANT_comment IMUSANT::new_IMUSANT_comment(std::string)':
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/inc/IMUSANT_comment.h:24: error: 'IMUSANT_comment::IMUSANT_comment(std::string)' is protected
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_comment.cpp:16: error: within this context

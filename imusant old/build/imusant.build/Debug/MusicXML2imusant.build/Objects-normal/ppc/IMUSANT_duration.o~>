@@ -1,0 +1,60 @@
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:17: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:18: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:19: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:20: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:21: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:22: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:23: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:24: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:25: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:26: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:27: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:28: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:31: error: 'S_IMUSANT_duration' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:34: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:36: error: 'string' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:38: error: expected constructor, destructor, or type conversion before '<' token
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:41: error: 'string' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:42: error: 'TRational' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:44: error: expected constructor, destructor, or type conversion before '&' token
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:50: error: 'IMUSANT_duration' has not been declared
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:50: error: 'TRational' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:50: error: 'dur' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:51: error: expected ',' or ';' before '{' token
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:73: error: 'IMUSANT_duration' has not been declared
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:73: error: expected ',' or '...' before '&' token
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:73: error: ISO C++ forbids declaration of 'IMUSANT_duration' with no type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:73: error: non-member function 'bool IMUSANT::operator!=(int)' cannot have cv-qualifier
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:73: error: 'bool IMUSANT::operator!=(int)' must have an argument of class or enumerated type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:73: error: 'bool IMUSANT::operator!=(int)' must take exactly two arguments
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp: In function 'bool IMUSANT::operator!=(int)':
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:75: error: 'fDuration' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:75: error: 'dur' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:75: error: 'fDots' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:75: error: 'fTimeModification' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:76: error: 'getSimplifiedDuration' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp: At global scope:
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:79: error: 'IMUSANT_duration' has not been declared
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:79: error: expected ',' or '...' before '&' token
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:79: error: ISO C++ forbids declaration of 'IMUSANT_duration' with no type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:79: error: non-member function 'bool IMUSANT::operator==(int)' cannot have cv-qualifier
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:79: error: 'bool IMUSANT::operator==(int)' must have an argument of class or enumerated type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:79: error: 'bool IMUSANT::operator==(int)' must take exactly two arguments
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp: In function 'bool IMUSANT::operator==(int)':
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:81: error: 'fDuration' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:81: error: 'dur' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:81: error: 'fDots' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:81: error: 'fTimeModification' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:82: error: 'getSimplifiedDuration' was not declared in this scope
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp: At global scope:
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:87: error: 'IMUSANT_duration' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:102: error: 'IMUSANT_duration' does not name a type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:122: error: 'IMUSANT_duration' has not been declared
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:122: error: expected ',' or '...' before '&' token
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:122: error: ISO C++ forbids declaration of 'IMUSANT_duration' with no type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:122: error: 'void IMUSANT::operator+=(int)' must have an argument of class or enumerated type
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:122: error: 'void IMUSANT::operator+=(int)' must take exactly two arguments
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp: In function 'void IMUSANT::operator+=(int)':
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:124: error: invalid use of 'this' in non-member function
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:124: error: invalid use of 'this' in non-member function
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/src/IMUSANT_duration.cpp:124: error: 'rhs' was not declared in this scope

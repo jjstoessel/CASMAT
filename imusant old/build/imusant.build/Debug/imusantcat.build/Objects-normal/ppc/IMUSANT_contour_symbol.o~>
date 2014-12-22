@@ -1,0 +1,11 @@
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.cpp: In function 'IMUSANT_contour_symbol IMUSANT::operator+(const IMUSANT_contour_symbol&, const IMUSANT_contour_symbol&)':
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.h:89: error: 'void IMUSANT_contour_symbol::check()' is private
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.cpp:25: error: within this context
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.cpp: In function 'IMUSANT_contour_symbol IMUSANT::operator-(const IMUSANT_contour_symbol&, const IMUSANT_contour_symbol&)':
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.h:89: error: 'void IMUSANT_contour_symbol::check()' is private
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.cpp:35: error: within this context
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.cpp: In function 'std::ostream& IMUSANT::operator<<(std::ostream&, const IMUSANT_contour_symbol&)':
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.h:91: error: 'int IMUSANT_contour_symbol::fSymbol' is private
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.cpp:42: error: within this context
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.h:91: error: 'int IMUSANT_contour_symbol::fSymbol' is private
+/Users/jasonstoessel/Projects/Music Intertextuality/imusant/imusantcat/src/IMUSANT_contour_symbol.cpp:43: error: within this context
