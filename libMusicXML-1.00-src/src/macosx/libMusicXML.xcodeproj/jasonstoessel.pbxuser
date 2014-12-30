@@ -1,0 +1,211 @@
+// !$*UTF8*$!
+{
+	0867D690FE84028FC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Development;
+		activeBuildStyle = 4F0BB7EC011F40E904CA0E50 /* Development */;
+		activeExecutable = BA4A467709D8C3AA000B0808 /* musicXML2guido */;
+		activeTarget = 4B32DCE80958059E0078710F /* All */;
+		codeSenseManager = BA4A469D09D8C3CA000B0808 /* Code sense */;
+		executables = (
+			BA4A467709D8C3AA000B0808 /* musicXML2guido */,
+			BA4A467809D8C3AA000B0808 /* randomMusic */,
+			BA4A467909D8C3AA000B0808 /* rawTranspose */,
+			BA4A467A09D8C3AA000B0808 /* ReadWrite */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					243,
+					20,
+					48.1626,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 165200810;
+			PBXWorkspaceStateSaveDate = 165200810;
+		};
+		sourceControlManager = BA4A469C09D8C3CA000B0808 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	4B32DB6A095804D20078710F /* LibMusicXML */ = {
+		activeExec = 0;
+	};
+	4B32DCCF095805290078710F /* musicXML2guido */ = {
+		activeExec = 0;
+		executables = (
+			BA4A467709D8C3AA000B0808 /* musicXML2guido */,
+		);
+	};
+	4B32DCD50958052A0078710F /* randomMusic */ = {
+		activeExec = 0;
+		executables = (
+			BA4A467809D8C3AA000B0808 /* randomMusic */,
+		);
+	};
+	4B32DCDB0958052A0078710F /* rawTranspose */ = {
+		activeExec = 0;
+		executables = (
+			BA4A467909D8C3AA000B0808 /* rawTranspose */,
+		);
+	};
+	4B32DCE10958052A0078710F /* ReadWrite */ = {
+		activeExec = 0;
+		executables = (
+			BA4A467A09D8C3AA000B0808 /* ReadWrite */,
+		);
+	};
+	4B32DCE80958059E0078710F /* All */ = {
+		activeExec = 0;
+	};
+	4BA6DAFB05753C4300053105 /* IMusicXMLReader.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {969, 58310}}";
+			sepNavSelRange = "{1399, 26}";
+			sepNavVisRect = "{{0, 466}, {969, 539}}";
+			sepNavWindowFrame = "{{15, 73}, {1008, 668}}";
+		};
+	};
+	BA4A467709D8C3AA000B0808 /* musicXML2guido */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = musicXML2guido;
+		sourceDirectories = (
+		);
+	};
+	BA4A467809D8C3AA000B0808 /* randomMusic */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = randomMusic;
+		sourceDirectories = (
+		);
+	};
+	BA4A467909D8C3AA000B0808 /* rawTranspose */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = rawTranspose;
+		sourceDirectories = (
+		);
+	};
+	BA4A467A09D8C3AA000B0808 /* ReadWrite */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = ReadWrite;
+		sourceDirectories = (
+		);
+	};
+	BA4A469C09D8C3CA000B0808 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	BA4A469D09D8C3CA000B0808 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	D35E66EE0608A6F0004DE1A0 /* TXML2GuidoVisitor.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {969, 15134}}";
+			sepNavSelRange = "{2682, 0}";
+			sepNavVisRect = "{{0, 1118}, {969, 539}}";
+			sepNavWindowFrame = "{{15, 73}, {1008, 668}}";
+		};
+	};
+	D3B1D070060B3878005BEDC3 /* TXML2GuidoVisitor.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {969, 2562}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 1486}, {969, 539}}";
+			sepNavWindowFrame = "{{15, 73}, {1008, 668}}";
+		};
+	};
+	D3DC070D0608B5190019C3F5 /* MusicXML2Guido.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {969, 700}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {969, 539}}";
+			sepNavWindowFrame = "{{15, 73}, {1008, 668}}";
+		};
+	};
+}

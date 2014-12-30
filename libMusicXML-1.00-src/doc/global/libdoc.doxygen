@@ -1,0 +1,242 @@
+
+/*
+	This file documents the library general organization.
+*/
+
+/*!
+
+\mainpage LibMusicXML Overview
+
+\section intro Introduction
+
+The MusicXML library provides a set of classes that covers the elements defined
+by the MusicXML 1.0 dtds. The library has been developped in C++, with a great care 
+of preserving platform independence. 
+
+Connection between the classes and the xml elements is not a one-to-one relation: 
+for simplification, a class may contain several MusicXML elements, provided that these elements 
+are not reused anywhere else. For example, MusicXML defines \p dynamics as separate elements
+(see common.dtd): using a single object to represent them clarifies the representation.
+Apart a few exceptions detailled below, 
+all of the MusicXML elements have their counterpart in the library representation.
+
+A good knowledge of MusicXML is required for a good comprehension of the library.
+
+\section convention Conventions
+
+\subsection mem Memory management
+
+Each class that describes a MusicXML element is handled using <b> <em> smart pointers </em> </b>.
+A smart pointer maintains a reference count for an object and takes in charge the automatic 
+deletion of this object when its reference count drops to zero.
+
+Objects that are handled using smart pointers derive from the \c smartable class.
+Their implementation prevents direct call to the constructor. Instead of constructor call, 
+they provide a function to create a new object directly embedded within a smart pointer.
+
+Smart pointers don't work when a loop in the reference occurs. However, it doesn't matter in
+our case since MusicXML is strictly hierarchical.
+
+
+\subsection class Class and type names.
+
+All the classes that corresponds to a MusicXML element have a name in the form of
+\c Txxx where \c xxx relates to the MusicXML element name.
+
+For each \c smartable class, a typedef defines the corresponding smart pointer as follow:
+\n<tt> typedef Txxx Sxxx </tt> where \c xxx is the class name.
+
+More generally:
+- a type name that starts with \b T denotes a class name,
+- a type name that starts with \b S denotes a class smart pointer.
+
+\subsection constr Constructors.
+
+As mentioned above, \e smartable classes prevent direct call to their constructor but 
+a \e new function is provided which conforms to the following rule: 
+
+for a class named \c Txxx where \c xxx is the class name, 
+the \e new function name is <b> \c newxxx </b>.
+
+A \e new function interface is similar to the class constructor. Each MusicXML object provides
+a unique constructor. Arguments of a class constructor are limited to the \b required MusicXML 
+element attributes.
+
+\subsection fields Fields access.
+
+Fields of the defined objects are generally private or at least protected. Semantic of 
+a field may be deduced from the field name and from the object corresponding MusicXML
+description, which is provided as the class documentation.
+Access methods are designed according to the following rules:
+\li methods starting with <b> \c set </b> are write only methods,
+\li methods starting with <b> \c get </b> are read only methods,
+\li methods that designates a field name (like \c transpose() to access a \c fTranspose 
+field) are read/write methods,
+\li <b> \c add </b> methods are polymorphic methods used to push new elements into internal lists.
+
+\warning
+Read/write methods are always used with embedded smart pointers. These pointers are
+initialized by default and therefore points to \e null. This design is intended to
+denote undefined elements.
+
+
+\subsection org Files organization.
+
+The files organization is similar to the MusicXML dtd files organization: 
+for example, most of the elements or entities defined in common.dtd are handled 
+by common.h. Elements described within MusicXML attributes.dtd or direction.dtd are 
+respectively located in TAttributes.h or TDirection.h.
+When no correspondence exists between a header file and a MusicXML dtd, the header file name
+relates to a MusicXML element and declares this element and possibly other related elements.
+Except for common.h, all the files concerned by the above rules have a name starting with \b T.
+
+
+\section Common Common entities representation
+
+MusicXML defines entities that are common across multiple component DTDs. Many of them
+are intended to describe graphic layout like position, placement or orientation.
+
+\verbatim
+<!ENTITY % position
+	"default-x     %tenths;    #IMPLIED
+	 default-y     %tenths;    #IMPLIED
+	 relative-x    %tenths;    #IMPLIED
+	 relative-y    %tenths;    #IMPLIED">
+
+<!ENTITY % placement
+	"placement (above | below) #IMPLIED">
+
+<!ENTITY % orientation
+	"orientation (over | under) #IMPLIED">
+\endverbatim
+
+
+These entities are defined as separate objects. A class is defined to aggregate the 
+corresponding properties to objects that require them. For example, 
+a \c TOrientation class is defined to describe the \p orientation entity; next an
+\c Orientable class is intended to provide the corresponding properties to derived classes.
+MusicXML elements that carry the orientation entity have to derive the \c Orientable class.
+
+MusicXML also makes use of entities to enumerate values like the \p orientation defined above 
+or the \p start-stop or \p yes-no examples below. 
+
+\verbatim
+<!ENTITY % start-stop "(start | stop)">
+
+<!ENTITY % yes-no "(yes | no)">
+\endverbatim
+
+For all these entities, the library provides conversion classes (like the \p YesNo class) that:
+- define a type for the corresponding enumeration
+- provides conversion methods from/to integer and textual representation. These methods are generally 
+named \e xml and overloaded to access both the integer and string representation.
+
+\verbatim
+class EXP YesNo {
+    public:
+    enum type { undefined, yes, no, last=no };
+
+    static const string	xml (type d);
+    static       type	xml (const string str);
+};
+\endverbatim
+
+
+\section Types Common types definition
+
+Many of the MusicXML elements are defined as an alternative bewteen a set of elements. These 
+alternative may be viewed as an inheritance relationship. Each time it has been convenient to 
+do so, this relationship has been made explicit using a specific type, defined to cover the 
+corresponding elements:
+
+- \c TMusicData is an abstract class which purpose is to define a common type for all 
+the elements covered by the \p music-data entity. It also provides the \e smartability and
+\e visitability properties to the derived objects.
+
+\verbatim
+class TMusicData : public virtual visitable, public virtual smartable {
+     protected:
+        TMusicData () {}
+        virtual ~TMusicData() {}
+};
+\endverbatim
+
+
+Similarly:
+- \c TDirectionTypeElement is an abstract class which purpose is to define
+a common type for all the elements of a \p direction-type element, 
+-\c TNotationElement is an abstract class which purpose is to define a common type for 
+all the elements of a \p notation element,
+- \c TPartListElement is an abstract class which purpose is to define
+a common type for all the elements of a \p part-list element.
+
+
+\section Visitor Browsing the music tree
+
+The music representation is a tree which root is a \e timewise or \e partwise score.
+All the elements of the score support the \e visitor design pattern 
+and accept a \p TScoreVisitor as the base class
+of the visitor design.
+
+To preserve the choice of different strategies for the traversing the music representation structure, 
+traversing has not been implemented in the tree components: it is assumed that it's the visitor 
+responsability. A visitor that implements a basic traversing of the music structure is included 
+in the library: the \c TRoutedVisitor.
+
+A \c TRoutedVisitor provides a path for traversing of a score tree. Each implemented \e visite method 
+calls \e accept() for its subclasses. Order of these calls is the following: 
+- subclasses representing attributes are called first, 
+- subclasses representing elements are called in the MusicXML defined order.
+
+
+\section MusicXMLRW Reading and writing MusicXML files
+
+The \p TMusicXMLFile object provides a simple API to read and write MusicXML files.
+
+\verbatim
+class EXP TMusicXMLFile {
+    public:
+                 TMusicXMLFile() {}
+        virtual ~TMusicXMLFile() {}
+		
+        SScore	read (const string& file);
+		
+        bool	write (SScore score, const string& file);
+        bool	write (SScore score, ostream& os);
+};
+\endverbatim
+ 
+It provides a \c read method that takes a file name as argument and returns smart 
+pointer to a music score as result. The returned pointer is null in 
+case of failure.
+
+It provides \c write methods that take a music score and a file name 
+or an \p ostream as arguments and returns a boolean value as result. 
+The returned value is false in case of failure.
+
+
+\section specific MusicXML Library specific elements
+
+The library design is very close to the MusicXML definition. A music score memory
+representation tree matches the corresponding MusicXML tree with just a few exceptions: 
+\li there is no chord element in the MusicXML specification but a chord object is part 
+of the MusicXML library.
+\li not all the MusicXML elements are represented as individual objects: it has often been
+more convenient to group a collection of similar elements into a single object. 
+The TArticulation object is an example of such a grouping.
+
+
+\section support MusicXML Elements to be implemented
+
+The main part of the MusicXML elements is covered by the current library.
+Only a few elements are not yet supported. Below is the list of these elements.
+
+From link.dtd:
+\li link
+\li bookmark
+
+From opus.dtd:
+\li opus
+
+
+*/

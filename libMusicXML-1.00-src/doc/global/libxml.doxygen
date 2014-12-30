@@ -1,0 +1,112 @@
+
+/*
+	This file documents MusicXML
+*/
+
+/*!
+
+\page musicxml The MusicXML format
+
+The MusicXML is a xml format that organizes the music into a header followed by the core 
+music data. 
+
+\image html legend.gif "MusicXML elements relationship" width=14cm
+\n
+\image html score.gif "The MusicXML Score format" width=14cm
+
+
+\image latex legend.pdf "MusicXML elements relationship" width=7cm
+
+The core music data may be viewed as \e partwise or \e timewise data:
+- \e partwise data are organized into parts containing measures
+- \e timewise data are organized into measures containing parts.
+
+
+\section IMRMusicDate MusicXML music data
+
+A MusicXML \p part element may be viewed as a music part, assigned to a given instrument.
+Therefore a part generally contains a single staff but in case of instruments like
+the piano or the organ, it includes several staves. 
+
+A \p measure contains elements grouped under the \p music-data entity. These
+elements cover the following purposes:
+- music score description. Most of the elements are intended to enumerate the graphic
+components of a music score. The \p note element is the most important one but the measure 
+contains also measure specific attributes like \p clef, \p key or \p time signatures, 
+\p transpose indications or \p barline description, as well as \p direction elements attached 
+to a part or the overall score.
+
+\image latex score.pdf "The MusicXML Score format" width=14cm
+
+- time description using elements to move the time backward (\p backup element) or 
+forward (\p forward element).
+
+\image latex measure.pdf "The MusicXML \p measure element" width=15cm
+
+- music analysis using elements like \p harmony or \p grouping.
+- playback parameters: the \p sound element allows for tempo, dynamics description,
+but also for sound control including MIDI instrument assignment, and for structural description 
+(dacapo, segno, dalsegno, coda, tocoda).
+- XLink support: \p link and \p bookmark elements,
+- printing parameters: \p print element.
+
+\image html measure.gif "The MusicXML \p measure element" width=15cm
+
+\image latex direction.pdf "The MusicXML \p direction element" width=13cm
+
+The \p direction element is used for musical indications that are not attached
+to a specific note. Two or more may be combined to indicate starts and stops of wedges, 
+dashes, etc. It supports also dynamics, metronome indications and may include \p sound elements.
+
+\image html direction.gif "The MusicXML \p direction element" width=13cm
+
+\image latex note.pdf "The MusicXML \p note element" width=16cm
+
+The \p note element is central to the music description. A note may be a \e cue note, 
+a \e grace note or a \e regular note. All of them share common elements wich are pitch, chord, 
+and rest information. Unpitched elements are used for unpitched percussion, speaking voice, and 
+other musical elements lacking determinate pitch.
+A \p note element includes all the necessary for an acurate graphic rendering of all the signs 
+attached to it. It covers:
+- the graphic \p type corresponding to the symbolic note duration: whole, half, quarter note...
+- possible \p accidental and \p dot,
+- \p stem and \p beaming information,
+- the graphic \p notehead shape: triangle, diamond, square...
+- \p staff assignment
+- \p notation elements attached to the note such as \p articulation, \p ornament, 
+\p slur, \p tied ...
+- \p lyrics
+
+\image html note.gif "The MusicXML \p note element" width=16cm
+
+Note that redundant graphic and sound information may live together, for example:
+- a \p tuplet element is present when a tuplet is to be displayed graphically, 
+in addition to the sound data provided by the \p time-modification element.
+- a \p tie element indicates sound; the \p tied element indicates notation.
+- a \p duration element indicates the note duration in division units. It is the
+sounding duration vs. notated duration.
+
+A note has also attributes intended for a more acurate graphic placement or 
+to describe differences in duration or dynamics specific to an interpretation or 
+performance.
+
+
+\section IMRMusicXMLTime MusicXML time
+
+MusicXML doesn't include explicit time information in that sense that music events like notes
+don't carry a date. The time is implicitely moved each time an element that has a duration 
+is encountered.  Exception to this rule is the \p chord element: a \p chord element indicates 
+that the note carrying the \p chord element is an additional chord tone with the preceding note. 
+
+The duration of a note marked with a \p chord element can be no longer than the preceding note. 
+Although a note that is part of a chord has a duration, the time doesn't move when it is
+encountered.
+
+Additional elements are provided to explicitely move the time:
+\p backup and \p forward are intended to coordinate multiple voices in one part, 
+including music on multiple staves. Forward is generally used to move forward within 
+voices and staves, while backup to move backward between voices and staves.
+
+
+*/
+
