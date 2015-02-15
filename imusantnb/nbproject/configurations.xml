@@ -184,6 +184,207 @@
         <itemPath>../imusant old/inc/IMUSANT_visitor.h</itemPath>
         <itemPath>../imusant old/inc/TXML2IMUSANTVisitor.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="libMusicXML-1.00-src"
+                     displayName="libMusicXML-1.00-src"
+                     projectFiles="true">
+        <logicalFolder name="src" displayName="src" projectFiles="true">
+          <logicalFolder name="core" displayName="core" projectFiles="true">
+            <itemPath>../libMusicXML-1.00-src/src/core/IMusicXMLReader.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/IMusicXMLReader.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/IMusicXMLVisitor.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/IMusicXMLVisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/Iexpat.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/Iexpat.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/Makefile</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TArpeggiate.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TAttributes.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TBackupForward.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TBarline.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TChord.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TClef.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TDirection.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TFiguredBass.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/THarmony.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TIdentification.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TKey.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TMeasure.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TMeasureStyle.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TMidiDevice.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TMidiInstrument.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TMusicXMLFile.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TNotation.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TNote.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TOrnaments.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TOtherDirections.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TPart.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TPartGroup.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TPartList.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TPitch.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TRational.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TRoutedVisitor.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TScore.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TScoreHeader.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TScoreInstrument.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TScorePart.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TScorePartwise.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TScoreTimewise.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TSound.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TStaffDetails.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TTechnical.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TTimeModification.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TTimeSign.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TTranspose.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/TWork.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/common.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/conversions.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/reader.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/smartpointer.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/xml.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/xmllex.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/xmlparse.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/core/xmlparse.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="include" displayName="include" projectFiles="true">
+            <itemPath>../libMusicXML-1.00-src/src/include/LibMusicXML.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TArpeggiate.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TAttributes.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TBackupForward.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TBarline.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TChord.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TClef.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TDirection.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TFiguredBass.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/THarmony.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TIdentification.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TKey.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TMeasure.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TMeasureStyle.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TMidiContextVisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TMidiDevice.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TMidiInstrument.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TMusicXMLFile.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TNodeVisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TNotation.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TNote.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TOrnaments.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TOtherDirections.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TPart.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TPartGroup.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TPartList.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TPitch.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TRational.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TRolledVisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TRoutedVisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TScanVisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TScore.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TScoreHeader.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TScoreInstrument.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TScorePart.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TScorePartwise.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TScoreTimewise.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TScoreVisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TSound.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TStaffDetails.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TTechnical.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TTimeModification.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TTimeSign.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TTranspose.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TUnrolledVisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TWork.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/TXML2GuidoVisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/UTools.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/bimap.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/common.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/conversions.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/exports.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/guido.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/guidovisitor.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/smartclasses.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/smartpointer.h</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/include/xml.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="linux" displayName="linux" projectFiles="true">
+            <itemPath>../libMusicXML-1.00-src/src/linux/Makefile</itemPath>
+          </logicalFolder>
+          <logicalFolder name="macosx" displayName="macosx" projectFiles="true">
+            <logicalFolder name="English.lproj"
+                           displayName="English.lproj"
+                           projectFiles="true">
+              <itemPath>../libMusicXML-1.00-src/src/macosx/English.lproj/InfoPlist.strings</itemPath>
+            </logicalFolder>
+            <logicalFolder name="libMusicXML.xcode"
+                           displayName="libMusicXML.xcode"
+                           projectFiles="true">
+              <itemPath>../libMusicXML-1.00-src/src/macosx/libMusicXML.xcode/project.pbxproj</itemPath>
+            </logicalFolder>
+            <logicalFolder name="libMusicXML.xcodeproj"
+                           displayName="libMusicXML.xcodeproj"
+                           projectFiles="true">
+              <itemPath>../libMusicXML-1.00-src/src/macosx/libMusicXML.xcodeproj/jasonstoessel.mode1</itemPath>
+              <itemPath>../libMusicXML-1.00-src/src/macosx/libMusicXML.xcodeproj/jasonstoessel.pbxuser</itemPath>
+              <itemPath>../libMusicXML-1.00-src/src/macosx/libMusicXML.xcodeproj/project.pbxproj</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="parser" displayName="parser" projectFiles="true">
+            <itemPath>../libMusicXML-1.00-src/src/parser/makefile</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/parser/xml.l</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/parser/xml.y</itemPath>
+          </logicalFolder>
+          <logicalFolder name="samples" displayName="samples" projectFiles="true">
+            <itemPath>../libMusicXML-1.00-src/src/samples/ContextVisitors.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/samples/Makefile</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/samples/MusicXML2Guido.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/samples/RandomMusic.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/samples/RawTranspose.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/samples/ReadWrite.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/samples/validation</itemPath>
+          </logicalFolder>
+          <logicalFolder name="visitors" displayName="visitors" projectFiles="true">
+            <itemPath>../libMusicXML-1.00-src/src/visitors/Makefile</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/visitors/TMidiContextVisitor.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/visitors/TRolledVisitor.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/visitors/TScanVisitor.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/visitors/TUnrolledVisitor.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/visitors/TXML2GuidoVisitor.cpp</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/visitors/guido.cpp</itemPath>
+          </logicalFolder>
+          <logicalFolder name="windows" displayName="windows" projectFiles="true">
+            <logicalFolder name="MusicXML" displayName="MusicXML" projectFiles="true">
+              <itemPath>../libMusicXML-1.00-src/src/windows/MusicXML/MusicXML.dsp</itemPath>
+              <itemPath>../libMusicXML-1.00-src/src/windows/MusicXML/MusicXML.rc</itemPath>
+              <itemPath>../libMusicXML-1.00-src/src/windows/MusicXML/resource.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="musicxml2guido"
+                           displayName="musicxml2guido"
+                           projectFiles="true">
+              <itemPath>../libMusicXML-1.00-src/src/windows/musicxml2guido/musicxml2guido.dsp</itemPath>
+            </logicalFolder>
+            <logicalFolder name="RandomMusic" displayName="RandomMusic" projectFiles="true">
+              <itemPath>../libMusicXML-1.00-src/src/windows/RandomMusic/RandomMusic.dsp</itemPath>
+            </logicalFolder>
+            <logicalFolder name="RawTranspose"
+                           displayName="RawTranspose"
+                           projectFiles="true">
+              <itemPath>../libMusicXML-1.00-src/src/windows/RawTranspose/RawTranspose.dsp</itemPath>
+            </logicalFolder>
+            <logicalFolder name="ReadWrite" displayName="ReadWrite" projectFiles="true">
+              <itemPath>../libMusicXML-1.00-src/src/windows/ReadWrite/ReadWrite.dsp</itemPath>
+            </logicalFolder>
+            <logicalFolder name="staticMusicXML"
+                           displayName="staticMusicXML"
+                           projectFiles="true">
+              <itemPath>../libMusicXML-1.00-src/src/windows/staticMusicXML/staticMusicXML.dsp</itemPath>
+            </logicalFolder>
+            <itemPath>../libMusicXML-1.00-src/src/windows/README.txt</itemPath>
+            <itemPath>../libMusicXML-1.00-src/src/windows/libMusicXML.dsw</itemPath>
+          </logicalFolder>
+          <itemPath>../libMusicXML-1.00-src/src/CHANGELOG.txt</itemPath>
+          <itemPath>../libMusicXML-1.00-src/src/Makefile</itemPath>
+          <itemPath>../libMusicXML-1.00-src/src/README.txt</itemPath>
+          <itemPath>../libMusicXML-1.00-src/src/license.txt</itemPath>
+        </logicalFolder>
+        <itemPath>../libMusicXML-1.00-src/LibMusicXML-doc.pdf</itemPath>
+      </logicalFolder>
       <logicalFolder name="mindiff" displayName="mindiff" projectFiles="true">
         <itemPath>../imusant old/mindiff/Diff.cpp</itemPath>
         <itemPath>../imusant old/mindiff/MinDiff.exe</itemPath>
@@ -251,207 +452,6 @@
       <itemPath>../imusant old/dynamic_2d_array.h</itemPath>
       <itemPath>../imusant old/imusantcat_main.cpp</itemPath>
     </logicalFolder>
-    <logicalFolder name="libMusicXML-1.00-src"
-                   displayName="libMusicXML-1.00-src"
-                   projectFiles="true">
-      <logicalFolder name="src" displayName="src" projectFiles="true">
-        <logicalFolder name="core" displayName="core" projectFiles="true">
-          <itemPath>../libMusicXML-1.00-src/src/core/IMusicXMLReader.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/IMusicXMLReader.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/IMusicXMLVisitor.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/IMusicXMLVisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/Iexpat.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/Iexpat.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/Makefile</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TArpeggiate.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TAttributes.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TBackupForward.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TBarline.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TChord.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TClef.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TDirection.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TFiguredBass.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/THarmony.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TIdentification.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TKey.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TMeasure.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TMeasureStyle.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TMidiDevice.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TMidiInstrument.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TMusicXMLFile.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TNotation.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TNote.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TOrnaments.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TOtherDirections.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TPart.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TPartGroup.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TPartList.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TPitch.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TRational.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TRoutedVisitor.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TScore.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TScoreHeader.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TScoreInstrument.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TScorePart.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TScorePartwise.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TScoreTimewise.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TSound.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TStaffDetails.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TTechnical.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TTimeModification.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TTimeSign.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TTranspose.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/TWork.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/common.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/conversions.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/reader.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/smartpointer.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/xml.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/xmllex.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/xmlparse.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/core/xmlparse.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="include" displayName="include" projectFiles="true">
-          <itemPath>../libMusicXML-1.00-src/src/include/LibMusicXML.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TArpeggiate.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TAttributes.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TBackupForward.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TBarline.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TChord.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TClef.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TDirection.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TFiguredBass.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/THarmony.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TIdentification.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TKey.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TMeasure.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TMeasureStyle.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TMidiContextVisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TMidiDevice.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TMidiInstrument.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TMusicXMLFile.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TNodeVisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TNotation.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TNote.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TOrnaments.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TOtherDirections.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TPart.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TPartGroup.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TPartList.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TPitch.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TRational.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TRolledVisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TRoutedVisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TScanVisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TScore.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TScoreHeader.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TScoreInstrument.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TScorePart.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TScorePartwise.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TScoreTimewise.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TScoreVisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TSound.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TStaffDetails.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TTechnical.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TTimeModification.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TTimeSign.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TTranspose.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TUnrolledVisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TWork.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/TXML2GuidoVisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/UTools.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/bimap.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/common.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/conversions.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/exports.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/guido.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/guidovisitor.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/smartclasses.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/smartpointer.h</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/include/xml.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="linux" displayName="linux" projectFiles="true">
-          <itemPath>../libMusicXML-1.00-src/src/linux/Makefile</itemPath>
-        </logicalFolder>
-        <logicalFolder name="macosx" displayName="macosx" projectFiles="true">
-          <logicalFolder name="English.lproj"
-                         displayName="English.lproj"
-                         projectFiles="true">
-            <itemPath>../libMusicXML-1.00-src/src/macosx/English.lproj/InfoPlist.strings</itemPath>
-          </logicalFolder>
-          <logicalFolder name="libMusicXML.xcode"
-                         displayName="libMusicXML.xcode"
-                         projectFiles="true">
-            <itemPath>../libMusicXML-1.00-src/src/macosx/libMusicXML.xcode/project.pbxproj</itemPath>
-          </logicalFolder>
-          <logicalFolder name="libMusicXML.xcodeproj"
-                         displayName="libMusicXML.xcodeproj"
-                         projectFiles="true">
-            <itemPath>../libMusicXML-1.00-src/src/macosx/libMusicXML.xcodeproj/jasonstoessel.mode1</itemPath>
-            <itemPath>../libMusicXML-1.00-src/src/macosx/libMusicXML.xcodeproj/jasonstoessel.pbxuser</itemPath>
-            <itemPath>../libMusicXML-1.00-src/src/macosx/libMusicXML.xcodeproj/project.pbxproj</itemPath>
-          </logicalFolder>
-        </logicalFolder>
-        <logicalFolder name="parser" displayName="parser" projectFiles="true">
-          <itemPath>../libMusicXML-1.00-src/src/parser/makefile</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/parser/xml.l</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/parser/xml.y</itemPath>
-        </logicalFolder>
-        <logicalFolder name="samples" displayName="samples" projectFiles="true">
-          <itemPath>../libMusicXML-1.00-src/src/samples/ContextVisitors.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/samples/Makefile</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/samples/MusicXML2Guido.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/samples/RandomMusic.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/samples/RawTranspose.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/samples/ReadWrite.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/samples/validation</itemPath>
-        </logicalFolder>
-        <logicalFolder name="visitors" displayName="visitors" projectFiles="true">
-          <itemPath>../libMusicXML-1.00-src/src/visitors/Makefile</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/visitors/TMidiContextVisitor.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/visitors/TRolledVisitor.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/visitors/TScanVisitor.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/visitors/TUnrolledVisitor.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/visitors/TXML2GuidoVisitor.cpp</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/visitors/guido.cpp</itemPath>
-        </logicalFolder>
-        <logicalFolder name="windows" displayName="windows" projectFiles="true">
-          <logicalFolder name="MusicXML" displayName="MusicXML" projectFiles="true">
-            <itemPath>../libMusicXML-1.00-src/src/windows/MusicXML/MusicXML.dsp</itemPath>
-            <itemPath>../libMusicXML-1.00-src/src/windows/MusicXML/MusicXML.rc</itemPath>
-            <itemPath>../libMusicXML-1.00-src/src/windows/MusicXML/resource.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="musicxml2guido"
-                         displayName="musicxml2guido"
-                         projectFiles="true">
-            <itemPath>../libMusicXML-1.00-src/src/windows/musicxml2guido/musicxml2guido.dsp</itemPath>
-          </logicalFolder>
-          <logicalFolder name="RandomMusic" displayName="RandomMusic" projectFiles="true">
-            <itemPath>../libMusicXML-1.00-src/src/windows/RandomMusic/RandomMusic.dsp</itemPath>
-          </logicalFolder>
-          <logicalFolder name="RawTranspose"
-                         displayName="RawTranspose"
-                         projectFiles="true">
-            <itemPath>../libMusicXML-1.00-src/src/windows/RawTranspose/RawTranspose.dsp</itemPath>
-          </logicalFolder>
-          <logicalFolder name="ReadWrite" displayName="ReadWrite" projectFiles="true">
-            <itemPath>../libMusicXML-1.00-src/src/windows/ReadWrite/ReadWrite.dsp</itemPath>
-          </logicalFolder>
-          <logicalFolder name="staticMusicXML"
-                         displayName="staticMusicXML"
-                         projectFiles="true">
-            <itemPath>../libMusicXML-1.00-src/src/windows/staticMusicXML/staticMusicXML.dsp</itemPath>
-          </logicalFolder>
-          <itemPath>../libMusicXML-1.00-src/src/windows/README.txt</itemPath>
-          <itemPath>../libMusicXML-1.00-src/src/windows/libMusicXML.dsw</itemPath>
-        </logicalFolder>
-        <itemPath>../libMusicXML-1.00-src/src/CHANGELOG.txt</itemPath>
-        <itemPath>../libMusicXML-1.00-src/src/Makefile</itemPath>
-        <itemPath>../libMusicXML-1.00-src/src/README.txt</itemPath>
-        <itemPath>../libMusicXML-1.00-src/src/license.txt</itemPath>
-      </logicalFolder>
-      <itemPath>../libMusicXML-1.00-src/LibMusicXML-doc.pdf</itemPath>
-    </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
@@ -473,8 +473,8 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
+    <Elem>../libMusicXML-1.00-src</Elem>
     <Elem>../imusant old</Elem>
-    <Elem>../libMusicXML-1.00-src/src</Elem>
     <Elem>/usr/local/include/boost</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
@@ -486,6 +486,18 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <cTool>
+          <incDir>
+            <pElem>../libMusicXML-1.00-src</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <stripSymbols>true</stripSymbols>
+          <architecture>2</architecture>
+          <incDir>
+            <pElem>../libMusicXML-1.00-src</pElem>
+          </incDir>
+        </ccTool>
         <linkerTool>
           <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/imusantnb</output>
           <commandLine>-framework boost</commandLine>
@@ -1496,8 +1508,13 @@
       </item>
       <item path="../libMusicXML-1.00-src/src/include/smartpointer.h"
             ex="false"
-            tool="3"
+            tool="1"
             flavor2="0">
+        <ccTool>
+          <incDir>
+            <pElem>/usr/local/include/boost</pElem>
+          </incDir>
+        </ccTool>
       </item>
       <item path="../libMusicXML-1.00-src/src/include/xml.h"
             ex="false"
@@ -2069,6 +2086,13 @@
             tool="3"
             flavor2="0">
       </item>
+      <folder path="imusant old/libMusicXML-1.00-src">
+        <ccTool>
+          <incDir>
+            <pElem>../libMusicXML-1.00-src/src/include</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>

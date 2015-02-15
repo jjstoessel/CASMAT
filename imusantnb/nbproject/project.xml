@@ -10,8 +10,8 @@
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
+                <sourceRootElem>../libMusicXML-1.00-src</sourceRootElem>
                 <sourceRootElem>../imusant old</sourceRootElem>
-                <sourceRootElem>../libMusicXML-1.00-src/src</sourceRootElem>
                 <sourceRootElem>/usr/local/include/boost</sourceRootElem>
             </sourceRootList>
             <confList>

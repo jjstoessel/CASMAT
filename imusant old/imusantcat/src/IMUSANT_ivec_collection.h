@@ -10,10 +10,10 @@
 #ifndef __IMUSANT_IVEC_COLLECTION__
 #define __IMUSANT_IVEC_COLLECTION__
 
-#include <smartpointer.h>
-#include "IMUSANT_interval_vector.h"
-
 #include <vector>
+
+#include "IMUSANT_interval_vector.h"
+#include "smartpointer.h"
 
 namespace IMUSANT
 {
