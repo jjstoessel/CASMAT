@@ -1,0 +1,244 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		96A71C381A9160CB0021C86A /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
+		96A71C391A9160CB0021C86A /* common.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
+		96A71C3A1A9160CB0021C86A /* conversions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = conversions.cpp; sourceTree = "<group>"; };
+		96A71C3B1A9160CB0021C86A /* Iexpat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Iexpat.cpp; sourceTree = "<group>"; };
+		96A71C3C1A9160CB0021C86A /* Iexpat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Iexpat.h; sourceTree = "<group>"; };
+		96A71C3D1A9160CB0021C86A /* IMusicXMLReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IMusicXMLReader.cpp; sourceTree = "<group>"; };
+		96A71C3E1A9160CB0021C86A /* IMusicXMLReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMusicXMLReader.h; sourceTree = "<group>"; };
+		96A71C3F1A9160CB0021C86A /* IMusicXMLVisitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IMusicXMLVisitor.cpp; sourceTree = "<group>"; };
+		96A71C401A9160CB0021C86A /* IMusicXMLVisitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMusicXMLVisitor.h; sourceTree = "<group>"; };
+		96A71C411A9160CB0021C86A /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		96A71C421A9160CB0021C86A /* reader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		96A71C431A9160CB0021C86A /* smartpointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = smartpointer.cpp; sourceTree = "<group>"; };
+		96A71C441A9160CB0021C86A /* TArpeggiate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TArpeggiate.cpp; sourceTree = "<group>"; };
+		96A71C451A9160CB0021C86A /* TAttributes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TAttributes.cpp; sourceTree = "<group>"; };
+		96A71C461A9160CB0021C86A /* TBackupForward.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TBackupForward.cpp; sourceTree = "<group>"; };
+		96A71C471A9160CB0021C86A /* TBarline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TBarline.cpp; sourceTree = "<group>"; };
+		96A71C481A9160CB0021C86A /* TChord.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TChord.cpp; sourceTree = "<group>"; };
+		96A71C491A9160CB0021C86A /* TClef.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TClef.cpp; sourceTree = "<group>"; };
+		96A71C4A1A9160CB0021C86A /* TDirection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TDirection.cpp; sourceTree = "<group>"; };
+		96A71C4B1A9160CB0021C86A /* TFiguredBass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TFiguredBass.cpp; sourceTree = "<group>"; };
+		96A71C4C1A9160CB0021C86A /* THarmony.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = THarmony.cpp; sourceTree = "<group>"; };
+		96A71C4D1A9160CB0021C86A /* TIdentification.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TIdentification.cpp; sourceTree = "<group>"; };
+		96A71C4E1A9160CB0021C86A /* TKey.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TKey.cpp; sourceTree = "<group>"; };
+		96A71C4F1A9160CB0021C86A /* TMeasure.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TMeasure.cpp; sourceTree = "<group>"; };
+		96A71C501A9160CB0021C86A /* TMeasureStyle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TMeasureStyle.cpp; sourceTree = "<group>"; };
+		96A71C511A9160CB0021C86A /* TMidiDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TMidiDevice.cpp; sourceTree = "<group>"; };
+		96A71C521A9160CB0021C86A /* TMidiInstrument.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TMidiInstrument.cpp; sourceTree = "<group>"; };
+		96A71C531A9160CB0021C86A /* TMusicXMLFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TMusicXMLFile.cpp; sourceTree = "<group>"; };
+		96A71C541A9160CB0021C86A /* TNotation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TNotation.cpp; sourceTree = "<group>"; };
+		96A71C551A9160CB0021C86A /* TNote.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TNote.cpp; sourceTree = "<group>"; };
+		96A71C561A9160CB0021C86A /* TOrnaments.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TOrnaments.cpp; sourceTree = "<group>"; };
+		96A71C571A9160CB0021C86A /* TOtherDirections.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TOtherDirections.cpp; sourceTree = "<group>"; };
+		96A71C581A9160CB0021C86A /* TPart.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TPart.cpp; sourceTree = "<group>"; };
+		96A71C591A9160CB0021C86A /* TPartGroup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TPartGroup.cpp; sourceTree = "<group>"; };
+		96A71C5A1A9160CB0021C86A /* TPartList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TPartList.cpp; sourceTree = "<group>"; };
+		96A71C5B1A9160CB0021C86A /* TPitch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TPitch.cpp; sourceTree = "<group>"; };
+		96A71C5C1A9160CB0021C86A /* TRational.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TRational.cpp; sourceTree = "<group>"; };
+		96A71C5D1A9160CB0021C86A /* TRoutedVisitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TRoutedVisitor.cpp; sourceTree = "<group>"; };
+		96A71C5E1A9160CB0021C86A /* TScore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TScore.cpp; sourceTree = "<group>"; };
+		96A71C5F1A9160CB0021C86A /* TScoreHeader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TScoreHeader.cpp; sourceTree = "<group>"; };
+		96A71C601A9160CB0021C86A /* TScoreInstrument.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TScoreInstrument.cpp; sourceTree = "<group>"; };
+		96A71C611A9160CB0021C86A /* TScorePart.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TScorePart.cpp; sourceTree = "<group>"; };
+		96A71C621A9160CB0021C86A /* TScorePartwise.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TScorePartwise.cpp; sourceTree = "<group>"; };
+		96A71C631A9160CB0021C86A /* TScoreTimewise.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TScoreTimewise.cpp; sourceTree = "<group>"; };
+		96A71C641A9160CB0021C86A /* TSound.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TSound.cpp; sourceTree = "<group>"; };
+		96A71C651A9160CB0021C86A /* TStaffDetails.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TStaffDetails.cpp; sourceTree = "<group>"; };
+		96A71C661A9160CB0021C86A /* TTechnical.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TTechnical.cpp; sourceTree = "<group>"; };
+		96A71C671A9160CB0021C86A /* TTimeModification.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TTimeModification.cpp; sourceTree = "<group>"; };
+		96A71C681A9160CB0021C86A /* TTimeSign.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TTimeSign.cpp; sourceTree = "<group>"; };
+		96A71C691A9160CB0021C86A /* TTranspose.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TTranspose.cpp; sourceTree = "<group>"; };
+		96A71C6A1A9160CB0021C86A /* TWork.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TWork.cpp; sourceTree = "<group>"; };
+		96A71C6B1A9160CB0021C86A /* xml.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = xml.cpp; sourceTree = "<group>"; };
+		96A71C6C1A9160CB0021C86A /* xmllex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = xmllex.cpp; sourceTree = "<group>"; };
+		96A71C6D1A9160CB0021C86A /* xmlparse.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = xmlparse.cpp; sourceTree = "<group>"; };
+		96A71C6E1A9160CB0021C86A /* xmlparse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xmlparse.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		96A71C321A9160CA0021C86A = {
+			isa = PBXGroup;
+			children = (
+				96A71C381A9160CB0021C86A /* .DS_Store */,
+				96A71C391A9160CB0021C86A /* common.cpp */,
+				96A71C3A1A9160CB0021C86A /* conversions.cpp */,
+				96A71C3B1A9160CB0021C86A /* Iexpat.cpp */,
+				96A71C3C1A9160CB0021C86A /* Iexpat.h */,
+				96A71C3D1A9160CB0021C86A /* IMusicXMLReader.cpp */,
+				96A71C3E1A9160CB0021C86A /* IMusicXMLReader.h */,
+				96A71C3F1A9160CB0021C86A /* IMusicXMLVisitor.cpp */,
+				96A71C401A9160CB0021C86A /* IMusicXMLVisitor.h */,
+				96A71C411A9160CB0021C86A /* Makefile */,
+				96A71C421A9160CB0021C86A /* reader.h */,
+				96A71C431A9160CB0021C86A /* smartpointer.cpp */,
+				96A71C441A9160CB0021C86A /* TArpeggiate.cpp */,
+				96A71C451A9160CB0021C86A /* TAttributes.cpp */,
+				96A71C461A9160CB0021C86A /* TBackupForward.cpp */,
+				96A71C471A9160CB0021C86A /* TBarline.cpp */,
+				96A71C481A9160CB0021C86A /* TChord.cpp */,
+				96A71C491A9160CB0021C86A /* TClef.cpp */,
+				96A71C4A1A9160CB0021C86A /* TDirection.cpp */,
+				96A71C4B1A9160CB0021C86A /* TFiguredBass.cpp */,
+				96A71C4C1A9160CB0021C86A /* THarmony.cpp */,
+				96A71C4D1A9160CB0021C86A /* TIdentification.cpp */,
+				96A71C4E1A9160CB0021C86A /* TKey.cpp */,
+				96A71C4F1A9160CB0021C86A /* TMeasure.cpp */,
+				96A71C501A9160CB0021C86A /* TMeasureStyle.cpp */,
+				96A71C511A9160CB0021C86A /* TMidiDevice.cpp */,
+				96A71C521A9160CB0021C86A /* TMidiInstrument.cpp */,
+				96A71C531A9160CB0021C86A /* TMusicXMLFile.cpp */,
+				96A71C541A9160CB0021C86A /* TNotation.cpp */,
+				96A71C551A9160CB0021C86A /* TNote.cpp */,
+				96A71C561A9160CB0021C86A /* TOrnaments.cpp */,
+				96A71C571A9160CB0021C86A /* TOtherDirections.cpp */,
+				96A71C581A9160CB0021C86A /* TPart.cpp */,
+				96A71C591A9160CB0021C86A /* TPartGroup.cpp */,
+				96A71C5A1A9160CB0021C86A /* TPartList.cpp */,
+				96A71C5B1A9160CB0021C86A /* TPitch.cpp */,
+				96A71C5C1A9160CB0021C86A /* TRational.cpp */,
+				96A71C5D1A9160CB0021C86A /* TRoutedVisitor.cpp */,
+				96A71C5E1A9160CB0021C86A /* TScore.cpp */,
+				96A71C5F1A9160CB0021C86A /* TScoreHeader.cpp */,
+				96A71C601A9160CB0021C86A /* TScoreInstrument.cpp */,
+				96A71C611A9160CB0021C86A /* TScorePart.cpp */,
+				96A71C621A9160CB0021C86A /* TScorePartwise.cpp */,
+				96A71C631A9160CB0021C86A /* TScoreTimewise.cpp */,
+				96A71C641A9160CB0021C86A /* TSound.cpp */,
+				96A71C651A9160CB0021C86A /* TStaffDetails.cpp */,
+				96A71C661A9160CB0021C86A /* TTechnical.cpp */,
+				96A71C671A9160CB0021C86A /* TTimeModification.cpp */,
+				96A71C681A9160CB0021C86A /* TTimeSign.cpp */,
+				96A71C691A9160CB0021C86A /* TTranspose.cpp */,
+				96A71C6A1A9160CB0021C86A /* TWork.cpp */,
+				96A71C6B1A9160CB0021C86A /* xml.cpp */,
+				96A71C6C1A9160CB0021C86A /* xmllex.cpp */,
+				96A71C6D1A9160CB0021C86A /* xmlparse.cpp */,
+				96A71C6E1A9160CB0021C86A /* xmlparse.h */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		96A71C371A9160CB0021C86A /* core */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 96A71C6F1A9160CB0021C86A /* Build configuration list for PBXLegacyTarget "core" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/Jason/Musicology/computer_analysis/CATSMAT/imusant old/libMusicXML-1.00-src/src/core";
+			dependencies = (
+			);
+			name = core;
+			passBuildSettingsInEnvironment = 1;
+			productName = core;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		96A71C331A9160CB0021C86A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 96A71C361A9160CB0021C86A /* Build configuration list for PBXProject "core" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 96A71C321A9160CA0021C86A;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96A71C371A9160CB0021C86A /* core */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		96A71C341A9160CB0021C86A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		96A71C351A9160CB0021C86A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		96A71C701A9160CB0021C86A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = core;
+			};
+			name = Debug;
+		};
+		96A71C711A9160CB0021C86A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = core;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96A71C361A9160CB0021C86A /* Build configuration list for PBXProject "core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96A71C341A9160CB0021C86A /* Debug */,
+				96A71C351A9160CB0021C86A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96A71C6F1A9160CB0021C86A /* Build configuration list for PBXLegacyTarget "core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96A71C701A9160CB0021C86A /* Debug */,
+				96A71C711A9160CB0021C86A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96A71C331A9160CB0021C86A /* Project object */;
+}

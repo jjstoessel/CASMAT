@@ -8,8 +8,9 @@
  */
 #include <iostream>
 
-#include "boost/filesystem/operations.hpp"
-#include "boost/filesystem/path.hpp
+#include "boost/filesystem/operations.hpp" ///usr/local/include/boost/filesystem/operations.hpp
+
+#include "boost/filesystem/path.hpp"
 #include "boost/filesystem/convenience.hpp"
 
 #include "TMusicXMLFile.h"
@@ -32,8 +33,7 @@ using namespace IMUSANT;
 extern int catalogue(filesystem::path& p);
 extern void runToolMenu(IMUSANT_processing& processor);
 
-int main (int argc, char * const argv[]) 
-{
+int main (int argc, char * const argv[]) {
 	filesystem::path full_path(filesystem::initial_path());
 	IMUSANT_processing processor;
 	

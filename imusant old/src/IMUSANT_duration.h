@@ -49,6 +49,13 @@ class VEXP IMUSANT_duration : public smartable
 		
 		IMUSANT_duration	operator+(const IMUSANT_duration& right);
 		void				operator+=(const IMUSANT_duration& rhs);
+        IMUSANT_duration    operator-(const IMUSANT_duration& right);
+        void				operator-=(const IMUSANT_duration& rhs);
+    
+        bool operator >(const IMUSANT_duration &dur) const;
+        bool operator >=(const IMUSANT_duration &dur) const 	{return !(*this < dur);}
+        bool operator <(const IMUSANT_duration &dur) const;
+        bool operator <=(const IMUSANT_duration &dur) const 	{return !(*this > dur);}
 		
 		friend ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
 		
@@ -81,6 +88,8 @@ class VEXP IMUSANT_duration : public smartable
 			hundredandtwentyeighth;  //unmentionalble duration	
 			
 			IMUSANT_duration(): fDuration(IMUSANT_duration::unmeasured), fDots(0), fTimeModification("1/1") {}
+            //copy ctor
+            IMUSANT_duration(const IMUSANT_duration& duration) { *this = duration; }
 			virtual ~IMUSANT_duration() {}
 	protected:
 			

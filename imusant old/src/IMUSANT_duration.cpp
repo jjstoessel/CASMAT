@@ -14,7 +14,7 @@ namespace IMUSANT
 {
 
 //static strings of durations
-TRational IMUSANT_duration::unmeasured(0,0);
+TRational IMUSANT_duration::unmeasured(0,1);
 TRational IMUSANT_duration::maxima(8,1);
 TRational IMUSANT_duration::longa(4,1);
 TRational IMUSANT_duration::breve(2,1);
@@ -25,7 +25,7 @@ TRational IMUSANT_duration::quaver(1,8);
 TRational IMUSANT_duration::semiquaver(1,16); //16th
 TRational IMUSANT_duration::demisemiquaver(1,32); //32nd
 TRational IMUSANT_duration::hemidemisemiquaver(1,64); //64th
-TRational IMUSANT_duration::hundredandtwentyeighth(1,128);  //unmentionalble duration
+TRational IMUSANT_duration::hundredandtwentyeighth(1,128);  //unmentionable duration
 
 //ctor functions
 S_IMUSANT_duration new_IMUSANT_duration() { IMUSANT_duration* o = new IMUSANT_duration(); assert (o!=0); return o; }
@@ -47,20 +47,34 @@ ostream& operator<< (ostream& os, const IMUSANT_duration& elt )
     return os;
 }
 
+//--
+//takes durations and reduces them to simplest form
 long IMUSANT_duration::NormaliseDuration(TRational& dur)
 {
 	dur.rationalise();
 	
 	long dots = 0;
-	long c = dur.getNumerator();
+	/*long n = dur.getNumerator();
 	long d = dur.getDenominator();
-	while ( c > d && c!=1 )
+	while ( n > d )
 	{
-		c/=2;
+		n/=2;
 		d/=2;
 		dots++;
 		dur -= TRational(dots, dur.getDenominator());
-	}
+	}*/
+    TRational sesquialtera(3,2);
+    
+    while   (
+             dur.getNumerator()!=0 && \
+            (dur.getNumerator() > dur.getDenominator() || \
+             dur.getDenominator()%dur.getNumerator()==1 || \
+             dur.getDenominator()%dur.getNumerator()==2 )
+            )
+    {
+        dots++;
+        dur /= sesquialtera;
+    }
 	
 	dur.rationalise();
 	
@@ -97,6 +111,43 @@ IMUSANT_duration	IMUSANT_duration::operator+(const IMUSANT_duration& right)
 	return out; 
 }
 
+void	IMUSANT_duration::operator+=(const IMUSANT_duration& rhs)
+{
+    *this = *this + rhs;
+}
+
+//--
+//Subtracts two durations, resulting in an absolute duration without dots or time modification
+//To do: check for simple relationships (dots and time modification) in resulting float
+IMUSANT_duration	IMUSANT_duration::operator-(const IMUSANT_duration& right)
+{
+    IMUSANT_duration out;
+    TRational simple_left = getSimplifiedDuration().fDuration;
+    TRational simple_right = right.getSimplifiedDuration().fDuration;
+    
+    TRational r = simple_left - simple_right;
+    out.fDots = NormaliseDuration(r);
+    out.fDuration = r;
+    out.fTimeModification=1;
+    
+    return out;
+}
+
+void	IMUSANT_duration::operator-=(const IMUSANT_duration& rhs)
+{
+    *this = *this - rhs;
+}
+
+bool IMUSANT_duration::operator >(const IMUSANT_duration &dur) const
+{
+    return (getSimplifiedDuration().fDuration > dur.getSimplifiedDuration().fDuration);
+}
+
+bool IMUSANT_duration::operator <(const IMUSANT_duration &dur) const
+{
+    return (getSimplifiedDuration().fDuration < dur.getSimplifiedDuration().fDuration);
+}
+
 //--
 //Simplifies durations with dots and/or time proportions to simple float in fDuration w/o dots & time mods
 IMUSANT_duration	IMUSANT_duration::getSimplifiedDuration() const
@@ -113,16 +164,13 @@ IMUSANT_duration	IMUSANT_duration::getSimplifiedDuration() const
 	}
 	
 	out.fDuration = fDuration * dotsmultiplier * fTimeModification;
-	out.fDots = NormaliseDuration(out.fDuration);
+    out.fDots = 0;
 	out.fTimeModification=1; 
 				
 	return out; 
 }
 
-void	IMUSANT_duration::operator+=(const IMUSANT_duration& rhs)
-{
-	*this = *this + rhs;
-}
+
 
 
 } //namespace IMUSANT

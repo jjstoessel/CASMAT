@@ -24,7 +24,7 @@ VEXP ostream& operator<< (ostream& os, const IMUSANT_pitch& elt );
 /*!
 \brief An IMUSANT pitch representation.
 This class handles pitch representations
-Currently incomplete as alter only takes account of semitones, not quartertones
+Currently incomplete since alteration only takes account of semitones, not quartertones
 */
 class VEXP IMUSANT_pitch : public smartable
 {

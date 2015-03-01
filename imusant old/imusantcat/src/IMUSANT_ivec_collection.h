@@ -10,10 +10,10 @@
 #ifndef __IMUSANT_IVEC_COLLECTION__
 #define __IMUSANT_IVEC_COLLECTION__
 
-#include <vector>
-
-#include "IMUSANT_interval_vector.h"
 #include "smartpointer.h"
+#include "IMUSANT_interval_vector.h"
+
+#include <vector>
 
 namespace IMUSANT
 {
@@ -26,7 +26,7 @@ class IMUSANT_ivec_collection : public SEGMENTS, public smartable
 		friend SMARTP<IMUSANT_ivec_collection> new_IMUSANT_ivec_collection(long min, long max);
 		
 	protected:
-			IMUSANT_ivec_collection(long min, long max);
+				IMUSANT_ivec_collection(long min, long max);
 		virtual ~IMUSANT_ivec_collection() {}
 	private:
 		

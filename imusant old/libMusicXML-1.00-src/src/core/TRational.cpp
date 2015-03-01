@@ -67,7 +67,8 @@ TRational::TRational(const string &str)
 TRational::TRational(long int num, long int denom) : fNumerator(num), fDenominator(denom)
 {
     // don't allow zero denominators!
-    if (fDenominator == 0) fDenominator = 1;
+    //if (fDenominator == 0) fDenominator = 1;
+    if (fNumerator !=0 && fDenominator == 0) fDenominator = 1;
 }
 
 TRational::TRational(const TRational& d)

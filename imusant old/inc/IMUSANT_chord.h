@@ -25,7 +25,7 @@ class VEXP IMUSANT_chord : public IMUSANT_element
 	
 		VEXP friend SMARTP<IMUSANT_chord> new_IMUSANT_chord();
 		
-		void accept(IMUSANT_visitor& visitor);
+		void    accept(IMUSANT_visitor& visitor);
 	
 		void	add(const S_IMUSANT_note& note) { fChordNotes.push_back(note); }
 	

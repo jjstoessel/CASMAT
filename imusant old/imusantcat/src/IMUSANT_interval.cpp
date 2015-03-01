@@ -90,6 +90,7 @@ IMUSANT_interval IMUSANT_interval::MakeUniqueInterval()
 	
 	return out;
 }
+    
 //protected ctor member
 IMUSANT_interval::IMUSANT_interval(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second)
 {

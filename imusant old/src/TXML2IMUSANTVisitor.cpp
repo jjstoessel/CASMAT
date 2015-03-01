@@ -739,8 +739,8 @@ void TXML2IMUSANTVisitor::visite ( SNote& elt ) { debug
 		switch (elt->getStyle())
 		{
 			case TNote::normal:
-				fNote = IMUSANT_note(elt);//normalNote (elt);
-				currentMeasure->addElement(fNote);
+				fNote = IMUSANT_note(elt);
+                currentMeasure->addElement(fNote);
 				break;
 			case TNote::cue:
 				//cueNote (elt);

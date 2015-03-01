@@ -21,6 +21,7 @@
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_visitor.h"
 #include "IMUSANT_pitch.h"
+#include "CATSMAT_cp_matrix.h"
 
 using namespace std;
 
@@ -72,13 +73,15 @@ class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
 		//collection of interval vectors
 		//S_IMUSANT_ivec_collection	fIntervalCollection;
 		//collection of rhythm vectors
-		S_IMUSANT_rvec_collection	fRhythmCollection;
+		S_IMUSANT_rvec_collection       fRhythmCollection;
 		//local storage of segments
-		S_IMUSANT_interval_vector	fIntervalVector;
+		S_IMUSANT_interval_vector       fIntervalVector;
 		//local storage of melodic contour
-		S_IMUSANT_contour			fMelodicContour;
+		S_IMUSANT_contour               fMelodicContour;
 		//local storage of pitches
-		S_IMUSANT_pitch_vector		fPitchVector;
+		S_IMUSANT_pitch_vector          fPitchVector;
+        //local storage of counterpoint matrix
+        CATSMAT::S_CATSMAT_cp_matrix    fCPMatrix;
 		
 		// global flag to denote chords writing
 		bool			fInChord;

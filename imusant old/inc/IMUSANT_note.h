@@ -85,26 +85,26 @@ class VEXP IMUSANT_note : public IMUSANT_element
 		
 		bool operator== (const IMUSANT_note& note) const;
 
-	protected:
 		IMUSANT_note() : fTieNext(NULL), fTiePrevious(NULL), fStyle(IMUSANT_NoteStyle::normal), fType(IMUSANT_NoteType::pitch) {}
 		IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration )
 			: fPitch(pitch), fDuration(duration), fTieNext(NULL), fTiePrevious(NULL), fStyle(IMUSANT_NoteStyle::normal), fType(IMUSANT_NoteType::pitch) {}
 		virtual ~IMUSANT_note(){}
+    
 	private:
 			
-		S_IMUSANT_pitch		fPitch;
-		S_IMUSANT_duration	fDuration;
-		S_IMUSANT_accidental fAccidental;
+		S_IMUSANT_pitch                 fPitch;
+		S_IMUSANT_duration              fDuration;
+		S_IMUSANT_accidental            fAccidental;
 		IMUSANT_vector<S_IMUSANT_lyric>	fLyrics;
 		IMUSANT_vector<S_IMUSANT_lyric>	fMSLyrics;		//for distinguising editorial underlay
-		string				fStem;			//not implemented
-		string				fStaff;			//staff name
-		long				fMeasureNumber;	//internal measure reference
-		long				fNoteIndex;		//index of note in measure
-		S_IMUSANT_note		fTieNext;
-		S_IMUSANT_note		fTiePrevious; 
-		IMUSANT_NoteStyle::type		fStyle;
-		IMUSANT_NoteType::type		fType;
+		string                          fStem;			//not implemented
+		string                          fStaff;			//staff name
+		long                            fMeasureNumber;	//internal measure reference
+		long                            fNoteIndex;		//index of note in measure
+		S_IMUSANT_note                  fTieNext;
+		S_IMUSANT_note                  fTiePrevious;
+		IMUSANT_NoteStyle::type         fStyle;
+		IMUSANT_NoteType::type          fType;
 };
 typedef SMARTP<IMUSANT_note> S_IMUSANT_note;
 

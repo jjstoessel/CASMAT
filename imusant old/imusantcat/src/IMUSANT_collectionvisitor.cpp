@@ -81,7 +81,8 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_lyric& elt )
 #pragma mark IMUSANT_measure handler
 void IMUSANT_collection_visitor::visit ( S_IMUSANT_measure& elt )
 {
-
+    fCPMatrix->set(elt->getTime());
+    
 	elt->elements().accept(*this);
 }
 
@@ -124,6 +125,8 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 	{
 		fLastNote = 0;
 	}
+    
+    fCPMatrix->add(*elt);
 
 	elt->lyrics().accept(*this);
 }
@@ -134,6 +137,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
 	//create part summary
 	fLastNote = 0;
 	fCurrentPartID++;
+    fCPMatrix->addpart();
 	//call sub-elements
 	elt->measures().accept(*this);
 }
@@ -154,6 +158,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 	fIntervalVector->setMaximum(0x7fffffff);
 	fMelodicContour = new_IMUSANT_contour();
 	fPitchVector = new_IMUSANT_pitch_vector();
+    fCPMatrix = CATSMAT::new_CATSMAT_cp_matrix();
 	
 	fMovementTitle = elt->getMovementTitle();
 	

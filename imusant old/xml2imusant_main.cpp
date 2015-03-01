@@ -4,7 +4,7 @@
 #include "boost/filesystem/path.hpp"
 #include "boost/filesystem/convenience.hpp"
 
-#include <libmusicxml2/xmlfile.h>
+//#include <libmusicxml2/xmlfile.h>
 #include "IMUSANT_XMLFile.h"
 //#include "TXML2IMUSANTVisitor.h"
 #include "xml2imusantvisitor.h"
@@ -13,7 +13,7 @@
 
 #include "TScore.h"
 
-#define __DEBUG__ 0
+#define __DEBUG__ 1
 
 using namespace boost;
 using namespace std;

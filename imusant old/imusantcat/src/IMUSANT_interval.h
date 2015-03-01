@@ -41,7 +41,8 @@ public:
 	{	
 		partID=rhs.partID;
 		first.measure=rhs.first.measure; first.note_index=rhs.first.note_index; 
-		last.measure=rhs.last.measure; last.note_index = rhs.last.note_index;  return *this; }
+		last.measure=rhs.last.measure; last.note_index = rhs.last.note_index;  return *this;
+    }
 		
 	location first;
 	location last;
