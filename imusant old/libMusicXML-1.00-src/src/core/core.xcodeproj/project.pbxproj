@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		96A71C381A9160CB0021C86A /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
+		96A71C381A9160CB0021C86A /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = text; path = .DS_Store; sourceTree = "<group>"; };
 		96A71C391A9160CB0021C86A /* common.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
 		96A71C3A1A9160CB0021C86A /* conversions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = conversions.cpp; sourceTree = "<group>"; };
 		96A71C3B1A9160CB0021C86A /* Iexpat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Iexpat.cpp; sourceTree = "<group>"; };
-		96A71C3C1A9160CB0021C86A /* Iexpat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Iexpat.h; sourceTree = "<group>"; };
+		96A71C3C1A9160CB0021C86A /* Iexpat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Iexpat.h; sourceTree = "<group>"; };
 		96A71C3D1A9160CB0021C86A /* IMusicXMLReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IMusicXMLReader.cpp; sourceTree = "<group>"; };
 		96A71C3E1A9160CB0021C86A /* IMusicXMLReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMusicXMLReader.h; sourceTree = "<group>"; };
 		96A71C3F1A9160CB0021C86A /* IMusicXMLVisitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IMusicXMLVisitor.cpp; sourceTree = "<group>"; };

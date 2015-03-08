@@ -1,9 +1,10 @@
 /*
- *  imusantcat_main.cpp
+ *  CATSMAT_main.cpp
  *  imusant
  *
- *  Created by Jason Stoessel on 24/06/06.
- *  Copyright 2006 __MyCompanyName__. All rights reserved.
+ *  Created by Jason Stoessel on 8 March 2015.
+ *  Copyright © 2015 Jason Stoessel. All rights reserved.
+ *  
  *
  */
 #include <iostream>
@@ -34,20 +35,23 @@ int main (int argc, char * const argv[]) {
 	filesystem::path full_path(filesystem::initial_path());
 	IMUSANT_processing processor;
 	
-	cout	<< "=========================================================================" << endl
-			<< "|					 WELCOME TO IMUSANT, version 0.6					" << endl
-			<< "|					(Intertextual MUSic ANalysis Tool)					" << endl
+	cout	<< "========================================================================" << endl
+			<< "|					 WELCOME TO CATSMAT, version 0.1					" << endl
+			<< "|           (Canonic Techniques Symbolic Musical Analysis Tool)         " << endl
 			<< "|																		" << endl
-			<< "|	Designers: Rex Eakins, Jason Stoessel								" << endl
-			<< "|	Programming: Jason Stoessel											" << endl
-			<< "|	Development Tool: Apple Computer's XCode version 2.3 (gcc++)		" << endl
-			<< "|																		" << endl
-			<< "|	This software is part of the project entitled \"The Meeting of		" << endl
-			<< "|	Computer Technology and Medieval Music: A Prototype Software		" << endl
-			<< "|	Program for Analysis of Musical Intertextuality.\" Funding for		" << endl
-			<< "|	the development of the first working model of this tool has been	" << endl
-			<< "|	provide as a 2006 University Research Grant from the University		" << endl
-			<< "|	of New England, Armidale, Australia.								" << endl
+			<< "|	Designers: Denis Collins and Jason Stoessel							" << endl
+			<< "|	Programming: Jason Stoessel	and …									" << endl
+			<< "|	Development Tool: Apple Computer's XCode version 6.1.1 (LLVM C++)   " << endl
+			<< "|                                                                       " << endl
+            << "|   These  symbolic musical analysis tools have been developed by       " << endl
+            << "|   Chief Investigators Denis Collins and JAson Stoessel for their      " << endl
+            << "|   project \"Canonic Techniques and Musical Change, from c.1330 to     " << endl
+            << "|   c.1530\", funded by the Australian Reserach Council (DP150102135).  " << endl
+			<< "|	This software uses portions of code from the project \"The Meeting  " << endl
+            << "|   of Computer Technology and Medieval Music: A Proto-type Software    " << endl
+            << "|	Program for Analysis of Musical Intertextuality.\" (2006 University " << endl
+			<< "|	Research Grant, New England, Armidale, Australia) by Rex Eakins     " << endl
+            << "|   and Jason Stoessel.                                                 " << endl
 			<< "|																		" << endl
 			<< "|	This program and its code remains the property of the authors and	" << endl
 			<< "|	where applicable, the University of New England. This program		" << endl

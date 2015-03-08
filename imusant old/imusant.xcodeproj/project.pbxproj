@@ -31,13 +31,10 @@
 		965209900A4D1CD8006AFD81 /* IMUSANT_record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */; };
 		965209A60A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */; };
 		965209AB0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */; };
-		9668FFB71A8B077000C8F5A6 /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */; };
 		968641240A325C6D0031AC4A /* IMUSANT_XMLReader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 968641220A325C6D0031AC4A /* IMUSANT_XMLReader.h */; };
 		968641250A325C6D0031AC4A /* IMUSANT_XMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 968641230A325C6D0031AC4A /* IMUSANT_XMLReader.cpp */; };
 		96A61E8A0A45073A005E4CBF /* IMUSANT_barline.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96A61E880A45073A005E4CBF /* IMUSANT_barline.h */; };
 		96A61E8B0A45073A005E4CBF /* IMUSANT_barline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */; };
-		96A71CC81A91632F0021C86A /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A71CC71A91632F0021C86A /* libboost_filesystem.dylib */; };
-		96A71CC91A91632F0021C86A /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A71CC71A91632F0021C86A /* libboost_filesystem.dylib */; };
 		BA4462690A9196520033DB86 /* IMUSANT_contour_symbol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */; };
 		BA4A463809D8B116000B0808 /* TXML2IMUSANTVisitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4A463609D8B115000B0808 /* TXML2IMUSANTVisitor.h */; };
 		BA4A463909D8B116000B0808 /* TXML2IMUSANTVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A463709D8B116000B0808 /* TXML2IMUSANTVisitor.cpp */; };
@@ -53,6 +50,219 @@
 		BA697FAE0AA50A60002DC3B2 /* IMUSANT_key.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA697FAC0AA50A60002DC3B2 /* IMUSANT_key.h */; };
 		BA697FAF0AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */; };
 		BA697FB00AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */; };
+		BAA8D8071AA42BD80053ADE3 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7CE1AA42BD80053ADE3 /* common.cpp */; };
+		BAA8D8081AA42BD80053ADE3 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7CE1AA42BD80053ADE3 /* common.cpp */; };
+		BAA8D8091AA42BD80053ADE3 /* conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7CF1AA42BD80053ADE3 /* conversions.cpp */; };
+		BAA8D80A1AA42BD80053ADE3 /* conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7CF1AA42BD80053ADE3 /* conversions.cpp */; };
+		BAA8D80B1AA42BD80053ADE3 /* Iexpat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D31AA42BD80053ADE3 /* Iexpat.cpp */; };
+		BAA8D80C1AA42BD80053ADE3 /* Iexpat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D31AA42BD80053ADE3 /* Iexpat.cpp */; };
+		BAA8D80D1AA42BD80053ADE3 /* IMusicXMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D51AA42BD80053ADE3 /* IMusicXMLReader.cpp */; };
+		BAA8D80E1AA42BD80053ADE3 /* IMusicXMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D51AA42BD80053ADE3 /* IMusicXMLReader.cpp */; };
+		BAA8D80F1AA42BD80053ADE3 /* IMusicXMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D71AA42BD80053ADE3 /* IMusicXMLVisitor.cpp */; };
+		BAA8D8101AA42BD80053ADE3 /* IMusicXMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D71AA42BD80053ADE3 /* IMusicXMLVisitor.cpp */; };
+		BAA8D8111AA42BD80053ADE3 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D91AA42BD80053ADE3 /* Makefile */; };
+		BAA8D8121AA42BD80053ADE3 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D91AA42BD80053ADE3 /* Makefile */; };
+		BAA8D8131AA42BD80053ADE3 /* smartpointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DB1AA42BD80053ADE3 /* smartpointer.cpp */; };
+		BAA8D8141AA42BD80053ADE3 /* smartpointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DB1AA42BD80053ADE3 /* smartpointer.cpp */; };
+		BAA8D8151AA42BD80053ADE3 /* TArpeggiate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DC1AA42BD80053ADE3 /* TArpeggiate.cpp */; };
+		BAA8D8161AA42BD80053ADE3 /* TArpeggiate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DC1AA42BD80053ADE3 /* TArpeggiate.cpp */; };
+		BAA8D8171AA42BD80053ADE3 /* TAttributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DD1AA42BD80053ADE3 /* TAttributes.cpp */; };
+		BAA8D8181AA42BD80053ADE3 /* TAttributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DD1AA42BD80053ADE3 /* TAttributes.cpp */; };
+		BAA8D8191AA42BD80053ADE3 /* TBackupForward.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DE1AA42BD80053ADE3 /* TBackupForward.cpp */; };
+		BAA8D81A1AA42BD80053ADE3 /* TBackupForward.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DE1AA42BD80053ADE3 /* TBackupForward.cpp */; };
+		BAA8D81B1AA42BD80053ADE3 /* TBarline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DF1AA42BD80053ADE3 /* TBarline.cpp */; };
+		BAA8D81C1AA42BD80053ADE3 /* TBarline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DF1AA42BD80053ADE3 /* TBarline.cpp */; };
+		BAA8D81D1AA42BD80053ADE3 /* TChord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E01AA42BD80053ADE3 /* TChord.cpp */; };
+		BAA8D81E1AA42BD80053ADE3 /* TChord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E01AA42BD80053ADE3 /* TChord.cpp */; };
+		BAA8D81F1AA42BD80053ADE3 /* TClef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E11AA42BD80053ADE3 /* TClef.cpp */; };
+		BAA8D8201AA42BD80053ADE3 /* TClef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E11AA42BD80053ADE3 /* TClef.cpp */; };
+		BAA8D8211AA42BD80053ADE3 /* TDirection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E21AA42BD80053ADE3 /* TDirection.cpp */; };
+		BAA8D8221AA42BD80053ADE3 /* TDirection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E21AA42BD80053ADE3 /* TDirection.cpp */; };
+		BAA8D8231AA42BD80053ADE3 /* TFiguredBass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E31AA42BD80053ADE3 /* TFiguredBass.cpp */; };
+		BAA8D8241AA42BD80053ADE3 /* TFiguredBass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E31AA42BD80053ADE3 /* TFiguredBass.cpp */; };
+		BAA8D8251AA42BD80053ADE3 /* THarmony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E41AA42BD80053ADE3 /* THarmony.cpp */; };
+		BAA8D8261AA42BD80053ADE3 /* THarmony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E41AA42BD80053ADE3 /* THarmony.cpp */; };
+		BAA8D8271AA42BD80053ADE3 /* TIdentification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E51AA42BD80053ADE3 /* TIdentification.cpp */; };
+		BAA8D8281AA42BD80053ADE3 /* TIdentification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E51AA42BD80053ADE3 /* TIdentification.cpp */; };
+		BAA8D8291AA42BD80053ADE3 /* TKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E61AA42BD80053ADE3 /* TKey.cpp */; };
+		BAA8D82A1AA42BD80053ADE3 /* TKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E61AA42BD80053ADE3 /* TKey.cpp */; };
+		BAA8D82B1AA42BD80053ADE3 /* TMeasure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E71AA42BD80053ADE3 /* TMeasure.cpp */; };
+		BAA8D82C1AA42BD80053ADE3 /* TMeasure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E71AA42BD80053ADE3 /* TMeasure.cpp */; };
+		BAA8D82D1AA42BD80053ADE3 /* TMeasureStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E81AA42BD80053ADE3 /* TMeasureStyle.cpp */; };
+		BAA8D82E1AA42BD80053ADE3 /* TMeasureStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E81AA42BD80053ADE3 /* TMeasureStyle.cpp */; };
+		BAA8D82F1AA42BD80053ADE3 /* TMidiDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E91AA42BD80053ADE3 /* TMidiDevice.cpp */; };
+		BAA8D8301AA42BD80053ADE3 /* TMidiDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E91AA42BD80053ADE3 /* TMidiDevice.cpp */; };
+		BAA8D8311AA42BD80053ADE3 /* TMidiInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EA1AA42BD80053ADE3 /* TMidiInstrument.cpp */; };
+		BAA8D8321AA42BD80053ADE3 /* TMidiInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EA1AA42BD80053ADE3 /* TMidiInstrument.cpp */; };
+		BAA8D8331AA42BD80053ADE3 /* TMusicXMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EB1AA42BD80053ADE3 /* TMusicXMLFile.cpp */; };
+		BAA8D8341AA42BD80053ADE3 /* TMusicXMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EB1AA42BD80053ADE3 /* TMusicXMLFile.cpp */; };
+		BAA8D8351AA42BD80053ADE3 /* TNotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EC1AA42BD80053ADE3 /* TNotation.cpp */; };
+		BAA8D8361AA42BD80053ADE3 /* TNotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EC1AA42BD80053ADE3 /* TNotation.cpp */; };
+		BAA8D8371AA42BD80053ADE3 /* TNote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7ED1AA42BD80053ADE3 /* TNote.cpp */; };
+		BAA8D8381AA42BD80053ADE3 /* TNote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7ED1AA42BD80053ADE3 /* TNote.cpp */; };
+		BAA8D8391AA42BD80053ADE3 /* TOrnaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EE1AA42BD80053ADE3 /* TOrnaments.cpp */; };
+		BAA8D83A1AA42BD80053ADE3 /* TOrnaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EE1AA42BD80053ADE3 /* TOrnaments.cpp */; };
+		BAA8D83B1AA42BD80053ADE3 /* TOtherDirections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EF1AA42BD80053ADE3 /* TOtherDirections.cpp */; };
+		BAA8D83C1AA42BD80053ADE3 /* TOtherDirections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EF1AA42BD80053ADE3 /* TOtherDirections.cpp */; };
+		BAA8D83D1AA42BD80053ADE3 /* TPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F01AA42BD80053ADE3 /* TPart.cpp */; };
+		BAA8D83E1AA42BD80053ADE3 /* TPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F01AA42BD80053ADE3 /* TPart.cpp */; };
+		BAA8D83F1AA42BD80053ADE3 /* TPartGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F11AA42BD80053ADE3 /* TPartGroup.cpp */; };
+		BAA8D8401AA42BD80053ADE3 /* TPartGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F11AA42BD80053ADE3 /* TPartGroup.cpp */; };
+		BAA8D8411AA42BD80053ADE3 /* TPartList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F21AA42BD80053ADE3 /* TPartList.cpp */; };
+		BAA8D8421AA42BD80053ADE3 /* TPartList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F21AA42BD80053ADE3 /* TPartList.cpp */; };
+		BAA8D8431AA42BD80053ADE3 /* TPitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F31AA42BD80053ADE3 /* TPitch.cpp */; };
+		BAA8D8441AA42BD80053ADE3 /* TPitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F31AA42BD80053ADE3 /* TPitch.cpp */; };
+		BAA8D8451AA42BD80053ADE3 /* TRational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F41AA42BD80053ADE3 /* TRational.cpp */; };
+		BAA8D8461AA42BD80053ADE3 /* TRational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F41AA42BD80053ADE3 /* TRational.cpp */; };
+		BAA8D8471AA42BD80053ADE3 /* TRoutedVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F51AA42BD80053ADE3 /* TRoutedVisitor.cpp */; };
+		BAA8D8481AA42BD80053ADE3 /* TRoutedVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F51AA42BD80053ADE3 /* TRoutedVisitor.cpp */; };
+		BAA8D8491AA42BD80053ADE3 /* TScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F61AA42BD80053ADE3 /* TScore.cpp */; };
+		BAA8D84A1AA42BD80053ADE3 /* TScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F61AA42BD80053ADE3 /* TScore.cpp */; };
+		BAA8D84B1AA42BD80053ADE3 /* TScoreHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F71AA42BD80053ADE3 /* TScoreHeader.cpp */; };
+		BAA8D84C1AA42BD80053ADE3 /* TScoreHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F71AA42BD80053ADE3 /* TScoreHeader.cpp */; };
+		BAA8D84D1AA42BD80053ADE3 /* TScoreInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F81AA42BD80053ADE3 /* TScoreInstrument.cpp */; };
+		BAA8D84E1AA42BD80053ADE3 /* TScoreInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F81AA42BD80053ADE3 /* TScoreInstrument.cpp */; };
+		BAA8D84F1AA42BD80053ADE3 /* TScorePart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F91AA42BD80053ADE3 /* TScorePart.cpp */; };
+		BAA8D8501AA42BD80053ADE3 /* TScorePart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F91AA42BD80053ADE3 /* TScorePart.cpp */; };
+		BAA8D8511AA42BD80053ADE3 /* TScorePartwise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FA1AA42BD80053ADE3 /* TScorePartwise.cpp */; };
+		BAA8D8521AA42BD80053ADE3 /* TScorePartwise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FA1AA42BD80053ADE3 /* TScorePartwise.cpp */; };
+		BAA8D8531AA42BD80053ADE3 /* TScoreTimewise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FB1AA42BD80053ADE3 /* TScoreTimewise.cpp */; };
+		BAA8D8541AA42BD80053ADE3 /* TScoreTimewise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FB1AA42BD80053ADE3 /* TScoreTimewise.cpp */; };
+		BAA8D8551AA42BD80053ADE3 /* TSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FC1AA42BD80053ADE3 /* TSound.cpp */; };
+		BAA8D8561AA42BD80053ADE3 /* TSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FC1AA42BD80053ADE3 /* TSound.cpp */; };
+		BAA8D8571AA42BD80053ADE3 /* TStaffDetails.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FD1AA42BD80053ADE3 /* TStaffDetails.cpp */; };
+		BAA8D8581AA42BD80053ADE3 /* TStaffDetails.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FD1AA42BD80053ADE3 /* TStaffDetails.cpp */; };
+		BAA8D8591AA42BD80053ADE3 /* TTechnical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FE1AA42BD80053ADE3 /* TTechnical.cpp */; };
+		BAA8D85A1AA42BD80053ADE3 /* TTechnical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FE1AA42BD80053ADE3 /* TTechnical.cpp */; };
+		BAA8D85B1AA42BD80053ADE3 /* TTimeModification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FF1AA42BD80053ADE3 /* TTimeModification.cpp */; };
+		BAA8D85C1AA42BD80053ADE3 /* TTimeModification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FF1AA42BD80053ADE3 /* TTimeModification.cpp */; };
+		BAA8D85D1AA42BD80053ADE3 /* TTimeSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8001AA42BD80053ADE3 /* TTimeSign.cpp */; };
+		BAA8D85E1AA42BD80053ADE3 /* TTimeSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8001AA42BD80053ADE3 /* TTimeSign.cpp */; };
+		BAA8D85F1AA42BD80053ADE3 /* TTranspose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8011AA42BD80053ADE3 /* TTranspose.cpp */; };
+		BAA8D8601AA42BD80053ADE3 /* TTranspose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8011AA42BD80053ADE3 /* TTranspose.cpp */; };
+		BAA8D8611AA42BD80053ADE3 /* TWork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8021AA42BD80053ADE3 /* TWork.cpp */; };
+		BAA8D8621AA42BD80053ADE3 /* TWork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8021AA42BD80053ADE3 /* TWork.cpp */; };
+		BAA8D8631AA42BD80053ADE3 /* xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8031AA42BD80053ADE3 /* xml.cpp */; };
+		BAA8D8641AA42BD80053ADE3 /* xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8031AA42BD80053ADE3 /* xml.cpp */; };
+		BAA8D8651AA42BD80053ADE3 /* xmllex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8041AA42BD80053ADE3 /* xmllex.cpp */; };
+		BAA8D8661AA42BD80053ADE3 /* xmllex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8041AA42BD80053ADE3 /* xmllex.cpp */; };
+		BAA8D8671AA42BD80053ADE3 /* xmlparse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8051AA42BD80053ADE3 /* xmlparse.cpp */; };
+		BAA8D8681AA42BD80053ADE3 /* xmlparse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8051AA42BD80053ADE3 /* xmlparse.cpp */; };
+		BAA8D8751AA42BFF0053ADE3 /* guido.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86B1AA42BFF0053ADE3 /* guido.cpp */; };
+		BAA8D8761AA42BFF0053ADE3 /* guido.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86B1AA42BFF0053ADE3 /* guido.cpp */; };
+		BAA8D8771AA42BFF0053ADE3 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86C1AA42BFF0053ADE3 /* Makefile */; };
+		BAA8D8781AA42BFF0053ADE3 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86C1AA42BFF0053ADE3 /* Makefile */; };
+		BAA8D8791AA42BFF0053ADE3 /* TMidiContextVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86D1AA42BFF0053ADE3 /* TMidiContextVisitor.cpp */; };
+		BAA8D87A1AA42BFF0053ADE3 /* TMidiContextVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86D1AA42BFF0053ADE3 /* TMidiContextVisitor.cpp */; };
+		BAA8D87B1AA42BFF0053ADE3 /* TRolledVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86E1AA42BFF0053ADE3 /* TRolledVisitor.cpp */; };
+		BAA8D87C1AA42BFF0053ADE3 /* TRolledVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86E1AA42BFF0053ADE3 /* TRolledVisitor.cpp */; };
+		BAA8D87D1AA42BFF0053ADE3 /* TScanVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86F1AA42BFF0053ADE3 /* TScanVisitor.cpp */; };
+		BAA8D87E1AA42BFF0053ADE3 /* TScanVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86F1AA42BFF0053ADE3 /* TScanVisitor.cpp */; };
+		BAA8D87F1AA42BFF0053ADE3 /* TUnrolledVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8701AA42BFF0053ADE3 /* TUnrolledVisitor.cpp */; };
+		BAA8D8801AA42BFF0053ADE3 /* TUnrolledVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8701AA42BFF0053ADE3 /* TUnrolledVisitor.cpp */; };
+		BAA8D8811AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8711AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp */; };
+		BAA8D8821AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8711AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp */; };
+		BAA8D88C1AA42E6A0053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		BAA8D88D1AA42E6A0053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		BAA8D88F1AA42E7E0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		BAA8D8901AA42E7E0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		BAA8D8921AA430F30053ADE3 /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BAA8D8931AA430F30053ADE3 /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BAA8D8A01AABFC1A0053ADE3 /* CATSMAT_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */; };
+		BAA8D8A11AABFCCA0053ADE3 /* IMUSANT_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098A0A4D1CBE006AFD81 /* IMUSANT_interval.cpp */; };
+		BAA8D8A21AABFCCA0053ADE3 /* IMUSANT_contour_symbol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */; };
+		BAA8D8A31AABFCCA0053ADE3 /* IMUSANT_record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */; };
+		BAA8D8A41AABFCCA0053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */; };
+		BAA8D8A51AABFCCA0053ADE3 /* IMUSANT_interval_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */; };
+		BAA8D8A61AABFCCA0053ADE3 /* IMUSANT_ivec_collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */; };
+		BAA8D8A71AABFCCA0053ADE3 /* IMUSANT_rvec_collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */; };
+		BAA8D8A81AABFCCA0053ADE3 /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
+		BAA8D8A91AABFCCA0053ADE3 /* IMUSANT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */; };
+		BAA8D8AA1AABFCCF0053ADE3 /* IMUSANT_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098A0A4D1CBE006AFD81 /* IMUSANT_interval.cpp */; };
+		BAA8D8AB1AABFCCF0053ADE3 /* IMUSANT_contour_symbol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */; };
+		BAA8D8AC1AABFCCF0053ADE3 /* IMUSANT_record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */; };
+		BAA8D8AE1AABFCCF0053ADE3 /* IMUSANT_interval_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */; };
+		BAA8D8AF1AABFCCF0053ADE3 /* IMUSANT_ivec_collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */; };
+		BAA8D8B01AABFCCF0053ADE3 /* IMUSANT_rvec_collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */; };
+		BAA8D8B11AABFCCF0053ADE3 /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
+		BAA8D8B21AABFCCF0053ADE3 /* IMUSANT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */; };
+		BAA8D8B31AABFD160053ADE3 /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAF8D4E0A3E35FE00E5157F /* IMUSANT_conversions.cpp */; };
+		BAA8D8B41AABFD160053ADE3 /* IMUSANT_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */; };
+		BAA8D8B51AABFD160053ADE3 /* IMUSANT_pitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697EFD0AA4FBD7002DC3B2 /* IMUSANT_pitch.cpp */; };
+		BAA8D8B61AABFD160053ADE3 /* IMUSANT_duration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697F7D0AA500E4002DC3B2 /* IMUSANT_duration.cpp */; };
+		BAA8D8B71AABFD160053ADE3 /* IMUSANT_key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */; };
+		BAA8D8B81AABFD160053ADE3 /* IMUSANT_element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */; };
+		BAA8D8B91AABFD160053ADE3 /* IMUSANT_note.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77350A228FDB00A4FACD /* IMUSANT_note.cpp */; };
+		BAA8D8BA1AABFD160053ADE3 /* IMUSANT_barline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */; };
+		BAA8D8BB1AABFD160053ADE3 /* IMUSANT_chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC777F0A22939500A4FACD /* IMUSANT_chord.cpp */; };
+		BAA8D8BC1AABFD160053ADE3 /* IMUSANT_comment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77A10A22963B00A4FACD /* IMUSANT_comment.cpp */; };
+		BAA8D8BD1AABFD160053ADE3 /* IMUSANT_measure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77870A22944800A4FACD /* IMUSANT_measure.cpp */; };
+		BAA8D8BE1AABFD160053ADE3 /* IMUSANT_part.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC778F0A22949700A4FACD /* IMUSANT_part.cpp */; };
+		BAA8D8BF1AABFD160053ADE3 /* IMUSANT_partlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC77950A22952100A4FACD /* IMUSANT_partlist.cpp */; };
+		BAA8D8C01AABFD160053ADE3 /* IMUSANT_score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC779B0A22956E00A4FACD /* IMUSANT_score.cpp */; };
+		BAA8D8C11AABFD160053ADE3 /* IMUSANT_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAB1A2F09D0B26700673D3D /* IMUSANT_visitor.cpp */; };
+		BAA8D8C21AABFD160053ADE3 /* TXML2IMUSANTVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4A463709D8B116000B0808 /* TXML2IMUSANTVisitor.cpp */; };
+		BAA8D8C31AABFD160053ADE3 /* IMUSANT_XMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BADC73A00A2BE239004F76BD /* IMUSANT_XMLVisitor.cpp */; };
+		BAA8D8C41AABFD160053ADE3 /* IMUSANT_XMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 968641230A325C6D0031AC4A /* IMUSANT_XMLReader.cpp */; };
+		BAA8D8C51AABFD160053ADE3 /* IMUSANT_XMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAD4055C0A36589900634B37 /* IMUSANT_XMLFile.cpp */; };
+		BAA8D8C61AABFD350053ADE3 /* guido.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86B1AA42BFF0053ADE3 /* guido.cpp */; };
+		BAA8D8C71AABFD350053ADE3 /* TMidiContextVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86D1AA42BFF0053ADE3 /* TMidiContextVisitor.cpp */; };
+		BAA8D8C81AABFD350053ADE3 /* TRolledVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86E1AA42BFF0053ADE3 /* TRolledVisitor.cpp */; };
+		BAA8D8C91AABFD350053ADE3 /* TScanVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86F1AA42BFF0053ADE3 /* TScanVisitor.cpp */; };
+		BAA8D8CA1AABFD350053ADE3 /* TUnrolledVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8701AA42BFF0053ADE3 /* TUnrolledVisitor.cpp */; };
+		BAA8D8CB1AABFD350053ADE3 /* TXML2GuidoVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8711AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp */; };
+		BAA8D8CC1AABFD600053ADE3 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7CE1AA42BD80053ADE3 /* common.cpp */; };
+		BAA8D8CD1AABFD600053ADE3 /* conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7CF1AA42BD80053ADE3 /* conversions.cpp */; };
+		BAA8D8CE1AABFD600053ADE3 /* Iexpat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D31AA42BD80053ADE3 /* Iexpat.cpp */; };
+		BAA8D8CF1AABFD600053ADE3 /* IMusicXMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D51AA42BD80053ADE3 /* IMusicXMLReader.cpp */; };
+		BAA8D8D01AABFD600053ADE3 /* IMusicXMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7D71AA42BD80053ADE3 /* IMusicXMLVisitor.cpp */; };
+		BAA8D8D11AABFD600053ADE3 /* smartpointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DB1AA42BD80053ADE3 /* smartpointer.cpp */; };
+		BAA8D8D21AABFD600053ADE3 /* TArpeggiate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DC1AA42BD80053ADE3 /* TArpeggiate.cpp */; };
+		BAA8D8D31AABFD600053ADE3 /* TAttributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DD1AA42BD80053ADE3 /* TAttributes.cpp */; };
+		BAA8D8D41AABFD600053ADE3 /* TBackupForward.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DE1AA42BD80053ADE3 /* TBackupForward.cpp */; };
+		BAA8D8D51AABFD600053ADE3 /* TBarline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7DF1AA42BD80053ADE3 /* TBarline.cpp */; };
+		BAA8D8D61AABFD600053ADE3 /* TChord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E01AA42BD80053ADE3 /* TChord.cpp */; };
+		BAA8D8D71AABFD600053ADE3 /* TClef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E11AA42BD80053ADE3 /* TClef.cpp */; };
+		BAA8D8D81AABFD600053ADE3 /* TDirection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E21AA42BD80053ADE3 /* TDirection.cpp */; };
+		BAA8D8D91AABFD600053ADE3 /* TFiguredBass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E31AA42BD80053ADE3 /* TFiguredBass.cpp */; };
+		BAA8D8DA1AABFD600053ADE3 /* THarmony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E41AA42BD80053ADE3 /* THarmony.cpp */; };
+		BAA8D8DB1AABFD600053ADE3 /* TIdentification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E51AA42BD80053ADE3 /* TIdentification.cpp */; };
+		BAA8D8DC1AABFD600053ADE3 /* TKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E61AA42BD80053ADE3 /* TKey.cpp */; };
+		BAA8D8DD1AABFD600053ADE3 /* TMeasure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E71AA42BD80053ADE3 /* TMeasure.cpp */; };
+		BAA8D8DE1AABFD600053ADE3 /* TMeasureStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E81AA42BD80053ADE3 /* TMeasureStyle.cpp */; };
+		BAA8D8DF1AABFD600053ADE3 /* TMidiDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7E91AA42BD80053ADE3 /* TMidiDevice.cpp */; };
+		BAA8D8E01AABFD600053ADE3 /* TMidiInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EA1AA42BD80053ADE3 /* TMidiInstrument.cpp */; };
+		BAA8D8E11AABFD600053ADE3 /* TMusicXMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EB1AA42BD80053ADE3 /* TMusicXMLFile.cpp */; };
+		BAA8D8E21AABFD600053ADE3 /* TNotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EC1AA42BD80053ADE3 /* TNotation.cpp */; };
+		BAA8D8E31AABFD600053ADE3 /* TNote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7ED1AA42BD80053ADE3 /* TNote.cpp */; };
+		BAA8D8E41AABFD600053ADE3 /* TOrnaments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EE1AA42BD80053ADE3 /* TOrnaments.cpp */; };
+		BAA8D8E51AABFD600053ADE3 /* TOtherDirections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7EF1AA42BD80053ADE3 /* TOtherDirections.cpp */; };
+		BAA8D8E61AABFD600053ADE3 /* TPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F01AA42BD80053ADE3 /* TPart.cpp */; };
+		BAA8D8E71AABFD600053ADE3 /* TPartGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F11AA42BD80053ADE3 /* TPartGroup.cpp */; };
+		BAA8D8E81AABFD600053ADE3 /* TPartList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F21AA42BD80053ADE3 /* TPartList.cpp */; };
+		BAA8D8E91AABFD600053ADE3 /* TPitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F31AA42BD80053ADE3 /* TPitch.cpp */; };
+		BAA8D8EA1AABFD600053ADE3 /* TRational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F41AA42BD80053ADE3 /* TRational.cpp */; };
+		BAA8D8EB1AABFD600053ADE3 /* TRoutedVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F51AA42BD80053ADE3 /* TRoutedVisitor.cpp */; };
+		BAA8D8EC1AABFD600053ADE3 /* TScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F61AA42BD80053ADE3 /* TScore.cpp */; };
+		BAA8D8ED1AABFD600053ADE3 /* TScoreHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F71AA42BD80053ADE3 /* TScoreHeader.cpp */; };
+		BAA8D8EE1AABFD600053ADE3 /* TScoreInstrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F81AA42BD80053ADE3 /* TScoreInstrument.cpp */; };
+		BAA8D8EF1AABFD600053ADE3 /* TScorePart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7F91AA42BD80053ADE3 /* TScorePart.cpp */; };
+		BAA8D8F01AABFD600053ADE3 /* TScorePartwise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FA1AA42BD80053ADE3 /* TScorePartwise.cpp */; };
+		BAA8D8F11AABFD600053ADE3 /* TScoreTimewise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FB1AA42BD80053ADE3 /* TScoreTimewise.cpp */; };
+		BAA8D8F21AABFD600053ADE3 /* TSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FC1AA42BD80053ADE3 /* TSound.cpp */; };
+		BAA8D8F31AABFD600053ADE3 /* TStaffDetails.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FD1AA42BD80053ADE3 /* TStaffDetails.cpp */; };
+		BAA8D8F41AABFD600053ADE3 /* TTechnical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FE1AA42BD80053ADE3 /* TTechnical.cpp */; };
+		BAA8D8F51AABFD600053ADE3 /* TTimeModification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7FF1AA42BD80053ADE3 /* TTimeModification.cpp */; };
+		BAA8D8F61AABFD600053ADE3 /* TTimeSign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8001AA42BD80053ADE3 /* TTimeSign.cpp */; };
+		BAA8D8F71AABFD600053ADE3 /* TTranspose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8011AA42BD80053ADE3 /* TTranspose.cpp */; };
+		BAA8D8F81AABFD600053ADE3 /* TWork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8021AA42BD80053ADE3 /* TWork.cpp */; };
+		BAA8D8F91AABFD600053ADE3 /* xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8031AA42BD80053ADE3 /* xml.cpp */; };
+		BAA8D8FA1AABFD600053ADE3 /* xmllex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8041AA42BD80053ADE3 /* xmllex.cpp */; };
+		BAA8D8FB1AABFD600053ADE3 /* xmlparse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8051AA42BD80053ADE3 /* xmlparse.cpp */; };
+		BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		BAA8D8FE1AABFE440053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */; };
+		BAA8D8FF1AABFE440053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */; };
 		BAAB1A3009D0B26700673D3D /* IMUSANT_visitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAAB1A2E09D0B26700673D3D /* IMUSANT_visitor.h */; };
 		BAAB1A3109D0B26700673D3D /* IMUSANT_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAB1A2F09D0B26700673D3D /* IMUSANT_visitor.cpp */; };
 		BAAB1A4509D0B32800673D3D /* IMUSANT_element.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */; };
@@ -110,6 +320,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		BAA8D8911AA430E80053ADE3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				BAA8D8921AA430F30053ADE3 /* libboost_filesystem.dylib in CopyFiles */,
+				BAA8D8931AA430F30053ADE3 /* libboost_system.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		BAA8D8961AABFBA30053ADE3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -128,8 +358,8 @@
 		965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_ivec_collection.cpp; path = imusantcat/src/IMUSANT_ivec_collection.cpp; sourceTree = "<group>"; };
 		968641220A325C6D0031AC4A /* IMUSANT_XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLReader.h; sourceTree = "<group>"; };
 		968641230A325C6D0031AC4A /* IMUSANT_XMLReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_XMLReader.cpp; sourceTree = "<group>"; };
-		969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_cp_matrix.cpp; path = catsmat/CATSMAT_cp_matrix.cpp; sourceTree = "<group>"; };
-		969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_cp_matrix.h; path = catsmat/CATSMAT_cp_matrix.h; sourceTree = "<group>"; };
+		969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_cp_matrix.cpp; path = ../catsmat/CATSMAT_cp_matrix.cpp; sourceTree = "<group>"; };
+		969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_cp_matrix.h; path = ../catsmat/CATSMAT_cp_matrix.h; sourceTree = "<group>"; };
 		96A61E880A45073A005E4CBF /* IMUSANT_barline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_barline.h; path = ../src/IMUSANT_barline.h; sourceTree = "<group>"; };
 		96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_barline.cpp; sourceTree = "<group>"; };
 		96A620CE0A458DE3005E4CBF /* imusantcat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = imusantcat; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,10 +420,6 @@
 		96A71CB91A9160CB0021C86A /* TXML2GuidoVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXML2GuidoVisitor.h; sourceTree = "<group>"; };
 		96A71CBA1A9160CB0021C86A /* UTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTools.h; sourceTree = "<group>"; };
 		96A71CBB1A9160CB0021C86A /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
-		96A71CBC1A9160CB0021C86A /* core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = core.xcodeproj; path = "libMusicXML-1.00-src/src/core/core.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		96A71CBF1A9160CB0021C86A /* visitors.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = visitors.xcodeproj; path = "libMusicXML-1.00-src/src/visitors/visitors.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		96A71CC71A91632F0021C86A /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = ../../../../../../usr/local/lib/libboost_filesystem.dylib; sourceTree = "<group>"; };
-		96A71CCA1A916F7D0021C86A /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		BA4462600A918B3F0033DB86 /* repeats.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = repeats.h; path = "Suffix tree/repeats.h"; sourceTree = "<group>"; };
 		BA4462670A9196520033DB86 /* IMUSANT_contour_symbol.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = IMUSANT_contour_symbol.h; path = imusantcat/src/IMUSANT_contour_symbol.h; sourceTree = "<group>"; };
 		BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_contour_symbol.cpp; path = imusantcat/src/IMUSANT_contour_symbol.cpp; sourceTree = "<group>"; };
@@ -209,11 +435,77 @@
 		BA697F7D0AA500E4002DC3B2 /* IMUSANT_duration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_duration.cpp; sourceTree = "<group>"; };
 		BA697FAC0AA50A60002DC3B2 /* IMUSANT_key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_key.h; path = ../src/IMUSANT_key.h; sourceTree = "<group>"; };
 		BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_key.cpp; sourceTree = "<group>"; };
+		BA6D96821AA41C7800EC3E94 /* Iexpat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Iexpat.h; path = ../core/Iexpat.h; sourceTree = "<group>"; };
 		BA71926E0A59F57000CAA1D9 /* search.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = search.h; path = imusantcat/inc/search.h; sourceTree = "<group>"; };
 		BA990E0B0A5A173F008918F0 /* iterator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = iterator.h; path = "Suffix tree/iterator.h"; sourceTree = "<group>"; };
 		BA990E0C0A5A173F008918F0 /* suffixtree_inter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree_inter.h; path = "Suffix tree/suffixtree_inter.h"; sourceTree = "<group>"; };
 		BA990E0D0A5A173F008918F0 /* suffixtree.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree.h; path = "Suffix tree/suffixtree.h"; sourceTree = "<group>"; };
 		BA990E0F0A5A173F008918F0 /* suffixtree_impl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree_impl.h; path = "Suffix tree/suffixtree_impl.h"; sourceTree = "<group>"; };
+		BAA8D7CE1AA42BD80053ADE3 /* common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
+		BAA8D7CF1AA42BD80053ADE3 /* conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = conversions.cpp; sourceTree = "<group>"; };
+		BAA8D7D31AA42BD80053ADE3 /* Iexpat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Iexpat.cpp; sourceTree = "<group>"; };
+		BAA8D7D41AA42BD80053ADE3 /* Iexpat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Iexpat.h; sourceTree = "<group>"; };
+		BAA8D7D51AA42BD80053ADE3 /* IMusicXMLReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMusicXMLReader.cpp; sourceTree = "<group>"; };
+		BAA8D7D61AA42BD80053ADE3 /* IMusicXMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMusicXMLReader.h; sourceTree = "<group>"; };
+		BAA8D7D71AA42BD80053ADE3 /* IMusicXMLVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMusicXMLVisitor.cpp; sourceTree = "<group>"; };
+		BAA8D7D81AA42BD80053ADE3 /* IMusicXMLVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMusicXMLVisitor.h; sourceTree = "<group>"; };
+		BAA8D7D91AA42BD80053ADE3 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		BAA8D7DA1AA42BD80053ADE3 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		BAA8D7DB1AA42BD80053ADE3 /* smartpointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = smartpointer.cpp; sourceTree = "<group>"; };
+		BAA8D7DC1AA42BD80053ADE3 /* TArpeggiate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TArpeggiate.cpp; sourceTree = "<group>"; };
+		BAA8D7DD1AA42BD80053ADE3 /* TAttributes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TAttributes.cpp; sourceTree = "<group>"; };
+		BAA8D7DE1AA42BD80053ADE3 /* TBackupForward.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TBackupForward.cpp; sourceTree = "<group>"; };
+		BAA8D7DF1AA42BD80053ADE3 /* TBarline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TBarline.cpp; sourceTree = "<group>"; };
+		BAA8D7E01AA42BD80053ADE3 /* TChord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TChord.cpp; sourceTree = "<group>"; };
+		BAA8D7E11AA42BD80053ADE3 /* TClef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TClef.cpp; sourceTree = "<group>"; };
+		BAA8D7E21AA42BD80053ADE3 /* TDirection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TDirection.cpp; sourceTree = "<group>"; };
+		BAA8D7E31AA42BD80053ADE3 /* TFiguredBass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TFiguredBass.cpp; sourceTree = "<group>"; };
+		BAA8D7E41AA42BD80053ADE3 /* THarmony.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = THarmony.cpp; sourceTree = "<group>"; };
+		BAA8D7E51AA42BD80053ADE3 /* TIdentification.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TIdentification.cpp; sourceTree = "<group>"; };
+		BAA8D7E61AA42BD80053ADE3 /* TKey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TKey.cpp; sourceTree = "<group>"; };
+		BAA8D7E71AA42BD80053ADE3 /* TMeasure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMeasure.cpp; sourceTree = "<group>"; };
+		BAA8D7E81AA42BD80053ADE3 /* TMeasureStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMeasureStyle.cpp; sourceTree = "<group>"; };
+		BAA8D7E91AA42BD80053ADE3 /* TMidiDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMidiDevice.cpp; sourceTree = "<group>"; };
+		BAA8D7EA1AA42BD80053ADE3 /* TMidiInstrument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMidiInstrument.cpp; sourceTree = "<group>"; };
+		BAA8D7EB1AA42BD80053ADE3 /* TMusicXMLFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMusicXMLFile.cpp; sourceTree = "<group>"; };
+		BAA8D7EC1AA42BD80053ADE3 /* TNotation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TNotation.cpp; sourceTree = "<group>"; };
+		BAA8D7ED1AA42BD80053ADE3 /* TNote.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TNote.cpp; sourceTree = "<group>"; };
+		BAA8D7EE1AA42BD80053ADE3 /* TOrnaments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TOrnaments.cpp; sourceTree = "<group>"; };
+		BAA8D7EF1AA42BD80053ADE3 /* TOtherDirections.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TOtherDirections.cpp; sourceTree = "<group>"; };
+		BAA8D7F01AA42BD80053ADE3 /* TPart.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TPart.cpp; sourceTree = "<group>"; };
+		BAA8D7F11AA42BD80053ADE3 /* TPartGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TPartGroup.cpp; sourceTree = "<group>"; };
+		BAA8D7F21AA42BD80053ADE3 /* TPartList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TPartList.cpp; sourceTree = "<group>"; };
+		BAA8D7F31AA42BD80053ADE3 /* TPitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TPitch.cpp; sourceTree = "<group>"; };
+		BAA8D7F41AA42BD80053ADE3 /* TRational.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TRational.cpp; sourceTree = "<group>"; };
+		BAA8D7F51AA42BD80053ADE3 /* TRoutedVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TRoutedVisitor.cpp; sourceTree = "<group>"; };
+		BAA8D7F61AA42BD80053ADE3 /* TScore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TScore.cpp; sourceTree = "<group>"; };
+		BAA8D7F71AA42BD80053ADE3 /* TScoreHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TScoreHeader.cpp; sourceTree = "<group>"; };
+		BAA8D7F81AA42BD80053ADE3 /* TScoreInstrument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TScoreInstrument.cpp; sourceTree = "<group>"; };
+		BAA8D7F91AA42BD80053ADE3 /* TScorePart.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TScorePart.cpp; sourceTree = "<group>"; };
+		BAA8D7FA1AA42BD80053ADE3 /* TScorePartwise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TScorePartwise.cpp; sourceTree = "<group>"; };
+		BAA8D7FB1AA42BD80053ADE3 /* TScoreTimewise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TScoreTimewise.cpp; sourceTree = "<group>"; };
+		BAA8D7FC1AA42BD80053ADE3 /* TSound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSound.cpp; sourceTree = "<group>"; };
+		BAA8D7FD1AA42BD80053ADE3 /* TStaffDetails.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TStaffDetails.cpp; sourceTree = "<group>"; };
+		BAA8D7FE1AA42BD80053ADE3 /* TTechnical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TTechnical.cpp; sourceTree = "<group>"; };
+		BAA8D7FF1AA42BD80053ADE3 /* TTimeModification.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TTimeModification.cpp; sourceTree = "<group>"; };
+		BAA8D8001AA42BD80053ADE3 /* TTimeSign.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TTimeSign.cpp; sourceTree = "<group>"; };
+		BAA8D8011AA42BD80053ADE3 /* TTranspose.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TTranspose.cpp; sourceTree = "<group>"; };
+		BAA8D8021AA42BD80053ADE3 /* TWork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TWork.cpp; sourceTree = "<group>"; };
+		BAA8D8031AA42BD80053ADE3 /* xml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xml.cpp; sourceTree = "<group>"; };
+		BAA8D8041AA42BD80053ADE3 /* xmllex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xmllex.cpp; sourceTree = "<group>"; };
+		BAA8D8051AA42BD80053ADE3 /* xmlparse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xmlparse.cpp; sourceTree = "<group>"; };
+		BAA8D8061AA42BD80053ADE3 /* xmlparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlparse.h; sourceTree = "<group>"; };
+		BAA8D86B1AA42BFF0053ADE3 /* guido.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guido.cpp; sourceTree = "<group>"; };
+		BAA8D86C1AA42BFF0053ADE3 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		BAA8D86D1AA42BFF0053ADE3 /* TMidiContextVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMidiContextVisitor.cpp; sourceTree = "<group>"; };
+		BAA8D86E1AA42BFF0053ADE3 /* TRolledVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TRolledVisitor.cpp; sourceTree = "<group>"; };
+		BAA8D86F1AA42BFF0053ADE3 /* TScanVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TScanVisitor.cpp; sourceTree = "<group>"; };
+		BAA8D8701AA42BFF0053ADE3 /* TUnrolledVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TUnrolledVisitor.cpp; sourceTree = "<group>"; };
+		BAA8D8711AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TXML2GuidoVisitor.cpp; sourceTree = "<group>"; };
+		BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = "../../../../../../../../Documents/Development/CATSMAT/imusant old/libboost_filesystem.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libboost_system.dylib; sourceTree = "<group>"; };
+		BAA8D8981AABFBA30053ADE3 /* CATSMAT */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CATSMAT; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CATSMAT_main.cpp; path = ../catsmat/CATSMAT_main.cpp; sourceTree = "<group>"; };
 		BAAB1A2E09D0B26700673D3D /* IMUSANT_visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_visitor.h; sourceTree = "<group>"; };
 		BAAB1A2F09D0B26700673D3D /* IMUSANT_visitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_visitor.cpp; sourceTree = "<group>"; };
 		BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_element.h; sourceTree = "<group>"; };
@@ -249,7 +541,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96A71CC81A91632F0021C86A /* libboost_filesystem.dylib in Frameworks */,
+				BAA8D88C1AA42E6A0053ADE3 /* libboost_filesystem.dylib in Frameworks */,
+				BAA8D88F1AA42E7E0053ADE3 /* libboost_system.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +550,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96A71CC91A91632F0021C86A /* libboost_filesystem.dylib in Frameworks */,
+				BAA8D88D1AA42E6A0053ADE3 /* libboost_filesystem.dylib in Frameworks */,
+				BAA8D8901AA42E7E0053ADE3 /* libboost_system.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA8D8951AABFBA30053ADE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */,
+				BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +570,8 @@
 		08FB7794FE84155DC02AAC07 /* imusant */ = {
 			isa = PBXGroup;
 			children = (
-				96A71CCA1A916F7D0021C86A /* libstdc++.6.0.9.dylib */,
 				BA4A479509D8C5F2000B0808 /* libMusicXML-1.00-src */,
+				BAA8D8991AABFBA30053ADE3 /* CATSMAT */,
 				08FB7795FE84155DC02AAC07 /* IMUSANT */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -291,6 +594,7 @@
 			children = (
 				8DD76F6C0486A84900D96B5E /* MusicXML2imusant */,
 				96A620CE0A458DE3005E4CBF /* imusantcat */,
+				BAA8D8981AABFBA30053ADE3 /* CATSMAT */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -322,7 +626,6 @@
 				9652098A0A4D1CBE006AFD81 /* IMUSANT_interval.cpp */,
 				BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */,
 				9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */,
-				969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */,
 				965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */,
 				965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */,
 				BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */,
@@ -338,7 +641,6 @@
 				965209890A4D1CBE006AFD81 /* IMUSANT_interval.h */,
 				BA4462670A9196520033DB86 /* IMUSANT_contour_symbol.h */,
 				9652098E0A4D1CD8006AFD81 /* IMUSANT_record.h */,
-				969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.h */,
 				965209A40A4D1E8B006AFD81 /* IMUSANT_interval_vector.h */,
 				965209A90A4D1F37006AFD81 /* IMUSANT_ivec_collection.h */,
 				BA4F18580A50C58900CB7438 /* IMUSANT_rvec_collection.h */,
@@ -405,6 +707,7 @@
 				96A71CB61A9160CB0021C86A /* TTranspose.h */,
 				96A71CB71A9160CB0021C86A /* TUnrolledVisitor.h */,
 				96A71CB81A9160CB0021C86A /* TWork.h */,
+				BA6D96821AA41C7800EC3E94 /* Iexpat.h */,
 				96A71CB91A9160CB0021C86A /* TXML2GuidoVisitor.h */,
 				96A71CBA1A9160CB0021C86A /* UTools.h */,
 				96A71CBB1A9160CB0021C86A /* xml.h */,
@@ -413,24 +716,11 @@
 			path = "libMusicXML-1.00-src/src/include";
 			sourceTree = SOURCE_ROOT;
 		};
-		96A71CBD1A9160CB0021C86A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		96A71CC01A9160CB0021C86A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		96BC9F83133B09AF00A65384 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				96A71CC71A91632F0021C86A /* libboost_filesystem.dylib */,
+				BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */,
+				BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = SOURCE_ROOT;
@@ -438,9 +728,9 @@
 		BA4A479509D8C5F2000B0808 /* libMusicXML-1.00-src */ = {
 			isa = PBXGroup;
 			children = (
+				BAA8D86A1AA42BFF0053ADE3 /* visitors */,
+				BAA8D7CD1AA42BD80053ADE3 /* core */,
 				96A71C821A9160CB0021C86A /* include */,
-				96A71CBC1A9160CB0021C86A /* core.xcodeproj */,
-				96A71CBF1A9160CB0021C86A /* visitors.xcodeproj */,
 			);
 			name = "libMusicXML-1.00-src";
 			path = "../libMusicXML-1.00-src";
@@ -498,6 +788,93 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		BAA8D7CD1AA42BD80053ADE3 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				BAA8D7CE1AA42BD80053ADE3 /* common.cpp */,
+				BAA8D7CF1AA42BD80053ADE3 /* conversions.cpp */,
+				BAA8D7D31AA42BD80053ADE3 /* Iexpat.cpp */,
+				BAA8D7D41AA42BD80053ADE3 /* Iexpat.h */,
+				BAA8D7D51AA42BD80053ADE3 /* IMusicXMLReader.cpp */,
+				BAA8D7D61AA42BD80053ADE3 /* IMusicXMLReader.h */,
+				BAA8D7D71AA42BD80053ADE3 /* IMusicXMLVisitor.cpp */,
+				BAA8D7D81AA42BD80053ADE3 /* IMusicXMLVisitor.h */,
+				BAA8D7D91AA42BD80053ADE3 /* Makefile */,
+				BAA8D7DA1AA42BD80053ADE3 /* reader.h */,
+				BAA8D7DB1AA42BD80053ADE3 /* smartpointer.cpp */,
+				BAA8D7DC1AA42BD80053ADE3 /* TArpeggiate.cpp */,
+				BAA8D7DD1AA42BD80053ADE3 /* TAttributes.cpp */,
+				BAA8D7DE1AA42BD80053ADE3 /* TBackupForward.cpp */,
+				BAA8D7DF1AA42BD80053ADE3 /* TBarline.cpp */,
+				BAA8D7E01AA42BD80053ADE3 /* TChord.cpp */,
+				BAA8D7E11AA42BD80053ADE3 /* TClef.cpp */,
+				BAA8D7E21AA42BD80053ADE3 /* TDirection.cpp */,
+				BAA8D7E31AA42BD80053ADE3 /* TFiguredBass.cpp */,
+				BAA8D7E41AA42BD80053ADE3 /* THarmony.cpp */,
+				BAA8D7E51AA42BD80053ADE3 /* TIdentification.cpp */,
+				BAA8D7E61AA42BD80053ADE3 /* TKey.cpp */,
+				BAA8D7E71AA42BD80053ADE3 /* TMeasure.cpp */,
+				BAA8D7E81AA42BD80053ADE3 /* TMeasureStyle.cpp */,
+				BAA8D7E91AA42BD80053ADE3 /* TMidiDevice.cpp */,
+				BAA8D7EA1AA42BD80053ADE3 /* TMidiInstrument.cpp */,
+				BAA8D7EB1AA42BD80053ADE3 /* TMusicXMLFile.cpp */,
+				BAA8D7EC1AA42BD80053ADE3 /* TNotation.cpp */,
+				BAA8D7ED1AA42BD80053ADE3 /* TNote.cpp */,
+				BAA8D7EE1AA42BD80053ADE3 /* TOrnaments.cpp */,
+				BAA8D7EF1AA42BD80053ADE3 /* TOtherDirections.cpp */,
+				BAA8D7F01AA42BD80053ADE3 /* TPart.cpp */,
+				BAA8D7F11AA42BD80053ADE3 /* TPartGroup.cpp */,
+				BAA8D7F21AA42BD80053ADE3 /* TPartList.cpp */,
+				BAA8D7F31AA42BD80053ADE3 /* TPitch.cpp */,
+				BAA8D7F41AA42BD80053ADE3 /* TRational.cpp */,
+				BAA8D7F51AA42BD80053ADE3 /* TRoutedVisitor.cpp */,
+				BAA8D7F61AA42BD80053ADE3 /* TScore.cpp */,
+				BAA8D7F71AA42BD80053ADE3 /* TScoreHeader.cpp */,
+				BAA8D7F81AA42BD80053ADE3 /* TScoreInstrument.cpp */,
+				BAA8D7F91AA42BD80053ADE3 /* TScorePart.cpp */,
+				BAA8D7FA1AA42BD80053ADE3 /* TScorePartwise.cpp */,
+				BAA8D7FB1AA42BD80053ADE3 /* TScoreTimewise.cpp */,
+				BAA8D7FC1AA42BD80053ADE3 /* TSound.cpp */,
+				BAA8D7FD1AA42BD80053ADE3 /* TStaffDetails.cpp */,
+				BAA8D7FE1AA42BD80053ADE3 /* TTechnical.cpp */,
+				BAA8D7FF1AA42BD80053ADE3 /* TTimeModification.cpp */,
+				BAA8D8001AA42BD80053ADE3 /* TTimeSign.cpp */,
+				BAA8D8011AA42BD80053ADE3 /* TTranspose.cpp */,
+				BAA8D8021AA42BD80053ADE3 /* TWork.cpp */,
+				BAA8D8031AA42BD80053ADE3 /* xml.cpp */,
+				BAA8D8041AA42BD80053ADE3 /* xmllex.cpp */,
+				BAA8D8051AA42BD80053ADE3 /* xmlparse.cpp */,
+				BAA8D8061AA42BD80053ADE3 /* xmlparse.h */,
+			);
+			name = core;
+			path = "libMusicXML-1.00-src/src/core";
+			sourceTree = SOURCE_ROOT;
+		};
+		BAA8D86A1AA42BFF0053ADE3 /* visitors */ = {
+			isa = PBXGroup;
+			children = (
+				BAA8D86B1AA42BFF0053ADE3 /* guido.cpp */,
+				BAA8D86C1AA42BFF0053ADE3 /* Makefile */,
+				BAA8D86D1AA42BFF0053ADE3 /* TMidiContextVisitor.cpp */,
+				BAA8D86E1AA42BFF0053ADE3 /* TRolledVisitor.cpp */,
+				BAA8D86F1AA42BFF0053ADE3 /* TScanVisitor.cpp */,
+				BAA8D8701AA42BFF0053ADE3 /* TUnrolledVisitor.cpp */,
+				BAA8D8711AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp */,
+			);
+			name = visitors;
+			path = "libMusicXML-1.00-src/src/visitors";
+			sourceTree = SOURCE_ROOT;
+		};
+		BAA8D8991AABFBA30053ADE3 /* CATSMAT */ = {
+			isa = PBXGroup;
+			children = (
+				BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */,
+				969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.h */,
+				969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */,
+			);
+			path = CATSMAT;
+			sourceTree = "<group>";
+		};
 		BAC604630A76E935000C1DF9 /* Suffix and search */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +907,7 @@
 				8DD76F640486A84900D96B5E /* Sources */,
 				8DD76F660486A84900D96B5E /* Frameworks */,
 				8DD76F690486A84900D96B5E /* CopyFiles */,
+				BAA8D8911AA430E80053ADE3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -557,6 +935,23 @@
 			productReference = 96A620CE0A458DE3005E4CBF /* imusantcat */;
 			productType = "com.apple.product-type.tool";
 		};
+		BAA8D8971AABFBA30053ADE3 /* CATSMAT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAA8D89C1AABFBA30053ADE3 /* Build configuration list for PBXNativeTarget "CATSMAT" */;
+			buildPhases = (
+				BAA8D8941AABFBA30053ADE3 /* Sources */,
+				BAA8D8951AABFBA30053ADE3 /* Frameworks */,
+				BAA8D8961AABFBA30053ADE3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CATSMAT;
+			productName = CATSMAT;
+			productReference = BAA8D8981AABFBA30053ADE3 /* CATSMAT */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -564,6 +959,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					BAA8D8971AABFBA30053ADE3 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
 			};
 			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "imusant" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -577,20 +977,11 @@
 			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* imusant */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 96A71CBD1A9160CB0021C86A /* Products */;
-					ProjectRef = 96A71CBC1A9160CB0021C86A /* core.xcodeproj */;
-				},
-				{
-					ProductGroup = 96A71CC01A9160CB0021C86A /* Products */;
-					ProjectRef = 96A71CBF1A9160CB0021C86A /* visitors.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8DD76F620486A84900D96B5E /* MusicXML2imusant */,
 				96A620CD0A458DE3005E4CBF /* imusantcat */,
+				BAA8D8971AABFBA30053ADE3 /* CATSMAT */,
 			);
 		};
 /* End PBXProject section */
@@ -601,25 +992,90 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F650486A84900D96B5E /* xml2imusant_main.cpp in Sources */,
+				BAA8D8071AA42BD80053ADE3 /* common.cpp in Sources */,
+				BAA8D83B1AA42BD80053ADE3 /* TOtherDirections.cpp in Sources */,
 				BAAB1A3109D0B26700673D3D /* IMUSANT_visitor.cpp in Sources */,
+				BAA8D8791AA42BFF0053ADE3 /* TMidiContextVisitor.cpp in Sources */,
+				BAA8D83F1AA42BD80053ADE3 /* TPartGroup.cpp in Sources */,
+				BAA8D8B01AABFCCF0053ADE3 /* IMUSANT_rvec_collection.cpp in Sources */,
+				BAA8D8671AA42BD80053ADE3 /* xmlparse.cpp in Sources */,
+				BAA8D8251AA42BD80053ADE3 /* THarmony.cpp in Sources */,
 				BAAB1A4609D0B32800673D3D /* IMUSANT_element.cpp in Sources */,
 				BA4A463909D8B116000B0808 /* TXML2IMUSANTVisitor.cpp in Sources */,
+				BAA8D8351AA42BD80053ADE3 /* TNotation.cpp in Sources */,
+				BAA8D8151AA42BD80053ADE3 /* TArpeggiate.cpp in Sources */,
 				BA670D220A10049A0072CE20 /* IMUSANT_types.cpp in Sources */,
 				BAFC77370A228FDB00A4FACD /* IMUSANT_note.cpp in Sources */,
 				BAFC77810A22939500A4FACD /* IMUSANT_chord.cpp in Sources */,
+				BAA8D8611AA42BD80053ADE3 /* TWork.cpp in Sources */,
+				BAA8D81B1AA42BD80053ADE3 /* TBarline.cpp in Sources */,
 				BAFC77890A22944800A4FACD /* IMUSANT_measure.cpp in Sources */,
+				BAA8D8AA1AABFCCF0053ADE3 /* IMUSANT_interval.cpp in Sources */,
+				BAA8D8311AA42BD80053ADE3 /* TMidiInstrument.cpp in Sources */,
+				BAA8D8B11AABFCCF0053ADE3 /* IMUSANT_collectionvisitor.cpp in Sources */,
+				BAA8D8751AA42BFF0053ADE3 /* guido.cpp in Sources */,
+				BAA8D8551AA42BD80053ADE3 /* TSound.cpp in Sources */,
+				BAA8D8471AA42BD80053ADE3 /* TRoutedVisitor.cpp in Sources */,
+				BAA8D85F1AA42BD80053ADE3 /* TTranspose.cpp in Sources */,
+				BAA8D8771AA42BFF0053ADE3 /* Makefile in Sources */,
 				BAFC77910A22949700A4FACD /* IMUSANT_part.cpp in Sources */,
+				BAA8D8571AA42BD80053ADE3 /* TStaffDetails.cpp in Sources */,
+				BAA8D8591AA42BD80053ADE3 /* TTechnical.cpp in Sources */,
+				BAA8D8111AA42BD80053ADE3 /* Makefile in Sources */,
 				BAFC77970A22952100A4FACD /* IMUSANT_partlist.cpp in Sources */,
+				BAA8D8AB1AABFCCF0053ADE3 /* IMUSANT_contour_symbol.cpp in Sources */,
+				BAA8D8411AA42BD80053ADE3 /* TPartList.cpp in Sources */,
+				BAA8D85B1AA42BD80053ADE3 /* TTimeModification.cpp in Sources */,
+				BAA8D84F1AA42BD80053ADE3 /* TScorePart.cpp in Sources */,
+				BAA8D82F1AA42BD80053ADE3 /* TMidiDevice.cpp in Sources */,
+				BAA8D84D1AA42BD80053ADE3 /* TScoreInstrument.cpp in Sources */,
+				BAA8D8211AA42BD80053ADE3 /* TDirection.cpp in Sources */,
 				BAFC779D0A22956E00A4FACD /* IMUSANT_score.cpp in Sources */,
+				BAA8D8271AA42BD80053ADE3 /* TIdentification.cpp in Sources */,
+				BAA8D8811AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp in Sources */,
+				BAA8D8131AA42BD80053ADE3 /* smartpointer.cpp in Sources */,
+				BAA8D80F1AA42BD80053ADE3 /* IMusicXMLVisitor.cpp in Sources */,
 				BAFC77A30A22963B00A4FACD /* IMUSANT_comment.cpp in Sources */,
+				BAA8D8171AA42BD80053ADE3 /* TAttributes.cpp in Sources */,
+				BAA8D8651AA42BD80053ADE3 /* xmllex.cpp in Sources */,
+				BAA8D8491AA42BD80053ADE3 /* TScore.cpp in Sources */,
 				BADC73A20A2BE239004F76BD /* IMUSANT_XMLVisitor.cpp in Sources */,
+				BAA8D8631AA42BD80053ADE3 /* xml.cpp in Sources */,
 				968641250A325C6D0031AC4A /* IMUSANT_XMLReader.cpp in Sources */,
+				BAA8D8091AA42BD80053ADE3 /* conversions.cpp in Sources */,
+				BAA8D82D1AA42BD80053ADE3 /* TMeasureStyle.cpp in Sources */,
+				BAA8D8AC1AABFCCF0053ADE3 /* IMUSANT_record.cpp in Sources */,
+				BAA8D8451AA42BD80053ADE3 /* TRational.cpp in Sources */,
+				BAA8D8AF1AABFCCF0053ADE3 /* IMUSANT_ivec_collection.cpp in Sources */,
 				BAD4055E0A36589A00634B37 /* IMUSANT_XMLFile.cpp in Sources */,
+				BAA8D8391AA42BD80053ADE3 /* TOrnaments.cpp in Sources */,
 				BAAF8D500A3E35FE00E5157F /* IMUSANT_conversions.cpp in Sources */,
+				BAA8D8231AA42BD80053ADE3 /* TFiguredBass.cpp in Sources */,
+				BAA8D8431AA42BD80053ADE3 /* TPitch.cpp in Sources */,
+				BAA8D80D1AA42BD80053ADE3 /* IMusicXMLReader.cpp in Sources */,
 				96A61E8B0A45073A005E4CBF /* IMUSANT_barline.cpp in Sources */,
+				BAA8D8AE1AABFCCF0053ADE3 /* IMUSANT_interval_vector.cpp in Sources */,
+				BAA8D8291AA42BD80053ADE3 /* TKey.cpp in Sources */,
+				BAA8D83D1AA42BD80053ADE3 /* TPart.cpp in Sources */,
+				BAA8D87F1AA42BFF0053ADE3 /* TUnrolledVisitor.cpp in Sources */,
+				BAA8D87D1AA42BFF0053ADE3 /* TScanVisitor.cpp in Sources */,
+				BAA8D85D1AA42BD80053ADE3 /* TTimeSign.cpp in Sources */,
+				BAA8D8511AA42BD80053ADE3 /* TScorePartwise.cpp in Sources */,
 				BA697F800AA500E4002DC3B2 /* IMUSANT_duration.cpp in Sources */,
 				BA697F820AA500FE002DC3B2 /* IMUSANT_pitch.cpp in Sources */,
+				BAA8D80B1AA42BD80053ADE3 /* Iexpat.cpp in Sources */,
+				BAA8D84B1AA42BD80053ADE3 /* TScoreHeader.cpp in Sources */,
+				BAA8D8191AA42BD80053ADE3 /* TBackupForward.cpp in Sources */,
+				BAA8D8331AA42BD80053ADE3 /* TMusicXMLFile.cpp in Sources */,
+				BAA8D8371AA42BD80053ADE3 /* TNote.cpp in Sources */,
+				BAA8D8531AA42BD80053ADE3 /* TScoreTimewise.cpp in Sources */,
 				BA697FAF0AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */,
+				BAA8D81F1AA42BD80053ADE3 /* TClef.cpp in Sources */,
+				BAA8D8B21AABFCCF0053ADE3 /* IMUSANT_processing.cpp in Sources */,
+				BAA8D82B1AA42BD80053ADE3 /* TMeasure.cpp in Sources */,
+				BAA8D87B1AA42BFF0053ADE3 /* TRolledVisitor.cpp in Sources */,
+				BAA8D81D1AA42BD80053ADE3 /* TChord.cpp in Sources */,
+				BAA8D8FE1AABFE440053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,34 +1084,180 @@
 			buildActionMask = 2147483647;
 			files = (
 				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
+				BAA8D8641AA42BD80053ADE3 /* xml.cpp in Sources */,
 				965208D80A4CDF9D006AFD81 /* IMUSANT_barline.cpp in Sources */,
+				BAA8D85A1AA42BD80053ADE3 /* TTechnical.cpp in Sources */,
+				BAA8D82E1AA42BD80053ADE3 /* TMeasureStyle.cpp in Sources */,
+				BAA8D8321AA42BD80053ADE3 /* TMidiInstrument.cpp in Sources */,
+				BAA8D8101AA42BD80053ADE3 /* IMusicXMLVisitor.cpp in Sources */,
+				BAA8D8521AA42BD80053ADE3 /* TScorePartwise.cpp in Sources */,
 				965208D90A4CDF9E006AFD81 /* IMUSANT_chord.cpp in Sources */,
+				BAA8D80E1AA42BD80053ADE3 /* IMusicXMLReader.cpp in Sources */,
+				BAA8D8401AA42BD80053ADE3 /* TPartGroup.cpp in Sources */,
+				BAA8D8121AA42BD80053ADE3 /* Makefile in Sources */,
+				BAA8D81E1AA42BD80053ADE3 /* TChord.cpp in Sources */,
+				BAA8D87A1AA42BFF0053ADE3 /* TMidiContextVisitor.cpp in Sources */,
+				BAA8D81C1AA42BD80053ADE3 /* TBarline.cpp in Sources */,
 				965208DA0A4CDF9F006AFD81 /* IMUSANT_comment.cpp in Sources */,
+				BAA8D8081AA42BD80053ADE3 /* common.cpp in Sources */,
+				BAA8D85C1AA42BD80053ADE3 /* TTimeModification.cpp in Sources */,
+				BAA8D8221AA42BD80053ADE3 /* TDirection.cpp in Sources */,
 				965208DB0A4CDFA0006AFD81 /* IMUSANT_conversions.cpp in Sources */,
+				BAA8D80C1AA42BD80053ADE3 /* Iexpat.cpp in Sources */,
+				BAA8D81A1AA42BD80053ADE3 /* TBackupForward.cpp in Sources */,
+				BAA8D8461AA42BD80053ADE3 /* TRational.cpp in Sources */,
+				BAA8D8501AA42BD80053ADE3 /* TScorePart.cpp in Sources */,
+				BAA8D80A1AA42BD80053ADE3 /* conversions.cpp in Sources */,
 				965208DC0A4CDFA1006AFD81 /* IMUSANT_element.cpp in Sources */,
+				BAA8D8561AA42BD80053ADE3 /* TSound.cpp in Sources */,
+				BAA8D8481AA42BD80053ADE3 /* TRoutedVisitor.cpp in Sources */,
+				BAA8D8581AA42BD80053ADE3 /* TStaffDetails.cpp in Sources */,
+				BAA8D82A1AA42BD80053ADE3 /* TKey.cpp in Sources */,
 				965208DD0A4CDFA1006AFD81 /* IMUSANT_measure.cpp in Sources */,
+				BAA8D8141AA42BD80053ADE3 /* smartpointer.cpp in Sources */,
+				BAA8D82C1AA42BD80053ADE3 /* TMeasure.cpp in Sources */,
+				BAA8D8381AA42BD80053ADE3 /* TNote.cpp in Sources */,
+				BAA8D84C1AA42BD80053ADE3 /* TScoreHeader.cpp in Sources */,
 				965208DE0A4CDFA2006AFD81 /* IMUSANT_note.cpp in Sources */,
 				965208DF0A4CDFA2006AFD81 /* IMUSANT_part.cpp in Sources */,
 				965208E00A4CDFA3006AFD81 /* IMUSANT_partlist.cpp in Sources */,
-				9668FFB71A8B077000C8F5A6 /* CATSMAT_cp_matrix.cpp in Sources */,
+				BAA8D84A1AA42BD80053ADE3 /* TScore.cpp in Sources */,
+				BAA8D8161AA42BD80053ADE3 /* TArpeggiate.cpp in Sources */,
+				BAA8D8541AA42BD80053ADE3 /* TScoreTimewise.cpp in Sources */,
+				BAA8D8301AA42BD80053ADE3 /* TMidiDevice.cpp in Sources */,
+				BAA8D8681AA42BD80053ADE3 /* xmlparse.cpp in Sources */,
+				BAA8D83E1AA42BD80053ADE3 /* TPart.cpp in Sources */,
+				BAA8D8761AA42BFF0053ADE3 /* guido.cpp in Sources */,
+				BAA8D8801AA42BFF0053ADE3 /* TUnrolledVisitor.cpp in Sources */,
+				BAA8D87E1AA42BFF0053ADE3 /* TScanVisitor.cpp in Sources */,
 				965208E10A4CDFA4006AFD81 /* IMUSANT_score.cpp in Sources */,
+				BAA8D8621AA42BD80053ADE3 /* TWork.cpp in Sources */,
+				BAA8D85E1AA42BD80053ADE3 /* TTimeSign.cpp in Sources */,
 				965208E20A4CDFA4006AFD81 /* IMUSANT_types.cpp in Sources */,
 				965208E30A4CDFA5006AFD81 /* IMUSANT_visitor.cpp in Sources */,
+				BAA8D8601AA42BD80053ADE3 /* TTranspose.cpp in Sources */,
 				965208E40A4CDFA6006AFD81 /* IMUSANT_XMLFile.cpp in Sources */,
+				BAA8D87C1AA42BFF0053ADE3 /* TRolledVisitor.cpp in Sources */,
 				965208E50A4CDFA6006AFD81 /* IMUSANT_XMLReader.cpp in Sources */,
 				965208E60A4CDFA7006AFD81 /* IMUSANT_XMLVisitor.cpp in Sources */,
+				BAA8D8181AA42BD80053ADE3 /* TAttributes.cpp in Sources */,
+				BAA8D84E1AA42BD80053ADE3 /* TScoreInstrument.cpp in Sources */,
 				965208E70A4CDFA9006AFD81 /* TXML2IMUSANTVisitor.cpp in Sources */,
 				965209860A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp in Sources */,
+				BAA8D8241AA42BD80053ADE3 /* TFiguredBass.cpp in Sources */,
+				BAA8D83C1AA42BD80053ADE3 /* TOtherDirections.cpp in Sources */,
+				BAA8D83A1AA42BD80053ADE3 /* TOrnaments.cpp in Sources */,
 				9652098B0A4D1CBE006AFD81 /* IMUSANT_interval.cpp in Sources */,
+				BAA8D8421AA42BD80053ADE3 /* TPartList.cpp in Sources */,
 				965209900A4D1CD8006AFD81 /* IMUSANT_record.cpp in Sources */,
+				BAA8D8341AA42BD80053ADE3 /* TMusicXMLFile.cpp in Sources */,
 				965209A60A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp in Sources */,
+				BAA8D8821AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp in Sources */,
+				BAA8D8281AA42BD80053ADE3 /* TIdentification.cpp in Sources */,
 				965209AB0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp in Sources */,
 				BA4F185A0A50C58900CB7438 /* IMUSANT_rvec_collection.cpp in Sources */,
+				BAA8D8441AA42BD80053ADE3 /* TPitch.cpp in Sources */,
+				BAA8D8781AA42BFF0053ADE3 /* Makefile in Sources */,
 				BAC604930A76F8F8000C1DF9 /* IMUSANT_processing.cpp in Sources */,
+				BAA8D8261AA42BD80053ADE3 /* THarmony.cpp in Sources */,
 				BA4462690A9196520033DB86 /* IMUSANT_contour_symbol.cpp in Sources */,
 				BA697EFE0AA4FBD7002DC3B2 /* IMUSANT_pitch.cpp in Sources */,
 				BA697F7E0AA500E4002DC3B2 /* IMUSANT_duration.cpp in Sources */,
+				BAA8D8361AA42BD80053ADE3 /* TNotation.cpp in Sources */,
+				BAA8D8201AA42BD80053ADE3 /* TClef.cpp in Sources */,
 				BA697FB00AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */,
+				BAA8D8661AA42BD80053ADE3 /* xmllex.cpp in Sources */,
+				BAA8D8FF1AABFE440053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA8D8941AABFBA30053ADE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAA8D8BB1AABFD160053ADE3 /* IMUSANT_chord.cpp in Sources */,
+				BAA8D8FA1AABFD600053ADE3 /* xmllex.cpp in Sources */,
+				BAA8D8A01AABFC1A0053ADE3 /* CATSMAT_main.cpp in Sources */,
+				BAA8D8E21AABFD600053ADE3 /* TNotation.cpp in Sources */,
+				BAA8D8C91AABFD350053ADE3 /* TScanVisitor.cpp in Sources */,
+				BAA8D8DE1AABFD600053ADE3 /* TMeasureStyle.cpp in Sources */,
+				BAA8D8E81AABFD600053ADE3 /* TPartList.cpp in Sources */,
+				BAA8D8F21AABFD600053ADE3 /* TSound.cpp in Sources */,
+				BAA8D8EB1AABFD600053ADE3 /* TRoutedVisitor.cpp in Sources */,
+				BAA8D8CD1AABFD600053ADE3 /* conversions.cpp in Sources */,
+				BAA8D8D81AABFD600053ADE3 /* TDirection.cpp in Sources */,
+				BAA8D8A31AABFCCA0053ADE3 /* IMUSANT_record.cpp in Sources */,
+				BAA8D8EF1AABFD600053ADE3 /* TScorePart.cpp in Sources */,
+				BAA8D8CC1AABFD600053ADE3 /* common.cpp in Sources */,
+				BAA8D8CE1AABFD600053ADE3 /* Iexpat.cpp in Sources */,
+				BAA8D8C71AABFD350053ADE3 /* TMidiContextVisitor.cpp in Sources */,
+				BAA8D8E71AABFD600053ADE3 /* TPartGroup.cpp in Sources */,
+				BAA8D8E61AABFD600053ADE3 /* TPart.cpp in Sources */,
+				BAA8D8DD1AABFD600053ADE3 /* TMeasure.cpp in Sources */,
+				BAA8D8DA1AABFD600053ADE3 /* THarmony.cpp in Sources */,
+				BAA8D8E01AABFD600053ADE3 /* TMidiInstrument.cpp in Sources */,
+				BAA8D8F11AABFD600053ADE3 /* TScoreTimewise.cpp in Sources */,
+				BAA8D8F91AABFD600053ADE3 /* xml.cpp in Sources */,
+				BAA8D8BF1AABFD160053ADE3 /* IMUSANT_partlist.cpp in Sources */,
+				BAA8D8A11AABFCCA0053ADE3 /* IMUSANT_interval.cpp in Sources */,
+				BAA8D8A71AABFCCA0053ADE3 /* IMUSANT_rvec_collection.cpp in Sources */,
+				BAA8D8A51AABFCCA0053ADE3 /* IMUSANT_interval_vector.cpp in Sources */,
+				BAA8D8EE1AABFD600053ADE3 /* TScoreInstrument.cpp in Sources */,
+				BAA8D8B91AABFD160053ADE3 /* IMUSANT_note.cpp in Sources */,
+				BAA8D8F71AABFD600053ADE3 /* TTranspose.cpp in Sources */,
+				BAA8D8DB1AABFD600053ADE3 /* TIdentification.cpp in Sources */,
+				BAA8D8CA1AABFD350053ADE3 /* TUnrolledVisitor.cpp in Sources */,
+				BAA8D8C81AABFD350053ADE3 /* TRolledVisitor.cpp in Sources */,
+				BAA8D8C11AABFD160053ADE3 /* IMUSANT_visitor.cpp in Sources */,
+				BAA8D8C31AABFD160053ADE3 /* IMUSANT_XMLVisitor.cpp in Sources */,
+				BAA8D8F81AABFD600053ADE3 /* TWork.cpp in Sources */,
+				BAA8D8C41AABFD160053ADE3 /* IMUSANT_XMLReader.cpp in Sources */,
+				BAA8D8BD1AABFD160053ADE3 /* IMUSANT_measure.cpp in Sources */,
+				BAA8D8BC1AABFD160053ADE3 /* IMUSANT_comment.cpp in Sources */,
+				BAA8D8DF1AABFD600053ADE3 /* TMidiDevice.cpp in Sources */,
+				BAA8D8B31AABFD160053ADE3 /* IMUSANT_conversions.cpp in Sources */,
+				BAA8D8CF1AABFD600053ADE3 /* IMusicXMLReader.cpp in Sources */,
+				BAA8D8F51AABFD600053ADE3 /* TTimeModification.cpp in Sources */,
+				BAA8D8D11AABFD600053ADE3 /* smartpointer.cpp in Sources */,
+				BAA8D8EC1AABFD600053ADE3 /* TScore.cpp in Sources */,
+				BAA8D8FB1AABFD600053ADE3 /* xmlparse.cpp in Sources */,
+				BAA8D8EA1AABFD600053ADE3 /* TRational.cpp in Sources */,
+				BAA8D8BA1AABFD160053ADE3 /* IMUSANT_barline.cpp in Sources */,
+				BAA8D8A21AABFCCA0053ADE3 /* IMUSANT_contour_symbol.cpp in Sources */,
+				BAA8D8CB1AABFD350053ADE3 /* TXML2GuidoVisitor.cpp in Sources */,
+				BAA8D8E41AABFD600053ADE3 /* TOrnaments.cpp in Sources */,
+				BAA8D8ED1AABFD600053ADE3 /* TScoreHeader.cpp in Sources */,
+				BAA8D8E11AABFD600053ADE3 /* TMusicXMLFile.cpp in Sources */,
+				BAA8D8D41AABFD600053ADE3 /* TBackupForward.cpp in Sources */,
+				BAA8D8DC1AABFD600053ADE3 /* TKey.cpp in Sources */,
+				BAA8D8F61AABFD600053ADE3 /* TTimeSign.cpp in Sources */,
+				BAA8D8D61AABFD600053ADE3 /* TChord.cpp in Sources */,
+				BAA8D8A81AABFCCA0053ADE3 /* IMUSANT_collectionvisitor.cpp in Sources */,
+				BAA8D8C01AABFD160053ADE3 /* IMUSANT_score.cpp in Sources */,
+				BAA8D8C61AABFD350053ADE3 /* guido.cpp in Sources */,
+				BAA8D8D91AABFD600053ADE3 /* TFiguredBass.cpp in Sources */,
+				BAA8D8C21AABFD160053ADE3 /* TXML2IMUSANTVisitor.cpp in Sources */,
+				BAA8D8D51AABFD600053ADE3 /* TBarline.cpp in Sources */,
+				BAA8D8C51AABFD160053ADE3 /* IMUSANT_XMLFile.cpp in Sources */,
+				BAA8D8A61AABFCCA0053ADE3 /* IMUSANT_ivec_collection.cpp in Sources */,
+				BAA8D8B71AABFD160053ADE3 /* IMUSANT_key.cpp in Sources */,
+				BAA8D8D21AABFD600053ADE3 /* TArpeggiate.cpp in Sources */,
+				BAA8D8D31AABFD600053ADE3 /* TAttributes.cpp in Sources */,
+				BAA8D8D01AABFD600053ADE3 /* IMusicXMLVisitor.cpp in Sources */,
+				BAA8D8D71AABFD600053ADE3 /* TClef.cpp in Sources */,
+				BAA8D8B51AABFD160053ADE3 /* IMUSANT_pitch.cpp in Sources */,
+				BAA8D8A41AABFCCA0053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */,
+				BAA8D8B61AABFD160053ADE3 /* IMUSANT_duration.cpp in Sources */,
+				BAA8D8F41AABFD600053ADE3 /* TTechnical.cpp in Sources */,
+				BAA8D8E51AABFD600053ADE3 /* TOtherDirections.cpp in Sources */,
+				BAA8D8BE1AABFD160053ADE3 /* IMUSANT_part.cpp in Sources */,
+				BAA8D8F01AABFD600053ADE3 /* TScorePartwise.cpp in Sources */,
+				BAA8D8F31AABFD600053ADE3 /* TStaffDetails.cpp in Sources */,
+				BAA8D8E31AABFD600053ADE3 /* TNote.cpp in Sources */,
+				BAA8D8E91AABFD600053ADE3 /* TPitch.cpp in Sources */,
+				BAA8D8A91AABFCCA0053ADE3 /* IMUSANT_processing.cpp in Sources */,
+				BAA8D8B81AABFD160053ADE3 /* IMUSANT_element.cpp in Sources */,
+				BAA8D8B41AABFD160053ADE3 /* IMUSANT_types.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +1268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -675,17 +1277,30 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"<Multiple",
+					"values>",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INSTALL_PATH = "$(HOME)/bin";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\" \"usr/lib\"";
-				"LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1[arch=*]" = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/boost_1_57_0/stage/lib,
+					"$(PROJECT_DIR)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
+				"LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1[arch=*]" = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = MusicXML2imusant;
+				REZ_SEARCH_PATHS = "";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = macosx10.10;
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 				ZERO_LINK = YES;
 			};
 			name = Debug;
@@ -694,22 +1309,32 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
 				GCC_MODEL_TUNING = G5;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"<Multiple",
+					"values>",
+				);
 				INSTALL_PATH = "$(HOME)/bin";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"/\"usr/lib";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"/Users/Jason/Musicology/computer_analysis/boost_1_46_1/stage/lib\"";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/boost_1_57_0/stage/lib,
+					"$(PROJECT_DIR)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = imusant;
+				REZ_SEARCH_PATHS = "";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = macosx10.10;
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 			};
 			name = Release;
 		};
@@ -717,14 +1342,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_MODEL_TUNING = "";
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
-				LIBRARY_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /usr/local/boost_1_57_0;
+				LIBRARY_SEARCH_PATHS = /usr/local/boost_1_57_0/stage/lib;
 				ONLY_ACTIVE_ARCH = YES;
-				USER_HEADER_SEARCH_PATHS = "$/usr/local/include/**";
+				USER_HEADER_SEARCH_PATHS = "";
 				ZERO_LINK = YES;
 			};
 			name = Debug;
@@ -732,10 +1358,13 @@
 		1DEB923708733DC60010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				USER_HEADER_SEARCH_PATHS = "$/usr/local/include/**";
+				HEADER_SEARCH_PATHS = /usr/local/boost_1_57_0;
+				LIBRARY_SEARCH_PATHS = /usr/local/boost_1_57_0/stage/lib;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -763,6 +1392,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(PROJECT_DIR)",
+					/usr/local/boost_1_57_0/stage/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "";
@@ -796,6 +1426,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(PROJECT_DIR)",
+					/usr/local/boost_1_57_0/stage/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "";
@@ -803,6 +1434,87 @@
 				PRODUCT_NAME = imusantcat;
 				USER_HEADER_SEARCH_PATHS = "/usr/local/include/**";
 				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		BAA8D89D1AABFBA30053ADE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BAA8D89E1AABFBA30053ADE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -835,6 +1547,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BAA8D89C1AABFBA30053ADE3 /* Build configuration list for PBXNativeTarget "CATSMAT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAA8D89D1AABFBA30053ADE3 /* Debug */,
+				BAA8D89E1AABFBA30053ADE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
