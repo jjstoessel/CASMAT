@@ -70,8 +70,9 @@ int main (int argc, char * const argv[]) {
 			<< "=========================================================================" << endl << endl;
 	
 	cout	<<	"							MAIN MENU" << endl
-			<<	"              1. Compare files in directory" << endl
-			<<	"              2. Compare a selected number of files" << endl << endl
+			<<	"              1. Test a single file" << endl
+			<<	"              2. Batch test files in a directory" << endl
+            <<  "              3. Identify canonic technique (not available)" << endl << endl
 			<<	"Please select a menu item (1-2): ";
 	
 	char menuItem = 0; 
@@ -84,7 +85,29 @@ int main (int argc, char * const argv[]) {
 		cin.ignore();
 		switch (menuItem)
 		{
-			case '1':
+            case '1':
+                while ( yesNo != 'n' && yesNo != 'N' )
+                {
+                    cout << "Enter file name: ";
+                    if (getline(cin, file))
+                    {
+                        full_path = filesystem::system_complete( filesystem::path(file) );
+                        if (!filesystem::exists( full_path ))
+                        {
+                            cerr << full_path << " not found." << endl;
+                        }
+                        else if (!filesystem::is_directory( full_path ) )
+                        {
+                            processor.add_file(full_path);
+                        }
+                        cout << "Add another file? (y/n):";
+                        
+                        cin >> yesNo;
+                        cin.ignore();
+                    }
+                }
+                
+			case '2':
 				cout << "Enter directory name: ";
 				getline( cin, directory);
 				full_path = filesystem::system_complete( filesystem::path(directory) );
@@ -101,31 +124,12 @@ int main (int argc, char * const argv[]) {
 					end = true;
 				}
 				break;
-			case '2':
-				while ( yesNo != 'n' && yesNo != 'N' )
-				{
-					cout << "Enter file name: ";
-					if (getline(cin, file))
-					{
-						full_path = filesystem::system_complete( filesystem::path(file) );
-						if (!filesystem::exists( full_path ))
-						{
-							cerr << full_path << " not found." << endl;
-						}
-						else if (!filesystem::is_directory( full_path ) )
-						{
-							processor.add_file(full_path);
-						}
-						cout << "Add another file? (y/n):";
-						
-						cin >> yesNo;
-						cin.ignore();
-					}
-				}
 								
 				runToolMenu(processor);
 				end = true;
 				break;
+            case '3':
+                cout << "Currently not avaiable." << endl;
 			default:
 				cout << "Invalid selection. Please select a menu item (1-2): " ;
 		}
@@ -143,42 +147,6 @@ int main (int argc, char * const argv[]) {
 
 }
 
-/* int main (int argc, char * const argv[]) 
-{
-	filesystem::path full_path(filesystem::initial_path());
-	IMUSANT_processing processor;
-	
-	if (argc != 2) {
-		cerr << "/nusage:imusant <xml file>" << endl;
-		return 1;
-	}
-	else
-		full_path = filesystem::system_complete( filesystem::path(argv[1], filesystem::native) );
-	
-	if (!filesystem::exists( full_path ))
-	{
-		cerr << full_path.native_file_string() << " not found." << endl;
-		return 1;
-	}
-	
-	if (filesystem::is_directory( full_path ) )
-	{
-		processor.process_directory_files(full_path);
-		processor.find_repeated_interval_substrings();
-		processor.find_repeated_contour_substrings();
-		processor.find_supermaximals_intervals(4,100);
-		processor.find_supermaximals_contours(4,100);
-		processor.find_lcs_pairs_intervals(false);
-		processor.find_lcs_pairs_pitches(false);
-	}
-	//else //is file
-	//	return catalogue(full_path);
-	
-	return 0;
-
-}
- */
- 
 void runToolMenu(IMUSANT_processing& processor)
 {
 	bool moreTools = true;

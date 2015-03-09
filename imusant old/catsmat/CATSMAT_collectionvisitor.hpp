@@ -1,9 +1,9 @@
 /*
- *  IMUSANT_collectionvisitor.h
- *  imusant
+ *  CATSMAT_collectionvisitor.h
+ *  catsmat
  *
- *  Created by Jason Stoessel on 24/06/06.
- *  Copyright 2006 Jason Stoessel. All rights reserved.
+ *  Created by Jason Stoessel on 08/03/2015.
+ *  Copyright 2015 Jason Stoessel. All rights reserved.
  *
  *	This class visits an IMUSANT score and collection information that is 
  *	then ready to output (using another visitor class to be implemented).
@@ -21,29 +21,18 @@
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_visitor.h"
 #include "IMUSANT_pitch.h"
-#include "CATSMAT_cp_matrix.hpp"
+#include "CATSMAT_cp_matrix.h"
 
 using namespace std;
 
-namespace IMUSANT
+namespace CATSMAT
 {
-
-class IMUSANT_pitch_vector : public smartable, public vector<IMUSANT_pitch> 
-{
-	public:
-	
-    friend SMARTP<IMUSANT_pitch_vector> new_IMUSANT_pitch_vector();
-	
-};
-typedef SMARTP<IMUSANT_pitch_vector> S_IMUSANT_pitch_vector;
-
-S_IMUSANT_pitch_vector new_IMUSANT_pitch_vector();
     
-class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
+class VEXP CATSMAT_collection_visitor : public IMUSANT_visitor
 {
 	public:
-					IMUSANT_collection_visitor();
-		virtual		~IMUSANT_collection_visitor() {}
+					CATSMAT_collection_visitor();
+		virtual		~ICATSMAT_collection_visitor() {}
 		
 		void visit ( S_IMUSANT_attributes& elt );
 		void visit ( S_IMUSANT_barline& );
@@ -62,7 +51,6 @@ class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
 		const string& getMovementTitle() const { return fMovementTitle; }
 		const S_IMUSANT_contour&	getMelodicContour() const { return fMelodicContour; }
 		const S_IMUSANT_pitch_vector& getPitchVector() { return fPitchVector; }
-        const CATSMAT::S_CATSMAT_cp_matrix& getCPMatrix() { return fCPMatrix; }
 		
 		void ignoreRepeatedPitches(bool ignore) { fIgnoreRepeatedPitches = ignore; }
 	protected:
@@ -93,5 +81,5 @@ class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
 		vector<string>	fLyrics;
 };
 
-} //namespace IMUSANT
+} //namespace CATSMAT
 #endif

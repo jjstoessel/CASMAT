@@ -6,7 +6,7 @@
 //
 //
 
-#include "CATSMAT_cp_matrix.h"
+#include "CATSMAT_cp_matrix.hpp"
 
 namespace CATSMAT
 {
@@ -80,30 +80,34 @@ bool    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
 }
 
 //recursive function to distribute a longer note over the following durations;
-//returns remainder, which is also the split note if duration is shorter
+//returns remainder, which is also the "split note" if the duration is shorter
 //than the current chord duration
-//To do: capture whole note rests!
 IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note)
 {
     IMUSANT_note remainder = note;
     
     //assumes that the duration of all notes in each existing chord are the same due to prior operation.
-    if ( *note.duration() >= *(*fCurrentChord)->getNotes()[fCurrentPart-1]->duration() && fCurrentChord!=fCPMatrix.end() )
+    if ( fCurrentChord!=fCPMatrix.end() && *note.duration() >= *(*fCurrentChord)->getNotes()[fCurrentPart-1]->duration() )
     {
         /*if ((*fCurrentChord)->getNotes()[fCurrentPart-1]->getMeasureNum() != note.getMeasureNum()) {
          cerr << "Mismatched measure insert" << endl;
          }*/
         //create and insert the note with a new duration
+        //make sure new duration object is added.
         //TO DO - add ties
-        S_IMUSANT_note part_note = new_IMUSANT_note();
+
+        S_IMUSANT_note      part_note = new_IMUSANT_note();
+        S_IMUSANT_duration  part_duration = new_IMUSANT_duration();
+        
+        *part_duration = *(*fCurrentChord)->getNotes()[fCurrentPart-1]->duration();
         *part_note = note;
-        part_note->setDuration((*fCurrentChord)->getNotes()[fCurrentPart-1]->duration());
+        part_note->setDuration(part_duration);
         
         (*fCurrentChord)->add(part_note);
         //find the remainder of the duration left after the previous chord
         //call recusively
         S_IMUSANT_duration dur = remainder.duration();
-        *dur -= *part_note->duration();
+        *dur -= *part_duration;
         
         fCurrentChord++;
         
@@ -116,15 +120,15 @@ IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note)
     return remainder;
 }
 
-//split a note into smaller durations
+//split an existing chord
 void   CATSMAT_cp_matrix::split(const IMUSANT_note& note)
 {
     //create the new chord, ready for filling in for loop
     S_IMUSANT_chord insert_chord = new_IMUSANT_chord();
-    
+    S_IMUSANT_note  new_insert_note = new_IMUSANT_note();
     //resize notes in other parts in current chord; begin filling new chord, but don't fill the note
-    //for the current voice since it will only be known in the next call of add(note&)
-    for (unsigned long i = 0; i<fCurrentPart; i++)
+    //for the current voice since it will be known only in the next call of add(note&)
+    for (vector<S_IMUSANT_note>::iterator i = (*fCurrentChord)->getNotes().begin(); i!=(*fCurrentChord)->getNotes().end(); i++)
     {
         //create a new note like the one that already exists, change duration
         //to remainder, insert into the new chord
@@ -132,21 +136,21 @@ void   CATSMAT_cp_matrix::split(const IMUSANT_note& note)
         S_IMUSANT_note      insert_note = new_IMUSANT_note();
         S_IMUSANT_duration  insert_duration = new_IMUSANT_duration();
         
-        *insert_note = *(*fCurrentChord)->getNotes()[i];
+        *insert_note = *(*i);
         *insert_duration = *note.duration();
         insert_note->setDuration(insert_duration);
         insert_chord->add(insert_note);
+        if ( *(*i)->duration() != *(*i)->duration() - *note.duration())
+            *(*i)->duration() -= *note.duration();
     }
     
-    //finally add new note (clone note&) to chord to be pre-inserted
-    S_IMUSANT_note new_insert_note = new_IMUSANT_note();
+    //finally add new note (clone note&) to new chord to be pre-inserted
     *new_insert_note = note;
     insert_chord->add(new_insert_note);
-    
     //insert new chord before current chord
-    fCurrentChord = fCPMatrix.insert(fCurrentChord, insert_chord);
-    
-    fCurrentChord++;
+    //fCurrentChord = fCPMatrix.insert(fCurrentChord, insert_chord);
+    fCPMatrix.insert(fCurrentChord, insert_chord);
+    //fCurrentChord++;
     
 }
 
@@ -159,7 +163,7 @@ void	CATSMAT_cp_matrix::pop_front()
 
 void CATSMAT_cp_matrix::print(ostream& os)
 {
-    for (auto vector<S_IMUSANT_chord>::iterator i = fCPMatrix.begin(); i!=fCPMatrix.end(); i++) {
+    for (list<S_IMUSANT_chord>::iterator i = fCPMatrix.begin(); i!=fCPMatrix.end(); i++) {
         (*i)->print(os);
     }
 }

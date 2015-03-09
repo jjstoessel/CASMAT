@@ -39,7 +39,7 @@ public:
     void	clear() { fCPMatrix.clear(); }
     
     void	pop_front();
-    const   vector< S_IMUSANT_chord >& getCPmatrix() const { return fCPMatrix; }
+    const   list< S_IMUSANT_chord >& getCPmatrix() const { return fCPMatrix; }
     
     void    print(ostream& os);
     
@@ -57,10 +57,10 @@ private:
     IMUSANT_note    distribute(const IMUSANT_note& note);
 
     
-    vector< S_IMUSANT_chord >           fCPMatrix; //a vector of vectors, each of which represent a chord
+    list< S_IMUSANT_chord >             fCPMatrix; //a vector of vectors, each of which represent a chord
     vector< vector<int> >               fTaneievIntervalVectors;
     unsigned long                       fCurrentPart;
-    vector<S_IMUSANT_chord>::iterator   fCurrentChord;
+    list<S_IMUSANT_chord>::iterator     fCurrentChord;
     IMUSANT_time                        fCurrentTime;
     
 };

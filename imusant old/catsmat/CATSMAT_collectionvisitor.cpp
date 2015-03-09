@@ -8,7 +8,7 @@
  *	This class is a visitor to IMUSANT_score for the purposes of collecting musical data for further manipulation.
  */
 
-#include "IMUSANT_collectionvisitor.h"
+#include "CATSMAT_collectionvisitor.hpp"
 #include "IMUSANT_chord.h"
 #include "IMUSANT_measure.h"
 #include "IMUSANT_part.h"
@@ -22,9 +22,10 @@
 #include <algorithm>
 
 using namespace std;
+using namespace IMUSANT;
 using namespace ns_suffixtree;
 
-namespace IMUSANT
+namespace CATSMAT
 {
 
 S_IMUSANT_pitch_vector new_IMUSANT_pitch_vector()
@@ -145,6 +146,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
 #pragma mark IMUSANT_partlist handler
 void IMUSANT_collection_visitor::visit ( S_IMUSANT_partlist& elt )
 {
+
 	elt->parts().accept(*this);
 }
 
@@ -167,9 +169,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 	fIntervalVector->add(IMUSANT_interval::MakeUniqueInterval());
 	fPitchVector->push_back(IMUSANT_pitch::MakeUniquePitch());
 	fMelodicContour->push_back(IMUSANT_contour_symbol::MakeUniqueSymbol());
-    
-    cout << fCPMatrix;
 }
 
 
-} //namespace IMUSANT
+} //namespace CATSMAT

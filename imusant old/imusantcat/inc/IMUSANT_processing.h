@@ -10,9 +10,8 @@
 #ifndef __IMUSANT_PROCESSING__
 #define __IMUSANT_PROCESSING__
 
-#include "boost/filesystem/path.hpp"
-#include "boost/filesystem/operations.hpp"
-#include "boost/filesystem/convenience.hpp"
+#include <boost/filesystem.hpp>
+
 #include "IMUSANT_collectionvisitor.h"
 
 #include <map>
