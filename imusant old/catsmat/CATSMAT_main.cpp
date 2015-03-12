@@ -18,7 +18,7 @@
 #include "IMUSANT_XMLReader.h"
 #include "IMUSANT_collectionvisitor.h"
 #include "TScore.h"
-#include "IMUSANT_processing.h"
+#include "CATSMAT_processing.hpp"
 
 
 
@@ -26,14 +26,14 @@
 
 using namespace boost;
 using namespace std;
-using namespace IMUSANT;
+using namespace CATSMAT;
 
 extern int catalogue(filesystem::path& p);
-extern void runToolMenu(IMUSANT_processing& processor);
+extern void runToolMenu(CATSMAT_processing& processor);
 
 int main (int argc, char * const argv[]) {
 	filesystem::path full_path(filesystem::initial_path());
-	IMUSANT_processing processor;
+	CATSMAT_processing processor;
 	
 	cout	<< "========================================================================" << endl
 			<< "|					 WELCOME TO CATSMAT, version 0.1					" << endl
@@ -43,8 +43,8 @@ int main (int argc, char * const argv[]) {
 			<< "|	Programming: Jason Stoessel	and …									" << endl
 			<< "|	Development Tool: Apple Computer's XCode version 6.1.1 (LLVM C++)   " << endl
 			<< "|                                                                       " << endl
-            << "|   These  symbolic musical analysis tools have been developed by       " << endl
-            << "|   Chief Investigators Denis Collins and JAson Stoessel for their      " << endl
+            << "|   These symbolic musical analysis tools have been developed by        " << endl
+            << "|   Chief Investigators Denis Collins and Jason Stoessel for their      " << endl
             << "|   project \"Canonic Techniques and Musical Change, from c.1330 to     " << endl
             << "|   c.1530\", funded by the Australian Reserach Council (DP150102135).  " << endl
 			<< "|	This software uses portions of code from the project \"The Meeting  " << endl
@@ -54,8 +54,10 @@ int main (int argc, char * const argv[]) {
             << "|   and Jason Stoessel.                                                 " << endl
 			<< "|																		" << endl
 			<< "|	This program and its code remains the property of the authors and	" << endl
-			<< "|	where applicable, the University of New England. This program		" << endl
-			<< "|	currently makes use of the following libraries:						" << endl
+			<< "|	where applicable, the University of New England and University of   " << endl
+            << "|   Queensland. This program currently makes use of the following       " << endl
+            << "|   libraries:                                                          " << endl
+			<< "|                                                                       " << endl
 			<< "|		1. MusicXML Library under the GNU Lesser General Public License " << endl
 			<< "|		2. Boost under Boost Software License (Open source license)		" << endl
 			<< "|																		" << endl
@@ -63,9 +65,9 @@ int main (int argc, char * const argv[]) {
 			<< "|	granted by Recordare LCC; see										" << endl
 			<< "|		http://www.recordare.com/dtds/license.html						" << endl
 			<< "|																		" << endl
-			<< "|	Conditions for those licenses apply to relative portions of this	" << endl
+			<< "|	Conditions for those licenses apply to relavant portions of this	" << endl
 			<< "|	software. Newly created portions of this software and propriety		" << endl
-			<< "|	data formats are copyrighted by the designers and programmer.		" << endl
+			<< "|	data formats are copyrighted by the designers and programmers.		" << endl
 			<< "|																		" << endl
 			<< "=========================================================================" << endl << endl;
 	
@@ -107,6 +109,9 @@ int main (int argc, char * const argv[]) {
                     }
                 }
                 
+                runToolMenu(processor);
+                end = true;
+                break;
 			case '2':
 				cout << "Enter directory name: ";
 				getline( cin, directory);
@@ -124,12 +129,8 @@ int main (int argc, char * const argv[]) {
 					end = true;
 				}
 				break;
-								
-				runToolMenu(processor);
-				end = true;
-				break;
             case '3':
-                cout << "Currently not avaiable." << endl;
+                cout << "Currently not available." << endl;
 			default:
 				cout << "Invalid selection. Please select a menu item (1-2): " ;
 		}
@@ -147,7 +148,7 @@ int main (int argc, char * const argv[]) {
 
 }
 
-void runToolMenu(IMUSANT_processing& processor)
+void runToolMenu(CATSMAT_processing& processor)
 {
 	bool moreTools = true;
 	do

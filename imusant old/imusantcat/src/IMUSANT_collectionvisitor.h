@@ -16,12 +16,12 @@
 #ifndef __IMUSANT_COLLECTION_VISITOR__
 #define __IMUSANT_COLLECTION_VISITOR__
 
+
 #include "IMUSANT_ivec_collection.h"
 #include "IMUSANT_rvec_collection.h"
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_visitor.h"
 #include "IMUSANT_pitch.h"
-#include "CATSMAT_cp_matrix.hpp"
 
 using namespace std;
 
@@ -62,7 +62,6 @@ class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
 		const string& getMovementTitle() const { return fMovementTitle; }
 		const S_IMUSANT_contour&	getMelodicContour() const { return fMelodicContour; }
 		const S_IMUSANT_pitch_vector& getPitchVector() { return fPitchVector; }
-        const CATSMAT::S_CATSMAT_cp_matrix& getCPMatrix() { return fCPMatrix; }
 		
 		void ignoreRepeatedPitches(bool ignore) { fIgnoreRepeatedPitches = ignore; }
 	protected:
@@ -81,8 +80,6 @@ class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
 		S_IMUSANT_contour               fMelodicContour;
 		//local storage of pitches
 		S_IMUSANT_pitch_vector          fPitchVector;
-        //local storage of counterpoint matrix
-        CATSMAT::S_CATSMAT_cp_matrix    fCPMatrix;
 		
 		// global flag to denote chords writing
 		bool			fInChord;
