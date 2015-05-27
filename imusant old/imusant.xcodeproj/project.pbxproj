@@ -874,8 +874,8 @@
 			isa = PBXGroup;
 			children = (
 				BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */,
-				BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */,
 				BAA8D9051AB156120053ADE3 /* CATSMAT_processing.hpp */,
+				BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */,
 				BAA8D9011AAC0F5A0053ADE3 /* CATSMAT_collectionvisitor.hpp */,
 				BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */,
 				969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.hpp */,
@@ -1565,6 +1565,7 @@
 				BAA8D89E1AABFBA30053ADE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -75,7 +75,6 @@ void CATSMAT_collection_visitor::visit ( S_IMUSANT_score& elt )
     
     IMUSANT_collection_visitor::visit(elt);
     
-    cout << fCPMatrix;
 }
 
 

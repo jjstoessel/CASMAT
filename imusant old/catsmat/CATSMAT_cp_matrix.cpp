@@ -4,8 +4,12 @@
 //
 //  Created by Jason Stoessel on 29/01/2015.
 //
+//  Purpose: To build an in memory representation of a contrapuntal structure
 //
-
+//  History:
+//  – First fully functional on 10/3/2015
+//
+//
 #include "CATSMAT_cp_matrix.hpp"
 
 namespace CATSMAT
@@ -14,6 +18,10 @@ namespace CATSMAT
 S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix()
 { CATSMAT_cp_matrix* o = new CATSMAT_cp_matrix(); assert(o!=0); return o; }
 
+/*!
+ \brief CATSMAT_cp_matrix stream out operator
+ 
+ */
 ostream& operator<< (ostream& os, const S_CATSMAT_cp_matrix& elt )
 {
     elt->print(os);
@@ -21,6 +29,10 @@ ostream& operator<< (ostream& os, const S_CATSMAT_cp_matrix& elt )
     return os;
 }
 
+/*!
+ \brief CATSMAT_cp_matrix default ctor
+ 
+ */
 CATSMAT_cp_matrix::CATSMAT_cp_matrix()
     : fCurrentPart(-1)
 {
@@ -31,13 +43,30 @@ CATSMAT_cp_matrix::~CATSMAT_cp_matrix()
 {
     
 }
+
+/*!
+ \brief CATSMAT_cp_matrix::addpart 
     
+    Increments fCurrentPart and returned to the first chord of the CP matrix
+    called by:
+        (visitor)::visit ( S_IMUSANT_part& elt )
+ 
+ */
 bool CATSMAT_cp_matrix::addpart()
 {
     //if a part already exists, create an empty part/row for each "chord" vector<IMUSANT_note>
     //In the case of the first part, the matrix grows by pushing a one-dimensional vector<IMUSANT_note>
-    //onto the stack. Zero-based array style reference, ie. 0 = first part.
+    //onto the stack. Zero based
     fCurrentPart++;
+    
+    //increase VectorInterval colection according to the formula of unique pairs n(n-1)/2
+    while (fVIntervalVector.size() < ( (fCurrentPart+1)*fCurrentPart/2 ) )
+    {
+        S_IMUSANT_interval_vector newIV = new_IMUSANT_interval_vector();
+        newIV->setMaximum(1024);
+        fVIntervalVector.push_back(newIV);
+    }
+    
     fCurrentChord = fCPMatrix.begin();
     
     return true;
@@ -154,12 +183,41 @@ void   CATSMAT_cp_matrix::split(const IMUSANT_note& note)
     
 }
 
-    
-void	CATSMAT_cp_matrix::pop_front()
+//once the CP Matrix is filled, process for:
+// 1. calculate all vertical intervals between voices
+void    CATSMAT_cp_matrix::process(bool ignoreRepeatedPitches)
 {
-    
+    if (!fCPMatrix.empty())
+    {
+        for (list<S_IMUSANT_chord>::iterator chord = fCPMatrix.begin(); chord!=fCPMatrix.end(); chord++)
+        {
+            long i = 0;
+            
+            for (IMUSANT_vector<S_IMUSANT_note>::const_iterator note1 = (*chord)->getNotes().begin();
+                 note1 != (*chord)->getNotes().end();
+                 note1++)
+            {
+            
+            
+                for ( IMUSANT_vector<S_IMUSANT_note>::const_iterator note2 = note1;
+                        ++note2 != (*chord)->getNotes().end(); /*nothing here!*/)
+                {
+                    //an interval is between two notes!
+                    if ((*note1)->getType()!=IMUSANT_NoteType::rest && (*note2)->getType()!=IMUSANT_NoteType::rest )
+                    {
+                        IMUSANT_interval interval((*note2)->pitch(), (*note1)->pitch());
+                        
+                        interval.setLocation(i, (*note2)->getMeasureNum(), (*note2)->getNoteIndex(), (*note1)->getMeasureNum(), (*note1)->getNoteIndex());
+                        
+                        fVIntervalVector[i]->add(interval);
+                    }
+                    
+                    i++;
+                }
+            }
+        }
+    }
 }
-
 
 void CATSMAT_cp_matrix::print(ostream& os)
 {

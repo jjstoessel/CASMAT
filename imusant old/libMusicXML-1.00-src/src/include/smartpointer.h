@@ -96,7 +96,7 @@ template<class T> class SMARTP {
 		//! operator -> overloading to access the actual class pointer
 		T* operator->() const	{ 
 			// checks for null dereference
-			assert (fSmartPtr != 0);
+			assert (fSmartPtr != NULL);
 			return fSmartPtr;
 		}
 

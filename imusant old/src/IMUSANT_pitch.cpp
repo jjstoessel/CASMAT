@@ -63,7 +63,7 @@ void IMUSANT_pitch::set(type name, unsigned short octave, unsigned short voice, 
 
 void IMUSANT_pitch::print (ostream& os) const
 {
-	os << IMUSANT_pitch::xml(fName) << fAlteration << "@" << fOctave << std::endl;
+	os << IMUSANT_pitch::xml(fName) << fAlteration << "@" << fOctave /*<< std::endl*/;
 }
 
 } //namespace IMUSANT

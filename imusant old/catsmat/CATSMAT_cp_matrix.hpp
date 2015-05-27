@@ -19,6 +19,7 @@
 #include "IMUSANT_interval.h"
 #include "IMUSANT_note.h"
 #include "IMUSANT_chord.h"
+#include "IMUSANT_interval_vector.h"
 
 using namespace std;
 using namespace IMUSANT;
@@ -33,17 +34,19 @@ public:
     
     friend  SMARTP<CATSMAT_cp_matrix> new_CATSMAT_cp_matrix();
     
+    friend ostream& operator<< (ostream& os, const SMARTP<CATSMAT_cp_matrix>& elt );
+    
     bool    addpart();
     bool	add(const IMUSANT_note& note);
     void    set(const IMUSANT_time& time) { fCurrentTime = time; }
     void	clear() { fCPMatrix.clear(); }
     
-    void	pop_front();
+    void    process(bool ignoreRepeatedPitches = true);
+    
     const   list< S_IMUSANT_chord >& getCPmatrix() const { return fCPMatrix; }
+    const   vector<S_IMUSANT_interval_vector> getVerticalIntervals() const { return fVIntervalVector; }
     
     void    print(ostream& os);
-    
-    friend ostream& operator<< (ostream& os, const SMARTP<CATSMAT_cp_matrix>& elt );
     
 protected:
     //ctors
@@ -58,6 +61,7 @@ private:
 
     
     list< S_IMUSANT_chord >             fCPMatrix; //a vector of vectors, each of which represent a chord
+    vector<S_IMUSANT_interval_vector>   fVIntervalVector;
     vector< vector<int> >               fTaneievIntervalVectors;
     unsigned long                       fCurrentPart;
     list<S_IMUSANT_chord>::iterator     fCurrentChord;

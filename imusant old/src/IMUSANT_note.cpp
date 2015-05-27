@@ -22,9 +22,9 @@ ostream& operator<< (ostream& os, const S_IMUSANT_note& elt )
 
 void IMUSANT_note::print (ostream& os)
 {
-	os << "<NOTE>=" << fNoteIndex << endl;
-	os << *fPitch;
-	os << *fDuration;
+	os << "<NOTE index=" << fNoteIndex << " >" << endl;
+    os << " <PITCH>" << *fPitch << "<\\PITCH>" << endl;
+	os << " <DURATION>" << *fDuration << "<\\DURATION>" << endl;
 	//add other records
 	os << "<\\NOTE>" << endl;
 }
