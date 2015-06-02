@@ -39,8 +39,8 @@ int main (int argc, char * const argv[]) {
 			<< "|					 WELCOME TO CATSMAT, version 0.1					" << endl
 			<< "|           (Canonic Techniques Symbolic Musical Analysis Tool)         " << endl
 			<< "|																		" << endl
-			<< "|	Designers: Denis Collins and Jason Stoessel							" << endl
-			<< "|	Programming: Jason Stoessel	and …									" << endl
+			<< "|	Designers: Denis Collins, Jason Stoessel and Derrick Hill			" << endl
+			<< "|	Programming: Jason Stoessel	and Derrick Hill						" << endl
 			<< "|	Development Tool: Apple Computer's XCode version 6.1.1 (LLVM C++)   " << endl
 			<< "|                                                                       " << endl
             << "|   These symbolic musical analysis tools have been developed by        " << endl
