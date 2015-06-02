@@ -19,6 +19,10 @@
 
   Grame Research Laboratory, 9 rue du Garet, 69001 Lyon - France
   grame@grame.fr
+ 
+  Notes:
+
+    2 Jun 2015 Fixed NoteType::rational so that it correctly handles notes greater than a semibreve/whole note
 
 */
 
@@ -92,7 +96,7 @@ NoteType::type NoteType::xml (const string str)  	{ return fType2String[str]; }
 TRational& NoteType::rational(type d, TRational& r) {
 	TRational ratio(1,256);
 	int i = 1;
-	while (i <= whole) {
+	while (i <= tlong) {
 		if (d & i) {
 			r = ratio;
 			break;
