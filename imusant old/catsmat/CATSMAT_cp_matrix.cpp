@@ -21,7 +21,7 @@ S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix()
 /*!
  \brief CATSMAT_cp_matrix stream out operator
  
- */
+*/
 ostream& operator<< (ostream& os, const S_CATSMAT_cp_matrix& elt )
 {
     elt->print(os);
@@ -72,6 +72,12 @@ bool CATSMAT_cp_matrix::addpart()
     return true;
 }
 
+/*!
+\brief CATSMAT_cp_matrix::add
+ 
+    Adds a note to the current part
+ 
+ */
 bool	CATSMAT_cp_matrix::add(const IMUSANT_note& note)
 {
     if (fCurrentPart==0) // there are no parts added yet
@@ -93,6 +99,12 @@ bool	CATSMAT_cp_matrix::add(const IMUSANT_note& note)
     return true;
 }
 
+/*!
+ \brief CATSMAT_cp_matrix::insert
+    
+    Inserts a note into the next chord (and following ones)
+ 
+ */
 bool    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
 {
     bool inserted = false;
@@ -108,9 +120,13 @@ bool    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
     return inserted;
 }
 
-//recursive function to distribute a longer note over the following durations;
-//returns remainder, which is also the "split note" if the duration is shorter
-//than the current chord duration
+/*!
+    \brief CATSMAT_cp_matrix::distribute
+
+    A recursive function to distribute a longer note over the following durations;
+    returns remainder as IMUSANT_note, which is also the "split note" if the duration is shorter
+    than the current chord duration
+*/
 IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note)
 {
     IMUSANT_note remainder = note;
@@ -148,8 +164,12 @@ IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note)
     
     return remainder;
 }
-
-//split an existing chord
+/*!
+    \brief CATSMAT_cp_matrix::split
+ 
+    Split split an existing chord with a shorter inserted or remainder note.
+ 
+*/
 void   CATSMAT_cp_matrix::split(const IMUSANT_note& note)
 {
     //create the new chord, ready for filling in for loop
@@ -182,9 +202,14 @@ void   CATSMAT_cp_matrix::split(const IMUSANT_note& note)
     //fCurrentChord++;
     
 }
+    
+/*!
+\brief CATSMAT_cp_matrix::process
 
-//once the CP Matrix is filled, process for:
-// 1. calculate all vertical intervals between voices
+    once the CP Matrix is filled, process for:
+    1. calculate all vertical intervals between voices
+
+*/
 void    CATSMAT_cp_matrix::process(bool ignoreRepeatedPitches)
 {
     if (!fCPMatrix.empty())
@@ -219,6 +244,12 @@ void    CATSMAT_cp_matrix::process(bool ignoreRepeatedPitches)
     }
 }
 
+/*!
+ \brief CATSMAT_cp_matrix::print
+ 
+    Print function for viewing contents of CP matrix in XML
+ 
+ */
 void CATSMAT_cp_matrix::print(ostream& os)
 {
     for (list<S_IMUSANT_chord>::iterator i = fCPMatrix.begin(); i!=fCPMatrix.end(); i++) {

@@ -46,7 +46,7 @@ int main (int argc, char * const argv[]) {
             << "|   These symbolic musical analysis tools have been developed by        " << endl
             << "|   Chief Investigators Denis Collins and Jason Stoessel for their      " << endl
             << "|   project \"Canonic Techniques and Musical Change, from c.1330 to     " << endl
-            << "|   c.1530\", funded by the Australian Reserach Council (DP150102135).  " << endl
+            << "|   c.1530\", funded by the Australian Research Council (DP150102135).  " << endl
 			<< "|	This software uses portions of code from the project \"The Meeting  " << endl
             << "|   of Computer Technology and Medieval Music: A Proto-type Software    " << endl
             << "|	Program for Analysis of Musical Intertextuality.\" (2006 University " << endl
