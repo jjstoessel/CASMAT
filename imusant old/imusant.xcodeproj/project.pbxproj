@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		496EF47A1B22704000FE715F /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 496EF4791B22704000FE715F /* libboost_filesystem.dylib */; };
-		496EF47C1B22705900FE715F /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 496EF47B1B22705900FE715F /* libboost_system.dylib */; };
 		8DD76F650486A84900D96B5E /* xml2imusant_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* imusant.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* imusant.1 */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
@@ -165,7 +163,7 @@
 		BAA8D8811AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8711AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp */; };
 		BAA8D8821AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8711AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp */; };
 		BAA8D88C1AA42E6A0053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
-		BAA8D88D1AA42E6A0053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		BAA8D88D1AA42E6A0053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		BAA8D88F1AA42E7E0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		BAA8D8901AA42E7E0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		BAA8D8A01AABFC1A0053ADE3 /* CATSMAT_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */; };
@@ -327,8 +325,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				496EF47C1B22705900FE715F /* libboost_system.dylib in CopyFiles */,
-				496EF47A1B22704000FE715F /* libboost_filesystem.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -345,8 +341,8 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xml2imusant_main.cpp; sourceTree = "<group>"; };
-		496EF4791B22704000FE715F /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = ../../../../../usr/local/boost/lib/libboost_filesystem.dylib; sourceTree = "<group>"; };
-		496EF47B1B22705900FE715F /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = ../../../../../usr/local/boost/lib/libboost_system.dylib; sourceTree = "<group>"; };
+		496EF4791B22704000FE715F /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = /usr/local/boost/lib/libboost_system.dylib; sourceTree = "<absolute>"; };
+		496EF47B1B22705900FE715F /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = /usr/local/boost/lib/libboost_filesystem.dylib; sourceTree = "<absolute>"; };
 		8DD76F6C0486A84900D96B5E /* MusicXML2imusant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MusicXML2imusant; sourceTree = BUILT_PRODUCTS_DIR; };
 		965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imusantcat_main.cpp; sourceTree = "<group>"; };
 		965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_collectionvisitor.h; path = imusantcat/src/IMUSANT_collectionvisitor.h; sourceTree = "<group>"; };
@@ -505,8 +501,8 @@
 		BAA8D86F1AA42BFF0053ADE3 /* TScanVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TScanVisitor.cpp; sourceTree = "<group>"; };
 		BAA8D8701AA42BFF0053ADE3 /* TUnrolledVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TUnrolledVisitor.cpp; sourceTree = "<group>"; };
 		BAA8D8711AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TXML2GuidoVisitor.cpp; sourceTree = "<group>"; };
-		BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = "../../../../../../../../Documents/Development/CATSMAT/imusant old/libboost_filesystem.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libboost_system.dylib; sourceTree = "<group>"; };
+		BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = /usr/local/boost/lib/libboost_filesystem.dylib; sourceTree = "<absolute>"; };
+		BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = /usr/local/boost/lib/libboost_system.dylib; sourceTree = "<absolute>"; };
 		BAA8D8981AABFBA30053ADE3 /* CATSMAT */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CATSMAT; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CATSMAT_main.cpp; path = ../catsmat/CATSMAT_main.cpp; sourceTree = "<group>"; };
 		BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_collectionvisitor.cpp; path = ../catsmat/CATSMAT_collectionvisitor.cpp; sourceTree = "<group>"; };
@@ -577,8 +573,8 @@
 		08FB7794FE84155DC02AAC07 /* imusant */ = {
 			isa = PBXGroup;
 			children = (
-				496EF47B1B22705900FE715F /* libboost_system.dylib */,
-				496EF4791B22704000FE715F /* libboost_filesystem.dylib */,
+				496EF47B1B22705900FE715F /* libboost_filesystem.dylib */,
+				496EF4791B22704000FE715F /* libboost_system.dylib */,
 				BA4A479509D8C5F2000B0808 /* libMusicXML-1.00-src */,
 				BAA8D8991AABFBA30053ADE3 /* CATSMAT */,
 				08FB7795FE84155DC02AAC07 /* IMUSANT */,
