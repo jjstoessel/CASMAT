@@ -62,12 +62,14 @@ class VEXP IMUSANT_duration : public smartable
 		void	print (ostream& os) const
 		{
 		}
+    
 		//checks that TRational type is actually dotted note, return dots and changes dur
-	static long	NormaliseDuration(TRational& dur);
+        static long	NormaliseDuration(TRational& dur);
 		
-	static const string	xml(TRational d);
+        static const string	xml(TRational d);
 		//! convert a string to a numeric pitch
-	static TRational	xml(const string str);
+	
+        static TRational	xml(const string str);
 		
         TRational		fDuration;
 		long		fDots;

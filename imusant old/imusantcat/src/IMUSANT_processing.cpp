@@ -8,6 +8,7 @@
  */
 #include <iostream>
 #include <deque>
+#include <utility>
 
 #include "boost/filesystem/path.hpp"
 #include "boost/filesystem/operations.hpp"
