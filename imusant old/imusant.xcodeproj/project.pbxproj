@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		496EF47A1B22704000FE715F /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 496EF4791B22704000FE715F /* libboost_filesystem.dylib */; };
+		496EF47C1B22705900FE715F /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 496EF47B1B22705900FE715F /* libboost_system.dylib */; };
 		8DD76F650486A84900D96B5E /* xml2imusant_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* imusant.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* imusant.1 */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
@@ -166,8 +168,6 @@
 		BAA8D88D1AA42E6A0053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		BAA8D88F1AA42E7E0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		BAA8D8901AA42E7E0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
-		BAA8D8921AA430F30053ADE3 /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		BAA8D8931AA430F30053ADE3 /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BAA8D8A01AABFC1A0053ADE3 /* CATSMAT_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */; };
 		BAA8D8A11AABFCCA0053ADE3 /* IMUSANT_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098A0A4D1CBE006AFD81 /* IMUSANT_interval.cpp */; };
 		BAA8D8A21AABFCCA0053ADE3 /* IMUSANT_contour_symbol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */; };
@@ -327,8 +327,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				BAA8D8921AA430F30053ADE3 /* libboost_filesystem.dylib in CopyFiles */,
-				BAA8D8931AA430F30053ADE3 /* libboost_system.dylib in CopyFiles */,
+				496EF47C1B22705900FE715F /* libboost_system.dylib in CopyFiles */,
+				496EF47A1B22704000FE715F /* libboost_filesystem.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -345,6 +345,8 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xml2imusant_main.cpp; sourceTree = "<group>"; };
+		496EF4791B22704000FE715F /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = ../../../../../usr/local/boost/lib/libboost_filesystem.dylib; sourceTree = "<group>"; };
+		496EF47B1B22705900FE715F /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = ../../../../../usr/local/boost/lib/libboost_system.dylib; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* MusicXML2imusant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MusicXML2imusant; sourceTree = BUILT_PRODUCTS_DIR; };
 		965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imusantcat_main.cpp; sourceTree = "<group>"; };
 		965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_collectionvisitor.h; path = imusantcat/src/IMUSANT_collectionvisitor.h; sourceTree = "<group>"; };
@@ -575,6 +577,8 @@
 		08FB7794FE84155DC02AAC07 /* imusant */ = {
 			isa = PBXGroup;
 			children = (
+				496EF47B1B22705900FE715F /* libboost_system.dylib */,
+				496EF4791B22704000FE715F /* libboost_filesystem.dylib */,
 				BA4A479509D8C5F2000B0808 /* libMusicXML-1.00-src */,
 				BAA8D8991AABFBA30053ADE3 /* CATSMAT */,
 				08FB7795FE84155DC02AAC07 /* IMUSANT */,
@@ -1298,13 +1302,13 @@
 				);
 				INSTALL_PATH = "$(HOME)/bin";
 				LIBRARY_SEARCH_PATHS = (
-					/usr/local/boost_1_57_0/stage/lib,
+					$BOOST_ROOT_DIR/lib,
 					"$(PROJECT_DIR)",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
-				"LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1[arch=*]" = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$BOOST_ROOT_LIB_DIR\" \"usr/lib\"";
+				"LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1[arch=*]" = "$BOOST_ROOT_DIR/lib \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$BOOST_ROOT_LIB_DIR\" \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$BOOST_ROOT_LIB_DIR\" \"usr/lib\"";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = MusicXML2imusant;
 				REZ_SEARCH_PATHS = "";
@@ -1333,12 +1337,12 @@
 				);
 				INSTALL_PATH = "$(HOME)/bin";
 				LIBRARY_SEARCH_PATHS = (
-					/usr/local/boost_1_57_0/stage/lib,
+					$BOOST_ROOT_DIR/lib,
 					"$(PROJECT_DIR)",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"/usr/local/boost_1_57_0/stage/lib\" \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$BOOST_ROOT_LIB_DIR\" \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$BOOST_ROOT_LIB_DIR\" \"usr/lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$BOOST_ROOT_LIB_DIR\" \"usr/lib\"";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = imusant;
 				REZ_SEARCH_PATHS = "";
@@ -1352,13 +1356,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				BOOST_ROOT_DIR = /usr/local/boost;
+				BOOST_ROOT_INC_DIR = $BOOST_ROOT_DIR/include;
+				BOOST_ROOT_LIB_DIR = $BOOST_ROOT_DIR/lib;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_MODEL_TUNING = "";
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/boost_1_57_0;
-				LIBRARY_SEARCH_PATHS = /usr/local/boost_1_57_0/stage/lib;
+				HEADER_SEARCH_PATHS = $BOOST_ROOT_INC_DIR;
+				LIBRARY_SEARCH_PATHS = $BOOST_ROOT_LIB_DIR;
 				ONLY_ACTIVE_ARCH = YES;
 				USER_HEADER_SEARCH_PATHS = "";
 				ZERO_LINK = YES;
@@ -1368,12 +1375,15 @@
 		1DEB923708733DC60010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BOOST_ROOT_DIR = /usr/local/boost;
+				BOOST_ROOT_INC_DIR = $BOOST_ROOT_DIR/include;
+				BOOST_ROOT_LIB_DIR = $BOOST_ROOT_DIR/lib;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/boost_1_57_0;
-				LIBRARY_SEARCH_PATHS = /usr/local/boost_1_57_0/stage/lib;
+				HEADER_SEARCH_PATHS = $BOOST_ROOT_INC_DIR;
+				LIBRARY_SEARCH_PATHS = $BOOST_ROOT_LIB_DIR;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
