@@ -1,0 +1,1863 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE IMUSANT-SCORE PUBLIC "" "">
+
+<IMUSANT-score>
+    <movement-title>
+        Excerpt from Magnificat secundi toni
+    </movement-title>
+    <creator type="composer">Gilles Binchois</creator>
+    <rights>Copyright 2003 Recordare LLC</rights>
+    <part-list/>
+    <part part-id="P1">
+        <part-name>Cantus</part-name>
+        <measure number="1">
+            <clef>
+                <clef-sign>F</clef-sign>
+                <clef-line>4</clef-line>
+                <clef-transpose>0</clef-transpose>
+            </clef>
+            <note number="1">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>Ma</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>middle</syllabic>
+                    <text>gni</text>
+                </lyric>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>middle</syllabic>
+                    <text>fi</text>
+                </lyric>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>cat</text>
+                </lyric>
+            </note>
+        </measure>
+        <measure number="2">
+            <clef>
+                <clef-sign>F</clef-sign>
+                <clef-line>4</clef-line>
+                <clef-transpose>0</clef-transpose>
+            </clef>
+            <time>
+                <numerator>3</numerator>
+                <denominator>4</denominator>
+            </time>
+            <note number="1">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="2">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>A</text>
+                </lyric>
+            </note>
+        </measure>
+        <measure number="3">
+            <note number="1">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>middle</syllabic>
+                    <text>ni</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>G</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>ma</text>
+                </lyric>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>E</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                    <dots>1</dots>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>me</text>
+                </lyric>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>semiquaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="4">
+            <note number="1">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>a</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>do</text>
+                </lyric>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <tie tie-type="start" to-measure="5" to-note="1"/>
+            </note>
+        </measure>
+        <measure number="5">
+            <note number="1">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <tie tie-type="end" from-measure="4" from-note="4"/>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="6">
+            <note number="1">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="2">
+                <rest/>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>E</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>semiquaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="7">
+            <note number="1">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>E</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <tie tie-type="start" to-measure="7" to-note="3"/>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>E</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>semiquaver</type>
+                </duration>
+                <tie tie-type="end" from-measure="7" from-note="2"/>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>semiquaver</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>middle</syllabic>
+                    <text>mi</text>
+                </lyric>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>C</name>
+                    <alter>1</alter>
+                    <octave>4</octave>
+                </pitch>
+                <accidental editorial="yes">sharp</accidental>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="7">
+                <pitch>
+                    <name>B</name>
+                    <octave>3</octave>
+                </pitch>
+                <accidental editorial="yes">natural</accidental>
+                <duration>
+                    <type>semiquaver</type>
+                </duration>
+            </note>
+            <note number="8">
+                <pitch>
+                    <name>C</name>
+                    <alter>1</alter>
+                    <octave>4</octave>
+                </pitch>
+                <accidental editorial="yes">sharp</accidental>
+                <duration>
+                    <type>semiquaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="8">
+            <note number="1">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                    <dots>1</dots>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>num.</text>
+                </lyric>
+            </note>
+            <barline location="right">
+                <barline-style>light-light</barline-style>
+            </barline>
+        </measure>
+        <measure number="9">
+            <note number="1">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>single</syllabic>
+                    <text>Et</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>E</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="10">
+            <note number="1">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>ex</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>middle</syllabic>
+                    <text>ul</text>
+                </lyric>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>middle</syllabic>
+                    <text>ta</text>
+                </lyric>
+            </note>
+        </measure>
+        <measure number="11">
+            <note number="1">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>vit</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>E</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="3">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="12">
+            <note number="1">
+                <pitch>
+                    <name>E</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                    <dots>1</dots>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>spi</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>middle</syllabic>
+                    <text>ri</text>
+                </lyric>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>E</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="13">
+            <note number="1">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>semiquaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>semiquaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                    <dots>1</dots>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>tus</text>
+                </lyric>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="14">
+            <note number="1">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>me</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="15">
+            <note number="1">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="16">
+            <note number="1">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>us</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="17">
+            <note number="1">
+                <pitch>
+                    <name>E</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>single</syllabic>
+                    <text>in</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>F</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>D</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+        </measure>
+    </part>
+    <part part-id="P2">
+        <part-name>Cantus 2 and Tenor</part-name>
+        <measure number="1">
+            <clef>
+                <clef-sign>F</clef-sign>
+                <clef-line>4</clef-line>
+                <clef-transpose>0</clef-transpose>
+            </clef>
+            <note number="1">
+                <rest/>
+                <duration>
+                    <type>semibreve</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+        </measure>
+        <measure number="2">
+            <clef>
+                <clef-sign>F</clef-sign>
+                <clef-line>4</clef-line>
+                <clef-transpose>0</clef-transpose>
+            </clef>
+            <time>
+                <numerator>3</numerator>
+                <denominator>4</denominator>
+            </time>
+            <note number="1">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="2">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>A</text>
+                </lyric>
+            </note>
+            <note number="4">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="5">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="3">
+            <note number="1">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>middle</syllabic>
+                    <text>ni</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>E</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>ma</text>
+                </lyric>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>me</text>
+                </lyric>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="7">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="8">
+                <pitch>
+                    <name>E</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="9">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="10">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="4">
+            <note number="1">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>a</text>
+                </lyric>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>begin</syllabic>
+                    <text>do</text>
+                </lyric>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="7">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="8">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="5">
+            <note number="1">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="4">
+                <rest/>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="7">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="8">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="9">
+                <rest/>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="10">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="6">
+            <note number="1">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="7">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="8">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="7">
+            <note number="1">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <lyric number="1">
+                    <syllabic>middle</syllabic>
+                    <text>mi</text>
+                </lyric>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>E</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="7">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="8">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="9">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="10">
+                <pitch>
+                    <name>E</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="8">
+            <note number="1">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                    <dots>1</dots>
+                </duration>
+                <lyric number="1">
+                    <syllabic>end</syllabic>
+                    <text>num.</text>
+                </lyric>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+            <barline location="right">
+                <barline-style>light-light</barline-style>
+            </barline>
+        </measure>
+        <measure number="9">
+            <note number="1">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="7">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="10">
+            <note number="1">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="7">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="8">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="11">
+            <note number="1">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>C</name>
+                    <octave>4</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="12">
+            <note number="1">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>2</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>G</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="13">
+            <note number="1">
+                <pitch>
+                    <name>A</name>
+                    <octave>2</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>E</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="14">
+            <note number="1">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="2">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>E</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>E</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <tie tie-type="start" to-measure="15" to-note="1"/>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <tie tie-type="start" to-measure="15" to-note="6"/>
+            </note>
+        </measure>
+        <measure number="15">
+            <note number="1">
+                <pitch>
+                    <name>E</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+                <tie tie-type="end" from-measure="14" from-note="4"/>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="6">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+                <tie tie-type="end" from-measure="14" from-note="6"/>
+            </note>
+            <note number="7">
+                <pitch>
+                    <name>B</name>
+                    <alter>-1</alter>
+                    <octave>2</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="16">
+            <note number="1">
+                <pitch>
+                    <name>E</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                </duration>
+            </note>
+            <note number="2">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>A</name>
+                    <octave>2</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                </duration>
+            </note>
+            <note number="4">
+                <rest/>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+        </measure>
+        <measure number="17">
+            <note number="1">
+                <pitch>
+                    <name>A</name>
+                    <octave>2</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="2">
+                <pitch>
+                    <name>A</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                    <dots>1</dots>
+                </duration>
+            </note>
+            <note number="3">
+                <pitch>
+                    <name>F</name>
+                    <octave>3</octave>
+                </pitch>
+                <duration>
+                    <type>quaver</type>
+                </duration>
+            </note>
+            <note number="4">
+                <pitch>
+                    <name>C</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>crochet</type>
+                </duration>
+            </note>
+            <note number="5">
+                <pitch>
+                    <name>D</name>
+                    <octave>3</octave>
+                    <voice>2</voice>
+                </pitch>
+                <duration>
+                    <type>minim</type>
+                </duration>
+            </note>
+        </measure>
+    </part>
+</IMUSANT-score>

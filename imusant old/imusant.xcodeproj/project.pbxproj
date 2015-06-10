@@ -542,14 +542,12 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xml2imusant_main.cpp; sourceTree = "<group>"; };
-		496EF4791B22704000FE715F /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = /usr/local/boost/lib/libboost_system.dylib; sourceTree = "<absolute>"; };
-		496EF47B1B22705900FE715F /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = /usr/local/boost/lib/libboost_filesystem.dylib; sourceTree = "<absolute>"; };
 		496EF4C41B229D8100FE715F /* CATSMAT_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CATSMAT_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF4C61B229D8100FE715F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		496EF4D71B22A58A00FE715F /* libMusicXML.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libMusicXML.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF4D91B22A58A00FE715F /* libMusicXML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libMusicXML.h; sourceTree = "<group>"; };
 		496EF4DB1B22A58A00FE715F /* libMusicXML.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libMusicXML.m; sourceTree = "<group>"; };
-		496EF4E11B22A58A00FE715F /* libMusicXMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = libMusicXMLTests.xctest; path = libMusicXML_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		496EF4E11B22A58A00FE715F /* libMusicXML_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libMusicXML_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF4E71B22A58B00FE715F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libIMUSANT.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF6BE1B22B01700FE715F /* libIMUSANT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libIMUSANT.h; sourceTree = "<group>"; };
@@ -651,6 +649,7 @@
 		BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_key.cpp; sourceTree = "<group>"; };
 		BA6D96821AA41C7800EC3E94 /* Iexpat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Iexpat.h; path = ../core/Iexpat.h; sourceTree = "<group>"; };
 		BA71926E0A59F57000CAA1D9 /* search.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = search.h; path = imusantcat/inc/search.h; sourceTree = "<group>"; };
+		BA8068E41B27BC5700AEFB27 /* test_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test_files; sourceTree = "<group>"; };
 		BA990E0B0A5A173F008918F0 /* iterator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = iterator.h; path = "Suffix tree/iterator.h"; sourceTree = "<group>"; };
 		BA990E0C0A5A173F008918F0 /* suffixtree_inter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree_inter.h; path = "Suffix tree/suffixtree_inter.h"; sourceTree = "<group>"; };
 		BA990E0D0A5A173F008918F0 /* suffixtree.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree.h; path = "Suffix tree/suffixtree.h"; sourceTree = "<group>"; };
@@ -825,8 +824,6 @@
 		08FB7794FE84155DC02AAC07 /* imusant */ = {
 			isa = PBXGroup;
 			children = (
-				496EF47B1B22705900FE715F /* libboost_filesystem.dylib */,
-				496EF4791B22704000FE715F /* libboost_system.dylib */,
 				BAA8D8991AABFBA30053ADE3 /* CATSMAT */,
 				496EF4C51B229D8100FE715F /* CATSMAT_Tests */,
 				08FB7795FE84155DC02AAC07 /* IMUSANT */,
@@ -836,6 +833,7 @@
 				496EF6BD1B22B01700FE715F /* libIMUSANT */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 				96BC9F83133B09AF00A65384 /* External Frameworks and Libraries */,
+				BA8068E41B27BC5700AEFB27 /* test_files */,
 			);
 			name = imusant;
 			sourceTree = "<group>";
@@ -857,7 +855,7 @@
 				BAA8D8981AABFBA30053ADE3 /* CATSMAT */,
 				496EF4C41B229D8100FE715F /* CATSMAT_Tests */,
 				496EF4D71B22A58A00FE715F /* libMusicXML.dylib */,
-				496EF4E11B22A58A00FE715F /* libMusicXMLTests.xctest */,
+				496EF4E11B22A58A00FE715F /* libMusicXML_Tests.xctest */,
 				496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */,
 			);
 			name = Products;
@@ -1286,7 +1284,7 @@
 			);
 			name = libMusicXML_Tests;
 			productName = libMusicXMLTests;
-			productReference = 496EF4E11B22A58A00FE715F /* libMusicXMLTests.xctest */;
+			productReference = 496EF4E11B22A58A00FE715F /* libMusicXML_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		496EF6BB1B22B01600FE715F /* libIMUSANT */ = {
