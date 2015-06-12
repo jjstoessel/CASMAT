@@ -211,6 +211,8 @@
 		BA697FAE0AA50A60002DC3B2 /* IMUSANT_key.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA697FAC0AA50A60002DC3B2 /* IMUSANT_key.h */; };
 		BA697FAF0AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */; };
 		BA697FB00AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */; };
+		BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
+		BA7E941D1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
 		BAA8D8071AA42BD80053ADE3 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7CE1AA42BD80053ADE3 /* common.cpp */; };
 		BAA8D8081AA42BD80053ADE3 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7CE1AA42BD80053ADE3 /* common.cpp */; };
 		BAA8D8091AA42BD80053ADE3 /* conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D7CF1AA42BD80053ADE3 /* conversions.cpp */; };
@@ -421,7 +423,6 @@
 		BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */; };
-		BAA8D9031AAC12270053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */; };
 		BAA8D9071AB156280053ADE3 /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */; };
 		BAAB1A3009D0B26700673D3D /* IMUSANT_visitor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAAB1A2E09D0B26700673D3D /* IMUSANT_visitor.h */; };
 		BAAB1A3109D0B26700673D3D /* IMUSANT_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAB1A2F09D0B26700673D3D /* IMUSANT_visitor.cpp */; };
@@ -649,6 +650,17 @@
 		BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_key.cpp; sourceTree = "<group>"; };
 		BA6D96821AA41C7800EC3E94 /* Iexpat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Iexpat.h; path = ../core/Iexpat.h; sourceTree = "<group>"; };
 		BA71926E0A59F57000CAA1D9 /* search.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = search.h; path = imusantcat/inc/search.h; sourceTree = "<group>"; };
+		BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_dyad_sequences.cpp; path = catsmat/CATSMAT_dyad_sequences.cpp; sourceTree = SOURCE_ROOT; };
+		BA7E941B1B2A859A00818128 /* CATSMAT_dyad_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_dyad_sequences.hpp; path = catsmat/CATSMAT_dyad_sequences.hpp; sourceTree = SOURCE_ROOT; };
+		BA7E942E1B2AA55700818128 /* EmptyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyType.h; path = "Loki required/EmptyType.h"; sourceTree = "<group>"; };
+		BA7E942F1B2AA55700818128 /* HierarchyGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HierarchyGenerators.h; path = "Loki required/HierarchyGenerators.h"; sourceTree = "<group>"; };
+		BA7E94301B2AA55700818128 /* NullType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NullType.h; path = "Loki required/NullType.h"; sourceTree = "<group>"; };
+		BA7E94311B2AA55700818128 /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sequence.h; path = "Loki required/Sequence.h"; sourceTree = "<group>"; };
+		BA7E94321B2AA55700818128 /* Typelist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Typelist.h; path = "Loki required/Typelist.h"; sourceTree = "<group>"; };
+		BA7E94331B2AA55700818128 /* TypelistMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypelistMacros.h; path = "Loki required/TypelistMacros.h"; sourceTree = "<group>"; };
+		BA7E94341B2AA55700818128 /* TypeManip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeManip.h; path = "Loki required/TypeManip.h"; sourceTree = "<group>"; };
+		BA7E94351B2AA55700818128 /* TypeTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeTraits.h; path = "Loki required/TypeTraits.h"; sourceTree = "<group>"; };
+		BA7E94361B2AA55700818128 /* Visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Visitor.h; path = "Loki required/Visitor.h"; sourceTree = "<group>"; };
 		BA8068E41B27BC5700AEFB27 /* test_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test_files; sourceTree = "<group>"; };
 		BA990E0B0A5A173F008918F0 /* iterator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = iterator.h; path = "Suffix tree/iterator.h"; sourceTree = "<group>"; };
 		BA990E0C0A5A173F008918F0 /* suffixtree_inter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree_inter.h; path = "Suffix tree/suffixtree_inter.h"; sourceTree = "<group>"; };
@@ -832,6 +844,7 @@
 				496EF4E51B22A58B00FE715F /* libMusicXMLTests */,
 				496EF6BD1B22B01700FE715F /* libIMUSANT */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				BA7E94371B2AA56500818128 /* Loki */,
 				96BC9F83133B09AF00A65384 /* External Frameworks and Libraries */,
 				BA8068E41B27BC5700AEFB27 /* test_files */,
 			);
@@ -1044,6 +1057,22 @@
 			path = "../../libMusicXML-1.00-src";
 			sourceTree = "<group>";
 		};
+		BA7E94371B2AA56500818128 /* Loki */ = {
+			isa = PBXGroup;
+			children = (
+				BA7E942E1B2AA55700818128 /* EmptyType.h */,
+				BA7E942F1B2AA55700818128 /* HierarchyGenerators.h */,
+				BA7E94301B2AA55700818128 /* NullType.h */,
+				BA7E94311B2AA55700818128 /* Sequence.h */,
+				BA7E94321B2AA55700818128 /* Typelist.h */,
+				BA7E94331B2AA55700818128 /* TypelistMacros.h */,
+				BA7E94341B2AA55700818128 /* TypeManip.h */,
+				BA7E94351B2AA55700818128 /* TypeTraits.h */,
+				BA7E94361B2AA55700818128 /* Visitor.h */,
+			);
+			name = Loki;
+			sourceTree = "<group>";
+		};
 		BA8A84730A23C3FB0081D4BB /* inc */ = {
 			isa = PBXGroup;
 			children = (
@@ -1183,6 +1212,8 @@
 				BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */,
 				969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.hpp */,
 				969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */,
+				BA7E941B1B2A859A00818128 /* CATSMAT_dyad_sequences.hpp */,
+				BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */,
 			);
 			path = CATSMAT;
 			sourceTree = "<group>";
@@ -1363,7 +1394,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				TargetAttributes = {
 					496EF4C31B229D8100FE715F = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1424,6 +1455,7 @@
 			files = (
 				496EF4CC1B229DA500FE715F /* CATSMAT_processing.cpp in Sources */,
 				496EF7161B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp in Sources */,
+				BA7E941D1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */,
 				496EF4CE1B229DA500FE715F /* CATSMAT_collectionvisitor.cpp in Sources */,
 				496EF4D01B229DA500FE715F /* CATSMAT_cp_matrix.cpp in Sources */,
 				496EF4C71B229D8100FE715F /* main.cpp in Sources */,
@@ -1774,7 +1806,6 @@
 				BAA8D8201AA42BD80053ADE3 /* TClef.cpp in Sources */,
 				BA697FB00AA50A60002DC3B2 /* IMUSANT_key.cpp in Sources */,
 				BAA8D8661AA42BD80053ADE3 /* xmllex.cpp in Sources */,
-				BAA8D9031AAC12270053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1852,6 +1883,7 @@
 				BAA8D8B71AABFD160053ADE3 /* IMUSANT_key.cpp in Sources */,
 				BAA8D8D21AABFD600053ADE3 /* TArpeggiate.cpp in Sources */,
 				BAA8D8D31AABFD600053ADE3 /* TAttributes.cpp in Sources */,
+				BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */,
 				BAA8D8D01AABFD600053ADE3 /* IMusicXMLVisitor.cpp in Sources */,
 				BAA8D8D71AABFD600053ADE3 /* TClef.cpp in Sources */,
 				BAA8D8B51AABFD160053ADE3 /* IMUSANT_pitch.cpp in Sources */,
@@ -1931,7 +1963,7 @@
 				PRODUCT_NAME = MusicXML2imusant;
 				REZ_SEARCH_PATHS = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 				ZERO_LINK = YES;
 			};
@@ -1965,7 +1997,7 @@
 				PRODUCT_NAME = imusant;
 				REZ_SEARCH_PATHS = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 			};
 			name = Release;
@@ -2131,6 +2163,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2175,6 +2208,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2303,6 +2337,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2353,6 +2388,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;

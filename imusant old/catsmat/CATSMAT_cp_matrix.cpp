@@ -16,7 +16,11 @@ namespace CATSMAT
 {
 
 S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix()
-{ CATSMAT_cp_matrix* o = new CATSMAT_cp_matrix(); assert(o!=0); return o; }
+{
+    CATSMAT_cp_matrix* o = new CATSMAT_cp_matrix();
+    assert(o!=0);
+    return o;
+}
 
 /*!
  \brief CATSMAT_cp_matrix stream out operator
@@ -203,47 +207,6 @@ void   CATSMAT_cp_matrix::split(const IMUSANT_note& note)
     
 }
     
-/*!
-\brief CATSMAT_cp_matrix::process
-
-    once the CP Matrix is filled, process for:
-    1. calculate all vertical intervals between voices
-
-*/
-void    CATSMAT_cp_matrix::process(bool ignoreRepeatedPitches)
-{
-    if (!fCPMatrix.empty())
-    {
-        for (list<S_IMUSANT_chord>::iterator chord = fCPMatrix.begin(); chord!=fCPMatrix.end(); chord++)
-        {
-            long i = 0;
-            
-            for (IMUSANT_vector<S_IMUSANT_note>::const_iterator note1 = (*chord)->getNotes().begin();
-                 note1 != (*chord)->getNotes().end();
-                 note1++)
-            {
-            
-            
-                for ( IMUSANT_vector<S_IMUSANT_note>::const_iterator note2 = note1;
-                        ++note2 != (*chord)->getNotes().end(); /*nothing here!*/)
-                {
-                    //an interval is between two notes!
-                    if ((*note1)->getType()!=IMUSANT_NoteType::rest && (*note2)->getType()!=IMUSANT_NoteType::rest )
-                    {
-                        IMUSANT_interval interval((*note2)->pitch(), (*note1)->pitch());
-                        
-                        interval.setLocation(i, (*note2)->getMeasureNum(), (*note2)->getNoteIndex(), (*note1)->getMeasureNum(), (*note1)->getNoteIndex());
-                        
-                        fVIntervalVector[i]->add(interval);
-                    }
-                    
-                    i++;
-                }
-            }
-        }
-    }
-}
-
 /*!
  \brief CATSMAT_cp_matrix::print
  

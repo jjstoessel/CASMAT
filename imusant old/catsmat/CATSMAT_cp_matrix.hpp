@@ -15,38 +15,39 @@
 #include <stdio.h>
 
 #include "smartpointer.h"
+#include "Visitor.h"
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_note.h"
 #include "IMUSANT_chord.h"
 #include "IMUSANT_interval_vector.h"
+#include "CATSMAT_visitable.hpp"
 
 using namespace std;
 using namespace IMUSANT;
+using namespace Loki;
 
-namespace CATSMAT
-{
+namespace CATSMAT {
     
-
-class CATSMAT_cp_matrix : public smartable
+class CATSMAT_cp_matrix : public smartable, public BaseVisitable<void, DefaultCatchAll, true> //make sure const
 {
 public:
     
-    friend  SMARTP<CATSMAT_cp_matrix> new_CATSMAT_cp_matrix();
+    LOKI_DEFINE_CONST_VISITABLE()
     
-    friend ostream& operator<< (ostream& os, const SMARTP<CATSMAT_cp_matrix>& elt );
+    friend  SMARTP<CATSMAT_cp_matrix> new_CATSMAT_cp_matrix();
+    friend  ostream& operator<< (ostream& os, const SMARTP<CATSMAT_cp_matrix>& elt );
     
     bool    addpart();
     bool	add(const IMUSANT_note& note);
     void    set(const IMUSANT_time& time) { fCurrentTime = time; }
     void	clear() { fCPMatrix.clear(); }
     
-    void    process(bool ignoreRepeatedPitches = true);
-    
     const   list< S_IMUSANT_chord >& getCPmatrix() const { return fCPMatrix; }
     const   vector<S_IMUSANT_interval_vector> getVerticalIntervals() const { return fVIntervalVector; }
     
     void    print(ostream& os);
+    unsigned long partCount() const { return fCurrentPart; }
     
 protected:
     //ctors
@@ -62,12 +63,13 @@ private:
     
     list< S_IMUSANT_chord >             fCPMatrix; //a vector of vectors, each of which represent a chord
     vector<S_IMUSANT_interval_vector>   fVIntervalVector;
-    vector< vector<int> >               fTaneievIntervalVectors;
+    
     unsigned long                       fCurrentPart;
     list<S_IMUSANT_chord>::iterator     fCurrentChord;
     IMUSANT_time                        fCurrentTime;
     
 };
+
 typedef SMARTP<CATSMAT_cp_matrix> S_CATSMAT_cp_matrix;
     
 S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix();

@@ -67,8 +67,8 @@ long IMUSANT_duration::NormaliseDuration(TRational& dur)
     
     while   (
              dur.getNumerator()!=0 && \
-            (dur.getNumerator() > dur.getDenominator() || \
-             dur.getDenominator()%dur.getNumerator()==1 || \
+             dur.getNumerator() > dur.getDenominator() && \
+             (dur.getDenominator()%dur.getNumerator()==1 || \
              dur.getDenominator()%dur.getNumerator()==2 )
             )
     {
@@ -119,6 +119,7 @@ void	IMUSANT_duration::operator+=(const IMUSANT_duration& rhs)
 //--
 //Subtracts two durations, resulting in an absolute duration without dots or time modification
 //To do: check for simple relationships (dots and time modification) in resulting float
+//11 June 2015 timeModification handled more correctly, but not for case where two different timeMods in each note.
 IMUSANT_duration	IMUSANT_duration::operator-(const IMUSANT_duration& right)
 {
     IMUSANT_duration out;
@@ -127,8 +128,25 @@ IMUSANT_duration	IMUSANT_duration::operator-(const IMUSANT_duration& right)
     
     TRational r = simple_left - simple_right;
     out.fDots = NormaliseDuration(r);
-    out.fDuration = r;
-    out.fTimeModification=1;
+    
+    
+    if (fTimeModification != TRational(1))
+    {
+        out.fTimeModification = fTimeModification;
+        out.fDuration = r*fTimeModification;
+        out.fDuration.rationalise();
+    }
+    else if (right.fTimeModification != TRational(1))
+    {
+        out.fTimeModification = right.fTimeModification;
+        out.fDuration = r*right.fTimeModification;
+        out.fDuration.rationalise();
+    }
+    else
+    {
+        out.fTimeModification=1;
+        out.fDuration = r;
+    }
     
     return out;
 }
@@ -163,7 +181,7 @@ IMUSANT_duration	IMUSANT_duration::getSimplifiedDuration() const
 		dotsmultiplier += index;
 	}
 	
-	out.fDuration = fDuration * dotsmultiplier * fTimeModification;
+	out.fDuration = (fDuration * dotsmultiplier)/fTimeModification;
     out.fDots = 0;
 	out.fTimeModification=1; 
 				

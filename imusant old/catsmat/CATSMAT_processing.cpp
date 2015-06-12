@@ -18,6 +18,7 @@
 #include "IMUSANT_XMLVisitor.h"
 #include "IMUSANT_XMLReader.h"
 #include "TScore.h"
+#include "CATSMAT_dyad_sequences.hpp"
 
 #define MAX(X,Y) ( (X>Y)? (X) : (Y) )
 
@@ -73,16 +74,13 @@ CATSMAT_processing::add_file(const filesystem::path& path)
 				
 				IDs.push_back(i);
                 
-                collections[i].getCPMatrix()->process();
+                CATSMAT_dyad_sequences dyads;
+                
+                collections[i].getCPMatrix()->Accept(dyads);
                 
                 cout << collections[i].getCPMatrix();
                 
-                for (vector<S_IMUSANT_interval_vector>::const_iterator iter = collections[i].getCPMatrix()->getVerticalIntervals().begin();
-                     iter != collections[i].getCPMatrix()->getVerticalIntervals().end() && (*iter) != NULL; iter++)
-                {
-                    cout << "part" << endl;
-                    cout << *iter;
-                }
+                cout << dyads;
                 
 			}
 			//check extension
