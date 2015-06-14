@@ -19,6 +19,7 @@
 #include "IMUSANT_XMLReader.h"
 #include "TScore.h"
 #include "CATSMAT_dyad_sequences.hpp"
+#include "CATSMAT_dyadtuple_sequences.hpp"
 
 #define MAX(X,Y) ( (X>Y)? (X) : (Y) )
 
@@ -73,14 +74,19 @@ CATSMAT_processing::add_file(const filesystem::path& path)
 				c.getIMUSANTScore()->accept(collections[i]);
 				
 				IDs.push_back(i);
-                
+ 
+                //Here only for testing; could be placed in test unit or specific tool
                 CATSMAT_dyad_sequences dyads;
+                CATSMAT_dyadtuple_sequences tuples;
                 
                 collections[i].getCPMatrix()->Accept(dyads);
+                collections[i].getCPMatrix()->Accept(tuples);
                 
                 cout << collections[i].getCPMatrix();
                 
                 cout << dyads;
+                
+                cout << tuples;
                 
 			}
 			//check extension

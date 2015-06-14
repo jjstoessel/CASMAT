@@ -5,6 +5,9 @@
  *  Created by Jason Stoessel on 24/06/06.
  *  Copyright 2006 __MyCompanyName__. All rights reserved.
  *
+ *  Changes:
+ *
+ *  14 June 2015 getNumber() member function added; a littly flaky. A mathematical solution would be better.
  */
 
 #include "IMUSANT_interval.h"
@@ -65,12 +68,12 @@ S_IMUSANT_interval new_IMUSANT_interval(const S_IMUSANT_pitch first, const S_IMU
 //lookups
 int	IMUSANT_interval::fIntervalTbl[] = {	dim1, perf1, aug1, dim2, min2, maj2, aug2, dim3, min3, maj3, aug3, 
 											dim4, per4, aug4, dim5, per5, aug5, dim6, min6, maj6, aug6, dim7, 
-											min7, maj7, aug7 };
+											min7, maj7, aug7, dim8, octave };
 string	IMUSANT_interval::fIntervalStrings[] = { "dim1", "perf1", "aug1", "dim2", "min2", "maj2", "aug2", "dim3",
 												"min3", "maj3", "aug3", "dim4", "per4", "aug4", "dim5", "per5", 
 												"aug5", "dim6", "min6", "maj6", "aug6", "dim7", "min7", "maj7", 
-												"aug7", "dim8" };
-bimap<string, int>	IMUSANT_interval::fInterval2String( fIntervalStrings, fIntervalTbl, 26 );
+												"aug7", "dim8", "octave" };
+bimap<string, int>	IMUSANT_interval::fInterval2String( fIntervalStrings, fIntervalTbl, 27 );
 
 //! convert a numeric value to string
 const string IMUSANT_interval::xmlinterval (int iv) { return fInterval2String[iv]; }
@@ -124,6 +127,65 @@ IMUSANT_interval IMUSANT_interval::calculate(const S_IMUSANT_pitch& first, const
 	return ret;
 }
 
+//returns the interval numbers without quality
+int IMUSANT_interval::getNumber()
+{
+    int ret;
+    
+    switch (this->simple())
+    {
+        case dim1:
+        case perf1:
+        case aug1:
+            ret = 1;
+            break;
+        case dim2:
+        case min2:
+        case maj2:
+        case aug2:
+            ret = 2;
+            break;
+        case dim3:
+        case min3:
+        case maj3:
+        case aug3:
+            ret = 3;
+            break;
+        case dim4:
+        case per4:
+        case aug4:
+            ret = 4;
+            break;
+        case dim5:
+        case per5:
+        case aug5:
+            ret = 5;
+            break;
+        case dim6:
+        case min6:
+        case maj6:
+        case aug6:
+            ret = 6;
+            break;
+        case dim7:
+        case min7:
+        case maj7:
+        case aug7:
+            ret = 7;
+            break;
+        case octave:
+            ret = 8;
+            break;
+        default:
+            ret = undefined;
+            break;
+    }
+    
+    if (this->simple().fDirection==descending)
+        ret *= -1;
+    
+    return ret;
+}
 
 //returns a non-compound interval
 IMUSANT_interval IMUSANT_interval::simple()
@@ -150,6 +212,7 @@ IMUSANT_interval	IMUSANT_interval::inverted()
 }
 
 //calculates the diatonic inversion required for pre-20th century music
+//NOT IMPLEMENTED!
 IMUSANT_interval	IMUSANT_interval::inverted_diatonically(IMUSANT_key& key, IMUSANT_pitch::type first)
 {
 	IMUSANT_interval ret(*this);

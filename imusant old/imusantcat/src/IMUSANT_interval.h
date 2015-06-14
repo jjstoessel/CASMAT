@@ -54,7 +54,7 @@ class IMUSANT_interval : public smartable
 	public:
 		enum {	dim1=-1, perf1=0, aug1=1, dim2=3, min2=4, maj2=5, aug2=6, dim3=8, min3=9, maj3=10, 
 				aug3=11, dim4=13, per4=14, aug4=15, dim5=18, per5=19, aug5=20, dim6=21, min6=23, maj6=24, aug6=25, 
-				dim7=26, min7=28, maj7=29, aug7=30, dim8=32, base=33, count=base+1, undefined=0x4FFFFFFF/base }; //undefined is internal variable
+				dim7=26, min7=28, maj7=29, aug7=30, dim8=32, base=33, octave=base, count=base+1, undefined=0x4FFFFFFF/base }; //undefined is internal variable
 				
 		enum direction { descending=-1, unison=0, ascending = 1 };
 		
@@ -62,6 +62,7 @@ class IMUSANT_interval : public smartable
 	friend SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
 	
 		//getter and setters
+        int         getNumber();   
 		int			getInterval() { return fInterval; }
 		direction	getDirection() { return fDirection; }
 		int			getOctaves() { return fOctaves; }

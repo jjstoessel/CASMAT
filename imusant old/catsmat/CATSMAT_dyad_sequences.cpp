@@ -12,14 +12,8 @@
 namespace CATSMAT
 {
     
-ostream& operator<< (ostream& os, const CATSMAT_dyad_sequences& elt )
-{
-    elt.print(os);
-    
-    return os;
-}
-    
 CATSMAT_dyad_sequences::CATSMAT_dyad_sequences(bool ignoreRepeatedDyads)
+    : CATSMAT_dyad_sequences_base(ignoreRepeatedDyads)
 {
     
 }
@@ -95,7 +89,7 @@ void    CATSMAT_dyad_sequences::print(ostream& os) const
     for (vector<S_IMUSANT_interval_vector>::const_iterator iter = fVIntervalVector.begin();
          iter != fVIntervalVector.end() && (*iter) != NULL; iter++)
     {
-        cout << "part" << endl;
+        cout << "dyadic pair" << endl;
         cout << *iter;
     }
 }

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "CATSMAT_cp_matrix.hpp"
 #include "IMUSANT_interval_vector.h"
+#include "CATSMAT_dyad_sequences_base.hpp"
 
 using namespace IMUSANT;
 using namespace Loki;
@@ -19,11 +20,10 @@ using namespace Loki;
 namespace CATSMAT
 {
 
-class CATSMAT_dyad_sequences: public BaseVisitor, public Visitor<CATSMAT_cp_matrix, void, true>
+class CATSMAT_dyad_sequences: public CATSMAT_dyad_sequences_base
 {
 
 public:
-    friend  ostream& operator<< (ostream& os, const CATSMAT_dyad_sequences& elt );
     
     CATSMAT_dyad_sequences(bool ignoreRepeatedDyads=true);
     ~CATSMAT_dyad_sequences();
@@ -37,7 +37,6 @@ private:
     void    process(const list<S_IMUSANT_chord>& matrix);
     
     vector<S_IMUSANT_interval_vector>   fVIntervalVector;
-    vector< vector<int> >               fTaneievIntervalVectors;
     long                                fSaveI = 0;
 };
 
