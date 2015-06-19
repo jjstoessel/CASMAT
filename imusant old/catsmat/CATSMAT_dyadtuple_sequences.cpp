@@ -6,10 +6,15 @@
 //
 //
 
+#include <vector>
+#include <iostream>
 #include "CATSMAT_dyadtuple_sequences.hpp"
 #include "boost/tuple/tuple_io.hpp"
+#include "suffixtree.h"
 
+using namespace std;
 using namespace boost;
+using namespace ns_suffixtree;
 
 namespace CATSMAT
 {
@@ -22,7 +27,7 @@ void CATSMAT_dyadtuple_sequences::Visit(const CATSMAT_cp_matrix& matrix)
         
         for (int i = 0; i<(partCount+1)*partCount/2; i++)
         {
-            fTupleVector.push_back(vector<boost::tuple<int,int,int,int> >());
+            fTupleVector.push_back(quadruple_int_vector());
         }
 
         for (auto chord = matrix.getCPmatrix().begin(), next_chord = std::next(chord); chord!=matrix.getCPmatrix().end() && next_chord!=matrix.getCPmatrix().end(); chord++, next_chord++)
@@ -58,7 +63,7 @@ void CATSMAT_dyadtuple_sequences::Visit(const CATSMAT_cp_matrix& matrix)
                             bottomhint = bottomStep.getNumber();
                             
                             {
-                                boost::tuple<int,int,int,int> dyad_tuple(vint1, vint2, tophint, bottomhint);
+                                quadruple_int dyad_tuple(vint1, vint2, tophint, bottomhint);
                                 fTupleVector[i].push_back(dyad_tuple);
                             }
                         }
@@ -72,6 +77,58 @@ void CATSMAT_dyadtuple_sequences::Visit(const CATSMAT_cp_matrix& matrix)
         }
     }
 
+}
+    
+//void CATSMAT_dyadtuple_sequences::find_repeated_tuplet_sequences(int min)
+//{
+//    if (fTupleVector.size()>0)
+//    {
+//        int id = 0;
+//        vector<int> ids;
+//        ids.push_back(id);
+//        
+//        suffixtree<quadruple_int_vector> tuple_tree(*fTupleVector.begin(),id);
+//    
+//        for (auto i=fTupleVector.begin(); i!=fTupleVector.end();i++,++id)
+//        {
+//            tuple_tree.add_sentence(*i, id);
+//            ids.push_back(id);
+//        }
+//        
+//        vector< pair<vector<suffixtree<quadruple_int_vector>::number>, int> > results;
+//        results = tuple_tree.find_common_subsequences(ids);
+//        vector< pair<vector<suffixtree<quadruple_int_vector>::number>, int> >::iterator j=results.begin();
+//        
+//        for (; j!=results.end(); j++)
+//        {
+//            cout << "Sequence:";
+//            vector<suffixtree<quadruple_int_vector>::number>::const_iterator k=j->first.begin();
+//            bool first = true;
+//            for (; k!=j->first.end(); k++) {
+//                
+//                first = false;
+//                cout << k->first;
+//                
+//            }
+//            cout << endl;
+//            cout << "Length: " << j->second << " Occurrences: " << j->first.size() << endl;
+//        }
+//    }
+//}
+    
+void CATSMAT_dyadtuple_sequences::find_repeated_tuplet_sequences(int min)
+{
+    if (fTupleVector.size()>0)
+    {
+        int id = 0;
+        vector<int> ids;
+        ids.push_back(id);
+        
+        suffixtree<quadruple_int_vector> tuple_tree(*fTupleVector.begin(),id);
+        
+        cout << tuple_tree;
+    }
+    
 }
     
 void CATSMAT_dyadtuple_sequences::print(ostream& os) const

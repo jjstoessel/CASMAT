@@ -100,7 +100,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 				IMUSANT_interval interval(fLastNote->pitch(), elt->pitch());
 				interval.setLocation(fCurrentPartID,fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
 				fIntervalVector->add(interval);
-				//countour symbol storage
+				//contour symbol storage
 				IMUSANT_contour_symbol symbol(fLastNote->pitch(), elt->pitch());
 				symbol.setLocation(fCurrentPartID,fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
 				fMelodicContour->push_back(symbol);

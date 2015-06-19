@@ -16,6 +16,18 @@
 namespace CATSMAT
 {
 
+//typedef boost::tuple<int,int,int,int>   quadruple_int;
+    
+class  quadruple_int : public boost::tuples::tuple<int,int,int,int>
+{
+public:
+    quadruple_int() : boost::tuples::tuple<int,int,int,int>() {}
+    quadruple_int(int a,int b,int c,int d) : boost::tuples::tuple<int,int,int,int>(a,b,c,d) {}
+    bool operator <(const quadruple_int &right) const { return (*this<right); }
+    bool operator !=(const quadruple_int &right) const { return (*this!=right); }
+};
+typedef vector<quadruple_int>           quadruple_int_vector;
+    
 class CATSMAT_dyadtuple_sequences : public CATSMAT_dyad_sequences_base
 {
 public:
@@ -25,11 +37,13 @@ public:
     
     void print(ostream& os) const;
     
+    void find_repeated_tuplet_sequences(int min);
+    
 protected:
     
 private:
     
-    vector <vector< boost::tuple<int,int,int,int> > > fTupleVector;
+    vector<quadruple_int_vector>        fTupleVector;
     vector<vector<int> >                fSimpleVIntervalVector;
     long                                fSaveI = 0;
 };

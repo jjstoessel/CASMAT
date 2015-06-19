@@ -80,13 +80,17 @@ CATSMAT_processing::add_file(const filesystem::path& path)
                 CATSMAT_dyadtuple_sequences tuples;
                 
                 collections[i].getCPMatrix()->Accept(dyads);
-                collections[i].getCPMatrix()->Accept(tuples);
+                //collections[i].getCPMatrix()->Accept(tuples);
                 
-                cout << collections[i].getCPMatrix();
+                //cout << collections[i].getCPMatrix();
                 
-                cout << dyads;
+                //cout << dyads;
                 
-                cout << tuples;
+                dyads.find_repeated(4);
+                
+                //cout << tuples;
+                
+                //tuples.find_repeated_tuplet_sequences(3);
                 
 			}
 			//check extension

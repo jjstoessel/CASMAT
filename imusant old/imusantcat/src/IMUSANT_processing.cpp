@@ -190,7 +190,7 @@ IMUSANT_processing::find_repeated_contour_substrings(int min_length)
 			}
 			
 			cout << endl;
-			cout << "Length: " << iter_mc->second << " Occurences: " << iter_mc->first.size() << endl << endl;
+			cout << "Length: " << iter_mc->second << " Occurrences: " << iter_mc->first.size() << endl << endl;
 		}
 		cout << endl;
 

@@ -9,6 +9,9 @@
 #include "CATSMAT_dyad_sequences.hpp"
 #include "IMUSANT_chord.h"
 
+
+using namespace ns_suffixtree;
+
 namespace CATSMAT
 {
     
@@ -30,9 +33,8 @@ void    CATSMAT_dyad_sequences::Visit(const CATSMAT_cp_matrix& matrix)
     
     while (fVIntervalVector.size() < ( (partCount+1)*partCount/2 ) )
     {
-        S_IMUSANT_interval_vector newIV = new_IMUSANT_interval_vector();
-        newIV->setMaximum(1024);
-        fVIntervalVector.push_back(newIV);
+        fVIntervalVector.push_back(new_IMUSANT_interval_vector());
+        fVIntervalVector.back()->setMaximum(1024);
     }
 
     process(matrix.getCPmatrix());
@@ -82,6 +84,71 @@ void    CATSMAT_dyad_sequences::process(const list<S_IMUSANT_chord>& matrix)
         }
     }
 
+}
+
+
+void CATSMAT_dyad_sequences::find_repeated(int min)
+{
+    if (fVIntervalVector.size()>0)
+    {
+        //vector<int> ids;
+        //ids.push_back(id);
+        
+        for (int id = 0; id < fSaveI; id++)
+        {
+            int_tree* tree = new int_tree(fVIntervalVector[id]->getIntervals(),1); //change last parameter to id for whole work tree.
+            //cout << *tree;
+            vector<pair<int_tree::size_type, int_tree::size_type> > results;
+            find_repeated_substrings(results, tree->root_node(), min);
+            
+            cout << "duet: " << id << endl;
+            
+            for (auto j=results.begin(); j!=results.end(); j++)
+            {
+                cout << "Sequence: (";
+                
+                cout << fVIntervalVector[id]->getIntervals()[j->first].getLocation().first.measure;
+                cout << ", " << fVIntervalVector[id]->getIntervals()[j->first].getLocation().first.note_index << ") ";
+                
+                for (auto k = j->first; k<j->second+j->first; k++)
+                {
+                    cout << fVIntervalVector[id]->getIntervals()[k];
+                }
+                cout << endl;
+                //cout << "Length: " << j->second << " Occurrences: " << j->first.size() << endl;
+            }
+            
+            delete tree;
+        }
+    }
+}
+
+//private recursive function - needs to be templated
+void CATSMAT_dyad_sequences::find_repeated_substrings(vector< pair<int_tree::size_type, int_tree::size_type> >& results, const int_tree::node& n, int min_length)
+{
+    int_tree::size_type prefix_length = n.path_label_length() - (n.end() - n.begin());
+    
+    if (n.children_size()==0)
+    {
+        if (prefix_length>=min_length)
+        {
+            pair<int_tree::size_type, int_tree::size_type> res;
+            res.first=n.give_number().second; //give index of vector where branch starts
+            res.second=prefix_length;
+            results.push_back(res);
+        }
+    }
+    
+    vector<int_tree::element_type> v = n.next_children();
+    
+    if (!v.empty())
+    {
+        for (vector<int_tree::element_type>::const_iterator it=v.begin();it!=v.end();it++)
+        {
+            const int_tree::node* m = n.find_child(*it);
+            find_repeated_substrings(results, *m, min_length);
+        }
+    }
 }
     
 void    CATSMAT_dyad_sequences::print(ostream& os) const
