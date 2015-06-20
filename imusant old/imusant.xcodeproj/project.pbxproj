@@ -543,6 +543,9 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xml2imusant_main.cpp; sourceTree = "<group>"; };
+		1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Josquin_MAF_Kyrie.xml; sourceTree = "<group>"; };
+		1E2FA2C41B355A01002BB14F /* Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie.xml; sourceTree = "<group>"; };
+		1E2FA2C51B355A01002BB14F /* Sanctus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sanctus.xml; sourceTree = "<group>"; };
 		496EF4C41B229D8100FE715F /* CATSMAT_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CATSMAT_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF4C61B229D8100FE715F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		496EF4D71B22A58A00FE715F /* libMusicXML.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libMusicXML.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -874,9 +877,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1E2FA2C21B355A01002BB14F /* testdata */ = {
+			isa = PBXGroup;
+			children = (
+				1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */,
+				1E2FA2C41B355A01002BB14F /* Kyrie.xml */,
+				1E2FA2C51B355A01002BB14F /* Sanctus.xml */,
+			);
+			path = testdata;
+			sourceTree = "<group>";
+		};
 		496EF4C51B229D8100FE715F /* CATSMAT_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				1E2FA2C21B355A01002BB14F /* testdata */,
 				496EF4C61B229D8100FE715F /* main.cpp */,
 				496EF7141B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp */,
 			);
