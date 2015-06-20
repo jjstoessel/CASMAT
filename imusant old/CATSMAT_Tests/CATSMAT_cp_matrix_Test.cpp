@@ -83,19 +83,22 @@ TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
     testdata.append("testdata/Sanctus.xml");
     
     TMusicXMLFile reader;
-    SScore score = reader.read((string&)testdata);
-    EXPECT_FALSE(score == NULL);
+    SScore xml_score = reader.read((string&)testdata);
+    EXPECT_FALSE(xml_score == NULL);
     
     TXML2IMUSANTVisitor xml_2_imusant_translator;
-    score->accept(xml_2_imusant_translator);
+    xml_score->accept(xml_2_imusant_translator);
+    
+    S_IMUSANT_score imusant_score = xml_2_imusant_translator.getIMUSANTScore();
+    IMUSANT_vector<S_IMUSANT_part> parts = imusant_score->partlist()->parts();
+    unsigned long num_parts_in_score = parts.size();
     
     CATSMAT::CATSMAT_collection_visitor imusant_to_cp_matrix_translator;
-    xml_2_imusant_translator.getIMUSANTScore()->accept(imusant_to_cp_matrix_translator);
+    imusant_score->accept(imusant_to_cp_matrix_translator);
     
     theMatrix = imusant_to_cp_matrix_translator.getCPMatrix();
     
-    EXPECT_EQ(3, theMatrix->partCount());
-    
+    EXPECT_EQ(num_parts_in_score, theMatrix->partCount());
 }
 
 
