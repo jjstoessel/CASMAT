@@ -38,5 +38,5 @@ private:
 	vector<int> IDs;
 };
 
-} //namespace IMUSANT
+} //namespace CATSMAT
 #endif //__CATSMAT_PROCESSING__

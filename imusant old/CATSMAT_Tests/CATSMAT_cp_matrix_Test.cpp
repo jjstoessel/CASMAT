@@ -2,12 +2,19 @@
 //  CATSMAT_cp_matrix_Test.cpp
 //  imusant
 //
-//  Created by Derrick Hill on 6/06/2015.
-//
 //
 
 #include "CATSMAT_cp_matrix.hpp"
+#include "CATSMAT_processing.hpp"
+#include "CATSMAT_collectionvisitor.hpp"
+
+#include "TMusicXMLFile.h"
+#include "TXML2IMUSANTVisitor.h"
+
+#include <boost/filesystem.hpp>
 #include "gtest/gtest.h"
+
+using namespace boost;
 
 
 // The fixture for testing class CATSMAT_cp_matrix.
@@ -66,8 +73,29 @@ TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
     theMatrix->print(cout);
 
     // REVISIT - FORCE THIS TEST TO FAIL FOR THE MOMENT.
-    EXPECT_EQ(100, 10);
+    EXPECT_EQ(100, 10) << "Forcing failure to see if this works...";
     
 }
+
+TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
+{
+    filesystem::path testdata(filesystem::initial_path());
+    testdata.append("testdata/Sanctus.xml");
     
+    TMusicXMLFile reader;
+    SScore score = reader.read((string&)testdata);
+    EXPECT_FALSE(score == NULL);
+    
+    TXML2IMUSANTVisitor xml_2_imusant_translator;
+    score->accept(xml_2_imusant_translator);
+    
+    CATSMAT::CATSMAT_collection_visitor imusant_to_cp_matrix_translator;
+    xml_2_imusant_translator.getIMUSANTScore()->accept(imusant_to_cp_matrix_translator);
+    
+    theMatrix = imusant_to_cp_matrix_translator.getCPMatrix();
+    
+    EXPECT_EQ(3, theMatrix->partCount());
+    
+}
+
 
