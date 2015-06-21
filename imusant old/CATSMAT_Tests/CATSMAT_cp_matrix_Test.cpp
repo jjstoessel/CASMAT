@@ -8,6 +8,8 @@
 #include "CATSMAT_processing.hpp"
 #include "CATSMAT_collectionvisitor.hpp"
 
+#include "CATSMAT_cp_matrix_Expected.h"
+
 #include "TMusicXMLFile.h"
 #include "TXML2IMUSANTVisitor.h"
 
@@ -50,6 +52,59 @@ protected:
     
 };
 
+/************ UTILITY FUNCTIONS ******************/
+
+// These really don't belong here.  Refactor soon.
+
+SScore xml_2_sscore(filesystem::path testdata)
+{
+    TMusicXMLFile reader;
+    SScore xml_score = reader.read((string&)testdata);
+    return xml_score;
+}
+
+S_IMUSANT_score sscore_2_imusantscore(SScore xml_score)
+{
+    TXML2IMUSANTVisitor xml_2_imusant_translator;
+    xml_score->accept(xml_2_imusant_translator);
+    S_IMUSANT_score imusant_score = xml_2_imusant_translator.getIMUSANTScore();
+    return imusant_score;
+}
+
+unsigned long get_num_parts_in_score(S_IMUSANT_score imusant_score)
+{
+    IMUSANT_vector<S_IMUSANT_part> parts = imusant_score->partlist()->parts();
+    unsigned long num_parts_in_score = parts.size();
+    return num_parts_in_score;
+}
+
+CATSMAT::S_CATSMAT_cp_matrix imusant_2_cp_matrix(S_IMUSANT_score imusant_score)
+{
+    CATSMAT::CATSMAT_collection_visitor imusant_to_cp_matrix_translator;
+    imusant_score->accept(imusant_to_cp_matrix_translator);
+    CATSMAT::S_CATSMAT_cp_matrix matrix = imusant_to_cp_matrix_translator.getCPMatrix();
+    return matrix;
+}
+
+string matrix_2_string(CATSMAT::S_CATSMAT_cp_matrix the_matrix)
+{
+    std::stringstream the_matrix_as_stringstream;
+    the_matrix_as_stringstream << the_matrix;
+    std::string the_matrix_as_string = the_matrix_as_stringstream.str();
+    return the_matrix_as_string;
+}
+
+filesystem::path make_path_to_test_data(string relative_path)
+{
+    filesystem::path testdata(filesystem::initial_path());
+    testdata.append(relative_path);
+    return testdata;
+}
+
+/************* END UTILITY FUNCTIONS **********************/
+
+/************* TEST CASES **********************/
+
 TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
     
     S_IMUSANT_pitch pitch = new_IMUSANT_pitch();
@@ -70,35 +125,81 @@ TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
     theMatrix->addpart();
     theMatrix->add(*note);
     
-    theMatrix->print(cout);
+    // theMatrix->print(cout);
 
     // REVISIT - FORCE THIS TEST TO FAIL FOR THE MOMENT.
     EXPECT_EQ(100, 10) << "Forcing failure to see if this works...";
     
 }
 
+TEST_F(CATSMAT_cp_matrix_Test, HandCraftedTestData_1)
+{
+    filesystem::path testdata = make_path_to_test_data("testdata/HandCraftedTestData_1.xml");
+    
+    SScore sscore = xml_2_sscore(testdata);
+    ASSERT_FALSE(sscore == NULL) << "Failed to parse XML file.";
+    
+    S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
+    theMatrix = imusant_2_cp_matrix(imusant_score);
+
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(HandCraftedTestData_1_Expected, matrix_as_string);
+    
+    unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
 TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
 {
-    filesystem::path testdata(filesystem::initial_path());
-    testdata.append("testdata/Sanctus.xml");
+    filesystem::path testdata = make_path_to_test_data("testdata/Sanctus.xml");
     
-    TMusicXMLFile reader;
-    SScore xml_score = reader.read((string&)testdata);
-    EXPECT_FALSE(xml_score == NULL);
+    SScore sscore = xml_2_sscore(testdata);
+    ASSERT_FALSE(sscore == NULL) << "Failed to parse XML file.";
     
-    TXML2IMUSANTVisitor xml_2_imusant_translator;
-    xml_score->accept(xml_2_imusant_translator);
+    S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
+    theMatrix = imusant_2_cp_matrix(imusant_score);
     
-    S_IMUSANT_score imusant_score = xml_2_imusant_translator.getIMUSANTScore();
-    IMUSANT_vector<S_IMUSANT_part> parts = imusant_score->partlist()->parts();
-    unsigned long num_parts_in_score = parts.size();
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(Sanctus_Expected, matrix_as_string);
     
-    CATSMAT::CATSMAT_collection_visitor imusant_to_cp_matrix_translator;
-    imusant_score->accept(imusant_to_cp_matrix_translator);
-    
-    theMatrix = imusant_to_cp_matrix_translator.getCPMatrix();
-    
-    EXPECT_EQ(num_parts_in_score, theMatrix->partCount());
+    unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
+
+TEST_F(CATSMAT_cp_matrix_Test, Kyrie)
+{
+    filesystem::path testdata = make_path_to_test_data("testdata/Kyrie.xml");
+    
+    SScore sscore = xml_2_sscore(testdata);
+    ASSERT_FALSE(sscore == NULL) << "Failed to parse XML file.";
+    
+    S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
+    theMatrix = imusant_2_cp_matrix(imusant_score);
+    
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(Kyrie_Expected, matrix_as_string);
+    
+    unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
+TEST_F(CATSMAT_cp_matrix_Test, Josquin_MAF_Kyrie)
+{
+    filesystem::path testdata = make_path_to_test_data("testdata/Josquin_MAF_Kyrie.xml");
+    
+    SScore sscore = xml_2_sscore(testdata);
+    ASSERT_FALSE(sscore == NULL) << "Failed to parse XML file.";
+    
+    S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
+    theMatrix = imusant_2_cp_matrix(imusant_score);
+    
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(Josquin_MAF_Kyrie, matrix_as_string);
+    
+    unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
+/************* END TEST CASES **********************/
 
 

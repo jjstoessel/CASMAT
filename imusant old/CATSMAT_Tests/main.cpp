@@ -14,6 +14,8 @@
 
 int main(int argc, char * argv[]) {
     
+    cout << "RUNNING CATSMAT TESTS" << endl;
+    cout << "---------------------" << endl;
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 
