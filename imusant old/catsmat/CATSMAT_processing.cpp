@@ -84,7 +84,7 @@ CATSMAT_processing::add_file(const filesystem::path& path)
                 
                 //cout << collections[i].getCPMatrix();
                 
-                //cout << dyads;
+                cout << dyads;
                 
                 dyads.find_repeated(4);
                 

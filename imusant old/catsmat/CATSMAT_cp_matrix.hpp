@@ -58,7 +58,7 @@ private:
     
     bool            insert(const IMUSANT_note& note);
     void            split(const IMUSANT_note& note);
-    IMUSANT_note    distribute(const IMUSANT_note& note);
+    IMUSANT_note    distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note = NULL);
 
     
     list< S_IMUSANT_chord >             fCPMatrix; //a vector of vectors, each of which represent a chord

@@ -131,7 +131,7 @@ bool    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
     returns remainder as IMUSANT_note, which is also the "split note" if the duration is shorter
     than the current chord duration
 */
-IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note)
+IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note)
 {
     IMUSANT_note remainder = note;
     
@@ -151,6 +151,7 @@ IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note)
         *part_duration = *(*fCurrentChord)->getNotes()[fCurrentPart-1]->duration();
         *part_note = note;
         part_note->setDuration(part_duration);
+        if (previous_note!=NULL) part_note->setPreviousTieNote(previous_note);
         
         (*fCurrentChord)->add(part_note);
         //find the remainder of the duration left after the previous chord
@@ -160,8 +161,9 @@ IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note)
         
         fCurrentChord++;
         
-        if (dur->fDuration!=IMUSANT_duration::unmeasured && fCurrentChord!=fCPMatrix.end()) {
-            distribute(remainder);
+        if (dur->fDuration!=IMUSANT_duration::unmeasured && fCurrentChord!=fCPMatrix.end())
+        {
+            distribute(remainder, part_note);
         }
         
     }
@@ -192,18 +194,18 @@ void   CATSMAT_cp_matrix::split(const IMUSANT_note& note)
         *insert_note = *(*i);
         *insert_duration = *note.duration();
         insert_note->setDuration(insert_duration);
+        insert_note->setNextTieNote(*i); //set the old note as tied to previous
         insert_chord->add(insert_note);
         if ( *(*i)->duration() != *(*i)->duration() - *note.duration())
             *(*i)->duration() -= *note.duration();
     }
     
+    assert(note.duration()->fDuration!=IMUSANT_duration::unmeasured);
     //finally add new note (clone note&) to new chord to be pre-inserted
     *new_insert_note = note;
     insert_chord->add(new_insert_note);
     //insert new chord before current chord
-    //fCurrentChord = fCPMatrix.insert(fCurrentChord, insert_chord);
     fCPMatrix.insert(fCurrentChord, insert_chord);
-    //fCurrentChord++;
     
 }
     
