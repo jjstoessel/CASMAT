@@ -71,8 +71,6 @@ void    CATSMAT_dyad_sequences::process(const list<S_IMUSANT_chord>& matrix)
                         
                         interval.setLocation(i, (*note2)->getMeasureNum(), (*note2)->getNoteIndex(), (*note1)->getMeasureNum(), (*note1)->getNoteIndex());
                         
-                        if ((*note1)->isTiedPrevious() && (*note2)->isTiedPrevious())
-                            cout << "tied to previous" << endl;
                         //only insert interval if not a repeated interval
                         if (!((*note1)->isTiedPrevious() && (*note2)->isTiedPrevious())) fVIntervalVector[i]->add(interval);
                     }
