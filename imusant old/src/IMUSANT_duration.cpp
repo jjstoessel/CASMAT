@@ -179,6 +179,11 @@ IMUSANT_duration	IMUSANT_duration::getSimplifiedDuration() const
 	{
 		index *= TRational(1,2);
 		dotsmultiplier += index;
+        
+        if (i>7) {
+            throw "iteration error in IMUSANT_duration::getSimplifiedDuration()";
+            break;
+        }
 	}
 	
 	out.fDuration = (fDuration * dotsmultiplier)/fTimeModification;

@@ -258,7 +258,8 @@ suffixtree_impl<V>::node::node(index b, index e, node* u,
 {
 // Constructor initialising a node with begin_i, end_i, up, owner and
 // number. suffix_link and children are still empty.
-	suffixNumber = make_pair<int,size_type>(ID,num);
+	//suffixNumber = make_pair<int,size_type>(ID,num); //C++98 compatible
+    suffixNumber = make_pair(std::forward<int>(ID), std::forward<size_type>(num));
 	//IDmark.push_back(ID);
 }
 

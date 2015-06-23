@@ -72,7 +72,10 @@ void    CATSMAT_dyad_sequences::process(const list<S_IMUSANT_chord>& matrix)
                         interval.setLocation(i, (*note2)->getMeasureNum(), (*note2)->getNoteIndex(), (*note1)->getMeasureNum(), (*note1)->getNoteIndex());
                         
                         //only insert interval if not a repeated interval
-                        if (!((*note1)->isTiedPrevious() && (*note2)->isTiedPrevious())) fVIntervalVector[i]->add(interval);
+                        if (!((*note1)->isTiedPrevious() && (*note2)->isTiedPrevious()))
+                        {
+                            fVIntervalVector[i]->add(interval);
+                        }
                     }
                     
                     i++;
@@ -98,9 +101,8 @@ void CATSMAT_dyad_sequences::find_repeated(int min)
             vector<pair<int_tree::size_type, int_tree::size_type> >* results = new vector<pair<int_tree::size_type, int_tree::size_type> >();
             find_repeated_substrings(*results, tree->root_node(), min);
             
-            map<int, int_tree::value_type > m = tree->get_sentences();
+            map<int, int_tree::value_type > m = tree->get_sentences(); //const vector<IMUSANT_interval>& int_v = (*i)->getIntervals();
             int_tree::value_type int_v = m[1];
-            //const vector<IMUSANT_interval>& int_v = (*i)->getIntervals();
             
             cout << "duet: " << int_v[0].getLocation().partID << endl;
             
@@ -116,7 +118,6 @@ void CATSMAT_dyad_sequences::find_repeated(int min)
                     cout << int_v[k];
                 }
                 cout << endl;
-                //cout << "Length: " << j->second << " Occurrences: " << j->first.size() << endl;
             }
             
             delete results;

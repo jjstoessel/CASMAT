@@ -134,9 +134,11 @@ bool    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
 IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note)
 {
     IMUSANT_note remainder = note;
+    //S_IMUSANT_duration current_chord_dur = (*fCurrentChord)->getNotes()[fCurrentPart-1]->duration();
+    S_IMUSANT_duration current_chord_dur = (*(*fCurrentChord)->getNotes().begin())->duration();
     
     //assumes that the duration of all notes in each existing chord are the same due to prior operation.
-    if ( fCurrentChord!=fCPMatrix.end() && *note.duration() >= *(*fCurrentChord)->getNotes()[fCurrentPart-1]->duration() )
+    if ( fCurrentChord!=fCPMatrix.end() && *note.duration() >= *current_chord_dur )
     {
         /*if ((*fCurrentChord)->getNotes()[fCurrentPart-1]->getMeasureNum() != note.getMeasureNum()) {
          cerr << "Mismatched measure insert" << endl;
@@ -148,7 +150,7 @@ IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note, const S_IMU
         S_IMUSANT_note      part_note = new_IMUSANT_note();
         S_IMUSANT_duration  part_duration = new_IMUSANT_duration();
         
-        *part_duration = *(*fCurrentChord)->getNotes()[fCurrentPart-1]->duration();
+        *part_duration = *current_chord_dur;
         *part_note = note;
         part_note->setDuration(part_duration);
         if (previous_note!=NULL) part_note->setPreviousTieNote(previous_note);

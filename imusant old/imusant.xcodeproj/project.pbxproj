@@ -570,7 +570,7 @@
 		496EF6C01B22B01700FE715F /* libIMUSANTPriv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libIMUSANTPriv.h; sourceTree = "<group>"; };
 		496EF6C21B22B01700FE715F /* libIMUSANT.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = libIMUSANT.cp; sourceTree = "<group>"; };
 		496EF7141B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_cp_matrix_Test.cpp; sourceTree = "<group>"; };
-		496EF7191B23BF9C00FE715F /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
+		496EF7191B23BF9C00FE715F /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
 		496EF7211B24013600FE715F /* DevelopmentEnvironmentConfiguration.docx */ = {isa = PBXFileReference; lastKnownFileType = file; name = DevelopmentEnvironmentConfiguration.docx; path = ../DevelopmentEnvironmentConfiguration.docx; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* MusicXML2imusant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MusicXML2imusant; sourceTree = BUILT_PRODUCTS_DIR; };
 		965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imusantcat_main.cpp; sourceTree = "<group>"; };
