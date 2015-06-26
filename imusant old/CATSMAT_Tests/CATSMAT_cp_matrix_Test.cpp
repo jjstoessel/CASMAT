@@ -101,11 +101,13 @@ filesystem::path make_path_to_test_data(string relative_path)
     return testdata;
 }
 
+const string ERR_MSG_FAILED_TO_PARSE_XML = "Failed to parse XML file. \nHave you added this file into the Copy Files build phase?";
+
 /************* END UTILITY FUNCTIONS **********************/
 
 /************* TEST CASES **********************/
 
-TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
+ TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
     
     S_IMUSANT_pitch pitch = new_IMUSANT_pitch();
     pitch->set(IMUSANT_pitch::type::E, 2, 1, IMUSANT_pitch::type::A);
@@ -132,18 +134,41 @@ TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
     
 }
 
-TEST_F(CATSMAT_cp_matrix_Test, HandCraftedTestData_1)
+
+TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
 {
-    filesystem::path testdata = make_path_to_test_data("testdata/HandCraftedTestData_1.xml");
+    filesystem::path testdata = make_path_to_test_data("testdata/TestScore_1_Measure.xml");
     
     SScore sscore = xml_2_sscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << "Failed to parse XML file.";
+    ASSERT_FALSE(sscore == NULL) << ERR_MSG_FAILED_TO_PARSE_XML;
     
     S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
     theMatrix = imusant_2_cp_matrix(imusant_score);
 
     string matrix_as_string = matrix_2_string(theMatrix);
-    ASSERT_EQ(HandCraftedTestData_1_Expected, matrix_as_string);
+    ASSERT_EQ(TestScore_1_Measure_Expected, matrix_as_string);
+    
+    ASSERT_FALSE(true) << "FORCING FAILURE: EXPECTED OUTPUT NOT VALIDATED";
+    
+    unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
+
+TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
+{
+    filesystem::path testdata = make_path_to_test_data("testdata/TestScore_4_Measures.xml");
+    
+    SScore sscore = xml_2_sscore(testdata);
+    ASSERT_FALSE(sscore == NULL) << ERR_MSG_FAILED_TO_PARSE_XML;
+    
+    S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
+    theMatrix = imusant_2_cp_matrix(imusant_score);
+    
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(TestScore_4_Measures_Expected, matrix_as_string);
+    
+    ASSERT_FALSE(true) << "FORCING FAILURE: EXPECTED OUTPUT NOT VALIDATED";
     
     unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
@@ -154,7 +179,7 @@ TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
     filesystem::path testdata = make_path_to_test_data("testdata/Sanctus.xml");
     
     SScore sscore = xml_2_sscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << "Failed to parse XML file.";
+    ASSERT_FALSE(sscore == NULL) << ERR_MSG_FAILED_TO_PARSE_XML;
     
     S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
     theMatrix = imusant_2_cp_matrix(imusant_score);
@@ -171,7 +196,7 @@ TEST_F(CATSMAT_cp_matrix_Test, Kyrie)
     filesystem::path testdata = make_path_to_test_data("testdata/Kyrie.xml");
     
     SScore sscore = xml_2_sscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << "Failed to parse XML file.";
+    ASSERT_FALSE(sscore == NULL) << ERR_MSG_FAILED_TO_PARSE_XML;
     
     S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
     theMatrix = imusant_2_cp_matrix(imusant_score);
@@ -188,17 +213,18 @@ TEST_F(CATSMAT_cp_matrix_Test, Josquin_MAF_Kyrie)
     filesystem::path testdata = make_path_to_test_data("testdata/Josquin_MAF_Kyrie.xml");
     
     SScore sscore = xml_2_sscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << "Failed to parse XML file.";
+    ASSERT_FALSE(sscore == NULL) << ERR_MSG_FAILED_TO_PARSE_XML;
     
     S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
     theMatrix = imusant_2_cp_matrix(imusant_score);
     
     string matrix_as_string = matrix_2_string(theMatrix);
-    ASSERT_EQ(Josquin_MAF_Kyrie, matrix_as_string);
+    ASSERT_EQ(Josquin_MAF_Kyrie_Expected, matrix_as_string);
     
     unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
+
 
 /************* END TEST CASES **********************/
 
