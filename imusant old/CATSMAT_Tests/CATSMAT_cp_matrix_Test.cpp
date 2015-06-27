@@ -165,6 +165,41 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
 
+TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithQuaverPassingNotes)
+{
+    filesystem::path testdata = make_path_to_test_data("testdata/TestScore_4_Measures_WithQuaverPassingNotes.xml");
+    
+    SScore sscore = xml_2_sscore(testdata);
+    ASSERT_FALSE(sscore == NULL) << ERR_MSG_FAILED_TO_PARSE_XML;
+    
+    S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
+    theMatrix = imusant_2_cp_matrix(imusant_score);
+    
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(TestScore_4_Measures_WithQuaverPassingNotes_Expected, matrix_as_string);
+    
+    unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
+TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes)
+{
+    filesystem::path testdata = make_path_to_test_data("testdata/TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
+    
+    SScore sscore = xml_2_sscore(testdata);
+    ASSERT_FALSE(sscore == NULL) << ERR_MSG_FAILED_TO_PARSE_XML;
+    
+    S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
+    theMatrix = imusant_2_cp_matrix(imusant_score);
+    
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, matrix_as_string);
+    
+    unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
+
 TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
 {
     filesystem::path testdata = make_path_to_test_data("testdata/Sanctus.xml");
