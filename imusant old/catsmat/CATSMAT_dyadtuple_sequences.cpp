@@ -25,7 +25,7 @@ void CATSMAT_dyadtuple_sequences::Visit(const CATSMAT_cp_matrix& matrix)
     {
         unsigned long partCount = matrix.partCount();
         
-        for (int i = 0; i<(partCount+1)*partCount/2; i++)
+        for (int i = 0; i<(partCount)*(partCount-1)/2; i++)
         {
             fTupleVector.push_back(quadruple_int_vector());
         }

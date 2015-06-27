@@ -47,7 +47,7 @@ public:
     const   vector<S_IMUSANT_interval_vector> getVerticalIntervals() const { return fVIntervalVector; }
     
     void    print(ostream& os);
-    unsigned long partCount() const { return fCurrentPart; }
+    unsigned long partCount() const { return fCurrentPart + 1; }
     
 protected:
     //ctors

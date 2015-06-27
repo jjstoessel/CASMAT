@@ -31,7 +31,7 @@ void    CATSMAT_dyad_sequences::Visit(const CATSMAT_cp_matrix& matrix)
     //increase VectorInterval colection according to the formula of unique pairs n(n-1)/2
     unsigned long partCount = matrix.partCount();
     
-    while (fVIntervalVector.size() < ( (partCount+1)*partCount/2 ) )
+    while (fVIntervalVector.size() < ( (partCount)*(partCount-1)/2 ) )
     {
         fVIntervalVector.push_back(new_IMUSANT_interval_vector());
         fVIntervalVector.back()->setMaximum(1024);
