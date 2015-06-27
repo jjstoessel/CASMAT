@@ -144,11 +144,9 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
     
     S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
     theMatrix = imusant_2_cp_matrix(imusant_score);
-
+    
     string matrix_as_string = matrix_2_string(theMatrix);
     ASSERT_EQ(TestScore_1_Measure_Expected, matrix_as_string);
-    
-    ASSERT_FALSE(true) << "FORCING FAILURE: EXPECTED OUTPUT NOT VALIDATED";
     
     unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
@@ -167,8 +165,6 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
     
     string matrix_as_string = matrix_2_string(theMatrix);
     ASSERT_EQ(TestScore_4_Measures_Expected, matrix_as_string);
-    
-    ASSERT_FALSE(true) << "FORCING FAILURE: EXPECTED OUTPUT NOT VALIDATED";
     
     unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
