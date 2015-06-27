@@ -10,7 +10,8 @@
 		1E2FA2C61B35A517002BB14F /* Josquin_MAF_Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */; };
 		1E2FA2C71B35A517002BB14F /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C41B355A01002BB14F /* Kyrie.xml */; };
 		1E2FA2C81B35A517002BB14F /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C51B355A01002BB14F /* Sanctus.xml */; };
-		1E2FA2CB1B3642E2002BB14F /* HandCraftedTestData_1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2CA1B36429B002BB14F /* HandCraftedTestData_1.xml */; };
+		1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
+		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
 		496EF4C71B229D8100FE715F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF4C61B229D8100FE715F /* main.cpp */; };
 		496EF4CC1B229DA500FE715F /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */; };
 		496EF4CE1B229DA500FE715F /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */; };
@@ -495,7 +496,8 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
-				1E2FA2CB1B3642E2002BB14F /* HandCraftedTestData_1.xml in CopyFiles */,
+				1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */,
+				1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */,
 				1E2FA2C61B35A517002BB14F /* Josquin_MAF_Kyrie.xml in CopyFiles */,
 				1E2FA2C71B35A517002BB14F /* Kyrie.xml in CopyFiles */,
 				1E2FA2C81B35A517002BB14F /* Sanctus.xml in CopyFiles */,
@@ -556,8 +558,11 @@
 		1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Josquin_MAF_Kyrie.xml; sourceTree = "<group>"; };
 		1E2FA2C41B355A01002BB14F /* Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie.xml; sourceTree = "<group>"; };
 		1E2FA2C51B355A01002BB14F /* Sanctus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sanctus.xml; sourceTree = "<group>"; };
-		1E2FA2CA1B36429B002BB14F /* HandCraftedTestData_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HandCraftedTestData_1.xml; sourceTree = "<group>"; };
 		1E2FA2CC1B36B2D7002BB14F /* CATSMAT_cp_matrix_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_cp_matrix_Expected.h; path = CATSMAT_Tests/CATSMAT_cp_matrix_Expected.h; sourceTree = "<group>"; };
+		1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_1_Measure.xml; sourceTree = "<group>"; };
+		1EDE2F171B3E0ACD00DB1BD0 /* TestScore_1_Measure.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_1_Measure.mscz; sourceTree = "<group>"; };
+		1EDE2F181B3E0ACD00DB1BD0 /* TestScore_4_Measures.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures.mscz; sourceTree = "<group>"; };
+		1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_4_Measures.xml; sourceTree = "<group>"; };
 		496EF4C41B229D8100FE715F /* CATSMAT_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CATSMAT_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF4C61B229D8100FE715F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		496EF4D71B22A58A00FE715F /* libMusicXML.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libMusicXML.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -895,12 +900,23 @@
 		1E2FA2C21B355A01002BB14F /* testdata */ = {
 			isa = PBXGroup;
 			children = (
-				1E2FA2CA1B36429B002BB14F /* HandCraftedTestData_1.xml */,
+				1EDE2F161B3E0ACD00DB1BD0 /* source_files */,
+				1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */,
+				1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */,
 				1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */,
 				1E2FA2C41B355A01002BB14F /* Kyrie.xml */,
 				1E2FA2C51B355A01002BB14F /* Sanctus.xml */,
 			);
 			path = testdata;
+			sourceTree = "<group>";
+		};
+		1EDE2F161B3E0ACD00DB1BD0 /* source_files */ = {
+			isa = PBXGroup;
+			children = (
+				1EDE2F171B3E0ACD00DB1BD0 /* TestScore_1_Measure.mscz */,
+				1EDE2F181B3E0ACD00DB1BD0 /* TestScore_4_Measures.mscz */,
+			);
+			path = source_files;
 			sourceTree = "<group>";
 		};
 		496EF4C51B229D8100FE715F /* CATSMAT_Tests */ = {
