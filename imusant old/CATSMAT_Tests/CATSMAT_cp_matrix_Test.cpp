@@ -118,22 +118,17 @@ const string ERR_MSG_FAILED_TO_PARSE_XML = "Failed to parse XML file. \nHave you
     IMUSANT_note *note = new IMUSANT_note();
 
     // REVISIT - IMUSANT_note::print() crashes if pitch == null or duration == null. Probably should make this more robust somehow.
-    // REVISIT - IMUSANT_duration::print() is not implemented.
-    // REVISIT - IMUSANT_pitch::print() need to confirm that the output is as intended.  For the above I get "<PITCH>E0@2<\PITCH>".
 
     note->setPitch(pitch);
     note->setDuration(duration);
 
     theMatrix->addpart();
     theMatrix->add(*note);
-    
-    // theMatrix->print(cout);
-
-    // REVISIT - FORCE THIS TEST TO FAIL FOR THE MOMENT.
-    EXPECT_EQ(100, 10) << "Forcing failure to see if this works...";
+     
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(CanAddOneNote_Expected, matrix_as_string);
     
 }
-
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
 {
@@ -144,11 +139,9 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
     
     S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
     theMatrix = imusant_2_cp_matrix(imusant_score);
-
+    
     string matrix_as_string = matrix_2_string(theMatrix);
     ASSERT_EQ(TestScore_1_Measure_Expected, matrix_as_string);
-    
-    ASSERT_FALSE(true) << "FORCING FAILURE: EXPECTED OUTPUT NOT VALIDATED";
     
     unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
@@ -168,11 +161,44 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
     string matrix_as_string = matrix_2_string(theMatrix);
     ASSERT_EQ(TestScore_4_Measures_Expected, matrix_as_string);
     
-    ASSERT_FALSE(true) << "FORCING FAILURE: EXPECTED OUTPUT NOT VALIDATED";
+    unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
+TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithQuaverPassingNotes)
+{
+    filesystem::path testdata = make_path_to_test_data("testdata/TestScore_4_Measures_WithQuaverPassingNotes.xml");
+    
+    SScore sscore = xml_2_sscore(testdata);
+    ASSERT_FALSE(sscore == NULL) << ERR_MSG_FAILED_TO_PARSE_XML;
+    
+    S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
+    theMatrix = imusant_2_cp_matrix(imusant_score);
+    
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(TestScore_4_Measures_WithQuaverPassingNotes_Expected, matrix_as_string);
     
     unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
+
+TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes)
+{
+    filesystem::path testdata = make_path_to_test_data("testdata/TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
+    
+    SScore sscore = xml_2_sscore(testdata);
+    ASSERT_FALSE(sscore == NULL) << ERR_MSG_FAILED_TO_PARSE_XML;
+    
+    S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
+    theMatrix = imusant_2_cp_matrix(imusant_score);
+    
+    string matrix_as_string = matrix_2_string(theMatrix);
+    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, matrix_as_string);
+    
+    unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
 
 TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
 {
@@ -224,6 +250,7 @@ TEST_F(CATSMAT_cp_matrix_Test, Josquin_MAF_Kyrie)
     unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
+
 
 
 /************* END TEST CASES **********************/

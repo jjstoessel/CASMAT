@@ -61,6 +61,7 @@ class VEXP IMUSANT_duration : public smartable
 		
 		void	print (ostream& os) const
 		{
+            os << fDuration.toString();
 		}
     
 		//checks that TRational type is actually dotted note, return dots and changes dur
