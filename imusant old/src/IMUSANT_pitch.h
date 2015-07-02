@@ -66,7 +66,8 @@ class VEXP IMUSANT_pitch : public smartable
 						}
 		bool operator== (const IMUSANT_pitch& pitch) const { return fName==pitch.name() && fAlteration==pitch.alteration() && fOctave==pitch.octave(); }
 		bool operator!= (const IMUSANT_pitch& pitch) const;
-		
+        bool operator> (const IMUSANT_pitch& pitch) const { return (fName + fAlteration) > (pitch.name() + pitch.alteration()) && fOctave>pitch.octave(); }
+		bool operator< (const IMUSANT_pitch& pitch) const { return (fName + fAlteration) < (pitch.name() + pitch.alteration()) && fOctave<pitch.octave(); }
 		friend ostream& operator<< (ostream& os, const IMUSANT_pitch& elt );
 		
 		void	print (ostream& os) const;

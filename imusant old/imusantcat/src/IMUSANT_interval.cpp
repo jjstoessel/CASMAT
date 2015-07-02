@@ -8,6 +8,7 @@
  *  Changes:
  *
  *  14 June 2015 getNumber() member function added; a littly flaky. A mathematical solution would be better.
+ *  29 June 2015 getQuality() member function added
  */
 
 #include "IMUSANT_interval.h"
@@ -187,6 +188,49 @@ int IMUSANT_interval::getNumber()
     return ret;
 }
 
+int IMUSANT_interval::getQuality()
+{
+    int quality = 0;
+    
+    switch (this->simple())
+    {
+        case perf1:
+        case per5:
+        case octave:
+            quality = perfect;
+            break;
+        case min3:
+        case maj3:
+        case min6:
+        case maj6:
+            quality = imperfect;
+            break;
+        case dim1:
+        case aug1:
+        case dim2:
+        case min2:
+        case maj2:
+        case aug2:
+        case dim3:
+        case aug3:
+        case dim4:
+        case per4:
+        case aug4:
+        case dim5:
+        case aug5:
+        case dim6:
+        case aug6:
+        case dim7:
+        case min7:
+        case maj7:
+        case aug7:
+            quality = dissonant;
+            break;
+    }
+
+    return quality;
+}
+    
 //returns a non-compound interval
 IMUSANT_interval IMUSANT_interval::simple()
 {

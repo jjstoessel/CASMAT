@@ -57,19 +57,24 @@ class IMUSANT_interval : public smartable
 				dim7=26, min7=28, maj7=29, aug7=30, dim8=32, base=33, octave=base, count=base+1, undefined=0x4FFFFFFF/base }; //undefined is internal variable
 				
 		enum direction { descending=-1, unison=0, ascending = 1 };
+    
+        enum quality { perfect = 1, imperfect = (1<<1), dissonant = (1<<2) };
 		
 	friend SMARTP<IMUSANT_interval> new_IMUSANT_interval();
 	friend SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
 	
 		//getter and setters
-        int         getNumber();   
-		int			getInterval() { return fInterval; }
-		direction	getDirection() { return fDirection; }
-		int			getOctaves() { return fOctaves; }
-		void				setLocation(long partID, long startMeasure, 
+        int                 getNumber();
+		int                 getInterval() { return fInterval; }
+		direction           getDirection() { return fDirection; }
+		int                 getOctaves() { return fOctaves; }
+        IMUSANT_range		getLocation() const { return fLocation; }
+        int                 getQuality();
+    
+		void				setLocation(long partID, long startMeasure,
 								long startNoteIndex, long endMeasure, long endNoteIndex);
-		IMUSANT_range		getLocation() const { return fLocation; }
-		//tests if compound
+		
+        //tests if compound
 		bool				iscompound() const { return fOctaves > 0; }
 		//returns a non-compound interval
 		IMUSANT_interval	simple();

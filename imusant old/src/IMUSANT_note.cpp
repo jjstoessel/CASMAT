@@ -109,5 +109,21 @@ bool IMUSANT_note::operator== (const IMUSANT_note& note) const
 	return (fType==note.getType() && fPitch==note.pitch() && \
 	(fDuration==note.duration() || durationWithTies()==note.durationWithTies()));
 }
-
+    
+bool IMUSANT_note::operator< (const IMUSANT_note& note) const
+{
+    signed short i = (this->pitch()->name() + this->pitch()->alteration()) + ((IMUSANT_pitch::last+1)*this->pitch()->octave());
+    signed short j = (note.pitch()->name() + note.pitch()->alteration()) + ((IMUSANT_pitch::last+1)*note.pitch()->octave());
+    return (i - j) < 0;
 }
+
+//start binary operator for use with std::sort
+bool  IMUSANT_note::higher(const IMUSANT_note& note1, const IMUSANT_note& note2)
+{
+    return note1.pitch() > note2.pitch();
+}
+    
+} //namespace IMUSANT
+
+
+

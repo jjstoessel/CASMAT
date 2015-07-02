@@ -20,6 +20,7 @@
 #include "TScore.h"
 #include "CATSMAT_dyad_sequences.hpp"
 #include "CATSMAT_dyadtuple_sequences.hpp"
+#include "CATSMAT_sonority_sequences.hpp"
 
 #define MAX(X,Y) ( (X>Y)? (X) : (Y) )
 
@@ -78,15 +79,18 @@ CATSMAT_processing::add_file(const filesystem::path& path)
                 //Here only for testing; could be placed in test unit or specific tool
                 CATSMAT_dyad_sequences dyads;
                 CATSMAT_dyadtuple_sequences tuples;
+                CATSMAT_sonority_sequences   sonorities;
                 
                 collections[i].getCPMatrix()->Accept(dyads);
                 //collections[i].getCPMatrix()->Accept(tuples);
-                
+                collections[i].getCPMatrix()->Accept(sonorities);
                 //cout << collections[i].getCPMatrix();
                 
                 cout << dyads;
                 
                 dyads.find_repeated(4);
+                sonorities.find_repeated(4);
+                
                 
                 //cout << tuples;
                 

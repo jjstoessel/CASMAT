@@ -27,7 +27,7 @@ class CATSMAT_dyad_sequences: public CATSMAT_dyad_sequences_base
 {
 
 public:
-    typedef suffixtree< vector<IMUSANT_interval> > int_tree;
+    typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
     
     CATSMAT_dyad_sequences(bool ignoreRepeatedDyads=true);
     ~CATSMAT_dyad_sequences();
@@ -40,7 +40,7 @@ public:
 private:
     
     void    process(const list<S_IMUSANT_chord>& matrix);
-    void    find_repeated_substrings(vector< pair<int_tree::size_type, int_tree::size_type> >& results, const int_tree::node& n, int min_length=2);
+    void    find_repeated_substrings(vector< pair<interval_tree::size_type, interval_tree::size_type> >& results, const interval_tree::node& n, int min_length=2);
     
     vector<S_IMUSANT_interval_vector>   fVIntervalVector;
     long                                fSaveI = 0;

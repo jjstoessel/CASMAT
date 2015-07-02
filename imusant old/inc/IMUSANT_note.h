@@ -40,6 +40,7 @@ ostream& operator<< (ostream& os, const S_IMUSANT_note& elt );
 */
 class VEXP IMUSANT_note : public IMUSANT_element 
 {
+        friend bool IMUSANT_pitch::operator> (const IMUSANT_pitch& pitch) const;
 	public:
 	
         VEXP friend SMARTP<IMUSANT_note> new_IMUSANT_note();
@@ -84,6 +85,11 @@ class VEXP IMUSANT_note : public IMUSANT_element
 		const IMUSANT_duration		getNextTiedDurations() const; //get duration of all notes tied next
 		
 		bool operator== (const IMUSANT_note& note) const;
+        bool operator< (const IMUSANT_note& note) const;
+    
+        static bool higher(const IMUSANT_note& note1, const IMUSANT_note& note2);
+    
+        //bool operator() (const S_IMUSANT_note& note1, const S_IMUSANT_note& note2) { return higher(*note1, *note2);}
 
 		IMUSANT_note() : fTieNext(NULL), fTiePrevious(NULL), fStyle(IMUSANT_NoteStyle::normal), fType(IMUSANT_NoteType::pitch) {}
 		IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration )
