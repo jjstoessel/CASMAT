@@ -70,7 +70,7 @@ void CATSMAT_sonority_sequences::Visit(const CATSMAT_cp_matrix& matrix)
                 
                 //only add sonority if it has a quality
                 //NB. chord_quality.quality < 4 are consonant
-                if (chord_quality->quality!=0 /*&& chord_quality->quality < 4*/) {
+                if (chord_quality->quality!=0 && chord_quality->quality < 4) {
                     fQualityVector.push_back(*chord_quality);
                 }
             }
