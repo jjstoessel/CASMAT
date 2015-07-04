@@ -69,7 +69,7 @@ public:
     unsigned short 	octave() const		{ return fOctave; }
     const type		ms_name() const		{ return fMSName; }
     bool			in_chord() const	{ return fInChord; }
-    unsigned short	voice() const	{ return fVoice; }
+    unsigned short	voice() const       { return fVoice; }
 		
     void			setName(const type name) { fName=name; }
     void			setAlteration(const signed short alter) { fAlteration = alter; }
@@ -90,7 +90,10 @@ public:
         return *this;
     }
     
-    bool operator== (const IMUSANT_pitch& pitch) const { return fName==pitch.name() && fAlteration==pitch.alteration() && fOctave==pitch.octave(); }
+    bool operator== (const IMUSANT_pitch& pitch) const
+    {
+        return fName==pitch.name() && fAlteration==pitch.alteration() && fOctave==pitch.octave();
+    }
 	
     bool operator!= (const IMUSANT_pitch& pitch) const;
 		

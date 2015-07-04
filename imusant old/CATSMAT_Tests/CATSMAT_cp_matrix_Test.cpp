@@ -56,10 +56,10 @@ protected:
 
 // These really don't belong here.  Refactor soon.
 
-SScore xml_2_sscore(filesystem::path testdata)
+SScore xml_2_sscore(filesystem::path music_xml_file)
 {
     TMusicXMLFile reader;
-    SScore xml_score = reader.read((string&)testdata);
+    SScore xml_score = reader.read((string&)music_xml_file);
     return xml_score;
 }
 
@@ -101,6 +101,26 @@ filesystem::path make_path_to_test_data(string relative_path)
     return testdata;
 }
 
+IMUSANT_note & create_note(IMUSANT_pitch::type note_name, int octave, TRational note_duration)
+{
+    S_IMUSANT_pitch pitch = new_IMUSANT_pitch();
+    pitch->set(note_name, octave, 1);
+
+    S_IMUSANT_duration duration = new_IMUSANT_duration();
+    duration->set(note_duration, 0, *new TRational(0,0));
+    
+    const long FIRST_NOTE_IN_MEASURE = 1;
+    long note_index = FIRST_NOTE_IN_MEASURE;
+    
+    IMUSANT_note *note = new IMUSANT_note();
+    
+    note->setNoteIndex(note_index);
+    note->setPitch(pitch);
+    note->setDuration(duration);
+    
+    return *note;
+}
+
 const string ERR_MSG_FAILED_TO_PARSE_XML = "Failed to parse XML file. \nHave you added this file into the Copy Files build phase?";
 
 /************* END UTILITY FUNCTIONS **********************/
@@ -108,26 +128,15 @@ const string ERR_MSG_FAILED_TO_PARSE_XML = "Failed to parse XML file. \nHave you
 /************* TEST CASES **********************/
 
  TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
-    
-    S_IMUSANT_pitch pitch = new_IMUSANT_pitch();
-    pitch->set(IMUSANT_pitch::type::E, 2, 1, IMUSANT_pitch::type::A);
-
-    S_IMUSANT_duration duration = new_IMUSANT_duration();
-    duration->set(*new TRational(4,4), 0, *new TRational(2,2));
-
-    IMUSANT_note *note = new IMUSANT_note();
-
-    // REVISIT - IMUSANT_note::print() crashes if pitch == null or duration == null. Probably should make this more robust somehow.
-
-    note->setPitch(pitch);
-    note->setDuration(duration);
-
-    theMatrix->addpart();
-    theMatrix->add(*note);
      
-    string matrix_as_string = matrix_2_string(theMatrix);
-    ASSERT_EQ(CanAddOneNote_Expected, matrix_as_string);
-    
+     const unsigned short OCTAVE_FIVE = 5;
+     IMUSANT_note note = create_note(IMUSANT_pitch::type::E, OCTAVE_FIVE, IMUSANT_duration::minim);
+     
+     theMatrix->addpart();
+     theMatrix->add(note);
+     
+     string matrix_as_string = matrix_2_string(theMatrix);
+     ASSERT_EQ(CanAddOneNote_Expected, matrix_as_string);
 }
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
@@ -158,11 +167,16 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
     S_IMUSANT_score imusant_score = sscore_2_imusantscore(sscore);
     theMatrix = imusant_2_cp_matrix(imusant_score);
     
+    //cout << theMatrix;
+    
     string matrix_as_string = matrix_2_string(theMatrix);
     ASSERT_EQ(TestScore_4_Measures_Expected, matrix_as_string);
     
     unsigned long num_parts_in_score = get_num_parts_in_score(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+    
+    list<S_IMUSANT_chord> chords_in_matrix = theMatrix->getCPmatrix();
+    ASSERT_EQ(13, chords_in_matrix.size()) << "Unexpected number of chords in the matrix.";
 }
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithQuaverPassingNotes)

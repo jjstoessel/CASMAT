@@ -7,7 +7,7 @@
 #ifndef imusant_CATSMAT_cp_matrix_Expected_h
 #define imusant_CATSMAT_cp_matrix_Expected_h
 
-const string CanAddOneNote_Expected = "<CHRD>\n<NOTE index=1 >\n <PITCH>E0@2<\\PITCH>\n <DURATION>4/4<\\DURATION>\n<\\NOTE>\n<\\CHRD>\n";
+const string CanAddOneNote_Expected = "<CHRD>\n<NOTE index=1 >\n <PITCH>E0@5<\\PITCH>\n <DURATION>1/2<\\DURATION>\n<\\NOTE>\n<\\CHRD>\n";
 
 const string TestScore_1_Measure_Expected = "<CHRD>\n<NOTE index=1 >\n <PITCH>C0@5<\\PITCH>\n <DURATION>1/4<\\DURATION>\n<\\NOTE>\n<NOTE index=1 >\n <PITCH>C0@4<\\PITCH>\n <DURATION>1/4<\\DURATION>\n<\\NOTE>\n<\\CHRD>\n<CHRD>\n<NOTE index=2 >\n <PITCH>G0@5<\\PITCH>\n <DURATION>1/4<\\DURATION>\n<\\NOTE>\n<NOTE index=2 >\n <PITCH>C0@4<\\PITCH>\n <DURATION>1/4<\\DURATION>\n<\\NOTE>\n<\\CHRD>\n<CHRD>\n<NOTE index=3 >\n <PITCH>E0@5<\\PITCH>\n <DURATION>1/4<\\DURATION>\n<\\NOTE>\n<NOTE index=3 >\n <PITCH>C0@4<\\PITCH>\n <DURATION>1/4<\\DURATION>\n<\\NOTE>\n<\\CHRD>\n<CHRD>\n<NOTE index=4 >\n <PITCH>C0@5<\\PITCH>\n <DURATION>1/4<\\DURATION>\n<\\NOTE>\n<NOTE index=4 >\n <PITCH>C0@4<\\PITCH>\n <DURATION>1/4<\\DURATION>\n<\\NOTE>\n<\\CHRD>\n";
 
