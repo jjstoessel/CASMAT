@@ -31,7 +31,7 @@ class VEXP IMUSANT_chord : public IMUSANT_element
 	
 		IMUSANT_vector<S_IMUSANT_note>& getNotes() { return fChordNotes; }
 	
-		void	sort(sorttype type);
+		void	sort(sorttype type = pitch);
 		
 		void	print(ostream& os);
 	
@@ -41,6 +41,15 @@ class VEXP IMUSANT_chord : public IMUSANT_element
 		virtual		~IMUSANT_chord() {}
 	
 		IMUSANT_vector<S_IMUSANT_note> fChordNotes;
+    
+        struct sortstruct
+        {
+            IMUSANT_chord* m;
+            
+            sortstruct(IMUSANT_chord* p) : m(p) {}
+            bool operator() (S_IMUSANT_note a, S_IMUSANT_note b) { return *a < *b; }
+    
+        };
 };
 typedef SMARTP<IMUSANT_chord> S_IMUSANT_chord;
 

@@ -439,6 +439,8 @@
 		BAAB1A4609D0B32800673D3D /* IMUSANT_element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */; };
 		BAAF8D4F0A3E35FE00E5157F /* IMUSANT_conversions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAAF8D4D0A3E35FE00E5157F /* IMUSANT_conversions.h */; };
 		BAAF8D500A3E35FE00E5157F /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAAF8D4E0A3E35FE00E5157F /* IMUSANT_conversions.cpp */; };
+		BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
+		BAB505881B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
 		BAC604930A76F8F8000C1DF9 /* IMUSANT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */; };
 		BAD4055D0A36589A00634B37 /* IMUSANT_XMLFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAD4055B0A36589900634B37 /* IMUSANT_XMLFile.h */; };
 		BAD4055E0A36589A00634B37 /* IMUSANT_XMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAD4055C0A36589900634B37 /* IMUSANT_XMLFile.cpp */; };
@@ -772,6 +774,8 @@
 		BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_element.cpp; sourceTree = "<group>"; };
 		BAAF8D4D0A3E35FE00E5157F /* IMUSANT_conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_conversions.h; sourceTree = "<group>"; };
 		BAAF8D4E0A3E35FE00E5157F /* IMUSANT_conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_conversions.cpp; sourceTree = "<group>"; };
+		BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_sonority_sequences.cpp; path = catsmat/CATSMAT_sonority_sequences.cpp; sourceTree = SOURCE_ROOT; };
+		BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_sonority_sequences.hpp; path = catsmat/CATSMAT_sonority_sequences.hpp; sourceTree = SOURCE_ROOT; };
 		BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processing.h; path = imusantcat/inc/IMUSANT_processing.h; sourceTree = "<group>"; };
 		BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_processing.cpp; path = imusantcat/src/IMUSANT_processing.cpp; sourceTree = "<group>"; };
 		BAD4055B0A36589900634B37 /* IMUSANT_XMLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLFile.h; sourceTree = "<group>"; };
@@ -1276,6 +1280,8 @@
 				BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */,
 				BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */,
 				BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */,
+				BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */,
+				BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */,
 			);
 			path = CATSMAT;
 			sourceTree = "<group>";
@@ -1521,6 +1527,7 @@
 				BA7E941D1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */,
 				496EF4CE1B229DA500FE715F /* CATSMAT_collectionvisitor.cpp in Sources */,
 				496EF4D01B229DA500FE715F /* CATSMAT_cp_matrix.cpp in Sources */,
+				BAB505881B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */,
 				496EF4C71B229D8100FE715F /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1938,6 +1945,7 @@
 				BAA8D8A81AABFCCA0053ADE3 /* IMUSANT_collectionvisitor.cpp in Sources */,
 				BAA8D8C01AABFD160053ADE3 /* IMUSANT_score.cpp in Sources */,
 				BAA8D8C61AABFD350053ADE3 /* guido.cpp in Sources */,
+				BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */,
 				BAA8D8D91AABFD600053ADE3 /* TFiguredBass.cpp in Sources */,
 				BAA8D8C21AABFD160053ADE3 /* TXML2IMUSANTVisitor.cpp in Sources */,
 				BAA8D8D51AABFD600053ADE3 /* TBarline.cpp in Sources */,
@@ -2151,7 +2159,7 @@
 					"$(inherited)",
 					/usr/local/boost/lib,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -2199,7 +2207,7 @@
 					"$(inherited)",
 					/usr/local/boost/lib,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;

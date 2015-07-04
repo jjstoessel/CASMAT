@@ -14,7 +14,7 @@
 #include "TXML2IMUSANTVisitor.h"
 
 #include <boost/filesystem.hpp>
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 using namespace boost;
 

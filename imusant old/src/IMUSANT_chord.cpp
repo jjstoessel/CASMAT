@@ -37,4 +37,16 @@ void IMUSANT_chord::print(ostream& os)
 	os << "<\\CHRD>" << endl;
 }
 
+//sorts chord from bass up (i.e. lower note is first in vector)
+//use std::reverse(fChordNotes.begin(), fChordNotes.end()); to make top up
+void IMUSANT_chord::sort(sorttype type)
+{
+    if (type == pitch)
+    {
+        sortstruct s(this);
+        
+        std::sort(fChordNotes.begin(), fChordNotes.end(), s); //result in a bottom up sort
+    }
+}
+    
 }//namespace IMUSANT
