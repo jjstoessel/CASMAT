@@ -47,9 +47,9 @@ void IMUSANT_interval_vector::print(ostream& os)
 				interval != fIntervals.end();
 				interval++ )
 		{
-			cout << (*interval) << ", ";
+            os << (*interval) << ", ";
 		}
-		cout << endl;
+		os << endl;
 }
 
 }//namespace IMUSANT

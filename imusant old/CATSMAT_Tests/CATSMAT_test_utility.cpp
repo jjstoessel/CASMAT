@@ -69,12 +69,6 @@ CATSMAT_test_utility::ConvertDyadSequencesToString(CATSMAT::CATSMAT_dyad_sequenc
     std::stringstream the_dyads_as_stringstream;
     the_dyads_as_stringstream << the_dyad_sequences;
     std::string the_dyads_as_string = the_dyads_as_stringstream.str();
-    
-//    cout << the_dyad_sequences;
-//    cout << endl;
-//    cout << &the_dyads_as_stringstream;
-//    cout << endl;
-//    cout << the_dyads_as_string;
     return the_dyads_as_string;
 }
 
