@@ -142,15 +142,13 @@ namespace CATSMAT
     {
         for (auto iter1 = fTupleVector.begin(); iter1 != fTupleVector.end(); iter1++)
         {
-            cout << "dyad tuple pair " << endl;
+            os << "dyad tuple pair: ";
             
             for (auto iter2 = iter1->begin();
                  iter2 != iter1->end(); iter2++)
             {
-                cout << *iter2 << " ";
+                os << *iter2 << " ";
             }
-            
-            cout << endl;
         }
     }
     

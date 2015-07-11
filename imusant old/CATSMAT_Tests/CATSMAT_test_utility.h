@@ -11,6 +11,7 @@
 
 #include "CATSMAT_collectionvisitor.hpp"
 #include "CATSMAT_dyad_sequences.hpp"
+#include "CATSMAT_dyadtuple_sequences.hpp"
 
 // #include "CATSMAT_cp_matrix_Expected.h"
 
@@ -36,6 +37,7 @@ public:
     
     string ConvertCpmatrixToString(S_CATSMAT_cp_matrix the_matrix) const;
     string ConvertDyadSequencesToString(CATSMAT_dyad_sequences the_dyad_sequences) const;
+    string ConvertDyadtupleSequencesToString(CATSMAT_dyadtuple_sequences the_dyadtuple_sequences) const;
     
     unsigned long GetNumPartsInScore(S_IMUSANT_score imusant_score) const;
     IMUSANT_note & CreateNote(IMUSANT_pitch::type note_name, int octave, TRational note_duration) const;

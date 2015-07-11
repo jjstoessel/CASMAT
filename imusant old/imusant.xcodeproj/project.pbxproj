@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E08059C1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E08059B1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp */; };
 		1E1836291B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E1836281B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp */; };
 		1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E18362A1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp */; };
 		1E2FA2C61B35A517002BB14F /* Josquin_MAF_Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */; };
@@ -563,6 +564,8 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xml2imusant_main.cpp; sourceTree = "<group>"; };
+		1E08059B1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_dyadtuple_sequences_Tests.cpp; sourceTree = "<group>"; };
+		1E08059D1B50B8AF00765041 /* CATSMAT_dyadtuple_sequences_Expected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CATSMAT_dyadtuple_sequences_Expected.h; sourceTree = "<group>"; };
 		1E1836281B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = CATSMAT_dyad_sequences_Test.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		1E18362A1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = CATSMAT_test_utility.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		1E18362B1B48C4CF009B5D2C /* CATSMAT_test_utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CATSMAT_test_utility.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -952,6 +955,8 @@
 				1E18362D1B4916FD009B5D2C /* CATSMAT_dyad_sequences_Expected.h */,
 				1E18362B1B48C4CF009B5D2C /* CATSMAT_test_utility.h */,
 				1E18362A1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp */,
+				1E08059B1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp */,
+				1E08059D1B50B8AF00765041 /* CATSMAT_dyadtuple_sequences_Expected.h */,
 			);
 			path = CATSMAT_Tests;
 			sourceTree = "<group>";
@@ -1537,6 +1542,7 @@
 				BA7E941D1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */,
 				496EF4CE1B229DA500FE715F /* CATSMAT_collectionvisitor.cpp in Sources */,
 				1E1836291B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp in Sources */,
+				1E08059C1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp in Sources */,
 				496EF4D01B229DA500FE715F /* CATSMAT_cp_matrix.cpp in Sources */,
 				BAB505881B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */,
 				1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */,

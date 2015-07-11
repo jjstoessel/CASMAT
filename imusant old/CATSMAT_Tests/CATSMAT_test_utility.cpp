@@ -72,6 +72,15 @@ CATSMAT_test_utility::ConvertDyadSequencesToString(CATSMAT::CATSMAT_dyad_sequenc
     return the_dyads_as_string;
 }
 
+string
+CATSMAT_test_utility::ConvertDyadtupleSequencesToString(CATSMAT_dyadtuple_sequences the_dyadtuple_sequences) const
+{
+    std::stringstream the_dyadtuples_as_stringstream;
+    the_dyadtuples_as_stringstream << the_dyadtuple_sequences;
+    std::string the_dyadtuples_as_string = the_dyadtuples_as_stringstream.str();
+    return the_dyadtuples_as_string;
+}
+
 filesystem::path
 CATSMAT_test_utility::MakePathToTestData(string relative_path) const
 {
