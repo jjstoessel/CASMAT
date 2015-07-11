@@ -56,20 +56,35 @@ TEST_F(CATSMAT_dyad_sequences_Test, TestScore_1_Measure) {
     
     string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
     
-    // cout << the_sequences_as_string;
-    
     ASSERT_EQ(TestScore_1_Measure_Expected, the_sequences_as_string);
 }
 
-//TEST_F(CATSMAT_dyad_sequences_Test, TestScore_4_FourMeasures) {
-//    
-//    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("testdata/TestScore_4_Measures.xml");
-//    theSequences.Visit(*the_matrix);
-//    
-//    // cout << the_matrix;
-//   // cout << theSequences;
-//    
-//    theSequences.find_repeated(2);
-//    
-//    // theSequences.print(cout);
-//}
+TEST_F(CATSMAT_dyad_sequences_Test, TestScore_4_Measures) {
+
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("testdata/TestScore_4_Measures.xml");
+    theSequences.Visit(*the_matrix);
+
+    string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
+    
+    ASSERT_EQ(TestScore_4_Measures_Expected, the_sequences_as_string);
+}
+
+TEST_F(CATSMAT_dyad_sequences_Test, TestScore_4_Measures_WithQuaverPassingNotes) {
+    
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("testdata/TestScore_4_Measures_WithQuaverPassingNotes.xml");
+    theSequences.Visit(*the_matrix);
+    
+    string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
+    
+    ASSERT_EQ(TestScore_4_Measures_WithQuaverPassingNotes_Expected, the_sequences_as_string);
+}
+
+TEST_F(CATSMAT_dyad_sequences_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes) {
+    
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("testdata/TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
+    theSequences.Visit(*the_matrix);
+    
+    string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
+    
+    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, the_sequences_as_string);
+}
