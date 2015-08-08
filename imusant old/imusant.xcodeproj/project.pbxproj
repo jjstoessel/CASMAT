@@ -187,6 +187,8 @@
 		4970E00D1B7589700052496C /* IMUSANT_key_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E00C1B7589700052496C /* IMUSANT_key_Tests.cpp */; };
 		4970E00F1B7590820052496C /* IMUSANT_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E00E1B7590820052496C /* IMUSANT_interval.cpp */; };
 		4970E0101B7591470052496C /* IMUSANT_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E00E1B7590820052496C /* IMUSANT_interval.cpp */; };
+		4970E0111B75CF790052496C /* IMUSANT_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E00E1B7590820052496C /* IMUSANT_interval.cpp */; };
+		4970E0121B75D0650052496C /* IMUSANT_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E00E1B7590820052496C /* IMUSANT_interval.cpp */; };
 		8DD76F650486A84900D96B5E /* xml2imusant_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* imusant.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* imusant.1 */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
@@ -724,15 +726,15 @@
 		BA71926E0A59F57000CAA1D9 /* search.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = search.h; path = imusantcat/inc/search.h; sourceTree = "<group>"; };
 		BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_dyad_sequences.cpp; path = catsmat/CATSMAT_dyad_sequences.cpp; sourceTree = SOURCE_ROOT; };
 		BA7E941B1B2A859A00818128 /* CATSMAT_dyad_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_dyad_sequences.hpp; path = catsmat/CATSMAT_dyad_sequences.hpp; sourceTree = SOURCE_ROOT; };
-		BA7E942E1B2AA55700818128 /* EmptyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyType.h; path = "Loki required/EmptyType.h"; sourceTree = "<group>"; };
-		BA7E942F1B2AA55700818128 /* HierarchyGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HierarchyGenerators.h; path = "Loki required/HierarchyGenerators.h"; sourceTree = "<group>"; };
-		BA7E94301B2AA55700818128 /* NullType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NullType.h; path = "Loki required/NullType.h"; sourceTree = "<group>"; };
-		BA7E94311B2AA55700818128 /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sequence.h; path = "Loki required/Sequence.h"; sourceTree = "<group>"; };
-		BA7E94321B2AA55700818128 /* Typelist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Typelist.h; path = "Loki required/Typelist.h"; sourceTree = "<group>"; };
-		BA7E94331B2AA55700818128 /* TypelistMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypelistMacros.h; path = "Loki required/TypelistMacros.h"; sourceTree = "<group>"; };
-		BA7E94341B2AA55700818128 /* TypeManip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeManip.h; path = "Loki required/TypeManip.h"; sourceTree = "<group>"; };
-		BA7E94351B2AA55700818128 /* TypeTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeTraits.h; path = "Loki required/TypeTraits.h"; sourceTree = "<group>"; };
-		BA7E94361B2AA55700818128 /* Visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Visitor.h; path = "Loki required/Visitor.h"; sourceTree = "<group>"; };
+		BA7E942E1B2AA55700818128 /* EmptyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyType.h; sourceTree = "<group>"; };
+		BA7E942F1B2AA55700818128 /* HierarchyGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HierarchyGenerators.h; sourceTree = "<group>"; };
+		BA7E94301B2AA55700818128 /* NullType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullType.h; sourceTree = "<group>"; };
+		BA7E94311B2AA55700818128 /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
+		BA7E94321B2AA55700818128 /* Typelist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Typelist.h; sourceTree = "<group>"; };
+		BA7E94331B2AA55700818128 /* TypelistMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypelistMacros.h; sourceTree = "<group>"; };
+		BA7E94341B2AA55700818128 /* TypeManip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeManip.h; sourceTree = "<group>"; };
+		BA7E94351B2AA55700818128 /* TypeTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeTraits.h; sourceTree = "<group>"; };
+		BA7E94361B2AA55700818128 /* Visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Visitor.h; sourceTree = "<group>"; };
 		BA7E94381B2CFAA700818128 /* CATSMAT_dyad_sequences_base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_dyad_sequences_base.hpp; path = catsmat/CATSMAT_dyad_sequences_base.hpp; sourceTree = SOURCE_ROOT; };
 		BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_dyadtuple_sequences.cpp; path = catsmat/CATSMAT_dyadtuple_sequences.cpp; sourceTree = SOURCE_ROOT; };
 		BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_dyadtuple_sequences.hpp; path = catsmat/CATSMAT_dyadtuple_sequences.hpp; sourceTree = SOURCE_ROOT; };
@@ -1069,6 +1071,7 @@
 		4970E0071B7586870052496C /* Converters */ = {
 			isa = PBXGroup;
 			children = (
+				4970E0131B75D20A0052496C /* MusicXML_v1 */,
 			);
 			name = Converters;
 			sourceTree = "<group>";
@@ -1126,6 +1129,13 @@
 			);
 			name = src;
 			path = IMUSANT/DomainObjects/src;
+			sourceTree = "<group>";
+		};
+		4970E0131B75D20A0052496C /* MusicXML_v1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MusicXML_v1;
 			sourceTree = "<group>";
 		};
 		965209690A4D189B006AFD81 /* Musicxml2imusant */ = {
@@ -1271,7 +1281,7 @@
 				BA7E94351B2AA55700818128 /* TypeTraits.h */,
 				BA7E94361B2AA55700818128 /* Visitor.h */,
 			);
-			name = Loki;
+			path = Loki;
 			sourceTree = "<group>";
 		};
 		BA8A84730A23C3FB0081D4BB /* inc */ = {
@@ -1382,20 +1392,20 @@
 		BAA8D8991AABFBA30053ADE3 /* CATSMAT */ = {
 			isa = PBXGroup;
 			children = (
-				BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */,
-				BAA8D9051AB156120053ADE3 /* CATSMAT_processing.hpp */,
-				BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */,
-				BAA8D9011AAC0F5A0053ADE3 /* CATSMAT_collectionvisitor.hpp */,
 				BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */,
-				969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.hpp */,
+				BAA8D9011AAC0F5A0053ADE3 /* CATSMAT_collectionvisitor.hpp */,
 				969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */,
+				969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.hpp */,
 				BA7E94381B2CFAA700818128 /* CATSMAT_dyad_sequences_base.hpp */,
-				BA7E941B1B2A859A00818128 /* CATSMAT_dyad_sequences.hpp */,
 				BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */,
-				BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */,
+				BA7E941B1B2A859A00818128 /* CATSMAT_dyad_sequences.hpp */,
 				BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */,
-				BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */,
+				BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */,
+				BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */,
+				BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */,
+				BAA8D9051AB156120053ADE3 /* CATSMAT_processing.hpp */,
 				BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */,
+				BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */,
 			);
 			path = CATSMAT;
 			sourceTree = "<group>";
@@ -1940,6 +1950,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
+				4970E0121B75D0650052496C /* IMUSANT_interval.cpp in Sources */,
 				BAA8D8641AA42BD80053ADE3 /* xml.cpp in Sources */,
 				965208D80A4CDF9D006AFD81 /* IMUSANT_barline.cpp in Sources */,
 				BAA8D85A1AA42BD80053ADE3 /* TTechnical.cpp in Sources */,
@@ -2030,18 +2041,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAA8D8BB1AABFD160053ADE3 /* IMUSANT_chord.cpp in Sources */,
+				BAA8D8A31AABFCCA0053ADE3 /* IMUSANT_record.cpp in Sources */,
+				BAA8D8BF1AABFD160053ADE3 /* IMUSANT_partlist.cpp in Sources */,
+				BAA8D8A71AABFCCA0053ADE3 /* IMUSANT_rvec_collection.cpp in Sources */,
+				4970E0111B75CF790052496C /* IMUSANT_interval.cpp in Sources */,
+				BAA8D8A51AABFCCA0053ADE3 /* IMUSANT_interval_vector.cpp in Sources */,
+				BAA8D8C11AABFD160053ADE3 /* IMUSANT_visitor.cpp in Sources */,
+				BAA8D8C31AABFD160053ADE3 /* IMUSANT_XMLVisitor.cpp in Sources */,
+				BAA8D8B91AABFD160053ADE3 /* IMUSANT_note.cpp in Sources */,
+				BAA8D8C41AABFD160053ADE3 /* IMUSANT_XMLReader.cpp in Sources */,
+				BAA8D8BD1AABFD160053ADE3 /* IMUSANT_measure.cpp in Sources */,
+				BAA8D8BC1AABFD160053ADE3 /* IMUSANT_comment.cpp in Sources */,
+				BAA8D8BA1AABFD160053ADE3 /* IMUSANT_barline.cpp in Sources */,
+				BAA8D8C51AABFD160053ADE3 /* IMUSANT_XMLFile.cpp in Sources */,
+				BAA8D8A61AABFCCA0053ADE3 /* IMUSANT_ivec_collection.cpp in Sources */,
+				BAA8D8B71AABFD160053ADE3 /* IMUSANT_key.cpp in Sources */,
+				BAA8D8A21AABFCCA0053ADE3 /* IMUSANT_contour_symbol.cpp in Sources */,
+				BAA8D8A81AABFCCA0053ADE3 /* IMUSANT_collectionvisitor.cpp in Sources */,
+				BAA8D8C01AABFD160053ADE3 /* IMUSANT_score.cpp in Sources */,
+				BAA8D8B51AABFD160053ADE3 /* IMUSANT_pitch.cpp in Sources */,
+				BAA8D8B31AABFD160053ADE3 /* IMUSANT_conversions.cpp in Sources */,
+				BAA8D8B61AABFD160053ADE3 /* IMUSANT_duration.cpp in Sources */,
+				BAA8D8A91AABFCCA0053ADE3 /* IMUSANT_processing.cpp in Sources */,
+				BAA8D8B81AABFD160053ADE3 /* IMUSANT_element.cpp in Sources */,
+				BAA8D8B41AABFD160053ADE3 /* IMUSANT_types.cpp in Sources */,
 				BAA8D8FA1AABFD600053ADE3 /* xmllex.cpp in Sources */,
 				BAA8D8A01AABFC1A0053ADE3 /* CATSMAT_main.cpp in Sources */,
+				BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */,
 				BAA8D8E21AABFD600053ADE3 /* TNotation.cpp in Sources */,
 				BAA8D8C91AABFD350053ADE3 /* TScanVisitor.cpp in Sources */,
 				BAA8D8DE1AABFD600053ADE3 /* TMeasureStyle.cpp in Sources */,
-				BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */,
 				BAA8D8E81AABFD600053ADE3 /* TPartList.cpp in Sources */,
 				BAA8D8F21AABFD600053ADE3 /* TSound.cpp in Sources */,
 				BAA8D8EB1AABFD600053ADE3 /* TRoutedVisitor.cpp in Sources */,
 				BAA8D8CD1AABFD600053ADE3 /* conversions.cpp in Sources */,
 				BAA8D8D81AABFD600053ADE3 /* TDirection.cpp in Sources */,
-				BAA8D8A31AABFCCA0053ADE3 /* IMUSANT_record.cpp in Sources */,
 				BAA8D8EF1AABFD600053ADE3 /* TScorePart.cpp in Sources */,
 				BAA8D8CC1AABFD600053ADE3 /* common.cpp in Sources */,
 				BAA8D8CE1AABFD600053ADE3 /* Iexpat.cpp in Sources */,
@@ -2053,32 +2087,20 @@
 				BAA8D8E01AABFD600053ADE3 /* TMidiInstrument.cpp in Sources */,
 				BAA8D8F11AABFD600053ADE3 /* TScoreTimewise.cpp in Sources */,
 				BAA8D8F91AABFD600053ADE3 /* xml.cpp in Sources */,
-				BAA8D8BF1AABFD160053ADE3 /* IMUSANT_partlist.cpp in Sources */,
-				BAA8D8A71AABFCCA0053ADE3 /* IMUSANT_rvec_collection.cpp in Sources */,
-				BAA8D8A51AABFCCA0053ADE3 /* IMUSANT_interval_vector.cpp in Sources */,
 				BAA8D8EE1AABFD600053ADE3 /* TScoreInstrument.cpp in Sources */,
-				BAA8D8B91AABFD160053ADE3 /* IMUSANT_note.cpp in Sources */,
 				BAA8D8F71AABFD600053ADE3 /* TTranspose.cpp in Sources */,
 				BAA8D8DB1AABFD600053ADE3 /* TIdentification.cpp in Sources */,
 				BAA8D8CA1AABFD350053ADE3 /* TUnrolledVisitor.cpp in Sources */,
 				BAA8D8C81AABFD350053ADE3 /* TRolledVisitor.cpp in Sources */,
-				BAA8D8C11AABFD160053ADE3 /* IMUSANT_visitor.cpp in Sources */,
-				BAA8D8C31AABFD160053ADE3 /* IMUSANT_XMLVisitor.cpp in Sources */,
 				BAA8D8F81AABFD600053ADE3 /* TWork.cpp in Sources */,
-				BAA8D8C41AABFD160053ADE3 /* IMUSANT_XMLReader.cpp in Sources */,
-				BAA8D8BD1AABFD160053ADE3 /* IMUSANT_measure.cpp in Sources */,
-				BAA8D8BC1AABFD160053ADE3 /* IMUSANT_comment.cpp in Sources */,
 				BAA8D8DF1AABFD600053ADE3 /* TMidiDevice.cpp in Sources */,
-				BAA8D8B31AABFD160053ADE3 /* IMUSANT_conversions.cpp in Sources */,
 				BAA8D8CF1AABFD600053ADE3 /* IMusicXMLReader.cpp in Sources */,
 				BAA8D8F51AABFD600053ADE3 /* TTimeModification.cpp in Sources */,
 				BAA8D8D11AABFD600053ADE3 /* smartpointer.cpp in Sources */,
 				BAA8D8EC1AABFD600053ADE3 /* TScore.cpp in Sources */,
 				BAA8D8FB1AABFD600053ADE3 /* xmlparse.cpp in Sources */,
 				BAA8D8EA1AABFD600053ADE3 /* TRational.cpp in Sources */,
-				BAA8D8BA1AABFD160053ADE3 /* IMUSANT_barline.cpp in Sources */,
 				BAA8D9071AB156280053ADE3 /* CATSMAT_processing.cpp in Sources */,
-				BAA8D8A21AABFCCA0053ADE3 /* IMUSANT_contour_symbol.cpp in Sources */,
 				BAA8D8CB1AABFD350053ADE3 /* TXML2GuidoVisitor.cpp in Sources */,
 				BAA8D8E41AABFD600053ADE3 /* TOrnaments.cpp in Sources */,
 				BAA8D8ED1AABFD600053ADE3 /* TScoreHeader.cpp in Sources */,
@@ -2087,25 +2109,18 @@
 				BAA8D8DC1AABFD600053ADE3 /* TKey.cpp in Sources */,
 				BAA8D8F61AABFD600053ADE3 /* TTimeSign.cpp in Sources */,
 				BAA8D8D61AABFD600053ADE3 /* TChord.cpp in Sources */,
-				BAA8D8A81AABFCCA0053ADE3 /* IMUSANT_collectionvisitor.cpp in Sources */,
-				BAA8D8C01AABFD160053ADE3 /* IMUSANT_score.cpp in Sources */,
 				BAA8D8C61AABFD350053ADE3 /* guido.cpp in Sources */,
 				BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */,
 				BAA8D8D91AABFD600053ADE3 /* TFiguredBass.cpp in Sources */,
 				BAA8D8C21AABFD160053ADE3 /* TXML2IMUSANTVisitor.cpp in Sources */,
 				BAA8D8D51AABFD600053ADE3 /* TBarline.cpp in Sources */,
-				BAA8D8C51AABFD160053ADE3 /* IMUSANT_XMLFile.cpp in Sources */,
-				BAA8D8A61AABFCCA0053ADE3 /* IMUSANT_ivec_collection.cpp in Sources */,
-				BAA8D8B71AABFD160053ADE3 /* IMUSANT_key.cpp in Sources */,
 				BAA8D8D21AABFD600053ADE3 /* TArpeggiate.cpp in Sources */,
 				BAA8D8D31AABFD600053ADE3 /* TAttributes.cpp in Sources */,
 				BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */,
 				BA7E943B1B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
 				BAA8D8D01AABFD600053ADE3 /* IMusicXMLVisitor.cpp in Sources */,
 				BAA8D8D71AABFD600053ADE3 /* TClef.cpp in Sources */,
-				BAA8D8B51AABFD160053ADE3 /* IMUSANT_pitch.cpp in Sources */,
 				BAA8D8A41AABFCCA0053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */,
-				BAA8D8B61AABFD160053ADE3 /* IMUSANT_duration.cpp in Sources */,
 				BAA8D8F41AABFD600053ADE3 /* TTechnical.cpp in Sources */,
 				BAA8D8E51AABFD600053ADE3 /* TOtherDirections.cpp in Sources */,
 				BAA8D8BE1AABFD160053ADE3 /* IMUSANT_part.cpp in Sources */,
@@ -2113,9 +2128,6 @@
 				BAA8D8F31AABFD600053ADE3 /* TStaffDetails.cpp in Sources */,
 				BAA8D8E31AABFD600053ADE3 /* TNote.cpp in Sources */,
 				BAA8D8E91AABFD600053ADE3 /* TPitch.cpp in Sources */,
-				BAA8D8A91AABFCCA0053ADE3 /* IMUSANT_processing.cpp in Sources */,
-				BAA8D8B81AABFD160053ADE3 /* IMUSANT_element.cpp in Sources */,
-				BAA8D8B41AABFD160053ADE3 /* IMUSANT_types.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
