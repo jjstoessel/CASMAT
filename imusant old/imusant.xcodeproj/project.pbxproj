@@ -13,6 +13,20 @@
 		1E2FA2C61B35A517002BB14F /* Josquin_MAF_Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */; };
 		1E2FA2C71B35A517002BB14F /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C41B355A01002BB14F /* Kyrie.xml */; };
 		1E2FA2C81B35A517002BB14F /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C51B355A01002BB14F /* Sanctus.xml */; };
+		1E450E171B7580A000BDF9EF /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
+		1E450E181B7580A000BDF9EF /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF7191B23BF9C00FE715F /* gtest.framework */; };
+		1E450E191B7580A000BDF9EF /* libMusicXML.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF4D71B22A58A00FE715F /* libMusicXML.dylib */; };
+		1E450E1A1B7580A000BDF9EF /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		1E450E1B1B7580A000BDF9EF /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		1E450E1D1B7580A000BDF9EF /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
+		1E450E1E1B7580A000BDF9EF /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
+		1E450E1F1B7580A000BDF9EF /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
+		1E450E201B7580A000BDF9EF /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
+		1E450E211B7580A000BDF9EF /* Josquin_MAF_Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */; };
+		1E450E221B7580A000BDF9EF /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C41B355A01002BB14F /* Kyrie.xml */; };
+		1E450E231B7580A000BDF9EF /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C51B355A01002BB14F /* Sanctus.xml */; };
+		1E450E291B75810A00BDF9EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E281B75810A00BDF9EF /* main.cpp */; };
+		1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */; };
 		1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
 		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
 		1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
@@ -466,6 +480,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1E450E071B7580A000BDF9EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 496EF4D61B22A58A00FE715F;
+			remoteInfo = libMusicXML;
+		};
+		1E450E091B7580A000BDF9EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 496EF6BB1B22B01600FE715F;
+			remoteInfo = libIMUSANT;
+		};
 		496EF4E31B22A58B00FE715F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
@@ -497,6 +525,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1E450E1C1B7580A000BDF9EF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = testdata;
+			dstSubfolderSpec = 16;
+			files = (
+				1E450E1D1B7580A000BDF9EF /* TestScore_1_Measure.xml in CopyFiles */,
+				1E450E1E1B7580A000BDF9EF /* TestScore_4_Measures.xml in CopyFiles */,
+				1E450E1F1B7580A000BDF9EF /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */,
+				1E450E201B7580A000BDF9EF /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */,
+				1E450E211B7580A000BDF9EF /* Josquin_MAF_Kyrie.xml in CopyFiles */,
+				1E450E221B7580A000BDF9EF /* Kyrie.xml in CopyFiles */,
+				1E450E231B7580A000BDF9EF /* Sanctus.xml in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		496EF4C21B229D8100FE715F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -574,6 +618,9 @@
 		1E2FA2C41B355A01002BB14F /* Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie.xml; sourceTree = "<group>"; };
 		1E2FA2C51B355A01002BB14F /* Sanctus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sanctus.xml; sourceTree = "<group>"; };
 		1E2FA2CC1B36B2D7002BB14F /* CATSMAT_cp_matrix_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_cp_matrix_Expected.h; path = CATSMAT_Tests/CATSMAT_cp_matrix_Expected.h; sourceTree = "<group>"; };
+		1E450E271B7580A000BDF9EF /* CATSMAT_Tests copy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CATSMAT_Tests copy"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E450E281B75810A00BDF9EF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = IMUSANT_Tests/main.cpp; sourceTree = "<group>"; };
+		1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_pitch_Tests.cpp; path = IMUSANT_Tests/IMUSANT_pitch_Tests.cpp; sourceTree = "<group>"; };
 		1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_1_Measure.xml; sourceTree = "<group>"; };
 		1EDE2F171B3E0ACD00DB1BD0 /* TestScore_1_Measure.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_1_Measure.mscz; sourceTree = "<group>"; };
 		1EDE2F181B3E0ACD00DB1BD0 /* TestScore_4_Measures.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures.mscz; sourceTree = "<group>"; };
@@ -810,6 +857,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1E450E161B7580A000BDF9EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E450E171B7580A000BDF9EF /* libIMUSANT.dylib in Frameworks */,
+				1E450E181B7580A000BDF9EF /* gtest.framework in Frameworks */,
+				1E450E191B7580A000BDF9EF /* libMusicXML.dylib in Frameworks */,
+				1E450E1A1B7580A000BDF9EF /* libboost_filesystem.dylib in Frameworks */,
+				1E450E1B1B7580A000BDF9EF /* libboost_system.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		496EF4C11B229D8100FE715F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -883,6 +942,7 @@
 				BAA8D8991AABFBA30053ADE3 /* CATSMAT */,
 				496EF4C51B229D8100FE715F /* CATSMAT_Tests */,
 				08FB7795FE84155DC02AAC07 /* IMUSANT */,
+				1E450E041B75806400BDF9EF /* IMUSANT_Tests */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				496EF4D81B22A58A00FE715F /* libMusicXML */,
 				496EF4E51B22A58B00FE715F /* libMusicXMLTests */,
@@ -914,6 +974,7 @@
 				496EF4D71B22A58A00FE715F /* libMusicXML.dylib */,
 				496EF4E11B22A58A00FE715F /* libMusicXML_Tests.xctest */,
 				496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */,
+				1E450E271B7580A000BDF9EF /* CATSMAT_Tests copy */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -931,6 +992,15 @@
 				1E2FA2C51B355A01002BB14F /* Sanctus.xml */,
 			);
 			path = testdata;
+			sourceTree = "<group>";
+		};
+		1E450E041B75806400BDF9EF /* IMUSANT_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1E450E281B75810A00BDF9EF /* main.cpp */,
+				1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */,
+			);
+			name = IMUSANT_Tests;
 			sourceTree = "<group>";
 		};
 		1EDE2F161B3E0ACD00DB1BD0 /* source_files */ = {
@@ -1347,6 +1417,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1E450E051B7580A000BDF9EF /* IMUSANT_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E450E241B7580A000BDF9EF /* Build configuration list for PBXNativeTarget "IMUSANT_Tests" */;
+			buildPhases = (
+				1E450E0A1B7580A000BDF9EF /* Sources */,
+				1E450E161B7580A000BDF9EF /* Frameworks */,
+				1E450E1C1B7580A000BDF9EF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E450E061B7580A000BDF9EF /* PBXTargetDependency */,
+				1E450E081B7580A000BDF9EF /* PBXTargetDependency */,
+			);
+			name = IMUSANT_Tests;
+			productName = CATSMAT_Tests;
+			productReference = 1E450E271B7580A000BDF9EF /* CATSMAT_Tests copy */;
+			productType = "com.apple.product-type.tool";
+		};
 		496EF4C31B229D8100FE715F /* CATSMAT_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 496EF4C81B229D8100FE715F /* Build configuration list for PBXNativeTarget "CATSMAT_Tests" */;
@@ -1517,6 +1606,7 @@
 				496EF4D61B22A58A00FE715F /* libMusicXML */,
 				496EF4E01B22A58A00FE715F /* libMusicXML_Tests */,
 				496EF6BB1B22B01600FE715F /* libIMUSANT */,
+				1E450E051B7580A000BDF9EF /* IMUSANT_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1532,6 +1622,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1E450E0A1B7580A000BDF9EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */,
+				1E450E291B75810A00BDF9EF /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		496EF4C01B229D8100FE715F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1995,6 +2094,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1E450E061B7580A000BDF9EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 496EF4D61B22A58A00FE715F /* libMusicXML */;
+			targetProxy = 1E450E071B7580A000BDF9EF /* PBXContainerItemProxy */;
+		};
+		1E450E081B7580A000BDF9EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 496EF6BB1B22B01600FE715F /* libIMUSANT */;
+			targetProxy = 1E450E091B7580A000BDF9EF /* PBXContainerItemProxy */;
+		};
 		496EF4E41B22A58B00FE715F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 496EF4D61B22A58A00FE715F /* libMusicXML */;
@@ -2127,6 +2236,108 @@
 				HEADER_SEARCH_PATHS = $BOOST_ROOT_INC_DIR;
 				LIBRARY_SEARCH_PATHS = $BOOST_ROOT_LIB_DIR;
 				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		1E450E251B7580A000BDF9EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GOOGLE_TEST_FRAMEWORK_DIR = /Library/Frameworks/gtest.framework;
+				HEADER_SEARCH_PATHS = (
+					$BOOST_ROOT_INC_DIR,
+					$GOOGLE_TEST_FRAMEWORK_DIR/Headers,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "CATSMAT_Tests copy";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1E450E261B7580A000BDF9EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GOOGLE_TEST_FRAMEWORK_DIR = /Library/Frameworks/gtest.framework;
+				HEADER_SEARCH_PATHS = (
+					$BOOST_ROOT_INC_DIR,
+					$GOOGLE_TEST_FRAMEWORK_DIR/Headers,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "CATSMAT_Tests copy";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -2678,6 +2889,15 @@
 			buildConfigurations = (
 				1DEB923608733DC60010E9CD /* Debug */,
 				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E450E241B7580A000BDF9EF /* Build configuration list for PBXNativeTarget "IMUSANT_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E450E251B7580A000BDF9EF /* Debug */,
+				1E450E261B7580A000BDF9EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
