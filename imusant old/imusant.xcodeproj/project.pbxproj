@@ -18,13 +18,6 @@
 		1E450E191B7580A000BDF9EF /* libMusicXML.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF4D71B22A58A00FE715F /* libMusicXML.dylib */; };
 		1E450E1A1B7580A000BDF9EF /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		1E450E1B1B7580A000BDF9EF /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
-		1E450E1D1B7580A000BDF9EF /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
-		1E450E1E1B7580A000BDF9EF /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
-		1E450E1F1B7580A000BDF9EF /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
-		1E450E201B7580A000BDF9EF /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
-		1E450E211B7580A000BDF9EF /* Josquin_MAF_Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */; };
-		1E450E221B7580A000BDF9EF /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C41B355A01002BB14F /* Kyrie.xml */; };
-		1E450E231B7580A000BDF9EF /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C51B355A01002BB14F /* Sanctus.xml */; };
 		1E450E291B75810A00BDF9EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E281B75810A00BDF9EF /* main.cpp */; };
 		1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */; };
 		1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
@@ -531,13 +524,6 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
-				1E450E1D1B7580A000BDF9EF /* TestScore_1_Measure.xml in CopyFiles */,
-				1E450E1E1B7580A000BDF9EF /* TestScore_4_Measures.xml in CopyFiles */,
-				1E450E1F1B7580A000BDF9EF /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */,
-				1E450E201B7580A000BDF9EF /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */,
-				1E450E211B7580A000BDF9EF /* Josquin_MAF_Kyrie.xml in CopyFiles */,
-				1E450E221B7580A000BDF9EF /* Kyrie.xml in CopyFiles */,
-				1E450E231B7580A000BDF9EF /* Sanctus.xml in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,7 +604,7 @@
 		1E2FA2C41B355A01002BB14F /* Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie.xml; sourceTree = "<group>"; };
 		1E2FA2C51B355A01002BB14F /* Sanctus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sanctus.xml; sourceTree = "<group>"; };
 		1E2FA2CC1B36B2D7002BB14F /* CATSMAT_cp_matrix_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_cp_matrix_Expected.h; path = CATSMAT_Tests/CATSMAT_cp_matrix_Expected.h; sourceTree = "<group>"; };
-		1E450E271B7580A000BDF9EF /* CATSMAT_Tests copy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CATSMAT_Tests copy"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E450E271B7580A000BDF9EF /* IMUSANT_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IMUSANT_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E450E281B75810A00BDF9EF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = IMUSANT_Tests/main.cpp; sourceTree = "<group>"; };
 		1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_pitch_Tests.cpp; path = IMUSANT_Tests/IMUSANT_pitch_Tests.cpp; sourceTree = "<group>"; };
 		1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_1_Measure.xml; sourceTree = "<group>"; };
@@ -974,7 +960,7 @@
 				496EF4D71B22A58A00FE715F /* libMusicXML.dylib */,
 				496EF4E11B22A58A00FE715F /* libMusicXML_Tests.xctest */,
 				496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */,
-				1E450E271B7580A000BDF9EF /* CATSMAT_Tests copy */,
+				1E450E271B7580A000BDF9EF /* IMUSANT_Tests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1433,7 +1419,7 @@
 			);
 			name = IMUSANT_Tests;
 			productName = CATSMAT_Tests;
-			productReference = 1E450E271B7580A000BDF9EF /* CATSMAT_Tests copy */;
+			productReference = 1E450E271B7580A000BDF9EF /* IMUSANT_Tests */;
 			productType = "com.apple.product-type.tool";
 		};
 		496EF4C31B229D8100FE715F /* CATSMAT_Tests */ = {
@@ -2282,13 +2268,14 @@
 					$BOOST_ROOT_INC_DIR,
 					$GOOGLE_TEST_FRAMEWORK_DIR/Headers,
 				);
+				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/boost/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "CATSMAT_Tests copy";
+				PRODUCT_NAME = IMUSANT_Tests;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -2330,13 +2317,14 @@
 					$BOOST_ROOT_INC_DIR,
 					$GOOGLE_TEST_FRAMEWORK_DIR/Headers,
 				);
+				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/boost/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "CATSMAT_Tests copy";
+				PRODUCT_NAME = IMUSANT_Tests;
 				SDKROOT = macosx;
 			};
 			name = Release;
