@@ -594,7 +594,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xml2imusant_main.cpp; sourceTree = "<group>"; };
+		08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xml2imusant_main.cpp; path = ../xml2imusant_main.cpp; sourceTree = "<group>"; };
 		1E08059B1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_dyadtuple_sequences_Tests.cpp; sourceTree = "<group>"; };
 		1E08059D1B50B8AF00765041 /* CATSMAT_dyadtuple_sequences_Expected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CATSMAT_dyadtuple_sequences_Expected.h; sourceTree = "<group>"; };
 		1E1836281B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = CATSMAT_dyad_sequences_Test.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
@@ -634,15 +634,15 @@
 		4970E00E1B7590820052496C /* IMUSANT_interval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval.cpp; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* MusicXML2imusant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MusicXML2imusant; sourceTree = BUILT_PRODUCTS_DIR; };
 		965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imusantcat_main.cpp; sourceTree = "<group>"; };
-		965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_collectionvisitor.h; path = imusantcat/src/IMUSANT_collectionvisitor.h; sourceTree = "<group>"; };
-		965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_collectionvisitor.cpp; path = imusantcat/src/IMUSANT_collectionvisitor.cpp; sourceTree = "<group>"; };
+		965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_collectionvisitor.h; sourceTree = "<group>"; };
+		965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_collectionvisitor.cpp; sourceTree = "<group>"; };
 		965209890A4D1CBE006AFD81 /* IMUSANT_interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval.h; sourceTree = "<group>"; };
 		9652098E0A4D1CD8006AFD81 /* IMUSANT_record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_record.h; sourceTree = "<group>"; };
 		9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_record.cpp; sourceTree = "<group>"; };
 		965209A40A4D1E8B006AFD81 /* IMUSANT_interval_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval_vector.h; sourceTree = "<group>"; };
 		965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_vector.cpp; sourceTree = "<group>"; };
-		965209A90A4D1F37006AFD81 /* IMUSANT_ivec_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_ivec_collection.h; path = imusantcat/src/IMUSANT_ivec_collection.h; sourceTree = "<group>"; };
-		965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_ivec_collection.cpp; path = imusantcat/src/IMUSANT_ivec_collection.cpp; sourceTree = "<group>"; };
+		965209A90A4D1F37006AFD81 /* IMUSANT_ivec_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_ivec_collection.h; sourceTree = "<group>"; };
+		965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_ivec_collection.cpp; sourceTree = "<group>"; };
 		968641220A325C6D0031AC4A /* IMUSANT_XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLReader.h; sourceTree = "<group>"; };
 		968641230A325C6D0031AC4A /* IMUSANT_XMLReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_XMLReader.cpp; sourceTree = "<group>"; };
 		969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_cp_matrix.cpp; path = ../catsmat/CATSMAT_cp_matrix.cpp; sourceTree = "<group>"; };
@@ -707,13 +707,13 @@
 		96A71CB91A9160CB0021C86A /* TXML2GuidoVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXML2GuidoVisitor.h; sourceTree = "<group>"; };
 		96A71CBA1A9160CB0021C86A /* UTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTools.h; sourceTree = "<group>"; };
 		96A71CBB1A9160CB0021C86A /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
-		BA4462600A918B3F0033DB86 /* repeats.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = repeats.h; path = "Suffix tree/repeats.h"; sourceTree = "<group>"; };
+		BA4462600A918B3F0033DB86 /* repeats.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = repeats.h; sourceTree = "<group>"; };
 		BA4462670A9196520033DB86 /* IMUSANT_contour_symbol.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = IMUSANT_contour_symbol.h; sourceTree = "<group>"; };
 		BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_contour_symbol.cpp; sourceTree = "<group>"; };
 		BA4A463609D8B115000B0808 /* TXML2IMUSANTVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXML2IMUSANTVisitor.h; sourceTree = "<group>"; };
 		BA4A463709D8B116000B0808 /* TXML2IMUSANTVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TXML2IMUSANTVisitor.cpp; sourceTree = "<group>"; };
-		BA4F18580A50C58900CB7438 /* IMUSANT_rvec_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_rvec_collection.h; path = imusantcat/src/IMUSANT_rvec_collection.h; sourceTree = "<group>"; };
-		BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_rvec_collection.cpp; path = imusantcat/src/IMUSANT_rvec_collection.cpp; sourceTree = "<group>"; };
+		BA4F18580A50C58900CB7438 /* IMUSANT_rvec_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_rvec_collection.h; sourceTree = "<group>"; };
+		BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_rvec_collection.cpp; sourceTree = "<group>"; };
 		BA670D1F0A10049A0072CE20 /* IMUSANT_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_types.h; sourceTree = "<group>"; };
 		BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_types.cpp; sourceTree = "<group>"; };
 		BA697EFC0AA4FBD7002DC3B2 /* IMUSANT_pitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_pitch.h; sourceTree = "<group>"; };
@@ -723,7 +723,7 @@
 		BA697FAC0AA50A60002DC3B2 /* IMUSANT_key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_key.h; sourceTree = "<group>"; };
 		BA697FAD0AA50A60002DC3B2 /* IMUSANT_key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_key.cpp; sourceTree = "<group>"; };
 		BA6D96821AA41C7800EC3E94 /* Iexpat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; name = Iexpat.h; path = ../core/Iexpat.h; sourceTree = "<group>"; };
-		BA71926E0A59F57000CAA1D9 /* search.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = search.h; path = imusantcat/inc/search.h; sourceTree = "<group>"; };
+		BA71926E0A59F57000CAA1D9 /* search.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = search.h; sourceTree = "<group>"; };
 		BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_dyad_sequences.cpp; path = catsmat/CATSMAT_dyad_sequences.cpp; sourceTree = SOURCE_ROOT; };
 		BA7E941B1B2A859A00818128 /* CATSMAT_dyad_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_dyad_sequences.hpp; path = catsmat/CATSMAT_dyad_sequences.hpp; sourceTree = SOURCE_ROOT; };
 		BA7E942E1B2AA55700818128 /* EmptyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyType.h; sourceTree = "<group>"; };
@@ -739,10 +739,10 @@
 		BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_dyadtuple_sequences.cpp; path = catsmat/CATSMAT_dyadtuple_sequences.cpp; sourceTree = SOURCE_ROOT; };
 		BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_dyadtuple_sequences.hpp; path = catsmat/CATSMAT_dyadtuple_sequences.hpp; sourceTree = SOURCE_ROOT; };
 		BA8068E41B27BC5700AEFB27 /* test_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test_files; sourceTree = "<group>"; };
-		BA990E0B0A5A173F008918F0 /* iterator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = iterator.h; path = "Suffix tree/iterator.h"; sourceTree = "<group>"; };
-		BA990E0C0A5A173F008918F0 /* suffixtree_inter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree_inter.h; path = "Suffix tree/suffixtree_inter.h"; sourceTree = "<group>"; };
-		BA990E0D0A5A173F008918F0 /* suffixtree.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree.h; path = "Suffix tree/suffixtree.h"; sourceTree = "<group>"; };
-		BA990E0F0A5A173F008918F0 /* suffixtree_impl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = suffixtree_impl.h; path = "Suffix tree/suffixtree_impl.h"; sourceTree = "<group>"; };
+		BA990E0B0A5A173F008918F0 /* iterator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = iterator.h; sourceTree = "<group>"; };
+		BA990E0C0A5A173F008918F0 /* suffixtree_inter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = suffixtree_inter.h; sourceTree = "<group>"; };
+		BA990E0D0A5A173F008918F0 /* suffixtree.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = suffixtree.h; sourceTree = "<group>"; };
+		BA990E0F0A5A173F008918F0 /* suffixtree_impl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = suffixtree_impl.h; sourceTree = "<group>"; };
 		BAA8D7CE1AA42BD80053ADE3 /* common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
 		BAA8D7CF1AA42BD80053ADE3 /* conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = conversions.cpp; sourceTree = "<group>"; };
 		BAA8D7D31AA42BD80053ADE3 /* Iexpat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Iexpat.cpp; sourceTree = "<group>"; };
@@ -820,13 +820,13 @@
 		BAAF8D4E0A3E35FE00E5157F /* IMUSANT_conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_conversions.cpp; sourceTree = "<group>"; };
 		BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_sonority_sequences.cpp; path = catsmat/CATSMAT_sonority_sequences.cpp; sourceTree = SOURCE_ROOT; };
 		BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_sonority_sequences.hpp; path = catsmat/CATSMAT_sonority_sequences.hpp; sourceTree = SOURCE_ROOT; };
-		BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processing.h; path = imusantcat/inc/IMUSANT_processing.h; sourceTree = "<group>"; };
-		BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_processing.cpp; path = imusantcat/src/IMUSANT_processing.cpp; sourceTree = "<group>"; };
+		BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processing.h; path = ../inc/IMUSANT_processing.h; sourceTree = "<group>"; };
+		BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_processing.cpp; sourceTree = "<group>"; };
 		BAD4055B0A36589900634B37 /* IMUSANT_XMLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLFile.h; sourceTree = "<group>"; };
 		BAD4055C0A36589900634B37 /* IMUSANT_XMLFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_XMLFile.cpp; sourceTree = "<group>"; };
 		BADC739F0A2BE239004F76BD /* IMUSANT_XMLVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLVisitor.h; sourceTree = "<group>"; };
 		BADC73A00A2BE239004F76BD /* IMUSANT_XMLVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_XMLVisitor.cpp; sourceTree = "<group>"; };
-		BAF1F3D50A9C15D30065AECF /* compare.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = compare.h; path = mindiff/compare.h; sourceTree = "<group>"; };
+		BAF1F3D50A9C15D30065AECF /* compare.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = compare.h; sourceTree = "<group>"; };
 		BAFC77340A228FDB00A4FACD /* IMUSANT_note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_note.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		BAFC77350A228FDB00A4FACD /* IMUSANT_note.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_note.cpp; sourceTree = "<group>"; };
 		BAFC777E0A22939500A4FACD /* IMUSANT_chord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_chord.h; sourceTree = "<group>"; };
@@ -952,7 +952,7 @@
 				965209690A4D189B006AFD81 /* Musicxml2imusant */,
 				9652096C0A4D18BD006AFD81 /* imusantcat */,
 			);
-			name = IMUSANT;
+			path = IMUSANT;
 			sourceTree = "<group>";
 		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
@@ -1065,7 +1065,7 @@
 				4970E00B1B7586D40052496C /* src */,
 				4970E00A1B7586CD0052496C /* inc */,
 			);
-			name = DomainObjects;
+			path = DomainObjects;
 			sourceTree = "<group>";
 		};
 		4970E0071B7586870052496C /* Converters */ = {
@@ -1079,8 +1079,9 @@
 		4970E0081B7586950052496C /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */,
 			);
-			name = Application;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		4970E00A1B7586CD0052496C /* inc */ = {
@@ -1103,8 +1104,7 @@
 				BAFC779A0A22956E00A4FACD /* IMUSANT_score.h */,
 				BA670D1F0A10049A0072CE20 /* IMUSANT_types.h */,
 			);
-			name = inc;
-			path = IMUSANT/DomainObjects/inc;
+			path = inc;
 			sourceTree = "<group>";
 		};
 		4970E00B1B7586D40052496C /* src */ = {
@@ -1127,8 +1127,7 @@
 				BAFC779B0A22956E00A4FACD /* IMUSANT_score.cpp */,
 				BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */,
 			);
-			name = src;
-			path = IMUSANT/DomainObjects/src;
+			path = src;
 			sourceTree = "<group>";
 		};
 		4970E0131B75D20A0052496C /* MusicXML_v1 */ = {
@@ -1151,12 +1150,12 @@
 		9652096C0A4D18BD006AFD81 /* imusantcat */ = {
 			isa = PBXGroup;
 			children = (
-				965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */,
 				BAC604630A76E935000C1DF9 /* Suffix and search */,
 				965209770A4D190A006AFD81 /* inc */,
 				9652096F0A4D18E5006AFD81 /* src */,
 			);
 			name = imusantcat;
+			path = ../imusantcat;
 			sourceTree = "<group>";
 		};
 		9652096F0A4D18E5006AFD81 /* src */ = {
@@ -1167,7 +1166,7 @@
 				965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */,
 				BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */,
 			);
-			name = src;
+			path = src;
 			sourceTree = "<group>";
 		};
 		965209770A4D190A006AFD81 /* inc */ = {
@@ -1179,6 +1178,7 @@
 				BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */,
 			);
 			name = inc;
+			path = src;
 			sourceTree = "<group>";
 		};
 		96A71C821A9160CB0021C86A /* include */ = {
@@ -1295,7 +1295,8 @@
 				968641220A325C6D0031AC4A /* IMUSANT_XMLReader.h */,
 				BAD4055B0A36589900634B37 /* IMUSANT_XMLFile.h */,
 			);
-			path = inc;
+			name = inc;
+			path = ../inc;
 			sourceTree = "<group>";
 		};
 		BA8A84760A23C41D0081D4BB /* src */ = {
@@ -1309,7 +1310,8 @@
 				968641230A325C6D0031AC4A /* IMUSANT_XMLReader.cpp */,
 				BAD4055C0A36589900634B37 /* IMUSANT_XMLFile.cpp */,
 			);
-			path = src;
+			name = src;
+			path = ../src;
 			sourceTree = "<group>";
 		};
 		BAA8D7CD1AA42BD80053ADE3 /* core */ = {
@@ -1422,6 +1424,7 @@
 				BAF1F3D50A9C15D30065AECF /* compare.h */,
 			);
 			name = "Suffix and search";
+			path = "../Suffix tree";
 			sourceTree = "<group>";
 		};
 		C6859E8C029090F304C91782 /* Documentation */ = {
