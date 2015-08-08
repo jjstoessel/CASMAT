@@ -32,6 +32,7 @@ class libIMUSANT
 #include "IMUSANT_part.h"
 #include "IMUSANT_partlist.h"
 #include "IMUSANT_score.h"
+#include "IMUSANT_processing.h"
 
 #pragma GCC visibility pop
 #endif
