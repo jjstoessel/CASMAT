@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>IMUSANT_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>MusicXML2imusant.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -42,6 +47,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1E450E051B7580A000BDF9EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>496EF4C31B229D8100FE715F</key>
 		<dict>
 			<key>primary</key>
