@@ -1479,7 +1479,7 @@
 				BAF1F3D50A9C15D30065AECF /* compare.h */,
 			);
 			name = "Suffix and search";
-			path = "../Suffix tree";
+			path = "Suffix tree";
 			sourceTree = "<group>";
 		};
 		C6859E8C029090F304C91782 /* Documentation */ = {
