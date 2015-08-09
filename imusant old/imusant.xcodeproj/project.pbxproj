@@ -31,7 +31,6 @@
 		496EF4D11B229EFB00FE715F /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		496EF4D21B229F0A00FE715F /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		496EF4DA1B22A58A00FE715F /* libMusicXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 496EF4D91B22A58A00FE715F /* libMusicXML.h */; };
-		496EF4E21B22A58B00FE715F /* libMusicXML.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF4D71B22A58A00FE715F /* libMusicXML.dylib */; };
 		496EF5631B22A63800FE715F /* guido.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86B1AA42BFF0053ADE3 /* guido.cpp */; };
 		496EF5641B22A63800FE715F /* TMidiContextVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86D1AA42BFF0053ADE3 /* TMidiContextVisitor.cpp */; };
 		496EF5651B22A63800FE715F /* TRolledVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D86E1AA42BFF0053ADE3 /* TRolledVisitor.cpp */; };
@@ -484,13 +483,6 @@
 			remoteGlobalIDString = 496EF6BB1B22B01600FE715F;
 			remoteInfo = libIMUSANT;
 		};
-		496EF4E31B22A58B00FE715F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 496EF4D61B22A58A00FE715F;
-			remoteInfo = libMusicXML;
-		};
 		496EF7081B22B18800FE715F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
@@ -615,8 +607,6 @@
 		496EF4D71B22A58A00FE715F /* libMusicXML.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libMusicXML.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF4D91B22A58A00FE715F /* libMusicXML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libMusicXML.h; sourceTree = "<group>"; };
 		496EF4DB1B22A58A00FE715F /* libMusicXML.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libMusicXML.m; sourceTree = "<group>"; };
-		496EF4E11B22A58A00FE715F /* libMusicXML_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libMusicXML_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		496EF4E71B22A58B00FE715F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libIMUSANT.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF6BE1B22B01700FE715F /* libIMUSANT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libIMUSANT.h; sourceTree = "<group>"; };
 		496EF6C01B22B01700FE715F /* libIMUSANTPriv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libIMUSANTPriv.h; sourceTree = "<group>"; };
@@ -875,14 +865,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		496EF4DE1B22A58A00FE715F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				496EF4E21B22A58B00FE715F /* libMusicXML.dylib in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		496EF6B91B22B01600FE715F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -932,7 +914,6 @@
 				1E450E041B75806400BDF9EF /* IMUSANT_Tests */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				496EF4D81B22A58A00FE715F /* libMusicXML */,
-				496EF4E51B22A58B00FE715F /* libMusicXMLTests */,
 				496EF6BD1B22B01700FE715F /* libIMUSANT */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 				4970E0261B76DD870052496C /* SuffixTree */,
@@ -962,7 +943,6 @@
 				BAA8D8981AABFBA30053ADE3 /* CATSMAT */,
 				496EF4C41B229D8100FE715F /* CATSMAT_Tests */,
 				496EF4D71B22A58A00FE715F /* libMusicXML.dylib */,
-				496EF4E11B22A58A00FE715F /* libMusicXML_Tests.xctest */,
 				496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */,
 				1E450E271B7580A000BDF9EF /* IMUSANT_Tests */,
 			);
@@ -1031,22 +1011,6 @@
 				496EF4DB1B22A58A00FE715F /* libMusicXML.m */,
 			);
 			path = libMusicXML;
-			sourceTree = "<group>";
-		};
-		496EF4E51B22A58B00FE715F /* libMusicXMLTests */ = {
-			isa = PBXGroup;
-			children = (
-				496EF4E61B22A58B00FE715F /* Supporting Files */,
-			);
-			path = libMusicXMLTests;
-			sourceTree = "<group>";
-		};
-		496EF4E61B22A58B00FE715F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				496EF4E71B22A58B00FE715F /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		496EF6BD1B22B01700FE715F /* libIMUSANT */ = {
@@ -1314,7 +1278,7 @@
 				96A71CBB1A9160CB0021C86A /* xml.h */,
 			);
 			name = include;
-			path = "libMusicXML-1.00-src/src/include";
+			path = "libMusicXML/libMusicXML-1.00-src/src/include";
 			sourceTree = SOURCE_ROOT;
 		};
 		96BC9F83133B09AF00A65384 /* External Frameworks and Libraries */ = {
@@ -1334,8 +1298,7 @@
 				BAA8D7CD1AA42BD80053ADE3 /* core */,
 				96A71C821A9160CB0021C86A /* include */,
 			);
-			name = "libMusicXML-1.00-src";
-			path = "../../libMusicXML-1.00-src";
+			path = "libMusicXML-1.00-src";
 			sourceTree = "<group>";
 		};
 		BA7E94371B2AA56500818128 /* Loki */ = {
@@ -1413,7 +1376,7 @@
 				BAA8D8061AA42BD80053ADE3 /* xmlparse.h */,
 			);
 			name = core;
-			path = "libMusicXML-1.00-src/src/core";
+			path = "libMusicXML/libMusicXML-1.00-src/src/core";
 			sourceTree = SOURCE_ROOT;
 		};
 		BAA8D86A1AA42BFF0053ADE3 /* visitors */ = {
@@ -1428,7 +1391,7 @@
 				BAA8D8711AA42BFF0053ADE3 /* TXML2GuidoVisitor.cpp */,
 			);
 			name = visitors;
-			path = "libMusicXML-1.00-src/src/visitors";
+			path = "libMusicXML/libMusicXML-1.00-src/src/visitors";
 			sourceTree = SOURCE_ROOT;
 		};
 		BAA8D8991AABFBA30053ADE3 /* CATSMAT */ = {
@@ -1554,24 +1517,6 @@
 			productReference = 496EF4D71B22A58A00FE715F /* libMusicXML.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
-		496EF4E01B22A58A00FE715F /* libMusicXML_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 496EF4EB1B22A58B00FE715F /* Build configuration list for PBXNativeTarget "libMusicXML_Tests" */;
-			buildPhases = (
-				496EF4DD1B22A58A00FE715F /* Sources */,
-				496EF4DE1B22A58A00FE715F /* Frameworks */,
-				496EF4DF1B22A58A00FE715F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				496EF4E41B22A58B00FE715F /* PBXTargetDependency */,
-			);
-			name = libMusicXML_Tests;
-			productName = libMusicXMLTests;
-			productReference = 496EF4E11B22A58A00FE715F /* libMusicXML_Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		496EF6BB1B22B01600FE715F /* libIMUSANT */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 496EF6C41B22B01700FE715F /* Build configuration list for PBXNativeTarget "libIMUSANT" */;
@@ -1609,9 +1554,9 @@
 			productReference = 8DD76F6C0486A84900D96B5E /* MusicXML2imusant */;
 			productType = "com.apple.product-type.tool";
 		};
-		96A620CD0A458DE3005E4CBF /* imusantcat */ = {
+		96A620CD0A458DE3005E4CBF /* IMUSANT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96A620D20A458E02005E4CBF /* Build configuration list for PBXNativeTarget "imusantcat" */;
+			buildConfigurationList = 96A620D20A458E02005E4CBF /* Build configuration list for PBXNativeTarget "IMUSANT" */;
 			buildPhases = (
 				96A620CB0A458DE3005E4CBF /* Sources */,
 				96A620CC0A458DE3005E4CBF /* Frameworks */,
@@ -1620,7 +1565,7 @@
 			);
 			dependencies = (
 			);
-			name = imusantcat;
+			name = IMUSANT;
 			productName = imusantcat;
 			productReference = 96A620CE0A458DE3005E4CBF /* imusantcat */;
 			productType = "com.apple.product-type.tool";
@@ -1656,9 +1601,6 @@
 					496EF4D61B22A58A00FE715F = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
-					496EF4E01B22A58A00FE715F = {
-						CreatedOnToolsVersion = 6.3.1;
-					};
 					496EF6BB1B22B01600FE715F = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
@@ -1682,26 +1624,15 @@
 			projectRoot = "";
 			targets = (
 				8DD76F620486A84900D96B5E /* MusicXML2imusant */,
-				96A620CD0A458DE3005E4CBF /* imusantcat */,
+				96A620CD0A458DE3005E4CBF /* IMUSANT */,
 				1E450E051B7580A000BDF9EF /* IMUSANT_Tests */,
 				BAA8D8971AABFBA30053ADE3 /* CATSMAT */,
 				496EF4C31B229D8100FE715F /* CATSMAT_Tests */,
 				496EF4D61B22A58A00FE715F /* libMusicXML */,
-				496EF4E01B22A58A00FE715F /* libMusicXML_Tests */,
 				496EF6BB1B22B01600FE715F /* libIMUSANT */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		496EF4DF1B22A58A00FE715F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E450E0A1B7580A000BDF9EF /* Sources */ = {
@@ -1855,13 +1786,6 @@
 				496EF5661B22A63800FE715F /* TScanVisitor.cpp in Sources */,
 				496EF5671B22A63800FE715F /* TUnrolledVisitor.cpp in Sources */,
 				496EF5681B22A63800FE715F /* TXML2GuidoVisitor.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		496EF4DD1B22A58A00FE715F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2184,11 +2108,6 @@
 			isa = PBXTargetDependency;
 			target = 496EF6BB1B22B01600FE715F /* libIMUSANT */;
 			targetProxy = 1E450E091B7580A000BDF9EF /* PBXContainerItemProxy */;
-		};
-		496EF4E41B22A58B00FE715F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 496EF4D61B22A58A00FE715F /* libMusicXML */;
-			targetProxy = 496EF4E31B22A58B00FE715F /* PBXContainerItemProxy */;
 		};
 		496EF7091B22B18800FE715F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2545,6 +2464,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2590,6 +2510,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2603,96 +2524,6 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		496EF4EC1B22A58B00FE715F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = libMusicXMLTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		496EF4ED1B22A58B00FE715F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = libMusicXMLTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3003,15 +2834,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		496EF4EB1B22A58B00FE715F /* Build configuration list for PBXNativeTarget "libMusicXML_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				496EF4EC1B22A58B00FE715F /* Debug */,
-				496EF4ED1B22A58B00FE715F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		496EF6C41B22B01700FE715F /* Build configuration list for PBXNativeTarget "libIMUSANT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3021,7 +2843,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96A620D20A458E02005E4CBF /* Build configuration list for PBXNativeTarget "imusantcat" */ = {
+		96A620D20A458E02005E4CBF /* Build configuration list for PBXNativeTarget "IMUSANT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96A620D30A458E02005E4CBF /* Debug */,
