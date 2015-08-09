@@ -56,7 +56,8 @@ void IMUSANT_processing::process_directory_files(const filesystem::path& full_pa
 void
 IMUSANT_processing::add_file(const filesystem::path& path)
 {
-	TMusicXMLFile reader;
+	// TODO - this code relies on an XML v1 parser.
+    TMusicXMLFile reader;
 	string xml(".xml"), imusant(".ims");
 	filesystem::path mutable_path = path;
 	TXML2IMUSANTVisitor c;    
@@ -101,31 +102,33 @@ IMUSANT_processing::add_file(const filesystem::path& path)
 	}
 }
 
-void
+string
 IMUSANT_processing::find_repeated_interval_substrings(int min_length)
 {
+    stringstream the_result;
+    
 	if (IDs.size()>0)
 	{
 		int_tree tree(collections[*IDs.begin()].getIntervalVector()->getIntervals(),*IDs.begin());
 		
-		cout << *IDs.begin() << ": " << collections[*IDs.begin()].getMovementTitle() << endl;
+		the_result << *IDs.begin() << ": " << collections[*IDs.begin()].getMovementTitle() << endl;
 	
 		for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
 		{
 			tree.add_sentence(collections[*j].getIntervalVector()->getIntervals(),*j);
-			cout << *j << ": " << collections[*j].getMovementTitle() << endl;
+			the_result << *j << ": " << collections[*j].getMovementTitle() << endl;
 		}
 		
 		vector< pair<vector<int_tree::number>, int> > results;
 		results = tree.find_common_subsequences(IDs,min_length);
-		cout << "Results are labeled (movement, voice, measure, note index)." << endl;
-		cout << "Voices are designated from highest (1) to lowest." << endl;
-		cout << "Found common exact intevallic subsequences of " << min_length << " or more elements at: " << endl;
+		the_result << "Results are labeled (movement, voice, measure, note index)." << endl;
+		the_result << "Voices are designated from highest (1) to lowest." << endl;
+		the_result << "Found common exact intevallic subsequences of " << min_length << " or more elements at: " << endl;
 		vector< pair<vector<int_tree::number>, int> >::iterator iter=results.begin();
 		for (;iter!=results.end(); iter++)
 		{
 			
-			cout << "Instance: ";
+			the_result << "Instance: ";
 			vector< int_tree::number >::const_iterator c=iter->first.begin();
 			bool first_time = true;
 			for (;c!=iter->first.end(); c++) 
@@ -135,19 +138,20 @@ IMUSANT_processing::find_repeated_interval_substrings(int min_length)
 				{
 					for (int_tree::size_type t = c->second; t < c->second+iter->second; t++)
 					{	
-						cout << collections[c->first].getIntervalVector()->getIntervals()[t] << " ";
+						the_result << collections[c->first].getIntervalVector()->getIntervals()[t] << " ";
 					}
 					first_time=false;
 				}
 				IMUSANT_range range=interval.getLocation();
-				cout << "(" << c->first << "," <<range.partID << "," << range.first.measure << "," << range.first.note_index << ")";
+				the_result << "(" << c->first << "," <<range.partID << "," << range.first.measure << "," << range.first.note_index << ")";
 			}
 			
-			cout << endl;
-			cout << "Length: " << iter->second << " Occurences: " << iter->first.size() << endl << endl;
+			the_result << endl;
+			the_result << "Length: " << iter->second << " Occurences: " << iter->first.size() << endl << endl;
 		}
-		cout << endl;
+		the_result << endl;
 	}
+    return the_result.str();
 }
 
 void

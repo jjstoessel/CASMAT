@@ -192,6 +192,8 @@
 		4970E0181B76B8400052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		4970E0191B76B97F0052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		4970E01D1B76BFC40052496C /* IMUSANT_processing_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E01C1B76BFC40052496C /* IMUSANT_processing_Tests.cpp */; };
+		4970E0221B76CA880052496C /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0201B76C10B0052496C /* Kyrie.xml */; };
+		4970E0231B76CA880052496C /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0211B76C10B0052496C /* Sanctus.xml */; };
 		8DD76F650486A84900D96B5E /* xml2imusant_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* imusant.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* imusant.1 */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
@@ -524,9 +526,11 @@
 		1E450E1C1B7580A000BDF9EF /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = testdata;
+			dstPath = IMUSANT_testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				4970E0221B76CA880052496C /* Kyrie.xml in CopyFiles */,
+				4970E0231B76CA880052496C /* Sanctus.xml in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +641,7 @@
 		4970E01C1B76BFC40052496C /* IMUSANT_processing_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_processing_Tests.cpp; path = IMUSANT_Tests/Analysis/IMUSANT_processing_Tests.cpp; sourceTree = "<group>"; };
 		4970E0201B76C10B0052496C /* Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie.xml; sourceTree = "<group>"; };
 		4970E0211B76C10B0052496C /* Sanctus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sanctus.xml; sourceTree = "<group>"; };
+		4970E0241B76D0590052496C /* IMUSANT_processing_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processing_Expected.h; path = IMUSANT_Tests/Analysis/IMUSANT_processing_Expected.h; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* MusicXML2imusant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MusicXML2imusant; sourceTree = BUILT_PRODUCTS_DIR; };
 		965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imusantcat_main.cpp; sourceTree = "<group>"; };
 		965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_collectionvisitor.cpp; sourceTree = "<group>"; };
@@ -1189,6 +1194,7 @@
 			isa = PBXGroup;
 			children = (
 				4970E01C1B76BFC40052496C /* IMUSANT_processing_Tests.cpp */,
+				4970E0241B76D0590052496C /* IMUSANT_processing_Expected.h */,
 			);
 			name = Analysis;
 			sourceTree = "<group>";

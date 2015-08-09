@@ -6,6 +6,7 @@
 //
 //
 
+#include "IMUSANT_processing_Expected.h"
 
 #include <stdio.h>
 
@@ -37,7 +38,7 @@ protected:
 
 TEST_F(IMUSANT_processing_Tests, SmokeTest)
 {
-    string relative_path = "../testdata/MusicXMLv1";
+    string relative_path = "IMUSANT_testdata";
 
     filesystem::path testdata(filesystem::initial_path());
     testdata.append(relative_path);
@@ -45,13 +46,9 @@ TEST_F(IMUSANT_processing_Tests, SmokeTest)
     IMUSANT_processing *the_processor = new IMUSANT_processing();
     
     the_processor->process_directory_files(testdata);
+    string repeated_substrings_result = the_processor->find_repeated_interval_substrings();
     
-    filesystem::path kyrie_xml = testdata.append("/Kyrie.xml");
-    
-    the_processor->add_file(kyrie_xml);
-    the_processor->find_repeated_interval_substrings();
-    
-    ASSERT_TRUE(false) << "--------> Test not implemented yet";
+    ASSERT_EQ(FindRepeatedIntervalSubstrings_SmokeTest_Expected, repeated_substrings_result);
     
 }
 
