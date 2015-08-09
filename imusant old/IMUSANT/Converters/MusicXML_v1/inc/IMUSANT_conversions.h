@@ -25,6 +25,7 @@ using namespace std;
 namespace IMUSANT
 {
 
+    // TODO - this class seems to contain dependencies om MusicXML v1.
 class IMUSANT_NoteStyle 
 {
     public:
