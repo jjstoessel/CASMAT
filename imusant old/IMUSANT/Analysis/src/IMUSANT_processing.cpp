@@ -26,6 +26,7 @@
 #include "iterator.h"
 #include "repeats.h"
 
+
 #define MAX(X,Y) ( (X>Y)? (X) : (Y) )
 
 using namespace std;
@@ -81,8 +82,8 @@ IMUSANT_processing::add_file(const filesystem::path& path)
 				while (find(IDs.begin(), IDs.end(), i)!=IDs.end()) i++;
 				//error checking required!
 				score->accept(c);
-				collections[i].ignoreRepeatedPitches(false);
-				c.getIMUSANTScore()->accept(collections[i]);
+				processed_files[i].ignoreRepeatedPitches(false);
+				c.getIMUSANTScore()->accept(processed_files[i]);
 				
 				IDs.push_back(i);
 				
@@ -109,14 +110,14 @@ IMUSANT_processing::find_repeated_interval_substrings(int min_length)
     
 	if (IDs.size()>0)
 	{
-		int_tree tree(collections[*IDs.begin()].getIntervalVector()->getIntervals(),*IDs.begin());
+		int_tree tree(processed_files[*IDs.begin()].getIntervalVector()->getIntervals(),*IDs.begin());
 		
-		the_result << *IDs.begin() << ": " << collections[*IDs.begin()].getMovementTitle() << endl;
+		the_result << *IDs.begin() << ": " << processed_files[*IDs.begin()].getMovementTitle() << endl;
 	
 		for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
 		{
-			tree.add_sentence(collections[*j].getIntervalVector()->getIntervals(),*j);
-			the_result << *j << ": " << collections[*j].getMovementTitle() << endl;
+			tree.add_sentence(processed_files[*j].getIntervalVector()->getIntervals(),*j);
+			the_result << *j << ": " << processed_files[*j].getMovementTitle() << endl;
 		}
 		
 		vector< pair<vector<int_tree::number>, int> > results;
@@ -124,25 +125,25 @@ IMUSANT_processing::find_repeated_interval_substrings(int min_length)
 		the_result << "Results are labeled (movement, voice, measure, note index)." << endl;
 		the_result << "Voices are designated from highest (1) to lowest." << endl;
 		the_result << "Found common exact intevallic subsequences of " << min_length << " or more elements at: " << endl;
-		vector< pair<vector<int_tree::number>, int> >::iterator iter=results.begin();
+		vector< pair<vector<int_tree::number>, int> >::iterator iter = results.begin();
 		for (;iter!=results.end(); iter++)
 		{
 			
 			the_result << "Instance: ";
-			vector< int_tree::number >::const_iterator c=iter->first.begin();
+			vector< int_tree::number >::const_iterator c = iter->first.begin();
 			bool first_time = true;
 			for (;c!=iter->first.end(); c++) 
 			{
-				IMUSANT_interval interval = collections[c->first].getIntervalVector()->getIntervals()[c->second];
+				IMUSANT_interval interval = processed_files[c->first].getIntervalVector()->getIntervals()[c->second];
 				if (first_time)
 				{
 					for (int_tree::size_type t = c->second; t < c->second+iter->second; t++)
 					{	
-						the_result << collections[c->first].getIntervalVector()->getIntervals()[t] << " ";
+						the_result << processed_files[c->first].getIntervalVector()->getIntervals()[t] << " ";
 					}
 					first_time=false;
 				}
-				IMUSANT_range range=interval.getLocation();
+				IMUSANT_range range = interval.getLocation();
 				the_result << "(" << c->first << "," <<range.partID << "," << range.first.measure << "," << range.first.note_index << ")";
 			}
 			
@@ -153,18 +154,76 @@ IMUSANT_processing::find_repeated_interval_substrings(int min_length)
 	}
     return the_result.str();
 }
-
+    
+    vector<IMUSANT_repeated_interval_substring>
+    IMUSANT_processing::
+    find_repeated_interval_substrings_2(int min_length)
+    {
+        vector <IMUSANT_repeated_interval_substring> ret_val;
+        
+        if (IDs.size()<=0)
+        {
+            return ret_val;
+        }
+        
+        int_tree tree(processed_files[*IDs.begin()].getIntervalVector()->getIntervals(),*IDs.begin());
+        
+        for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
+        {
+            tree.add_sentence(processed_files[*j].getIntervalVector()->getIntervals(),*j);
+        }
+        
+        vector< pair<vector<int_tree::number>, int> > results;
+        results = tree.find_common_subsequences(IDs,min_length);
+        
+        vector< pair<vector<int_tree::number>, int> >::iterator iter = results.begin();
+        
+        for (;iter!=results.end(); iter++)
+        {
+            IMUSANT_repeated_interval_substring substring;
+            
+            vector< int_tree::number >::const_iterator c = iter->first.begin();
+            bool first_time = true;
+            for (;c!=iter->first.end(); c++)
+            {
+                IMUSANT_interval interval = processed_files[c->first].getIntervalVector()->getIntervals()[c->second];
+                if (first_time)
+                {
+                    for (int_tree::size_type t = c->second; t < c->second+iter->second; t++)
+                    {
+                        substring.interval_sequence->add(processed_files[c->first].getIntervalVector()->getIntervals()[t]);
+                    }
+                    first_time=false;
+                }
+                
+                IMUSANT_range range = interval.getLocation();
+                IMUSANT_repeated_interval_substring::occurrence occ;
+                occ.movement = c->first;
+                occ.voice = range.partID;
+                occ.measure = range.first.measure;
+                occ.note_index = range.first.note_index;
+                
+                substring.occurrences.push_back(occ);
+                
+            }
+            
+            ret_val.push_back(substring);
+            
+        }
+        return ret_val;
+    }
+    
 void
 IMUSANT_processing::find_repeated_contour_substrings(int min_length)
 {
 	if (IDs.size()>0)
 	{
 		//construct contour tree
-		contour_tree cont_tree(*(collections[*IDs.begin()].getMelodicContour()),*IDs.begin());
+		contour_tree cont_tree(*(processed_files[*IDs.begin()].getMelodicContour()),*IDs.begin());
 	
 		for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
 		{
-			cont_tree.add_sentence(*(collections[*j].getMelodicContour()),*j);
+			cont_tree.add_sentence(*(processed_files[*j].getMelodicContour()),*j);
 		}
 		
 		vector< pair<vector<contour_tree::number>, int> > mc_results;
@@ -180,12 +239,12 @@ IMUSANT_processing::find_repeated_contour_substrings(int min_length)
 			bool first_time = true;
 			for (;mc_c!=iter_mc->first.end(); mc_c++) 
 			{
-				IMUSANT_contour_symbol symbol = (*(collections[mc_c->first].getMelodicContour()))[mc_c->second];
+				IMUSANT_contour_symbol symbol = (*(processed_files[mc_c->first].getMelodicContour()))[mc_c->second];
 				if (first_time)
 				{
 					for (contour_tree::size_type t = mc_c->second; t < mc_c->second+iter_mc->second; t++)
 					{	
-						cout << (*(collections[mc_c->first].getMelodicContour()))[t] << " ";
+						cout << (*(processed_files[mc_c->first].getMelodicContour()))[t] << " ";
 					}
 					first_time=false;
 				}
@@ -205,11 +264,11 @@ void IMUSANT_processing::find_supermaximals_intervals(int min_length, int min_pe
 {
 	if (IDs.size()>0)
 	{
-		int_tree tree(collections[*IDs.begin()].getIntervalVector()->getIntervals(),*IDs.begin());
+		int_tree tree(processed_files[*IDs.begin()].getIntervalVector()->getIntervals(),*IDs.begin());
 	
 		for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
 		{
-			tree.add_sentence(collections[*j].getIntervalVector()->getIntervals(),*j);
+			tree.add_sentence(processed_files[*j].getIntervalVector()->getIntervals(),*j);
 		}
 		
 		repeats<vector<IMUSANT_interval> > rep(&tree);
@@ -231,11 +290,11 @@ void IMUSANT_processing::find_supermaximals_contours(int min_length, int min_per
 {
 	if (IDs.size()>0)
 	{
-		contour_tree cont_tree(*(collections[*IDs.begin()].getMelodicContour()),*IDs.begin());
+		contour_tree cont_tree(*(processed_files[*IDs.begin()].getMelodicContour()),*IDs.begin());
 	
 		for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
 		{
-			cont_tree.add_sentence(*(collections[*j].getMelodicContour()),*j);
+			cont_tree.add_sentence(*(processed_files[*j].getMelodicContour()),*j);
 		}
 		
 		repeats<vector<IMUSANT_contour_symbol> > rep(&cont_tree);
@@ -264,16 +323,16 @@ void IMUSANT_processing::find_lcs_pairs_intervals(bool consecutive)
 	{
 		for (vector<int>::iterator IDiter1=IDs.begin(); IDiter1!=IDs.end(); IDiter1++)
 		{
-			vector<IMUSANT_interval> x = collections[*IDiter1].getIntervalVector()->getIntervals();
+			vector<IMUSANT_interval> x = processed_files[*IDiter1].getIntervalVector()->getIntervals();
 			int m = x.size();
 			
 			for (vector<int>::iterator IDiter2=IDiter1+1; IDiter2!=IDs.end(); IDiter2++)
 			{
 			
-				cout << "Longest common subsequence of " << collections[*IDiter1].getMovementTitle() << " with " 
-					<< collections[*IDiter2].getMovementTitle() << endl;
+				cout << "Longest common subsequence of " << processed_files[*IDiter1].getMovementTitle() << " with "
+					<< processed_files[*IDiter2].getMovementTitle() << endl;
 					
-				vector<IMUSANT_interval> y = collections[*IDiter2].getIntervalVector()->getIntervals();
+				vector<IMUSANT_interval> y = processed_files[*IDiter2].getIntervalVector()->getIntervals();
 				int i, j;
 				int n = y.size();
 				int_2d_array_t lcs(boost::extents[m][n]); //ints auto zeroed
@@ -356,7 +415,7 @@ void IMUSANT_processing::find_lcs_pairs_intervals_reverse(bool consecutive)
 	{
 		for (vector<int>::iterator IDiter1=IDs.begin(); IDiter1!=IDs.end(); IDiter1++)
 		{
-			vector<IMUSANT_interval> x = collections[*IDiter1].getIntervalVector()->getIntervals();
+			vector<IMUSANT_interval> x = processed_files[*IDiter1].getIntervalVector()->getIntervals();
 			x.pop_back();
 			reverse(x.begin(), x.end()); //added routine - reverse vector
 			int m = x.size();
@@ -364,10 +423,10 @@ void IMUSANT_processing::find_lcs_pairs_intervals_reverse(bool consecutive)
 			for (vector<int>::iterator IDiter2=IDiter1+1; IDiter2!=IDs.end(); IDiter2++)
 			{
 			
-				cout << "Longest common subsequence of " << collections[*IDiter1].getMovementTitle() << " with " 
-					<< collections[*IDiter2].getMovementTitle() << endl;
+				cout << "Longest common subsequence of " << processed_files[*IDiter1].getMovementTitle() << " with "
+					<< processed_files[*IDiter2].getMovementTitle() << endl;
 					
-				vector<IMUSANT_interval> y = collections[*IDiter2].getIntervalVector()->getIntervals();
+				vector<IMUSANT_interval> y = processed_files[*IDiter2].getIntervalVector()->getIntervals();
 				y.pop_back();
 				reverse(y.begin(), y.end()); //added routine - reverse vector
 				int i, j;
@@ -454,16 +513,16 @@ void IMUSANT_processing::find_lcs_pairs_pitches(bool consecutive)
 	{
 		for (vector<int>::iterator IDiter1=IDs.begin(); IDiter1!=IDs.end(); IDiter1++)
 		{
-			vector<IMUSANT_pitch> x = *(collections[*IDiter1].getPitchVector());
+			vector<IMUSANT_pitch> x = *(processed_files[*IDiter1].getPitchVector());
 			int m = x.size();
 			
 			for (vector<int>::iterator IDiter2=IDiter1+1; IDiter2!=IDs.end(); IDiter2++)
 			{
 			
-				cout << "Longest common subsequence of " << collections[*IDiter1].getMovementTitle() << " with " 
-					<< collections[*IDiter2].getMovementTitle() << endl;
+				cout << "Longest common subsequence of " << processed_files[*IDiter1].getMovementTitle() << " with "
+					<< processed_files[*IDiter2].getMovementTitle() << endl;
 					
-				vector<IMUSANT_pitch> y = *(collections[*IDiter2].getPitchVector());
+				vector<IMUSANT_pitch> y = *(processed_files[*IDiter2].getPitchVector());
 				int i, j;
 				int n = y.size();
 				int_2d_array_t lcs(boost::extents[m][n]); //ints auto zeroed
