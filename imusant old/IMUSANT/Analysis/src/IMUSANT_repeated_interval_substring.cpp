@@ -1,12 +1,12 @@
 //
-//  IMUSANT_repeated_interval_substrings.cpp
+//  IMUSANT_repeated_interval_substring.cpp
 //  imusant
 //
 //  Created by Derrick Hill on 12/08/2015.
 //
 //
 
-#include "IMUSANT_repeated_interval_substrings.h"
+#include "IMUSANT_repeated_interval_substring.h"
 
 namespace IMUSANT
 {
@@ -66,5 +66,4 @@ namespace IMUSANT
     
 }
 
-#include "IMUSANT_repeated_interval_substrings.h"
 

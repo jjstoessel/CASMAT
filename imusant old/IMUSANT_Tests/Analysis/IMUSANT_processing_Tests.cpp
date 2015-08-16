@@ -65,7 +65,8 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedRefactor)
     
     IMUSANT_processing *the_processor = new IMUSANT_processing();
     
-    vector<IMUSANT_repeated_interval_substring> empty_repeated_substrings_result = the_processor->find_repeated_interval_substrings_2();
+    vector<IMUSANT_repeated_interval_substring> empty_repeated_substrings_result;
+    empty_repeated_substrings_result = the_processor->find_repeated_interval_substrings_2();
     
     ASSERT_EQ(empty_repeated_substrings_result.size(), 0);
 
@@ -84,8 +85,5 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedRefactor)
     }
     
     ASSERT_EQ(FindRepeatedIntervalSubstrings_RefactorTest_Expected, actual_output.str());
-    
-    
-    // ASSERT_EQ(FindRepeatedIntervalSubstrings_SmokeTest_Expected, "foo");
 }
 

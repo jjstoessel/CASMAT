@@ -20,8 +20,8 @@
 		1E450E1B1B7580A000BDF9EF /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		1E450E291B75810A00BDF9EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E281B75810A00BDF9EF /* main.cpp */; };
 		1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */; };
-		1EDAD2C11B7B26B800556002 /* IMUSANT_repeated_interval_substrings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substrings.cpp */; };
-		1EDAD2C51B7B376100556002 /* IMUSANT_repeated_interval_substrings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substrings.cpp */; };
+		1EDAD2C11B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */; };
+		1EDAD2C51B7B376100556002 /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */; };
 		1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
 		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
 		1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
@@ -465,8 +465,8 @@
 		1E450E271B7580A000BDF9EF /* IMUSANT_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IMUSANT_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E450E281B75810A00BDF9EF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = IMUSANT_Tests/main.cpp; sourceTree = "<group>"; };
 		1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_pitch_Tests.cpp; sourceTree = "<group>"; };
-		1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substrings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_repeated_interval_substrings.cpp; sourceTree = "<group>"; };
-		1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_repeated_interval_substrings.h; sourceTree = "<group>"; };
+		1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_repeated_interval_substring.cpp; sourceTree = "<group>"; };
+		1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_repeated_interval_substring.h; sourceTree = "<group>"; };
 		1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_1_Measure.xml; sourceTree = "<group>"; };
 		1EDE2F171B3E0ACD00DB1BD0 /* TestScore_1_Measure.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_1_Measure.mscz; sourceTree = "<group>"; };
 		1EDE2F181B3E0ACD00DB1BD0 /* TestScore_4_Measures.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures.mscz; sourceTree = "<group>"; };
@@ -989,7 +989,7 @@
 			isa = PBXGroup;
 			children = (
 				BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */,
-				1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substrings.h */,
+				1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substring.h */,
 			);
 			path = inc;
 			sourceTree = "<group>";
@@ -998,7 +998,7 @@
 			isa = PBXGroup;
 			children = (
 				BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */,
-				1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substrings.cpp */,
+				1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1634,7 +1634,7 @@
 				496EF7041B22B06100FE715F /* IMUSANT_rvec_collection.cpp in Sources */,
 				496EF7051B22B06100FE715F /* IMUSANT_collectionvisitor.h in Sources */,
 				496EF7061B22B06100FE715F /* IMUSANT_processing.cpp in Sources */,
-				1EDAD2C51B7B376100556002 /* IMUSANT_repeated_interval_substrings.cpp in Sources */,
+				1EDAD2C51B7B376100556002 /* IMUSANT_repeated_interval_substring.cpp in Sources */,
 				496EF6DD1B22B05500FE715F /* IMUSANT_conversions.cpp in Sources */,
 				496EF6DE1B22B05500FE715F /* IMUSANT_types.cpp in Sources */,
 				496EF6DF1B22B05500FE715F /* IMUSANT_pitch.cpp in Sources */,
@@ -1719,7 +1719,7 @@
 				BAA8D8681AA42BD80053ADE3 /* xmlparse.cpp in Sources */,
 				BAA8D83E1AA42BD80053ADE3 /* TPart.cpp in Sources */,
 				BAA8D8761AA42BFF0053ADE3 /* guido.cpp in Sources */,
-				1EDAD2C11B7B26B800556002 /* IMUSANT_repeated_interval_substrings.cpp in Sources */,
+				1EDAD2C11B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp in Sources */,
 				BAA8D8801AA42BFF0053ADE3 /* TUnrolledVisitor.cpp in Sources */,
 				BAA8D87E1AA42BFF0053ADE3 /* TScanVisitor.cpp in Sources */,
 				BAA8D8621AA42BD80053ADE3 /* TWork.cpp in Sources */,

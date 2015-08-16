@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef __imusant__IMUSANT_repeated_interval_substrings__
-#define __imusant__IMUSANT_repeated_interval_substrings__
+#ifndef __imusant__IMUSANT_repeated_interval_substring__
+#define __imusant__IMUSANT_repeated_interval_substring__
 
 #include "IMUSANT_interval_vector.h"
 
@@ -28,8 +28,8 @@ namespace IMUSANT
     // --- (movement, voice, measure, note index) ---
     // (1,2,11,2)(1,3,18,2)(1,1,4,2)(2,1,89,1)(2,2,94,1)(2,3,61,1)(2,1,51,1)(2,2,56,1)
     //
-    // Sequence Length: 4
-    // Number of Occurences: 8
+    // -- Sequence Length: 4 --
+    // -- Number of Occurences: 8 -- 
     //
     
     class IMUSANT_repeated_interval_substring
@@ -64,5 +64,5 @@ namespace IMUSANT
 }
 
 
-#endif /* defined(__imusant__IMUSANT_repeated_interval_substrings__) */
+#endif /* defined(__imusant__IMUSANT_repeated_interval_substring__) */
 
