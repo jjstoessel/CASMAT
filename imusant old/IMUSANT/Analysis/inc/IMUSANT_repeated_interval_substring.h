@@ -57,6 +57,8 @@ namespace IMUSANT
         
         vector<occurrence> occurrences;
         void add_occurrence(occurrence the_occurrence);
+        void add_occurrence(long movement, long voice, long measure, long note_index);
+
         vector<occurrence>::size_type num_occurrences();
         
         friend ostream& operator<<( ostream& os, const IMUSANT_repeated_interval_substring& substring);

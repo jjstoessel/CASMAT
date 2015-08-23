@@ -57,10 +57,10 @@ void
 IMUSANT_processing::add_file(const filesystem::path& path)
 {
 	// TODO - this code relies on an XML v1 parser.
-    TMusicXMLFile reader;
+    TMusicXMLFile reader;   // From libMusicXML v1.
 	string xml(".xml"), imusant(".ims");
 	filesystem::path mutable_path = path;
-	TXML2IMUSANTVisitor c;    
+	TXML2IMUSANTVisitor c;       
 	IMUSANT_XMLFile ixml;
 	map<int,vector<IMUSANT_interval> > intervalTable;
 	int i = 1;
@@ -103,62 +103,27 @@ IMUSANT_processing::add_file(const filesystem::path& path)
 }
 
 string
-IMUSANT_processing::find_repeated_interval_substrings(int min_length)
+IMUSANT_processing::find_and_print_repeated_interval_substrings(int min_length)
 {
-    stringstream the_result;
+    vector<IMUSANT_repeated_interval_substring> the_result;
+    the_result = find_repeated_interval_substrings(min_length);
     
-	if (IDs.size()>0)
-	{
-		interval_tree tree(processed_files[*IDs.begin()].getIntervalVector()->getIntervals(),*IDs.begin());
-		
-		the_result << *IDs.begin() << ": " << processed_files[*IDs.begin()].getMovementTitle() << endl;
-	
-		for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
-		{
-			tree.add_sentence(processed_files[*j].getIntervalVector()->getIntervals(),*j);
-			the_result << *j << ": " << processed_files[*j].getMovementTitle() << endl;
-		}
-		
-		vector< pair<vector<interval_tree::number>, int> > results;
-		results = tree.find_common_subsequences(IDs,min_length);
-		the_result << "Results are labeled (movement, voice, measure, note index)." << endl;
-		the_result << "Voices are designated from highest (1) to lowest." << endl;
-		the_result << "Found common exact intevallic subsequences of " << min_length << " or more elements at: " << endl;
-		vector< pair<vector<interval_tree::number>, int> >::iterator iter = results.begin();
-		for (;iter!=results.end(); iter++)
-		{
-			
-			the_result << "Instance: ";
-			vector< interval_tree::number >::const_iterator c = iter->first.begin();
-			bool first_time = true;
-			for (;c!=iter->first.end(); c++) 
-			{
-				IMUSANT_interval interval = processed_files[c->first].getIntervalVector()->getIntervals()[c->second];
-				if (first_time)
-				{
-					for (interval_tree::size_type t = c->second; t < c->second+iter->second; t++)
-					{	
-						the_result << processed_files[c->first].getIntervalVector()->getIntervals()[t] << " ";
-					}
-					first_time=false;
-				}
-				IMUSANT_range range = interval.getLocation();
-				the_result << "(" << c->first << "," <<range.partID << "," << range.first.measure << "," << range.first.note_index << ")";
-			}
-			
-			the_result << endl;
-			the_result << "Length: " << iter->second << " Occurences: " << iter->first.size() << endl << endl;
-		}
-		the_result << endl;
-	}
-    return the_result.str();
+    stringstream the_result_as_stringstream;
+    for(int index = 0 ; index < the_result.size(); index++)
+    {
+        the_result_as_stringstream << the_result[index];
+    }
+    
+    the_result_as_stringstream << endl;
+    
+    return the_result_as_stringstream.str();
 }
     
 vector<IMUSANT_repeated_interval_substring>
 IMUSANT_processing::
-find_repeated_interval_substrings_2(int min_length)
+find_repeated_interval_substrings(int min_length)
 {
-    vector <IMUSANT_repeated_interval_substring> ret_val;
+    vector<IMUSANT_repeated_interval_substring> ret_val;
     
     if (IDs.size()<=0)  // No fies have been added...
     {
@@ -167,40 +132,48 @@ find_repeated_interval_substrings_2(int min_length)
     
     interval_tree tree = build_suffix_tree();
     
-    vector< pair<vector<interval_tree::number>, int> > results;
-    results = tree.find_common_subsequences(IDs,min_length);
+    vector< pair<vector<interval_tree::number>, int> > common_substrings;
+    common_substrings = tree.find_common_subsequences(IDs, min_length);
     
-    vector< pair<vector<interval_tree::number>, int> >::iterator results_iter;
-    for (results_iter = results.begin(); results_iter != results.end(); results_iter++)
+    vector< pair<vector<interval_tree::number>, int> >::iterator common_substrings_iter;
+    for (common_substrings_iter = common_substrings.begin();
+         common_substrings_iter != common_substrings.end();
+         common_substrings_iter++)
     {
-        IMUSANT_repeated_interval_substring substring;
+        IMUSANT_repeated_interval_substring repeated_interval_substring;
         
-        vector< interval_tree::number >::const_iterator c = results_iter->first.begin();
-        bool first_time = true;
-        for (;c!=results_iter->first.end(); c++)
+        vector< interval_tree::number >::const_iterator substring_iter;
+        bool int_sequence_added_to_ret_value = false;
+        
+        for (substring_iter = common_substrings_iter->first.begin();
+             substring_iter != common_substrings_iter->first.end();
+             substring_iter++)
         {
-            IMUSANT_interval interval = processed_files[c->first].getIntervalVector()->getIntervals()[c->second];
-            if (first_time)
+            IMUSANT_collection_visitor movement = processed_files[substring_iter->first];
+            vector<IMUSANT_interval> intervals = movement.getIntervalVector()->getIntervals();
+            
+            if (! int_sequence_added_to_ret_value)
             {
-                for (interval_tree::size_type t = c->second; t < c->second+results_iter->second; t++)
+                // Add the interval sequence into the return value.
+                for (interval_tree::size_type t = substring_iter->second;
+                     t < substring_iter->second + common_substrings_iter->second;
+                     t++)
                 {
-                    substring.interval_sequence->add(processed_files[c->first].getIntervalVector()->getIntervals()[t]);
+                    repeated_interval_substring.interval_sequence->add(intervals[t]);
                 }
-                first_time=false;
+                int_sequence_added_to_ret_value = true;
             }
             
+            // Add the loction of this repetition of the interval sequence into the return value.
+            IMUSANT_interval interval = intervals[substring_iter->second];
             IMUSANT_range range = interval.getLocation();
-            IMUSANT_repeated_interval_substring::occurrence occ;
-            occ.movement = c->first;
-            occ.voice = range.partID;
-            occ.measure = range.first.measure;
-            occ.note_index = range.first.note_index;
-            
-            substring.occurrences.push_back(occ);
-            
+            repeated_interval_substring.add_occurrence(substring_iter->first,
+                                                       range.partID,
+                                                       range.first.measure,
+                                                       range.first.note_index );
         }
         
-        ret_val.push_back(substring);
+        ret_val.push_back(repeated_interval_substring);
         
     }
     return ret_val;

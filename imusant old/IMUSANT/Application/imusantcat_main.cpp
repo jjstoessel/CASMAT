@@ -199,7 +199,7 @@ void runToolMenu(IMUSANT_processing& processor)
 			case '1':
 				cout << "Enter minimum length: ";
 				cin >> length;
-				cout << processor.find_repeated_interval_substrings(length);
+				cout << processor.find_and_print_repeated_interval_substrings(length);
 				break;
 			case '2':
 				cout << "Enter minimum length: ";

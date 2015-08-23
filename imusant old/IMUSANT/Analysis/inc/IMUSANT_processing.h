@@ -34,8 +34,8 @@ public:
 	
 	void	process_directory_files(const filesystem::path& full_path);
 	void	add_file(const filesystem::path& path);
-	string	find_repeated_interval_substrings(int min_length=4);
-    vector<IMUSANT_repeated_interval_substring> find_repeated_interval_substrings_2(int min_length=4);
+	string	find_and_print_repeated_interval_substrings(int min_length=4);
+    vector<IMUSANT_repeated_interval_substring> find_repeated_interval_substrings(int min_length=4);
 	void	find_repeated_contour_substrings(int min_length=5);
 	void	find_repeated_interval_subsequences(int min_length=4);
 	void	find_repeated_contour_subsequences(int min_length=5);

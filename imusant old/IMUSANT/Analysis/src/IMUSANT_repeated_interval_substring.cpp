@@ -37,6 +37,19 @@ namespace IMUSANT
         occurrences.push_back(the_occurrence);
     }
     
+    void
+    IMUSANT_repeated_interval_substring::
+    add_occurrence(long movement, long voice, long measure, long note_index)
+    {
+        IMUSANT_repeated_interval_substring::occurrence occ;
+        occ.movement = movement;
+        occ.voice = voice;
+        occ.measure = measure;
+        occ.note_index = note_index;
+        
+        add_occurrence(occ);
+    }
+    
     vector<IMUSANT_repeated_interval_substring::occurrence>::size_type
     IMUSANT_repeated_interval_substring::
     num_occurrences()
@@ -46,8 +59,9 @@ namespace IMUSANT
     
     ostream& operator<<( ostream& os, const IMUSANT_repeated_interval_substring& substring )
     {
-        os << "Sequence: " << substring.interval_sequence;
-        os << (substring.occurrences.size() ? "Occurrences: " : "None.");
+        //os << "Sequence: ";
+        os << substring.interval_sequence;
+        // os << (substring.occurrences.size() ? "Occurrences: " : "None.");
         for (int index = 0; index < substring.occurrences.size(); index++)
         {
             IMUSANT_repeated_interval_substring::occurrence occ;
@@ -59,7 +73,7 @@ namespace IMUSANT
                  << occ.note_index << ") ";
         }
         
-        os << endl << endl;
+        os << endl;
         
         return os;
     }
