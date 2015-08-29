@@ -24,9 +24,11 @@ S_IMUSANT_barline new_IMUSANT_barline()
 IMUSANT_ending::type	IMUSANT_ending::fTypeTbl[] = { undefined, start, stop };						
 string	IMUSANT_ending::fTypeStrings[] = { "undefined", "start", "stop" };
 bimap<string, IMUSANT_ending::type>	IMUSANT_ending::fType2String(fTypeStrings, fTypeTbl, last);
-//! convert a numeric start-stop value to a MusicXML string
+
+    //! convert a numeric start-stop value to a MusicXML string
 const string IMUSANT_ending::xml (IMUSANT_ending::type d) { return fType2String[d]; }
-//! convert a MusicXML string to a numeric value
+
+    //! convert a MusicXML string to a numeric value
 IMUSANT_ending::type	IMUSANT_ending::xml (const string str) { return fType2String[str]; }
 
 //==============================================================================

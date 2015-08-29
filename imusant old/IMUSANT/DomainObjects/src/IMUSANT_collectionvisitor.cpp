@@ -46,9 +46,13 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_attributes& elt )
 #pragma mark IMUSANT_barline handler
 void IMUSANT_collection_visitor::visit ( S_IMUSANT_barline& elt)
 {
-	if ((elt->getBarStyle()==IMUSANT_barline::heavy || elt->getBarStyle()==IMUSANT_barline::light_light ||
-		elt->getBarStyle()==IMUSANT_barline::light_heavy || elt->getBarStyle()==IMUSANT_barline::heavy_light ||
-		elt->getBarStyle()==IMUSANT_barline::heavy_heavy) && elt->getLocation()==IMUSANT_barline::right)
+	if ((elt->getBarStyle()==IMUSANT_barline::heavy ||
+         elt->getBarStyle()==IMUSANT_barline::light_light ||
+         elt->getBarStyle()==IMUSANT_barline::light_heavy ||
+         elt->getBarStyle()==IMUSANT_barline::heavy_light ||
+         elt->getBarStyle()==IMUSANT_barline::heavy_heavy)
+        &&
+        elt->getLocation()==IMUSANT_barline::right)
 	{
 		fLastNote = 0;
 	}

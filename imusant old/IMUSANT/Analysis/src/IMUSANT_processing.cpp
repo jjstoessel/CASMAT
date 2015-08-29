@@ -56,14 +56,18 @@ void IMUSANT_processing::process_directory_files(const filesystem::path& full_pa
 void
 IMUSANT_processing::add_file(const filesystem::path& path)
 {
-	// TODO - this code relies on an XML v1 parser.
-    TMusicXMLFile reader;   // From libMusicXML v1.
-	string xml(".xml"), imusant(".ims");
-	filesystem::path mutable_path = path;
-	TXML2IMUSANTVisitor c;       
-	IMUSANT_XMLFile ixml;
+    // Get a parser object.
+    
+    // Pass the file into the factory.
+    
+    // The result is added into the processed_files collection, and everything else just works.
+    
+    string xml(".xml");
+    string imusant(".ims");
+    
 	map<int,vector<IMUSANT_interval> > intervalTable;
-	int i = 1;
+    
+    // All the IMUSANT objects (such as IMUSANT_interval) inherit from SMARTTABLE or use SMARTP which are MusicXML v1 objects.
 	
 	try
 	{
@@ -71,27 +75,11 @@ IMUSANT_processing::add_file(const filesystem::path& path)
 		{
 			if (filesystem::extension(path)==xml)
 			{
-				//convert first
-				SScore score = reader.read((string&)path);
-				if (score == NULL) {
-					cerr << "Parse error in " << path.leaf() << endl;
-					return;
-				}
-				//ensure unique ID
-				while (find(IDs.begin(), IDs.end(), i)!=IDs.end()) i++;
-				//error checking required!
-				score->accept(c);
-				processed_files[i].ignoreRepeatedPitches(false);
-				c.getIMUSANTScore()->accept(processed_files[i]);
-				
-				IDs.push_back(i);
-				
+                process_musicxml1_file(path);
 			}
-			//check extension
 			if (filesystem::extension(path)==imusant)
 			{
-				ixml.read((string&)mutable_path); //reader file
-				//verify, catalogue to default directory
+                process_imusant_file(path);
 			}
 
 		}
@@ -101,6 +89,47 @@ IMUSANT_processing::add_file(const filesystem::path& path)
 		cerr << path.leaf() << " " << ex.what() << endl;
 	}
 }
+    
+    void
+    IMUSANT_processing::
+    process_musicxml1_file(const filesystem::path& path)
+    {
+        // This is a IMUSANT object which derives from a MusicXML v1 object.
+        TXML2IMUSANTVisitor c;
+        
+        // This is a MusicXML v1 object.
+        TMusicXMLFile reader;
+
+        //convert first
+        SScore score = reader.read((string&)path);  // This is a MusicXML v1 object.
+        if (score == NULL) {
+            cerr << "Parse error in " << path.leaf() << endl;
+            return;
+        }
+        
+        //ensure unique ID
+        int i = 1;
+        while (find(IDs.begin(), IDs.end(), i)!=IDs.end()) i++;
+        
+        //error checking required!
+        score->accept(c);
+        processed_files[i].ignoreRepeatedPitches(false);
+        c.getIMUSANTScore()->accept(processed_files[i]);
+        
+        IDs.push_back(i);
+    }
+    
+    void
+    IMUSANT_processing::
+    process_imusant_file(const filesystem::path& path)
+    {
+        // TODO - this doesn't do anything at the moment...
+        
+        filesystem::path mutable_path = path;
+        IMUSANT_XMLFile ixml;
+        ixml.read((string&)mutable_path); //reader file
+        //verify, catalogue to default directory
+    }
 
 string
 IMUSANT_processing::find_and_print_repeated_interval_substrings(int min_length)

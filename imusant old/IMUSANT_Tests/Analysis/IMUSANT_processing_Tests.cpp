@@ -42,12 +42,10 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings)
 
     filesystem::path testdata(filesystem::initial_path());
     testdata.append(relative_path);
-    // testdata.append("Kyrie.xml");
     
     IMUSANT_processing *the_processor = new IMUSANT_processing();
     
     the_processor->process_directory_files(testdata);
-    // the_processor->add_file(testdata);
     
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
     repeated_substrings_result = the_processor->find_repeated_interval_substrings();

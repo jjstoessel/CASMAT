@@ -53,7 +53,8 @@ private:
     typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
     interval_tree build_suffix_tree();
     
-    
+    void process_musicxml1_file(const filesystem::path& path);
+    void process_imusant_file(const filesystem::path& path);
 };
 
 } //namespace IMUSANT
