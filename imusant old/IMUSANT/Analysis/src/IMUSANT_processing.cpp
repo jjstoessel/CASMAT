@@ -3,7 +3,7 @@
  *  imusant
  *
  *  Created by Jason Stoessel on 26/07/06.
- *  Copyright 2006 __MyCompanyName__. All rights reserved.
+ *  Copyright 2006. All rights reserved.
  *
  */
 #include <iostream>
@@ -39,12 +39,14 @@ namespace IMUSANT
     typedef suffixtree< vector<IMUSANT_contour_symbol> > contour_tree;
     typedef boost::multi_array<int, 2> int_2d_array_t;
     
-    void IMUSANT_processing::process_directory_files(const filesystem::path& full_path)
+    void
+    IMUSANT_processing::
+    process_directory_files(const filesystem::path& full_path)
     {
         if (filesystem::is_directory( full_path ) )
         {
             filesystem::directory_iterator end;
-            for (	filesystem::directory_iterator iter(full_path);
+            for (filesystem::directory_iterator iter(full_path);
                  iter != end;
                  ++iter )
             {
@@ -54,43 +56,107 @@ namespace IMUSANT
     }
     
     void
-    IMUSANT_processing::add_file(const filesystem::path& path)
+    IMUSANT_processing::
+    add_file(const filesystem::path& path)
     {
-        // Get a parser object.
-        
-        // Pass the file into the factory.
-        
-        // The result is added into the processed_files collection, and everything else just works.
-        
-        string xml(".xml");
-        string imusant(".ims");
-        
-        map<int,vector<IMUSANT_interval> > intervalTable;
-        
         // All the IMUSANT objects (such as IMUSANT_interval) inherit from SMARTTABLE or use SMARTP which are MusicXML v1 objects.
+
+        // REVISIT - WORK IN PROGRESS.
+        // The implementation of this method tres to decide the file type before handing the file off to
+        // code to parse the file properly.
+        //
+        // It might be simpler simply to try to parse the file using each parser in turn, and hand over to
+        // the next file parser if we fail.  If each file parser fails early then this approach shouldbe fine.
+
         
+//        if (process_musicxml1_file(path))
+//            return;
+//        
+//        if (process_musicxml3_file(path))
+//            return;
+//        
+//        if (process_imusant_file(path))
+//            return;
+        
+        
+        IMUSANT_processing::music_file_format file_format;
+        file_format = decide_file_type(path);
+        
+        switch (file_format)
+        {
+            case musicxml1:
+                process_musicxml1_file(path);
+                break;
+                
+            case imusant:
+                process_imusant_file(path);
+                break;
+                
+            case unknown:
+                break;
+                
+            default:
+                break;
+                
+        }
+    }
+    
+    IMUSANT_processing::music_file_format
+    IMUSANT_processing::
+    decide_file_type(const filesystem::path& path)
+    {
+        IMUSANT_processing::music_file_format return_val = unknown;
         try
         {
-            if (!filesystem::is_directory(path))
+            filesystem::file_status status = filesystem::status(path);
+            if (!filesystem::exists(status)
+                ||
+                !filesystem::is_regular_file(status))
             {
-                if (filesystem::extension(path)==xml)
-                {
-                    process_musicxml1_file(path);
-                }
-                if (filesystem::extension(path)==imusant)
-                {
-                    process_imusant_file(path);
-                }
-                
+                cerr << "Problem with the file " << path.leaf() << ".  Status is " << &status;
+                return_val = unknown;
+            }
+            
+            string xml(".xml");
+            string ims(".ims");
+            string extension = filesystem::extension(path);
+            
+            if ( extension == xml)
+            {
+                return_val = musicxml1;
+            }
+            else if (extension == ims)
+            {
+                return_val = imusant;
+            }
+            else
+            {
+                return_val = unknown;
             }
         }
         catch (const runtime_error& ex)
         {
             cerr << path.leaf() << " " << ex.what() << endl;
         }
+        
+        return return_val;
     }
     
-    void
+    bool
+    IMUSANT_processing::
+    is_musicxml1_file(const filesystem::path& path)
+    {
+        return true;
+    }
+    
+    bool
+    IMUSANT_processing::
+    is_musicxml3_file(const filesystem::path& path)
+    {
+        return false;
+    }
+    
+    bool
     IMUSANT_processing::
     process_musicxml1_file(const filesystem::path& path)
     {
@@ -104,7 +170,7 @@ namespace IMUSANT
         SScore score = reader.read((string&)path);  // This is a MusicXML v1 object.
         if (score == NULL) {
             cerr << "Parse error in " << path.leaf() << endl;
-            return;
+            return false;
         }
         
         //ensure unique ID
@@ -117,9 +183,18 @@ namespace IMUSANT
         c.getIMUSANTScore()->accept(processed_files[i]);
         
         IDs.push_back(i);
+        
+        return true;
     }
     
-    void
+    bool
+    IMUSANT_processing::
+    process_musicxml3_file(const filesystem::path& path)
+    {
+        return false;
+    }
+    
+    bool
     IMUSANT_processing::
     process_imusant_file(const filesystem::path& path)
     {
@@ -129,6 +204,8 @@ namespace IMUSANT
         IMUSANT_XMLFile ixml;
         ixml.read((string&)mutable_path); //reader file
         //verify, catalogue to default directory
+        
+        return false;
     }
     
     string
