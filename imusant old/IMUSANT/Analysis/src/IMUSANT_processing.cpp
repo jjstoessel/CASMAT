@@ -43,6 +43,8 @@ namespace IMUSANT
     IMUSANT_processing::
     process_directory_files(const filesystem::path& full_path)
     {
+        string xml_extn = ".xml";
+        
         if (filesystem::is_directory( full_path ) )
         {
             filesystem::directory_iterator end;
@@ -50,7 +52,12 @@ namespace IMUSANT
                  iter != end;
                  ++iter )
             {
-                add_file(*iter);
+                filesystem::path extn = iter->path().extension();
+                
+                if (extn.compare(xml_extn) == 0)
+                {
+                    add_file(*iter);
+                }
             }
         }
     }
@@ -160,6 +167,7 @@ namespace IMUSANT
     IMUSANT_processing::
     process_musicxml1_file(const filesystem::path& path)
     {
+        
         // This is a IMUSANT object which derives from a MusicXML v1 object.
         TXML2IMUSANTVisitor c;
         
@@ -168,7 +176,8 @@ namespace IMUSANT
         
         //convert first
         SScore score = reader.read((string&)path);  // This is a MusicXML v1 object.
-        if (score == NULL) {
+        if (score == NULL)
+        {
             cerr << "Parse error in " << path.leaf() << endl;
             return false;
         }
