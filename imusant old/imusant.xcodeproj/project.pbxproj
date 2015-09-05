@@ -190,8 +190,8 @@
 		4970E0181B76B8400052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		4970E0191B76B97F0052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		4970E01D1B76BFC40052496C /* IMUSANT_processing_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E01C1B76BFC40052496C /* IMUSANT_processing_Tests.cpp */; };
-		4970E0221B76CA880052496C /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0201B76C10B0052496C /* Kyrie.xml */; };
-		4970E0231B76CA880052496C /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0211B76C10B0052496C /* Sanctus.xml */; };
+		4970E0221B76CA880052496C /* Kyrie.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 4970E0201B76C10B0052496C /* Kyrie.xml */; };
+		4970E0231B76CA880052496C /* Sanctus.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 4970E0211B76C10B0052496C /* Sanctus.xml */; };
 		4970E0251B76D8CE0052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		4970E0361B76E4CA0052496C /* IMUSANT_XMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0321B76E4CA0052496C /* IMUSANT_XMLFile.cpp */; };
 		4970E0371B76E4CA0052496C /* IMUSANT_XMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0331B76E4CA0052496C /* IMUSANT_XMLReader.cpp */; };
@@ -205,6 +205,7 @@
 		4970E0491B76E7D50052496C /* IMUSANT_XMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0331B76E4CA0052496C /* IMUSANT_XMLReader.cpp */; };
 		4970E04A1B76E7D50052496C /* IMUSANT_XMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0341B76E4CA0052496C /* IMUSANT_XMLVisitor.cpp */; };
 		4970E04B1B76E7D50052496C /* TXML2IMUSANTVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0351B76E4CA0052496C /* TXML2IMUSANTVisitor.cpp */; };
+		498D80F41B9A7CC300A673F7 /* test_files in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = BA8068E41B27BC5700AEFB27 /* test_files */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		965208D80A4CDF9D006AFD81 /* IMUSANT_barline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */; };
 		965208D90A4CDF9E006AFD81 /* IMUSANT_chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC777F0A22939500A4FACD /* IMUSANT_chord.cpp */; };
@@ -413,15 +414,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1E450E1C1B7580A000BDF9EF /* CopyFiles */ = {
+		1E450E1C1B7580A000BDF9EF /* Copy Files (3 items) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = IMUSANT_tests.testdata.MusicXMLv1;
+			dstPath = IMUSANT_tests.testdata;
 			dstSubfolderSpec = 16;
 			files = (
-				4970E0221B76CA880052496C /* Kyrie.xml in CopyFiles */,
-				4970E0231B76CA880052496C /* Sanctus.xml in CopyFiles */,
+				498D80F41B9A7CC300A673F7 /* test_files in Copy Files (3 items) */,
+				4970E0221B76CA880052496C /* Kyrie.xml in Copy Files (3 items) */,
+				4970E0231B76CA880052496C /* Sanctus.xml in Copy Files (3 items) */,
 			);
+			name = "Copy Files (3 items)";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		496EF4C21B229D8100FE715F /* CopyFiles */ = {
@@ -511,6 +514,61 @@
 		4970E03C1B76E4E50052496C /* IMUSANT_XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLReader.h; sourceTree = "<group>"; };
 		4970E03D1B76E4E50052496C /* IMUSANT_XMLVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLVisitor.h; sourceTree = "<group>"; };
 		4970E03E1B76E4E50052496C /* TXML2IMUSANTVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXML2IMUSANTVisitor.h; sourceTree = "<group>"; };
+		498D80BB1B9A77F000A673F7 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		498D80BD1B9A77F000A673F7 /* ActorPreludeSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = ActorPreludeSample.mxl; sourceTree = "<group>"; };
+		498D80BE1B9A77F000A673F7 /* ActorPreludeSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ActorPreludeSample.pdf; sourceTree = "<group>"; };
+		498D80BF1B9A77F000A673F7 /* ActorPreludeSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ActorPreludeSample.xml; sourceTree = "<group>"; };
+		498D80C01B9A77F000A673F7 /* BeetAnGeSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = BeetAnGeSample.mxl; sourceTree = "<group>"; };
+		498D80C11B9A77F000A673F7 /* BeetAnGeSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BeetAnGeSample.pdf; sourceTree = "<group>"; };
+		498D80C21B9A77F000A673F7 /* BeetAnGeSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BeetAnGeSample.xml; sourceTree = "<group>"; };
+		498D80C31B9A77F000A673F7 /* Binchois.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Binchois.mxl; sourceTree = "<group>"; };
+		498D80C41B9A77F000A673F7 /* Binchois.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Binchois.png; sourceTree = "<group>"; };
+		498D80C51B9A77F000A673F7 /* Binchois.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Binchois.xml; sourceTree = "<group>"; };
+		498D80C61B9A77F000A673F7 /* BrahWiMeSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = BrahWiMeSample.mxl; sourceTree = "<group>"; };
+		498D80C71B9A77F000A673F7 /* BrahWiMeSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BrahWiMeSample.pdf; sourceTree = "<group>"; };
+		498D80C81B9A77F000A673F7 /* BrahWiMeSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BrahWiMeSample.xml; sourceTree = "<group>"; };
+		498D80C91B9A77F000A673F7 /* BrookeWestSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = BrookeWestSample.mxl; sourceTree = "<group>"; };
+		498D80CA1B9A77F000A673F7 /* BrookeWestSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BrookeWestSample.pdf; sourceTree = "<group>"; };
+		498D80CB1B9A77F000A673F7 /* BrookeWestSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BrookeWestSample.xml; sourceTree = "<group>"; };
+		498D80CC1B9A77F000A673F7 /* Chant.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chant.mxl; sourceTree = "<group>"; };
+		498D80CD1B9A77F000A673F7 /* Chant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chant.png; sourceTree = "<group>"; };
+		498D80CE1B9A77F000A673F7 /* Chant.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Chant.xml; sourceTree = "<group>"; };
+		498D80CF1B9A77F000A673F7 /* DebuMandSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = DebuMandSample.mxl; sourceTree = "<group>"; };
+		498D80D01B9A77F000A673F7 /* DebuMandSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DebuMandSample.pdf; sourceTree = "<group>"; };
+		498D80D11B9A77F000A673F7 /* DebuMandSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DebuMandSample.xml; sourceTree = "<group>"; };
+		498D80D21B9A77F000A673F7 /* Dichterliebe01.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dichterliebe01.mxl; sourceTree = "<group>"; };
+		498D80D31B9A77F000A673F7 /* Dichterliebe01.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Dichterliebe01.pdf; sourceTree = "<group>"; };
+		498D80D41B9A77F000A673F7 /* Dichterliebe01.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Dichterliebe01.xml; sourceTree = "<group>"; };
+		498D80D51B9A77F000A673F7 /* Echigo-Jishi.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Echigo-Jishi.mxl"; sourceTree = "<group>"; };
+		498D80D61B9A77F000A673F7 /* Echigo-Jishi.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Echigo-Jishi.pdf"; sourceTree = "<group>"; };
+		498D80D71B9A77F000A673F7 /* Echigo-Jishi.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Echigo-Jishi.xml"; sourceTree = "<group>"; };
+		498D80D81B9A77F000A673F7 /* FaurReveSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = FaurReveSample.mxl; sourceTree = "<group>"; };
+		498D80D91B9A77F000A673F7 /* FaurReveSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FaurReveSample.pdf; sourceTree = "<group>"; };
+		498D80DA1B9A77F000A673F7 /* FaurReveSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FaurReveSample.xml; sourceTree = "<group>"; };
+		498D80DB1B9A77F000A673F7 /* MahlFaGe4Sample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = MahlFaGe4Sample.mxl; sourceTree = "<group>"; };
+		498D80DC1B9A77F000A673F7 /* MahlFaGe4Sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = MahlFaGe4Sample.pdf; sourceTree = "<group>"; };
+		498D80DD1B9A77F000A673F7 /* MahlFaGe4Sample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MahlFaGe4Sample.xml; sourceTree = "<group>"; };
+		498D80DE1B9A77F000A673F7 /* MozaChloSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = MozaChloSample.mxl; sourceTree = "<group>"; };
+		498D80DF1B9A77F000A673F7 /* MozaChloSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = MozaChloSample.pdf; sourceTree = "<group>"; };
+		498D80E01B9A77F000A673F7 /* MozaChloSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MozaChloSample.xml; sourceTree = "<group>"; };
+		498D80E11B9A77F000A673F7 /* MozartPianoSonata.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = MozartPianoSonata.mxl; sourceTree = "<group>"; };
+		498D80E21B9A77F000A673F7 /* MozartPianoSonata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MozartPianoSonata.png; sourceTree = "<group>"; };
+		498D80E31B9A77F000A673F7 /* MozartPianoSonata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MozartPianoSonata.xml; sourceTree = "<group>"; };
+		498D80E41B9A77F000A673F7 /* MozartTrio.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = MozartTrio.mxl; sourceTree = "<group>"; };
+		498D80E51B9A77F000A673F7 /* MozartTrio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MozartTrio.png; sourceTree = "<group>"; };
+		498D80E61B9A77F000A673F7 /* MozartTrio.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MozartTrio.xml; sourceTree = "<group>"; };
+		498D80E71B9A77F000A673F7 /* MozaVeilSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = MozaVeilSample.mxl; sourceTree = "<group>"; };
+		498D80E81B9A77F000A673F7 /* MozaVeilSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = MozaVeilSample.pdf; sourceTree = "<group>"; };
+		498D80E91B9A77F000A673F7 /* MozaVeilSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MozaVeilSample.xml; sourceTree = "<group>"; };
+		498D80EA1B9A77F000A673F7 /* Saltarello.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Saltarello.mxl; sourceTree = "<group>"; };
+		498D80EB1B9A77F000A673F7 /* Saltarello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Saltarello.png; sourceTree = "<group>"; };
+		498D80EC1B9A77F000A673F7 /* Saltarello.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Saltarello.xml; sourceTree = "<group>"; };
+		498D80ED1B9A77F000A673F7 /* SchbAvMaSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = SchbAvMaSample.mxl; sourceTree = "<group>"; };
+		498D80EE1B9A77F000A673F7 /* SchbAvMaSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SchbAvMaSample.pdf; sourceTree = "<group>"; };
+		498D80EF1B9A77F000A673F7 /* SchbAvMaSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SchbAvMaSample.xml; sourceTree = "<group>"; };
+		498D80F01B9A77F000A673F7 /* Telemann.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Telemann.mxl; sourceTree = "<group>"; };
+		498D80F11B9A77F000A673F7 /* Telemann.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Telemann.png; sourceTree = "<group>"; };
+		498D80F21B9A77F000A673F7 /* Telemann.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Telemann.xml; sourceTree = "<group>"; };
 		965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imusantcat_main.cpp; sourceTree = "<group>"; };
 		965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_collectionvisitor.cpp; sourceTree = "<group>"; };
 		965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_collectionvisitor.h; sourceTree = "<group>"; };
@@ -1028,6 +1086,7 @@
 		4970E01E1B76C10B0052496C /* testdata */ = {
 			isa = PBXGroup;
 			children = (
+				498D80BA1B9A77F000A673F7 /* MusicXMLv3 */,
 				4970E01F1B76C10B0052496C /* MusicXMLv1 */,
 			);
 			name = testdata;
@@ -1080,6 +1139,76 @@
 				4970E03E1B76E4E50052496C /* TXML2IMUSANTVisitor.h */,
 			);
 			path = inc;
+			sourceTree = "<group>";
+		};
+		498D80BA1B9A77F000A673F7 /* MusicXMLv3 */ = {
+			isa = PBXGroup;
+			children = (
+				498D80BB1B9A77F000A673F7 /* README.txt */,
+				498D80BC1B9A77F000A673F7 /* xmlsamples */,
+			);
+			path = MusicXMLv3;
+			sourceTree = "<group>";
+		};
+		498D80BC1B9A77F000A673F7 /* xmlsamples */ = {
+			isa = PBXGroup;
+			children = (
+				498D80BD1B9A77F000A673F7 /* ActorPreludeSample.mxl */,
+				498D80BE1B9A77F000A673F7 /* ActorPreludeSample.pdf */,
+				498D80BF1B9A77F000A673F7 /* ActorPreludeSample.xml */,
+				498D80C01B9A77F000A673F7 /* BeetAnGeSample.mxl */,
+				498D80C11B9A77F000A673F7 /* BeetAnGeSample.pdf */,
+				498D80C21B9A77F000A673F7 /* BeetAnGeSample.xml */,
+				498D80C31B9A77F000A673F7 /* Binchois.mxl */,
+				498D80C41B9A77F000A673F7 /* Binchois.png */,
+				498D80C51B9A77F000A673F7 /* Binchois.xml */,
+				498D80C61B9A77F000A673F7 /* BrahWiMeSample.mxl */,
+				498D80C71B9A77F000A673F7 /* BrahWiMeSample.pdf */,
+				498D80C81B9A77F000A673F7 /* BrahWiMeSample.xml */,
+				498D80C91B9A77F000A673F7 /* BrookeWestSample.mxl */,
+				498D80CA1B9A77F000A673F7 /* BrookeWestSample.pdf */,
+				498D80CB1B9A77F000A673F7 /* BrookeWestSample.xml */,
+				498D80CC1B9A77F000A673F7 /* Chant.mxl */,
+				498D80CD1B9A77F000A673F7 /* Chant.png */,
+				498D80CE1B9A77F000A673F7 /* Chant.xml */,
+				498D80CF1B9A77F000A673F7 /* DebuMandSample.mxl */,
+				498D80D01B9A77F000A673F7 /* DebuMandSample.pdf */,
+				498D80D11B9A77F000A673F7 /* DebuMandSample.xml */,
+				498D80D21B9A77F000A673F7 /* Dichterliebe01.mxl */,
+				498D80D31B9A77F000A673F7 /* Dichterliebe01.pdf */,
+				498D80D41B9A77F000A673F7 /* Dichterliebe01.xml */,
+				498D80D51B9A77F000A673F7 /* Echigo-Jishi.mxl */,
+				498D80D61B9A77F000A673F7 /* Echigo-Jishi.pdf */,
+				498D80D71B9A77F000A673F7 /* Echigo-Jishi.xml */,
+				498D80D81B9A77F000A673F7 /* FaurReveSample.mxl */,
+				498D80D91B9A77F000A673F7 /* FaurReveSample.pdf */,
+				498D80DA1B9A77F000A673F7 /* FaurReveSample.xml */,
+				498D80DB1B9A77F000A673F7 /* MahlFaGe4Sample.mxl */,
+				498D80DC1B9A77F000A673F7 /* MahlFaGe4Sample.pdf */,
+				498D80DD1B9A77F000A673F7 /* MahlFaGe4Sample.xml */,
+				498D80DE1B9A77F000A673F7 /* MozaChloSample.mxl */,
+				498D80DF1B9A77F000A673F7 /* MozaChloSample.pdf */,
+				498D80E01B9A77F000A673F7 /* MozaChloSample.xml */,
+				498D80E11B9A77F000A673F7 /* MozartPianoSonata.mxl */,
+				498D80E21B9A77F000A673F7 /* MozartPianoSonata.png */,
+				498D80E31B9A77F000A673F7 /* MozartPianoSonata.xml */,
+				498D80E41B9A77F000A673F7 /* MozartTrio.mxl */,
+				498D80E51B9A77F000A673F7 /* MozartTrio.png */,
+				498D80E61B9A77F000A673F7 /* MozartTrio.xml */,
+				498D80E71B9A77F000A673F7 /* MozaVeilSample.mxl */,
+				498D80E81B9A77F000A673F7 /* MozaVeilSample.pdf */,
+				498D80E91B9A77F000A673F7 /* MozaVeilSample.xml */,
+				498D80EA1B9A77F000A673F7 /* Saltarello.mxl */,
+				498D80EB1B9A77F000A673F7 /* Saltarello.png */,
+				498D80EC1B9A77F000A673F7 /* Saltarello.xml */,
+				498D80ED1B9A77F000A673F7 /* SchbAvMaSample.mxl */,
+				498D80EE1B9A77F000A673F7 /* SchbAvMaSample.pdf */,
+				498D80EF1B9A77F000A673F7 /* SchbAvMaSample.xml */,
+				498D80F01B9A77F000A673F7 /* Telemann.mxl */,
+				498D80F11B9A77F000A673F7 /* Telemann.png */,
+				498D80F21B9A77F000A673F7 /* Telemann.xml */,
+			);
+			path = xmlsamples;
 			sourceTree = "<group>";
 		};
 		96A71C821A9160CB0021C86A /* include */ = {
@@ -1321,7 +1450,7 @@
 			buildPhases = (
 				1E450E0A1B7580A000BDF9EF /* Sources */,
 				1E450E161B7580A000BDF9EF /* Frameworks */,
-				1E450E1C1B7580A000BDF9EF /* CopyFiles */,
+				1E450E1C1B7580A000BDF9EF /* Copy Files (3 items) */,
 			);
 			buildRules = (
 			);

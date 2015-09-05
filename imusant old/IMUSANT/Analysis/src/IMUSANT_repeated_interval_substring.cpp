@@ -62,6 +62,7 @@ namespace IMUSANT
         //os << "Sequence: ";
         os << substring.interval_sequence;
         // os << (substring.occurrences.size() ? "Occurrences: " : "None.");
+        
         for (int index = 0; index < substring.occurrences.size(); index++)
         {
             IMUSANT_repeated_interval_substring::occurrence occ;
@@ -73,7 +74,7 @@ namespace IMUSANT
                  << occ.note_index << ") ";
         }
         
-        os << endl;
+        os << endl << endl;
         
         return os;
     }

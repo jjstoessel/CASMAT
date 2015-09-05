@@ -63,6 +63,43 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings)
     ASSERT_EQ(FindRepeatedIntervalSubstrings_RefactorTest_Expected, actual_output.str());
 }
 
+TEST_F(IMUSANT_processing_Tests, process_music_xml_3_Dichterliebe01)
+{
+    string relative_path = "IMUSANT_tests.testdata/test_files/MusicXMLv3/xmlsamples/Dichterliebe01.xml";
+    
+    filesystem::path testdata(filesystem::initial_path());
+    testdata.append(relative_path);
+    
+    filesystem::file_status status = filesystem::status(relative_path);
+    if (!filesystem::exists(status))
+    {
+        cerr << "Problem with the test data at " << testdata.leaf() << endl << testdata.parent_path() << endl;
+        FAIL();
+    }
+    
+    IMUSANT_processing *the_processor = new IMUSANT_processing();
+    
+    //the_processor->process_directory_files(testdata);
+    the_processor->add_file(testdata);
+    
+    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    repeated_substrings_result = the_processor->find_repeated_interval_substrings();
+    
+    // ASSERT_EQ(48, repeated_substrings_result.size());
+    
+    stringstream actual_output;
+    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+    {
+        actual_output << repeated_substrings_result[index];
+    }
+    
+    actual_output << endl;
+    
+    cout << actual_output.str();
+    
+    //ASSERT_EQ(FindRepeatedIntervalSubstrings_RefactorTest_Expected, actual_output.str());
+}
+
 //TEST_F(IMUSANT_processing_Tests, FindRepeatedRefactor)
 //{
 //    string relative_path = "IMUSANT_tests.testdata.MusicXMLv1";
