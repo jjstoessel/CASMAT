@@ -9,6 +9,7 @@
 #include <iostream>
 #include <deque>
 #include <utility>
+#include <exception>
 
 #include "boost/filesystem/path.hpp"
 #include "boost/filesystem/operations.hpp"
@@ -67,24 +68,7 @@ namespace IMUSANT
     add_file(const filesystem::path& path)
     {
         // All the IMUSANT objects (such as IMUSANT_interval) inherit from SMARTTABLE or use SMARTP which are MusicXML v1 objects.
-
-        // REVISIT - WORK IN PROGRESS.
-        // The implementation of this method tres to decide the file type before handing the file off to
-        // code to parse the file properly.
-        //
-        // It might be simpler simply to try to parse the file using each parser in turn, and hand over to
-        // the next file parser if we fail.  If each file parser fails early then this approach shouldbe fine.
-
-        
-//        if (process_musicxml1_file(path))
-//            return;
-//        
-//        if (process_musicxml3_file(path))
-//            return;
-//        
-//        if (process_imusant_file(path))
-//            return;
-        
+        // Not sure that this is a problem at this point, but something to be aware of.
         
         IMUSANT_processing::music_file_format file_format;
         file_format = decide_file_type(path);
@@ -93,6 +77,10 @@ namespace IMUSANT
         {
             case musicxml1:
                 process_musicxml1_file(path);
+                break;
+                
+            case musicxml3:
+                process_musicxml3_file(path);
                 break;
                 
             case imusant:
@@ -113,56 +101,74 @@ namespace IMUSANT
     decide_file_type(const filesystem::path& path)
     {
         IMUSANT_processing::music_file_format return_val = unknown;
+        
+        filesystem::file_status status = filesystem::status(path);
+        if (!filesystem::exists(status)
+            ||
+            !filesystem::is_regular_file(status))
+        {
+            cerr << "Problem with the file " << path.leaf() << ".  Status is " << &status << endl;;
+            cerr << "Path is: " << path << endl;
+            return_val = unknown;
+        }
+        
         try
         {
-            filesystem::file_status status = filesystem::status(path);
-            if (!filesystem::exists(status)
-                ||
-                !filesystem::is_regular_file(status))
+            ifstream music_file;
+            music_file.open(path.generic_string());
+            
+            const string xml_1_0 = "DTD MusicXML 1.0";
+            const string xml_1_1 = "DTD MusicXML 1.1";
+            const string xml_3 = "DTD MusicXML 3.0";
+            
+            bool found = false;
+            string next_line;
+            
+            while (!music_file.eof() && !found)
             {
-                cerr << "Problem with the file " << path.leaf() << ".  Status is " << &status << endl;;
-                cerr << "Path is: " << path << endl;
-                return_val = unknown;
+                getline(music_file, next_line);
+                
+                if (next_line.find(xml_1_0) != string::npos)
+                {
+                    found = true;
+                    return_val = musicxml1;
+                }
+                else if (next_line.find(xml_1_1) != string::npos)
+                {
+                    found = true;
+                    return_val = musicxml1;
+                }
+                else if (next_line.find(xml_3) != string::npos)
+                {
+                    found = true;
+                    return_val = musicxml3;
+                }
             }
             
-            string xml(".xml");
-            string ims(".ims");
-            string extension = filesystem::extension(path);
+            music_file.close();
             
-            if ( extension == xml)
-            {
-                return_val = musicxml1;
-            }
-            else if (extension == ims)
-            {
-                return_val = imusant;
-            }
-            else
-            {
-                return_val = unknown;
-            }
         }
-        catch (const runtime_error& ex)
+        catch (std::exception& e)
         {
-            cerr << path.leaf() << " " << ex.what() << endl;
+            cerr << "exception occurred " << e.what() << endl;
         }
         
         return return_val;
     }
     
-    bool
-    IMUSANT_processing::
-    is_musicxml1_file(const filesystem::path& path)
-    {
-        return true;
-    }
-    
-    bool
-    IMUSANT_processing::
-    is_musicxml3_file(const filesystem::path& path)
-    {
-        return false;
-    }
+//    bool
+//    IMUSANT_processing::
+//    is_musicxml1_file(const filesystem::path& path)
+//    {
+//        return true;
+//    }
+//    
+//    bool
+//    IMUSANT_processing::
+//    is_musicxml3_file(const filesystem::path& path)
+//    {
+//        return false;
+//    }
     
     bool
     IMUSANT_processing::
@@ -201,7 +207,7 @@ namespace IMUSANT
     IMUSANT_processing::
     process_musicxml3_file(const filesystem::path& path)
     {
-        return false;
+        return process_musicxml1_file(path);
     }
     
     bool
@@ -538,12 +544,12 @@ namespace IMUSANT
                     {
                         for (j=0; j<n; j++)
                         {
-                            if (x[i]==y[j]) 
+                            if (x[i]==y[j])
                             {
                                 lcs[i+1][j+1]=lcs[i][j]+1;
                             }
                             else
-                            {	
+                            {
                                 lcs[i+1][j+1]=MAX(lcs[i+1][j],lcs[i][j+1]);
                             }
                         }
@@ -577,13 +583,13 @@ namespace IMUSANT
                                 IMUSANT_range loc1next = (iv+1)->first.getLocation();
                                 IMUSANT_range loc2next = (iv+1)->second.getLocation();
                                 
-                                if ((loc1.last.measure==loc1next.first.measure 
+                                if ((loc1.last.measure==loc1next.first.measure
                                      && loc1.last.note_index==loc1next.first.note_index)
-                                    && (loc2.last.measure==loc2next.first.measure 
+                                    && (loc2.last.measure==loc2next.first.measure
                                         && loc2.last.note_index==loc2next.first.note_index) )
                                 {
-                                    cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << "," 
-                                    << loc1.first.note_index << "; " << loc2.partID << "," 
+                                    cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
+                                    << loc1.first.note_index << "; " << loc2.partID << ","
                                     << loc2.first.measure << "," << loc2.first.note_index << ") " << endl;
                                 }
                                 else
@@ -594,8 +600,8 @@ namespace IMUSANT
                         }
                         else
                         {
-                            cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << "," 
-                            << loc1.first.note_index << "; " << loc2.partID << "," 
+                            cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
+                            << loc1.first.note_index << "; " << loc2.partID << ","
                             << loc2.first.measure << "," << loc2.first.note_index << ") " << endl ;
                         }
                     }
@@ -632,12 +638,12 @@ namespace IMUSANT
                     {
                         for (j=0; j<n-1; j++)
                         {
-                            if (x[i]==y[j]) 
+                            if (x[i]==y[j])
                             {
                                 lcs[i+1][j+1]=lcs[i][j]+1;
                             }
                             else
-                            {	
+                            {
                                 lcs[i+1][j+1]=MAX(lcs[i+1][j],lcs[i][j+1]);
                             }
                         }

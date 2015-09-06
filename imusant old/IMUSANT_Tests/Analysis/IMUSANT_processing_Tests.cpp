@@ -133,7 +133,7 @@ TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing
     vector<IMUSANT_repeated_interval_substring> v3_repeated_substrings_result;
     v3_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv3/Josquin_MSN_Kyrie.xml");
     
-    ASSERT_EQ(v1_repeated_substrings_result.size(), v3_repeated_substrings_result.size())  << "Output vectors are not the same length.";
+    ASSERT_EQ(v1_repeated_substrings_result.size(), v3_repeated_substrings_result.size())  << "EXPECTED FAILURE - Output vectors are not the same length.";
     
     stringstream v1_actual_output;
     stringstream v3_actual_output;
