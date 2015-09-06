@@ -76,36 +76,36 @@ namespace IMUSANT
         // the next file parser if we fail.  If each file parser fails early then this approach shouldbe fine.
 
         
-        if (process_musicxml1_file(path))
-            return;
-        
-        if (process_musicxml3_file(path))
-            return;
-        
-        if (process_imusant_file(path))
-            return;
-        
-        
-//        IMUSANT_processing::music_file_format file_format;
-//        file_format = decide_file_type(path);
+//        if (process_musicxml1_file(path))
+//            return;
 //        
-//        switch (file_format)
-//        {
-//            case musicxml1:
-//                process_musicxml1_file(path);
-//                break;
-//                
-//            case imusant:
-//                process_imusant_file(path);
-//                break;
-//                
-//            case unknown:
-//                break;
-//                
-//            default:
-//                break;
-//                
-//        }
+//        if (process_musicxml3_file(path))
+//            return;
+//        
+//        if (process_imusant_file(path))
+//            return;
+        
+        
+        IMUSANT_processing::music_file_format file_format;
+        file_format = decide_file_type(path);
+        
+        switch (file_format)
+        {
+            case musicxml1:
+                process_musicxml1_file(path);
+                break;
+                
+            case imusant:
+                process_imusant_file(path);
+                break;
+                
+            case unknown:
+                break;
+                
+            default:
+                break;
+                
+        }
     }
     
     IMUSANT_processing::music_file_format
@@ -120,7 +120,8 @@ namespace IMUSANT
                 ||
                 !filesystem::is_regular_file(status))
             {
-                cerr << "Problem with the file " << path.leaf() << ".  Status is " << &status;
+                cerr << "Problem with the file " << path.leaf() << ".  Status is " << &status << endl;;
+                cerr << "Path is: " << path << endl;
                 return_val = unknown;
             }
             

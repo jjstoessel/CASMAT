@@ -85,6 +85,7 @@ filesystem::path
 CATSMAT_test_utility::MakePathToTestData(string relative_path) const
 {
     filesystem::path testdata(filesystem::initial_path());
+    testdata.append("CATSMAT_testdata");
     testdata.append(relative_path);
     return testdata;
 }

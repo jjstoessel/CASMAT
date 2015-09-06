@@ -27,6 +27,27 @@
 		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
 		1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
 		1EDE2F221B3E7CFA00DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
+		496A00831B9BCBED0070BCE1 /* ActorPreludeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80BF1B9A77F000A673F7 /* ActorPreludeSample.xml */; };
+		496A00841B9BCBED0070BCE1 /* BeetAnGeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C21B9A77F000A673F7 /* BeetAnGeSample.xml */; };
+		496A00851B9BCBED0070BCE1 /* Binchois.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C51B9A77F000A673F7 /* Binchois.xml */; };
+		496A00861B9BCBED0070BCE1 /* BrahWiMeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C81B9A77F000A673F7 /* BrahWiMeSample.xml */; };
+		496A00871B9BCBED0070BCE1 /* BrookeWestSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80CB1B9A77F000A673F7 /* BrookeWestSample.xml */; };
+		496A00881B9BCBED0070BCE1 /* Chant.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80CE1B9A77F000A673F7 /* Chant.xml */; };
+		496A00891B9BCBED0070BCE1 /* DebuMandSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80D11B9A77F000A673F7 /* DebuMandSample.xml */; };
+		496A008A1B9BCBED0070BCE1 /* Dichterliebe01.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80D41B9A77F000A673F7 /* Dichterliebe01.xml */; };
+		496A008B1B9BCBED0070BCE1 /* Echigo-Jishi.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80D71B9A77F000A673F7 /* Echigo-Jishi.xml */; };
+		496A008C1B9BCBED0070BCE1 /* FaurReveSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80DA1B9A77F000A673F7 /* FaurReveSample.xml */; };
+		496A008D1B9BCBED0070BCE1 /* MahlFaGe4Sample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80DD1B9A77F000A673F7 /* MahlFaGe4Sample.xml */; };
+		496A008E1B9BCBED0070BCE1 /* MozaChloSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80E01B9A77F000A673F7 /* MozaChloSample.xml */; };
+		496A008F1B9BCBED0070BCE1 /* MozartPianoSonata.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80E31B9A77F000A673F7 /* MozartPianoSonata.xml */; };
+		496A00901B9BCBED0070BCE1 /* MozartTrio.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80E61B9A77F000A673F7 /* MozartTrio.xml */; };
+		496A00911B9BCBED0070BCE1 /* MozaVeilSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80E91B9A77F000A673F7 /* MozaVeilSample.xml */; };
+		496A00921B9BCBED0070BCE1 /* Saltarello.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80EC1B9A77F000A673F7 /* Saltarello.xml */; };
+		496A00931B9BCBED0070BCE1 /* SchbAvMaSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80EF1B9A77F000A673F7 /* SchbAvMaSample.xml */; };
+		496A00941B9BCBED0070BCE1 /* Telemann.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80F21B9A77F000A673F7 /* Telemann.xml */; };
+		496A00951B9BCC410070BCE1 /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0201B76C10B0052496C /* Kyrie.xml */; };
+		496A00961B9BCC410070BCE1 /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0211B76C10B0052496C /* Sanctus.xml */; };
+		496A01251B9BCD1C0070BCE1 /* test_files in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA8068E41B27BC5700AEFB27 /* test_files */; };
 		496EF4C71B229D8100FE715F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF4C61B229D8100FE715F /* main.cpp */; };
 		496EF4CC1B229DA500FE715F /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */; };
 		496EF4CE1B229DA500FE715F /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */; };
@@ -190,8 +211,6 @@
 		4970E0181B76B8400052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		4970E0191B76B97F0052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		4970E01D1B76BFC40052496C /* IMUSANT_processing_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E01C1B76BFC40052496C /* IMUSANT_processing_Tests.cpp */; };
-		4970E0221B76CA880052496C /* Kyrie.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 4970E0201B76C10B0052496C /* Kyrie.xml */; };
-		4970E0231B76CA880052496C /* Sanctus.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 4970E0211B76C10B0052496C /* Sanctus.xml */; };
 		4970E0251B76D8CE0052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		4970E0361B76E4CA0052496C /* IMUSANT_XMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0321B76E4CA0052496C /* IMUSANT_XMLFile.cpp */; };
 		4970E0371B76E4CA0052496C /* IMUSANT_XMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0331B76E4CA0052496C /* IMUSANT_XMLReader.cpp */; };
@@ -205,7 +224,6 @@
 		4970E0491B76E7D50052496C /* IMUSANT_XMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0331B76E4CA0052496C /* IMUSANT_XMLReader.cpp */; };
 		4970E04A1B76E7D50052496C /* IMUSANT_XMLVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0341B76E4CA0052496C /* IMUSANT_XMLVisitor.cpp */; };
 		4970E04B1B76E7D50052496C /* TXML2IMUSANTVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E0351B76E4CA0052496C /* TXML2IMUSANTVisitor.cpp */; };
-		498D80F41B9A7CC300A673F7 /* test_files in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = BA8068E41B27BC5700AEFB27 /* test_files */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		965208D80A4CDF9D006AFD81 /* IMUSANT_barline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */; };
 		965208D90A4CDF9E006AFD81 /* IMUSANT_chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAFC777F0A22939500A4FACD /* IMUSANT_chord.cpp */; };
@@ -417,20 +435,56 @@
 		1E450E1C1B7580A000BDF9EF /* Copy Files (3 items) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = IMUSANT_tests.testdata;
+			dstPath = IMUSANT_testdata/MusicXMLv3.xmlsamples;
 			dstSubfolderSpec = 16;
 			files = (
-				498D80F41B9A7CC300A673F7 /* test_files in Copy Files (3 items) */,
-				4970E0221B76CA880052496C /* Kyrie.xml in Copy Files (3 items) */,
-				4970E0231B76CA880052496C /* Sanctus.xml in Copy Files (3 items) */,
+				496A00831B9BCBED0070BCE1 /* ActorPreludeSample.xml in Copy Files (3 items) */,
+				496A00841B9BCBED0070BCE1 /* BeetAnGeSample.xml in Copy Files (3 items) */,
+				496A00851B9BCBED0070BCE1 /* Binchois.xml in Copy Files (3 items) */,
+				496A00861B9BCBED0070BCE1 /* BrahWiMeSample.xml in Copy Files (3 items) */,
+				496A00871B9BCBED0070BCE1 /* BrookeWestSample.xml in Copy Files (3 items) */,
+				496A00881B9BCBED0070BCE1 /* Chant.xml in Copy Files (3 items) */,
+				496A00891B9BCBED0070BCE1 /* DebuMandSample.xml in Copy Files (3 items) */,
+				496A008A1B9BCBED0070BCE1 /* Dichterliebe01.xml in Copy Files (3 items) */,
+				496A008B1B9BCBED0070BCE1 /* Echigo-Jishi.xml in Copy Files (3 items) */,
+				496A008C1B9BCBED0070BCE1 /* FaurReveSample.xml in Copy Files (3 items) */,
+				496A008D1B9BCBED0070BCE1 /* MahlFaGe4Sample.xml in Copy Files (3 items) */,
+				496A008E1B9BCBED0070BCE1 /* MozaChloSample.xml in Copy Files (3 items) */,
+				496A008F1B9BCBED0070BCE1 /* MozartPianoSonata.xml in Copy Files (3 items) */,
+				496A00901B9BCBED0070BCE1 /* MozartTrio.xml in Copy Files (3 items) */,
+				496A00911B9BCBED0070BCE1 /* MozaVeilSample.xml in Copy Files (3 items) */,
+				496A00921B9BCBED0070BCE1 /* Saltarello.xml in Copy Files (3 items) */,
+				496A00931B9BCBED0070BCE1 /* SchbAvMaSample.xml in Copy Files (3 items) */,
+				496A00941B9BCBED0070BCE1 /* Telemann.xml in Copy Files (3 items) */,
 			);
 			name = "Copy Files (3 items)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		496A00821B9BCB2D0070BCE1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = IMUSANT_testdata/MusicXMLv1.simple_test_data;
+			dstSubfolderSpec = 16;
+			files = (
+				496A00951B9BCC410070BCE1 /* Kyrie.xml in CopyFiles */,
+				496A00961B9BCC410070BCE1 /* Sanctus.xml in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		496A00971B9BCC4F0070BCE1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = IMUSANT_testdata;
+			dstSubfolderSpec = 16;
+			files = (
+				496A01251B9BCD1C0070BCE1 /* test_files in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		496EF4C21B229D8100FE715F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = testdata;
+			dstPath = CATSMAT_testdata;
 			dstSubfolderSpec = 16;
 			files = (
 				1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */,
@@ -1451,6 +1505,8 @@
 				1E450E0A1B7580A000BDF9EF /* Sources */,
 				1E450E161B7580A000BDF9EF /* Frameworks */,
 				1E450E1C1B7580A000BDF9EF /* Copy Files (3 items) */,
+				496A00821B9BCB2D0070BCE1 /* CopyFiles */,
+				496A00971B9BCC4F0070BCE1 /* CopyFiles */,
 			);
 			buildRules = (
 			);

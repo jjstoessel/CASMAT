@@ -62,7 +62,7 @@ TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("testdata/TestScore_1_Measure.xml");
+    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_1_Measure.xml");
     
     SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
     ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
@@ -81,7 +81,7 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("testdata/TestScore_4_Measures.xml");
+    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_4_Measures.xml");
     
     SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
     ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
@@ -104,7 +104,7 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithQuaverPassingNotes)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("testdata/TestScore_4_Measures_WithQuaverPassingNotes.xml");
+    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_4_Measures_WithQuaverPassingNotes.xml");
     
     SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
     ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
@@ -122,7 +122,7 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithQuaverPassingNotes)
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("testdata/TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
+    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
     
     SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
     ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
@@ -141,7 +141,7 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes)
 
 TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("testdata/Sanctus.xml");
+    filesystem::path testdata = testUtil.MakePathToTestData("Sanctus.xml");
     
     SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
     ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
@@ -159,7 +159,7 @@ TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
 
 TEST_F(CATSMAT_cp_matrix_Test, Kyrie)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("testdata/Kyrie.xml");
+    filesystem::path testdata = testUtil.MakePathToTestData("Kyrie.xml");
     
     SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
     ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
@@ -177,7 +177,7 @@ TEST_F(CATSMAT_cp_matrix_Test, Kyrie)
 
 TEST_F(CATSMAT_cp_matrix_Test, Josquin_MAF_Kyrie)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("testdata/Josquin_MAF_Kyrie.xml");
+    filesystem::path testdata = testUtil.MakePathToTestData("Josquin_MAF_Kyrie.xml");
     
     SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
     ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;

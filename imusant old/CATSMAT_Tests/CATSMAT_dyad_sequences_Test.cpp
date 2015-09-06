@@ -51,7 +51,7 @@ protected:
 
 TEST_F(CATSMAT_dyad_sequences_Test, TestScore_1_Measure) {
     
-    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("testdata/TestScore_1_Measure.xml");
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_1_Measure.xml");
     theSequences.Visit(*the_matrix);
     
     string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
@@ -61,7 +61,7 @@ TEST_F(CATSMAT_dyad_sequences_Test, TestScore_1_Measure) {
 
 TEST_F(CATSMAT_dyad_sequences_Test, TestScore_4_Measures) {
 
-    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("testdata/TestScore_4_Measures.xml");
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures.xml");
     theSequences.Visit(*the_matrix);
 
     string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
@@ -71,7 +71,7 @@ TEST_F(CATSMAT_dyad_sequences_Test, TestScore_4_Measures) {
 
 TEST_F(CATSMAT_dyad_sequences_Test, TestScore_4_Measures_WithQuaverPassingNotes) {
     
-    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("testdata/TestScore_4_Measures_WithQuaverPassingNotes.xml");
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures_WithQuaverPassingNotes.xml");
     theSequences.Visit(*the_matrix);
     
     string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
@@ -81,7 +81,7 @@ TEST_F(CATSMAT_dyad_sequences_Test, TestScore_4_Measures_WithQuaverPassingNotes)
 
 TEST_F(CATSMAT_dyad_sequences_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes) {
     
-    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("testdata/TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
     theSequences.Visit(*the_matrix);
     
     string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
