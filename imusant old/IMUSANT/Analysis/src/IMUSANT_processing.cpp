@@ -206,8 +206,11 @@ namespace IMUSANT
     IMUSANT_processing::
     process_musicxml3_file(const filesystem::path& path)
     {
+        string file_path = path.string();
+        
+        
         MusicXML2::xmlreader r;
-        MusicXML2::SXMLFile sxml_file = r.read("/Usr/fred");
+        MusicXML2::SXMLFile sxml_file = r.read(file_path.c_str());
 //        
         
         return process_musicxml1_file(path);
