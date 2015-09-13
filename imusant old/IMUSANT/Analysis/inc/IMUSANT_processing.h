@@ -57,8 +57,8 @@ private:
     music_file_format decide_file_type(const filesystem::path& path);
 
     
-    bool is_musicxml1_file(const filesystem::path& path);
-    bool is_musicxml3_file(const filesystem::path& path);
+//    bool is_musicxml1_file(const filesystem::path& path);
+//    bool is_musicxml3_file(const filesystem::path& path);
     
     bool process_musicxml1_file(const filesystem::path& path);
     bool process_musicxml3_file(const filesystem::path& path);

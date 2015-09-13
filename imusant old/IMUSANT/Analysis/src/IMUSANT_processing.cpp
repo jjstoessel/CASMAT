@@ -27,12 +27,24 @@
 #include "iterator.h"
 #include "repeats.h"
 
+// MusicXML2
+
+#include "elements/xml.h"
+#include "parser/reader.h"
+#include "files/xmlfile.h"
+#include "files/xmlreader.h"
+#include "elements/xml_tree_browser.h"
+// #include "elements/unrolled_xml_tree_browser.h"
+
 
 #define MAX(X,Y) ( (X>Y)? (X) : (Y) )
+
 
 using namespace std;
 using namespace ns_suffixtree;
 using namespace boost;
+
+
 
 namespace IMUSANT
 {
@@ -156,19 +168,6 @@ namespace IMUSANT
         return return_val;
     }
     
-//    bool
-//    IMUSANT_processing::
-//    is_musicxml1_file(const filesystem::path& path)
-//    {
-//        return true;
-//    }
-//    
-//    bool
-//    IMUSANT_processing::
-//    is_musicxml3_file(const filesystem::path& path)
-//    {
-//        return false;
-//    }
     
     bool
     IMUSANT_processing::
@@ -179,7 +178,7 @@ namespace IMUSANT
         TXML2IMUSANTVisitor c;
         
         // This is a MusicXML v1 object.
-        TMusicXMLFile reader;
+        MusicXML::TMusicXMLFile reader;
         
         //convert first
         SScore score = reader.read((string&)path);  // This is a MusicXML v1 object.
@@ -207,7 +206,21 @@ namespace IMUSANT
     IMUSANT_processing::
     process_musicxml3_file(const filesystem::path& path)
     {
+        MusicXML2::xmlreader r;
+        MusicXML2::SXMLFile sxml_file = r.read("/Usr/fred");
+//        
+        
         return process_musicxml1_file(path);
+//        MusicXML2::xmlreader xmlReader;
+//        MusicXML2::Sxmlelement sxmlElement;
+//        MusicXML2::SXMLFile sxmlFile = xmlReader.read(filename.c_str());
+//        
+//        if (sxmlFile)
+//        {
+//            sxmlElement = sxmlFile->elements();
+//        }
+        
+        // return true;
     }
     
     bool
