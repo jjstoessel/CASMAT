@@ -20,6 +20,8 @@
 		1E450E1B1B7580A000BDF9EF /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		1E450E291B75810A00BDF9EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E281B75810A00BDF9EF /* main.cpp */; };
 		1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */; };
+		1E5218B71BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */; };
+		1E5218B81BAD0A1E00FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */; };
 		1EDAD2C51B7B376100556002 /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */; };
 		1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
 		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
@@ -439,6 +441,8 @@
 		1E450E271B7580A000BDF9EF /* IMUSANT_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IMUSANT_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E450E281B75810A00BDF9EF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = IMUSANT_Tests/main.cpp; sourceTree = "<group>"; };
 		1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_pitch_Tests.cpp; sourceTree = "<group>"; };
+		1E5218B51BAD029200FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IMUSANT_mxmlv3_to_imusant_visitor.h; path = inc/IMUSANT_mxmlv3_to_imusant_visitor.h; sourceTree = "<group>"; };
+		1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_mxmlv3_to_imusant_visitor.cpp; path = src/IMUSANT_mxmlv3_to_imusant_visitor.cpp; sourceTree = "<group>"; };
 		1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_repeated_interval_substring.cpp; sourceTree = "<group>"; };
 		1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_repeated_interval_substring.h; sourceTree = "<group>"; };
 		1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_1_Measure.xml; sourceTree = "<group>"; };
@@ -1235,6 +1239,38 @@
 			name = IMUSANT_Tests;
 			sourceTree = "<group>";
 		};
+		1E5218B11BAD00E100FDACB8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1E5218B21BAD00EA00FDACB8 /* MusicXML_v3 */ = {
+			isa = PBXGroup;
+			children = (
+				1E5218B31BAD011F00FDACB8 /* inc */,
+				1E5218B41BAD012400FDACB8 /* src */,
+			);
+			path = MusicXML_v3;
+			sourceTree = "<group>";
+		};
+		1E5218B31BAD011F00FDACB8 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				1E5218B51BAD029200FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.h */,
+			);
+			name = inc;
+			sourceTree = "<group>";
+		};
+		1E5218B41BAD012400FDACB8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		1EDE2F161B3E0ACD00DB1BD0 /* source_files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1295,7 +1331,9 @@
 		4970E0071B7586870052496C /* Converters */ = {
 			isa = PBXGroup;
 			children = (
+				1E5218B11BAD00E100FDACB8 /* Shared */,
 				4970E0131B75D20A0052496C /* MusicXML_v1 */,
+				1E5218B21BAD00EA00FDACB8 /* MusicXML_v3 */,
 			);
 			path = Converters;
 			sourceTree = "<group>";
@@ -2911,6 +2949,7 @@
 				4970E0491B76E7D50052496C /* IMUSANT_XMLReader.cpp in Sources */,
 				4970E04A1B76E7D50052496C /* IMUSANT_XMLVisitor.cpp in Sources */,
 				4970E04B1B76E7D50052496C /* TXML2IMUSANTVisitor.cpp in Sources */,
+				1E5218B81BAD0A1E00FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */,
 				4970E0101B7591470052496C /* IMUSANT_interval.cpp in Sources */,
 				496EF7001B22B06100FE715F /* IMUSANT_contour_symbol.cpp in Sources */,
 				496EF7011B22B06100FE715F /* IMUSANT_record.cpp in Sources */,
@@ -2980,6 +3019,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E5218B71BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */,
 				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

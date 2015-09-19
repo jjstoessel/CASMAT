@@ -35,16 +35,28 @@ protected:
     
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_file(string path_to_test_data_file);
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_directory(string path_to_test_data_directory);
+    
+    filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
   
 };
+
+
+filesystem::path
+IMUSANT_processing_Tests::
+make_path_to_test_file(string relative_path_to_test_data_file)
+{
+    filesystem::path testdata(filesystem::initial_path());
+    testdata.append("IMUSANT_testdata");
+    testdata.append(relative_path_to_test_data_file);
+    return testdata;
+}
+
 
 vector<IMUSANT_repeated_interval_substring>
 IMUSANT_processing_Tests::
 find_repeated_substrings_by_file(string relative_path_to_test_data_file)
 {
-    filesystem::path testdata(filesystem::initial_path());
-    testdata.append("IMUSANT_testdata");
-    testdata.append(relative_path_to_test_data_file);
+    filesystem::path testdata = make_path_to_test_file(relative_path_to_test_data_file);
     
     filesystem::file_status status = filesystem::status(testdata);
     if (!filesystem::exists(status))
@@ -157,7 +169,7 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Dichterliebe01_m
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
     repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
     
-    ASSERT_EQ(519, repeated_substrings_result.size());
+    ASSERT_EQ(519, repeated_substrings_result.size()) << "EXPECTED FAILURE";
     
     stringstream actual_output;
     for(int index = 0 ; index < repeated_substrings_result.size(); index++)
@@ -169,4 +181,19 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Dichterliebe01_m
     
     ASSERT_EQ(FindRepeatedIntervalSubstrings_Dichterliebe01_Expected, actual_output.str());
 }
+
+TEST_F(IMUSANT_processing_Tests, MXMLv3_Parser_CreatorTests)
+{
+    string relative_path = "MusicXMLv3.xmlsamples/Dichterliebe01.xml";
+    
+    filesystem::path file_path = make_path_to_test_file(relative_path);
+    
+    IMUSANT_processing parser;
+    S_IMUSANT_score score = parser.process_musicxml3_file(file_path);
+    
+    STRPAIRVECTOR creators = score->getCreator();
+    ASSERT_EQ(2, creators.size());
+}
+
+
 
