@@ -241,7 +241,7 @@ int catalogue(filesystem::path& p)
 		//error checking required!
 		score->accept(c);
 		
-		c.getIMUSANTScore()->accept(collection);
+		c.get_imusant_score()->accept(collection);
 		//mutable_path = filesystem::change_extension(p, imusant);
 		//ixml.write(c.getIMUSANTScore(),mutable_path.native_file_string()); //write to file
 	}
