@@ -34,6 +34,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>libMusicXML3.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -53,6 +58,11 @@
 			<true/>
 		</dict>
 		<key>496EF6BB1B22B01600FE715F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>49C80D8F1BA4E69400DCA903</key>
 		<dict>
 			<key>primary</key>
 			<true/>
