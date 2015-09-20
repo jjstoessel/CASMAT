@@ -36,6 +36,8 @@
 #include "elements/xml_tree_browser.h"
 // #include "elements/unrolled_xml_tree_browser.h"
 
+#include "IMUSANT_mxmlv3_to_imusant_visitor.h"
+
 
 #define MAX(X,Y) ( (X>Y)? (X) : (Y) )
 
@@ -169,11 +171,10 @@ namespace IMUSANT
     }
     
     
-    bool
+    S_IMUSANT_score
     IMUSANT_processing::
     process_musicxml1_file(const filesystem::path& path)
     {
-        
         // This is a IMUSANT object which derives from a MusicXML v1 object.
         TXML2IMUSANTVisitor c;
         
@@ -185,7 +186,7 @@ namespace IMUSANT
         if (score == NULL)
         {
             cerr << "Parse error in " << path.leaf() << endl;
-            return false;
+            throw "Parse error";
         }
         
         //ensure unique ID
@@ -195,14 +196,14 @@ namespace IMUSANT
         //error checking required!
         score->accept(c);
         processed_files[i].ignoreRepeatedPitches(false);
-        c.getIMUSANTScore()->accept(processed_files[i]);
+        c.get_imusant_score()->accept(processed_files[i]);
         
         IDs.push_back(i);
         
-        return true;
+        return c.get_imusant_score();
     }
     
-    bool
+    S_IMUSANT_score
     IMUSANT_processing::
     process_musicxml3_file(const filesystem::path& path)
     {
@@ -213,17 +214,14 @@ namespace IMUSANT
         MusicXML2::SXMLFile sxml_file = r.read(file_path.c_str());
 //        
         
-        return process_musicxml1_file(path);
-//        MusicXML2::xmlreader xmlReader;
-//        MusicXML2::Sxmlelement sxmlElement;
-//        MusicXML2::SXMLFile sxmlFile = xmlReader.read(filename.c_str());
-//        
-//        if (sxmlFile)
-//        {
-//            sxmlElement = sxmlFile->elements();
-//        }
+        IMUSANT_mxmlv3_to_imusant_visitor parser;
+        if (sxml_element)
+        {
+            tree_browser<MusicXML2::xmlelement> browser(&parser);
+            browser.browse(*sxml_element);
+        }
         
-        // return true;
+        return parser.get_imusant_score();
     }
     
     bool

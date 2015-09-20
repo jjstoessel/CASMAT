@@ -108,7 +108,7 @@ class VEXP TXML2IMUSANTVisitor : public TRoutedVisitor, public smartable {
 		void visite ( SWords& elt );
 		void visite ( SWork& elt );
 		
-		S_IMUSANT_score&	getIMUSANTScore() { assert(fIMUSANTScore!=0); return fIMUSANTScore; }
+		S_IMUSANT_score&	get_imusant_score() { assert(fIMUSANTScore!=0); return fIMUSANTScore; }
 
 	protected:
 	

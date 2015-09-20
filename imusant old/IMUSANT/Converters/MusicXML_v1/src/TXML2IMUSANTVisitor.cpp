@@ -36,7 +36,7 @@
 namespace IMUSANT
 {
 
-#define debug	// cout << "visite " << __LINE__ << endl; fflush(stdout);
+#define debug // cout << "visite " << __LINE__ << endl; fflush(stdout);
 #define XML2IMUSANTDebug	0
 
 #if XML2IMUSANTDebug
@@ -938,7 +938,9 @@ void TXML2IMUSANTVisitor::visite ( SScorePart& elt ) { debug
 #pragma mark TScorePartwise handler
 //________________________________________________________________________
 // First visit to class
-void TXML2IMUSANTVisitor::visite ( SScorePartwise& elt ) { debug
+void TXML2IMUSANTVisitor::visite ( SScorePartwise& elt )
+{
+    debug
 	fScore = elt;
 	elt->accept(fScan); //fScan is a visitor to scan score for information
 	
