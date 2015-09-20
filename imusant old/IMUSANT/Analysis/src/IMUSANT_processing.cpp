@@ -207,12 +207,19 @@ namespace IMUSANT
     IMUSANT_processing::
     process_musicxml3_file(const filesystem::path& path)
     {
-        string file_path = path.string();
-        
+        string file_path = path.generic_string();
         
         MusicXML2::xmlreader r;
         MusicXML2::SXMLFile sxml_file = r.read(file_path.c_str());
-//        
+
+        MusicXML2::Sxmlelement sxml_element;
+        if (sxml_file)
+        {
+            sxml_element = sxml_file->elements();
+            
+//            string element_name = sxml_element->getName();
+//            cout << "Element Name: " << element_name << endl;
+        }
         
         IMUSANT_mxmlv3_to_imusant_visitor parser;
         if (sxml_element)

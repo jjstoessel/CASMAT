@@ -72,7 +72,7 @@ CATSMAT_processing::add_file(const filesystem::path& path)
 				//error checking required!
 				score->accept(c);
 				collections[i].ignoreRepeatedPitches(false);
-				c.getIMUSANTScore()->accept(collections[i]);
+				c.get_imusant_score()->accept(collections[i]);
 				
 				IDs.push_back(i);
  

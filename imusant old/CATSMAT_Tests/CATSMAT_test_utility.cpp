@@ -22,7 +22,7 @@ CATSMAT_test_utility::ConvertSscoreToImusantscore(SScore xml_score) const
 {
     TXML2IMUSANTVisitor xml_2_imusant_translator;
     xml_score->accept(xml_2_imusant_translator);
-    S_IMUSANT_score imusant_score = xml_2_imusant_translator.getIMUSANTScore();
+    S_IMUSANT_score imusant_score = xml_2_imusant_translator.get_imusant_score();
     return imusant_score;
 }
 
