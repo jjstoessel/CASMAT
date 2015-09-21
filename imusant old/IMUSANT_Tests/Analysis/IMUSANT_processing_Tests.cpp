@@ -191,6 +191,9 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_Parser_CreatorTests)
     IMUSANT_processing parser;
     S_IMUSANT_score score = parser.process_musicxml3_file(file_path);
     
+    ASSERT_EQ(score->getMovementTitle(), "Im wunderschönen Monat Mai");
+    ASSERT_EQ(score->getMovementNum(), "1");
+    
     STRPAIRVECTOR creators = score->getCreator();
     ASSERT_EQ(2, creators.size());
     

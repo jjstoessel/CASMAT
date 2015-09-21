@@ -37,6 +37,18 @@ namespace IMUSANT
     visitStart( S_movement_title& elt)
     {
         debug("S_movement_title");
+        assert(fImusantScore);
+        fImusantScore->setMovementTitle(elt->getValue());
+    }
+    
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_movement_number& elt)
+    {
+        debug("S_movement_number");
+        assert(fImusantScore);
+        fImusantScore->setMovementNum(elt->getValue());
     }
     
     void
@@ -57,7 +69,6 @@ namespace IMUSANT
     visitStart( S_score_part& elt)
     {
         debug("S_score_part");
-
         assert(fImusantScore);
         
         S_IMUSANT_part part = new_IMUSANT_part();
@@ -73,9 +84,7 @@ namespace IMUSANT
     visitStart( S_part_name& elt)
     {
         debug("S_part_name");
-        
         assert(fCurrentPart);
-        
         fCurrentPart->setPartName(elt->getValue());
     }
     
@@ -84,9 +93,7 @@ namespace IMUSANT
     visitStart( S_part_abbreviation& elt)
     {
         debug("S_part_abbreviation");
-        
         assert(fCurrentPart);
-        
         fCurrentPart->setPartAbbrev(elt->getValue());
     }
     
