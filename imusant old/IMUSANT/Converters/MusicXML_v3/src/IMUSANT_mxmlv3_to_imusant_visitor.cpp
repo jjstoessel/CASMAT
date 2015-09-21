@@ -57,6 +57,15 @@ namespace IMUSANT
     visitStart( S_score_part& elt)
     {
         debug("S_score_part");
+
+        assert(fImusantScore);
+        
+        S_IMUSANT_part part = new_IMUSANT_part();
+        fCurrentPart = part;
+        
+        part->setID(elt->getAttributeValue("id"));
+        
+        fImusantScore->addPart(part);
     }
     
     void
@@ -64,23 +73,29 @@ namespace IMUSANT
     visitStart( S_part_name& elt)
     {
         debug("S_part_name");
+        
+        assert(fCurrentPart);
+        
+        fCurrentPart->setPartName(elt->getValue());
     }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_part_abbreviation& elt)
+    {
+        debug("S_part_abbreviation");
+        
+        assert(fCurrentPart);
+        
+        fCurrentPart->setPartAbbrev(elt->getValue());
+    }
+    
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_part& elt)
     {
         debug("S_part");
-        assert(fImusantScore);
-        
-        S_IMUSANT_part part = new_IMUSANT_part();
-        
-        part->setID(elt->getAttributeValue("id"));
-        
-        // part-name and part-abbreviation are elements unused in the sample data that I have so I'm
-        // ignoring these for the moment
-        
-        fImusantScore->addPart(part);
     }
         
 }

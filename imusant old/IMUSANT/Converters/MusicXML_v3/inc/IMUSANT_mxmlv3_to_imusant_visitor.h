@@ -28,6 +28,7 @@ namespace IMUSANT
     public visitor<S_creator>,
     public visitor<S_score_part>,
     public visitor<S_part_name>,
+    public visitor<S_part_abbreviation>,
     public visitor<S_part>
     {
         
@@ -52,11 +53,15 @@ namespace IMUSANT
         virtual void visitStart( S_creator& elt);
         virtual void visitStart( S_score_part& elt);
         virtual void visitStart( S_part_name& elt);
+        virtual void visitStart( S_part_abbreviation& elt);
+        
         virtual void visitStart( S_part& elt);
         
     private:
         
         S_IMUSANT_score fImusantScore;
+        
+        S_IMUSANT_part fCurrentPart;
         
     };
 }
