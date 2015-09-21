@@ -13,7 +13,7 @@
 namespace IMUSANT
 {
     
-#define debug // cout << "visitStart() in " << __FILE__ << " at line " << __LINE__ << endl; fflush(stdout)
+#define debug(method) cout << "Visiting " << method << endl; fflush(stdout)
 
     
     IMUSANT_mxmlv3_to_imusant_visitor::
@@ -27,6 +27,7 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_score_partwise& elt)
     {
+        debug("S_score_partwise");
         fImusantScore = new_IMUSANT_score();
     }
     
@@ -35,14 +36,14 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_movement_title& elt)
     {
-        debug;
+        debug("S_movement_title");
     }
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_creator &elt)
     {
-        debug;
+        debug("S_creator");
         STRPAIR creator;
         
         creator.first = elt->getAttributeValue("type");
@@ -55,21 +56,31 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_score_part& elt)
     {
-        debug;
+        debug("S_score_part");
     }
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_part_name& elt)
     {
-        debug;
+        debug("S_part_name");
     }
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_part& elt)
     {
-        debug;
+        debug("S_part");
+        assert(fImusantScore);
+        
+        S_IMUSANT_part part = new_IMUSANT_part();
+        
+        part->setID(elt->getAttributeValue("id"));
+        
+        // part-name and part-abbreviation are elements unused in the sample data that I have so I'm
+        // ignoring these for the moment
+        
+        fImusantScore->addPart(part);
     }
         
 }

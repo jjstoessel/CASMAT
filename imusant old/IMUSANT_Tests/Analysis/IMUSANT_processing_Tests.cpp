@@ -193,6 +193,11 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_Parser_CreatorTests)
     
     STRPAIRVECTOR creators = score->getCreator();
     ASSERT_EQ(2, creators.size());
+    
+    IMUSANT_vector<S_IMUSANT_part> part_list = score->partlist()->parts();
+    ASSERT_EQ(2, part_list.size());
+    ASSERT_EQ(part_list[0]->getID(), "P1");
+    ASSERT_EQ(part_list[1]->getID(), "P2");
 }
 
 
