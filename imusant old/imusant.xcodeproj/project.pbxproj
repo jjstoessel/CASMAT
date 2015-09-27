@@ -21,6 +21,8 @@
 		1E450E291B75810A00BDF9EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E281B75810A00BDF9EF /* main.cpp */; };
 		1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */; };
 		1E5218B81BAD0A1E00FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */; };
+		1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E6C38D01BB662F80025BA7E /* IMUSANT_converters_shared_types.h */; };
+		1E6C38D51BB766020025BA7E /* IMUSANT_score_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C38D21BB75C2A0025BA7E /* IMUSANT_score_Tests.cpp */; };
 		1EDAD2C51B7B376100556002 /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */; };
 		1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
 		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
@@ -466,6 +468,8 @@
 		1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_pitch_Tests.cpp; sourceTree = "<group>"; };
 		1E5218B51BAD029200FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IMUSANT_mxmlv3_to_imusant_visitor.h; path = inc/IMUSANT_mxmlv3_to_imusant_visitor.h; sourceTree = "<group>"; };
 		1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_mxmlv3_to_imusant_visitor.cpp; path = src/IMUSANT_mxmlv3_to_imusant_visitor.cpp; sourceTree = "<group>"; };
+		1E6C38D01BB662F80025BA7E /* IMUSANT_converters_shared_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_converters_shared_types.h; path = inc/IMUSANT_converters_shared_types.h; sourceTree = "<group>"; };
+		1E6C38D21BB75C2A0025BA7E /* IMUSANT_score_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_score_Tests.cpp; sourceTree = "<group>"; };
 		1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_repeated_interval_substring.cpp; sourceTree = "<group>"; };
 		1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_repeated_interval_substring.h; sourceTree = "<group>"; };
 		1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_1_Measure.xml; sourceTree = "<group>"; };
@@ -1265,6 +1269,7 @@
 		1E5218B11BAD00E100FDACB8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				1E6C38D01BB662F80025BA7E /* IMUSANT_converters_shared_types.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1467,6 +1472,7 @@
 			children = (
 				4970E00C1B7589700052496C /* IMUSANT_key_Tests.cpp */,
 				1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */,
+				1E6C38D21BB75C2A0025BA7E /* IMUSANT_score_Tests.cpp */,
 			);
 			name = DomainObjects;
 			path = IMUSANT_Tests/DomainObjects;
@@ -2577,6 +2583,7 @@
 			files = (
 				496EF6BF1B22B01700FE715F /* libIMUSANT.h in Headers */,
 				496EF6C11B22B01700FE715F /* libIMUSANTPriv.h in Headers */,
+				1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2819,6 +2826,7 @@
 			files = (
 				4970E01D1B76BFC40052496C /* IMUSANT_processing_Tests.cpp in Sources */,
 				1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */,
+				1E6C38D51BB766020025BA7E /* IMUSANT_score_Tests.cpp in Sources */,
 				1E450E291B75810A00BDF9EF /* main.cpp in Sources */,
 				4970E00D1B7589700052496C /* IMUSANT_key_Tests.cpp in Sources */,
 			);

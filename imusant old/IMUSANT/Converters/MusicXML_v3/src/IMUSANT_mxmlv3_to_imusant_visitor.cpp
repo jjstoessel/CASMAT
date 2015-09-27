@@ -13,7 +13,7 @@
 namespace IMUSANT
 {
     
-#define debug(method) cout << "Visiting " << method << endl; fflush(stdout)
+#define debug(method)// cout << "Visiting " << method << endl; fflush(stdout)
 
     
     IMUSANT_mxmlv3_to_imusant_visitor::
@@ -102,7 +102,45 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_part& elt)
     {
-        debug("S_part");
-    }
+        // The "part" element is outside the scope of the "score-part" element that we processed above.
+        // Therefore whenever we encounter a "part" element we need to reset the fCurrentPart to
+        // point to it.
         
+        debug("S_part");
+        
+        string part_id = elt->getAttributeValue("id");
+        
+        if (! fImusantScore->getPartById(part_id, fCurrentPart))
+        {
+            throw "Unexpected part id in IMUSANT_mxmlv3_to_imusant_visitor::visitStart(S_part). Value is: " + part_id;
+        }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_measure& elt)
+    {
+        debug("S_measure");
+
+        fCurrentMeasureNumber = elt->getAttributeLongValue("number", fCurrentMeasureNumber + 1);
+        fCurrentNoteIndex = 0;  //reset on measure entry
+        fCurrentAccidentals.clear(); //reset
+        
+        S_IMUSANT_measure measure = new_IMUSANT_measure();
+        measure->setMeasureNum(fCurrentMeasureNumber);
+        
+        if (fImusantScore)  //assert that uberclass has been instantiated.
+        {
+            fCurrentPart->addMeasure(measure);
+        }
+    }
+
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_note& elt)
+    {
+      //  debug("S_note");
+    }
+    
+    
 }

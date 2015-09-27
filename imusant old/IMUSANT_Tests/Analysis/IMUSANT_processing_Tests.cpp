@@ -191,16 +191,40 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_Parser_CreatorTests)
     IMUSANT_processing parser;
     S_IMUSANT_score score = parser.process_musicxml3_file(file_path);
     
-    ASSERT_EQ(score->getMovementTitle(), "Im wunderschönen Monat Mai");
+    /*
+     <movement-number>1</movement-number>
+     <movement-title>Im wunderschönen Monat Mai</movement-title>
+     */
     ASSERT_EQ(score->getMovementNum(), "1");
+    ASSERT_EQ(score->getMovementTitle(), "Im wunderschönen Monat Mai");
     
+    /*
+     <creator type="composer">Robert Schumann</creator>
+     <creator type="lyricist">Heinrich Heine</creator>
+     */
     STRPAIRVECTOR creators = score->getCreator();
     ASSERT_EQ(2, creators.size());
+    ASSERT_EQ(creators[0].first, "composer");
+    ASSERT_EQ(creators[0].second, "Robert Schumann");
+    ASSERT_EQ(creators[1].first, "lyricist");
+    ASSERT_EQ(creators[1].second, "Heinrich Heine");
     
+    
+    /*
+     <score-part id="P1">
+     ...
+     <score-part id="P2">
+     */
     IMUSANT_vector<S_IMUSANT_part> part_list = score->partlist()->parts();
     ASSERT_EQ(2, part_list.size());
     ASSERT_EQ(part_list[0]->getID(), "P1");
     ASSERT_EQ(part_list[1]->getID(), "P2");
+    
+    IMUSANT_vector<S_IMUSANT_measure> pt1_measures = part_list[0]->measures();
+    ASSERT_EQ(27, pt1_measures.size());
+    IMUSANT_vector<S_IMUSANT_measure> pt2_measures = part_list[1]->measures();
+    ASSERT_EQ(27, pt2_measures.size());
+
 }
 
 

@@ -12,6 +12,7 @@
 #define imusant_IMUSANT_mxmlv3_to_imusant_visitor_h
 
 #include "IMUSANT_score.h"
+#include "IMUSANT_converters_shared_types.h"
 
 #include "elements/typedefs.h"
 
@@ -30,7 +31,9 @@ namespace IMUSANT
     public visitor<S_score_part>,
     public visitor<S_part_name>,
     public visitor<S_part_abbreviation>,
-    public visitor<S_part>
+    public visitor<S_part>,
+    public visitor<S_measure>,
+    public visitor<S_note>
     {
         
     public:
@@ -56,15 +59,23 @@ namespace IMUSANT
         virtual void visitStart( S_score_part& elt);
         virtual void visitStart( S_part_name& elt);
         virtual void visitStart( S_part_abbreviation& elt);
-        
         virtual void visitStart( S_part& elt);
+        virtual void visitStart( S_measure& elt);
+        virtual void visitStart( S_note& elt);
+        
         
     private:
+        
+        // REVISIT
+        // All these state variables are probably common between MusicXLM v3 and v1 and
+        // therefore could be put into a common base class or a helper class of some description.
         
         S_IMUSANT_score fImusantScore;
         
         S_IMUSANT_part fCurrentPart;
-        
+        long fCurrentMeasureNumber;
+        long fCurrentNoteIndex;
+        ACCIDENTALMAP fCurrentAccidentals;
     };
 }
 
