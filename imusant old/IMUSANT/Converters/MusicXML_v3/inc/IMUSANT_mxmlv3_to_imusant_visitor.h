@@ -5,7 +5,17 @@
 //  Created by Derrick Hill on 19/09/2015.
 //
 //  This class visits the nodes in a libMusicXML v3 score and translates
-//  this into an IMUSANT representation.
+//  this into an IMUSANT representation. 
+//
+// To use this class you do something like this (error handling omitted):
+//
+//   MusicXML2::xmlreader r;
+//   MusicXML2::SXMLFile sxml_file = r.read(path_to_music_xml_3_file);
+//   MusicXML2::Sxmlelement sxml_element = sxml_file->elements();
+//   IMUSANT_mxmlv3_to_imusant_visitor parser;
+//   tree_browser<MusicXML2::xmlelement> browser(&parser);   // 
+//   browser.browse(*sxml_element);
+//   return parser.get_imusant_score();
 //
 
 #ifndef imusant_IMUSANT_mxmlv3_to_imusant_visitor_h
@@ -33,6 +43,9 @@ namespace IMUSANT
     public visitor<S_part_abbreviation>,
     public visitor<S_part>,
     public visitor<S_measure>,
+    public visitor<S_key>,
+    public visitor<S_fifths>,
+    public visitor<S_mode>,
     public visitor<S_note>
     {
         
@@ -61,8 +74,12 @@ namespace IMUSANT
         virtual void visitStart( S_part_abbreviation& elt);
         virtual void visitStart( S_part& elt);
         virtual void visitStart( S_measure& elt);
+        virtual void visitStart( S_key& elt);
+        virtual void visitEnd( S_key& elt);
+        virtual void visitStart( S_fifths& elt);
+        virtual void visitStart( S_mode& elt);
+        // REVISIT - doe we need to handle the Cancel element under Key?
         virtual void visitStart( S_note& elt);
-        
         
     private:
         
@@ -72,10 +89,15 @@ namespace IMUSANT
         
         S_IMUSANT_score fImusantScore;
         
-        S_IMUSANT_part fCurrentPart;
-        long fCurrentMeasureNumber;
-        long fCurrentNoteIndex;
-        ACCIDENTALMAP fCurrentAccidentals;
+        S_IMUSANT_part      fCurrentPart;
+        long                fCurrentMeasureNumber;
+        S_IMUSANT_measure   fCurrentMeasure;
+        long                fCurrentNoteIndex;
+        ACCIDENTALMAP       fCurrentAccidentals;
+        IMUSANT_key         fCurrentKey;
+        long                fCurrentKey_Fifths;
+        long                fCurrentKey_Mode;
+        bool                fInKeyElement;
     };
 }
 

@@ -13,7 +13,7 @@
 namespace IMUSANT
 {
     
-#define debug(method)// cout << "Visiting " << method << endl; fflush(stdout)
+#define debug(method) // cout << "Visiting " << method << endl; fflush(stdout)
 
     
     IMUSANT_mxmlv3_to_imusant_visitor::
@@ -132,6 +132,61 @@ namespace IMUSANT
         if (fImusantScore)  //assert that uberclass has been instantiated.
         {
             fCurrentPart->addMeasure(measure);
+        }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_key& elt)
+    {
+//        <key>
+//          <fifths>0</fifths>
+//          <mode>minor</mode>
+//        </key>
+        
+        debug("S_key start");
+        fInKeyElement = true;
+        
+        fCurrentKey = IMUSANT_key();
+        
+        fCurrentMeasure = fCurrentPart->getCurrentMeasure();
+        if (fCurrentMeasure == 0)
+        {
+            cerr << "ERROR: visitStart( S_key& elt) - Called w/o measure instantiation" << endl;
+        }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitEnd( S_key& elt)
+    {
+        debug("S_key end");
+        fInKeyElement = false;
+        
+        fCurrentMeasure->setKey(fCurrentKey);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_fifths& elt)
+    {
+        debug("S_fifths");
+        if (fInKeyElement)
+        {
+            fCurrentKey.setFifths(elt->getAttributeLongValue("fifths", 0));
+        }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_mode& elt)
+    {
+        debug("S_mode");
+        if (fInKeyElement)
+        {
+            string mode_str = elt->getValue();
+            IMUSANT_key::mode the_mode = IMUSANT_key::xmlmode(mode_str);
+            fCurrentKey.setMode(the_mode);
         }
     }
 

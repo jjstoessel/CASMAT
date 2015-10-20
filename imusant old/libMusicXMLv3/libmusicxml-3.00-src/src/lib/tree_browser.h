@@ -30,6 +30,9 @@
 #include "browser.h"
 #include "ctree.h"
 
+#include <stdio.h>
+
+using namespace std;
 using namespace MusicXML2;
 
 namespace MusicXML2 
@@ -41,7 +44,11 @@ template <typename T> class EXP tree_browser : public browser<T>
 	protected:
 		basevisitor*	fVisitor;
 
-		virtual void enter (T& t)		{ t.acceptIn(*fVisitor); }
+		virtual void enter (T& t)
+        {
+            // cout << "Browsing: " << t.getName() << endl;
+            t.acceptIn(*fVisitor);
+        }
 		virtual void leave (T& t)		{ t.acceptOut(*fVisitor); }
 
 	public:

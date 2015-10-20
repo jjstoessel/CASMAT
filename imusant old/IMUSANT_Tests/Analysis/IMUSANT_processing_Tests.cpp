@@ -220,10 +220,35 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_Parser_CreatorTests)
     ASSERT_EQ(part_list[0]->getID(), "P1");
     ASSERT_EQ(part_list[1]->getID(), "P2");
     
+    const int NUM_MEASURES = 27;
+    
     IMUSANT_vector<S_IMUSANT_measure> pt1_measures = part_list[0]->measures();
-    ASSERT_EQ(27, pt1_measures.size());
+    ASSERT_EQ(NUM_MEASURES, pt1_measures.size());
     IMUSANT_vector<S_IMUSANT_measure> pt2_measures = part_list[1]->measures();
-    ASSERT_EQ(27, pt2_measures.size());
+    ASSERT_EQ(NUM_MEASURES, pt2_measures.size());
+    
+    /*
+     part
+     */
+    S_IMUSANT_part p1;
+    S_IMUSANT_part p2;
+    
+    score->getPartById("P1", p1);
+    score->getPartById("P2", p2);
+    
+    IMUSANT_vector<S_IMUSANT_measure> p1_measures = p1->measures();
+    IMUSANT_vector<S_IMUSANT_measure> p2_measures = p2->measures();
+    
+    ASSERT_EQ(NUM_MEASURES, p1_measures.size());
+    ASSERT_EQ(NUM_MEASURES, p2_measures.size());
+    
+    IMUSANT_key::mode p1_mode = p1_measures[1]->getKey().getMode();
+    long p1_fifths = p1_measures[1]->getKey().getFifths();
+    
+    ASSERT_EQ(0, p1_fifths);
+    ASSERT_EQ(IMUSANT_key::mode::minor, p1_mode);
+
+        
 
 }
 
