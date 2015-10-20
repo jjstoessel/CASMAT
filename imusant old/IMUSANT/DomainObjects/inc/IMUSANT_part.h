@@ -53,10 +53,10 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 		virtual ~IMUSANT_part(){}
 	private:
 		IMUSANT_vector<S_IMUSANT_measure>	fMeasures;
-		long	fVoiceCount;
-		string 					fPartName;
-        string 					fPartAbbrev;
-		string 					fXMLID;
+		long	fVoiceCount = 0;
+		string 					fPartName = "";
+        string 					fPartAbbrev = "";
+		string 					fXMLID = "";
 };
 typedef SMARTP<IMUSANT_part> S_IMUSANT_part;
 

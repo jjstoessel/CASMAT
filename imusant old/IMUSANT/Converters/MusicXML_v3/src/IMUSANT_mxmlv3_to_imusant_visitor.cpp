@@ -13,7 +13,7 @@
 namespace IMUSANT
 {
     
-#define debug // cout << "visitStart() in " << __FILE__ << " at line " << __LINE__ << endl; fflush(stdout)
+#define debug(method)// cout << "Visiting " << method << endl; fflush(stdout)
 
     
     IMUSANT_mxmlv3_to_imusant_visitor::
@@ -27,6 +27,7 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_score_partwise& elt)
     {
+        debug("S_score_partwise");
         fImusantScore = new_IMUSANT_score();
     }
     
@@ -35,14 +36,26 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_movement_title& elt)
     {
-        debug;
+        debug("S_movement_title");
+        assert(fImusantScore);
+        fImusantScore->setMovementTitle(elt->getValue());
+    }
+    
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_movement_number& elt)
+    {
+        debug("S_movement_number");
+        assert(fImusantScore);
+        fImusantScore->setMovementNum(elt->getValue());
     }
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_creator &elt)
     {
-        debug;
+        debug("S_creator");
         STRPAIR creator;
         
         creator.first = elt->getAttributeValue("type");
@@ -55,21 +68,79 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_score_part& elt)
     {
-        debug;
+        debug("S_score_part");
+        assert(fImusantScore);
+        
+        S_IMUSANT_part part = new_IMUSANT_part();
+        fCurrentPart = part;
+        
+        part->setID(elt->getAttributeValue("id"));
+        
+        fImusantScore->addPart(part);
     }
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_part_name& elt)
     {
-        debug;
+        debug("S_part_name");
+        assert(fCurrentPart);
+        fCurrentPart->setPartName(elt->getValue());
     }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_part_abbreviation& elt)
+    {
+        debug("S_part_abbreviation");
+        assert(fCurrentPart);
+        fCurrentPart->setPartAbbrev(elt->getValue());
+    }
+    
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_part& elt)
     {
-        debug;
-    }
+        // The "part" element is outside the scope of the "score-part" element that we processed above.
+        // Therefore whenever we encounter a "part" element we need to reset the fCurrentPart to
+        // point to it.
         
+        debug("S_part");
+        
+        string part_id = elt->getAttributeValue("id");
+        
+        if (! fImusantScore->getPartById(part_id, fCurrentPart))
+        {
+            throw "Unexpected part id in IMUSANT_mxmlv3_to_imusant_visitor::visitStart(S_part). Value is: " + part_id;
+        }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_measure& elt)
+    {
+        debug("S_measure");
+
+        fCurrentMeasureNumber = elt->getAttributeLongValue("number", fCurrentMeasureNumber + 1);
+        fCurrentNoteIndex = 0;  //reset on measure entry
+        fCurrentAccidentals.clear(); //reset
+        
+        S_IMUSANT_measure measure = new_IMUSANT_measure();
+        measure->setMeasureNum(fCurrentMeasureNumber);
+        
+        if (fImusantScore)  //assert that uberclass has been instantiated.
+        {
+            fCurrentPart->addMeasure(measure);
+        }
+    }
+
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_note& elt)
+    {
+      //  debug("S_note");
+    }
+    
+    
 }

@@ -22,6 +22,8 @@
 #include "TNote.h"
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_key.h"
+#include "IMUSANT_converters_shared_types.h"
+
 
 #include <stack>
 
@@ -30,10 +32,6 @@ using namespace MusicXML;
 
 namespace IMUSANT
 {
-
-//type for collection of pitch/octave pair with accidental type
-typedef map<pair<IMUSANT_pitch::type,unsigned short>,IMUSANT_accidental::accident> ACCIDENTALMAP;
-
 
 /*!
 \brief A score visitor to produce a imusant representation.

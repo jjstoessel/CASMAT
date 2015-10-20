@@ -65,6 +65,7 @@ class VEXP IMUSANT_score : public smartable, public IMUSANT_visitable
 		const string&	getEditor()				{ return fEditor; }
 		const string&	getDate()				{ return fDate; }
 		
+        bool getPartById(string partId, S_IMUSANT_part& output_part);
         S_IMUSANT_partlist& partlist()	{ return fPartList; }
 		
 		void			addPart(const S_IMUSANT_part& part) { fPartList->add(part); }

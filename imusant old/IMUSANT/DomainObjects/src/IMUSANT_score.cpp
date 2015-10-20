@@ -33,6 +33,23 @@ void IMUSANT_score::accept(IMUSANT_visitor& visitor)
 	S_IMUSANT_score sptr(this);
 	visitor.visit(sptr);
 }
+    
+    bool
+    IMUSANT_score::
+    getPartById(string partId, S_IMUSANT_part& output_part)
+    {
+        IMUSANT_vector<S_IMUSANT_part> part_vector = partlist()->parts();
+        bool found = false;
+        for (unsigned index = 0 ; index < part_vector.size() && !found;  index++ )
+        {
+            if (part_vector[index]->getID() == partId)
+            {
+                found = true;
+                output_part = part_vector[index];
+            }
+        }
+        return found;
+    }
 
 void	IMUSANT_score::print(ostream& os)
 {
