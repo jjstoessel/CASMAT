@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "IMUSANT_mxmlv3_to_imusant_visitor.h"
 
@@ -145,15 +146,9 @@ namespace IMUSANT
 //        </key>
         
         debug("S_key start");
+        
         fInKeyElement = true;
-        
         fCurrentKey = IMUSANT_key();
-        
-        fCurrentMeasure = fCurrentPart->getCurrentMeasure();
-        if (fCurrentMeasure == 0)
-        {
-            cerr << "ERROR: visitStart( S_key& elt) - Called w/o measure instantiation" << endl;
-        }
     }
     
     void
@@ -162,8 +157,7 @@ namespace IMUSANT
     {
         debug("S_key end");
         fInKeyElement = false;
-        
-        fCurrentMeasure->setKey(fCurrentKey);
+        fCurrentPart->getCurrentMeasure()->setKey(fCurrentKey);
     }
     
     void
@@ -173,7 +167,9 @@ namespace IMUSANT
         debug("S_fifths");
         if (fInKeyElement)
         {
-            fCurrentKey.setFifths(elt->getAttributeLongValue("fifths", 0));
+            string fifths_value_str = elt->getValue();
+            long int fifths_value_long = atol(fifths_value_str.c_str());
+            fCurrentKey.setFifths(fifths_value_long);
         }
     }
     
