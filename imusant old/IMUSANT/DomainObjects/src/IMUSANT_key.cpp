@@ -13,28 +13,65 @@
 using namespace MusicXML;
 
 namespace IMUSANT
-{
-    IMUSANT_key::mode IMUSANT_key::fmodeTbl[] = { generic, dorian, hypodorian, phrygian, hypophrygian, lydian, hypolydian,
-                                                  mixolydian, hypomixolydian, aeolian, locrian, ionian, major, minor };
+{   
+    IMUSANT_key::mode
+    IMUSANT_key::
+    fModeTbl[] = { generic, dorian, hypodorian, phrygian, hypophrygian, lydian, hypolydian,
+                   mixolydian, hypomixolydian, aeolian, locrian, ionian, major, minor };
     
-    string IMUSANT_key::fModeStrings[] = { "generic", "dorian", "hypodorian", "phrygian", "hypophrygian", "lydian", "hypolydian",
-                                           "mixolydian", "hypomixolydian", "aeolian", "locrian", "ionian", "major", "minor" };
-    
-    bimap<string, IMUSANT_key::mode> IMUSANT_key::fMode2String(fModeStrings, fmodeTbl, last);
-    
+    string
+    IMUSANT_key::
+    fModeStrings[] = { "generic", "dorian", "hypodorian", "phrygian", "hypophrygian", "lydian", "hypolydian",
+                       "mixolydian", "hypomixolydian", "aeolian", "locrian", "ionian", "major", "minor" };
+       
     const string
     IMUSANT_key::
     xmlmode (mode m)
     {
-        return fMode2String[m];
+        bool found = false;
+        int index = 0;
+        while (index < fModeTbl_Length && !found)
+        {
+            if (fModeTbl[index] == m)
+            {
+                found = true;
+            }
+            index++;
+        }
+        
+        if (found)
+        {
+            return fModeStrings[index-1];
+        }
+        else
+        {
+            throw "Input value not matched in IMUSANT_key::xmlmode";
+        }
     }
     
-    //! convert a string to a numeric value
     IMUSANT_key::mode
     IMUSANT_key::
     xmlmode (const string str)
     {
-        return fMode2String[str];
+        bool found = false;
+        int index = 0;
+        while (index < fModeTbl_Length && !found)
+        {
+            if (str.compare(fModeStrings[index]) == 0)
+            {
+                found = true;
+            }
+            index++;
+        }
+        
+        if (found)
+        {
+            return fModeTbl[index-1];
+        }
+        else
+        {
+            throw "Input value not matched in IMUSANT_key::xmlmode - received " + str;
+        }
     }
     
     //0 to fFifth-1 gives containing accidentals
@@ -137,14 +174,6 @@ namespace IMUSANT
     void IMUSANT_key::print(ostream& os) const
     {
         os << "<KEY>" << fFifths << ", mode: " << fMode << "<\\KEY>" << endl;
-    }
-    
-    //------------------------------------------------------------------------------
-    void
-    IMUSANT_key::
-    CalcMode ()
-    {
-        //determine mode from tonic/finalis and key
     }
     
     void

@@ -52,9 +52,8 @@ TEST_F(IMUSANT_key_Tests, SmokeTest)
     ASSERT_TRUE(the_key->isDefined());
 }
 
-TEST_F(IMUSANT_key_Tests, xmlmodeTest)
+TEST_F(IMUSANT_key_Tests, xmlmode_String2ModeTest)
 {
-    // This test fails. BUG D-01012 raised in VersionOne.
     IMUSANT_key *the_key = new IMUSANT_key(3, IMUSANT_key::mixolydian, 0);
     
     the_key->setMode(the_key->xmlmode("generic"));
@@ -97,7 +96,67 @@ TEST_F(IMUSANT_key_Tests, xmlmodeTest)
     ASSERT_TRUE(the_key->getMode() == IMUSANT_key::major);
     
     the_key->setMode(the_key->xmlmode("minor"));
-    ASSERT_TRUE(the_key->getMode() == IMUSANT_key::minor) << "This test fails. BUG D-01012 raised in VersionOne";
+    ASSERT_TRUE(the_key->getMode() == IMUSANT_key::minor);
+    
+    bool expected_exception_thrown = false;
+    try
+    {
+        the_key->xmlmode("this is not a mode and we expect an exception");
+    }
+    catch (string e)
+    {
+        expected_exception_thrown = true;
+    }
+    ASSERT_TRUE(expected_exception_thrown);
+}
+
+TEST_F(IMUSANT_key_Tests, xmlmode_Mode2StringTest)
+{
+    IMUSANT_key *the_key = new IMUSANT_key(3, IMUSANT_key::mixolydian, 0);
+    
+    string the_mode;
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::generic);
+    ASSERT_EQ("generic" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::dorian);
+    ASSERT_EQ("dorian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::hypodorian);
+    ASSERT_EQ("hypodorian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::phrygian);
+    ASSERT_EQ("phrygian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::hypophrygian);
+    ASSERT_EQ("hypophrygian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::lydian);
+    ASSERT_EQ("lydian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::hypolydian);
+    ASSERT_EQ("hypolydian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::mixolydian);
+    ASSERT_EQ("mixolydian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::hypomixolydian);
+    ASSERT_EQ("hypomixolydian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::aeolian);
+    ASSERT_EQ("aeolian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::locrian);
+    ASSERT_EQ("locrian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::ionian);
+    ASSERT_EQ("ionian" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::major);
+    ASSERT_EQ("major" , the_mode);
+    
+    the_mode = the_key->xmlmode(IMUSANT_key::minor);
+    ASSERT_EQ("minor" , the_mode);
 }
 
 

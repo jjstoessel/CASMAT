@@ -66,14 +66,14 @@ namespace IMUSANT
         
     private:
         
-        void	CalcMode(); //function determines mode based on signature (fifths) and tonic (or finalis)
+//        void	CalcMode(); //function determines mode based on signature (fifths) and tonic (or finalis)
         
         long	fFifths; //+/- 0-11 (or more), -1 = F maj or D min
         mode	fMode;
         long	fCancel;
         
-        static bimap<string, mode>	fMode2String;
-        static mode					fmodeTbl[];
+        static const int            fModeTbl_Length = 14;
+        static mode					fModeTbl[];
         static string				fModeStrings[];
         static pair<IMUSANT_pitch::type,signed short> fFlatFifthsTbl[];
         static pair<IMUSANT_pitch::type,signed short> fSharpFifthsTbl[];
