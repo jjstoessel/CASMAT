@@ -46,6 +46,9 @@ namespace IMUSANT
     public visitor<S_key>,
     public visitor<S_fifths>,
     public visitor<S_mode>,
+    public visitor<S_time>,
+    public visitor<S_beats>,
+    public visitor<S_beat_type>,
     public visitor<S_note>
     {
         
@@ -79,6 +82,10 @@ namespace IMUSANT
         virtual void visitStart( S_fifths& elt);
         virtual void visitStart( S_mode& elt);
         // REVISIT - doe we need to handle the Cancel element under Key?
+        virtual void visitStart( S_time& elt);
+        virtual void visitEnd( S_time& elt);
+        virtual void visitStart( S_beats& elt);
+        virtual void visitStart( S_beat_type& elt);
         virtual void visitStart( S_note& elt);
         
     private:
@@ -94,10 +101,11 @@ namespace IMUSANT
         S_IMUSANT_measure   fCurrentMeasure;
         long                fCurrentNoteIndex;
         ACCIDENTALMAP       fCurrentAccidentals;
-        IMUSANT_key         fCurrentKey;
-        long                fCurrentKey_Fifths;
-        long                fCurrentKey_Mode;
         bool                fInKeyElement;
+        IMUSANT_key         fCurrentKey;
+        bool                fInTimeElement;
+        IMUSANT_time        fCurrentTime;
+        
     };
 }
 

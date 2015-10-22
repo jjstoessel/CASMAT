@@ -242,11 +242,16 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_Parser_CreatorTests)
     ASSERT_EQ(NUM_MEASURES, p1_measures.size());
     ASSERT_EQ(NUM_MEASURES, p2_measures.size());
     
-    IMUSANT_key::mode p1_mode = p1_measures[0]->getKey().getMode();
-    long p1_fifths = p1_measures[0]->getKey().getFifths();
+    S_IMUSANT_measure first_p1_measure = p1_measures[0];
     
+    IMUSANT_key::mode p1_mode = first_p1_measure->getKey().getMode();
+    long p1_fifths = first_p1_measure->getKey().getFifths();
     ASSERT_EQ(3, p1_fifths);
     ASSERT_EQ(IMUSANT_key::mode::major, p1_mode);
+    
+    IMUSANT_time p1_time = first_p1_measure->getTime();
+    ASSERT_EQ(p1_time.getNumerator()[0], 2);
+    ASSERT_EQ(p1_time.getDenominator()[0], 4);
 }
 
 

@@ -14,7 +14,7 @@
 namespace IMUSANT
 {
     
-#define debug(method) // cout << "Visiting " << method << endl; fflush(stdout)
+#define debug(method) cout << "Visiting " << method << endl; fflush(stdout)
 
     
     IMUSANT_mxmlv3_to_imusant_visitor::
@@ -140,10 +140,10 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_key& elt)
     {
-//        <key>
-//          <fifths>0</fifths>
-//          <mode>minor</mode>
-//        </key>
+        // <key>
+        //    <fifths>0</fifths>
+        //    <mode>minor</mode>
+        // </key>
         
         debug("S_key start");
         
@@ -184,6 +184,49 @@ namespace IMUSANT
             IMUSANT_key::mode the_mode = IMUSANT_key::xmlmode(mode_str);
             fCurrentKey.setMode(the_mode);
         }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_time& elt)
+    {
+        // <time>
+        //    <beats>2</beats>
+        //    <beat-type>4</beat-type>
+        // </time>
+        
+        debug("S_time start");
+        fInTimeElement = true;
+        fCurrentTime = IMUSANT_time();
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitEnd( S_time& elt)
+    {
+        debug("S_time end");
+        fInTimeElement = false;
+        fCurrentPart->getCurrentMeasure()->setTime(fCurrentTime);
+    }
+
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_beats& elt)
+    {
+        debug("S_beats");
+        string numerator_str = elt->getValue();
+        long int the_numerator = atol(numerator_str.c_str());
+        fCurrentTime.addNumerator(the_numerator);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_beat_type& elt)
+    {
+        debug("S_beat_type");
+        string denominator_str = elt->getValue();
+        long int the_denominator = atol(denominator_str.c_str());
+        fCurrentTime.addDenominator(the_denominator);
     }
 
     void
