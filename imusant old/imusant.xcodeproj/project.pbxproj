@@ -28,6 +28,7 @@
 		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
 		1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
 		1EDE2F221B3E7CFA00DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
+		494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */; };
 		496A00831B9BCBED0070BCE1 /* ActorPreludeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80BF1B9A77F000A673F7 /* ActorPreludeSample.xml */; };
 		496A00841B9BCBED0070BCE1 /* BeetAnGeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C21B9A77F000A673F7 /* BeetAnGeSample.xml */; };
 		496A00851B9BCBED0070BCE1 /* Binchois.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C51B9A77F000A673F7 /* Binchois.xml */; };
@@ -390,6 +391,16 @@
 			name = "Copy Files (3 items)";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		494D25BB1BDAFE0500141228 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = IMUSANT_testdata/MusicXMLv3.simple_test_data;
+			dstSubfolderSpec = 16;
+			files = (
+				494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		496A00821B9BCB2D0070BCE1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -480,6 +491,7 @@
 		1EDE2F1E1B3E763900DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures_WithQuaverPassingNotes.mscz; sourceTree = "<group>"; };
 		1EDE2F201B3E7CC900DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz; sourceTree = "<group>"; };
 		1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.xml; sourceTree = "<group>"; };
+		494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest1.xml; sourceTree = "<group>"; };
 		496EF4C41B229D8100FE715F /* CATSMAT_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CATSMAT_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF4C61B229D8100FE715F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		496EF4D71B22A58A00FE715F /* libMusicXML.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libMusicXML.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1548,6 +1560,7 @@
 		498D80BA1B9A77F000A673F7 /* MusicXMLv3 */ = {
 			isa = PBXGroup;
 			children = (
+				494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */,
 				498D80BB1B9A77F000A673F7 /* README.txt */,
 				498D80BC1B9A77F000A673F7 /* xmlsamples */,
 			);
@@ -2651,6 +2664,7 @@
 				1E450E1C1B7580A000BDF9EF /* Copy Files (3 items) */,
 				496A00821B9BCB2D0070BCE1 /* CopyFiles */,
 				496A00971B9BCC4F0070BCE1 /* CopyFiles */,
+				494D25BB1BDAFE0500141228 /* CopyFiles */,
 			);
 			buildRules = (
 			);
