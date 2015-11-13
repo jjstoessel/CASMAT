@@ -91,7 +91,14 @@ class VEXP IMUSANT_note : public IMUSANT_element
     
         //bool operator() (const S_IMUSANT_note& note1, const S_IMUSANT_note& note2) { return higher(*note1, *note2);}
 
-		IMUSANT_note() : fTieNext(NULL), fTiePrevious(NULL), fStyle(IMUSANT_NoteStyle::normal), fType(IMUSANT_NoteType::pitch) {}
+		IMUSANT_note()
+            :
+            fTieNext(NULL),
+            fTiePrevious(NULL),
+            fStyle(IMUSANT_NoteStyle::normal),
+            fType(IMUSANT_NoteType::pitch)
+        {}
+    
 		IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration )
 			: fPitch(pitch), fDuration(duration), fTieNext(NULL), fTiePrevious(NULL), fStyle(IMUSANT_NoteStyle::normal), fType(IMUSANT_NoteType::pitch) {}
 		virtual ~IMUSANT_note(){}
