@@ -14,7 +14,7 @@
 
 using namespace IMUSANT;
 
-// The fixture for testing class IMUSANT_pitch.
+// The fixture for testing class IMUSANT_score.
 class IMUSANT_score_Tests : public ::testing::Test {
     
     

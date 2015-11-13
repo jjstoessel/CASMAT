@@ -23,7 +23,20 @@ ostream& operator<< (ostream& os, const S_IMUSANT_note& elt )
 void IMUSANT_note::print (ostream& os)
 {
 	os << "<NOTE index=" << fNoteIndex << " >" << endl;
-    os << " <PITCH>" << *fPitch << "<\\PITCH>" << endl;
+    
+    os << " <PITCH>";
+    if (fPitch != NULL)
+    {
+        fPitch->print(os);
+    }
+    else
+    {
+        os << "NULL";
+        
+    }
+    os << "<\\PITCH>" << endl;
+    
+    
     os << " <DURATION>";
     if (fDuration != NULL)
     {
