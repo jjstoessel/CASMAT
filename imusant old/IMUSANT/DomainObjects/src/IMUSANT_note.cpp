@@ -24,7 +24,17 @@ void IMUSANT_note::print (ostream& os)
 {
 	os << "<NOTE index=" << fNoteIndex << " >" << endl;
     os << " <PITCH>" << *fPitch << "<\\PITCH>" << endl;
-	os << " <DURATION>" << *fDuration << "<\\DURATION>" << endl;
+    os << " <DURATION>";
+    if (fDuration != NULL)
+    {
+        fDuration->print(os);
+    }
+    else
+    {
+        os << "NULL";
+    }
+    os << "<\\DURATION>" << endl;
+
 	//add other records
 	os << "<\\NOTE>" << endl;
 }
