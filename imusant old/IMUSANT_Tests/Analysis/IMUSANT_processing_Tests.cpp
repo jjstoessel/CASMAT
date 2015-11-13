@@ -285,7 +285,11 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_MusicXML_ParserTest1)
     /*
      <score-part id="P1">
      ...
-     <score-part id="P2">
+     <score-part id="P2"
+     ...
+     <score-part id="P3"
+     ...
+     <score-part id="P4">
      */
     IMUSANT_vector<S_IMUSANT_part> part_list = score->partlist()->parts();
     ASSERT_EQ(4, part_list.size());
@@ -294,7 +298,7 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_MusicXML_ParserTest1)
     ASSERT_EQ(part_list[2]->getPartName(), "Tenor");
     ASSERT_EQ(part_list[3]->getPartName(), "Bass");
     
-    const int NUM_MEASURES = 42;
+    const int NUM_MEASURES = 12;
     
     IMUSANT_vector<S_IMUSANT_measure> pt1_measures = part_list[0]->measures();
     ASSERT_EQ(NUM_MEASURES, pt1_measures.size());
@@ -304,19 +308,20 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_MusicXML_ParserTest1)
     /*
      part
      */
-    S_IMUSANT_part p1;
-    S_IMUSANT_part p2;
+    S_IMUSANT_part p1_sop;
+    S_IMUSANT_part p4_bass;
     
-    score->getPartById("P1", p1);
-    score->getPartById("P2", p2);
+    score->getPartById("P1", p1_sop);
+    score->getPartById("P4", p4_bass);
     
-    IMUSANT_vector<S_IMUSANT_measure> p1_measures = p1->measures();
-    IMUSANT_vector<S_IMUSANT_measure> p2_measures = p2->measures();
+    IMUSANT_vector<S_IMUSANT_measure> p1_measures = p1_sop->measures();
+    IMUSANT_vector<S_IMUSANT_measure> p4_measures = p4_bass->measures();
     
     ASSERT_EQ(NUM_MEASURES, p1_measures.size());
-    ASSERT_EQ(NUM_MEASURES, p2_measures.size());
+    ASSERT_EQ(NUM_MEASURES, p4_measures.size());
     
     S_IMUSANT_measure first_p1_measure = p1_measures[0];
+    S_IMUSANT_measure second_p1_measure = p1_measures[1];
     
     IMUSANT_key::mode p1_mode = first_p1_measure->getKey().getMode();
     long p1_fifths = first_p1_measure->getKey().getFifths();
@@ -327,17 +332,53 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_MusicXML_ParserTest1)
     ASSERT_EQ(p1_time.getNumerator()[0], 4);
     ASSERT_EQ(p1_time.getDenominator()[0], 4);
     
-    S_IMUSANT_measure change_p1_measure = p1_measures[7];
+    const int KEY_AND_TIME_CHANGE_MEASURE_NUM = 7; // This is the bar where the time and key signatures change
+    S_IMUSANT_measure change_p1_measure = p1_measures[KEY_AND_TIME_CHANGE_MEASURE_NUM];
+    S_IMUSANT_measure change_p4_measure = p4_measures[KEY_AND_TIME_CHANGE_MEASURE_NUM];
     
+    // Check the key change.
     p1_mode = change_p1_measure->getKey().getMode();
     p1_fifths = change_p1_measure->getKey().getFifths();
     ASSERT_EQ(3, p1_fifths);
     ASSERT_EQ(IMUSANT_key::mode::generic, p1_mode);
     
+    // Check the time signature change
     p1_time = change_p1_measure->getTime();
     ASSERT_EQ(p1_time.getNumerator()[0], 6);
     ASSERT_EQ(p1_time.getDenominator()[0], 8);
     
+    
+    // Check we have the right number of notes...
+    int p1_m1_note_count = first_p1_measure->getNoteCount();
+    int p1_m2_note_count = second_p1_measure->getNoteCount();
+    int p4_m7_note_count = change_p4_measure->getNoteCount();
+    
+    ASSERT_EQ(1, p1_m1_note_count);
+    ASSERT_EQ(3, p1_m2_note_count);
+    ASSERT_EQ(5, p4_m7_note_count);
+    
+    try
+    {
+        second_p1_measure->elements()[2]->print(cout);  // This test fails because Dratio is not set on the Note.
+    }
+    catch (...)
+    {
+        ASSERT_FALSE(true);
+    }
+    
+//    S_IMUSANT_element p1_m2_e2 = second_p1_measure->elements()[2];
+//    
+//    S_IMUSANT_note p1_m2_n2 = new_IMUSANT_note();
+//    p1_m2_n2.cast(&p1_m2_e2);
+//    S_IMUSANT_pitch p1_m2_n2_pitch = p1_m2_n2->pitch();
+//
+//    ASSERT_EQ(1, p1_m2_n2->getMeasureNum());
+//    ASSERT_EQ(IMUSANT_NoteType::pitch, p1_m2_n2->getType());
+//    ASSERT_EQ(0, p1_m2_n2->pitch()->alteration());  // This is C natural in the key of D.
+//
+//    ASSERT_EQ(1, p1_m2_n2->getMeasureNum());
+//    ASSERT_EQ(IMUSANT_NoteType::pitch, p1_m2_n2->getType());
+//    ASSERT_EQ(0, p1_m2_n2_pitch->alteration());  // This is C natural in the key of D.
 }
 
 

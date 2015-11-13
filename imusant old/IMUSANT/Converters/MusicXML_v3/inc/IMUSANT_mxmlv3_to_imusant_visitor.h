@@ -22,6 +22,10 @@
 #define imusant_IMUSANT_mxmlv3_to_imusant_visitor_h
 
 #include "IMUSANT_score.h"
+#include "IMUSANT_pitch.h"
+#include "IMUSANT_types.h"
+#include "IMUSANT_note.h"
+
 #include "IMUSANT_converters_shared_types.h"
 
 #include "elements/typedefs.h"
@@ -49,7 +53,14 @@ namespace IMUSANT
     public visitor<S_time>,
     public visitor<S_beats>,
     public visitor<S_beat_type>,
-    public visitor<S_note>
+    public visitor<S_note>,
+    public visitor<S_rest>,
+    public visitor<S_duration>,
+    public visitor<S_pitch>,
+    public visitor<S_step>,
+    public visitor<S_alter>,
+    public visitor<S_octave>,
+    public visitor<S_tie>
     {
         
     public:
@@ -72,21 +83,37 @@ namespace IMUSANT
         virtual void visitStart( S_movement_title& elt);
         virtual void visitStart( S_movement_number& elt);
         virtual void visitStart( S_creator& elt);
+        
         virtual void visitStart( S_score_part& elt);
         virtual void visitStart( S_part_name& elt);
         virtual void visitStart( S_part_abbreviation& elt);
+        
         virtual void visitStart( S_part& elt);
+        
         virtual void visitStart( S_measure& elt);
+        
         virtual void visitStart( S_key& elt);
         virtual void visitEnd( S_key& elt);
         virtual void visitStart( S_fifths& elt);
         virtual void visitStart( S_mode& elt);
-        // REVISIT - doe we need to handle the Cancel element under Key?
+        // REVISIT - do we need to handle the Cancel element under Key?
+        
         virtual void visitStart( S_time& elt);
         virtual void visitEnd( S_time& elt);
         virtual void visitStart( S_beats& elt);
         virtual void visitStart( S_beat_type& elt);
+        // REVISIT - do we need to handle "symbol" element under Time?
+        
         virtual void visitStart( S_note& elt);
+        virtual void visitEnd( S_note& elt);
+        virtual void visitStart( S_rest& elt);
+        virtual void visitStart( S_duration& elt);
+        virtual void visitStart( S_pitch& elt);
+        virtual void visitEnd( S_pitch& elt);
+        virtual void visitStart( S_step& elt);
+        virtual void visitStart( S_alter& elt);
+        virtual void visitStart( S_octave& elt);
+        virtual void visitStart( S_tie& elt);
         
     private:
         
@@ -105,6 +132,10 @@ namespace IMUSANT
         IMUSANT_key         fCurrentKey;
         bool                fInTimeElement;
         IMUSANT_time        fCurrentTime;
+        bool                fInNoteElement;
+        S_IMUSANT_note      fCurrentNote;
+        bool                fInPitchElement;
+        S_IMUSANT_pitch     fCurrentPitch;
         
     };
 }

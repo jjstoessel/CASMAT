@@ -8,6 +8,7 @@
  */
 
 #include "IMUSANT_pitch.h"
+#include <stdlib.h>
 
 #define FLAGSPACE 0x2000
 
@@ -61,6 +62,32 @@ namespace IMUSANT
         fMSName = name; //ms_note;
         fInChord = inChord;
         fVoice = voice;
+    }
+    
+    void
+    IMUSANT_pitch::
+    setAlteration(const string alter)
+    {
+        // We are just assuming that the input string is a valid number.
+        signed short alteration = atoi(alter.c_str());
+        if (alteration == 0 && alter.compare("0") != 0)
+        {
+            throw "IMUSANT_pitch::setAlteration() - Unexpected value for alter.  Expected a number of semitones received " + alter;
+        }
+        fAlteration = alteration;
+    }
+    
+    void
+    IMUSANT_pitch::
+    setOctave( const string octave )
+    {
+        unsigned short oct = 999; // invalid value will force an exception if atoi fails to return a valid value
+        oct = atoi(octave.c_str());
+        if (oct < 0 || oct > 9)
+        {
+            throw "IMUSANT_pitch::setOctave() - Unexpected value for octave.  Expected range 0-9 but received " + octave;
+        }
+        fOctave = oct;
     }
     
     bool

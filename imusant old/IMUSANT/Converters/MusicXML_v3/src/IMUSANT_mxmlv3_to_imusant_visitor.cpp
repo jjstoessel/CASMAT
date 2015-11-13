@@ -129,6 +129,7 @@ namespace IMUSANT
         
         S_IMUSANT_measure measure = new_IMUSANT_measure();
         measure->setMeasureNum(fCurrentMeasureNumber);
+        fCurrentMeasure = measure;
         
         if (fImusantScore)  //assert that uberclass has been instantiated.
         {
@@ -171,6 +172,10 @@ namespace IMUSANT
             long int fifths_value_long = atol(fifths_value_str.c_str());
             fCurrentKey.setFifths(fifths_value_long);
         }
+        else
+        {
+            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_fifths& elt) - Expected to be in Key element.";
+        }
     }
     
     void
@@ -183,6 +188,10 @@ namespace IMUSANT
             string mode_str = elt->getValue();
             IMUSANT_key::mode the_mode = IMUSANT_key::xmlmode(mode_str);
             fCurrentKey.setMode(the_mode);
+        }
+        else
+        {
+            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_mode& elt) - Expected to be in Key element.";
         }
     }
     
@@ -214,9 +223,17 @@ namespace IMUSANT
     visitStart( S_beats& elt)
     {
         debug("S_beats");
-        string numerator_str = elt->getValue();
-        long int the_numerator = atol(numerator_str.c_str());
-        fCurrentTime.addNumerator(the_numerator);
+        
+        if (fInTimeElement)
+        {
+            string numerator_str = elt->getValue();
+            long int the_numerator = atol(numerator_str.c_str());
+            fCurrentTime.addNumerator(the_numerator);
+        }
+        else
+        {
+            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_beats& elt) - Expected to be in Time element.";
+        }
     }
     
     void
@@ -224,17 +241,143 @@ namespace IMUSANT
     visitStart( S_beat_type& elt)
     {
         debug("S_beat_type");
-        string denominator_str = elt->getValue();
-        long int the_denominator = atol(denominator_str.c_str());
-        fCurrentTime.addDenominator(the_denominator);
+        
+        if (fInTimeElement)
+        {
+            string denominator_str = elt->getValue();
+            long int the_denominator = atol(denominator_str.c_str());
+            fCurrentTime.addDenominator(the_denominator);
+        }
+        else
+        {
+            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_beat_type& elt) - Expected to be in Time element.";
+        }
     }
 
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_note& elt)
     {
-      //  debug("S_note");
+//        <note default-x="149">
+//          <pitch>
+//            <step>C</step>
+//            <alter>1</alter>
+//            <octave>5</octave>
+//          </pitch>
+//          <duration>2</duration>
+//          <tie type="start"/>
+//          <voice>1</voice>
+//          <type>16th</type>
+//          <stem default-y="18">up</stem>
+//          <staff>1</staff>
+//          <notations>
+//            <tied type="start"/>
+//            <slur number="1" placement="above" type="start"/>
+//          </notations>
+//        </note>
+        
+//        <note>
+//          <rest/>
+//          <duration>4</duration>
+//          <voice>1</voice>
+//        </note>
+        
+        
+        debug("S_note start");
+        fInNoteElement = true;
+        fCurrentNote = new_IMUSANT_note();
+        fCurrentNote->setMeasureNum(fCurrentMeasure->getMeasureNum());
     }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitEnd( S_note& elt)
+    {
+        debug("S_note end");
+        if (fInNoteElement)
+        {
+            fCurrentMeasure->addElement(fCurrentNote);
+        }
+        fInNoteElement = false;
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_rest& elt)
+    {
+        debug("S_rest");
+        if (fInNoteElement)
+        {
+           // REVISDIT  fCurrentNote->pitch().REVISIT
+        }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_duration& elt)
+    {
+        debug("S_duration");
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_pitch& elt)
+    {
+        //        <pitch>
+        //          <step>C</step>
+        //          <alter>1</alter>
+        //          <octave>5</octave>
+        //        </pitch>
+        
+        debug("S_pitch start");
+        fInPitchElement = true;
+        fCurrentPitch = new_IMUSANT_pitch();
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitEnd( S_pitch& elt)
+    {
+        debug("S_pitch end");
+        fCurrentNote->setPitch(fCurrentPitch);
+        fInPitchElement = false;
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_step& elt)
+    {
+        debug("S_step");
+        string note_name = elt->getValue();
+        fCurrentPitch->setName(note_name);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_alter& elt)
+    {
+        debug("S_alter");
+        string alteration = elt->getValue();
+        fCurrentPitch->setAlteration(alteration);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_octave& elt)
+    {
+        debug("S_octave");
+        string octave = elt->getValue();
+        fCurrentPitch->setOctave(octave);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_tie& elt)
+    {
+        debug("S_tie");
+    }
+    
+    
     
     
 }

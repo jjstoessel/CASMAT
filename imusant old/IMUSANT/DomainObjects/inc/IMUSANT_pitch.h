@@ -72,8 +72,11 @@ namespace IMUSANT
         unsigned short	voice() const       { return fVoice; }
         
         void			setName(const type name) { fName=name; }
+        void            setName(const string name) { fName = xml(name); }
         void			setAlteration(const signed short alter) { fAlteration = alter; }
+        void            setAlteration(const string alter);   // A number of semitones with +ve being sharp and -ve being flat. No validation performed.
         void			setOctave( const unsigned short octave ) { fOctave = octave; }
+        void			setOctave( const string octave );
         void			setMSName( const type msName ) { fMSName = msName; }
         void			setInChord (const bool inChord) { fInChord = inChord; }
         void			setVoice( const unsigned short voice )
