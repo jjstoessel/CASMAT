@@ -63,6 +63,19 @@ IMUSANT_accidental::accident IMUSANT_accidental::AlterToAccident(signed short al
 	
 	return acc;
 }
+    
+    
+    void
+    IMUSANT_accidental::
+    print(ostream& os) const
+    {
+        os << xml(fAccident);
+
+//        accident 	fAccident;
+//        YesNo::type		fCautionary;
+//        YesNo::type		fEditorial;
+//        YesNo::type		fCancelling;
+            }
 
 
 //IMUSANT_time consts

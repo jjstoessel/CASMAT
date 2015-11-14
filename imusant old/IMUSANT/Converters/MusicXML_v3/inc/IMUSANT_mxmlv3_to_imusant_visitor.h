@@ -55,7 +55,9 @@ namespace IMUSANT
     public visitor<S_beat_type>,
     public visitor<S_note>,
     public visitor<S_rest>,
-    public visitor<S_duration>,
+    public visitor<S_type>,
+    public visitor<S_dot>,
+    public visitor<S_time_modification>,
     public visitor<S_pitch>,
     public visitor<S_step>,
     public visitor<S_alter>,
@@ -107,7 +109,11 @@ namespace IMUSANT
         virtual void visitStart( S_note& elt);
         virtual void visitEnd( S_note& elt);
         virtual void visitStart( S_rest& elt);
-        virtual void visitStart( S_duration& elt);
+        
+        virtual void visitStart( S_type& elt);
+        virtual void visitStart( S_dot& elt);
+        virtual void visitStart( S_time_modification& elt);
+        
         virtual void visitStart( S_pitch& elt);
         virtual void visitEnd( S_pitch& elt);
         virtual void visitStart( S_step& elt);
@@ -134,6 +140,9 @@ namespace IMUSANT
         IMUSANT_time        fCurrentTime;
         bool                fInNoteElement;
         S_IMUSANT_note      fCurrentNote;
+        TRational           fCurrentNoteDurationType;
+        TRational           fCurrentNoteTimeModification;
+        long                fCurrentNumberofDotsOnNote;
         bool                fInPitchElement;
         S_IMUSANT_pitch     fCurrentPitch;
         

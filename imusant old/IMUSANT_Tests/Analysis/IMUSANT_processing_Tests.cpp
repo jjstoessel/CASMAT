@@ -357,28 +357,19 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_MusicXML_ParserTest1)
     ASSERT_EQ(3, p1_m2_note_count);
     ASSERT_EQ(5, p4_m7_note_count);
     
-    try
-    {
-        second_p1_measure->elements()[2]->print(cout);  // This test fails because Dratio is not set on the Note.
-    }
-    catch (...)
-    {
-        ASSERT_FALSE(true);
-    }
+    const string second_p1_measure_expected =
+        "<MEAS>=1\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE index=1 >\n <PITCH>C1@4<\\PITCH>\n <DURATION>1/4<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<NOTE index=2 >\n <PITCH>C0@5<\\PITCH>\n <DURATION>1/4<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<NOTE index=3 >\n <PITCH>G0@4<\\PITCH>\n <DURATION>1/2<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<\\MEAS>\n";
+    stringstream second_p1_measure_printed;
     
-//    S_IMUSANT_element p1_m2_e2 = second_p1_measure->elements()[2];
-//    
-//    S_IMUSANT_note p1_m2_n2 = new_IMUSANT_note();
-//    p1_m2_n2.cast(&p1_m2_e2);
-//    S_IMUSANT_pitch p1_m2_n2_pitch = p1_m2_n2->pitch();
-//
-//    ASSERT_EQ(1, p1_m2_n2->getMeasureNum());
-//    ASSERT_EQ(IMUSANT_NoteType::pitch, p1_m2_n2->getType());
-//    ASSERT_EQ(0, p1_m2_n2->pitch()->alteration());  // This is C natural in the key of D.
-//
-//    ASSERT_EQ(1, p1_m2_n2->getMeasureNum());
-//    ASSERT_EQ(IMUSANT_NoteType::pitch, p1_m2_n2->getType());
-//    ASSERT_EQ(0, p1_m2_n2_pitch->alteration());  // This is C natural in the key of D.
+    second_p1_measure->print(second_p1_measure_printed);
+    ASSERT_EQ(second_p1_measure_expected, second_p1_measure_printed.str());
+    
+    
+    const string change_p1_measure_expected = "<MEAS>=7\n<CLEF> 0@0<\\CLEF>\n<TIME>6/8<\\TIME>\n<KEY>3, mode: 0<\\KEY>\n<NOTE index=1 >\n <PITCH>C1@5<\\PITCH>\n <DURATION>1/4<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<NOTE index=2 >\n <PITCH>D0@5<\\PITCH>\n <DURATION>1/8<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<NOTE index=3 >\n <PITCH>C1@5<\\PITCH>\n <DURATION>1/4<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<\\MEAS>\n";
+    stringstream change_p1_measure_printed;
+    
+    change_p1_measure->print(change_p1_measure_printed);
+    ASSERT_EQ(change_p1_measure_expected, change_p1_measure_printed.str());
 }
 
 

@@ -10,9 +10,9 @@
 
 //Note utility classes
 /*!
-\brief An IMUSANT note duration representation.
-
-*/
+ \brief An IMUSANT note duration representation.
+ 
+ */
 #ifndef __IMUSANT_types__
 #define __IMUSANT_types__
 
@@ -34,185 +34,187 @@ using namespace std;
 
 namespace IMUSANT
 {
-
-class IMUSANT_clef;
-class IMUSANT_time;
-
-
-VEXP ostream& operator<< (ostream& os, const IMUSANT_clef& elt );
-VEXP ostream& operator<< (ostream& os, const IMUSANT_time& elt );
-
-
-//handling actual note attached accidentals
-class IMUSANT_accidental : public smartable
-{
-	 public:
-		enum accident { undefined = 0, 
-				sharp=1, natural, flat, double_sharp, sharp_sharp, flat_flat,
-				natural_sharp, natural_flat, quarter_flat, quarter_sharp,
-				three_quarters_flat, three_quarters_sharp, last=three_quarters_sharp };
-
-    EXP friend SMARTP<IMUSANT_accidental> new_IMUSANT_accidental();
-		
- 		accident			getAccident() const		{ return fAccident; }
-		YesNo::type			getCautionary() const	{ return fCautionary; }
-		YesNo::type			getEditorial() const	{ return fEditorial; }
-		YesNo::type			getCancelling() const	{ return fCancelling; }
-		
-		void setAccident(accident acc) { fAccident = acc; }
-		void setCautionary(YesNo::type	 yn) { fCautionary = yn; }
-		void setEditorial(YesNo::type	 yn) { fEditorial = yn; }
-		void setCancelling(YesNo::type	yn)	 { fCancelling = yn; }
- 
-	//! convert a numeric accidental type to a MusicXML string
-	static const string	xml(accident d);
-	//! convert an MusicXML string to a numeric accidental type
-	static accident		xml(const string str);
-	
-	static accident		AlterToAccident(signed short alter);
-
-	protected:
+    
+    class IMUSANT_clef;
+    class IMUSANT_time;
+    
+    
+    VEXP ostream& operator<< (ostream& os, const IMUSANT_clef& elt );
+    VEXP ostream& operator<< (ostream& os, const IMUSANT_time& elt );
+    
+    
+    //handling actual note attached accidentals
+    class IMUSANT_accidental : public smartable
+    {
+    public:
+        enum accident { undefined = 0,
+            sharp=1, natural, flat, double_sharp, sharp_sharp, flat_flat,
+            natural_sharp, natural_flat, quarter_flat, quarter_sharp,
+            three_quarters_flat, three_quarters_sharp, last=three_quarters_sharp };
+        
+        EXP friend SMARTP<IMUSANT_accidental> new_IMUSANT_accidental();
+        
+        accident			getAccident() const		{ return fAccident; }
+        YesNo::type			getCautionary() const	{ return fCautionary; }
+        YesNo::type			getEditorial() const	{ return fEditorial; }
+        YesNo::type			getCancelling() const	{ return fCancelling; }
+        
+        void setAccident(accident acc) { fAccident = acc; }
+        void setCautionary(YesNo::type	 yn) { fCautionary = yn; }
+        void setEditorial(YesNo::type	 yn) { fEditorial = yn; }
+        void setCancelling(YesNo::type	yn)	 { fCancelling = yn; }
+        
+        //! convert a numeric accidental type to a MusicXML string
+        static const string	xml(accident d);
+        //! convert an MusicXML string to a numeric accidental type
+        static accident		xml(const string str);
+        
+        static accident		AlterToAccident(signed short alter);
+        
+        void print(ostream& os) const;
+        
+    protected:
         IMUSANT_accidental() :
-			 	fAccident(undefined), fCautionary(YesNo::undefined), 
-				fEditorial(YesNo::undefined), fCancelling(YesNo::undefined) {}
+        fAccident(undefined), fCautionary(YesNo::undefined),
+        fEditorial(YesNo::undefined), fCancelling(YesNo::undefined) {}
         virtual ~IMUSANT_accidental() {}
-	private:
-		accident 	fAccident;
-		YesNo::type		fCautionary;
-		YesNo::type		fEditorial;
-		YesNo::type		fCancelling;
-
-	static bimap<string, accident> fAccident2String;
-	static accident fAccidentTbl[];
-	static string 	fAccidentStrings[];
-};
-typedef SMARTP<IMUSANT_accidental> S_IMUSANT_accidental;
-
-EXP S_IMUSANT_accidental new_IMUSANT_accidental();
-
-
-/*!
-\brief an IMUSANT clef representation.
-
-*/
-class VEXP IMUSANT_clef
-{
-	public:
-		enum { G_clef = 'G', F_clef = 'F', C_clef = 'C', D_clef = 'D', tablature = 'T', percussion = 'P', undefined = ' ' };
-		
-		IMUSANT_clef( char sign=IMUSANT_clef::undefined, short line=0, short transposition=0)
-			: fSign(sign), fLine(line), fOctaveChange(transposition){}
-		virtual ~IMUSANT_clef(){}
-		
-		const char	getSign() const { return fSign; }
-		short	getLine() const { return fLine; }
-		short	getTransposition() const { return fOctaveChange; }
-		
-		void	setSign( char sign ) { fSign = sign; }
-		void	setLine( short line ) { fLine = line; }
-		void	setTransposition (short transposition) { fOctaveChange = transposition; }
-		
-		bool	isDefined() const { return fSign!=undefined; }
-		
-		IMUSANT_clef& operator= (const IMUSANT_clef& clef);
-		bool operator!= (const IMUSANT_clef& clef) const;
-		bool operator== (const IMUSANT_clef& clef) const;
-	
-		void print(ostream& os) const { os << "<CLEF>" << fSign << fLine << "@" << fOctaveChange << "<\\CLEF>" << endl; }
-		//To do: friend function with staff class to account for non-standard staves.
-		
-	private:
-		char	fSign;  //G,C,F (d?)
-		short	fLine;  //from bottom upwards 1-5
-		short	fOctaveChange; //transposing clefs negative for number octaves lower, positive for octaves higher
-};
-
-class VEXP IMUSANT_time 
-{
-	public:
-		//fSymbol values
-		//composite, i.e. 5+3/8, where only one denom is required, 
-		//multiple (though often referred to as composite, i.e. 2/4 + 3/8
-		//NB. -1/1 is unmeasured
-		enum symbol {	undefined = 0, common=1, cut, single_number, normal, composite, multiple,\
-						C, O, Cdot, Odot, cutC, cutO, cutOdot, cutCdot, C2, O2, C3, O3, last=O3 };
-		
-		IMUSANT_time() : fSymbol(undefined) {}
-		//IMUSANT_time(long num=-1, long denom=1, int symbol=IMUSANT_time::common);
-		IMUSANT_time(vector<long>& num, vector<long>& denom, symbol symbol)
-			: fBeatNum(num), fBeatDenom(denom), fSymbol(symbol) {}
-			
-		virtual ~IMUSANT_time(){}
-	
-		void addNumerator(const long num);
-		void addDenominator(const long denom);
-		const vector<long>&	getNumerator() const { return fBeatNum; }
-		const vector<long>&	getDenominator() const { return fBeatDenom; }
-		
-		symbol			getSymbol() const { return fSymbol; }
-		
-		void			setSymbol(const symbol sym) { fSymbol = sym; }
-			//in this test, we assume that single number is possible, hence no text of fBeatDenom
-		bool			isMeasured() const { return (!fBeatNum.empty()) || (fSymbol!=undefined); }
-		
-		void print(ostream& os) const;
-		
-		//to do: set functions, string parser
-		
-		bool			operator!=(const IMUSANT_time& time) const;
-		void			operator=(const IMUSANT_time& time);
-		
-		
-		static const string	xmlsymbol (symbol sym);
-		//! convert a string to a numeric value
-		static       symbol	xmlsymbol (const string str);
-		
-		static symbol ConvertXML2IMUSANTSymbol( const int xmltime );
-		
-	private:
-		vector<long>	fBeatNum;	  //number of beats
-		vector<long>	fBeatDenom;  //beat type
-		symbol			fSymbol;
-		
-		static bimap<string, symbol>	fType2String;
-		static symbol	fSymbolTbl[];
-		static string	fSymbolStrings[];
-};
-
-
+    private:
+        accident 	fAccident;
+        YesNo::type		fCautionary;
+        YesNo::type		fEditorial;
+        YesNo::type		fCancelling;
+        
+        static bimap<string, accident> fAccident2String;
+        static accident fAccidentTbl[];
+        static string 	fAccidentStrings[];
+    };
+    typedef SMARTP<IMUSANT_accidental> S_IMUSANT_accidental;
+    
+    EXP S_IMUSANT_accidental new_IMUSANT_accidental();
+    
+    
+    /*!
+     \brief an IMUSANT clef representation.
+     
+     */
+    class VEXP IMUSANT_clef
+    {
+    public:
+        enum { G_clef = 'G', F_clef = 'F', C_clef = 'C', D_clef = 'D', tablature = 'T', percussion = 'P', undefined = ' ' };
+        
+        IMUSANT_clef( char sign=IMUSANT_clef::undefined, short line=0, short transposition=0)
+        : fSign(sign), fLine(line), fOctaveChange(transposition){}
+        virtual ~IMUSANT_clef(){}
+        
+        const char	getSign() const { return fSign; }
+        short	getLine() const { return fLine; }
+        short	getTransposition() const { return fOctaveChange; }
+        
+        void	setSign( char sign ) { fSign = sign; }
+        void	setLine( short line ) { fLine = line; }
+        void	setTransposition (short transposition) { fOctaveChange = transposition; }
+        
+        bool	isDefined() const { return fSign!=undefined; }
+        
+        IMUSANT_clef& operator= (const IMUSANT_clef& clef);
+        bool operator!= (const IMUSANT_clef& clef) const;
+        bool operator== (const IMUSANT_clef& clef) const;
+        
+        void print(ostream& os) const { os << "<CLEF>" << fSign << fLine << "@" << fOctaveChange << "<\\CLEF>" << endl; }
+        //To do: friend function with staff class to account for non-standard staves.
+        
+    private:
+        char	fSign;  //G,C,F (d?)
+        short	fLine;  //from bottom upwards 1-5
+        short	fOctaveChange; //transposing clefs negative for number octaves lower, positive for octaves higher
+    };
+    
+    class VEXP IMUSANT_time
+    {
+    public:
+        //fSymbol values
+        //composite, i.e. 5+3/8, where only one denom is required,
+        //multiple (though often referred to as composite, i.e. 2/4 + 3/8
+        //NB. -1/1 is unmeasured
+        enum symbol {	undefined = 0, common=1, cut, single_number, normal, composite, multiple,\
+            C, O, Cdot, Odot, cutC, cutO, cutOdot, cutCdot, C2, O2, C3, O3, last=O3 };
+        
+        IMUSANT_time() : fSymbol(undefined) {}
+        //IMUSANT_time(long num=-1, long denom=1, int symbol=IMUSANT_time::common);
+        IMUSANT_time(vector<long>& num, vector<long>& denom, symbol symbol)
+        : fBeatNum(num), fBeatDenom(denom), fSymbol(symbol) {}
+        
+        virtual ~IMUSANT_time(){}
+        
+        void addNumerator(const long num);
+        void addDenominator(const long denom);
+        const vector<long>&	getNumerator() const { return fBeatNum; }
+        const vector<long>&	getDenominator() const { return fBeatDenom; }
+        
+        symbol			getSymbol() const { return fSymbol; }
+        
+        void			setSymbol(const symbol sym) { fSymbol = sym; }
+        //in this test, we assume that single number is possible, hence no text of fBeatDenom
+        bool			isMeasured() const { return (!fBeatNum.empty()) || (fSymbol!=undefined); }
+        
+        void print(ostream& os) const;
+        
+        //to do: set functions, string parser
+        
+        bool			operator!=(const IMUSANT_time& time) const;
+        void			operator=(const IMUSANT_time& time);
+        
+        
+        static const string	xmlsymbol (symbol sym);
+        //! convert a string to a numeric value
+        static       symbol	xmlsymbol (const string str);
+        
+        static symbol ConvertXML2IMUSANTSymbol( const int xmltime );
+        
+    private:
+        vector<long>	fBeatNum;	  //number of beats
+        vector<long>	fBeatDenom;  //beat type
+        symbol			fSymbol;
+        
+        static bimap<string, symbol>	fType2String;
+        static symbol	fSymbolTbl[];
+        static string	fSymbolStrings[];
+    };
+    
+    
 #define CONTAINER_TYPE vector<std::string>
-
-//This is one lyric set to a note, may be multisyllabic
-class VEXP IMUSANT_lyric : public smartable, public IMUSANT_visitable
-{
-	public:
-		
-		friend SMARTP<IMUSANT_lyric> new_IMUSANT_lyric();
-		
-		void	addSyllable(const string text) { this->fSyllables.push_back(text); }
-		
-		void	setSyllabic(const IMUSANT_syllabic::type type) { fSyllabic = (IMUSANT_syllabic::type)(fSyllabic|type); }
-		void	setNumber(int num) { fNumber = num; }
-		
-		const CONTAINER_TYPE&	getSyllables() const { return fSyllables; }
-		const IMUSANT_syllabic::type	getSyllabic() const { return fSyllabic; }
-		bool					isMultiSyllablic() { return fSyllables.size() > 1; }
-		int						getNumber() { return fNumber; }
-		
-		void accept(IMUSANT_visitor& visitor);
-		
-	protected:
-		IMUSANT_lyric() : fSyllabic(IMUSANT_syllabic::undefined) {}
-		virtual ~IMUSANT_lyric(){}
-		
-	private:
-		CONTAINER_TYPE			fSyllables;
-		IMUSANT_syllabic::type	fSyllabic;
-		int						fNumber;
-};
-typedef SMARTP<IMUSANT_lyric> S_IMUSANT_lyric;
-
-SMARTP<IMUSANT_lyric> new_IMUSANT_lyric();
+    
+    //This is one lyric set to a note, may be multisyllabic
+    class VEXP IMUSANT_lyric : public smartable, public IMUSANT_visitable
+    {
+    public:
+        
+        friend SMARTP<IMUSANT_lyric> new_IMUSANT_lyric();
+        
+        void	addSyllable(const string text) { this->fSyllables.push_back(text); }
+        
+        void	setSyllabic(const IMUSANT_syllabic::type type) { fSyllabic = (IMUSANT_syllabic::type)(fSyllabic|type); }
+        void	setNumber(int num) { fNumber = num; }
+        
+        const CONTAINER_TYPE&	getSyllables() const { return fSyllables; }
+        const IMUSANT_syllabic::type	getSyllabic() const { return fSyllabic; }
+        bool					isMultiSyllablic() { return fSyllables.size() > 1; }
+        int						getNumber() { return fNumber; }
+        
+        void accept(IMUSANT_visitor& visitor);
+        
+    protected:
+        IMUSANT_lyric() : fSyllabic(IMUSANT_syllabic::undefined) {}
+        virtual ~IMUSANT_lyric(){}
+        
+    private:
+        CONTAINER_TYPE			fSyllables;
+        IMUSANT_syllabic::type	fSyllabic;
+        int						fNumber;
+    };
+    typedef SMARTP<IMUSANT_lyric> S_IMUSANT_lyric;
+    
+    SMARTP<IMUSANT_lyric> new_IMUSANT_lyric();
     
 } //namespace IMUSANT
 #endif

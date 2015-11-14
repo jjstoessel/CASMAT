@@ -61,9 +61,9 @@ TEST_F(IMUSANT_note_Tests, BasicPrintTest)
     the_note->setNoteIndex(2);
 
     stringstream *printed_note_1 = new stringstream();
-    the_note->IMUSANT::IMUSANT_element::print(*printed_note_1);
+    the_note->print(*printed_note_1);
     
-    const string expected_1 = "<NOTE index=2 >\n <PITCH>NULL<\\PITCH>\n <DURATION>NULL<\\DURATION>\n<\\NOTE>\n";
+    const string expected_1 = "<NOTE index=2 >\n <PITCH>NULL<\\PITCH>\n <DURATION>NULL<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n";
     
     ASSERT_EQ(expected_1, printed_note_1->str());
     
@@ -80,8 +80,9 @@ TEST_F(IMUSANT_note_Tests, BasicPrintTest)
     the_note->setPitch(pitch);
     
     stringstream *printed_note_2 = new stringstream();
-    the_note->IMUSANT::IMUSANT_element::print(*printed_note_2);
-    const string expected_2 = "<NOTE index=2 >\n <PITCH>D0@2<\\PITCH>\n <DURATION>1/1<\\DURATION>\n<\\NOTE>\n";
+    the_note->print(*printed_note_2);
+    const string expected_2 =
+        "<NOTE index=2 >\n <PITCH>D0@2<\\PITCH>\n <DURATION>1/1<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n";
     ASSERT_EQ(expected_2, printed_note_2->str());
     
     delete printed_note_1;

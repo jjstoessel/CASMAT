@@ -282,11 +282,34 @@ namespace IMUSANT
 //          <voice>1</voice>
 //        </note>
         
+//        <note default-x="18.21" default-y="-35.00">
+//          <pitch>
+//            <step>F</step>
+//            <alter>1</alter>
+//            <octave>4</octave>
+//          </pitch>
+//          <duration>2</duration>
+//          <voice>1</voice>
+//          <type>eighth</type>
+//            <time-modification>
+//              <actual-notes>3</actual-notes>
+//              <normal-notes>2</normal-notes>
+//            </time-modification>
+//          <stem>up</stem>
+//          <beam number="1">begin</beam>
+//          <notations>
+//            <tuplet type="start" bracket="no"/>
+//          </notations>
+//          </note>
         
         debug("S_note start");
         fInNoteElement = true;
         fCurrentNote = new_IMUSANT_note();
         fCurrentNote->setMeasureNum(fCurrentMeasure->getMeasureNum());
+        fCurrentNote->setNoteIndex(++fCurrentNoteIndex);
+        fCurrentNumberofDotsOnNote = 0;
+        fCurrentNoteTimeModification.set(0, 0);
+        
     }
     
     void
@@ -296,6 +319,16 @@ namespace IMUSANT
         debug("S_note end");
         if (fInNoteElement)
         {
+            S_IMUSANT_duration duration = new_IMUSANT_duration();
+            duration->set(fCurrentNoteDurationType,
+                          fCurrentNumberofDotsOnNote,
+                          fCurrentNoteTimeModification);
+            
+            // ACCIDENTAL
+            
+            
+            fCurrentNote->setDuration(duration);
+            
             fCurrentMeasure->addElement(fCurrentNote);
         }
         fInNoteElement = false;
@@ -308,17 +341,80 @@ namespace IMUSANT
         debug("S_rest");
         if (fInNoteElement)
         {
-           // REVISDIT  fCurrentNote->pitch().REVISIT
+           // REVISIT
         }
     }
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
-    visitStart( S_duration& elt)
+    visitStart(S_type& elt)
     {
-        debug("S_duration");
+        // <note... >
+        //   ...
+        //  <type>128th</type>
+        //  ...
+        //
+        
+        debug("S_type");
+        if (fInNoteElement)
+        {
+            string note_type_str = elt->getValue();
+            TRational note_type = IMUSANT_duration::xmlv3(note_type_str);
+            fCurrentNoteDurationType = note_type;
+        }
     }
     
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_dot& elt)
+    {
+        debug("S_dot");
+        
+        if (fInNoteElement)
+        {
+            fCurrentNumberofDotsOnNote++;
+        }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_time_modification& elt)
+    {
+        //            <time-modification>
+        //              <actual-notes>3</actual-notes>
+        //              <normal-notes>2</normal-notes>
+        //            </time-modification>
+        
+        debug("S_time_modification");
+        
+        if (fInNoteElement)
+        {
+            string element_name;
+            int actual_notes = 0;
+            int normal_notes = 0;
+            MusicXML2::xmlelement *next_element;
+            
+            for (int index = 0 ; index < elt->elements().size()  ; index++ )
+            {
+                next_element = elt->elements()[index];
+                element_name = next_element->getName();
+                
+                if (element_name.compare("actual-notes") == 0)
+                {
+                    actual_notes = stoi(next_element->getValue());
+                }
+                
+                
+                if (element_name.compare("normal-notes") == 0)
+                {
+                    normal_notes = stoi(next_element->getValue());
+                }
+            }
+            
+            fCurrentNoteTimeModification.set(actual_notes, normal_notes);
+        }
+    }
+        
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_pitch& elt)

@@ -20,7 +20,7 @@ ostream& operator<< (ostream& os, const S_IMUSANT_note& elt )
     return os;
 }
 
-void IMUSANT_note::print (ostream& os)
+void IMUSANT_note::print (ostream& os) const
 {
 	os << "<NOTE index=" << fNoteIndex << " >" << endl;
     
@@ -47,6 +47,17 @@ void IMUSANT_note::print (ostream& os)
         os << "NULL";
     }
     os << "<\\DURATION>" << endl;
+    
+    os << " <ACCIDENTAL>";
+    if (fAccidental != NULL)
+    {
+        fAccidental->print(os);
+    }
+    else
+    {
+        os << "NULL";
+    }
+    os << "<\\ACCIDENTAL>" << endl;
 
 	//add other records
 	os << "<\\NOTE>" << endl;
