@@ -135,6 +135,13 @@ namespace IMUSANT
         {
             fCurrentPart->addMeasure(measure);
         }
+        
+        //  REVISIT - barline is a child of measure for repeats.
+        //  This is a child of measure:
+        //        <barline location="left">
+        //        <bar-style>heavy-light</bar-style>
+        //        <repeat direction="forward"/>
+        //        </barline>
     }
     
     void
@@ -304,12 +311,13 @@ namespace IMUSANT
         
         debug("S_note start");
         fInNoteElement = true;
+        fPreviousNote = fCurrentNote;
         fCurrentNote = new_IMUSANT_note();
         fCurrentNote->setMeasureNum(fCurrentMeasure->getMeasureNum());
         fCurrentNote->setNoteIndex(++fCurrentNoteIndex);
         fCurrentNumberofDotsOnNote = 0;
         fCurrentNoteTimeModification.set(0, 0);
-        
+        fCurrentNoteDurationType.set(0,0);
     }
     
     void
@@ -324,10 +332,10 @@ namespace IMUSANT
                           fCurrentNumberofDotsOnNote,
                           fCurrentNoteTimeModification);
             
-            // ACCIDENTAL
-            
+            // REVISIT - ACCIDENTAL on S_note.
             
             fCurrentNote->setDuration(duration);
+            fCurrentNote->setPitch(fCurrentPitch);  // REVSIT - This isn't working...
             
             fCurrentMeasure->addElement(fCurrentNote);
         }
@@ -351,8 +359,8 @@ namespace IMUSANT
     {
         // <note... >
         //   ...
-        //  <type>128th</type>
-        //  ...
+        //   <type>128th</type>
+        //   ...
         //
         
         debug("S_type");
@@ -368,6 +376,9 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_dot& elt)
     {
+        // There can be multiple dots on any given note.  We just have
+        // to count them.
+        
         debug("S_dot");
         
         if (fInNoteElement)
@@ -435,7 +446,6 @@ namespace IMUSANT
     visitEnd( S_pitch& elt)
     {
         debug("S_pitch end");
-        fCurrentNote->setPitch(fCurrentPitch);
         fInPitchElement = false;
     }
     
@@ -470,10 +480,18 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_tie& elt)
     {
+//        This relies on the fact that a tie starts and ends on juxtaposing
+//        notes - a single tie cannot span multiple notes.
+//        Therefore we just wait until we see a tie stop, and then
+//        link the current note to the previous note.
+        
         debug("S_tie");
+        
+        string type_attribute = elt->getAttributeValue("type");
+        
+        if (type_attribute.compare("stop") == 0)
+        {
+            fCurrentNote->setPreviousTieNote(fPreviousNote);
+        }
     }
-    
-    
-    
-    
 }

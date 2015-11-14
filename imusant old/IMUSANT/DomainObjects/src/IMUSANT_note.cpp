@@ -58,6 +58,21 @@ void IMUSANT_note::print (ostream& os) const
         os << "NULL";
     }
     os << "<\\ACCIDENTAL>" << endl;
+    
+    os << "<PREVIOUS_TIE>";
+    if (fTiePrevious != NULL)
+    {
+        os  << "measure["
+            << to_string(fTiePrevious->getMeasureNum())
+            << "] index["
+            << to_string(fTiePrevious->getNoteIndex())
+            << "]";
+    }
+    else
+    {
+        os << "NULL";
+    }
+    os << "<\\PREVIOUS_TIE>" << endl;
 
 	//add other records
 	os << "<\\NOTE>" << endl;

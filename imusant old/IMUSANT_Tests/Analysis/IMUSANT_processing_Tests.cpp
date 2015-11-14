@@ -358,18 +358,20 @@ TEST_F(IMUSANT_processing_Tests, MXMLv3_MusicXML_ParserTest1)
     ASSERT_EQ(5, p4_m7_note_count);
     
     const string second_p1_measure_expected =
-        "<MEAS>=1\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE index=1 measure_num=1 >\n <PITCH>C1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<NOTE index=2 measure_num=1 >\n <PITCH>C0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<NOTE index=3 measure_num=1 >\n <PITCH>G0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/2<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<\\MEAS>\n";
+        "<MEAS>=1\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE index=1 measure_num=1 >\n <PITCH>C1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>measure[0] index[1]<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=2 measure_num=1 >\n <PITCH>C0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=3 measure_num=1 >\n <PITCH>G0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/2<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
     stringstream second_p1_measure_printed;
     
     second_p1_measure->print(second_p1_measure_printed);
     ASSERT_EQ(second_p1_measure_expected, second_p1_measure_printed.str());
     
     
-    const string change_p1_measure_expected = "<MEAS>=7\n<CLEF> 0@0<\\CLEF>\n<TIME>6/8<\\TIME>\n<KEY>3, mode: 0<\\KEY>\n<NOTE index=1 measure_num=7 >\n <PITCH>C1@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>1<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<NOTE index=2 measure_num=7 >\n <PITCH>D0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<NOTE index=3 measure_num=7 >\n <PITCH>C1@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>1<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n<\\MEAS>\n";
+    const string change_p1_measure_expected = "<MEAS>=7\n<CLEF> 0@0<\\CLEF>\n<TIME>6/8<\\TIME>\n<KEY>3, mode: 0<\\KEY>\n<NOTE index=1 measure_num=7 >\n <PITCH>C1@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>1<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=2 measure_num=7 >\n <PITCH>D0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=3 measure_num=7 >\n <PITCH>C1@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>1<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
     stringstream change_p1_measure_printed;
     
     change_p1_measure->print(change_p1_measure_printed);
     ASSERT_EQ(change_p1_measure_expected, change_p1_measure_printed.str());
+    
+    
 }
 
 

@@ -123,11 +123,7 @@ namespace IMUSANT
         
     private:
         
-        // REVISIT
-        // All these state variables are probably common between MusicXLM v3 and v1 and
-        // therefore could be put into a common base class or a helper class of some description.
-        
-        S_IMUSANT_score fImusantScore;
+        S_IMUSANT_score     fImusantScore;
         
         S_IMUSANT_part      fCurrentPart;
         long                fCurrentMeasureNumber;
@@ -140,12 +136,12 @@ namespace IMUSANT
         IMUSANT_time        fCurrentTime;
         bool                fInNoteElement;
         S_IMUSANT_note      fCurrentNote;
+        S_IMUSANT_note      fPreviousNote;
         TRational           fCurrentNoteDurationType;
         TRational           fCurrentNoteTimeModification;
         long                fCurrentNumberofDotsOnNote;
         bool                fInPitchElement;
         S_IMUSANT_pitch     fCurrentPitch;
-        
     };
 }
 

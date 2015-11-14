@@ -115,7 +115,7 @@ class VEXP IMUSANT_note : public IMUSANT_element
 		long                            fMeasureNumber;	//internal measure reference
 		long                            fNoteIndex;		//index of note in measure
 		S_IMUSANT_note                  fTieNext;
-		S_IMUSANT_note                  fTiePrevious;
+		S_IMUSANT_note                  fTiePrevious = NULL;
 		IMUSANT_NoteStyle::type         fStyle;
 		IMUSANT_NoteType::type          fType;
 };
