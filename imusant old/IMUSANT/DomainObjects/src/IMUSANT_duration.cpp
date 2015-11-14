@@ -93,6 +93,15 @@ namespace IMUSANT
         return os;
     }
     
+    void
+    IMUSANT_duration::
+    print (ostream& os) const
+    {
+        os  << "<RHYTHM_TYPE>" << fDuration.toString() << "<//RHYTHM_TYPE>"
+            << "<DOTS>" << to_string(fDots) << "<//DOTS>"
+            << "<TIME_MOD>" << fTimeModification.toString() << "<TIME_MOD>";
+    }
+    
     //--
     //takes durations and reduces them to simplest form
     long

@@ -63,14 +63,14 @@ TEST_F(IMUSANT_note_Tests, BasicPrintTest)
     stringstream *printed_note_1 = new stringstream();
     the_note->print(*printed_note_1);
     
-    const string expected_1 = "<NOTE index=2 >\n <PITCH>NULL<\\PITCH>\n <DURATION>NULL<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n";
+    const string expected_1 = "<NOTE index=2 measure_num=1 >\n <PITCH>NULL<\\PITCH>\n <DURATION>NULL<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n";
     
     ASSERT_EQ(expected_1, printed_note_1->str());
     
     S_IMUSANT_duration duration = new_IMUSANT_duration();
-    TRational dur = 1;
-    long dots = 0;
-    TRational time_mod = 0;
+    TRational dur(6,8);
+    long dots = 3;
+    TRational time_mod(3,2);
     duration->set(dur, dots,  time_mod);
     
     S_IMUSANT_pitch pitch = new_IMUSANT_pitch();
@@ -82,8 +82,8 @@ TEST_F(IMUSANT_note_Tests, BasicPrintTest)
     stringstream *printed_note_2 = new stringstream();
     the_note->print(*printed_note_2);
     const string expected_2 =
-        "<NOTE index=2 >\n <PITCH>D0@2<\\PITCH>\n <DURATION>1/1<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n";
-    ASSERT_EQ(expected_2, printed_note_2->str());
+        "<NOTE index=2 measure_num=1 >\n <PITCH>D0@2<\\PITCH>\n <DURATION><RHYTHM_TYPE>6/8<//RHYTHM_TYPE><DOTS>3<//DOTS><TIME_MOD>3/2<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<\\NOTE>\n";
+    ASSERT_EQ(expected_2, printed_note_2->str() );
     
     delete printed_note_1;
     delete printed_note_2;

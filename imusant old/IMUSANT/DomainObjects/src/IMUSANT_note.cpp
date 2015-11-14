@@ -22,7 +22,7 @@ ostream& operator<< (ostream& os, const S_IMUSANT_note& elt )
 
 void IMUSANT_note::print (ostream& os) const
 {
-	os << "<NOTE index=" << fNoteIndex << " >" << endl;
+	os << "<NOTE index=" << fNoteIndex << " measure_num=" << fMeasureNumber << " >" << endl;
     
     os << " <PITCH>";
     if (fPitch != NULL)

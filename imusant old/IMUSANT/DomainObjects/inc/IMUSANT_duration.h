@@ -63,10 +63,7 @@ namespace IMUSANT
         bool                operator <=(const IMUSANT_duration &dur) const 	{return !(*this > dur);}
         
         friend ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
-        void	print (ostream& os) const
-        {
-            os << fDuration.toString();
-        }
+        void	print (ostream& os) const;
         
         void set( TRational dur, long dots, TRational timemod)
         {
