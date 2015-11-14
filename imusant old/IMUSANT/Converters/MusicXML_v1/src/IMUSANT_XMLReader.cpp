@@ -450,7 +450,7 @@ void IMUSANT_XMLReader::EndIMUSANT_duration_type(IMUSANT_XMLReader* reader, cons
 {
 	DBUG(("EndDurationType\n"));
 	if (reader->fDuration)
-		reader->fDuration->fDuration = TRational(IMUSANT_duration::xml(reader->GetDataString()));
+		reader->fDuration->fDuration = TRational(IMUSANT_duration::xmlv1(reader->GetDataString()));
 }
 		//dots
 void IMUSANT_XMLReader::EndIMUSANT_dots(IMUSANT_XMLReader* reader, const char* tag)

@@ -286,7 +286,7 @@ void IMUSANT_XMLVisitor::visit ( S_IMUSANT_note& elt )
 	}
 	//add other elements as implemented; only non-default values written
 	Sxmlelement xmldur = new_xmlelement(IMUSANT_tags::duration);
-	xmldur->add(new_xmlelement(IMUSANT_tags::duration_type, IMUSANT_duration::xml(elt->duration()->fDuration)));
+	xmldur->add(new_xmlelement(IMUSANT_tags::duration_type, IMUSANT_duration::xmlv1(elt->duration()->fDuration)));
 	if (elt->duration()->fDots)
 		xmldur->add(new_xmlelement(IMUSANT_tags::dots, elt->duration()->fDots));
 	if (elt->duration()->fTimeModification!=TRational(1,1))

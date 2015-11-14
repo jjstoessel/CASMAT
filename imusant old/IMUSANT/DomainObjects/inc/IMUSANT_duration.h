@@ -17,96 +17,110 @@
 #include "TRational.h"
 #include "bimap.h"
 
-namespace IMUSANT 
+namespace IMUSANT
 {
-
-class IMUSANT_duration;
-
-VEXP ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
-
-class VEXP IMUSANT_duration : public smartable
-{
-	public:
+    class IMUSANT_duration;
+    
+    VEXP ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
+    
+    class VEXP IMUSANT_duration : public smartable
+    {
+    public:
         
-		/*enum type {	unmeasured = 0, maxima = 1, longa, breve, semibreve, crochet, quaver, semiquaver, demisemiquaver,
-			hemidemisemiquaver, hundredandtwentyeighth, last=hundredandtwentyeighth }; */
-			
-		friend SMARTP<IMUSANT_duration> new_IMUSANT_duration();
-			
-        const IMUSANT_duration& operator= (const IMUSANT_duration& dur)	
-            {	
-				fDuration=dur.fDuration; fDots=dur.fDots; 
-				fTimeModification=dur.fTimeModification;
-				return *this; 
-			}
-			
-		void set( TRational dur, long dots, TRational timemod) { fDuration=dur; fDots=dots, fTimeModification=timemod; }
-		
-        bool operator!= (const IMUSANT_duration& dur) const;
-		bool operator== (const IMUSANT_duration& dur) const;
-		
-		IMUSANT_duration	getSimplifiedDuration() const;
-		
-		IMUSANT_duration	operator+(const IMUSANT_duration& right);
-		void				operator+=(const IMUSANT_duration& rhs);
+        friend SMARTP<IMUSANT_duration> new_IMUSANT_duration();
+        
+        IMUSANT_duration(): fDuration(IMUSANT_duration::unmeasured),
+        fDots(0),
+        fTimeModification("1/1")
+        {
+            // empty constructor
+        }
+        
+        IMUSANT_duration(const IMUSANT_duration& duration)
+        {
+            *this = duration;
+        }
+        
+        virtual ~IMUSANT_duration() {}
+        
+        const IMUSANT_duration& operator= (const IMUSANT_duration& dur)
+        {
+            fDuration = dur.fDuration;
+            fDots = dur.fDots;
+            fTimeModification = dur.fTimeModification;
+            return *this;
+        }
+        
+        bool                operator!= (const IMUSANT_duration& dur) const;
+        bool                operator== (const IMUSANT_duration& dur) const;
+        IMUSANT_duration	operator+(const IMUSANT_duration& right);
+        void				operator+=(const IMUSANT_duration& rhs);
         IMUSANT_duration    operator-(const IMUSANT_duration& right);
         void				operator-=(const IMUSANT_duration& rhs);
-    
-        bool operator >(const IMUSANT_duration &dur) const;
-        bool operator >=(const IMUSANT_duration &dur) const 	{return !(*this < dur);}
-        bool operator <(const IMUSANT_duration &dur) const;
-        bool operator <=(const IMUSANT_duration &dur) const 	{return !(*this > dur);}
-		
-		friend ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
-		
-		void	print (ostream& os) const
-		{
+        bool                operator >(const IMUSANT_duration &dur) const;
+        bool                operator >=(const IMUSANT_duration &dur) const 	{return !(*this < dur);}
+        bool                operator <(const IMUSANT_duration &dur) const;
+        bool                operator <=(const IMUSANT_duration &dur) const 	{return !(*this > dur);}
+        
+        friend ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
+        void	print (ostream& os) const
+        {
             os << fDuration.toString();
-		}
-    
-		//checks that TRational type is actually dotted note, return dots and changes dur
+        }
+        
+        void set( TRational dur, long dots, TRational timemod)
+        {
+            fDuration=dur;
+            fDots=dots,
+            fTimeModification=timemod;
+        }
+        
+        IMUSANT_duration	getSimplifiedDuration() const;
+        
+        //checks that TRational type is actually dotted note, return dots and changes dur
         static long	NormaliseDuration(TRational& dur);
-		
-        static const string	xml(TRational d);
-		//! convert a string to a numeric pitch
-	
-        static TRational	xml(const string str);
-		
+        
+        
+        // Converters
+        static const string	xmlv1(TRational d);
+        static TRational	xmlv1(const string str);
+        static TRational	xmlv3(const string str);
+        
         TRational		fDuration;
-		long		fDots;
-		TRational	fTimeModification;
-		
-		static TRational
-			unmeasured,
-			maxima,
-			longa,
-			breve,
-			semibreve,
-			minim,
-			crochet,
-			quaver,
-			semiquaver, //16th
-			demisemiquaver, //32nd
-			hemidemisemiquaver, //64th
-			hundredandtwentyeighth;  //unmentionalble duration	
-			
-			IMUSANT_duration(): fDuration(IMUSANT_duration::unmeasured), fDots(0), fTimeModification("1/1") {}
-            //copy ctor
-            IMUSANT_duration(const IMUSANT_duration& duration) { *this = duration; }
-			virtual ~IMUSANT_duration() {}
-	protected:
-			
-			
-	static bimap<string, TRational>	fDuration2String;
-	static TRational				fDurationTbl[];
-	static string					fDurationStrings[];
-	
-	
-};
+        long            fDots;
+        TRational       fTimeModification;
+        
+        static TRational unmeasured;
+        static TRational maxima;
+        static TRational longa;
+        static TRational breve;
+        static TRational semibreve;
+        static TRational minim;
+        static TRational crochet;
+        static TRational quaver;
+        static TRational semiquaver; //16th
+        static TRational demisemiquaver; //32nd
+        static TRational hemidemisemiquaver; //64th
+        static TRational hundredandtwentyeighth;  //128th
+        static TRational twofiftysixth; // 256th
+        static TRational fivetwelfth; // 512th
+        static TRational oneohtwofourth; // 1024th
+        
+        
+    protected:
 
-typedef SMARTP<IMUSANT_duration> S_IMUSANT_duration;
+        static bimap<string, TRational>	fDuration2Stringv1;
+        static bimap<string, TRational>	fDuration2Stringv3;
+        
+        static TRational				fDurationTblv1[];       // values for MusicXML Version 1
+        static TRational				fDurationTblv3[];       // values for MusicXML Version 3
+        static string					fDurationStringsv1[];   // values for MusicXML Version 1
+        static string					fDurationStringsv3[];   // values for MusicXML Version 3
+    };
     
-SMARTP<IMUSANT_duration> new_IMUSANT_duration();
-
+    typedef SMARTP<IMUSANT_duration> S_IMUSANT_duration;
+    
+    SMARTP<IMUSANT_duration> new_IMUSANT_duration();
+    
 }
 #endif //namespace IMUSANT
