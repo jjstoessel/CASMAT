@@ -8,6 +8,9 @@
 #include "CATSMAT_cp_matrix.hpp"
 
 #include "CATSMAT_cp_matrix_Expected.h"
+#include "CATSMAT_cp_matrix_Kyrie_Expected.h"
+#include "CATSMAT_cp_matrix_Sanctus_Expected.h"
+#include "CATSMAT_cp_matrix_Josquin_MAF_Kyrie_Expected.h"
 
 #include "gtest/gtest.h"
 
@@ -51,6 +54,8 @@ TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
     
     const unsigned short OCTAVE_FIVE = 5;
     IMUSANT_note note = testUtil.CreateNote(IMUSANT_pitch::type::E, OCTAVE_FIVE, IMUSANT_duration::minim);
+    note.setMeasureNum(12);
+    note.setNoteIndex(55);
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = CATSMAT::new_CATSMAT_cp_matrix();
     theMatrix->addpart();
