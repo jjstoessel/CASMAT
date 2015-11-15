@@ -325,17 +325,16 @@ namespace IMUSANT
     visitEnd( S_note& elt)
     {
         debug("S_note end");
+        
         if (fInNoteElement)
         {
             S_IMUSANT_duration duration = new_IMUSANT_duration();
             duration->set(fCurrentNoteDurationType,
                           fCurrentNumberofDotsOnNote,
                           fCurrentNoteTimeModification);
-            
-            // REVISIT - ACCIDENTAL on S_note.
-            
             fCurrentNote->setDuration(duration);
-            fCurrentNote->setPitch(fCurrentPitch);  // REVSIT - This isn't working...
+            
+            fCurrentNote->setPitch(fCurrentPitch);
             
             fCurrentMeasure->addElement(fCurrentNote);
         }
@@ -493,5 +492,19 @@ namespace IMUSANT
         {
             fCurrentNote->setPreviousTieNote(fPreviousNote);
         }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_accidental& elt)
+    {
+        debug("S_accidental");
+        
+        string accidental_str = elt->getValue();
+        IMUSANT_accidental::accident accident = IMUSANT_accidental::xml(accidental_str);
+        S_IMUSANT_accidental accidental = new_IMUSANT_accidental();
+        accidental->setAccident(accident);
+        
+        fCurrentNote->setAccidental(accidental);
     }
 }

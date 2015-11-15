@@ -254,12 +254,13 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasurePrintTest1_ParserTest1)
     S_IMUSANT_measure second_p1_measure = p1_measures[1];
     
     const string second_p1_measure_expected =
-    "<MEAS>=1\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE index=1 measure_num=1 >\n <PITCH>C1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>measure[0] index[1]<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=2 measure_num=1 >\n <PITCH>C0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=3 measure_num=1 >\n <PITCH>G0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/2<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
+    "<MEAS>=1\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE index=1 measure_num=1 >\n <PITCH>C1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>measure[0] index[1]<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=2 measure_num=1 >\n <PITCH>C0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>natural<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=3 measure_num=1 >\n <PITCH>G0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/2<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
     
     stringstream second_p1_measure_printed;
     
     second_p1_measure->print(second_p1_measure_printed);
     
+    // cout << second_p1_measure_printed.str();
     ASSERT_EQ(second_p1_measure_expected, second_p1_measure_printed.str());
 }
 
@@ -277,7 +278,26 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasurePrintTest2_ParserTest1)
     stringstream change_p1_measure_printed;
     
     change_p1_measure->print(change_p1_measure_printed);
+    // cout << change_p1_measure_printed.str();
     ASSERT_EQ(change_p1_measure_expected, change_p1_measure_printed.str());
+}
+
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasurePrintTest3_ParserTest1)
+{
+    S_IMUSANT_score score = fScore_ParserTest1;
+    
+    S_IMUSANT_part p1_sop;
+    score->getPartById("P1", p1_sop);
+    IMUSANT_vector<S_IMUSANT_measure> p1_measures = p1_sop->measures();
+    S_IMUSANT_measure p1_m4 = p1_measures[4];
+    
+    const string p1_m4_expected = "<MEAS>=4\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE index=1 measure_num=4 >\n <PITCH>F1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>3/2<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=2 measure_num=4 >\n <PITCH>F-1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>3/2<TIME_MOD><\\DURATION>\n <ACCIDENTAL>flat<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=3 measure_num=4 >\n <PITCH>F1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>3/2<TIME_MOD><\\DURATION>\n <ACCIDENTAL>sharp<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=4 measure_num=4 >\n <PITCH>F-2@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>3/2<TIME_MOD><\\DURATION>\n <ACCIDENTAL>flat-flat<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=5 measure_num=4 >\n <PITCH>E2@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<//RHYTHM_TYPE><DOTS>1<//DOTS><TIME_MOD>3/2<TIME_MOD><\\DURATION>\n <ACCIDENTAL>double-sharp<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=6 measure_num=4 >\n <PITCH>F1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/16<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>3/2<TIME_MOD><\\DURATION>\n <ACCIDENTAL>sharp<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=7 measure_num=4 >\n <PITCH>F1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE index=8 measure_num=4 >\n <PITCH>F1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<//RHYTHM_TYPE><DOTS>0<//DOTS><TIME_MOD>0/0<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
+    
+    stringstream p1_m4_printed;
+    
+    p1_m4->print(p1_m4_printed);
+    // cout << p1_m4_printed.str();
+    ASSERT_EQ(p1_m4_expected, p1_m4_printed.str());
 }
 
 

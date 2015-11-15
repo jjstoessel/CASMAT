@@ -47,10 +47,18 @@ namespace IMUSANT
     class IMUSANT_accidental : public smartable
     {
     public:
-        enum accident { undefined = 0,
+        enum accident
+        {
+            undefined = 0,
             sharp=1, natural, flat, double_sharp, sharp_sharp, flat_flat,
             natural_sharp, natural_flat, quarter_flat, quarter_sharp,
-            three_quarters_flat, three_quarters_sharp, last=three_quarters_sharp };
+            three_quarters_flat, three_quarters_sharp,
+            sharp_down, sharp_up, natural_down, natural_up, flat_down, flat_up,
+            triple_sharp, triple_flat, slash_quarter_sharp, slash_sharp, slash_flat,
+            double_slash_flat, sharp_1, sharp_2, sharp_3, sharp_5, flat_1, flat_2, flat_3, flat_4,
+            sori, koron,
+            last=koron
+        };
         
         EXP friend SMARTP<IMUSANT_accidental> new_IMUSANT_accidental();
         
@@ -66,6 +74,7 @@ namespace IMUSANT
         
         //! convert a numeric accidental type to a MusicXML string
         static const string	xml(accident d);
+        
         //! convert an MusicXML string to a numeric accidental type
         static accident		xml(const string str);
         
@@ -75,11 +84,18 @@ namespace IMUSANT
         
     protected:
         IMUSANT_accidental() :
-        fAccident(undefined), fCautionary(YesNo::undefined),
-        fEditorial(YesNo::undefined), fCancelling(YesNo::undefined) {}
+            fAccident(undefined),
+            fCautionary(YesNo::undefined),
+            fEditorial(YesNo::undefined),
+            fCancelling(YesNo::undefined)
+        {
+            // empty constructor
+        }
+        
         virtual ~IMUSANT_accidental() {}
+        
     private:
-        accident 	fAccident;
+        accident        fAccident;
         YesNo::type		fCautionary;
         YesNo::type		fEditorial;
         YesNo::type		fCancelling;
