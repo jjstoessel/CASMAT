@@ -63,7 +63,8 @@ namespace IMUSANT
     public visitor<S_alter>,
     public visitor<S_octave>,
     public visitor<S_tie>,
-    public visitor<S_accidental>
+    public visitor<S_accidental>,
+    public visitor<S_grace>
     {
         
     public:
@@ -123,6 +124,8 @@ namespace IMUSANT
         virtual void visitStart( S_tie& elt);
         
         virtual void visitStart( S_accidental& elt);
+        
+        virtual void visitStart( S_grace& elt);
         
     private:
         

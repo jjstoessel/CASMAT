@@ -41,6 +41,11 @@ void IMUSANT_note::print (ostream& os) const
         os << " <REST\\>" << endl;
     }
     
+    if (getStyle() == IMUSANT_NoteStyle::grace)
+    {
+        os << " <GRACE\\>" << endl;
+    }
+    
     os << " <DURATION>";
     if (fDuration != NULL)
     {

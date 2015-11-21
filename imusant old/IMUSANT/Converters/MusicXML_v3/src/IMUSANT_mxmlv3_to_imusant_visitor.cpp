@@ -265,6 +265,8 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_note& elt)
     {
+
+// A regular note...
 //        <note default-x="149">
 //          <pitch>
 //            <step>C</step>
@@ -284,7 +286,7 @@ namespace IMUSANT
 //        </note>
         
 
-        
+// A triplet...
 //        <note default-x="18.21" default-y="-35.00">
 //          <pitch>
 //            <step>F</step>
@@ -517,5 +519,14 @@ namespace IMUSANT
         accidental->setAccident(accident);
         
         fCurrentNote->setAccidental(accidental);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_grace& elt)
+    {
+        debug("S_grace");
+        
+        fCurrentNote->setStyle(IMUSANT_NoteStyle::grace);
     }
 }
