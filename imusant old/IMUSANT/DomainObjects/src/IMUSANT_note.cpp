@@ -22,7 +22,7 @@ ostream& operator<< (ostream& os, const S_IMUSANT_note& elt )
 
 void IMUSANT_note::print (ostream& os) const
 {
-	os << "<NOTE index=" << fNoteIndex << " measure_num=" << fMeasureNumber << " >" << endl;
+    os << "<NOTE measure_num=" << fMeasureNumber << " index=" << fNoteIndex << " >" << endl;
     
     os << " <PITCH>";
     if (fPitch != NULL)
@@ -36,6 +36,10 @@ void IMUSANT_note::print (ostream& os) const
     }
     os << "<\\PITCH>" << endl;
     
+    if (getType() == IMUSANT_NoteType::rest)
+    {
+        os << " <REST\\>" << endl;
+    }
     
     os << " <DURATION>";
     if (fDuration != NULL)

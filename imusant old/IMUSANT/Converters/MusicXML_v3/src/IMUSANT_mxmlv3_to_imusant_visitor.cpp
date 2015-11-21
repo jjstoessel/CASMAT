@@ -283,11 +283,7 @@ namespace IMUSANT
 //          </notations>
 //        </note>
         
-//        <note>
-//          <rest/>
-//          <duration>4</duration>
-//          <voice>1</voice>
-//        </note>
+
         
 //        <note default-x="18.21" default-y="-35.00">
 //          <pitch>
@@ -334,8 +330,6 @@ namespace IMUSANT
                           fCurrentNoteTimeModification);
             fCurrentNote->setDuration(duration);
             
-            fCurrentNote->setPitch(fCurrentPitch);
-            
             fCurrentMeasure->addElement(fCurrentNote);
         }
         fInNoteElement = false;
@@ -345,10 +339,26 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_rest& elt)
     {
+//        <note>
+//          <rest/>
+//          <duration>9</duration>
+//          <voice>1</voice>
+//          <type>eighth</type>
+//          <dot/>
+//          <time-modification>
+//            <actual-notes>3</actual-notes>
+//            <normal-notes>3</normal-notes>
+//            <normal-type>eighth</normal-type>
+//          </time-modification>
+//          <notations>
+//            <tuplet type="start" bracket="yes"/>
+//          </notations>
+//        </note>
+        
         debug("S_rest");
         if (fInNoteElement)
         {
-           // REVISIT
+            fCurrentNote->setType(IMUSANT_NoteType::rest);
         }
     }
     
@@ -445,6 +455,7 @@ namespace IMUSANT
     visitEnd( S_pitch& elt)
     {
         debug("S_pitch end");
+        fCurrentNote->setPitch(fCurrentPitch);
         fInPitchElement = false;
     }
     

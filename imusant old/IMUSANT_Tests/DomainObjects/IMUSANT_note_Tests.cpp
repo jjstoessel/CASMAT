@@ -63,7 +63,7 @@ TEST_F(IMUSANT_note_Tests, BasicPrintTest)
     stringstream *printed_note_1 = new stringstream();
     the_note->print(*printed_note_1);
     
-    const string expected_1 = "<NOTE index=2 measure_num=1 >\n <PITCH>NULL<\\PITCH>\n <DURATION>NULL<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n";
+    const string expected_1 = "<NOTE measure_num=1 index=2 >\n <PITCH>NULL<\\PITCH>\n <DURATION>NULL<\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n";
     
     ASSERT_EQ(expected_1, printed_note_1->str());
     
@@ -82,7 +82,11 @@ TEST_F(IMUSANT_note_Tests, BasicPrintTest)
     stringstream *printed_note_2 = new stringstream();
     the_note->print(*printed_note_2);
     const string expected_2 =
-        "<NOTE index=2 measure_num=1 >\n <PITCH>D0@2<\\PITCH>\n <DURATION><RHYTHM_TYPE>6/8<//RHYTHM_TYPE><DOTS>3<//DOTS><TIME_MOD>3/2<TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n";
+        "<NOTE measure_num=1 index=2 >\n <PITCH>D0@2<\\PITCH>\n <DURATION><RHYTHM_TYPE>6/8<\\RHYTHM_TYPE><DOTS>3<\\DOTS><TIME_MOD>3/2<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n";
+    
+    // cout << "Expected " << endl << expected_2 << endl;
+    // cout << "Actual " << endl << printed_note_2->str()  << endl;
+    
     ASSERT_EQ(expected_2, printed_note_2->str() );
     
     delete printed_note_1;
