@@ -135,13 +135,6 @@ namespace IMUSANT
         {
             fCurrentPart->addMeasure(measure);
         }
-        
-        //  REVISIT - barline is a child of measure for repeats.
-        //  This is a child of measure:
-        //        <barline location="left">
-        //        <bar-style>heavy-light</bar-style>
-        //        <repeat direction="forward"/>
-        //        </barline>
     }
     
     
@@ -208,6 +201,8 @@ namespace IMUSANT
     visitStart( S_ending& elt)
     {
         debug("S_ending");
+        
+        // "Endings" are the alternative bars at the end of repeated pasages. e.g. first and second endings.
         
         S_IMUSANT_ending ending = new_IMUSANT_ending();
         
