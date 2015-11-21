@@ -25,6 +25,7 @@
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_types.h"
 #include "IMUSANT_note.h"
+#include "IMUSANT_barline.h"
 
 #include "IMUSANT_converters_shared_types.h"
 
@@ -47,6 +48,10 @@ namespace IMUSANT
     public visitor<S_part_abbreviation>,
     public visitor<S_part>,
     public visitor<S_measure>,
+    public visitor<S_barline>,
+    public visitor<S_bar_style>,
+    public visitor<S_repeat>,
+    public visitor<S_ending>,
     public visitor<S_key>,
     public visitor<S_fifths>,
     public visitor<S_mode>,
@@ -95,6 +100,12 @@ namespace IMUSANT
         virtual void visitStart( S_part& elt);
         
         virtual void visitStart( S_measure& elt);
+        virtual void visitStart( S_barline& elt);
+        virtual void visitEnd( S_barline& elt);
+        
+        virtual void visitStart( S_bar_style& elt);
+        virtual void visitStart( S_repeat& elt);
+        virtual void visitStart( S_ending& elt);
         
         virtual void visitStart( S_key& elt);
         virtual void visitEnd( S_key& elt);
@@ -134,6 +145,7 @@ namespace IMUSANT
         S_IMUSANT_part      fCurrentPart;
         long                fCurrentMeasureNumber;
         S_IMUSANT_measure   fCurrentMeasure;
+        S_IMUSANT_barline   fCurrentBarline;
         long                fCurrentNoteIndex;
         ACCIDENTALMAP       fCurrentAccidentals;
         bool                fInKeyElement;

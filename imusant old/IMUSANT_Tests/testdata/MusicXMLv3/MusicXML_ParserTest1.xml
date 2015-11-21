@@ -403,7 +403,7 @@
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="6" width="416.52">
+    <measure number="6" width="403.76">
       <print new-system="yes">
         <system-layout>
           <system-margins>
@@ -419,7 +419,7 @@
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="7" width="357.37">
+    <measure number="7" width="347.79">
       <attributes>
         <key>
           <fifths>3</fifths>
@@ -441,7 +441,7 @@
         <dot/>
         <stem>down</stem>
         </note>
-      <note default-x="224.29" default-y="-15.00">
+      <note default-x="219.17" default-y="-15.00">
         <pitch>
           <step>C</step>
           <alter>1</alter>
@@ -454,41 +454,70 @@
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="8" width="267.70">
+    <measure number="8" width="290.03">
+      <barline location="left">
+        <ending number="1" type="start"/>
+        </barline>
+      <note default-x="12.00" default-y="-70.00">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>3</octave>
+          </pitch>
+        <duration>18</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <dot/>
+        <stem>up</stem>
+        </note>
+      <note>
+        <rest/>
+        <duration>6</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        </note>
+      <note>
+        <rest/>
+        <duration>12</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        </note>
+      <barline location="right">
+        <bar-style>light-heavy</bar-style>
+        <ending number="1" type="stop"/>
+        <repeat direction="backward"/>
+        </barline>
+      </measure>
+    <measure number="9" width="202.19">
+      <print new-page="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>35.91</left-margin>
+            <right-margin>565.86</right-margin>
+            </system-margins>
+          <top-system-distance>70.00</top-system-distance>
+          </system-layout>
+        </print>
+      <barline location="left">
+        <ending number="2" type="start"/>
+        </barline>
       <note>
         <rest/>
         <duration>36</duration>
         <voice>1</voice>
         </note>
       <barline location="right">
-        <bar-style>light-heavy</bar-style>
-        <repeat direction="backward"/>
+        <ending number="2" type="stop"/>
         </barline>
       </measure>
-    <measure number="9" width="196.05">
-      <print new-page="yes">
-        <system-layout>
-          <system-margins>
-            <left-margin>35.91</left-margin>
-            <right-margin>575.06</right-margin>
-            </system-margins>
-          <top-system-distance>70.00</top-system-distance>
-          </system-layout>
-        </print>
+    <measure number="10" width="132.27">
       <note>
         <rest/>
         <duration>36</duration>
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="10" width="130.74">
-      <note>
-        <rest/>
-        <duration>36</duration>
-        <voice>1</voice>
-        </note>
-      </measure>
-    <measure number="11" width="139.74">
+    <measure number="11" width="141.27">
       <note>
         <rest/>
         <duration>36</duration>
@@ -663,7 +692,7 @@
           </notations>
         </note>
       </measure>
-    <measure number="6" width="416.52">
+    <measure number="6" width="403.76">
       <print new-system="yes">
         <staff-layout number="1">
           <staff-distance>65.00</staff-distance>
@@ -686,7 +715,7 @@
           <tied type="start"/>
           </notations>
         </note>
-      <note default-x="163.59" default-y="-140.00">
+      <note default-x="160.40" default-y="-140.00">
         <pitch>
           <step>F</step>
           <alter>1</alter>
@@ -701,7 +730,7 @@
           <tied type="stop"/>
           </notations>
         </note>
-      <note default-x="247.37" default-y="-140.00">
+      <note default-x="240.99" default-y="-140.00">
         <pitch>
           <step>F</step>
           <alter>1</alter>
@@ -719,7 +748,7 @@
         <type>quarter</type>
         </note>
       </measure>
-    <measure number="7" width="357.37">
+    <measure number="7" width="347.79">
       <attributes>
         <key>
           <fifths>3</fifths>
@@ -735,7 +764,10 @@
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="8" width="267.70">
+    <measure number="8" width="290.03">
+      <barline location="left">
+        <ending number="1" type="start"/>
+        </barline>
       <note>
         <rest/>
         <duration>36</duration>
@@ -743,29 +775,36 @@
         </note>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
+        <ending number="1" type="stop"/>
         <repeat direction="backward"/>
         </barline>
       </measure>
-    <measure number="9" width="196.05">
+    <measure number="9" width="202.19">
       <print new-page="yes">
         <staff-layout number="1">
           <staff-distance>65.00</staff-distance>
           </staff-layout>
         </print>
+      <barline location="left">
+        <ending number="2" type="start"/>
+        </barline>
+      <note>
+        <rest/>
+        <duration>36</duration>
+        <voice>1</voice>
+        </note>
+      <barline location="right">
+        <ending number="2" type="stop"/>
+        </barline>
+      </measure>
+    <measure number="10" width="132.27">
       <note>
         <rest/>
         <duration>36</duration>
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="10" width="130.74">
-      <note>
-        <rest/>
-        <duration>36</duration>
-        <voice>1</voice>
-        </note>
-      </measure>
-    <measure number="11" width="139.74">
+    <measure number="11" width="141.27">
       <note>
         <rest/>
         <duration>36</duration>
@@ -946,7 +985,7 @@
         <type>half</type>
         </note>
       </measure>
-    <measure number="6" width="416.52">
+    <measure number="6" width="403.76">
       <print new-system="yes">
         <staff-layout number="1">
           <staff-distance>65.00</staff-distance>
@@ -958,7 +997,7 @@
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="7" width="357.37">
+    <measure number="7" width="347.79">
       <attributes>
         <key>
           <fifths>3</fifths>
@@ -974,7 +1013,10 @@
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="8" width="267.70">
+    <measure number="8" width="290.03">
+      <barline location="left">
+        <ending number="1" type="start"/>
+        </barline>
       <note>
         <rest/>
         <duration>36</duration>
@@ -982,29 +1024,36 @@
         </note>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
+        <ending number="1" type="stop"/>
         <repeat direction="backward"/>
         </barline>
       </measure>
-    <measure number="9" width="196.05">
+    <measure number="9" width="202.19">
       <print new-page="yes">
         <staff-layout number="1">
           <staff-distance>65.00</staff-distance>
           </staff-layout>
         </print>
+      <barline location="left">
+        <ending number="2" type="start"/>
+        </barline>
+      <note>
+        <rest/>
+        <duration>36</duration>
+        <voice>1</voice>
+        </note>
+      <barline location="right">
+        <ending number="2" type="stop"/>
+        </barline>
+      </measure>
+    <measure number="10" width="132.27">
       <note>
         <rest/>
         <duration>36</duration>
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="10" width="130.74">
-      <note>
-        <rest/>
-        <duration>36</duration>
-        <voice>1</voice>
-        </note>
-      </measure>
-    <measure number="11" width="139.74">
+    <measure number="11" width="141.27">
       <note>
         <rest/>
         <duration>36</duration>
@@ -1133,7 +1182,7 @@
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="6" width="416.52">
+    <measure number="6" width="403.76">
       <print new-system="yes">
         <staff-layout number="1">
           <staff-distance>65.00</staff-distance>
@@ -1145,7 +1194,7 @@
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="7" width="357.37">
+    <measure number="7" width="347.79">
       <attributes>
         <key>
           <fifths>3</fifths>
@@ -1161,7 +1210,7 @@
         <voice>1</voice>
         <type>eighth</type>
         </note>
-      <note default-x="123.16" default-y="-350.00">
+      <note default-x="121.45" default-y="-350.00">
         <pitch>
           <step>A</step>
           <octave>2</octave>
@@ -1172,7 +1221,7 @@
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
-      <note default-x="173.73" default-y="-340.00">
+      <note default-x="170.31" default-y="-340.00">
         <pitch>
           <step>C</step>
           <alter>1</alter>
@@ -1184,7 +1233,7 @@
         <stem>up</stem>
         <beam number="1">end</beam>
         </note>
-      <note default-x="224.29" default-y="-330.00">
+      <note default-x="219.17" default-y="-330.00">
         <pitch>
           <step>E</step>
           <octave>3</octave>
@@ -1201,7 +1250,10 @@
         <type>quarter</type>
         </note>
       </measure>
-    <measure number="8" width="267.70">
+    <measure number="8" width="290.03">
+      <barline location="left">
+        <ending number="1" type="start"/>
+        </barline>
       <note>
         <rest/>
         <duration>36</duration>
@@ -1209,29 +1261,36 @@
         </note>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
+        <ending number="1" type="stop"/>
         <repeat direction="backward"/>
         </barline>
       </measure>
-    <measure number="9" width="196.05">
+    <measure number="9" width="202.19">
       <print new-page="yes">
         <staff-layout number="1">
           <staff-distance>65.00</staff-distance>
           </staff-layout>
         </print>
+      <barline location="left">
+        <ending number="2" type="start"/>
+        </barline>
+      <note>
+        <rest/>
+        <duration>36</duration>
+        <voice>1</voice>
+        </note>
+      <barline location="right">
+        <ending number="2" type="stop"/>
+        </barline>
+      </measure>
+    <measure number="10" width="132.27">
       <note>
         <rest/>
         <duration>36</duration>
         <voice>1</voice>
         </note>
       </measure>
-    <measure number="10" width="130.74">
-      <note>
-        <rest/>
-        <duration>36</duration>
-        <voice>1</voice>
-        </note>
-      </measure>
-    <measure number="11" width="139.74">
+    <measure number="11" width="141.27">
       <note>
         <rest/>
         <duration>36</duration>

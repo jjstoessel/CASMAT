@@ -38,13 +38,11 @@ namespace IMUSANT
         type	getType() const { return fType; }
         long	getNumber() const { return fOrdinal; }
         
+        void    print (ostream& os) const;
+        
     private:
         type	fType;
         long	fOrdinal;
-        
-        static bimap<string, type>	fType2String;
-        static type	fTypeTbl[];
-        static string	fTypeStrings[];
     };
     typedef SMARTP<IMUSANT_ending> S_IMUSANT_ending;
     
@@ -69,13 +67,12 @@ namespace IMUSANT
         direction	getDirection() const { return fDirection; }
         long		getTimes() const { return fTimes; }
         
+        void        print (ostream& os) const;
+        
     private:
         direction	fDirection;
         long		fTimes;
-        //could add laughing, humming, etc.
-        static bimap<string, direction>	fDirection2String;
-        static direction	fDirectionTbl[];
-        static string	fDirectionStrings[];
+
     };
     typedef SMARTP<IMUSANT_repeat> S_IMUSANT_repeat;
     
@@ -108,8 +105,8 @@ namespace IMUSANT
         location	getLocation()	const 	{ return fLocation; }
         type		getBarStyle()	const 	{ return fBarStyle; }
 
-        S_IMUSANT_ending&	ending()		{ return fEnding; }
-        S_IMUSANT_repeat&	repeat()		{ return fRepeat; }
+        S_IMUSANT_ending&	ending() 		{ return fEnding; }
+        S_IMUSANT_repeat&	repeat() 		{ return fRepeat; }
         //SSegno&		segno()		 	{ return fSegno; }
         //SCoda&		coda()		 	{ return fCoda; }
         
@@ -118,6 +115,8 @@ namespace IMUSANT
         
         static const string	xmlstyle (type d);                      // convert an integer bar style to a string
         static type			xmlstyle (const string str);            // convert an string to an integer bar style
+        
+        void    print (ostream& os) const;
         
     protected:
         IMUSANT_barline() : fLocation(undefined), fBarStyle(none) {}
@@ -132,16 +131,10 @@ namespace IMUSANT
         S_IMUSANT_repeat	fRepeat;
         //SSegno 		fSegno;
         //SCoda 		fCoda;
-        
-        static bimap<string, location> fLocation2String;
-        static location		fLocationTbl[];
-        static string		fLocationStrings[];
-        
-        static bimap<string, type> fStyle2String;
-        static type 	fStyleTbl[];
-        static string 	fStyleStrings[];
     };
     typedef SMARTP<IMUSANT_barline> S_IMUSANT_barline;
+    
+    
     
     SMARTP<IMUSANT_ending> new_IMUSANT_ending();
     SMARTP<IMUSANT_repeat> new_IMUSANT_repeat();

@@ -144,6 +144,85 @@ namespace IMUSANT
         //        </barline>
     }
     
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_barline& elt)
+    {
+//        <measure number="4" width="291.58">
+//          <barline location="left">
+//            <bar-style>heavy-light</bar-style>
+//            <repeat direction="forward"/>
+//          </barline>
+
+        
+        debug("S_barline - start");
+        
+        string location = elt->getAttributeValue("location");
+        
+        S_IMUSANT_barline barline = new_IMUSANT_barline();
+        fCurrentBarline = barline;
+        
+        barline->setLocation(IMUSANT_barline::xmllocation(location));
+        
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitEnd( S_barline& elt)
+    {
+        debug("S_barline - end");
+        
+        fCurrentMeasure->addElement(fCurrentBarline);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_bar_style& elt)
+    {
+        string bar_style = elt->getValue();
+        
+        fCurrentBarline->setBarStyle(IMUSANT_barline::xmlstyle(bar_style));
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_repeat& elt)
+    {
+        debug("S_repeat");
+        
+        S_IMUSANT_repeat repeat = new_IMUSANT_repeat();
+       
+        string direction_str = elt->getAttributeValue("direction");
+        long times = elt->getAttributeLongValue("times", 0);
+        
+        IMUSANT_repeat::direction direction =  IMUSANT_repeat::xml(direction_str);
+        repeat->setDirection(direction);
+        repeat->setTimes(times);
+        
+        fCurrentBarline->setRepeat(repeat);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_ending& elt)
+    {
+        debug("S_ending");
+        
+        S_IMUSANT_ending ending = new_IMUSANT_ending();
+        
+        string ending_type_str = elt->getAttributeValue("type");
+        IMUSANT_ending::type ending_type = IMUSANT_ending::xml(ending_type_str);
+        
+        long ending_number = elt->getAttributeLongValue("number", 1);
+        
+        ending->setNumber(ending_number);
+        ending->setType(ending_type);
+        
+        fCurrentBarline->setEnding(ending);
+    }
+    
+    
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_key& elt)
