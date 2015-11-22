@@ -61,8 +61,8 @@ TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
     theMatrix->addpart();
     theMatrix->add(note);
     
-    string matrix_as_string = testUtil.ConvertCpmatrixToString(theMatrix);
-    ASSERT_EQ(CanAddOneNote_Expected, matrix_as_string);
+    string CanAddOneNote_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    ASSERT_EQ(CanAddOneNote_Expected, CanAddOneNote_Actual);
 }
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
@@ -76,8 +76,8 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
-    string matrix_as_string = testUtil.ConvertCpmatrixToString(theMatrix);
-    ASSERT_EQ(TestScore_1_Measure_Expected, matrix_as_string);
+    string TestScore_1_Measure_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    ASSERT_EQ(TestScore_1_Measure_Expected, TestScore_1_Measure_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
@@ -97,8 +97,8 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
     
     //cout << theMatrix;
     
-    string matrix_as_string = testUtil.ConvertCpmatrixToString(theMatrix);
-    ASSERT_EQ(TestScore_4_Measures_Expected, matrix_as_string);
+    string TestScore_4_Measures_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    ASSERT_EQ(TestScore_4_Measures_Expected, TestScore_4_Measures_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
@@ -118,8 +118,8 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithQuaverPassingNotes)
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
-    string matrix_as_string = testUtil.ConvertCpmatrixToString(theMatrix);
-    ASSERT_EQ(TestScore_4_Measures_WithQuaverPassingNotes_Expected, matrix_as_string);
+    string TestScore_4_Measures_WithQuaverPassingNotes_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    ASSERT_EQ(TestScore_4_Measures_WithQuaverPassingNotes_Expected, TestScore_4_Measures_WithQuaverPassingNotes_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
@@ -136,8 +136,8 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes)
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
-    string matrix_as_string = testUtil.ConvertCpmatrixToString(theMatrix);
-    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, matrix_as_string);
+    string TestScore_4_Measures_WithSemiQuaverPassingNotes_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, TestScore_4_Measures_WithSemiQuaverPassingNotes_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
@@ -155,8 +155,8 @@ TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
-    string matrix_as_string = testUtil.ConvertCpmatrixToString(theMatrix);
-    ASSERT_EQ(Sanctus_Expected, matrix_as_string);
+    string Sanctus_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    ASSERT_EQ(Sanctus_Expected, Sanctus_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
@@ -173,8 +173,8 @@ TEST_F(CATSMAT_cp_matrix_Test, Kyrie)
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
-    string matrix_as_string = testUtil.ConvertCpmatrixToString(theMatrix);
-    ASSERT_EQ(Kyrie_Expected, matrix_as_string);
+    string Kyrie_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    ASSERT_EQ(Kyrie_Expected, Kyrie_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
@@ -191,8 +191,8 @@ TEST_F(CATSMAT_cp_matrix_Test, Josquin_MAF_Kyrie)
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
-    string matrix_as_string = testUtil.ConvertCpmatrixToString(theMatrix);
-    ASSERT_EQ(Josquin_MAF_Kyrie_Expected, matrix_as_string);
+    string Josquin_MAF_Kyrie_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    ASSERT_EQ(Josquin_MAF_Kyrie_Expected, Josquin_MAF_Kyrie_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
