@@ -13,40 +13,55 @@
 
 namespace IMUSANT
 {
-
-S_IMUSANT_chord new_IMUSANT_chord() { IMUSANT_chord* o = new IMUSANT_chord(); assert(o!=0); return o; }
-
-//------------------------------------------------------------------------------
-// Acceptor function
-//------------------------------------------------------------------------------
-void IMUSANT_chord::accept(IMUSANT_visitor& visitor)
-{
-	S_IMUSANT_chord sptr(this);
-	visitor.visit(sptr);
-}
-
-void IMUSANT_chord::print(ostream& os)
-{
-	os << "<CHRD>" << endl;
-	
-	for (vector<S_IMUSANT_note>::const_iterator note=fChordNotes.begin(); note!=fChordNotes.end(); note++)
-	{
-		(*note)->print(os);
-	}
-	
-	os << "<\\CHRD>" << endl;
-}
-
-//sorts chord from bass up (i.e. lower note is first in vector)
-//use std::reverse(fChordNotes.begin(), fChordNotes.end()); to make top up
-void IMUSANT_chord::sort(sorttype type)
-{
-    if (type == pitch)
+    
+    S_IMUSANT_chord new_IMUSANT_chord()
     {
-        sortstruct s(this);
-        
-        std::sort(fChordNotes.begin(), fChordNotes.end(), s); //result in a bottom up sort
+        IMUSANT_chord* o = new IMUSANT_chord(); assert(o!=0); return o;
     }
-}
+    
+
+    void
+    IMUSANT_chord::
+    accept(IMUSANT_visitor& visitor)
+    {
+        S_IMUSANT_chord sptr(this);
+        visitor.visit(sptr);
+    }
+    
+    void
+    IMUSANT_chord::
+    print_short(ostream& os) const
+    {
+        os << "<CHORD/>" << endl;
+    }
+    
+    void
+    IMUSANT_chord::
+    print(ostream& os) const
+    {
+        os << "<CHRD>" << endl;
+        
+        for (vector<S_IMUSANT_note>::const_iterator note=fChordNotes.begin(); note!=fChordNotes.end(); note++)
+        {
+            os << " ";
+            (*note)->print_short(os);
+        }
+        
+        os << "<\\CHRD>" << endl;
+    }
+    
+    //sorts chord from bass up (i.e. lower note is first in vector)
+    //use std::reverse(fChordNotes.begin(), fChordNotes.end()); to make top up
+    void
+    IMUSANT_chord::
+    sort(sorttype type)
+    {
+        if (type == pitch)
+        {
+            sortstruct s(this);
+            
+            std::sort(fChordNotes.begin(), fChordNotes.end(), s); //result in a bottom up sort
+        }
+    }
     
 }//namespace IMUSANT

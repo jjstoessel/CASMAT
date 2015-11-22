@@ -33,7 +33,8 @@ class VEXP IMUSANT_chord : public IMUSANT_element
 	
 		void	sort(sorttype type = pitch);
 		
-		void	print(ostream& os);
+		void	print(ostream& os) const;
+        void    print_short(ostream& os) const;
 	
 	protected:
 	

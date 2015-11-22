@@ -14,7 +14,7 @@
 namespace IMUSANT
 {
     
-#define debug(method) cout << "Visiting " << method << endl; fflush(stdout)
+#define debug(method) // cout << "Visiting " << method << endl; fflush(stdout)
 
     
     IMUSANT_mxmlv3_to_imusant_visitor::
@@ -383,6 +383,7 @@ namespace IMUSANT
         
         debug("S_note start");
         fInNoteElement = true;
+        fCurrentNoteInChord = false;    // We don't yet know that this Note is in a chord.
         fPreviousNote = fCurrentNote;
         fCurrentNote = new_IMUSANT_note();
         fCurrentNote->setMeasureNum(fCurrentMeasure->getMeasureNum());
@@ -409,6 +410,11 @@ namespace IMUSANT
             fCurrentMeasure->addElement(fCurrentNote);
         }
         fInNoteElement = false;
+        
+        if (! fCurrentNoteInChord)
+        {
+            fInChord = false;
+        }
     }
     
     void
@@ -602,5 +608,29 @@ namespace IMUSANT
         debug("S_grace");
         
         fCurrentNote->setStyle(IMUSANT_NoteStyle::grace);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart(S_chord& elt)
+    {
+        debug("S_chord");
+        
+        fCurrentNoteInChord = true;
+        
+        if (fInChord)
+        {
+            // Just add the current note into the current chord.
+            fCurrentChord->add(fCurrentNote);
+        }
+        else
+        {
+            // this is the first </chord> element so add the previous note and the current note into a new chord.
+            fCurrentChord = new_IMUSANT_chord();
+            fCurrentMeasure->addElement(fCurrentChord);
+            fCurrentChord->add(fPreviousNote);
+            fCurrentChord->add(fCurrentNote);
+            fInChord = true;
+        }
     }
 }

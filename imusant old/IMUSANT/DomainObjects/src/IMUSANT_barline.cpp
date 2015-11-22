@@ -273,6 +273,13 @@ namespace IMUSANT
     
     void
     IMUSANT_barline::
+    print_short(ostream& os) const
+    {
+        os << "<BARLINE location=" << xmllocation(getLocation()) << " style=" << xmlstyle(getBarStyle()) << "\\>" << endl;
+    }
+    
+    void
+    IMUSANT_barline::
     print (ostream& os) const
     {
         os << "<BARLINE location=" << xmllocation(getLocation()) << " style=" << xmlstyle(getBarStyle()) << "\\>" << endl;

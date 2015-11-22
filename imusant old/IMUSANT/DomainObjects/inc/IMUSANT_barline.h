@@ -117,6 +117,7 @@ namespace IMUSANT
         static type			xmlstyle (const string str);            // convert an string to an integer bar style
         
         void    print (ostream& os) const;
+        void    print_short(ostream& os) const;
         
     protected:
         IMUSANT_barline() : fLocation(undefined), fBarStyle(none) {}

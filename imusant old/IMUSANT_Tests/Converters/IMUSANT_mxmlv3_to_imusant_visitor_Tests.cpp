@@ -20,11 +20,11 @@ using namespace boost;
 class IMUSANT_mxmlv3_to_imusant_visitor_Tests : public ::testing::Test {
     
 protected:
-    
+
     IMUSANT_mxmlv3_to_imusant_visitor_Tests()
     {
         // You can do set-up work for each test here.
-        initialise_ParserTest1_score();
+        // This is a bit inefficient as each file gets parsed for each test case.
     }
     
     virtual ~IMUSANT_mxmlv3_to_imusant_visitor_Tests()
@@ -32,26 +32,39 @@ protected:
         // You can do clean-up work that doesn't throw exceptions here.
     }
     
-    filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
+    static void SetUpTestCase() {
+        fScore_ParserTest1 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest1.xml");
+        fScore_ParserTest2 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest2.xml");
+        fScore_ParserTestBeetAnGeSample = initialise_ParserTest_score("MusicXMLv3.simple_test_data/BeetAnGeSample.xml");
+    }
     
-    S_IMUSANT_score fScore_ParserTest1;
-    void initialise_ParserTest1_score();
+    static filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
+    
+    static S_IMUSANT_score initialise_ParserTest_score(string relative_path);
+
+    static S_IMUSANT_score fScore_ParserTest1;
+    static S_IMUSANT_score fScore_ParserTest2;
+    static S_IMUSANT_score fScore_ParserTestBeetAnGeSample;
+    
     const int NUM_MEASURES_PARSER_TEST_1 = 12;
     const int KEY_AND_TIME_CHANGE_MEASURE_NUM_PARSER_TEST_1 = 7; // This is the bar where the time and key signatures change
-    
 };
 
 
-void
+// Initialise static's outsude the class so it will linjk.
+S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1 = NULL;
+S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest2 = NULL;
+S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTestBeetAnGeSample = NULL;
+
+S_IMUSANT_score
 IMUSANT_mxmlv3_to_imusant_visitor_Tests::
-initialise_ParserTest1_score()
+initialise_ParserTest_score(string relative_path)
 {
-    string relative_path = "MusicXMLv3.simple_test_data/MusicXML_ParserTest1.xml";
-    
-    filesystem::path file_path = make_path_to_test_file(relative_path);
+    filesystem::path file_path = IMUSANT_mxmlv3_to_imusant_visitor_Tests::make_path_to_test_file(relative_path);
     
     IMUSANT_processing parser;
-    fScore_ParserTest1 = parser.process_musicxml3_file(file_path);
+    S_IMUSANT_score parser_test_score = parser.process_musicxml3_file(file_path);
+    return parser_test_score;
 }
 
 
@@ -75,7 +88,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MXMLv3_Dichterliebe01)
 {
     string relative_path = "MusicXMLv3.xmlsamples/Dichterliebe01.xml";
     
-    filesystem::path file_path = make_path_to_test_file(relative_path);
+    filesystem::path file_path = IMUSANT_mxmlv3_to_imusant_visitor_Tests::make_path_to_test_file(relative_path);
     
     IMUSANT_processing parser;
     S_IMUSANT_score score = parser.process_musicxml3_file(file_path);
@@ -141,7 +154,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MXMLv3_Dichterliebe01)
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, ScoreMetadata_ParserTest1)
 {
-    S_IMUSANT_score score = fScore_ParserTest1;
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
     
     /*
      <movement-number>1</movement-number>
@@ -164,7 +177,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, ScoreMetadata_ParserTest1)
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, PartsAndMeasures_ParserTest1)
 {
-    S_IMUSANT_score score = fScore_ParserTest1;
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
     
     /*
      <score-part id="P1">
@@ -197,7 +210,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, PartsAndMeasures_ParserTest1)
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasureProperties_ParserTest1)
 {
-    S_IMUSANT_score score = fScore_ParserTest1;
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
 
     S_IMUSANT_part p1_sop;
     S_IMUSANT_part p4_bass;
@@ -246,7 +259,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasureProperties_ParserTest1)
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasurePrintTest1_ParserTest1)
 {
-    S_IMUSANT_score score = fScore_ParserTest1;
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
 
     S_IMUSANT_part p1_sop;
     score->getPartById("P1", p1_sop);
@@ -266,7 +279,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasurePrintTest1_ParserTest1)
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasurePrintTest2_ParserTest1)
 {
-    S_IMUSANT_score score = fScore_ParserTest1;
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
     
     S_IMUSANT_part p1_sop;
     score->getPartById("P1", p1_sop);
@@ -278,15 +291,15 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasurePrintTest2_ParserTest1)
     stringstream change_p1_measure_printed;
     
     change_p1_measure->print(change_p1_measure_printed);
-    cout << "Actual " << endl << change_p1_measure_printed.str();
-    cout << "Expected " << endl << change_p1_measure_expected;
+ //   cout << "Actual " << endl << change_p1_measure_printed.str();
+ //   cout << "Expected " << endl << change_p1_measure_expected;
     
     ASSERT_EQ(change_p1_measure_expected, change_p1_measure_printed.str());
 }
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasurePrintTest3_ParserTest1)
 {
-    S_IMUSANT_score score = fScore_ParserTest1;
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
     
     S_IMUSANT_part p1_sop;
     score->getPartById("P1", p1_sop);
@@ -305,7 +318,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasurePrintTest3_ParserTest1)
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, GraceNotes_ParserTest1)
 {
-    S_IMUSANT_score score = fScore_ParserTest1;
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
     
     S_IMUSANT_part p2_alto;
     score->getPartById("P2", p2_alto);
@@ -326,7 +339,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, GraceNotes_ParserTest1)
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, BackwardRepeat_ParserTest1)
 {
-    S_IMUSANT_score score = fScore_ParserTest1;
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
     
     S_IMUSANT_part p2_alto;
     score->getPartById("P2", p2_alto);
@@ -338,15 +351,15 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, BackwardRepeat_ParserTest1)
     stringstream p2_m8_printed;
     
     p2_m8->print(p2_m8_printed);
- cout << "Actual " << endl << p2_m8_printed.str() << endl;
- cout << "Expected " << endl << p2_m8_expected << endl;
+// cout << "Actual " << endl << p2_m8_printed.str() << endl;
+// cout << "Expected " << endl << p2_m8_expected << endl;
     ASSERT_EQ(p2_m8_expected, p2_m8_printed.str());
     
 }
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Ending_ParserTest1)
 {
-    S_IMUSANT_score score = fScore_ParserTest1;
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
     
     S_IMUSANT_part p2_alto;
     score->getPartById("P2", p2_alto);
@@ -361,6 +374,69 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Ending_ParserTest1)
     // cout << "Actual " << endl << p2_m9_printed.str() << endl;
     // cout << "Expected " << endl << p2_m9_expected << endl;
     ASSERT_EQ(p2_m9_expected, p2_m9_printed.str());
+    
+}
+
+
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Chords_Simple_ParserTest2)
+{
+    S_IMUSANT_score score = fScore_ParserTest2;
+    
+    S_IMUSANT_part p1;
+    score->getPartById("P1", p1);
+    IMUSANT_vector<S_IMUSANT_measure> p1_measures = p1->measures();
+    S_IMUSANT_measure p1_m2 = p1_measures[2];
+    
+    // REVISIT - it is strange that there are two chords in this measure. Each hand on the Piano seems to be treated separatly.
+    const string p1_m2_expected = "<MEAS>=3\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE measure_num=3 index=1 >\n <PITCH>E0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/1<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=3 index=1 E0@4\\>\n <NOTE measure_num=3 index=2 C0@5\\>\n<\\CHRD>\n<NOTE measure_num=3 index=2 >\n <PITCH>C0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/1<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=3 >\n <PITCH>C0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/1<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=3 index=3 C0@3\\>\n <NOTE measure_num=3 index=4 G0@3\\>\n<\\CHRD>\n<NOTE measure_num=3 index=4 >\n <PITCH>G0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/1<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
+    
+    stringstream p1_m2_actual;
+    
+    p1_m2->print(p1_m2_actual);
+     cout << "Actual " << endl << p1_m2_actual.str() << endl;
+    cout << "Expected " << endl << p1_m2_expected << endl;
+    ASSERT_EQ(p1_m2_expected, p1_m2_actual.str());
+    
+}
+
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Chords_LessSimple_ParserTest2)
+{
+    S_IMUSANT_score score = fScore_ParserTest2;
+    
+    S_IMUSANT_part p1;
+    score->getPartById("P1", p1);
+    IMUSANT_vector<S_IMUSANT_measure> p1_measures = p1->measures();
+    S_IMUSANT_measure p1_m3 = p1_measures[3];
+    
+    // REVISIT - it is strange that there are two chords in this measure. Each hand on the Piano seems to be treated separatly.
+    const string p1_m3_expected = "<MEAS>=4\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE measure_num=4 index=1 >\n <PITCH>E0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=4 index=1 E0@4\\>\n <NOTE measure_num=4 index=2 C0@5\\>\n<\\CHRD>\n<NOTE measure_num=4 index=2 >\n <PITCH>C0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=3 >\n <PITCH>D0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=4 >\n <PITCH>E0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=4 index=4 E0@4\\>\n <NOTE measure_num=4 index=5 E0@5\\>\n<\\CHRD>\n<NOTE measure_num=4 index=5 >\n <PITCH>E0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=6 >\n <PITCH>G0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=4 index=6 G0@4\\>\n <NOTE measure_num=4 index=7 D0@5\\>\n<\\CHRD>\n<NOTE measure_num=4 index=7 >\n <PITCH>D0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=8 >\n <PITCH>E0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=4 index=8 E0@4\\>\n <NOTE measure_num=4 index=9 C0@5\\>\n<\\CHRD>\n<NOTE measure_num=4 index=9 >\n <PITCH>C0@5<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=10 >\n <PITCH>C0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=4 index=10 C0@3\\>\n <NOTE measure_num=4 index=11 G0@3\\>\n<\\CHRD>\n<NOTE measure_num=4 index=11 >\n <PITCH>G0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=12 >\n <PITCH>D0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=4 index=12 D0@3\\>\n <NOTE measure_num=4 index=13 G0@3\\>\n<\\CHRD>\n<NOTE measure_num=4 index=13 >\n <PITCH>G0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=14 >\n <PITCH>E0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=4 index=14 E0@3\\>\n <NOTE measure_num=4 index=15 G0@3\\>\n<\\CHRD>\n<NOTE measure_num=4 index=15 >\n <PITCH>G0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=16 >\n <PITCH>F0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=4 index=16 F0@3\\>\n <NOTE measure_num=4 index=17 G0@3\\>\n<\\CHRD>\n<NOTE measure_num=4 index=17 >\n <PITCH>G0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
+    
+    stringstream p1_m3_actual;
+    
+    p1_m3->print(p1_m3_actual);
+    //cout << "Actual " << endl << p1_m3_actual.str() << endl;
+    //cout << "Expected " << endl << p1_m3_expected << endl;
+    ASSERT_EQ(p1_m3_expected, p1_m3_actual.str());
+    
+}
+
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Chords_MultiNote_BeetAnGeSample)
+{
+    S_IMUSANT_score score = fScore_ParserTestBeetAnGeSample;
+    
+    S_IMUSANT_part p2;
+    score->getPartById("P2", p2);
+    IMUSANT_vector<S_IMUSANT_measure> p2_measures = p2->measures();
+    S_IMUSANT_measure p2_m3 = p2_measures[2];
+    
+    const string p2_m3_expected = "<MEAS>=3\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE measure_num=3 index=1 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=2 >\n <PITCH>G0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=3 index=2 G0@3\\>\n <NOTE measure_num=3 index=3 C0@4\\>\n <NOTE measure_num=3 index=4 E-1@4\\>\n <NOTE measure_num=3 index=5 G0@4\\>\n<\\CHRD>\n<NOTE measure_num=3 index=3 >\n <PITCH>C0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=4 >\n <PITCH>E-1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=5 >\n <PITCH>G0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=6 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=7 >\n <PITCH>G0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=3 index=7 G0@3\\>\n <NOTE measure_num=3 index=8 E-1@4\\>\n <NOTE measure_num=3 index=9 G0@4\\>\n<\\CHRD>\n<NOTE measure_num=3 index=8 >\n <PITCH>E-1@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=9 >\n <PITCH>G0@4<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=10 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=11 >\n <PITCH>C0@2<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=3 index=11 C0@2\\>\n <NOTE measure_num=3 index=12 C0@3\\>\n<\\CHRD>\n<NOTE measure_num=3 index=12 >\n <PITCH>C0@3<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=13 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=3 index=14 >\n <PITCH>B-1@1<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<CHRD>\n <NOTE measure_num=3 index=14 B-1@1\\>\n <NOTE measure_num=3 index=15 B-1@2\\>\n<\\CHRD>\n<NOTE measure_num=3 index=15 >\n <PITCH>B-1@2<\\PITCH>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
+    
+    stringstream p2_m3_actual;
+    
+    p2_m3->print(p2_m3_actual);
+    // cout << "Actual " << endl << p2_m3_actual.str() << endl;
+    // cout << "Expected " << endl << p2_m3_expected << endl;
+    ASSERT_EQ(p2_m3_expected, p2_m3_actual.str());
     
 }
 

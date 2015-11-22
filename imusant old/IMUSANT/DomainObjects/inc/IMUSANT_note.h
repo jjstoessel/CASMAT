@@ -73,6 +73,7 @@ class VEXP IMUSANT_note : public IMUSANT_element
         void accept(IMUSANT_visitor& visitor);
 		
 		void print(ostream& os) const;
+        void print_short(ostream& os) const;
 		
 		friend ostream& operator<< (ostream& os, const S_IMUSANT_note& elt );
 		

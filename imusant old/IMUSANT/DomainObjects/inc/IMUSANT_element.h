@@ -50,6 +50,7 @@ namespace IMUSANT
     public:
         
         virtual void print (ostream& os) const { os << "IMUSANT_element::print()" << endl;};
+        virtual void print_short(ostream& os) const { os << "IMUSANT_element::print_short()" << endl;};
         
         virtual void accept(IMUSANT_visitor& visitor);
         

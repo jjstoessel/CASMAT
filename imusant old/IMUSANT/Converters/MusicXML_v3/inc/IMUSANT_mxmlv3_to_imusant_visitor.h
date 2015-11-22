@@ -26,6 +26,7 @@
 #include "IMUSANT_types.h"
 #include "IMUSANT_note.h"
 #include "IMUSANT_barline.h"
+#include "IMUSANT_chord.h"
 
 #include "IMUSANT_converters_shared_types.h"
 
@@ -69,7 +70,8 @@ namespace IMUSANT
     public visitor<S_octave>,
     public visitor<S_tie>,
     public visitor<S_accidental>,
-    public visitor<S_grace>
+    public visitor<S_grace>,
+    public visitor<S_chord>
     {
         
     public:
@@ -138,6 +140,8 @@ namespace IMUSANT
         
         virtual void visitStart( S_grace& elt);
         
+        virtual void visitStart( S_chord& elt);
+        
     private:
         
         S_IMUSANT_score     fImusantScore;
@@ -145,6 +149,9 @@ namespace IMUSANT
         S_IMUSANT_part      fCurrentPart;
         long                fCurrentMeasureNumber;
         S_IMUSANT_measure   fCurrentMeasure;
+        bool                fInChord;
+        bool                fCurrentNoteInChord;
+        S_IMUSANT_chord     fCurrentChord;
         S_IMUSANT_barline   fCurrentBarline;
         long                fCurrentNoteIndex;
         ACCIDENTALMAP       fCurrentAccidentals;

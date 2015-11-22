@@ -25,6 +25,20 @@ namespace IMUSANT
     
     void
     IMUSANT_note::
+    print_short(ostream& os) const
+    {
+        os << "<NOTE measure_num=" << fMeasureNumber << " index=" << fNoteIndex << " ";
+        
+        if (fPitch != NULL)
+        {
+            fPitch->print(os);
+        }
+        
+        os << "\\>"<< endl;
+    }
+    
+    void
+    IMUSANT_note::
     print (ostream& os) const
     {
         os << "<NOTE measure_num=" << fMeasureNumber << " index=" << fNoteIndex << " >" << endl;
