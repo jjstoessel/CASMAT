@@ -393,10 +393,9 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Chords_Simple_ParserTest2)
     stringstream p1_m2_actual;
     
     p1_m2->print(p1_m2_actual);
-     cout << "Actual " << endl << p1_m2_actual.str() << endl;
-    cout << "Expected " << endl << p1_m2_expected << endl;
+   //  cout << "Actual " << endl << p1_m2_actual.str() << endl;
+   //  cout << "Expected " << endl << p1_m2_expected << endl;
     ASSERT_EQ(p1_m2_expected, p1_m2_actual.str());
-    
 }
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Chords_LessSimple_ParserTest2)
