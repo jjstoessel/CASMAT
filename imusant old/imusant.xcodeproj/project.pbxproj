@@ -457,14 +457,14 @@
 		};
 		BAA8D8961AABFBA30053ADE3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = usr/share/man/man1;
 			dstSubfolderSpec = 16;
 			files = (
 				49F59B8A1BAE6DD30030FFF1 /* libboost_filesystem.dylib in CopyFiles */,
 				49F59B8B1BAE6DD30030FFF1 /* libboost_system.dylib in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 

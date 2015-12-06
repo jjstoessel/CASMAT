@@ -44,7 +44,7 @@ namespace IMUSANT
         for (vector<S_IMUSANT_note>::const_iterator note=fChordNotes.begin(); note!=fChordNotes.end(); note++)
         {
             os << " ";
-            (*note)->print_short(os);
+            (*note)->print(os);
         }
         
         os << "<\\CHRD>" << endl;
