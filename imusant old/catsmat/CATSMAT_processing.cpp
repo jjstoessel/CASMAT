@@ -45,7 +45,8 @@ void CATSMAT_processing::process_directory_files(const filesystem::path& full_pa
 }
 
 void
-CATSMAT_processing::add_file(const filesystem::path& path)
+CATSMAT_processing::
+add_file(const filesystem::path& path)
 {
 	TMusicXMLFile reader;
 	string xml(".xml"), imusant(".ims");
@@ -68,28 +69,33 @@ CATSMAT_processing::add_file(const filesystem::path& path)
 					return;
 				}
 				//ensure unique ID
-				while (find(IDs.begin(), IDs.end(), i)!=IDs.end()) i++;
+				while (find(IDs.begin(), IDs.end(), i) != IDs.end())
+                {
+                    i++;
+                }
+                
 				//error checking required!
-				score->accept(c);
+				
+                score->accept(c);
 				collections[i].ignoreRepeatedPitches(false);
-				c.get_imusant_score()->accept(collections[i]);
+			//	c.get_imusant_score()->accept(collections[i]);
 				
 				IDs.push_back(i);
  
-                //Here only for testing; could be placed in test unit or specific tool
-                CATSMAT_dyad_sequences dyads;
-                CATSMAT_dyadtuple_sequences tuples;
-                CATSMAT_sonority_sequences   sonorities;
-                
-                collections[i].getCPMatrix()->Accept(dyads);
-                //collections[i].getCPMatrix()->Accept(tuples);
-                collections[i].getCPMatrix()->Accept(sonorities);
-                //cout << collections[i].getCPMatrix();
-                
-                cout << dyads;
-                
-                dyads.find_repeated(4);
-                sonorities.find_repeated(4);
+//                //Here only for testing; could be placed in test unit or specific tool
+//                CATSMAT_dyad_sequences dyads;
+//                CATSMAT_dyadtuple_sequences tuples;
+//                CATSMAT_sonority_sequences   sonorities;
+//                
+//                collections[i].getCPMatrix()->Accept(dyads);
+//                //collections[i].getCPMatrix()->Accept(tuples);
+//                collections[i].getCPMatrix()->Accept(sonorities);
+//                //cout << collections[i].getCPMatrix();
+//                
+//                cout << dyads;
+//                
+//                dyads.find_repeated(4);
+//                sonorities.find_repeated(4);
                 
                 
                 //cout << tuples;
@@ -97,6 +103,7 @@ CATSMAT_processing::add_file(const filesystem::path& path)
                 //tuples.find_repeated_tuplet_sequences(3);
                 
 			}
+            
 			//check extension
 			if (filesystem::extension(path)==imusant)
 			{
