@@ -30,7 +30,7 @@ public:
 
     CATSMAT_processing() {}
 	
-	void	process_directory_files(const filesystem::path& full_path);
+//	void	process_directory_files(const filesystem::path& full_path);
 
 private:
 

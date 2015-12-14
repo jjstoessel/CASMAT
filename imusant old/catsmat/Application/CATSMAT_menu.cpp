@@ -67,7 +67,7 @@ void
 CATSMAT_menu::
 outputToolsMenu(ostream &out)
 {
-    out << "ANALYSIS TOOLS" << endl;
+    out << "IMUSANT ANALYSIS TOOLS" << endl;
     out << "1. Find repeated interval substrings " << endl;
     out << "2. Find repeated interval contour substrings " << endl;
     out << "3. Find interval supermaximals " << endl;
@@ -76,6 +76,8 @@ outputToolsMenu(ostream &out)
     out << "6. Find longest common intervallic subsequence in all pairs (reverse method)" << endl;
     out << "7. Find longest common pitch subsequence in all pairs" << endl;
     out << "8. Run all tools" << endl;
+    out << "CATSMAT ANALYSIS TOOLS" << endl;
+    out << "(TTD)" << endl;
     out << "Please select analysis tool (1-8; any other key to exit): " << endl << endl;;
 }
 

@@ -29,23 +29,6 @@ using namespace boost;
 
 namespace CATSMAT
 {
-    
-    void
-    CATSMAT_processing::
-    process_directory_files(const filesystem::path& full_path)
-    {
-        if (filesystem::is_directory( full_path ) )
-        {
-            filesystem::directory_iterator end;
-            for (	filesystem::directory_iterator iter(full_path);
-                 iter != end;
-                 ++iter )
-            {
-                add_file(*iter);
-            }
-        }
-    }
-    
     //   REVISIT
     //   ADD TESTS FOR THE FOLLOWING
     ////                //Here only for testing; could be placed in test unit or specific tool
