@@ -31,12 +31,15 @@ namespace CATSMAT
         
         void outputWelcomeMessage(ostream &out);
         void getFilesToAnalyse(CATSMAT_processing *processor);
+        void runToolsMenu(CATSMAT_processing *processor);
         
     private:
         vector<string> getConfiguredFiles(string full_path);
         void getOneFileToAnalyse(CATSMAT_processing *processor);
         void getDirectoryToAnalyse(CATSMAT_processing *processor);
         void getAllConfiguredFiles(CATSMAT_processing *processor);
+        
+        void outputToolsMenu(ostream &out);
         
         char readMenuSelection();
     };

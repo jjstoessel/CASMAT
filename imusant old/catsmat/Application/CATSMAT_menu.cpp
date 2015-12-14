@@ -65,6 +65,22 @@ outputWelcomeMessage(ostream &out)
 
 void
 CATSMAT_menu::
+outputToolsMenu(ostream &out)
+{
+    out << "ANALYSIS TOOLS" << endl;
+    out << "1. Find repeated interval substrings " << endl;
+    out << "2. Find repeated interval contour substrings " << endl;
+    out << "3. Find interval supermaximals " << endl;
+    out << "4. Find contour supermaximals " << endl;
+    out << "5. Find longest common intervallic subsequence in all pairs" << endl;
+    out << "6. Find longest common intervallic subsequence in all pairs (reverse method)" << endl;
+    out << "7. Find longest common pitch subsequence in all pairs" << endl;
+    out << "8. Run all tools" << endl;
+    out << "Please select analysis tool (1-8; any other key to exit): " << endl << endl;;
+}
+
+void
+CATSMAT_menu::
 getFilesToAnalyse(CATSMAT_processing *processor)
 {
     bool finished = false;
@@ -77,7 +93,7 @@ getFilesToAnalyse(CATSMAT_processing *processor)
         <<	"Please select an option:" << endl
         <<	"  1 - Add a file..." << endl
         <<	"  2 - Add all files from a directory..." << endl
-        <<  "  3 - Load files from the configuration file at $HOME/.catsmat_config" << endl
+        <<  "  3 - Load files from the configuration file at $HOME/catsmat_config.txt" << endl
         <<  "  9 - Analyze the files I have added..." << endl << endl;
         
         selectedMenuItem = readMenuSelection();
@@ -118,7 +134,7 @@ getAllConfiguredFiles(CATSMAT_processing *processor)
     home_dir = getenv("HOME");
     if (home_dir == NULL)
     {
-        cerr << "No home directory set.  Cannot read configuration.";
+        cerr << "No $HOME directory set.  Cannot read configuration.";
     }
     
     string config_file(home_dir);
@@ -220,4 +236,70 @@ readMenuSelection()
     cin >> menuItem;
     cin.ignore();
     return menuItem;
+}
+
+
+void
+CATSMAT_menu::
+runToolsMenu(CATSMAT_processing* processor)
+{
+    bool moreTools = true;
+    do
+    {
+        outputToolsMenu(cout);
+        
+        char tool, yn;
+        bool continguous = false;
+        int length = 5;
+        cin >> tool;
+        switch (tool)
+        {
+            case '1':
+                cout << "Enter minimum length: ";
+                cin >> length;
+                cout << processor->find_and_print_repeated_interval_substrings(length);
+                break;
+            case '2':
+                cout << "Enter minimum length: ";
+                cin >> length;
+                processor->find_repeated_contour_substrings(length);
+                break;
+            case '3':
+                processor->find_supermaximals_intervals(4,100);
+                break;
+            case '4':
+                processor->find_supermaximals_contours(4,100);
+                break;
+            case '5':
+                cout << "Only find continguous segments? (y/n) ";
+                cin >> yn;
+                if (yn == 'y') continguous = true;
+                processor->find_lcs_pairs_intervals(continguous);
+                break;
+            case '6':
+                cout << "Only find continguous segments? (y/n) ";
+                cin >> yn;
+                if (yn == 'y') continguous = true;
+                processor->find_lcs_pairs_intervals_reverse(continguous);
+                break;
+            case '7':
+                cout << "Only find continguous segments? (y/n) ";
+                cin >> yn;
+                if (yn == 'y') continguous = true;
+                processor->find_lcs_pairs_pitches(continguous);
+                break;
+            case '8':
+                processor->find_repeated_interval_substrings();
+                processor->find_repeated_contour_substrings();
+                processor->find_supermaximals_intervals(4,100);
+                processor->find_supermaximals_contours(4,100);
+                processor->find_lcs_pairs_intervals(false);
+                processor->find_lcs_pairs_pitches(false);
+                processor->find_lcs_pairs_intervals_reverse(false);
+                break;
+        }
+        cout << "Run another test? (y/n): ";
+        cin >> tool;
+        if (tool!='y') moreTools = false;
+    } while (moreTools);
 }

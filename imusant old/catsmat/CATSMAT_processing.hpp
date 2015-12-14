@@ -27,15 +27,14 @@ namespace CATSMAT
 class CATSMAT_processing : public IMUSANT_processing
 {
 public:
-	CATSMAT_processing() {}
+
+    CATSMAT_processing() {}
 	
 	void	process_directory_files(const filesystem::path& full_path);
-	void	add_file(const filesystem::path& path);
-	
+
 private:
 
-	map<int,CATSMAT_collection_visitor> collections;
-	vector<int> IDs;
+
 };
 
 } //namespace CATSMAT
