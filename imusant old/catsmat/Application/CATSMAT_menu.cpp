@@ -51,6 +51,7 @@ outputWelcomeMessage(ostream &out)
     << "|                                                                       " << endl
     << "|		1. MusicXML Library under the GNU Lesser General Public License " << endl
     << "|		2. Boost under Boost Software License (Open source license)		" << endl
+    << "|       3. Google Test                                                  " << endl
     << "|																		" << endl
     << "|	The Music XML data format is used under the Royalty-free license	" << endl
     << "|	granted by Recordare LCC; see										" << endl
@@ -68,17 +69,25 @@ CATSMAT_menu::
 outputToolsMenu(ostream &out)
 {
     out << "IMUSANT ANALYSIS TOOLS" << endl;
-    out << "1. Find repeated interval substrings " << endl;
-    out << "2. Find repeated interval contour substrings " << endl;
-    out << "3. Find interval supermaximals " << endl;
-    out << "4. Find contour supermaximals " << endl;
-    out << "5. Find longest common intervallic subsequence in all pairs" << endl;
-    out << "6. Find longest common intervallic subsequence in all pairs (reverse method)" << endl;
-    out << "7. Find longest common pitch subsequence in all pairs" << endl;
-    out << "8. Run all tools" << endl;
+    out << "A.  Find repeated interval substrings " << endl;
+    out << "B.  Find repeated interval contour substrings " << endl;
+    out << "C.  Find interval supermaximals " << endl;
+    out << "D.  Find contour supermaximals " << endl;
+    out << "E.  Find longest common intervallic subsequence in all pairs" << endl;
+    out << "F.  Find longest common intervallic subsequence in all pairs (reverse method)" << endl;
+    out << "G.  Find longest common pitch subsequence in all pairs" << endl;
+    out << "H.  Run all IMUSANT tools" << endl;
+    out << endl;
     out << "CATSMAT ANALYSIS TOOLS" << endl;
-    out << "(TTD)" << endl;
-    out << "Please select analysis tool (1-8; any other key to exit): " << endl << endl;;
+    out << "I. Find repeated dyad sequences" << endl ;
+    out << "J. Find repeated dyadtuple sequences" << endl;
+    out << "K. Find repeated sonority sequences" << endl;
+    out << "L. Run all CATSMAT tools" << endl;
+    out << endl;
+    out << "M. Run all tools" << endl;
+    out << endl;
+    out << "Please select analysis tool (A - M; any other key to exit): " << endl;
+    out << endl;
 }
 
 void
@@ -256,41 +265,56 @@ runToolsMenu(CATSMAT_processing* processor)
         cin >> tool;
         switch (tool)
         {
-            case '1':
+            case 'A':
+            case 'a':
                 cout << "Enter minimum length: ";
                 cin >> length;
                 cout << processor->find_and_print_repeated_interval_substrings(length);
                 break;
-            case '2':
+            
+            case 'B':
+            case'b':
                 cout << "Enter minimum length: ";
                 cin >> length;
                 processor->find_repeated_contour_substrings(length);
                 break;
-            case '3':
+            
+            case 'C':
+            case 'c':
                 processor->find_supermaximals_intervals(4,100);
                 break;
-            case '4':
+                
+            case 'D':
+            case 'd':
                 processor->find_supermaximals_contours(4,100);
                 break;
-            case '5':
+                
+            case 'E':
+            case 'e':
                 cout << "Only find continguous segments? (y/n) ";
                 cin >> yn;
                 if (yn == 'y') continguous = true;
                 processor->find_lcs_pairs_intervals(continguous);
                 break;
-            case '6':
+            
+            case 'F':
+            case 'f':
                 cout << "Only find continguous segments? (y/n) ";
                 cin >> yn;
                 if (yn == 'y') continguous = true;
                 processor->find_lcs_pairs_intervals_reverse(continguous);
                 break;
-            case '7':
+                
+            case 'G':
+            case 'g':
                 cout << "Only find continguous segments? (y/n) ";
                 cin >> yn;
                 if (yn == 'y') continguous = true;
                 processor->find_lcs_pairs_pitches(continguous);
                 break;
-            case '8':
+            
+            case 'H':
+            case 'h':
                 processor->find_repeated_interval_substrings();
                 processor->find_repeated_contour_substrings();
                 processor->find_supermaximals_intervals(4,100);
@@ -299,8 +323,34 @@ runToolsMenu(CATSMAT_processing* processor)
                 processor->find_lcs_pairs_pitches(false);
                 processor->find_lcs_pairs_intervals_reverse(false);
                 break;
+                
+            case 'I':
+            case 'i':
+                cout << "I: Not impemented yet.";
+                break;
+                
+            case 'J':
+            case 'j':
+                cout << "J: Not impemented yet.";
+                break;
+                
+            case 'K':
+            case 'k':
+                cout << "K: Not impemented yet.";
+                break;
+                
+            case 'L':
+            case 'l':
+                cout << "L: Not impemented yet.";
+                break;
+                
+            case 'M':
+            case 'm':
+                cout << "M: Not impemented yet.";
+                break;
+                
         }
-        cout << "Run another test? (y/n): ";
+        cout << endl << "Run another test? (y/n): ";
         cin >> tool;
         if (tool!='y') moreTools = false;
     } while (moreTools);

@@ -25,6 +25,7 @@
 		1E5218B81BAD0A1E00FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */; };
 		1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E6C38D01BB662F80025BA7E /* IMUSANT_converters_shared_types.h */; };
 		1E6C38D51BB766020025BA7E /* IMUSANT_score_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E6C38D21BB75C2A0025BA7E /* IMUSANT_score_Tests.cpp */; };
+		1E905DD61C1FE0230017850F /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E905DD41C1FE0230017850F /* CATSMAT_processing.cpp */; };
 		1EDAD2C51B7B376100556002 /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */; };
 		1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
 		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
@@ -53,7 +54,6 @@
 		496A00961B9BCC410070BCE1 /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0211B76C10B0052496C /* Sanctus.xml */; };
 		496A01251B9BCD1C0070BCE1 /* test_files in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA8068E41B27BC5700AEFB27 /* test_files */; };
 		496EF4C71B229D8100FE715F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF4C61B229D8100FE715F /* main.cpp */; };
-		496EF4CC1B229DA500FE715F /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */; };
 		496EF4CE1B229DA500FE715F /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */; };
 		496EF4D01B229DA500FE715F /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */; };
 		496EF4D11B229EFB00FE715F /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
@@ -317,7 +317,6 @@
 		BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */; };
-		BAA8D9071AB156280053ADE3 /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */; };
 		BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
 		BAB505881B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
 /* End PBXBuildFile section */
@@ -493,6 +492,8 @@
 		1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_mxmlv3_to_imusant_visitor.cpp; path = src/IMUSANT_mxmlv3_to_imusant_visitor.cpp; sourceTree = "<group>"; };
 		1E6C38D01BB662F80025BA7E /* IMUSANT_converters_shared_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_converters_shared_types.h; path = inc/IMUSANT_converters_shared_types.h; sourceTree = "<group>"; };
 		1E6C38D21BB75C2A0025BA7E /* IMUSANT_score_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_score_Tests.cpp; sourceTree = "<group>"; };
+		1E905DD41C1FE0230017850F /* CATSMAT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_processing.cpp; path = catsmat/CATSMAT_processing.cpp; sourceTree = SOURCE_ROOT; };
+		1E905DD51C1FE0230017850F /* CATSMAT_processing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_processing.hpp; path = catsmat/CATSMAT_processing.hpp; sourceTree = SOURCE_ROOT; };
 		1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_repeated_interval_substring.cpp; sourceTree = "<group>"; };
 		1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_repeated_interval_substring.h; sourceTree = "<group>"; };
 		1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_1_Measure.xml; sourceTree = "<group>"; };
@@ -1115,8 +1116,6 @@
 		BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CATSMAT_main.cpp; path = ../catsmat/Application/CATSMAT_main.cpp; sourceTree = "<group>"; };
 		BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_collectionvisitor.cpp; path = ../catsmat/CATSMAT_collectionvisitor.cpp; sourceTree = "<group>"; };
 		BAA8D9011AAC0F5A0053ADE3 /* CATSMAT_collectionvisitor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_collectionvisitor.hpp; path = ../catsmat/CATSMAT_collectionvisitor.hpp; sourceTree = "<group>"; };
-		BAA8D9051AB156120053ADE3 /* CATSMAT_processing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_processing.hpp; path = catsmat/CATSMAT_processing.hpp; sourceTree = SOURCE_ROOT; };
-		BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_processing.cpp; path = catsmat/CATSMAT_processing.cpp; sourceTree = SOURCE_ROOT; };
 		BAAB1A2E09D0B26700673D3D /* IMUSANT_visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_visitor.h; sourceTree = "<group>"; };
 		BAAB1A2F09D0B26700673D3D /* IMUSANT_visitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_visitor.cpp; sourceTree = "<group>"; };
 		BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_element.h; sourceTree = "<group>"; };
@@ -2591,6 +2590,8 @@
 			isa = PBXGroup;
 			children = (
 				49B727B41C14184600FCF494 /* Application */,
+				1E905DD51C1FE0230017850F /* CATSMAT_processing.hpp */,
+				1E905DD41C1FE0230017850F /* CATSMAT_processing.cpp */,
 				49C80DE71BA520FB00DCA903 /* CATSMAT_visitable.hpp */,
 				BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */,
 				BAA8D9011AAC0F5A0053ADE3 /* CATSMAT_collectionvisitor.hpp */,
@@ -2601,8 +2602,6 @@
 				BA7E941B1B2A859A00818128 /* CATSMAT_dyad_sequences.hpp */,
 				BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */,
 				BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */,
-				BAA8D9061AB156280053ADE3 /* CATSMAT_processing.cpp */,
-				BAA8D9051AB156120053ADE3 /* CATSMAT_processing.hpp */,
 				BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */,
 				BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */,
 			);
@@ -2892,7 +2891,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA7E943C1B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
-				496EF4CC1B229DA500FE715F /* CATSMAT_processing.cpp in Sources */,
 				BA7E941D1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */,
 				496EF4CE1B229DA500FE715F /* CATSMAT_collectionvisitor.cpp in Sources */,
 				496EF4D01B229DA500FE715F /* CATSMAT_cp_matrix.cpp in Sources */,
@@ -3115,8 +3113,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E905DD61C1FE0230017850F /* CATSMAT_processing.cpp in Sources */,
 				BAA8D8A01AABFC1A0053ADE3 /* CATSMAT_main.cpp in Sources */,
-				BAA8D9071AB156280053ADE3 /* CATSMAT_processing.cpp in Sources */,
 				49B727B71C1418E400FCF494 /* CATSMAT_menu.cpp in Sources */,
 				BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */,
 				BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */,

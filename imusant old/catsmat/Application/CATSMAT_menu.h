@@ -12,7 +12,6 @@
 #include <stdio.h>
 #include <vector>
 #include <string>
-
 #include "CATSMAT_processing.hpp"
 
 using namespace std;

@@ -15,9 +15,7 @@
 #include "IMUSANT_processing.h"
 #include "CATSMAT_collectionvisitor.hpp"
 
-#include <map>
-#include <vector>
-
+using namespace IMUSANT;
 using namespace std;
 using namespace boost;
 
@@ -29,9 +27,11 @@ class CATSMAT_processing : public IMUSANT_processing
 public:
 
     CATSMAT_processing() {}
+    
+    void find_repeated_dyad_sequences(int min=3);
+    void find_repeated_dyadtuple_sequences(int min);
+    void find_repeated_sonority_sequences(int min);
 	
-//	void	process_directory_files(const filesystem::path& full_path);
-
 private:
 
 

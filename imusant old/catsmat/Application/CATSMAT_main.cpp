@@ -15,7 +15,6 @@
 #include "CATSMAT_menu.h"
 
 
-
 #define __DEBUG__ 0
 
 using namespace boost;

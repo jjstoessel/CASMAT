@@ -12,45 +12,36 @@
 #include <boost/filesystem.hpp>
 
 #include "CATSMAT_processing.hpp"
-#include "TMusicXMLFile.h"
-#include "IMUSANT_XMLFile.h"
-#include "TXML2IMUSANTVisitor.h"
-#include "IMUSANT_XMLVisitor.h"
-#include "IMUSANT_XMLReader.h"
-#include "TScore.h"
-#include "CATSMAT_dyad_sequences.hpp"
-#include "CATSMAT_dyadtuple_sequences.hpp"
-#include "CATSMAT_sonority_sequences.hpp"
 
-#define MAX(X,Y) ( (X>Y)? (X) : (Y) )
+// #include "CATSMAT_dyad_sequences.hpp"
+// #include "CATSMAT_dyadtuple_sequences.hpp"
+// #include "CATSMAT_sonority_sequences.hpp"
 
 using namespace std;
 using namespace boost;
 
 namespace CATSMAT
 {
-    //   REVISIT
-    //   ADD TESTS FOR THE FOLLOWING
-    ////                //Here only for testing; could be placed in test unit or specific tool
-    ////                CATSMAT_dyad_sequences dyads;
-    ////                CATSMAT_dyadtuple_sequences tuples;
-    ////                CATSMAT_sonority_sequences   sonorities;
-    ////
-    ////                collections[i].getCPMatrix()->Accept(dyads);
-    ////                //collections[i].getCPMatrix()->Accept(tuples);
-    ////                collections[i].getCPMatrix()->Accept(sonorities);
-    ////                //cout << collections[i].getCPMatrix();
-    ////
-    ////                cout << dyads;
-    ////
-    ////                dyads.find_repeated(4);
-    ////                sonorities.find_repeated(4);
-    //
-    //                
-    //                //cout << tuples;
-    //                
-    //                //tuples.find_repeated_tuplet_sequences(3);
-    //                
     
+    void
+    CATSMAT_processing::
+    find_repeated_dyad_sequences(int min)
+    {
+        
+    }
+    
+    void
+    CATSMAT_processing::
+    find_repeated_dyadtuple_sequences(int min)
+    {
+        
+    }
+    
+    void
+    CATSMAT_processing::
+    find_repeated_sonority_sequences(int min)
+    {
+        
+    }
     
 } //namespace CATSMAT
