@@ -12,6 +12,7 @@
 
 #include <boost/filesystem.hpp>
 
+#include "IMUSANT_score.h"
 #include "IMUSANT_collectionvisitor.h"
 #include "IMUSANT_repeated_interval_substring.h"
 
@@ -33,10 +34,7 @@ public:
 	IMUSANT_processing() {}
 	
 	void	process_directory_files(const filesystem::path& full_path);
-	void	add_file(const filesystem::path& path);
-    
-    S_IMUSANT_score process_musicxml1_file(const filesystem::path& path);
-    S_IMUSANT_score process_musicxml3_file(const filesystem::path& path);
+	S_IMUSANT_score	add_file(const filesystem::path& path);
     
 	string	find_and_print_repeated_interval_substrings(int min_length=4);
     vector<IMUSANT_repeated_interval_substring> find_repeated_interval_substrings(int min_length=4);
@@ -60,7 +58,9 @@ private:
     enum music_file_format {imusant, musicxml1, musicxml3, mei, unknown};
     music_file_format decide_file_type(const filesystem::path& path);
     
-    bool process_imusant_file(const filesystem::path& path);
+    S_IMUSANT_score process_musicxml1_file(const filesystem::path& path);
+    S_IMUSANT_score process_musicxml3_file(const filesystem::path& path);
+    S_IMUSANT_score process_imusant_file(const filesystem::path& path);
 };
 
 } //namespace IMUSANT

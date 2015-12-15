@@ -146,7 +146,7 @@ TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing
     v3_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv3/Josquin_MSN_Kyrie.xml");
     
     ASSERT_EQ(v1_repeated_substrings_result.size(), v3_repeated_substrings_result.size())  << "EXPECTED FAILURE - Output vectors are not the same length.";
-    
+  
     stringstream v1_actual_output;
     stringstream v3_actual_output;
     
@@ -161,6 +161,10 @@ TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing
     }
     
     ASSERT_EQ(v1_actual_output.str(), v3_actual_output.str()) << "Output strings are not identical.";
+    
+    cout << "V1 ACTUAL:" << endl << v1_actual_output.str() << endl;
+    cout << endl;
+    cout << "V3 ACTUAL:" << endl << v3_actual_output.str() << endl;
 }
 
 TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Dichterliebe01_mxml3)

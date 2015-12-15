@@ -34,7 +34,6 @@
 #include "files/xmlfile.h"
 #include "files/xmlreader.h"
 #include "elements/xml_tree_browser.h"
-// #include "elements/unrolled_xml_tree_browser.h"
 
 #include "IMUSANT_mxmlv3_to_imusant_visitor.h"
 
@@ -77,7 +76,7 @@ namespace IMUSANT
         }
     }
     
-    void
+    S_IMUSANT_score
     IMUSANT_processing::
     add_file(const filesystem::path& path)
     {
@@ -87,27 +86,33 @@ namespace IMUSANT
         IMUSANT_processing::music_file_format file_format;
         file_format = decide_file_type(path);
         
+        S_IMUSANT_score ret_val;
+        
         switch (file_format)
         {
             case musicxml1:
-                process_musicxml1_file(path);
+                ret_val = process_musicxml1_file(path);
                 break;
                 
             case musicxml3:
-                process_musicxml3_file(path);
+                ret_val = process_musicxml3_file(path);
                 break;
                 
             case imusant:
-                process_imusant_file(path);
+                ret_val = process_imusant_file(path);
                 break;
                 
             case unknown:
+                ret_val = NULL;
                 break;
                 
             default:
+                ret_val = NULL;
                 break;
                 
         }
+        
+        return ret_val;
     }
     
     IMUSANT_processing::music_file_format
@@ -169,8 +174,7 @@ namespace IMUSANT
         
         return return_val;
     }
-    
-    
+        
     S_IMUSANT_score
     IMUSANT_processing::
     process_musicxml1_file(const filesystem::path& path)
@@ -229,10 +233,24 @@ namespace IMUSANT
             browser.browse(*sxml_element);
         }
         
+        //ensure unique ID
+        int i = 1;
+        while (find(IDs.begin(),
+                    IDs.end(),
+                    i) != IDs.end())
+        {
+            i++;
+        }
+        
+        processed_files[i].ignoreRepeatedPitches(false);
+        parser.get_imusant_score()->accept(processed_files[i]);
+        
+        IDs.push_back(i);
+        
         return parser.get_imusant_score();
     }
     
-    bool
+    S_IMUSANT_score
     IMUSANT_processing::
     process_imusant_file(const filesystem::path& path)
     {
@@ -243,7 +261,7 @@ namespace IMUSANT
         ixml.read((string&)mutable_path); //reader file
         //verify, catalogue to default directory
         
-        return false;
+        return NULL;
     }
     
     string
