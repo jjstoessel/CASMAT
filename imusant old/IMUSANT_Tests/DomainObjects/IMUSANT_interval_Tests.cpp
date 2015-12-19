@@ -177,45 +177,6 @@ TEST_F(IMUSANT_interval_Tests, calculate_different_octave_Test)
     ASSERT_EQ(IMUSANT_interval::maj3, result);
 }
 
-TEST_F(IMUSANT_interval_Tests, calculate_with_alterations_Test)
-{
-    S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
-    S_IMUSANT_pitch pitch2 = new_IMUSANT_pitch();
-    
-    int result;
-    
-    //
-    // The following test "fails" in the original implementation
-    // because it returns a value of 2 which does not map onto any
-    // of the intervalic values supported by IMUSANT_interval.  But
-    // is the name for this interval?
-    //
-    // One implication of this is that the xml translation functions
-    // don't work for what should be a legitimate value returned from
-    // IMUSANT_interval::calculate().
-    //
-    
-    // Cb to C# - no interval defined in our scheme
-//    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::C, 3, 3, -1 , 1);
-//    ASSERT_EQ(IMUSANT_interval::maj2, result);  // ?????
-
-    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::G, 3, 3, 0 , 1);
-    ASSERT_EQ(IMUSANT_interval::aug5, result) << "C to G# - Augmented 5th";
-    
-    // C to G## - Dim 6th  ??
-    // What is the name for this interval??
-    // If this passes I would expect the Cb to C# test to also pass.
-    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::G, 3, 3, 0 , 2);
-    ASSERT_EQ(IMUSANT_interval::dim6, result) << "C to G## - Dim 6th  (really?)";
-    
-    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3, 0 , -1);
-    ASSERT_EQ(IMUSANT_interval::min6, result) << "C to Ab - Minor 6th";
-    
-    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3, 0 , -2);
-    ASSERT_EQ(IMUSANT_interval::dim6, result) << "C to Abb - Diminished 6th";
-    
-}
-
 TEST_F(IMUSANT_interval_Tests, Calculate_Cflat_Csharp_Test)
 {
     S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
