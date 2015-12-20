@@ -58,7 +58,13 @@ namespace IMUSANT
     }
     
     //ctor functions
-    S_IMUSANT_interval new_IMUSANT_interval() { IMUSANT_interval* o = new IMUSANT_interval(); assert(o!=0); return o; }
+    S_IMUSANT_interval new_IMUSANT_interval()
+    {
+        IMUSANT_interval* o = new IMUSANT_interval();
+        assert(o!=0);
+        return o;
+    }
+    
     S_IMUSANT_interval new_IMUSANT_interval(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second)
     {
         IMUSANT_interval* o = new IMUSANT_interval(first, second);
@@ -66,13 +72,17 @@ namespace IMUSANT
         return o;
     }
     
-    //lookups
-    int	IMUSANT_interval::fIntervalTbl[] = {
-        dim1, perf1, aug1, dim2, min2, maj2, aug2, dim3, min3, maj3, aug3,
-        dim4, per4, aug4, dim5, per5, aug5, dim6, min6, maj6, aug6, dim7,
-        min7, maj7, aug7, dim8, octave
-    };
+    ostream& operator<<( ostream& os, const IMUSANT_range& range )
+    {
+        os << range.first.measure << ", " << range.first.note_index;
+        
+        return os;
+    }
     
+    
+    //
+    // Lookup tables and translations from numeric to string representations...
+    //
     string	IMUSANT_interval::fIntervalStrings[] = {
         "dim1", "perf1", "aug1", "dim2", "min2", "maj2", "aug2", "dim3",
         "min3", "maj3", "aug3", "dim4", "per4", "aug4", "dim5", "per5",
@@ -80,12 +90,103 @@ namespace IMUSANT
         "aug7", "dim8", "octave"
     };
     
+#ifdef ORIGINAL
+    
+    int	IMUSANT_interval::fIntervalTbl[] = {
+        dim1, perf1, aug1, dim2, min2, maj2, aug2, dim3, min3, maj3, aug3,
+        dim4, per4, aug4, dim5, per5, aug5, dim6, min6, maj6, aug6, dim7,
+        min7, maj7, aug7, dim8, octave
+    };
+    
     bimap<string, int>	IMUSANT_interval::fInterval2String( fIntervalStrings, fIntervalTbl, 27 );
     
     //! convert a numeric value to string
-    const string IMUSANT_interval::xmlinterval (int iv) { return fInterval2String[iv]; }
+    const string IMUSANT_interval::xmlinterval (int iv)
+    {
+        return fInterval2String[iv];
+    }
+    
     //! convert a string to a numeric value
-    int	IMUSANT_interval::xmlinterval (const string str) { return fInterval2String[str]; }
+    int	IMUSANT_interval::xmlinterval (const string str)
+    {
+        return fInterval2String[str];
+    }
+    
+#endif
+    
+#ifdef NEW
+    
+    const int NUM_INTERVAL_TYPES = 27;
+    IMUSANT_interval::interval_type IMUSANT_interval::fIntervalTbl[] = {
+        IMUSANT_interval::dim1,
+        IMUSANT_interval::perf1,
+        IMUSANT_interval::aug1,
+        IMUSANT_interval::dim2,
+        IMUSANT_interval::min2,
+        IMUSANT_interval::maj2,
+        IMUSANT_interval::aug2,
+        IMUSANT_interval::dim3,
+        IMUSANT_interval::min3,
+        IMUSANT_interval::maj3,
+        IMUSANT_interval::aug3,
+        IMUSANT_interval::dim4,
+        IMUSANT_interval::per4,
+        IMUSANT_interval::aug4,
+        IMUSANT_interval::dim5,
+        IMUSANT_interval::per5,
+        IMUSANT_interval::aug5,
+        IMUSANT_interval::dim6,
+        IMUSANT_interval::min6,
+        IMUSANT_interval::maj6,
+        IMUSANT_interval::aug6,
+        IMUSANT_interval::dim7,
+        IMUSANT_interval::min7,
+        IMUSANT_interval::maj7,
+        IMUSANT_interval::aug7,
+        IMUSANT_interval::dim8,
+        IMUSANT_interval::octave
+    };
+    
+    bimap<string, IMUSANT_interval::interval_type>
+    IMUSANT_interval::
+    fInterval2String( fIntervalStrings, fIntervalTbl, 27 );
+    
+    //! convert a numeric value to string
+    const string IMUSANT_interval::xmlinterval (IMUSANT_interval::interval_type iv)
+    {
+        return fInterval2String[iv];
+    }
+    
+    //! convert a string to a numeric value
+    IMUSANT_interval::interval_type	IMUSANT_interval::xmlinterval (const string str)
+    {
+        return fInterval2String[str];
+    }
+    
+    // convert an integer to an interval_type - returns "undefined" if there is no match.
+    IMUSANT_interval::interval_type IMUSANT_interval::int2intervaltype(int interval)
+    {
+        //  cout << "INTERVAL = " << interval << endl;
+        
+        int iv = abs(interval % base);  // get rid of octaves and direction
+        
+        IMUSANT_interval::interval_type return_value = IMUSANT_interval::undefined;
+        bool found = false;
+        
+        for (int index = 0 ; index < NUM_INTERVAL_TYPES && !found ; index++)
+        {
+            if (fIntervalTbl[index] >= iv)  // REVISIT  - the >= test doesn't work'
+            {
+                return_value = fIntervalTbl[index];
+                found = true;
+            }
+        }
+        return return_value;
+    }
+    
+    
+#endif
+    
     
     IMUSANT_interval IMUSANT_interval::MakeUniqueInterval()
     {
@@ -118,6 +219,7 @@ namespace IMUSANT
         fLocation.last.note_index = endNoteIndex;
     }
     
+#ifdef ORIGINAL
     //static function returns interval and direction for two notes
     IMUSANT_interval IMUSANT_interval::calculate(const S_IMUSANT_pitch& first, const S_IMUSANT_pitch& second)
     {
@@ -125,15 +227,60 @@ namespace IMUSANT
         
         if (first->name()!=IMUSANT_pitch::undefined && second->name()!=IMUSANT_pitch::undefined)
         {
-            int first_absolute = (int)first->name()+first->alteration()+(first->octave()*base);
-            int second_absolute = (int)second->name()+second->alteration()+(second->octave()*base);
+            int first_octave = (first->octave() * base);
+            int second_octave = (second->octave() * base);
+            
+            int first_name = (int)first->name();
+            int second_name = (int)second->name();
+            
+            int first_absolute =  first_name + first->alteration() + first_octave;
+            int second_absolute = second_name + second->alteration() + second_octave;
+            
             ret.fOctaves = 0;
+            
             ret.fInterval = second_absolute - first_absolute;
             ret.check();
         }
         
         return ret;
     }
+#endif
+    
+#ifdef NEW
+    
+    //
+    // Static function returns interval and direction for two notes
+    //
+    IMUSANT_interval
+    IMUSANT_interval::
+    calculate(const S_IMUSANT_pitch& first, const S_IMUSANT_pitch& second)
+    {
+        IMUSANT_interval ret;
+        
+        if (first->name()!=IMUSANT_pitch::undefined && second->name()!=IMUSANT_pitch::undefined)
+        {
+            // IGNORE octaves - we are returining a base interval
+            //            int first_octave = (first->octave() * base);
+            //            int second_octave = (second->octave() * base);
+            
+            int first_name = (int)first->name();
+            int second_name = (int)second->name();
+            
+            int first_absolute =  first_name + first->alteration();  // + first_octave;
+            int second_absolute = second_name + second->alteration(); // + second_octave;
+            
+            // This is still an apparently arbitrary number based on the
+            // values for IMUSANT_pitch::type.
+            // However it is a number within a predictable range whose
+            // values could be mapped onto intervals?
+            int calculated_interval = second_absolute - first_absolute;
+            
+            ret.check(calculated_interval);
+        }
+        
+        return ret;
+    }
+#endif
     
     //returns the interval numbers without quality
     int IMUSANT_interval::getNumber()
@@ -280,6 +427,7 @@ namespace IMUSANT
         return (signed int)*this-(signed int)i;
     }
     
+#ifdef ORIGINAL
     //private member function: checks interval is in correct form.
     void IMUSANT_interval::check()
     {
@@ -298,7 +446,7 @@ namespace IMUSANT
             }
             
             //fInterval should have range -1 to base
-            if (fInterval==0) 
+            if (fInterval==0)
                 fDirection = unison;
             else if (fInterval>base)
             {
@@ -309,6 +457,76 @@ namespace IMUSANT
         else
             cerr << "Check on undefined interval." << endl;
     }
+#endif
+    
+#ifdef NEW
+    //private member function: checks interval is in correct form.
+    void IMUSANT_interval::check(int calculated_interval)
+    {
+        fDirection = unison;
+        fOctaves = 0;
+        fInterval = int2intervaltype(calculated_interval);
+        
+        if (calculated_interval != 0 && calculated_interval != -1)
+        {
+            if (calculated_interval / abs(calculated_interval) == 1)
+            {
+                fDirection = ascending;
+            }
+            
+            else if (calculated_interval / abs(calculated_interval) == -1)
+            {
+                fDirection = descending;
+            }
+        }
+        
+        //fInterval should have range -1 to base
+        
+        if (calculated_interval > base)
+        {
+            fOctaves = calculated_interval / base;
+            
+            int base_interval;
+            base_interval = calculated_interval % base;
+            
+            fInterval = int2intervaltype(base_interval);
+        }
+    }
+    
+    //private member function: checks interval is in correct form.
+    void IMUSANT_interval::check()
+    {
+        //check that fInterval is positive except dim unison
+        if (fInterval!=undefined)
+        {
+            if (fInterval!=0 && fInterval!=-1)
+            {
+                if (fInterval/abs(fInterval)==1)
+                    fDirection = ascending;
+                else if (fInterval/abs(fInterval)==-1)
+                {
+                    fDirection = descending;
+                    fInterval = int2intervaltype(abs(fInterval));
+                }
+            }
+            
+            //fInterval should have range -1 to base
+            if (fInterval==0)
+                fDirection = unison;
+            else if (fInterval>base)
+            {
+                fOctaves = fInterval/base;
+                // fInterval %= base;
+                
+                int tmp_fInterval;
+                tmp_fInterval = fInterval % base;
+                fInterval = int2intervaltype(tmp_fInterval);
+            }
+        }
+        else
+            cerr << "Check on undefined interval." << endl;
+    }
+#endif
     
     //operators
     const IMUSANT_interval& IMUSANT_interval::operator=( const IMUSANT_interval& rhs )
@@ -320,6 +538,71 @@ namespace IMUSANT
         return *this;
     }
     
+#ifdef NEW
+    const IMUSANT_interval& IMUSANT_interval::operator=( const signed int binv )
+    {
+        fInterval = int2intervaltype(binv);
+        check();
+        
+        return *this;
+    }
+    
+    IMUSANT_interval& IMUSANT_interval::operator+=( const IMUSANT_interval& rhs )
+    {
+        fInterval =  int2intervaltype((signed short)*this + (signed short)rhs);
+        check();
+        return *this;
+    }
+    
+    IMUSANT_interval& IMUSANT_interval::operator-=( const IMUSANT_interval& rhs )
+    {
+        fInterval = int2intervaltype((signed short)*this - (signed short)rhs);
+        check();
+        return *this;
+    }
+    
+    IMUSANT_interval& IMUSANT_interval::operator++() //prefix: returns &*this
+    {
+        // fInterval++;
+        increment_fInterval();
+        check();
+        return *this;
+    }
+    
+    const IMUSANT_interval IMUSANT_interval::operator++(int) //postfix: returns copy
+    {
+        IMUSANT_interval ret(*this);
+        
+        // ret.fInterval++;
+        ret.increment_fInterval();
+        ret.check();
+        
+        return ret;
+    }
+    
+    void
+    IMUSANT_interval::
+    increment_fInterval()
+    {
+        for (int index = 0 ; index < NUM_INTERVAL_TYPES ; index++)  // iterate through the table of intervals...
+        {
+            if (fIntervalTbl[index] == fInterval)   // find the current value if fInterval
+            {
+                if (index == NUM_INTERVAL_TYPES - 1)
+                {
+                    fInterval = fIntervalTbl[0];   // if we are at the end set fInterval to the first value (wrap)
+                }
+                else
+                {
+                    fInterval = fIntervalTbl[index+1];  // otherwise set fInterval to the next value.
+                }
+            }
+        }
+    }
+    
+#endif
+    
+#ifdef ORIGINAL
     const IMUSANT_interval& IMUSANT_interval::operator=( const signed int binv )
     {
         fInterval = binv;
@@ -327,7 +610,6 @@ namespace IMUSANT
         
         return *this;
     }
-    
     
     IMUSANT_interval& IMUSANT_interval::operator+=( const IMUSANT_interval& rhs )
     {
@@ -359,5 +641,8 @@ namespace IMUSANT
         
         return ret;
     }
+    
+#endif
+    
     
 }//namespace IMUSANT

@@ -17,6 +17,7 @@
 #include "IMUSANT_key.h"
 #include "bimap.h"
 
+#define ORIGINAL = 1
 
 #define FLAGSPACE 0x2000
 
@@ -44,6 +45,8 @@ namespace IMUSANT
             last.measure=rhs.last.measure; last.note_index = rhs.last.note_index;  return *this;
         }
         
+        friend ostream& operator<<( ostream& os, const IMUSANT_range& range );
+        
         location first;
         location last;
         long partID;
@@ -52,12 +55,28 @@ namespace IMUSANT
     class IMUSANT_interval : public smartable
     {
     public:
+        
+#ifdef ORIGINAL
         enum
         {
             dim1=-1, perf1=0, aug1=1, dim2=3, min2=4, maj2=5, aug2=6, dim3=8, min3=9, maj3=10,
             aug3=11, dim4=13, per4=14, aug4=15, dim5=18, per5=19, aug5=20, dim6=21, min6=23, maj6=24, aug6=25,
             dim7=26, min7=28, maj7=29, aug7=30, dim8=32, base=33, octave=base, count=base+1, undefined=0x4FFFFFFF/base
-        }; //undefined is internal variable
+        }  ; //undefined is internal variable
+        
+        int getInterval() { return fInterval; }
+#endif
+        
+#ifdef NEW
+        enum interval_type
+        {
+            dim1=-1, perf1=0, aug1=1, dim2=3, min2=4, maj2=5, aug2=6, dim3=8, min3=9, maj3=10,
+            aug3=11, dim4=13, per4=14, aug4=15, dim5=18, per5=19, aug5=20, dim6=21, min6=23, maj6=24, aug6=25,
+            dim7=26, min7=28, maj7=29, aug7=30, dim8=32, base=33, octave=base, count=base+1, undefined=0x4FFFFFFF/base
+        }  ;
+        
+        interval_type getInterval() { return fInterval; }
+#endif
         
         enum direction { descending=-1, unison=0, ascending = 1 };
         
@@ -67,8 +86,8 @@ namespace IMUSANT
         friend SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
         
         //getter and setters
+        
         int                 getNumber();
-        int                 getInterval() { return fInterval; }
         direction           getDirection() { return fDirection; }
         int                 getOctaves() { return fOctaves; }
         IMUSANT_range		getLocation() const { return fLocation; }
@@ -115,34 +134,92 @@ namespace IMUSANT
         
         //static function returns interval and direction
         static IMUSANT_interval calculate(const S_IMUSANT_pitch& first, const S_IMUSANT_pitch& second);
-        //! convert a numeric value to string
-        static const string	xmlinterval (int iv);
-        //! convert a string to a numeric value
-        static       int	xmlinterval (const string str);
-        //! make a unique interval to append for suffix tree
-        static IMUSANT_interval MakeUniqueInterval();
         
-        //protected:
-        IMUSANT_interval() : fInterval(undefined), fDirection(unison), fOctaves(undefined) {}
-        IMUSANT_interval(const IMUSANT_interval& iv)\
-        : fInterval(iv.fInterval), fDirection(iv.fDirection), fOctaves(iv.fOctaves), fLocation(iv.fLocation) {}
+#ifdef ORIGINAL
+        
+        static const string	xmlinterval (int iv);                   //! convert a numeric value to string
+        static       int	xmlinterval (const string str);         //! convert a string to a numeric value
+#endif
+        
+#ifdef NEW
+        static const string	xmlinterval (interval_type iv);         //! convert a numeric value to string
+        static       interval_type	xmlinterval (const string str); //! convert a string to a numeric value
+#endif
+        
+        static IMUSANT_interval MakeUniqueInterval();        //! make a unique interval to append for suffix tree
+        
+        
+        IMUSANT_interval() :
+        fInterval(undefined),
+        fDirection(unison),
+        fOctaves(undefined)
+        {}
+        
+        IMUSANT_interval(const IMUSANT_interval& iv) :
+        fInterval(iv.fInterval),
+        fDirection(iv.fDirection),
+        fOctaves(iv.fOctaves),
+        fLocation(iv.fLocation)
+        {}
+        
         IMUSANT_interval(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second);
-        IMUSANT_interval(signed short iv) : fInterval(iv) { check(); }
-        virtual ~IMUSANT_interval(){}
+        
+#ifdef NEW
+        IMUSANT_interval(interval_type iv) : fInterval(iv)
+        {}
+        
+        IMUSANT_interval(signed short iv)
+        {
+            fInterval = int2intervaltype(iv);
+            check();
+        }
+#endif
+        
+#ifdef ORIGINAL
+        IMUSANT_interval(signed short iv)
+        {
+            fInterval = iv;
+            check();
+        }
+#endif
+        virtual ~IMUSANT_interval() {}
         
     private:
         
+        
+        
+#ifdef ORIGINAL
+        
         void check();
         
-        int			fInterval;
-        direction	fDirection;
-        int			fOctaves;
-        IMUSANT_range	fLocation;
+        int   fInterval;
         
         static bimap<string, int>	fInterval2String;
-        static int	fIntervalTbl[];
-        static string	fIntervalStrings[];
+        static int                  fIntervalTbl[];
+        static string               fIntervalStrings[];
+#endif
+        
+#ifdef NEW
+        
+        void            check();
+        void            check(int calculated_interval);
+        
+        interval_type   fInterval;
+        void            increment_fInterval();
+        
+        static bimap<string, IMUSANT_interval::interval_type>   fInterval2String;
+        static IMUSANT_interval::interval_type                  fIntervalTbl[];
+        static string                                           fIntervalStrings[];
+        
+        static interval_type int2intervaltype(int iv);
+#endif
+        
+        direction       fDirection;
+        int             fOctaves;
+        IMUSANT_range	fLocation;
+        
     };
+    
     typedef SMARTP<IMUSANT_interval> S_IMUSANT_interval;
     
     //new function definitions
