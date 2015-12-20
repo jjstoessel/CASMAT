@@ -13,8 +13,10 @@
 #include <vector>
 #include <string>
 #include "CATSMAT_processing.hpp"
+#include <boost/filesystem.hpp>
 
 using namespace std;
+using namespace boost;
 
 namespace CATSMAT
 {
@@ -26,21 +28,30 @@ namespace CATSMAT
         
         CATSMAT_menu() {};
         
-        void runMenu();
-        
         void outputWelcomeMessage(ostream &out);
-        void getFilesToAnalyse(CATSMAT_processing *processor);
+        void addFilesToAnalyse(CATSMAT_processing *processor);
         void runToolsMenu(CATSMAT_processing *processor);
         
     private:
-        vector<string> getConfiguredFiles(string full_path);
-        void getOneFileToAnalyse(CATSMAT_processing *processor);
-        void getDirectoryToAnalyse(CATSMAT_processing *processor);
-        void getAllConfiguredFiles(CATSMAT_processing *processor);
+        typedef map<int, boost::filesystem::path> index_path_pair;
+        
+        void addUserSpecifiedFile(CATSMAT_processing *processor);
+        void addFilesFromUserSpecifiedDirectory(CATSMAT_processing *processor);
+        void addFilesFromFixedConfigFile(CATSMAT_processing *processor);
+        void addFilesFromUserSelectedConfigurationFile(CATSMAT_processing *processor);
+        
+        void listMovementsAddedSoFar(CATSMAT_processing *processor);
+        
+        boost::filesystem::path getHomeDirectory();
+        index_path_pair getConfigurationFiles();
+        vector<string> getContentsOfConfigurationFile(boost::filesystem::path path_to_configuration_file);
+        void addFilesFromConfigFile(CATSMAT_processing *processor, boost::filesystem::path config_file);
         
         void outputToolsMenu(ostream &out);
         
-        char readMenuSelection();
+        const char * HOME_DIR_ENV_VAR_NAME = "HOME";
+        const string FIXED_CONFIG_FILE_NAME = "catsmat_config.txt";
+        const string CONFIG_FILE_DIR = "catsmat_config";
     };
     
     

@@ -9,17 +9,12 @@
 #include "CATSMAT_menu.h"
 
 #include <fstream>
+#include <stdlib.h>
+
 
 using namespace std;
 using namespace CATSMAT;
-
-void
-CATSMAT_menu::
-runMenu()
-{
-    
-    
-}
+using namespace boost::filesystem;
 
 void
 CATSMAT_menu::
@@ -66,6 +61,67 @@ outputWelcomeMessage(ostream &out)
 
 void
 CATSMAT_menu::
+addFilesToAnalyse(CATSMAT_processing *processor)
+{
+    bool finished = false;
+    
+    while (! finished)
+    {
+        cout << endl
+        <<	"MAIN MENU" << endl
+        <<  "Please select an option:" << endl
+        <<	"  1 - Add a file..." << endl
+        <<	"  2 - Add all files from a directory..." << endl
+        <<  "  3 - Load files from the configuration file at $HOME/catsmat_config.txt" << endl
+        <<  "  4 - Load files from a configuration file I select..." << endl
+        <<  "  8 - List the movements I have added so far..." << endl
+        <<  "  9 - Analyze the files I have added..." << endl << endl;
+    
+        char selectedMenuItem = 'x';
+        cin >> selectedMenuItem;
+        cin.ignore();
+        
+        switch (selectedMenuItem)
+        {
+            case '1':
+                addUserSpecifiedFile(processor);
+                finished = false;
+                break;
+                
+            case '2':
+                addFilesFromUserSpecifiedDirectory(processor);
+                finished = false;
+                break;
+                
+            case '3':
+                addFilesFromFixedConfigFile(processor);
+                finished = false;
+                break;
+                
+            case '4':
+                addFilesFromUserSelectedConfigurationFile(processor);
+                finished = false;
+                break;
+                
+            case '8':
+                listMovementsAddedSoFar(processor);
+                finished = false;
+                break;
+                
+            case '9':
+                finished = true;
+                break;
+                
+            default:
+                cout << "Invalid selection. Please select a valid menu item." ;
+                finished = false;
+        }
+    }
+}
+
+
+void
+CATSMAT_menu::
 outputToolsMenu(ostream &out)
 {
     out << "IMUSANT ANALYSIS TOOLS" << endl;
@@ -90,165 +146,6 @@ outputToolsMenu(ostream &out)
     out << endl;
 }
 
-void
-CATSMAT_menu::
-getFilesToAnalyse(CATSMAT_processing *processor)
-{
-    bool finished = false;
-    char selectedMenuItem = 0;
-    
-    while (! finished)
-    {
-        
-        cout << endl
-        <<	"Please select an option:" << endl
-        <<	"  1 - Add a file..." << endl
-        <<	"  2 - Add all files from a directory..." << endl
-        <<  "  3 - Load files from the configuration file at $HOME/catsmat_config.txt" << endl
-        <<  "  9 - Analyze the files I have added..." << endl << endl;
-        
-        selectedMenuItem = readMenuSelection();
-
-        switch (selectedMenuItem)
-        {
-            case '1':
-                getOneFileToAnalyse(processor);
-                finished = false;
-                break;
-                
-            case '2':
-                getDirectoryToAnalyse(processor);
-                finished = false;
-                break;
-                
-            case '3':
-                getAllConfiguredFiles(processor);
-                finished = false;
-                break;
-                
-            case '9':
-                finished = true;
-                break;
-                
-            default:
-                cout << "Invalid selection. Please select a valid menu item." ;
-                finished = false;
-        }
-    }
-}
-
-void
-CATSMAT_menu::
-getAllConfiguredFiles(CATSMAT_processing *processor)
-{
-    char * home_dir = NULL;
-    home_dir = getenv("HOME");
-    if (home_dir == NULL)
-    {
-        cerr << "No $HOME directory set.  Cannot read configuration.";
-    }
-    
-    string config_file(home_dir);
-    
-    config_file += "/catsmat_config.txt";
-    
-    vector<string> files = getConfiguredFiles(config_file);
-    vector<string>::iterator it;
-    
-    for(it = files.begin(); it < files.end(); it++)
-    {
-        processor->add_file(*it);
-        cout << " Added: " << *it << endl;        
-    }
-}
-
-vector<string>
-CATSMAT_menu::
-getConfiguredFiles(string full_path)
-{
-    vector<string> ret_val;
-    string next_line;
-    ifstream input_stream;
-    
-    //  0427 569 018
-    
-    input_stream.open(full_path);
-    if (! input_stream.good())
-    {
-        cerr << "Error opening configuration file: " << full_path << endl;
-        input_stream.close();
-        return ret_val;
-    }
-    
-    while (getline(input_stream, next_line))
-    {
-        if (! next_line.empty())
-        {
-            ret_val.push_back(next_line);
-        }
-    }
-    
-    input_stream.close();
-    return ret_val;
-}
-
-
-void
-CATSMAT_menu::
-getOneFileToAnalyse(CATSMAT_processing *processor)
-{
-    filesystem::path full_path(filesystem::initial_path());
-    string filename;
-    
-    cout << "Adding a single file." << endl;
-    cout << "Enter file name: ";
-    if (getline(cin, filename))
-    {
-        full_path = filesystem::system_complete( filesystem::path(filename) );
-        if (!filesystem::exists( full_path ))
-        {
-            cerr << full_path << " not found." << endl << endl;
-        }
-        else if (!filesystem::is_directory( full_path ) )
-        {
-            processor->add_file(full_path);
-            cout << "Added " << full_path << endl << endl;
-        }
-    }
-    
-}
-
-
-void
-CATSMAT_menu::
-getDirectoryToAnalyse(CATSMAT_processing *processor)
-{
-    filesystem::path full_path(filesystem::initial_path());
-    string directory;
-    cout << "Enter directory name: ";
-    getline( cin, directory);
-    full_path = filesystem::system_complete( filesystem::path(directory) );
-    if (!filesystem::exists( full_path ))
-    {
-        cerr << full_path << " not found." << endl << endl;
-    }
-    else if (filesystem::is_directory( full_path ) )
-    {
-        processor->process_directory_files(full_path);
-        cout << "Data files loaded into memory." << endl << endl;
-    }
-}
-
-char
-CATSMAT_menu::
-readMenuSelection()
-{
-    char menuItem;
-    cin >> menuItem;
-    cin.ignore();
-    return menuItem;
-}
-
 
 void
 CATSMAT_menu::
@@ -271,14 +168,14 @@ runToolsMenu(CATSMAT_processing* processor)
                 cin >> length;
                 cout << processor->find_and_print_repeated_interval_substrings(length);
                 break;
-            
+                
             case 'B':
             case'b':
                 cout << "Enter minimum length: ";
                 cin >> length;
                 processor->find_repeated_contour_substrings(length);
                 break;
-            
+                
             case 'C':
             case 'c':
                 processor->find_supermaximals_intervals(4,100);
@@ -296,7 +193,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 if (yn == 'y') continguous = true;
                 processor->find_lcs_pairs_intervals(continguous);
                 break;
-            
+                
             case 'F':
             case 'f':
                 cout << "Only find continguous segments? (y/n) ";
@@ -312,7 +209,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 if (yn == 'y') continguous = true;
                 processor->find_lcs_pairs_pitches(continguous);
                 break;
-            
+                
             case 'H':
             case 'h':
                 processor->find_repeated_interval_substrings();
@@ -355,3 +252,210 @@ runToolsMenu(CATSMAT_processing* processor)
         if (tool!='y') moreTools = false;
     } while (moreTools);
 }
+
+void
+CATSMAT_menu::
+addUserSpecifiedFile(CATSMAT_processing *processor)
+{
+    filesystem::path full_path(filesystem::initial_path());
+    string filename;
+    
+    cout << "Adding a single file." << endl;
+    cout << "Enter file name: ";
+    if (getline(cin, filename))
+    {
+        full_path = filesystem::system_complete( filesystem::path(filename) );
+        if (!filesystem::exists( full_path ))
+        {
+            cerr << full_path << " not found." << endl << endl;
+        }
+        else if (!filesystem::is_directory( full_path ) )
+        {
+            processor->add_file(full_path);
+            cout << "Added " << full_path << endl << endl;
+        }
+    }
+}
+
+void
+CATSMAT_menu::
+addFilesFromUserSpecifiedDirectory(CATSMAT_processing *processor)
+{
+    filesystem::path full_path(filesystem::initial_path());
+    string directory;
+    cout << "Enter directory name: ";
+    getline( cin, directory);
+    full_path = filesystem::system_complete( filesystem::path(directory) );
+    if (!filesystem::exists( full_path ))
+    {
+        cerr << full_path << " not found." << endl << endl;
+    }
+    else if (filesystem::is_directory( full_path ) )
+    {
+        processor->process_directory_files(full_path);
+        cout << "Data files loaded into memory." << endl << endl;
+    }
+}
+
+void
+CATSMAT_menu::
+addFilesFromFixedConfigFile(CATSMAT_processing *processor)
+{
+    boost::filesystem::path config_file = getHomeDirectory();
+    
+    config_file /= FIXED_CONFIG_FILE_NAME;
+    
+    addFilesFromConfigFile(processor, config_file);
+}
+
+void
+CATSMAT_menu::
+addFilesFromConfigFile(CATSMAT_processing *processor, boost::filesystem::path config_file)
+{
+    vector<string> files = getContentsOfConfigurationFile(config_file);
+    vector<string>::iterator it;
+    
+    for(it = files.begin(); it < files.end(); it++)
+    {
+        processor->add_file(*it);
+        cout << " Added: " << *it << endl;
+    }
+}
+
+
+void
+CATSMAT_menu::
+addFilesFromUserSelectedConfigurationFile(CATSMAT_processing *processor)
+{
+    index_path_pair configured_files = getConfigurationFiles();
+    
+    bool finished = false;
+    while (! finished)
+    {
+        cout << endl << "CONFIGURATION FILE SELECTION MENU" << endl;
+        cout << endl << "Pick a file..." << endl;
+        
+        for(auto const &next_path : configured_files)
+        {
+            cout << "  " << next_path.first << ". " << next_path.second.string() << endl;
+        }
+        
+        cout << endl << "Or press any other key to return to the main menu..." << endl;
+        
+        char user_selection;
+        cin >> user_selection;
+        cin.ignore();
+        
+        int file_index = atoi(&user_selection);
+        if (file_index == 0) // could not convert - not a number.
+        {
+            finished = true;
+        }
+        else
+        {
+            index_path_pair::iterator it;
+            it = configured_files.find(file_index);   // is the user selected number in the list...
+            if (it != configured_files.end())
+            {
+                addFilesFromConfigFile(processor, configured_files[file_index]);  // yes...
+            }
+            else
+            {
+                finished = true;   // no...
+            }
+        }
+    }
+}
+
+void
+CATSMAT_menu::
+listMovementsAddedSoFar(CATSMAT_processing *processor)
+{
+    vector<string> movements = processor->list_movements();
+    
+    if (movements.empty())
+    {
+        cout << "No movements added so far." << endl;
+        
+    }
+    
+    for(string next_movement : movements)
+    {
+        cout << next_movement << endl;
+    }
+}
+
+//  ******* UTILITY FUNCTIONS *******
+
+boost::filesystem::path
+CATSMAT_menu::
+getHomeDirectory()
+{
+    char * home_dir = NULL;
+    home_dir = getenv(HOME_DIR_ENV_VAR_NAME);
+    if (home_dir == NULL)
+    {
+        cerr << "No $HOME directory set.  Cannot read configuration.";
+    }
+    
+    string home_dir_str(home_dir);
+    boost::filesystem::path home_dir_path(home_dir_str);
+    return home_dir_path;
+    
+}
+
+vector<string>
+CATSMAT_menu::
+getContentsOfConfigurationFile(boost::filesystem::path full_path)
+{
+    vector<string> ret_val;
+    string next_line;
+    ifstream input_stream;
+    
+    //  0427 569 018
+    
+    input_stream.open(full_path.string());
+    if (! input_stream.good())
+    {
+        cerr << "Error opening configuration file: " << full_path << endl;
+        input_stream.close();
+        return ret_val;
+    }
+    
+    while (getline(input_stream, next_line))
+    {
+        if (! next_line.empty())
+        {
+            ret_val.push_back(next_line);
+        }
+    }
+    
+    input_stream.close();
+    return ret_val;
+}
+
+
+map<int, boost::filesystem::path>
+CATSMAT_menu::
+getConfigurationFiles()
+{
+    map<int, boost::filesystem::path> ret_val;
+    
+    boost::filesystem::path config_dir(getHomeDirectory());
+    config_dir /= CONFIG_FILE_DIR;
+    
+    directory_iterator end_iter;
+    int file_index = 1;
+    for(directory_iterator dir_iter(config_dir) ; dir_iter != end_iter ; ++dir_iter)
+    {
+        if (is_regular_file(dir_iter->status()) )
+        {
+            // cout << "ADDING [" << file_index << ", " << dir_iter->path().string() << "]" << endl;
+            ret_val.insert(std::pair<int,boost::filesystem::path>(file_index++,*dir_iter) );
+        }
+    }
+    return ret_val;
+}
+
+
+

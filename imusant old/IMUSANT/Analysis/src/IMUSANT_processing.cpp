@@ -115,6 +115,28 @@ namespace IMUSANT
         return ret_val;
     }
     
+    vector<string>
+    IMUSANT_processing::
+    list_movements()
+    {
+        vector<string> ret_val;
+        
+        if (IDs.size()>0)
+        {
+            IMUSANT_collection_visitor next;
+            string title;
+            
+            for (vector<int>::iterator j = IDs.begin(); j!=IDs.end(); j++)
+            {
+                next = processed_files[*j];
+                title = next.getMovementTitle();
+                
+                ret_val.push_back(title);
+            }
+        }
+        return ret_val;
+    }
+    
     IMUSANT_processing::music_file_format
     IMUSANT_processing::
     decide_file_type(const filesystem::path& path)

@@ -29,7 +29,7 @@ int main (int argc, char * const argv[])
 	filesystem::path full_path(filesystem::initial_path());
 	CATSMAT_processing processor;
 	
-    the_menu.getFilesToAnalyse(&processor);
+    the_menu.addFilesToAnalyse(&processor);
     the_menu.runToolsMenu(&processor);
     
     cout << "Goodbye." << endl;
