@@ -60,6 +60,7 @@ class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
 		const S_IMUSANT_interval_vector& getIntervalVector() const { return fIntervalVector; } 
 		const S_IMUSANT_rvec_collection& getRhythmVector() { return fRhythmCollection; } //reimpliment;
 		const string& getMovementTitle() const { return fMovementTitle; }
+        const string& getWorkTitle() const { return fWorkTitle; }
 		const S_IMUSANT_contour&	getMelodicContour() const { return fMelodicContour; }
 		const S_IMUSANT_pitch_vector& getPitchVector() { return fPitchVector; }
 		
@@ -80,14 +81,17 @@ class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
 		S_IMUSANT_contour               fMelodicContour;
 		//local storage of pitches
 		S_IMUSANT_pitch_vector          fPitchVector;
+    
+        string			fWorkTitle;
+        string			fMovementTitle;
+        vector<string>	fLyrics;
+
 		
 		// global flag to denote chords writing
 		bool			fInChord;
 		S_IMUSANT_note	fLastNote;
 		long			fCurrentPartID;
 		bool			fIgnoreRepeatedPitches;
-		string			fMovementTitle;
-		vector<string>	fLyrics;
 };
 
 } //namespace IMUSANT

@@ -38,7 +38,7 @@ IMUSANT_collection_visitor::IMUSANT_collection_visitor()
 	fIgnoreRepeatedPitches = false;
 }
 
-#pragma mark IMUSANT_attribute handler		
+#pragma mark IMUSANT_attribute handler
 void IMUSANT_collection_visitor::visit ( S_IMUSANT_attributes& elt )
 {
 }
@@ -158,6 +158,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 	fPitchVector = new_IMUSANT_pitch_vector();
 	
 	fMovementTitle = elt->getMovementTitle();
+    fWorkTitle = elt->getWorkTitle();
 	
 	if ((IMUSANT_partlist*)elt->partlist())
 		elt->partlist()->accept(*this);

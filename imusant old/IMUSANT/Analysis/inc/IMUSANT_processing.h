@@ -35,7 +35,7 @@ public:
 	
 	void	process_directory_files(const filesystem::path& full_path);
 	S_IMUSANT_score	add_file(const filesystem::path& path);
-    vector<string> list_movements();
+    vector<string> list_works_and_movements();
     
 	string	find_and_print_repeated_interval_substrings(int min_length=4);
     vector<IMUSANT_repeated_interval_substring> find_repeated_interval_substrings(int min_length=4);

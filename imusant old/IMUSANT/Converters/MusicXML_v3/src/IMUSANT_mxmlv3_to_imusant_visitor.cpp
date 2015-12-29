@@ -32,6 +32,15 @@ namespace IMUSANT
         fImusantScore = new_IMUSANT_score();
     }
     
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_work_title& elt)
+    {
+        debug("S_work_title");
+        assert(fImusantScore);
+        fImusantScore->setWorkTitle(elt->getValue());
+    }
+    
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::

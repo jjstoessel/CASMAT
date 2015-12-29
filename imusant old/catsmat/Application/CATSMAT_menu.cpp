@@ -11,6 +11,8 @@
 #include <fstream>
 #include <stdlib.h>
 
+#include <exception>
+
 
 using namespace std;
 using namespace CATSMAT;
@@ -104,7 +106,7 @@ addFilesToAnalyse(CATSMAT_processing *processor)
                 break;
                 
             case '8':
-                listMovementsAddedSoFar(processor);
+                listWorksAndMovementsAddedSoFar(processor);
                 finished = false;
                 break;
                 
@@ -317,8 +319,20 @@ addFilesFromConfigFile(CATSMAT_processing *processor, boost::filesystem::path co
     
     for(it = files.begin(); it < files.end(); it++)
     {
-        processor->add_file(*it);
-        cout << " Added: " << *it << endl;
+        cout << " Adding: " << *it << "...";
+        try
+        {
+            processor->add_file(*it);
+        }
+        catch (std::exception& e)
+        {
+            cout << e.what() << endl;
+        }
+        catch (...)
+        {
+            cout << "ERROR processing file." << endl;
+        }
+        cout << "...done" << endl;
     }
 }
 
@@ -369,9 +383,9 @@ addFilesFromUserSelectedConfigurationFile(CATSMAT_processing *processor)
 
 void
 CATSMAT_menu::
-listMovementsAddedSoFar(CATSMAT_processing *processor)
+listWorksAndMovementsAddedSoFar(CATSMAT_processing *processor)
 {
-    vector<string> movements = processor->list_movements();
+    vector<string> movements = processor->list_works_and_movements();
     
     if (movements.empty())
     {

@@ -117,21 +117,25 @@ namespace IMUSANT
     
     vector<string>
     IMUSANT_processing::
-    list_movements()
+    list_works_and_movements()
     {
         vector<string> ret_val;
         
         if (IDs.size()>0)
         {
             IMUSANT_collection_visitor next;
-            string title;
+            string work_title;
+            string mvt_title;
+            string work_and_mvt_title;
             
             for (vector<int>::iterator j = IDs.begin(); j!=IDs.end(); j++)
             {
                 next = processed_files[*j];
-                title = next.getMovementTitle();
+                mvt_title = next.getMovementTitle().empty() ? "?" : next.getMovementTitle()  ;
+                work_title = next.getWorkTitle().empty() ? "?" : next.getWorkTitle()  ;
+                work_and_mvt_title  = "WORK: " + work_title + "      MOVEMENT: " + mvt_title;
                 
-                ret_val.push_back(title);
+                ret_val.push_back(work_and_mvt_title);
             }
         }
         return ret_val;

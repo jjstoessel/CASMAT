@@ -40,7 +40,7 @@ namespace CATSMAT
         void addFilesFromFixedConfigFile(CATSMAT_processing *processor);
         void addFilesFromUserSelectedConfigurationFile(CATSMAT_processing *processor);
         
-        void listMovementsAddedSoFar(CATSMAT_processing *processor);
+        void listWorksAndMovementsAddedSoFar(CATSMAT_processing *processor);
         
         boost::filesystem::path getHomeDirectory();
         index_path_pair getConfigurationFiles();
