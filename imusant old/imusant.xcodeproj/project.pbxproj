@@ -518,7 +518,7 @@
 		496EF6C21B22B01700FE715F /* libIMUSANT.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = libIMUSANT.cp; sourceTree = "<group>"; };
 		496EF7141B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = CATSMAT_cp_matrix_Test.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		496EF7191B23BF9C00FE715F /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = /Library/Frameworks/gtest.framework; sourceTree = "<absolute>"; };
-		496EF7211B24013600FE715F /* DevelopmentEnvironmentConfiguration.docx */ = {isa = PBXFileReference; lastKnownFileType = file; name = DevelopmentEnvironmentConfiguration.docx; path = ../DevelopmentEnvironmentConfiguration.docx; sourceTree = "<group>"; };
+		496EF7211B24013600FE715F /* DevelopmentEnvironmentConfiguration.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = DevelopmentEnvironmentConfiguration.docx; sourceTree = "<group>"; };
 		4970E00C1B7589700052496C /* IMUSANT_key_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_key_Tests.cpp; sourceTree = "<group>"; };
 		4970E00E1B7590820052496C /* IMUSANT_interval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval.cpp; sourceTree = "<group>"; };
 		4970E01C1B76BFC40052496C /* IMUSANT_processing_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_processing_Tests.cpp; path = IMUSANT_Tests/Analysis/IMUSANT_processing_Tests.cpp; sourceTree = "<group>"; };
@@ -542,6 +542,7 @@
 		4970E03D1B76E4E50052496C /* IMUSANT_XMLVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_XMLVisitor.h; sourceTree = "<group>"; };
 		4970E03E1B76E4E50052496C /* TXML2IMUSANTVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXML2IMUSANTVisitor.h; sourceTree = "<group>"; };
 		49714EF01C014EFE00C0A52C /* MusicXML_ParserTest2.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MusicXML_ParserTest2.xml; sourceTree = "<group>"; };
+		498D54511C32A72200439018 /* MusicXMLv3_Elements_Reqs.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = MusicXMLv3_Elements_Reqs.xlsx; sourceTree = "<group>"; };
 		498D80BB1B9A77F000A673F7 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		498D80BD1B9A77F000A673F7 /* ActorPreludeSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = ActorPreludeSample.mxl; sourceTree = "<group>"; };
 		498D80BE1B9A77F000A673F7 /* ActorPreludeSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ActorPreludeSample.pdf; sourceTree = "<group>"; };
@@ -2614,10 +2615,11 @@
 		C6859E8C029090F304C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				498D54511C32A72200439018 /* MusicXMLv3_Elements_Reqs.xlsx */,
 				496EF7211B24013600FE715F /* DevelopmentEnvironmentConfiguration.docx */,
 				C6859E8B029090EE04C91782 /* imusant.1 */,
 			);
-			name = Documentation;
+			path = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
