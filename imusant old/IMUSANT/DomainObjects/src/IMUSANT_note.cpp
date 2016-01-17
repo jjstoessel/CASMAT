@@ -55,6 +55,11 @@ namespace IMUSANT
         }
         os << "<\\PITCH>" << endl;
         
+        if (fVoice != -1)
+        {
+            os << " <VOICE>" << fVoice << "<VOICE\\>" << endl;
+        }
+        
         if (getType() == IMUSANT_NoteType::rest)
         {
             os << " <REST\\>" << endl;

@@ -54,6 +54,7 @@ class VEXP IMUSANT_note : public IMUSANT_element
 		void setPreviousTieNote (const S_IMUSANT_note& previous);
 		void setStyle( IMUSANT_NoteStyle::type style ) { fStyle = style; }
 		void setType( IMUSANT_NoteType::type aType ) { fType=aType; }
+    void setVoice (int voice ) { fVoice=voice; }
 		
 		const long getMeasureNum() const { return fMeasureNumber; }
 		const long getNoteIndex () const { return fNoteIndex; }
@@ -61,6 +62,7 @@ class VEXP IMUSANT_note : public IMUSANT_element
 		const IMUSANT_NoteType::type	getType() const { return fType; }
 		const S_IMUSANT_note&	getNextTieNote() const { return fTieNext; }
 		const S_IMUSANT_note&	getPreviousTieNote() const { return fTiePrevious; }
+    const int getVoice() { return fVoice; }
 		
 		void addLyric(const S_IMUSANT_lyric lyric) { fLyrics.push_back(lyric); }
 		
@@ -97,11 +99,14 @@ class VEXP IMUSANT_note : public IMUSANT_element
             fTieNext(NULL),
             fTiePrevious(NULL),
             fStyle(IMUSANT_NoteStyle::normal),
-            fType(IMUSANT_NoteType::pitch)
+            fType(IMUSANT_NoteType::pitch),
+            fVoice(-1)
         {}
     
 		IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration )
-			: fPitch(pitch), fDuration(duration), fTieNext(NULL), fTiePrevious(NULL), fStyle(IMUSANT_NoteStyle::normal), fType(IMUSANT_NoteType::pitch) {}
+			: fPitch(pitch), fDuration(duration), fTieNext(NULL), fTiePrevious(NULL), fStyle(IMUSANT_NoteStyle::normal), fType(IMUSANT_NoteType::pitch), fVoice(-1)
+        {}
+    
 		virtual ~IMUSANT_note(){}
     
 	private:
@@ -119,6 +124,7 @@ class VEXP IMUSANT_note : public IMUSANT_element
 		S_IMUSANT_note                  fTiePrevious = NULL;
 		IMUSANT_NoteStyle::type         fStyle;
 		IMUSANT_NoteType::type          fType;
+    int                      fVoice;
 };
 typedef SMARTP<IMUSANT_note> S_IMUSANT_note;
 

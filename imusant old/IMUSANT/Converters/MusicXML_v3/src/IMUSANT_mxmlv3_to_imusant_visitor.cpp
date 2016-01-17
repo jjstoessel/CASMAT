@@ -128,6 +128,16 @@ namespace IMUSANT
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_voice &elt)
+    {
+        debug("S_voice");
+        string voice_str = elt->getValue();
+        int voice = atoi(voice_str.c_str());
+        fCurrentNote->setVoice(voice);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_measure& elt)
     {
         debug("S_measure");

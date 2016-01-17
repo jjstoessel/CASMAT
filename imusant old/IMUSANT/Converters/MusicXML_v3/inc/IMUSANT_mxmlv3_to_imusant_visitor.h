@@ -49,6 +49,7 @@ namespace IMUSANT
     public visitor<S_part_name>,
     public visitor<S_part_abbreviation>,
     public visitor<S_part>,
+    public visitor<S_voice>,
     public visitor<S_measure>,
     public visitor<S_barline>,
     public visitor<S_bar_style>,
@@ -102,6 +103,7 @@ namespace IMUSANT
         virtual void visitStart( S_part_abbreviation& elt);
         
         virtual void visitStart( S_part& elt);
+        virtual void visitStart( S_voice& elt);
         
         virtual void visitStart( S_measure& elt);
         virtual void visitStart( S_barline& elt);
