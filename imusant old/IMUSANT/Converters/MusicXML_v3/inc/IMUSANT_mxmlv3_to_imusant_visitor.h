@@ -42,6 +42,7 @@ namespace IMUSANT
     :
     public visitor<S_score_partwise>,
     public visitor<S_work_title>,
+    public visitor<S_work_number>,
     public visitor<S_movement_title>,
     public visitor<S_movement_number>,
     public visitor<S_creator>,
@@ -94,6 +95,7 @@ namespace IMUSANT
         
         virtual void visitStart( S_score_partwise& elt);
         virtual void visitStart( S_work_title& elt);
+        virtual void visitStart( S_work_number& elt);
         virtual void visitStart( S_movement_title& elt);
         virtual void visitStart( S_movement_number& elt);
         virtual void visitStart( S_creator& elt);

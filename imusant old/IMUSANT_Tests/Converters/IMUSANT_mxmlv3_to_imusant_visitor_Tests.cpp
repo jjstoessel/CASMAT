@@ -16,7 +16,7 @@
 using namespace IMUSANT;
 using namespace boost;
 
-#define VERBOSE = 0;
+// #define VERBOSE = 0;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_mxmlv3_to_imusant_visitor_Tests : public ::testing::Test {
@@ -106,6 +106,9 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MXMLv3_Dichterliebe01)
     
     IMUSANT_processing parser;
     S_IMUSANT_score score = parser.add_file(file_path);
+    
+    ASSERT_EQ(score->getWorkNum(),  "Op. 48");
+    ASSERT_EQ(score->getWorkTitle(), "Dichterliebe");
     
     /*
      <movement-number>1</movement-number>
