@@ -51,7 +51,7 @@ protected:
 };
 
 
-// Initialise static's outsude the class so it will linjk.
+// Initialise static's outsude the class so it will link.
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest2 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTestBeetAnGeSample = NULL;
@@ -334,6 +334,42 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, GraceNotes_ParserTest1)
     // cout << "Expected " << endl << p2_m2_expected << endl;
     ASSERT_EQ(p2_m2_expected, p2_m2_printed.str());
 
+}
+
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Rests_ParserTest1)
+{
+    S_IMUSANT_score score = IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1;
+    
+    S_IMUSANT_part p2_alto;
+    score->getPartById("P2", p2_alto);
+    IMUSANT_vector<S_IMUSANT_measure> p2_measures = p2_alto->measures();
+    S_IMUSANT_measure p2_m3 = p2_measures[3];
+    
+    // whole bar rest...
+    const string p2_m3_expected = "<MEAS>=3\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<NOTE measure_num=3 index=1 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>0/0<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
+    
+    stringstream p2_m3_printed;
+    
+    p2_m3->print(p2_m3_printed);
+    //     cout << "Actual " << endl << p2_m3_printed.str() << endl;
+    //     cout << "Expected " << endl << p2_m3_expected << endl;
+    ASSERT_EQ(p2_m3_expected, p2_m3_printed.str());
+    
+    S_IMUSANT_part p3_tenor;
+    score->getPartById("P3", p3_tenor);
+    IMUSANT_vector<S_IMUSANT_measure> p3_measures = p3_tenor->measures();
+    S_IMUSANT_measure p3_m4 = p3_measures[4];
+    
+    const string p3_m4_expected = "<MEAS>=4\n<CLEF> 0@0<\\CLEF>\n<TIME>/<\\TIME>\n<KEY>-1, mode: 0<\\KEY>\n<BARLINE location=left style=heavy-light\\>\n <REPEAT direction=forward //>\n<NOTE measure_num=4 index=1 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>1<\\DOTS><TIME_MOD>3/3<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=2 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/16<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>3/3<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=3 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/8<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>3/3<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=4 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/16<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>3/2<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=5 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/16<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>3/2<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=6 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/16<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>3/2<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=7 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<NOTE measure_num=4 index=8 >\n <PITCH>NULL<\\PITCH>\n <REST\\>\n <DURATION><RHYTHM_TYPE>1/4<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>0/0<\\TIME_MOD><\\DURATION>\n <ACCIDENTAL>NULL<\\ACCIDENTAL>\n<PREVIOUS_TIE>NULL<\\PREVIOUS_TIE>\n<\\NOTE>\n<\\MEAS>\n";
+    
+    stringstream p3_m4_printed;
+    
+    p3_m4->print(p3_m4_printed);
+//    cout << "Actual " << endl << p3_m4_printed.str() << endl;
+//    cout << "Expected " << endl << p3_m4_expected << endl;
+    ASSERT_EQ(p3_m4_expected, p3_m4_printed.str());
+    
+    
 }
 
 
