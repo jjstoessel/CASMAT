@@ -78,6 +78,7 @@ namespace IMUSANT
     public visitor<S_tie>,
     public visitor<S_accidental>,
     public visitor<S_grace>,
+    public visitor<S_cue>,
     public visitor<S_chord>
     {
         
@@ -155,6 +156,7 @@ namespace IMUSANT
         virtual void visitStart( S_accidental& elt);
         
         virtual void visitStart( S_grace& elt);
+        virtual void visitStart( S_cue& elt);
         
         virtual void visitStart( S_chord& elt);
         
@@ -177,6 +179,7 @@ namespace IMUSANT
         bool                fInTimeElement;
         IMUSANT_time        fCurrentTime;
         bool                fInNoteElement;
+        bool                fInCueNote = false;
         S_IMUSANT_note      fCurrentNote;
         S_IMUSANT_note      fPreviousNote;
         TRational           fCurrentNoteDurationType;

@@ -467,6 +467,7 @@ namespace IMUSANT
 //          </note>
         
         debug("S_note start");
+        
         fInNoteElement = true;
         fCurrentNoteInChord = false;    // We don't yet know that this Note is in a chord.
         fPreviousNote = fCurrentNote;
@@ -492,8 +493,19 @@ namespace IMUSANT
                           fCurrentNoteTimeModification);
             fCurrentNote->setDuration(duration);
             
-            fCurrentMeasure->addElement(fCurrentNote);
+            // We ignore cue notes and don't add them to the current measure.
+            // This is a bit fugly but it avoids having to add this guard into
+            // all the sub elements of Note.
+            if (! fInCueNote)
+            {
+                fCurrentMeasure->addElement(fCurrentNote);
+            }
+            else
+            {
+                fInCueNote = false;
+            }
         }
+        
         fInNoteElement = false;
         
         if (! fCurrentNoteInChord)
@@ -694,6 +706,16 @@ namespace IMUSANT
         
         fCurrentNote->setStyle(IMUSANT_NoteStyle::grace);
     }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_cue& elt)
+    {
+        debug("S_cue");
+        
+        fInCueNote = true;
+    }
+    
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
