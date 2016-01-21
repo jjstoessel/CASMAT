@@ -37,6 +37,7 @@ protected:
     static void SetUpTestCase() {
         fScore_ParserTest1 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest1.xml");
         fScore_ParserTest2 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest2.xml");
+        fScore_ParserTest3 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest3.xml");
         fScore_ParserTestBeetAnGeSample = initialise_ParserTest_score("MusicXMLv3.simple_test_data/BeetAnGeSample.xml");
     }
     
@@ -46,6 +47,7 @@ protected:
 
     static S_IMUSANT_score fScore_ParserTest1;
     static S_IMUSANT_score fScore_ParserTest2;
+    static S_IMUSANT_score fScore_ParserTest3;
     static S_IMUSANT_score fScore_ParserTestBeetAnGeSample;
     
     const int NUM_MEASURES_PARSER_TEST_1 = 12;
@@ -58,6 +60,7 @@ protected:
 // Initialise static's outsude the class so it will link.
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest2 = NULL;
+S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest3 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTestBeetAnGeSample = NULL;
 
 S_IMUSANT_score
@@ -498,6 +501,37 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Chords_MultiNote_BeetAnGeSample)
     
 }
 
-
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Clef_ParserTest3)
+{
+    S_IMUSANT_score score = fScore_ParserTest3;
+    
+    S_IMUSANT_part p1;
+    S_IMUSANT_part p3;
+    S_IMUSANT_part p4;
+    score->getPartById("P1", p1);
+    score->getPartById("P3", p3);
+    score->getPartById("P4", p4);
+    
+    IMUSANT_vector<S_IMUSANT_measure> p1_measures = p1->measures();
+    S_IMUSANT_measure p1_m2 = p1_measures[2];
+    IMUSANT_clef clef = p1_m2->getClef();
+    ASSERT_EQ(IMUSANT_clef::C_clef, clef.getSign());
+    ASSERT_EQ(2, clef.getLine());
+    ASSERT_EQ(0, clef.getTransposition());
+    
+    IMUSANT_vector<S_IMUSANT_measure> p3_measures = p3->measures();
+    S_IMUSANT_measure p3_m0 = p3_measures[0];
+    clef = p3_m0->getClef();
+    ASSERT_EQ(IMUSANT_clef::G_clef, clef.getSign());
+    ASSERT_EQ(2, clef.getLine());
+    ASSERT_EQ(-1, clef.getTransposition());
+    
+    IMUSANT_vector<S_IMUSANT_measure> p4_measures = p4->measures();
+    S_IMUSANT_measure p4_m2 = p4_measures[2];
+    clef = p4_m2->getClef();
+    ASSERT_EQ(IMUSANT_clef::F_clef, clef.getSign());
+    ASSERT_EQ(4, clef.getLine());
+    ASSERT_EQ(1, clef.getTransposition());
+}
 
 

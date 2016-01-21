@@ -51,6 +51,10 @@ namespace IMUSANT
     public visitor<S_part_abbreviation>,
     public visitor<S_part>,
     public visitor<S_voice>,
+    public visitor<S_clef>,
+    public visitor<S_sign>,
+    public visitor<S_line>,
+    public visitor<S_clef_octave_change>,
     public visitor<S_measure>,
     public visitor<S_barline>,
     public visitor<S_bar_style>,
@@ -107,6 +111,12 @@ namespace IMUSANT
         virtual void visitStart( S_part& elt);
         virtual void visitStart( S_voice& elt);
         
+        virtual void visitStart( S_clef& elt);
+        virtual void visitStart( S_sign& elt);
+        virtual void visitStart( S_line& elt);
+        virtual void visitStart( S_clef_octave_change& elt);
+        virtual void visitEnd( S_clef& elt);
+        
         virtual void visitStart( S_measure& elt);
         virtual void visitStart( S_barline& elt);
         virtual void visitEnd( S_barline& elt);
@@ -155,6 +165,7 @@ namespace IMUSANT
         S_IMUSANT_part      fCurrentPart;
         long                fCurrentMeasureNumber;
         S_IMUSANT_measure   fCurrentMeasure;
+        IMUSANT_clef        fCurrentClef;
         bool                fInChord;
         bool                fCurrentNoteInChord;
         S_IMUSANT_chord     fCurrentChord;

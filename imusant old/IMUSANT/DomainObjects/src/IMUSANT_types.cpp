@@ -258,6 +258,38 @@ namespace IMUSANT
         elt.print(os); return os;
     }
     
+    void
+    IMUSANT_clef::
+    setSign(char sign)
+    {
+        //convert XML clef to IMUSANT character clef
+        if (sign == IMUSANT_clef::G_clef)
+        {
+            fSign = IMUSANT_clef::G_clef;
+        }
+        else if (sign == IMUSANT_clef::F_clef)
+        {
+            fSign = IMUSANT_clef::F_clef;
+        }
+        else if (sign == IMUSANT_clef::C_clef)
+        {
+            fSign = IMUSANT_clef::C_clef;
+        }
+        else if (sign == IMUSANT_clef::percussion)
+        {
+            fSign = IMUSANT_clef::percussion;
+        }
+        else if (sign == IMUSANT_clef::tablature)
+        {
+            fSign = IMUSANT_clef::tablature;
+        }
+        else
+        {
+            fSign = IMUSANT_clef::undefined;
+        }
+    }
+    
+    
     IMUSANT_clef&
     IMUSANT_clef::
     operator= (const IMUSANT_clef& clef)

@@ -126,7 +126,7 @@ namespace IMUSANT
         short	getLine() const { return fLine; }
         short	getTransposition() const { return fOctaveChange; }
         
-        void	setSign( char sign ) { fSign = sign; }
+        void	setSign( char sign );
         void	setLine( short line ) { fLine = line; }
         void	setTransposition (short transposition) { fOctaveChange = transposition; }
         

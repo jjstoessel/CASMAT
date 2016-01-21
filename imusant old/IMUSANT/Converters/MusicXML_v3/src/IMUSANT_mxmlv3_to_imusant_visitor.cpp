@@ -147,6 +147,63 @@ namespace IMUSANT
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_clef &elt)
+    {
+        debug("S_clef");
+        
+        IMUSANT_clef the_clef(IMUSANT_clef::undefined, 0, 0);
+        fCurrentClef = the_clef;
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_sign &elt)
+    {
+        debug("S_sign");
+        
+        string sign_value = elt->getValue();
+        char sign_char = sign_value.at(0);
+        fCurrentClef.setSign(sign_char);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_line &elt)
+    {
+        debug("S_line");
+        int line = atoi(elt->getValue().c_str());
+        fCurrentClef.setLine(line);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_clef_octave_change &elt)
+    {
+        debug("S_clef_octave_change");
+        int octave_change = atoi(elt->getValue().c_str());
+        fCurrentClef.setTransposition(octave_change);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitEnd( S_clef &elt)
+    {
+        debug("End S_clef");
+        
+        if (fCurrentMeasure != 0)
+        {
+            fCurrentMeasure->setClef(fCurrentClef);
+        }
+        else
+        {
+            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitEnd( S_clef &elt) - Expected fCurrentMeasure to be set but it is null.";
+        }
+    }
+    
+    
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_measure& elt)
     {
         debug("S_measure");
