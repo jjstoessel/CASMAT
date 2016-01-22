@@ -635,6 +635,7 @@ namespace IMUSANT
     {
         debug("S_pitch end");
         fCurrentNote->setPitch(fCurrentPitch);
+        fCurrentNote->setType(IMUSANT_NoteType::pitch);
         fInPitchElement = false;
     }
     
@@ -716,6 +717,13 @@ namespace IMUSANT
         fInCueNote = true;
     }
     
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_unpitched& elt)
+    {
+        debug("S_unpitched");
+        fCurrentNote->setType(IMUSANT_NoteType::nonpitch);
+    }
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
