@@ -186,4 +186,18 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Dichterliebe01_m
     ASSERT_EQ(FindRepeatedIntervalSubstrings_Dichterliebe01_Expected, actual_output.str());
 }
 
+TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_ActorPreludeSample_mxml3)
+{
+    // This is a fairly complex file (44K lines of XML - full orchestra)
+    // so I'm including a very rough test here just to make sure that the
+    // parser covers it.
+    
+    string relative_path = "MusicXMLv3.xmlsamples/ActorPreludeSample.xml";
+    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
+    
+    ASSERT_EQ(3780, repeated_substrings_result.size());
+}
+
+
 
