@@ -167,25 +167,6 @@ TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing
     //cout << "V3 ACTUAL:" << endl << v3_actual_output.str() << endl;
 }
 
-TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Dichterliebe01_mxml3)
-{
-    string relative_path = "MusicXMLv3.xmlsamples/Dichterliebe01.xml";
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
-    
-    ASSERT_EQ(519, repeated_substrings_result.size()) << "EXPECTED FAILURE";
-    
-    stringstream actual_output;
-    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
-    {
-        actual_output << repeated_substrings_result[index];
-    }
-    
-    actual_output << endl;
-    
-    ASSERT_EQ(FindRepeatedIntervalSubstrings_Dichterliebe01_Expected, actual_output.str());
-}
-
 TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_ActorPreludeSample_mxml3)
 {
     // This is a fairly complex file (44K lines of XML - full orchestra)

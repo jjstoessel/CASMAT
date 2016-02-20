@@ -307,6 +307,8 @@
 		49F59B891BAE6D660030FFF1 /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		49F59B8A1BAE6DD30030FFF1 /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		49F59B8B1BAE6DD30030FFF1 /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		49FB9BD11C7879CB0008B46D /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		49FB9BD21C7879D80008B46D /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
 		BA7E941D1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
@@ -455,6 +457,17 @@
 			files = (
 				49F59B881BAE6D660030FFF1 /* libboost_filesystem.dylib in CopyFiles */,
 				49F59B891BAE6D660030FFF1 /* libboost_system.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB9BD01C7879A30008B46D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				49FB9BD21C7879D80008B46D /* libboost_system.dylib in CopyFiles */,
+				49FB9BD11C7879CB0008B46D /* libboost_filesystem.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2765,6 +2778,7 @@
 				496EF6B81B22B01600FE715F /* Sources */,
 				496EF6B91B22B01600FE715F /* Frameworks */,
 				496EF6BA1B22B01600FE715F /* Headers */,
+				49FB9BD01C7879A30008B46D /* CopyFiles */,
 			);
 			buildRules = (
 			);
