@@ -38,7 +38,29 @@ protected:
         fScore_ParserTest1 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest1.xml");
         fScore_ParserTest2 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest2.xml");
         fScore_ParserTest3 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest3.xml");
+        fScore_ParserTest4 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest4.xml");
+        
         fScore_ParserTestBeetAnGeSample = initialise_ParserTest_score("MusicXMLv3.simple_test_data/BeetAnGeSample.xml");
+    }
+    
+    static bool CheckLyric(S_IMUSANT_part part, int measure_index, int note_index, int syllable_index, string expected)
+    {
+        IMUSANT_vector<S_IMUSANT_measure> measures = part->measures();
+        S_IMUSANT_measure p_m = measures[measure_index];
+        
+        IMUSANT_vector<S_IMUSANT_note>& notes = p_m->notes();
+        vector<S_IMUSANT_note>::iterator it;
+        
+        S_IMUSANT_note note = notes[note_index];
+        S_IMUSANT_lyric lyric_1 = (note->lyrics())[0];
+        string syllable = lyric_1->getSyllables()[syllable_index];
+        
+        bool result = syllable.compare(expected) == 0;
+        
+        if (!result) cout << "Got: " << syllable << ", Expected: " << expected << endl;
+        
+        return result;
+
     }
     
     static filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
@@ -48,6 +70,7 @@ protected:
     static S_IMUSANT_score fScore_ParserTest1;
     static S_IMUSANT_score fScore_ParserTest2;
     static S_IMUSANT_score fScore_ParserTest3;
+    static S_IMUSANT_score fScore_ParserTest4;
     static S_IMUSANT_score fScore_ParserTestBeetAnGeSample;
     
     const int NUM_MEASURES_PARSER_TEST_1 = 12;
@@ -61,6 +84,7 @@ protected:
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest2 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest3 = NULL;
+S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest4 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTestBeetAnGeSample = NULL;
 
 S_IMUSANT_score
@@ -268,9 +292,9 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasureProperties_ParserTest1)
     ASSERT_EQ(p1_time.getDenominator()[0], 8);
     
     // Check we have the right number of notes...
-    int p1_m1_note_count = first_p1_measure->getNoteCount();
-    int p1_m2_note_count = second_p1_measure->getNoteCount();
-    int p4_m7_note_count = change_p4_measure->getNoteCount();
+    int p1_m1_note_count = first_p1_measure->getElementCount();
+    int p1_m2_note_count = second_p1_measure->getElementCount();
+    int p4_m7_note_count = change_p4_measure->getElementCount();
     
     ASSERT_EQ(1, p1_m1_note_count);
     ASSERT_EQ(3, p1_m2_note_count);
@@ -532,6 +556,27 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Clef_ParserTest3)
     ASSERT_EQ(IMUSANT_clef::F_clef, clef.getSign());
     ASSERT_EQ(4, clef.getLine());
     ASSERT_EQ(1, clef.getTransposition());
+}
+
+
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Lyric_ParserTest4)
+{
+    S_IMUSANT_score score = fScore_ParserTest4;
+    
+    S_IMUSANT_part p1;
+    score->getPartById("P1", p1);
+    
+    ASSERT_TRUE(CheckLyric(p1, 0, 0, 0, "these"));
+    ASSERT_FALSE(CheckLyric(p1, 0, 0, 0, "FRED")) << "Test is broken...";
+    
+    
+    ASSERT_TRUE(CheckLyric(p1, 1, 0, 0, "are"));
+    ASSERT_TRUE(CheckLyric(p1, 2, 0, 0, "the"));
+    ASSERT_TRUE(CheckLyric(p1, 3, 0, 0, "words"));
+    ASSERT_TRUE(CheckLyric(p1, 4, 0, 0, "to"));
+    ASSERT_TRUE(CheckLyric(p1, 5, 0, 0, "a"));
+    ASSERT_TRUE(CheckLyric(p1, 6, 0, 0, "short"));
+    ASSERT_TRUE(CheckLyric(p1, 7, 0, 0, "song"));
 }
 
 

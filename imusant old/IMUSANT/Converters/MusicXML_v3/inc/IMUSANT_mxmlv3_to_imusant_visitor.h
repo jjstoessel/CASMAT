@@ -75,6 +75,8 @@ namespace IMUSANT
     public visitor<S_step>,
     public visitor<S_alter>,
     public visitor<S_octave>,
+    public visitor<S_lyric>,
+    public visitor<S_text>,
     public visitor<S_tie>,
     public visitor<S_accidental>,
     public visitor<S_grace>,
@@ -143,6 +145,7 @@ namespace IMUSANT
         virtual void visitEnd( S_note& elt);
         virtual void visitStart( S_rest& elt);
         
+        
         virtual void visitStart( S_type& elt);
         virtual void visitStart( S_dot& elt);
         virtual void visitStart( S_time_modification& elt);
@@ -152,6 +155,8 @@ namespace IMUSANT
         virtual void visitStart( S_step& elt);
         virtual void visitStart( S_alter& elt);
         virtual void visitStart( S_octave& elt);
+        virtual void visitStart( S_lyric& elt);
+        virtual void visitStart( S_text& elt);
         virtual void visitStart( S_tie& elt);
         
         virtual void visitStart( S_accidental& elt);
@@ -187,6 +192,8 @@ namespace IMUSANT
         TRational           fCurrentNoteDurationType;
         TRational           fCurrentNoteTimeModification;
         long                fCurrentNumberofDotsOnNote;
+        bool                fInLyricElement;
+        S_IMUSANT_lyric     fCurrentLyric;
         bool                fInPitchElement;
         S_IMUSANT_pitch     fCurrentPitch;
     };

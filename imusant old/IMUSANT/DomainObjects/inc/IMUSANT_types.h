@@ -211,11 +211,16 @@ namespace IMUSANT
         
         void	setSyllabic(const IMUSANT_syllabic::type type) { fSyllabic = (IMUSANT_syllabic::type)(fSyllabic|type); }
         void	setNumber(int num) { fNumber = num; }
+        void	setNumber_v3(string num) { fNumber_v3 = num; }
+        void    setName(string name) { fName = name; }
         
         const CONTAINER_TYPE&	getSyllables() const { return fSyllables; }
         const IMUSANT_syllabic::type	getSyllabic() const { return fSyllabic; }
         bool					isMultiSyllablic() { return fSyllables.size() > 1; }
-        int						getNumber() { return fNumber; }
+        int                     getNumber() { return fNumber; }
+        string					getNumber_v3() { return fNumber_v3; }
+        string                  getName() { return fName; }
+            
         
         void accept(IMUSANT_visitor& visitor);
         
@@ -226,7 +231,9 @@ namespace IMUSANT
     private:
         CONTAINER_TYPE			fSyllables;
         IMUSANT_syllabic::type	fSyllabic;
-        int						fNumber;
+        int                     fNumber;
+        string					fNumber_v3;
+        string                  fName;
     };
     typedef SMARTP<IMUSANT_lyric> S_IMUSANT_lyric;
     

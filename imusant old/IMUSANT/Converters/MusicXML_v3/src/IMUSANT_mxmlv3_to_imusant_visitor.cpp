@@ -498,7 +498,7 @@ namespace IMUSANT
             // all the sub elements of Note.
             if (! fInCueNote)
             {
-                fCurrentMeasure->addElement(fCurrentNote);
+                fCurrentMeasure->addNote(fCurrentNote);
             }
             else
             {
@@ -664,6 +664,35 @@ namespace IMUSANT
         debug("S_octave");
         string octave = elt->getValue();
         fCurrentPitch->setOctave(octave);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_lyric& elt)
+    {
+        debug("S_lyric");
+        
+        fCurrentLyric = new_IMUSANT_lyric();
+        
+        fCurrentLyric->setNumber_v3(elt->getAttributeValue("number"));
+        fCurrentLyric->setName(elt->getAttributeValue("name"));
+
+        // Need to implement:
+        // Syllabic
+        // Elision?
+        // Extend?
+        // Humming?
+        // end-line?
+        // end-paragraph?
+        
+        fCurrentNote->addLyric(fCurrentLyric);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart(S_text& elt)
+    {
+        fCurrentLyric->addSyllable(elt->getValue());
     }
     
     void
