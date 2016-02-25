@@ -77,6 +77,7 @@ namespace IMUSANT
     public visitor<S_octave>,
     public visitor<S_lyric>,
     public visitor<S_text>,
+    public visitor<S_syllabic>,
     public visitor<S_tie>,
     public visitor<S_accidental>,
     public visitor<S_grace>,
@@ -155,8 +156,12 @@ namespace IMUSANT
         virtual void visitStart( S_step& elt);
         virtual void visitStart( S_alter& elt);
         virtual void visitStart( S_octave& elt);
+        
         virtual void visitStart( S_lyric& elt);
         virtual void visitStart( S_text& elt);
+        virtual void visitStart(S_syllabic& elt);
+        
+        
         virtual void visitStart( S_tie& elt);
         
         virtual void visitStart( S_accidental& elt);

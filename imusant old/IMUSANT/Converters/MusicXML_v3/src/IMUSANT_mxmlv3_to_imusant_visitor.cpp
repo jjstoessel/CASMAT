@@ -697,6 +697,14 @@ namespace IMUSANT
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart(S_syllabic& elt)
+    {
+        IMUSANT_syllabic::type syllabic_val = IMUSANT_syllabic::xml(elt->getValue());
+        fCurrentLyric->setSyllabic(syllabic_val);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_tie& elt)
     {
 //        This relies on the fact that a tie starts and ends on juxtaposing

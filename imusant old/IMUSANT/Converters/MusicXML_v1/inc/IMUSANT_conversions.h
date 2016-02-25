@@ -58,25 +58,31 @@ class IMUSANT_NoteType
 	static string 	fTypeStrings[];        
 };
 
-class IMUSANT_syllabic
-{
-	public:
-		//because a IMUSANT lyric can be multisyllabic, bitwise flags are employed.
-		enum type { undefined = 0, single=1, multisingle=1<<1, begin=1<<2, middle=1<<3, end=1<<4, 
-					beginend=begin|end, beginmiddle=begin|middle, middleend=middle|end, count=9 };
-		 //! convert a numericvalue to a string
-		static const string	xml (type syll);
-		//! convert a string to a numeric value
-		static       type	xml (const string str);
-		//convert MusicXML syllabic type to IMUSANT syllabic type
-		static		 type	MusicXML2IMUSANTSyllabic(const TLyric::syllabic musicXMLType);
-		
-	private:
-		//could add laughing, humming, etc.
-		static bimap<string, type>	fType2String;
-		static type	fTypeTbl[];
-		static string	fTypeStrings[];
-};
+    class IMUSANT_syllabic
+    {
+    public:
+        //because a IMUSANT lyric can be multisyllabic, bitwise flags are employed.
+        enum type
+        {
+            undefined = 0, single=1, multisingle=1<<1, begin=1<<2, middle=1<<3, end=1<<4,
+            beginend=begin|end, beginmiddle=begin|middle, middleend=middle|end, count=9
+        };
+        
+        //! convert a numericvalue to a string
+        static const string	xml (type syll);
+        
+        //! convert a string to a numeric value
+        static       type	xml (const string str);
+        
+        //convert MusicXML syllabic type to IMUSANT syllabic type
+        static		 type	MusicXML2IMUSANTSyllabic(const TLyric::syllabic musicXMLType);
+        
+    private:
+        //could add laughing, humming, etc.
+        static bimap<string, type>	fType2String;
+        static type	fTypeTbl[];
+        static string	fTypeStrings[];
+    };
 
 } //namespace IMUSANT
 #endif

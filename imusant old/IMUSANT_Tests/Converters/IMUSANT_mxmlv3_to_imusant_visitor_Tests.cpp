@@ -43,7 +43,9 @@ protected:
         fScore_ParserTestBeetAnGeSample = initialise_ParserTest_score("MusicXMLv3.simple_test_data/BeetAnGeSample.xml");
     }
     
-    static bool CheckLyric(S_IMUSANT_part part, int measure_index, int note_index, int syllable_index, string expected)
+    static bool CheckLyric(S_IMUSANT_part part, int measure_index, int note_index,
+                           int syllable_index, string expected,
+                           IMUSANT_syllabic::type syllabic = IMUSANT_syllabic::type::single)
     {
         IMUSANT_vector<S_IMUSANT_measure> measures = part->measures();
         S_IMUSANT_measure p_m = measures[measure_index];
@@ -52,15 +54,23 @@ protected:
         vector<S_IMUSANT_note>::iterator it;
         
         S_IMUSANT_note note = notes[note_index];
-        S_IMUSANT_lyric lyric_1 = (note->lyrics())[0];
-        string syllable = lyric_1->getSyllables()[syllable_index];
+        S_IMUSANT_lyric lyric = (note->lyrics())[0];
+        string syllable = lyric->getSyllables()[syllable_index];
         
         bool result = syllable.compare(expected) == 0;
+        bool syllabic_result = (lyric->getSyllabic() == syllabic);
         
         if (!result) cout << "Got: " << syllable << ", Expected: " << expected << endl;
         
-        return result;
-
+        
+        if (!syllabic_result)
+        {
+            string syl_expected = IMUSANT_syllabic::xml(syllabic);
+            string syl_actual = IMUSANT_syllabic::xml(lyric->getSyllabic());
+            cout << "Got syllabic of: " << syl_actual << ", Expected: " << syl_expected << endl;
+            
+        }
+        return (result && syllabic_result);
     }
     
     static filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
@@ -567,7 +577,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Lyric_ParserTest4)
     score->getPartById("P1", p1);
     
     ASSERT_TRUE(CheckLyric(p1, 0, 0, 0, "these"));
-    ASSERT_FALSE(CheckLyric(p1, 0, 0, 0, "FRED")) << "Test is broken...";
+    ASSERT_FALSE(CheckLyric(p1, 0, 0, 0, "IGNORE THIS OUTPUT UNLESS THE TEST FAILS")) << "Test is broken...";
     
     
     ASSERT_TRUE(CheckLyric(p1, 1, 0, 0, "are"));
@@ -577,6 +587,14 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Lyric_ParserTest4)
     ASSERT_TRUE(CheckLyric(p1, 5, 0, 0, "a"));
     ASSERT_TRUE(CheckLyric(p1, 6, 0, 0, "short"));
     ASSERT_TRUE(CheckLyric(p1, 7, 0, 0, "song"));
+    
+    ASSERT_TRUE(CheckLyric(p1, 8, 0, 0, "pol", IMUSANT_syllabic::type::begin));
+    ASSERT_TRUE(CheckLyric(p1, 8, 1, 0, "y", IMUSANT_syllabic::type::middle));
+    ASSERT_TRUE(CheckLyric(p1, 9, 0, 0, "syl", IMUSANT_syllabic::type::middle));
+    ASSERT_TRUE(CheckLyric(p1, 9, 1, 0, "ab", IMUSANT_syllabic::type::middle));
+    ASSERT_TRUE(CheckLyric(p1, 10, 0, 0, "ic", IMUSANT_syllabic::type::end));
+    
+    
 }
 
 
