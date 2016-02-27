@@ -7,8 +7,11 @@
  *
  *  Changes:
  *
- *  14 June 2015 getNumber() member function added; a littly flaky. A mathematical solution would be better.
- *  29 June 2015 getQuality() member function added
+ *  14 June 2015    getNumber() member function added; a littly flaky. A mathematical solution would be better.
+ *  29 June 2015    getQuality() member function added
+ *  9  Feb  2016    Commenced redesign of IMUSANT_interval (S-01093): redesigned procedures indicated is NEW macro (ORIGINAL to be removed).
+ *  23 Feb  2016    Tonal Pitch Class differences used to calculate interval. Tested without failout across current suit of interval test.
+ *
  */
 
 #include "IMUSANT_interval.h"
@@ -79,7 +82,8 @@ namespace IMUSANT
         return os;
     }
     
-    
+  
+#ifdef ORIGINAL
     //
     // Lookup tables and translations from numeric to string representations...
     //
@@ -89,8 +93,6 @@ namespace IMUSANT
         "aug5", "dim6", "min6", "maj6", "aug6", "dim7", "min7", "maj7",
         "aug7", "dim8", "octave"
     };
-    
-#ifdef ORIGINAL
     
     int	IMUSANT_interval::fIntervalTbl[] = {
         dim1, perf1, aug1, dim2, min2, maj2, aug2, dim3, min3, maj3, aug3,
@@ -112,47 +114,85 @@ namespace IMUSANT
         return fInterval2String[str];
     }
     
+    int IMUSANT_interval::int2intervaltype(int interval)
+    {
+        //  cout << "INTERVAL = " << interval << endl;
+        
+        int iv = abs(interval % base);  // get rid of octaves and direction
+        
+        IMUSANT_interval::interval_type return_value = IMUSANT_interval::undefined;
+        bool found = false;
+        
+        for (int index = 0 ; index < NUM_INTERVAL_TYPES && !found ; index++)
+        {
+            if (fIntervalTbl[index] >= iv)  // REVISIT  - the >= test doesn't work
+            {
+                return_value = fIntervalTbl[index];
+                found = true;
+            }
+        }
+        return return_value;
+    }
+    
 #endif
     
 #ifdef NEW
+    //THIS NEEDS TO BE CONVERTED TO A BIMAP STRUCTURE!!!
+    //better error handling, etc.
+    string	IMUSANT_interval::fIntervalStrings[] = {
+        "dimdim4th",
+        "dimdim1", "dimdim5", "dim2", "dim6", "dim3", "dim7", "dim4",
+        "dim1", "dim5", "min2", "min6", "min3", "min7", "per4",
+        "per1", "per5", "maj2", "maj6", "maj3", "maj7", "aug4",
+        "aug1", "aug5", "aug2", "aug6", "aug3", "aug7", "augaug4",
+        "augaug1", "augaug5", "augaug2", "augaug6", "augaug3", "augaug7"
+    };
     
-    const int NUM_INTERVAL_TYPES = 27;
+    const int NUM_INTERVAL_TYPES = 35;
     IMUSANT_interval::interval_type IMUSANT_interval::fIntervalTbl[] = {
-        IMUSANT_interval::dim1,
-        IMUSANT_interval::perf1,
-        IMUSANT_interval::aug1,
+        IMUSANT_interval::dimdim4th,
+        IMUSANT_interval::dimdim1,
+        IMUSANT_interval::dimdim5,
         IMUSANT_interval::dim2,
-        IMUSANT_interval::min2,
-        IMUSANT_interval::maj2,
-        IMUSANT_interval::aug2,
-        IMUSANT_interval::dim3,
-        IMUSANT_interval::min3,
-        IMUSANT_interval::maj3,
-        IMUSANT_interval::aug3,
-        IMUSANT_interval::dim4,
-        IMUSANT_interval::per4,
-        IMUSANT_interval::aug4,
-        IMUSANT_interval::dim5,
-        IMUSANT_interval::per5,
-        IMUSANT_interval::aug5,
         IMUSANT_interval::dim6,
-        IMUSANT_interval::min6,
-        IMUSANT_interval::maj6,
-        IMUSANT_interval::aug6,
+        IMUSANT_interval::dim3,
         IMUSANT_interval::dim7,
+        IMUSANT_interval::dim4,
+        IMUSANT_interval::dim1,
+        IMUSANT_interval::dim5,
+        IMUSANT_interval::min2,
+        IMUSANT_interval::min6,
+        IMUSANT_interval::min3,
         IMUSANT_interval::min7,
+        IMUSANT_interval::per4,
+        IMUSANT_interval::per1,
+        IMUSANT_interval::per5,
+        IMUSANT_interval::maj2,
+        IMUSANT_interval::maj6,
+        IMUSANT_interval::maj3,
         IMUSANT_interval::maj7,
+        IMUSANT_interval::aug4,
+        IMUSANT_interval::aug1,
+        IMUSANT_interval::aug5,
+        IMUSANT_interval::aug2,
+        IMUSANT_interval::aug6,
+        IMUSANT_interval::aug3,
         IMUSANT_interval::aug7,
-        IMUSANT_interval::dim8,
-        IMUSANT_interval::octave
+        IMUSANT_interval::augaug4,
+        IMUSANT_interval::augaug1,
+        IMUSANT_interval::augaug5,
+        IMUSANT_interval::augaug2,
+        IMUSANT_interval::augaug6,
+        IMUSANT_interval::augaug3,
+        IMUSANT_interval::augaug7
     };
     
     bimap<string, IMUSANT_interval::interval_type>
     IMUSANT_interval::
-    fInterval2String( fIntervalStrings, fIntervalTbl, 27 );
+    fInterval2String( fIntervalStrings, fIntervalTbl, NUM_INTERVAL_TYPES );
     
     //! convert a numeric value to string
-    const string IMUSANT_interval::xmlinterval (IMUSANT_interval::interval_type iv)
+    const string IMUSANT_interval::xmlinterval (interval_type iv)
     {
         return fInterval2String[iv];
     }
@@ -164,18 +204,19 @@ namespace IMUSANT
     }
     
     // convert an integer to an interval_type - returns "undefined" if there is no match.
+
     IMUSANT_interval::interval_type IMUSANT_interval::int2intervaltype(int interval)
     {
         //  cout << "INTERVAL = " << interval << endl;
         
-        int iv = abs(interval % base);  // get rid of octaves and direction
+        interval_type iv = (interval_type)abs(interval % base);  // get rid of octaves and direction
         
         IMUSANT_interval::interval_type return_value = IMUSANT_interval::undefined;
         bool found = false;
         
         for (int index = 0 ; index < NUM_INTERVAL_TYPES && !found ; index++)
         {
-            if (fIntervalTbl[index] >= iv)  // REVISIT  - the >= test doesn't work'
+            if (fIntervalTbl[index] >= iv)  // REVISIT  - the >= test doesn't work
             {
                 return_value = fIntervalTbl[index];
                 found = true;
@@ -192,7 +233,7 @@ namespace IMUSANT
     {
         static int unique = undefined;
         
-        IMUSANT_interval out;
+        IMUSANT_interval out(unique);
         
         out.fOctaves = --unique;
         
@@ -252,30 +293,36 @@ namespace IMUSANT
     // Static function returns interval and direction for two notes
     //
     IMUSANT_interval
-    IMUSANT_interval::
-    calculate(const S_IMUSANT_pitch& first, const S_IMUSANT_pitch& second)
+    IMUSANT_interval::calculate(const S_IMUSANT_pitch& first, const S_IMUSANT_pitch& second)
     {
         IMUSANT_interval ret;
-        
+        //make sure TPC set; this should be set on pitch creation, but isn't at the moment
+        first->setTonalPitchClass(); second->setTonalPitchClass();
         if (first->name()!=IMUSANT_pitch::undefined && second->name()!=IMUSANT_pitch::undefined)
         {
-            // IGNORE octaves - we are returining a base interval
-            //            int first_octave = (first->octave() * base);
-            //            int second_octave = (second->octave() * base);
+            //Must account for octaves for compound intervals.
             
-            int first_name = (int)first->name();
-            int second_name = (int)second->name();
+            if (first->getTPC()==second->getTPC()) //if a unison or compound unison; 
+            {
+                ret.fInterval = IMUSANT_interval::per1;
+                ret.fOctaves = abs(second->octave() - first->octave());
+                ret.fDirection = IMUSANT_interval::unison;
+                ret.fQuality = perfect;
+            }
+            else if (*second>*first) //ascending interval
+            {
+                ret.fInterval = second->getTPC() - first->getTPC();
+                ret.fOctaves = ((second->name() + (second->octave()*IMUSANT_pitch::diatonicSteps)) - (first->name() + (first->octave()*IMUSANT_pitch::diatonicSteps)))/7;
+                ret.fDirection = IMUSANT_interval::ascending;
+            }
+            else //descending interval
+            {
+                ret.fInterval = (interval_type)(first->getTPC() - second->getTPC());
+                ret.fOctaves = ret.fOctaves = (first->name() + (first->octave()*IMUSANT_pitch::diatonicSteps) - second->name() + (second->octave()*IMUSANT_pitch::diatonicSteps))/7;
+                ret.fDirection = IMUSANT_interval::descending;
+            }
             
-            int first_absolute =  first_name + first->alteration();  // + first_octave;
-            int second_absolute = second_name + second->alteration(); // + second_octave;
-            
-            // This is still an apparently arbitrary number based on the
-            // values for IMUSANT_pitch::type.
-            // However it is a number within a predictable range whose
-            // values could be mapped onto intervals?
-            int calculated_interval = second_absolute - first_absolute;
-            
-            ret.check(calculated_interval);
+            //ret.check();
         }
         
         return ret;
@@ -283,14 +330,15 @@ namespace IMUSANT
 #endif
     
     //returns the interval numbers without quality
-    int IMUSANT_interval::getNumber()
+    int IMUSANT_interval::getNumber() const
     {
         int ret;
         
-        switch (this->simple())
+        //switch (this->simple())
+        switch (this->fInterval)
         {
             case dim1:
-            case perf1:
+            case per1:
             case aug1:
                 ret = 1;
                 break;
@@ -328,29 +376,30 @@ namespace IMUSANT
             case aug7:
                 ret = 7;
                 break;
-            case octave:
-                ret = 8;
+            //case octave:
+            //    ret = 8;
                 break;
             default:
                 ret = undefined;
                 break;
         }
         
-        if (this->simple().fDirection==descending)
+        if (this->fDirection==descending)
             ret *= -1;
         
         return ret;
     }
-    
+#ifdef ORIGINAL
     int IMUSANT_interval::getQuality()
     {
         int quality = 0;
         
-        switch (this->simple())
+        //switch (this->simple())
+        switch (this->fInterval)
         {
-            case perf1:
+            case per1:
             case per5:
-            case octave:
+            //case octave:
                 quality = perfect;
                 break;
             case min3:
@@ -384,7 +433,52 @@ namespace IMUSANT
         
         return quality;
     }
-    
+#endif
+#ifdef NEW
+    IMUSANT_interval::quality IMUSANT_interval::getQuality()
+    {
+        quality q = perfect;
+        
+        //switch (this->simple())
+        switch (this->fInterval)
+        {
+            case per1:
+            case per5:
+                //case octave:
+                q = perfect;
+                break;
+            case min3:
+            case maj3:
+            case min6:
+            case maj6:
+                q = imperfect;
+                break;
+            case dim1:
+            case aug1:
+            case dim2:
+            case min2:
+            case maj2:
+            case aug2:
+            case dim3:
+            case aug3:
+            case dim4:
+            case per4:
+            case aug4:
+            case dim5:
+            case aug5:
+            case dim6:
+            case aug6:
+            case dim7:
+            case min7:
+            case maj7:
+            case aug7:
+                q = dissonant;
+                break;
+        }
+        
+        return q;
+    }
+#endif
     //returns a non-compound interval
     IMUSANT_interval IMUSANT_interval::simple()
     {
@@ -395,8 +489,10 @@ namespace IMUSANT
         
         return ret;
     }
-    
+ 
     //returns the literally inverted interval
+#ifdef ORIGINAL
+    //NOT IMPLEMENTED!
     IMUSANT_interval	IMUSANT_interval::inverted()
     {
         IMUSANT_interval ret(*this);
@@ -408,7 +504,26 @@ namespace IMUSANT
         
         return ret;
     }
-    
+#endif
+#ifdef NEW
+    //Inversion is trivial in new TPC based classed
+    IMUSANT_interval	IMUSANT_interval::inverted()
+    {
+        IMUSANT_interval ret(*this);
+        
+        if (ret.fOctaves==0) // simple inversion
+        {
+            ret.fInterval*=-1; //changing the sign of a tonal interval inverts it.
+            ret.fDirection=static_cast<direction>(ret.fDirection*-1);
+        }
+        else // hand inversions of compound intervals correctly
+        {
+            ret.fOctaves=-1;
+        }
+        
+        return ret;
+    }
+#endif
     //calculates the diatonic inversion required for pre-20th century music
     //NOT IMPLEMENTED!
     IMUSANT_interval	IMUSANT_interval::inverted_diatonically(IMUSANT_key& key, IMUSANT_pitch::type first)
@@ -420,11 +535,11 @@ namespace IMUSANT
         
         return ret;
     }
-    
+
     //returns distance between intervals, hence 0 is equal, hence used in comparison operators
-    signed int	IMUSANT_interval::compare(const IMUSANT_interval& i) const
+    int	IMUSANT_interval::compare(const IMUSANT_interval& i) const
     {
-        return (signed int)*this-(signed int)i;
+        return (int)*this-(int)i;
     }
     
 #ifdef ORIGINAL
@@ -491,12 +606,13 @@ namespace IMUSANT
             
             fInterval = int2intervaltype(base_interval);
         }
+        
+        fQuality = getQuality();
     }
     
     //private member function: checks interval is in correct form.
     void IMUSANT_interval::check()
     {
-        //check that fInterval is positive except dim unison
         if (fInterval!=undefined)
         {
             if (fInterval!=0 && fInterval!=-1)
@@ -539,7 +655,27 @@ namespace IMUSANT
     }
     
 #ifdef NEW
-    const IMUSANT_interval& IMUSANT_interval::operator=( const signed int binv )
+    IMUSANT_interval::operator int() const
+    {
+        int r = 0;
+        
+        if (abs(fInterval)>0)
+        {
+            if (abs(fInterval)==1)
+                r = 7 * fInterval;
+            else
+                r = (fInterval*7) % 12;
+        
+            if (r<0)
+                r+=12;
+        }
+        
+        r+=12*fOctaves;
+        
+        return r;
+    }
+    
+    const IMUSANT_interval& IMUSANT_interval::operator=( const int binv )
     {
         fInterval = int2intervaltype(binv);
         check();
@@ -549,14 +685,14 @@ namespace IMUSANT
     
     IMUSANT_interval& IMUSANT_interval::operator+=( const IMUSANT_interval& rhs )
     {
-        fInterval =  int2intervaltype((signed short)*this + (signed short)rhs);
+        fInterval =  int2intervaltype((int)*this + (int)rhs);
         check();
         return *this;
     }
     
     IMUSANT_interval& IMUSANT_interval::operator-=( const IMUSANT_interval& rhs )
     {
-        fInterval = int2intervaltype((signed short)*this - (signed short)rhs);
+        fInterval = int2intervaltype((int)*this - (int)rhs);
         check();
         return *this;
     }

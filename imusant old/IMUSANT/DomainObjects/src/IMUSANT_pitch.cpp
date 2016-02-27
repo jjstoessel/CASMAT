@@ -5,6 +5,10 @@
  *  Created by Jason Stoessel on 30/08/06.
  *  Copyright 2006 __MyCompanyName__. All rights reserved.
  *
+ *  Changes:
+ *
+ *  14 Feb 2016 Implemented tonal pitch class based upon David Temperley's Line of Fifths Tonal Pitch class theory 
+ *              see: Temperley, "The Line of Fifths," Music Analysis 19/iii (2000): 289–319.
  */
 
 #include "IMUSANT_pitch.h"
@@ -21,6 +25,71 @@ namespace IMUSANT
     IMUSANT_pitch::type IMUSANT_pitch::fPitchTbl[] 	= { C, D, E, F, G, A, B };
     string IMUSANT_pitch::fPitchStrings[]			= { "C", "D", "E", "F", "G", "A", "B" };
     bimap<string, IMUSANT_pitch::type> IMUSANT_pitch::fPitch2String(fPitchStrings, fPitchTbl, diatonicSteps);
+#ifdef NEW
+    //The line of fifths is a linearisation of the spiral of fifths, where F = -1, C = 0, G = 1, etc.
+    //used to obtain the Tonal Pitch Class (TPC) of a note
+    //TO IMPLEMENT: PC (or Non-specific Pitch Class)
+    int      IMUSANT_pitch::fLineOf5ths[35][3] =
+    {
+        {C, double_flat,    tpcCbb  },  //Cbb
+        {C, flat,           tpcCb   },  //Cb
+        {C, natural,        tpcC    },  //C
+        {C, sharp,          tpcCs   },  //C#
+        {C, double_sharp,   tpcCss  },  //C##
+        {D, double_flat,    tpcDbb  },  //Dbb
+        {D, flat,           tpcDb   },  //Db
+        {D, natural,        tpcD    },  //D
+        {D, sharp,          tpcDs   },  //D#
+        {D, double_sharp,   tpcDss  },  //D##
+        {E, double_flat,    tpcEbb  },  //Ebb
+        {E, flat,           tpcEb   },  //Eb
+        {E, natural,        tpcE    },  //E
+        {E, sharp,          tpcEs   },  //E#
+        {E, double_sharp,   tpcEss  },  //E##
+        {F, double_flat,    tpcFbb  },  //Fbb
+        {F, flat,           tpcFb   },  //Fb
+        {F, natural,        tpcF    },  //F
+        {F, sharp,          tpcFs   },  //F#
+        {F, double_sharp,   tpcFss  },  //F##
+        {G, double_flat,    tpcGbb  },  //Gbb
+        {G, flat,           tpcGb   },  //Gb
+        {G, natural,        tpcG    },  //G
+        {G, sharp,          tpcGs   },  //G#
+        {G, double_sharp,   tpcGss  },  //G##
+        {A, double_flat,    tpcAbb  },  //Abb
+        {A, flat,           tpcAb   },  //Ab
+        {A, natural,        tpcA    },  //A
+        {A, sharp,          tpcAs   },  //A#
+        {A, double_sharp,   tpcAss  },  //A##
+        {B, double_flat,    tpcBbb  },  //Bbb
+        {B, flat,           tpcBb   },  //Bb
+        {B, natural,        tpcB    },  //B
+        {B, sharp,          tpcBs   },  //B#
+        {B, double_sharp,   tpcBss  },  //B##
+    };
+    
+    //static member: obtains the Line of Fifths index for a note from multidimensional array fLineOf5ths
+    //name and alteration must be set.
+    enum IMUSANT_pitch::TPC IMUSANT_pitch::GetTonalPitchClass(type name, sign alt)
+    {
+        TPC tpc = tpcUndefined;
+       
+        for (int i = 0; i <= 35; i+=5 ) {
+            if (fLineOf5ths[i][0]==name) {  //find pitch name
+                for (int j=0; j<5; j++) {
+                    if (alt==fLineOf5ths[i+j][1]) { //find alteration
+                        tpc = static_cast<TPC>(fLineOf5ths[i+j][2]); //store TPC
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        
+        return tpc;
+    }
+    
+#endif
     //______________________________________________________________________________
     
     const string IMUSANT_pitch::xml(IMUSANT_pitch::type d) 	{ return fPitch2String[d]; }
@@ -53,7 +122,7 @@ namespace IMUSANT
     }
     
     
-    void IMUSANT_pitch::set(type name, unsigned short octave, unsigned short voice, type ms_note, signed short alteration,
+    void IMUSANT_pitch::set(type name, unsigned short octave, unsigned short voice, type ms_note, sign alteration,
                             bool inChord)
     {
         fName = name;
@@ -62,6 +131,9 @@ namespace IMUSANT
         fMSName = name; //ms_note;
         fInChord = inChord;
         fVoice = voice;
+        fTPC = GetTonalPitchClass(name, alteration);
+        //fNPC =
+        
     }
     
     void
@@ -69,12 +141,14 @@ namespace IMUSANT
     setAlteration(const string alter)
     {
         // We are just assuming that the input string is a valid number.
-        signed short alteration = atoi(alter.c_str());
+        sign alteration = (sign)atoi(alter.c_str());
         if (alteration == 0 && alter.compare("0") != 0)
         {
             throw "IMUSANT_pitch::setAlteration() - Unexpected value for alter.  Expected a number of semitones received " + alter;
         }
         fAlteration = alteration;
+        fTPC = GetTonalPitchClass(fName, fAlteration);
+        //fNBC =
     }
     
     void
@@ -99,7 +173,7 @@ namespace IMUSANT
         {
             gt = true;
         }
-        
+       
         if (fOctave == pitch.octave())
         {
             if (fName > pitch.name())   // this note is in the same octave, but is a higher note

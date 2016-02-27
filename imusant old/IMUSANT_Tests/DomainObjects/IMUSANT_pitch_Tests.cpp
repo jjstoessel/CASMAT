@@ -37,14 +37,14 @@ protected:
     {
         // Code here will be called immediately after the constructor (right
         // before each test).
-        C4 = CreatePitch(IMUSANT_pitch::type::C, 4, 0);
-        D4 = CreatePitch(IMUSANT_pitch::type::D, 4, 0);
-        B3 = CreatePitch(IMUSANT_pitch::type::B, 3, 0);
-        B4 = CreatePitch(IMUSANT_pitch::type::B, 4, 0);
-        C5 = CreatePitch(IMUSANT_pitch::type::C, 5, 0);
-        D5 = CreatePitch(IMUSANT_pitch::type::D, 5, 0);
-        D4_Sharp = CreatePitch(IMUSANT_pitch::type::D, 4, 1);
-        D4_Flat  = CreatePitch(IMUSANT_pitch::type::D, 4, -1);
+        C4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+        D4 = CreatePitch(IMUSANT_pitch::type::D, 4, IMUSANT_pitch::natural);
+        B3 = CreatePitch(IMUSANT_pitch::type::B, 3, IMUSANT_pitch::natural);
+        B4 = CreatePitch(IMUSANT_pitch::type::B, 4, IMUSANT_pitch::natural);
+        C5 = CreatePitch(IMUSANT_pitch::type::C, 5, IMUSANT_pitch::natural);
+        D5 = CreatePitch(IMUSANT_pitch::type::D, 5, IMUSANT_pitch::natural);
+        D4_Sharp = CreatePitch(IMUSANT_pitch::type::D, 4, IMUSANT_pitch::sharp);
+        D4_Flat  = CreatePitch(IMUSANT_pitch::type::D, 4, IMUSANT_pitch::flat);
     }
     
     virtual void TearDown()
@@ -67,7 +67,7 @@ private:
     
     IMUSANT_pitch CreatePitch(IMUSANT_pitch::type note,
                               unsigned short octave,
-                              signed short alteration)
+                              IMUSANT_pitch::sign alteration)
     {
         IMUSANT_pitch *the_pitch = new IMUSANT_pitch();
         
