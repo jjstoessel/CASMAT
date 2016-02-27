@@ -83,7 +83,8 @@ namespace IMUSANT
     public visitor<S_grace>,
     public visitor<S_cue>,
     public visitor<S_unpitched>,
-    public visitor<S_chord>
+    public visitor<S_chord>,
+    public visitor<S_transpose>
     {
         
     public:
@@ -171,6 +172,8 @@ namespace IMUSANT
         virtual void visitStart( S_unpitched& elt);
         
         virtual void visitStart( S_chord& elt);
+        
+        virtual void visitStart( S_transpose& elt);
         
     private:
         

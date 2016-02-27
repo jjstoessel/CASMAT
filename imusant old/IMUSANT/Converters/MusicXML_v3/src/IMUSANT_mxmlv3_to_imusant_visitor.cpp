@@ -785,4 +785,21 @@ namespace IMUSANT
             fInChord = true;
         }
     }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_transpose& elt)
+    {
+        stringstream buf;
+        buf
+            << "ERROR: - Transpose element not implemented in MusicXML v3 parser in "
+            << __FILE__
+            << " at line "
+            << __LINE__
+            << endl;
+        
+        cerr << buf.str();
+        
+        throw buf.str();
+    }
 }
