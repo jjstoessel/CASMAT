@@ -543,6 +543,14 @@ namespace IMUSANT
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart(S_fermata& elt)
+    {
+        debug("S_fermata");
+        
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart(S_type& elt)
     {
         // <note... >
@@ -692,6 +700,7 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart(S_text& elt)
     {
+        debug("S_text");
         fCurrentLyric->addSyllable(elt->getValue());
     }
     
@@ -699,6 +708,8 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart(S_syllabic& elt)
     {
+        debug("S_syllabic");
+        
         IMUSANT_syllabic::type syllabic_val = IMUSANT_syllabic::xml(elt->getValue());
         fCurrentLyric->setSyllabic(syllabic_val);
     }
@@ -790,6 +801,8 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_transpose& elt)
     {
+        debug("S_transpose");
+        
         stringstream buf;
         buf
             << "ERROR: - Transpose element not implemented in MusicXML v3 parser in "
