@@ -416,7 +416,7 @@ void IMUSANT_XMLReader::EndIMUSANT_alteration(IMUSANT_XMLReader* reader, const c
 {
 	DBUG(("EndAlteration\n"));
 	if (reader->fPitch)
-		reader->fPitch->setAlteration(reader->GetDataLong());
+        reader->fPitch->setAlteration((IMUSANT_pitch::sign)reader->GetDataLong());
 }
 		//octave
 void IMUSANT_XMLReader::EndIMUSANT_octave(IMUSANT_XMLReader* reader, const char* tag)
