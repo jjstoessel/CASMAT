@@ -74,7 +74,7 @@ TEST_F(IMUSANT_note_Tests, BasicPrintTest)
     duration->set(dur, dots,  time_mod);
     
     S_IMUSANT_pitch pitch = new_IMUSANT_pitch();
-    pitch->set(IMUSANT_pitch::type::D, 2, 1, 0, false);
+    pitch->set(IMUSANT_pitch::type::D, 2, 1, IMUSANT_pitch::natural, false);
     
     the_note->setDuration(duration);
     the_note->setPitch(pitch);

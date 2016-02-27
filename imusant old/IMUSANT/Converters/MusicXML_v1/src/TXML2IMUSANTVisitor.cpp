@@ -633,7 +633,7 @@ namespace IMUSANT
         pitch->setName(name);
         pitch->setOctave(oct);
         pitch->setVoice(voice);
-        pitch->setAlteration(semitones);
+        pitch->setAlteration((IMUSANT_pitch::sign)semitones);
         
         S_IMUSANT_note the_note = new_IMUSANT_note(); //this instance will be passed to measure
         

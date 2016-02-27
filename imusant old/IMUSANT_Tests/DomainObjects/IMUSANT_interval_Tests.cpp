@@ -52,8 +52,8 @@ protected:
                              IMUSANT_pitch::type p2,
                              int octave1,
                              int octave2,
-                             int alteration1 = 0,
-                             int alteration2 = 0)
+                             IMUSANT_pitch::sign alteration1 = IMUSANT_pitch::natural,
+                             IMUSANT_pitch::sign alteration2 = IMUSANT_pitch::natural)
     {
         S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
         S_IMUSANT_pitch pitch2 = new_IMUSANT_pitch();
@@ -76,8 +76,7 @@ private:
 
 TEST_F(IMUSANT_interval_Tests, xmlinterval_string_to_enum_Test)
 {
-    ASSERT_EQ(IMUSANT_interval::dim1, IMUSANT_interval::xmlinterval("dim1")) ;
-    ASSERT_EQ(IMUSANT_interval::perf1, IMUSANT_interval::xmlinterval("perf1")) ;
+    ASSERT_EQ(IMUSANT_interval::per1, IMUSANT_interval::xmlinterval("per1")) ;
     ASSERT_EQ(IMUSANT_interval::aug1, IMUSANT_interval::xmlinterval("aug1")) ;
     ASSERT_EQ(IMUSANT_interval::dim2, IMUSANT_interval::xmlinterval("dim2")) ;
     ASSERT_EQ(IMUSANT_interval::min2, IMUSANT_interval::xmlinterval("min2")) ;
@@ -102,14 +101,13 @@ TEST_F(IMUSANT_interval_Tests, xmlinterval_string_to_enum_Test)
     ASSERT_EQ(IMUSANT_interval::min7, IMUSANT_interval::xmlinterval("min7")) ;
     ASSERT_EQ(IMUSANT_interval::maj7, IMUSANT_interval::xmlinterval("maj7")) ;
     ASSERT_EQ(IMUSANT_interval::aug7, IMUSANT_interval::xmlinterval("aug7")) ;
-    ASSERT_EQ(IMUSANT_interval::dim8, IMUSANT_interval::xmlinterval("dim8")) ;
-    ASSERT_EQ(IMUSANT_interval::octave, IMUSANT_interval::xmlinterval("octave")) ;
+    //ASSERT_EQ(IMUSANT_interval::dim8, IMUSANT_interval::xmlinterval("dim8")) ;
+    //ASSERT_EQ(IMUSANT_interval::octave, IMUSANT_interval::xmlinterval("octave")) ;
 }
 
 TEST_F(IMUSANT_interval_Tests, xmlinterval_enum_to_string_Test)
 {
-    ASSERT_EQ("dim1", IMUSANT_interval::xmlinterval(IMUSANT_interval::dim1)) ;
-    ASSERT_EQ("perf1", IMUSANT_interval::xmlinterval(IMUSANT_interval::perf1)) ;
+    ASSERT_EQ("per1", IMUSANT_interval::xmlinterval(IMUSANT_interval::per1)) ;
     ASSERT_EQ("aug1", IMUSANT_interval::xmlinterval(IMUSANT_interval::aug1)) ;
     ASSERT_EQ("dim2", IMUSANT_interval::xmlinterval(IMUSANT_interval::dim2)) ;
     ASSERT_EQ("min2", IMUSANT_interval::xmlinterval(IMUSANT_interval::min2)) ;
@@ -133,8 +131,8 @@ TEST_F(IMUSANT_interval_Tests, xmlinterval_enum_to_string_Test)
     ASSERT_EQ("min7", IMUSANT_interval::xmlinterval(IMUSANT_interval::min7)) ;
     ASSERT_EQ("maj7", IMUSANT_interval::xmlinterval(IMUSANT_interval::maj7)) ;
     ASSERT_EQ("aug7", IMUSANT_interval::xmlinterval(IMUSANT_interval::aug7)) ;
-    ASSERT_EQ("dim8", IMUSANT_interval::xmlinterval(IMUSANT_interval::dim8)) ;
-    ASSERT_EQ("octave", IMUSANT_interval::xmlinterval(IMUSANT_interval::octave)) ;
+    //ASSERT_EQ("dim8", IMUSANT_interval::xmlinterval(IMUSANT_interval::dim8)) ;
+    //ASSERT_EQ("octave", IMUSANT_interval::xmlinterval(IMUSANT_interval::octave)) ;
 }
 
 TEST_F(IMUSANT_interval_Tests, calculate_same_octave_Test)
@@ -144,7 +142,7 @@ TEST_F(IMUSANT_interval_Tests, calculate_same_octave_Test)
     int result;
     
     result = calculate_pitch_interval(IMUSANT_pitch::A, IMUSANT_pitch::A, 3, 3);
-    ASSERT_EQ(IMUSANT_interval::perf1, result);
+    ASSERT_EQ(IMUSANT_interval::per1, result);
     
     result = calculate_pitch_interval(IMUSANT_pitch::A, IMUSANT_pitch::B, 3, 3);
     ASSERT_EQ(IMUSANT_interval::maj2, result);
@@ -196,8 +194,8 @@ TEST_F(IMUSANT_interval_Tests, Calculate_Cflat_Csharp_Test)
     //
     
     // Cb to C# - no interval defined in our scheme
-    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::C, 3, 3, -1 , 1);
-    ASSERT_EQ(IMUSANT_interval::maj2, result) << "Cb to C# - Major 2dn (?????)";
+    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::C, 3, 3, IMUSANT_pitch::flat, IMUSANT_pitch::sharp);
+    ASSERT_EQ(IMUSANT_interval::augaug1, result) << "Cb to C# - Major 2dn (?????)";
 }
 
 TEST_F(IMUSANT_interval_Tests, Calculate_C_Gsharp_Test)
@@ -207,7 +205,7 @@ TEST_F(IMUSANT_interval_Tests, Calculate_C_Gsharp_Test)
     
     int result;
     
-    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::G, 3, 3, 0 , 1);
+    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::G, 3, 3, IMUSANT_pitch::natural, IMUSANT_pitch::sharp);
     ASSERT_EQ(IMUSANT_interval::aug5, result) << "C to G# - Augmented 5th";
 }
 
@@ -221,8 +219,8 @@ TEST_F(IMUSANT_interval_Tests, Calculate_C_Gdoublesharp_Test)
     // C to G## - Dim 6th  ??
     // What is the name for this interval??
     // If this passes I would expect the Cb to C# test to also pass.
-    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::G, 3, 3, 0 , 2);
-    ASSERT_EQ(IMUSANT_interval::dim6, result) << "C to G## - Dim 6th  (really?)";
+    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::G, 3, 3, IMUSANT_pitch::natural, IMUSANT_pitch::double_sharp);
+    ASSERT_EQ(IMUSANT_interval::augaug5, result) << "C to G## - Doubly Aug 6th  (really?)";
 }
 
 TEST_F(IMUSANT_interval_Tests, Calculate_C_Aflat_Test)
@@ -232,7 +230,7 @@ TEST_F(IMUSANT_interval_Tests, Calculate_C_Aflat_Test)
     
     int result;
     
-    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3, 0 , -1);
+    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3, IMUSANT_pitch::natural, IMUSANT_pitch::flat);
     ASSERT_EQ(IMUSANT_interval::min6, result) << "C to Ab - Minor 6th";
 }
 
@@ -243,6 +241,6 @@ TEST_F(IMUSANT_interval_Tests, Calculate_C_Adoubleflat_Test)
     
     int result;
     
-    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3, 0 , -2);
+    result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3, IMUSANT_pitch::natural, IMUSANT_pitch::double_flat);
     ASSERT_EQ(IMUSANT_interval::dim6, result) << "C to Abb - Diminished 6th";
 }
