@@ -52,6 +52,7 @@ namespace IMUSANT
         void setStyle( IMUSANT_NoteStyle::type style ) { fStyle = style; }
         void setType( IMUSANT_NoteType::type aType ) { fType=aType; }
         void setVoice (int voice ) { fVoice=voice; }
+        void setFermata(bool hasFermata) { fHasFermata = hasFermata; }
         
         const long getMeasureNum() const { return fMeasureNumber; }
         const long getNoteIndex () const { return fNoteIndex; }
@@ -68,6 +69,7 @@ namespace IMUSANT
         bool isSingle() const { return !(isTiedPrevious() || isTiedNext()); }
         bool isTiedBothSides() const { return (isTiedPrevious() && isTiedNext()); }
         bool isNotNormal() const { return fStyle!=IMUSANT_NoteStyle::normal; }
+        bool hasFermata() const { return fHasFermata; }
         
         void accept(IMUSANT_visitor& visitor);
         
@@ -127,6 +129,8 @@ namespace IMUSANT
         IMUSANT_NoteStyle::type         fStyle;
         IMUSANT_NoteType::type          fType;
         int                             fVoice;
+        bool                            fHasFermata = false;
+        
     };
     typedef SMARTP<IMUSANT_note> S_IMUSANT_note;
     

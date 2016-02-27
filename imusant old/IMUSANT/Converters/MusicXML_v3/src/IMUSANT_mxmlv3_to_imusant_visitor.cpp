@@ -241,8 +241,9 @@ namespace IMUSANT
         S_IMUSANT_barline barline = new_IMUSANT_barline();
         fCurrentBarline = barline;
         
-        barline->setLocation(IMUSANT_barline::xmllocation(location));
+        fCurrentBarline->setLocation(IMUSANT_barline::xmllocation(location));
         
+        fInBarlineElement = true;
     }
     
     void
@@ -251,7 +252,9 @@ namespace IMUSANT
     {
         debug("S_barline - end");
         
-        fCurrentMeasure->addElement(fCurrentBarline);
+        fCurrentMeasure->addBarline(fCurrentBarline);
+        
+        fInBarlineElement = false;
     }
     
     void
@@ -547,6 +550,16 @@ namespace IMUSANT
     {
         debug("S_fermata");
         
+        if (fInNoteElement)
+        {
+            debug("     Fermata on Note");
+            fCurrentNote->setFermata(true);
+        }
+        else if (fInBarlineElement)
+        {
+            debug("     Fermata on Barline");
+            fCurrentBarline->setFermata(true);
+        }
     }
     
     void

@@ -72,7 +72,7 @@ namespace IMUSANT
     private:
         direction	fDirection;
         long		fTimes;
-
+        
     };
     typedef SMARTP<IMUSANT_repeat> S_IMUSANT_repeat;
     
@@ -101,10 +101,12 @@ namespace IMUSANT
         void		setBarStyle(type style);
         void		setEnding(const S_IMUSANT_ending ending) { fEnding = ending; }
         void		setRepeat(const S_IMUSANT_repeat repeat) { fRepeat = repeat; }
+        void        setFermata(bool hasFermata) { fHasFermata = hasFermata ; }
         
+        bool        hasFermata() { return fHasFermata; }
         location	getLocation()	const 	{ return fLocation; }
         type		getBarStyle()	const 	{ return fBarStyle; }
-
+        
         S_IMUSANT_ending&	ending() 		{ return fEnding; }
         S_IMUSANT_repeat&	repeat() 		{ return fRepeat; }
         //SSegno&		segno()		 	{ return fSegno; }
@@ -130,6 +132,9 @@ namespace IMUSANT
         
         S_IMUSANT_ending	fEnding;
         S_IMUSANT_repeat	fRepeat;
+        
+        bool                fHasFermata = false;
+        
         //SSegno 		fSegno;
         //SCoda 		fCoda;
     };

@@ -39,6 +39,7 @@ protected:
         fScore_ParserTest2 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest2.xml");
         fScore_ParserTest3 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest3.xml");
         fScore_ParserTest4 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest4.xml");
+        fScore_ParserTest5 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest5.xml");
         
         fScore_ParserTestBeetAnGeSample = initialise_ParserTest_score("MusicXMLv3.simple_test_data/BeetAnGeSample.xml");
     }
@@ -81,6 +82,7 @@ protected:
     static S_IMUSANT_score fScore_ParserTest2;
     static S_IMUSANT_score fScore_ParserTest3;
     static S_IMUSANT_score fScore_ParserTest4;
+    static S_IMUSANT_score fScore_ParserTest5;
     static S_IMUSANT_score fScore_ParserTestBeetAnGeSample;
     
     const int NUM_MEASURES_PARSER_TEST_1 = 12;
@@ -95,6 +97,7 @@ S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1 = NU
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest2 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest3 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest4 = NULL;
+S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest5 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTestBeetAnGeSample = NULL;
 
 S_IMUSANT_score
@@ -302,9 +305,9 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MeasureProperties_ParserTest1)
     ASSERT_EQ(p1_time.getDenominator()[0], 8);
     
     // Check we have the right number of notes...
-    int p1_m1_note_count = first_p1_measure->getElementCount();
-    int p1_m2_note_count = second_p1_measure->getElementCount();
-    int p4_m7_note_count = change_p4_measure->getElementCount();
+    unsigned long p1_m1_note_count = first_p1_measure->elements().size();
+    unsigned long  p1_m2_note_count = second_p1_measure->elements().size();
+    unsigned long  p4_m7_note_count = change_p4_measure->elements().size();
     
     ASSERT_EQ(1, p1_m1_note_count);
     ASSERT_EQ(3, p1_m2_note_count);
@@ -593,7 +596,52 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Lyric_ParserTest4)
     ASSERT_TRUE(CheckLyric(p1, 9, 0, 0, "syl", IMUSANT_syllabic::type::middle));
     ASSERT_TRUE(CheckLyric(p1, 9, 1, 0, "ab", IMUSANT_syllabic::type::middle));
     ASSERT_TRUE(CheckLyric(p1, 10, 0, 0, "ic", IMUSANT_syllabic::type::end));
+}
+
+
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Frermata_ParserTest5)
+{
+    S_IMUSANT_score score = fScore_ParserTest5;
     
+    S_IMUSANT_part p1;
+    S_IMUSANT_part p2;
+    
+    score->getPartById("P1", p1);
+    score->getPartById("P2", p2);
+    
+    IMUSANT_vector<S_IMUSANT_measure> p1_measures = p1->measures();
+    IMUSANT_vector<S_IMUSANT_measure> p2_measures = p2->measures();
+    
+    S_IMUSANT_measure p1_m1 = p1_measures[0];
+    IMUSANT_vector<S_IMUSANT_note> notes = p1_m1->notes();
+    
+    ASSERT_FALSE(notes[0]->hasFermata());
+    ASSERT_FALSE(notes[1]->hasFermata());
+    ASSERT_FALSE(notes[2]->hasFermata());
+    ASSERT_TRUE(notes[3]->hasFermata());
+
+    S_IMUSANT_measure p2_m1 = p2_measures[0];
+    notes = p2_m1->notes();
+    
+    ASSERT_FALSE(notes[0]->hasFermata());
+    ASSERT_TRUE(notes[1]->hasFermata());
+
+    
+    // See Task TK-01140 in VersionOne
+    // REVISIT - I have generated test data from MuseScore, but it
+    // does not appear to support fermata on barlines.  This means
+    // that when you export as MusicXML, MuseScore does not generate
+    // any barline elements for the first measure, and so the code
+    // below crashes.  You can see this in the test data file used
+    // in this test.
+    
+    
+//    IMUSANT_vector<S_IMUSANT_barline> barlines = p2_m1->barlines();
+//    S_IMUSANT_barline barline = barlines[0];
+//    ASSERT_FALSE(barline->hasFermata());
+//    
+//    barline = p2_m1->barlines()[1];
+//    ASSERT_TRUE(barline->hasFermata());
     
 }
 
