@@ -241,8 +241,9 @@ namespace IMUSANT
         S_IMUSANT_barline barline = new_IMUSANT_barline();
         fCurrentBarline = barline;
         
-        barline->setLocation(IMUSANT_barline::xmllocation(location));
+        fCurrentBarline->setLocation(IMUSANT_barline::xmllocation(location));
         
+        fInBarlineElement = true;
     }
     
     void
@@ -251,7 +252,9 @@ namespace IMUSANT
     {
         debug("S_barline - end");
         
-        fCurrentMeasure->addElement(fCurrentBarline);
+        fCurrentMeasure->addBarline(fCurrentBarline);
+        
+        fInBarlineElement = false;
     }
     
     void
@@ -498,7 +501,7 @@ namespace IMUSANT
             // all the sub elements of Note.
             if (! fInCueNote)
             {
-                fCurrentMeasure->addElement(fCurrentNote);
+                fCurrentMeasure->addNote(fCurrentNote);
             }
             else
             {
@@ -538,6 +541,24 @@ namespace IMUSANT
         if (fInNoteElement)
         {
             fCurrentNote->setType(IMUSANT_NoteType::rest);
+        }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart(S_fermata& elt)
+    {
+        debug("S_fermata");
+        
+        if (fInNoteElement)
+        {
+            debug("     Fermata on Note");
+            fCurrentNote->setFermata(true);
+        }
+        else if (fInBarlineElement)
+        {
+            debug("     Fermata on Barline");
+            fCurrentBarline->setFermata(true);
         }
     }
     
@@ -636,6 +657,7 @@ namespace IMUSANT
         debug("S_pitch end");
         fCurrentPitch->setTonalPitchClass();
         fCurrentNote->setPitch(fCurrentPitch);
+        fCurrentNote->setType(IMUSANT_NoteType::pitch);
         fInPitchElement = false;
     }
     
@@ -664,6 +686,46 @@ namespace IMUSANT
         debug("S_octave");
         string octave = elt->getValue();
         fCurrentPitch->setOctave(octave);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_lyric& elt)
+    {
+        debug("S_lyric");
+        
+        fCurrentLyric = new_IMUSANT_lyric();
+        
+        fCurrentLyric->setNumber_v3(elt->getAttributeValue("number"));
+        fCurrentLyric->setName(elt->getAttributeValue("name"));
+
+        // Need to implement:
+        // Syllabic
+        // Elision?
+        // Extend?
+        // Humming?
+        // end-line?
+        // end-paragraph?
+        
+        fCurrentNote->addLyric(fCurrentLyric);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart(S_text& elt)
+    {
+        debug("S_text");
+        fCurrentLyric->addSyllable(elt->getValue());
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart(S_syllabic& elt)
+    {
+        debug("S_syllabic");
+        
+        IMUSANT_syllabic::type syllabic_val = IMUSANT_syllabic::xml(elt->getValue());
+        fCurrentLyric->setSyllabic(syllabic_val);
     }
     
     void
@@ -717,6 +779,13 @@ namespace IMUSANT
         fInCueNote = true;
     }
     
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_unpitched& elt)
+    {
+        debug("S_unpitched");
+        fCurrentNote->setType(IMUSANT_NoteType::nonpitch);
+    }
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
@@ -740,5 +809,24 @@ namespace IMUSANT
             fCurrentChord->add(fCurrentNote);
             fInChord = true;
         }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_transpose& elt)
+    {
+        debug("S_transpose");
+        
+        stringstream buf;
+        buf
+            << "ERROR: - Transpose element not implemented in MusicXML v3 parser in "
+            << __FILE__
+            << " at line "
+            << __LINE__
+            << endl;
+        
+        cerr << buf.str();
+        
+        throw buf.str();
     }
 }

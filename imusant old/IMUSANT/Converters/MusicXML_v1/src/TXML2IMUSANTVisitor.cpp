@@ -741,7 +741,7 @@ namespace IMUSANT
             {
                 case TNote::normal:
                     fNote = IMUSANT_note(elt);
-                    currentMeasure->addElement(fNote);
+                    currentMeasure->addNote(fNote);
                     break;
                 case TNote::cue:
                     //cueNote (elt);

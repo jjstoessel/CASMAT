@@ -38,38 +38,62 @@ IMUSANT_NoteType::type	IMUSANT_NoteType::xml (const string str) { return fType2S
 //=======================================================================================================
 //IMUSANT_syllabic
 					
-IMUSANT_syllabic::type	IMUSANT_syllabic::fTypeTbl[] = { undefined, single, multisingle, begin, middle, end, 
-						beginend, beginmiddle, middleend };						
-string	IMUSANT_syllabic::fTypeStrings[] = { "undefined", "single", "multisingle", "begin", "middle", "end", 
-						"beginend", "beginmiddle", "middleend" };
-bimap<string, IMUSANT_syllabic::type>	IMUSANT_syllabic::fType2String(fTypeStrings, fTypeTbl, count);
-//! convert a numeric start-stop value to a MusicXML string
-const string IMUSANT_syllabic::xml (IMUSANT_syllabic::type type) { return fType2String[type]; }
-//! convert a MusicXML string to a numeric value
-IMUSANT_syllabic::type	IMUSANT_syllabic::xml (const string str) { return fType2String[str]; }
+    IMUSANT_syllabic::type	IMUSANT_syllabic::fTypeTbl[] =
+    {
+        undefined, single, multisingle, begin,
+        middle, end, beginend, beginmiddle, middleend
+    };
+    
+    string	IMUSANT_syllabic::fTypeStrings[] =
+    {
+        "undefined", "single", "multisingle", "begin",
+        "middle", "end", "beginend", "beginmiddle", "middleend"
+    };
+    
+    bimap<string, IMUSANT_syllabic::type>
+    IMUSANT_syllabic::
+    fType2String(fTypeStrings, fTypeTbl, count);
 
-//convert TLyric Syllabic to IMUSANT_lyric syllabic
-IMUSANT_syllabic::type	IMUSANT_syllabic::MusicXML2IMUSANTSyllabic(const TLyric::syllabic musicXMLType)
-{
-	type rType = undefined;
-	
-	switch (musicXMLType)
-	{
-		case TLyric::single:
-			rType = single;
-			break;
-		case TLyric::begin:
-			rType = begin;
-			break;
-		case TLyric::end:
-			rType = end;
-			break;
-		case TLyric::middle:
-			rType = middle;
-			break;
-	}
-	
-	return rType;
-}
+    //! convert a numeric start-stop value to a MusicXML string
+    const string
+    IMUSANT_syllabic::
+    xml (IMUSANT_syllabic::type type)
+    {
+        return fType2String[type];
+    }
+
+    //! convert a MusicXML string to a numeric value
+    IMUSANT_syllabic::type
+    IMUSANT_syllabic::
+    xml (const string str)
+    {
+        return fType2String[str];
+    }
+
+    //convert TLyric Syllabic to IMUSANT_lyric syllabic
+    IMUSANT_syllabic::type
+    IMUSANT_syllabic::
+    MusicXML2IMUSANTSyllabic(const TLyric::syllabic musicXMLType)
+    {
+        type rType = undefined;
+        
+        switch (musicXMLType)
+        {
+            case TLyric::single:
+                rType = single;
+                break;
+            case TLyric::begin:
+                rType = begin;
+                break;
+            case TLyric::end:
+                rType = end;
+                break;
+            case TLyric::middle:
+                rType = middle;
+                break;
+        }
+        
+        return rType;
+    }
 
 }//namespace IMUSANT

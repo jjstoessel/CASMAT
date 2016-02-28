@@ -386,7 +386,7 @@ void IMUSANT_XMLReader::EndIMUSANT_note(IMUSANT_XMLReader* reader, const char* t
 	}
     else 
 	{
-		reader->fMeasure->addElement(reader->fNote);
+		reader->fMeasure->addNote(reader->fNote);
     }
 	
 	reader->fNote=0;

@@ -68,6 +68,7 @@ namespace IMUSANT
     public visitor<S_beat_type>,
     public visitor<S_note>,
     public visitor<S_rest>,
+    public visitor<S_fermata>,
     public visitor<S_type>,
     public visitor<S_dot>,
     public visitor<S_time_modification>,
@@ -75,11 +76,16 @@ namespace IMUSANT
     public visitor<S_step>,
     public visitor<S_alter>,
     public visitor<S_octave>,
+    public visitor<S_lyric>,
+    public visitor<S_text>,
+    public visitor<S_syllabic>,
     public visitor<S_tie>,
     public visitor<S_accidental>,
     public visitor<S_grace>,
     public visitor<S_cue>,
-    public visitor<S_chord>
+    public visitor<S_unpitched>,
+    public visitor<S_chord>,
+    public visitor<S_transpose>
     {
         
     public:
@@ -142,6 +148,8 @@ namespace IMUSANT
         virtual void visitEnd( S_note& elt);
         virtual void visitStart( S_rest& elt);
         
+        virtual void visitStart( S_fermata& elt);
+        
         virtual void visitStart( S_type& elt);
         virtual void visitStart( S_dot& elt);
         virtual void visitStart( S_time_modification& elt);
@@ -151,14 +159,23 @@ namespace IMUSANT
         virtual void visitStart( S_step& elt);
         virtual void visitStart( S_alter& elt);
         virtual void visitStart( S_octave& elt);
+        
+        virtual void visitStart( S_lyric& elt);
+        virtual void visitStart( S_text& elt);
+        virtual void visitStart(S_syllabic& elt);
+        
+        
         virtual void visitStart( S_tie& elt);
         
         virtual void visitStart( S_accidental& elt);
         
         virtual void visitStart( S_grace& elt);
         virtual void visitStart( S_cue& elt);
+        virtual void visitStart( S_unpitched& elt);
         
         virtual void visitStart( S_chord& elt);
+        
+        virtual void visitStart( S_transpose& elt);
         
     private:
         
@@ -168,24 +185,27 @@ namespace IMUSANT
         long                fCurrentMeasureNumber;
         S_IMUSANT_measure   fCurrentMeasure;
         IMUSANT_clef        fCurrentClef;
-        bool                fInChord;
-        bool                fCurrentNoteInChord;
+        bool                fInChord = false;
+        bool                fCurrentNoteInChord = false;
         S_IMUSANT_chord     fCurrentChord;
         S_IMUSANT_barline   fCurrentBarline;
         long                fCurrentNoteIndex;
         ACCIDENTALMAP       fCurrentAccidentals;
-        bool                fInKeyElement;
+        bool                fInKeyElement = false;
         IMUSANT_key         fCurrentKey;
-        bool                fInTimeElement;
+        bool                fInTimeElement = false;
         IMUSANT_time        fCurrentTime;
-        bool                fInNoteElement;
+        bool                fInNoteElement = false;
+        bool                fInBarlineElement = false;
         bool                fInCueNote = false;
         S_IMUSANT_note      fCurrentNote;
         S_IMUSANT_note      fPreviousNote;
         TRational           fCurrentNoteDurationType;
         TRational           fCurrentNoteTimeModification;
         long                fCurrentNumberofDotsOnNote;
-        bool                fInPitchElement;
+        bool                fInLyricElement = false;
+        S_IMUSANT_lyric     fCurrentLyric;
+        bool                fInPitchElement = false;
         S_IMUSANT_pitch     fCurrentPitch;
     };
 }
