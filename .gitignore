@@ -39,3 +39,6 @@
 ehthumbs.db
 Thumbs.db
 /imusantnb/build/
+*.xcuserstate
+*.xcexplist
+
