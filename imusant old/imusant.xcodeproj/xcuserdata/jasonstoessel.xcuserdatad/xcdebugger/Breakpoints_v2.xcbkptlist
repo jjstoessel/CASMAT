@@ -502,11 +502,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
-            timestampString = "478243662.34881"
+            timestampString = "478676810.150674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "IMUSANT_interval::int2intervaltype(int interval)"
             landmarkType = "5">
          </BreakpointContent>
@@ -518,11 +518,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
-            timestampString = "478243662.34881"
+            timestampString = "478676810.150674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "IMUSANT_interval::MakeUniqueInterval()"
             landmarkType = "5">
          </BreakpointContent>
@@ -557,22 +557,6 @@
             endingLineNumber = "89"
             landmarkName = "IMUSANT_pitch::GetTonalPitchClass(type name, sign alt)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT_Tests/DomainObjects/IMUSANT_interval_Tests.cpp"
-            timestampString = "477893673.862095"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "TEST_F(IMUSANT_interval_Tests, calculate_different_octave_Test)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -642,27 +626,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
-            timestampString = "478243662.34881"
+            timestampString = "478676810.150674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "670"
-            endingLineNumber = "670">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
-            timestampString = "478243662.34881"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "IMUSANT_interval::calculate(const S_IMUSANT_pitch&amp; first, const S_IMUSANT_pitch&amp; second)"
-            landmarkType = "5">
+            startingLineNumber = "512"
+            endingLineNumber = "512">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -672,13 +640,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT_Tests/DomainObjects/IMUSANT_interval_Tests.cpp"
-            timestampString = "478240241.776138"
+            timestampString = "478676810.150674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "TEST_F(IMUSANT_interval_Tests, Calculate_Cflat_Csharp_Test)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT_Tests/DomainObjects/IMUSANT_interval_Tests.cpp"
+            timestampString = "478675219.258085"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "calculate_pitch_interval(IMUSANT_pitch::type p1, IMUSANT_pitch::type p2, int octave1, int octave2, IMUSANT_pitch::sign alteration1 = IMUSANT_pitch::natural, IMUSANT_pitch::sign alteration2 = IMUSANT_pitch::natural)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
+            timestampString = "478676810.150674"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "IMUSANT_interval::IMUSANT_interval(IMUSANT_pitch::type p1, IMUSANT_pitch::type p2, int octave1, int octave2, IMUSANT_pitch::sign alteration1, IMUSANT_pitch::sign alteration2)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
