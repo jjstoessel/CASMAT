@@ -15,6 +15,7 @@
 #include "IMUSANT_key.h"
 #include "IMUSANT_types.h"
 #include "IMUSANT_note.h"
+#include "IMUSANT_barline.h"
 
 using namespace std;
 
@@ -31,15 +32,15 @@ namespace IMUSANT
         VEXP friend SMARTP<IMUSANT_measure> new_IMUSANT_measure();
         
         
-        IMUSANT_vector<S_IMUSANT_element>&	elements() { return fElements; }
-        void                                addElement (const S_IMUSANT_element& element) { fElements.push_back(element); }
-        S_IMUSANT_element&                  getElement (long elementIndex);
-        short                               getElementCount() { return fElements.size(); } //needs to be a bit more sophisticated and consider ties
+        IMUSANT_vector<S_IMUSANT_element>&	elements();
+        void                                addElement (const S_IMUSANT_element& element);
         
-        IMUSANT_vector<S_IMUSANT_note>&     notes() { return fNotes; }
-        void                                addNote(const S_IMUSANT_note& note) { addElement(note); fNotes.push_back(note); }
-        short                               getNoteCount() { return fNotes.size(); } //needs to be a bit more sophisticated and consider ties
-        
+        IMUSANT_vector<S_IMUSANT_note>&     notes();
+        void                                addNote(const S_IMUSANT_note& note);
+
+        IMUSANT_vector<S_IMUSANT_barline>&  barlines();
+        void                                addBarline(const S_IMUSANT_barline& barline);
+
         long				getMeasureNum() { return fMeasNum; }
         IMUSANT_clef&		getClef() { return fClef; }
         IMUSANT_time&		getTime() { return fTime; }
@@ -66,6 +67,7 @@ namespace IMUSANT
         
         IMUSANT_vector<S_IMUSANT_element>   fElements;  //  may be notes, chords, comments or barline
         IMUSANT_vector<S_IMUSANT_note>      fNotes;     //  convenience for getting at notes regardless of other elements.
+        IMUSANT_vector<S_IMUSANT_barline>   fBarlines;  //  convenience for getting at barlines regardless of other elements.
         long                                fMeasNum;
     };
     typedef SMARTP<IMUSANT_measure>	S_IMUSANT_measure;

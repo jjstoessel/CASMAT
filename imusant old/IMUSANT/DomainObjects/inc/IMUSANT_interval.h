@@ -17,7 +17,8 @@
 #include "IMUSANT_key.h"
 #include "bimap.h"
 
-#define ORIGINAL = 1
+#define NEW
+//#define ORIGINAL
 
 #define FLAGSPACE 0x2000
 
@@ -65,47 +66,64 @@ namespace IMUSANT
         }  ; //undefined is internal variable
         
         int getInterval() { return fInterval; }
+        
+        enum quality { perfect = 1, imperfect = (1<<1), dissonant = (1<<2) };
 #endif
-        
 #ifdef NEW
-        enum interval_type
+        //These interval numbers are based upon line of fifths theory, and relies on
+        //the implementation of Tonal Pitch Class in IMUSANT_pitch
+        //consequently, interval comparison routines needed to be rewritten
+        typedef enum//interval_type
         {
-            dim1=-1, perf1=0, aug1=1, dim2=3, min2=4, maj2=5, aug2=6, dim3=8, min3=9, maj3=10,
-            aug3=11, dim4=13, per4=14, aug4=15, dim5=18, per5=19, aug5=20, dim6=21, min6=23, maj6=24, aug6=25,
-            dim7=26, min7=28, maj7=29, aug7=30, dim8=32, base=33, octave=base, count=base+1, undefined=0x4FFFFFFF/base
-        }  ;
+            dimdim4th=-15,
+            dimdim1=-14, dimdim5=-13, dim2=-12, dim6=-11, dim3=-10, dim7=-9, dim4=-8,
+            dim1=-7, dim5=-6, min2=-5, min6=-4, min3=-3, min7=-2, per4=-1,
+            per1=0,per5=1, maj2=2, maj6=3, maj3=4, maj7=5, aug4=6,
+            aug1=7, aug5=8, aug2=9, aug6=10, aug3=11, aug7=12, augaug4=13,
+            augaug1=14, augaug5=15, augaug2=16, augaug6=17, augaug3=18, augaug7=19,
+            base=35, /*octave=base,*/ count=base+1, undefined=0x4FFFFFFF/base
+        }; //undefined is internal variable
         
-        interval_type getInterval() { return fInterval; }
+        typedef int interval_type;
+        
+        int getInterval() { return fInterval; }
+        
+        enum quality { perfect = 1, imperfect = -1, diminished = -2, augmented = 2, dissonant = (1<<2) };
+        
 #endif
         
         enum direction { descending=-1, unison=0, ascending = 1 };
         
-        enum quality { perfect = 1, imperfect = (1<<1), dissonant = (1<<2) };
+        
         
         friend SMARTP<IMUSANT_interval> new_IMUSANT_interval();
         friend SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
         
         //getter and setters
-        
-        int                 getNumber();
+        int                 getNumber() const;
         direction           getDirection() { return fDirection; }
         int                 getOctaves() { return fOctaves; }
         IMUSANT_range		getLocation() const { return fLocation; }
+#ifdef ORIGINAL
         int                 getQuality();
+#endif
+#ifdef NEW
+        quality             getQuality();
+#endif
         
         void				setLocation(long partID, long startMeasure,
                                         long startNoteIndex, long endMeasure, long endNoteIndex);
         
         //tests if compound
-        bool				iscompound() const { return fOctaves > 0; }
+        bool                   iscompound() const { return fOctaves > 0; }
         //returns a non-compound interval
-        IMUSANT_interval	simple();
+        IMUSANT_interval       simple();
         //returns the inverted interval
-        IMUSANT_interval	inverted();
+        IMUSANT_interval       inverted();
         //calculates the diatonic inversion required for pre-20th century music
-        IMUSANT_interval	inverted_diatonically(IMUSANT_key& key, IMUSANT_pitch::type first);
+        IMUSANT_interval       inverted_diatonically(IMUSANT_key& key, IMUSANT_pitch::type first);
         //returns distance between intervals, hence 0 is equal, hence used in comparison operators
-        signed int			compare(const IMUSANT_interval& i) const;
+        int                    compare(const IMUSANT_interval& i) const;
         
         //operators
         /*inline*/ bool operator==(const IMUSANT_interval& rhs) const	{ return (compare(rhs)==0); }
@@ -120,9 +138,13 @@ namespace IMUSANT
         const IMUSANT_interval& operator=( const IMUSANT_interval& rhs );
         
         //conversion operators
-        const IMUSANT_interval& operator=( const signed int binv );
-        inline operator signed int() const { return (fInterval+(base*fOctaves))*fDirection; }
-        
+        const IMUSANT_interval& operator=( const int binv );
+#ifdef ORIGINAL
+        inline operator int() const { return (fInterval+(base*fOctaves))*fDirection; }
+#endif
+#ifdef NEW
+        inline operator int() const;
+#endif
         //increment/decrement
         friend IMUSANT_interval operator+( const IMUSANT_interval& lhs, const IMUSANT_interval& rhs );
         friend IMUSANT_interval operator-( const IMUSANT_interval& lhs, const IMUSANT_interval& rhs );
@@ -192,7 +214,7 @@ namespace IMUSANT
         
         void check();
         
-        int   fInterval;
+        int                         fInterval;
         
         static bimap<string, int>	fInterval2String;
         static int                  fIntervalTbl[];
@@ -201,17 +223,18 @@ namespace IMUSANT
         
 #ifdef NEW
         
-        void            check();
-        void            check(int calculated_interval);
+        void                check();
+        void                check(int calculated_interval);
         
-        interval_type   fInterval;
-        void            increment_fInterval();
+        interval_type       fInterval;
+        void                increment_fInterval();
         
         static bimap<string, IMUSANT_interval::interval_type>   fInterval2String;
         static IMUSANT_interval::interval_type                  fIntervalTbl[];
         static string                                           fIntervalStrings[];
         
         static interval_type int2intervaltype(int iv);
+        quality         fQuality;
 #endif
         
         direction       fDirection;
