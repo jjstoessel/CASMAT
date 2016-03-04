@@ -441,7 +441,7 @@
 		496EF4C21B229D8100FE715F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = CATSMAT_testdata;
+			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
 				1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */,
