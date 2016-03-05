@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
                BuildableName = "imusantcat"
-               BlueprintName = "imusantcat"
+               BlueprintName = "IMUSANT"
                ReferencedContainer = "container:imusant.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,7 +34,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
             BuildableName = "imusantcat"
-            BlueprintName = "imusantcat"
+            BlueprintName = "IMUSANT"
             ReferencedContainer = "container:imusant.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,7 +55,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
             BuildableName = "imusantcat"
-            BlueprintName = "imusantcat"
+            BlueprintName = "IMUSANT"
             ReferencedContainer = "container:imusant.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,7 +74,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
             BuildableName = "imusantcat"
-            BlueprintName = "imusantcat"
+            BlueprintName = "IMUSANT"
             ReferencedContainer = "container:imusant.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
