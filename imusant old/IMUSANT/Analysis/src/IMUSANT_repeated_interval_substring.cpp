@@ -57,21 +57,32 @@ namespace IMUSANT
         return occurrences.size();
     }
     
-    ostream& operator<<( ostream& os, const IMUSANT_repeated_interval_substring& substring )
+    string
+    IMUSANT_repeated_interval_substring::
+    output_operator_help()
     {
-        //os << "Sequence: ";
-        os << substring.interval_sequence;
-        // os << (substring.occurrences.size() ? "Occurrences: " : "None.");
+        string ret_val =
+                "The output shows the discovered pattern in the following format \n" \
+                "interval up/down (measure, index, part) \n" \
+                "Followed by a list of occurrences in the format \n" \
+                "(movement, voice, measure, index) \n";
         
+        return ret_val;
+    }
+    
+    ostream& operator<<( ostream& os, const IMUSANT_repeated_interval_substring& substring )
+    {       
+        os << substring.interval_sequence;
+
         for (int index = 0; index < substring.occurrences.size(); index++)
         {
             IMUSANT_repeated_interval_substring::occurrence occ;
             occ = substring.occurrences[index];
             os << "("
-                 << occ.movement << ", "
-                 << occ.voice << ", "
-                 << occ.measure << ", "
-                 << occ.note_index << ") ";
+                 << "MVT: " << occ.movement << ", "
+                 << "VCE: " << occ.voice << ", "
+                 << "MES: " << occ.measure << ", "
+                 << "IDX: " << occ.note_index << ") ";
         }
         
         os << endl << endl;

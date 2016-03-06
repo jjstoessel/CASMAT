@@ -61,6 +61,7 @@ namespace IMUSANT
 
         vector<occurrence>::size_type num_occurrences();
         
+        static string output_operator_help();
         friend ostream& operator<<( ostream& os, const IMUSANT_repeated_interval_substring& substring);
     };
 }
