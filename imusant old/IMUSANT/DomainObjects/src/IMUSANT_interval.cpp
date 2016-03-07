@@ -50,7 +50,7 @@ namespace IMUSANT
         if (i.fOctaves < IMUSANT_interval::undefined-FLAGSPACE) //don't try to print terminator elements.
         {
             os << IMUSANT_interval::xmlinterval(i.fInterval) << " ";
-            os << (((i.fDirection==-1)?("\\"):((i.fDirection==1)?("/"):("")))) << " ";
+            os << (((i.fDirection==IMUSANT_interval::descending)?("\\"):((i.fDirection==IMUSANT_interval::descending)?("/"):("")))) << " ";
         }
         else
             os << "undefined ";
