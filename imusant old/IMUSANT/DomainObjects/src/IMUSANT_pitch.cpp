@@ -25,7 +25,7 @@ namespace IMUSANT
     IMUSANT_pitch::type IMUSANT_pitch::fPitchTbl[] 	= { C, D, E, F, G, A, B };
     string IMUSANT_pitch::fPitchStrings[]			= { "C", "D", "E", "F", "G", "A", "B" };
     bimap<string, IMUSANT_pitch::type> IMUSANT_pitch::fPitch2String(fPitchStrings, fPitchTbl, diatonicSteps);
-#ifdef NEW
+
     //The line of fifths is a linearisation of the spiral of fifths, where F = -1, C = 0, G = 1, etc.
     //used to obtain the Tonal Pitch Class (TPC) of a note
     //TO IMPLEMENT: PC (or Non-specific Pitch Class)
@@ -89,7 +89,6 @@ namespace IMUSANT
         return tpc;
     }
     
-#endif
     //______________________________________________________________________________
     
     const string IMUSANT_pitch::xml(IMUSANT_pitch::type d) 	{ return fPitch2String[d]; }

@@ -147,7 +147,7 @@ namespace CATSMAT
             for (auto iter2 = iter1->begin();
                  iter2 != iter1->end(); iter2++)
             {
-                os << *iter2 << " ";
+                os << *iter2 << " "; //uses tuple print member function
             }
         }
     }

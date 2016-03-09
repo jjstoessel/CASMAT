@@ -27,22 +27,13 @@ namespace IMUSANT
     /*!
      \brief An IMUSANT pitch representation.
      This class handles pitch representations
-     Currently incomplete since alteration only takes account of semitones, not quartertones
+     Currently only takes account of semitones
      */
     
     class VEXP IMUSANT_pitch : public smartable
     {
         
     public:
-#ifdef ORIGINAL
-        enum type {
-            undefined=-1,
-            C=0, D=5, E=10, F=14, G=19, A=24, B=29,
-            last=B,
-            diatonicSteps=7,
-            big_undefined =0x4FFFFFFF};
-#endif
-#ifdef  NEW
         enum type {
             undefined=-1,
             C=0, D, E, F, G, A, B,
@@ -67,7 +58,6 @@ namespace IMUSANT
             tpcCs=7, tpcGs=8, tpcDs=9, tpcAs=10, tpcEs=11, tpcBs=12, tpcFss=13,
             tpcCss=14, tpcGss=15, tpcDss=16, tpcAss=17, tpcEss=18, tpcBss=19, tpcUndefined=0x4FFFFFFF
         } TPC;
-#endif
 
         
         VEXP friend SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
@@ -95,16 +85,16 @@ namespace IMUSANT
             set(name,octave,voice,name,accidental,is_chord);
         }
 
+        //getters
         const type		name() const		{ return fName; }
         const sign      alteration() const	{ return fAlteration; }
         unsigned short 	octave() const		{ return fOctave; }
         const type		ms_name() const		{ return fMSName; }
         bool			in_chord() const	{ return fInChord; }
         unsigned short	voice() const       { return fVoice; }
-#ifdef NEW
         int             getTPC() const         { return fTPC; }
-#endif
         
+        //setters
         void			setName(const type name) { fName=name; }
         void            setName(const string name) { fName = xml(name); }
         void			setAlteration(const sign alter) { fAlteration = alter; }
@@ -141,10 +131,10 @@ namespace IMUSANT
         static const string	xml(type d);
         //! convert a string to a numeric pitch
         static type			xml(const string str);
-#ifdef NEW
-        void                setTonalPitchClass() { fTPC = GetTonalPitchClass(fName, fAlteration); }
-        static  enum TPC     GetTonalPitchClass(type name, sign alt);
-#endif
+
+        void                setTonalPitchClass() { fTPC = GetTonalPitchClass(fName, fAlteration); } //make private?
+        static  enum TPC    GetTonalPitchClass(type name, sign alt); //static function
+
         static IMUSANT_pitch MakeUniquePitch();
         
     private:
@@ -160,11 +150,9 @@ namespace IMUSANT
         static bimap<string, type> fPitch2String;
         static type 	fPitchTbl[];
         static string 	fPitchStrings[];
-#ifdef NEW
         TPC             fTPC; //tonal pitch class storage, based on line of fifths
         int             fNPC; //non-tonal pitch class storage, i.e. C=0, C#/Db=1, etc.
         static int      fLineOf5ths[35][3];
-#endif
 
     };
     
