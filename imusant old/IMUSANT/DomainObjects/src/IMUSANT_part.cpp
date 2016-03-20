@@ -28,7 +28,21 @@ void IMUSANT_part::accept(IMUSANT_visitor& visitor)
 	S_IMUSANT_part sptr(this);
 	visitor.visit(sptr);
 }
-
+    
+    
+    IMUSANT_vector<S_IMUSANT_note>
+    IMUSANT_part::
+    notes()
+    {
+        IMUSANT_vector<S_IMUSANT_note> the_notes;
+        
+        for (S_IMUSANT_measure measure : fMeasures)
+        {
+            the_notes.append(measure->notes());
+        }
+        
+        return the_notes;
+    }
 
 void IMUSANT_part::print(ostream& os)
 {

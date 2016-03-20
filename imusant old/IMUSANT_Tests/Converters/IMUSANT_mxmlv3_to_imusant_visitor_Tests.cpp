@@ -11,6 +11,7 @@
 #include "gtest/gtest.h"
 
 #include "libIMUSANT.h"
+#include "IMUSANT_test_utilities.h"
 #include <boost/filesystem.hpp>
 
 using namespace IMUSANT;
@@ -34,14 +35,22 @@ protected:
         // You can do clean-up work that doesn't throw exceptions here.
     }
     
+    virtual void SetUp() {
+        // Code here will be called immediately after the constructor (right
+        // before each test).
+       
+    }
+    
     static void SetUpTestCase() {
-        fScore_ParserTest1 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest1.xml");
-        fScore_ParserTest2 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest2.xml");
-        fScore_ParserTest3 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest3.xml");
-        fScore_ParserTest4 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest4.xml");
-        fScore_ParserTest5 = initialise_ParserTest_score("MusicXMLv3.simple_test_data/MusicXML_ParserTest5.xml");
+        _test_utils = new IMUSANT_test_utilities("IMUSANT_testdata");
         
-        fScore_ParserTestBeetAnGeSample = initialise_ParserTest_score("MusicXMLv3.simple_test_data/BeetAnGeSample.xml");
+        fScore_ParserTest1 = _test_utils->initialiseScoreFromFile("MusicXMLv3.simple_test_data/MusicXML_ParserTest1.xml");
+        fScore_ParserTest2 = _test_utils->initialiseScoreFromFile("MusicXMLv3.simple_test_data/MusicXML_ParserTest2.xml");
+        fScore_ParserTest3 = _test_utils->initialiseScoreFromFile("MusicXMLv3.simple_test_data/MusicXML_ParserTest3.xml");
+        fScore_ParserTest4 = _test_utils->initialiseScoreFromFile("MusicXMLv3.simple_test_data/MusicXML_ParserTest4.xml");
+        fScore_ParserTest5 = _test_utils->initialiseScoreFromFile("MusicXMLv3.simple_test_data/MusicXML_ParserTest5.xml");
+        
+        fScore_ParserTestBeetAnGeSample = _test_utils->initialiseScoreFromFile("MusicXMLv3.simple_test_data/BeetAnGeSample.xml");
     }
     
     static bool CheckLyric(S_IMUSANT_part part, int measure_index, int note_index,
@@ -74,10 +83,8 @@ protected:
         return (result && syllabic_result);
     }
     
-    static filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
+    static IMUSANT_test_utilities * _test_utils;
     
-    static S_IMUSANT_score initialise_ParserTest_score(string relative_path);
-
     static S_IMUSANT_score fScore_ParserTest1;
     static S_IMUSANT_score fScore_ParserTest2;
     static S_IMUSANT_score fScore_ParserTest3;
@@ -88,11 +95,11 @@ protected:
     const int NUM_MEASURES_PARSER_TEST_1 = 12;
     const int KEY_AND_TIME_CHANGE_MEASURE_NUM_PARSER_TEST_1 = 7; // This is the bar where the time and key signatures change
     
-    static void verbose_output(string expected, string actual);
+    void verbose_output(string expected, string actual);
 };
 
 
-// Initialise static's outsude the class so it will link.
+// Initialise static's outside the class so it will link.
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest1 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest2 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest3 = NULL;
@@ -100,27 +107,8 @@ S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest4 = NU
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest5 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTestBeetAnGeSample = NULL;
 
-S_IMUSANT_score
-IMUSANT_mxmlv3_to_imusant_visitor_Tests::
-initialise_ParserTest_score(string relative_path)
-{
-    filesystem::path file_path = IMUSANT_mxmlv3_to_imusant_visitor_Tests::make_path_to_test_file(relative_path);
-    
-    IMUSANT_processing parser;
-    S_IMUSANT_score parser_test_score = parser.add_file(file_path);
-    return parser_test_score;
-}
+IMUSANT_test_utilities * IMUSANT_mxmlv3_to_imusant_visitor_Tests::_test_utils = NULL;
 
-
-filesystem::path
-IMUSANT_mxmlv3_to_imusant_visitor_Tests::
-make_path_to_test_file(string relative_path_to_test_data_file)
-{
-    filesystem::path testdata(filesystem::initial_path());
-    testdata.append("IMUSANT_testdata");
-    testdata.append(relative_path_to_test_data_file);
-    return testdata;
-}
 
 void
 IMUSANT_mxmlv3_to_imusant_visitor_Tests::
@@ -142,7 +130,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MXMLv3_Dichterliebe01)
 {
     string relative_path = "MusicXMLv3.xmlsamples/Dichterliebe01.xml";
     
-    filesystem::path file_path = IMUSANT_mxmlv3_to_imusant_visitor_Tests::make_path_to_test_file(relative_path);
+    filesystem::path file_path = _test_utils->makePathToTestFile(relative_path);
     
     IMUSANT_processing parser;
     S_IMUSANT_score score = parser.add_file(file_path);

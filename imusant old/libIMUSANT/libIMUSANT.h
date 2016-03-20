@@ -34,6 +34,7 @@ class libIMUSANT
 #include "IMUSANT_score.h"
 #include "IMUSANT_processing.h"
 #include "IMUSANT_repeated_interval_substring.h"
+#include "IMUSANT_segmented_part_LBDM.h"
 
 #pragma GCC visibility pop
 #endif

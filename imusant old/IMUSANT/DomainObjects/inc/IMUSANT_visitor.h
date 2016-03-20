@@ -80,6 +80,11 @@ class IMUSANT_vector: public vector<T>, public IMUSANT_visitable {
 			for (iter = this->begin(); iter != this->end(); iter++) 
 				(*iter)->accept(visitor);
 		}
+    
+        void append(IMUSANT_vector<T> vector_to_append)
+        {
+            this->insert(this->end(), vector_to_append.begin(), vector_to_append.end());
+        }
 };
 
 } //namespace IMUSANT

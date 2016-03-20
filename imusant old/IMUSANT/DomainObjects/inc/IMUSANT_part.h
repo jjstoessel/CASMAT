@@ -43,6 +43,8 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 		
 		S_IMUSANT_measure&	getCurrentMeasure() { return fMeasures.back(); }
 		IMUSANT_vector<S_IMUSANT_measure> measures() { return fMeasures; }
+    
+        IMUSANT_vector<S_IMUSANT_note> notes();
 		
 		void	print(ostream& os);
 		
@@ -52,6 +54,7 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 				IMUSANT_part();
 		virtual ~IMUSANT_part(){}
 	private:
+    
 		IMUSANT_vector<S_IMUSANT_measure>	fMeasures;
 		long	fVoiceCount = 0;
 		string 					fPartName = "";
