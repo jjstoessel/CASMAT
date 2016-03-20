@@ -73,6 +73,7 @@ namespace IMUSANT
         }
         
         IMUSANT_duration	getSimplifiedDuration() const;
+        long                asAbsoluteNumeric() const;
         
         //checks that TRational type is actually dotted note, return dots and changes dur
         static long	NormaliseDuration(TRational& dur);
@@ -85,7 +86,8 @@ namespace IMUSANT
         
         TRational		fDuration;
         long            fDots;
-        TRational       fTimeModification;
+        TRational       fTimeModification; // Represented as numerator=actual and deonominator=normal.  See the MusicXML v3 documentation for time-modification.  See also D-01024 in VersionOne
+        
         
         static TRational unmeasured;
         static TRational maxima;
@@ -103,6 +105,9 @@ namespace IMUSANT
         static TRational fivetwelfth; // 512th
         static TRational oneohtwofourth; // 1024th
         
+        // We multiply the fractional representations of the duration by this value to normalise the values
+        // to use a base of 1 for the smallest possible note value.  The smallest note we support is a 1024th.
+        const int SMALLEST_POSSIBLE_NOTE_VALUE_MULTIPLIER = 1024;
         
     protected:
 
