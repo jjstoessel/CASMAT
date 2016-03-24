@@ -173,7 +173,7 @@ namespace IMUSANT
         void                check();
         void                check(int calculated_interval);
         
-        interval_type       fInterval;
+        interval_type       fInterval; //fTIC Tonal interval class
         void                increment_fInterval();
         
         static bimap<string, IMUSANT_interval::interval_type>   fInterval2String;

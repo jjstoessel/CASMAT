@@ -25,9 +25,9 @@ namespace IMUSANT
     TRational IMUSANT_duration::demisemiquaver(1,32); //32nd
     TRational IMUSANT_duration::hemidemisemiquaver(1,64); //64th
     TRational IMUSANT_duration::hundredandtwentyeighth(1,128); //128th
-    TRational IMUSANT_duration::twofiftysixth(1,256);; // 256th
-    TRational IMUSANT_duration::fivetwelfth(1,512);; // 512th
-    TRational IMUSANT_duration::oneohtwofourth(1,1024);; // 1024th
+    TRational IMUSANT_duration::twofiftysixth(1,256); // 256th
+    TRational IMUSANT_duration::fivetwelfth(1,512); // 512th
+    TRational IMUSANT_duration::oneohtwofourth(1,1024); // 1024th
     
     
     //ctor functions

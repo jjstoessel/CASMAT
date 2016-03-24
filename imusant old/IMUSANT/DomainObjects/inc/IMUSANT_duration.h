@@ -5,6 +5,8 @@
  *  Created by Jason Stoessel on 30/08/06.
  *  Copyright 2006 __MyCompanyName__. All rights reserved.
  *
+ *  Changes:
+ *  24 Mar 2016 Added handlers for time modification and normal duration and normal dots as "variables" of time modification
  */
 
 #ifndef __IMUSANT_DURATION__
@@ -31,7 +33,9 @@ namespace IMUSANT
         
         IMUSANT_duration(): fDuration(IMUSANT_duration::unmeasured),
         fDots(0),
-        fTimeModification("1/1")
+        fTimeModification("1/1"),
+        fNormalDuration(0), //zero time modification default
+        fNormalDots(0)
         {
             // empty constructor
         }
@@ -45,9 +49,7 @@ namespace IMUSANT
         
         const IMUSANT_duration& operator= (const IMUSANT_duration& dur)
         {
-            fDuration = dur.fDuration;
-            fDots = dur.fDots;
-            fTimeModification = dur.fTimeModification;
+            this->set(dur.fDuration, dur.fDots,dur.fTimeModification, dur.fNormalDuration, dur.fNormalDots);
             return *this;
         }
         
@@ -65,11 +67,13 @@ namespace IMUSANT
         friend ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
         void	print (ostream& os) const;
         
-        void set( TRational dur, long dots, TRational timemod)
+        void set( TRational dur, long dots, TRational timemod=1, TRational normal_dur=0, long normal_dots=0)
         {
             fDuration=dur;
             fDots=dots,
             fTimeModification=timemod;
+            fNormalDuration = normal_dur;
+            fNormalDots = normal_dots;
         }
         
         IMUSANT_duration	getSimplifiedDuration() const;
@@ -86,6 +90,8 @@ namespace IMUSANT
         TRational		fDuration;
         long            fDots;
         TRational       fTimeModification;
+        TRational       fNormalDuration;    //the duration subject to fTimeModification
+        long            fNormalDots;
         
         static TRational unmeasured;
         static TRational maxima;

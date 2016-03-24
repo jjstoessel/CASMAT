@@ -4,6 +4,8 @@
 //
 //  Created by Derrick Hill on 19/09/2015.
 //
+//  Changes:
+//  24 March 2016   Handlers for <normal-type> and <normal-dots> added for time modification
 //
 
 #include <stdio.h>
@@ -478,8 +480,9 @@ namespace IMUSANT
         fCurrentNote->setMeasureNum(fCurrentMeasure->getMeasureNum());
         fCurrentNote->setNoteIndex(++fCurrentNoteIndex);
         fCurrentNumberofDotsOnNote = 0;
-        fCurrentNoteTimeModification.set(0, 0);
+        fCurrentNoteTimeModification.set(0,0);
         fCurrentNoteDurationType.set(0,0);
+        fCurrentNormalNumberofDotsOnNote = 0;
     }
     
     void
@@ -493,7 +496,9 @@ namespace IMUSANT
             S_IMUSANT_duration duration = new_IMUSANT_duration();
             duration->set(fCurrentNoteDurationType,
                           fCurrentNumberofDotsOnNote,
-                          fCurrentNoteTimeModification);
+                          fCurrentNoteTimeModification,
+                          fCurrentNormalNoteDurationType,
+                          fCurrentNormalNumberofDotsOnNote);
             fCurrentNote->setDuration(duration);
             
             // We ignore cue notes and don't add them to the current measure.
@@ -603,6 +608,7 @@ namespace IMUSANT
         //            <time-modification>
         //              <actual-notes>3</actual-notes>
         //              <normal-notes>2</normal-notes>
+        //              <normal-type>eighth</normal-type> //optional
         //            </time-modification>
         
         debug("S_time_modification");
@@ -628,6 +634,18 @@ namespace IMUSANT
                 if (element_name.compare("normal-notes") == 0)
                 {
                     normal_notes = stoi(next_element->getValue());
+                }
+                
+                if (element_name.compare("normal-type") == 0)
+                {
+                    string note_type_str = next_element->getValue();
+                    TRational note_type = IMUSANT_duration::xmlv3(note_type_str);
+                    fCurrentNormalNoteDurationType = note_type;
+                }
+                
+                if (element_name.compare("normal-dot") == 0)
+                {
+                    fCurrentNormalNumberofDotsOnNote = stoi(next_element->getValue());
                 }
             }
             
