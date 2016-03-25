@@ -77,7 +77,7 @@ namespace IMUSANT
         }
         
         IMUSANT_duration	getSimplifiedDuration() const;
-        long                asAbsoluteNumeric() const;
+        float                asAbsoluteNumeric() const;
         
         //checks that TRational type is actually dotted note, return dots and changes dur
         static long	NormaliseDuration(TRational& dur);
