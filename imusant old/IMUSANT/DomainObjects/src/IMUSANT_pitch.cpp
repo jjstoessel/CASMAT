@@ -223,7 +223,8 @@ namespace IMUSANT
         
         if (fName!=undefined)
         {
-            pc = fName + fAlteration;
+            (fName < 3) ? pc = fName*2 : pc = fName*2 - 1;
+            pc += fAlteration;
             if (pc<0) pc+=12;
         }
         
@@ -239,10 +240,8 @@ namespace IMUSANT
     {
         int midinumber = -1;
         
-        if (fName!=undefined) {
-            int pc = fName + fAlteration;
-            if (pc<0) pc+=12;
-            midinumber = pc + (fOctave+1)*12;
+        if (fName!=undefined && fPC!=-1) {
+            midinumber = fPC + (fOctave+1)*12;
         }
         return midinumber;
     }

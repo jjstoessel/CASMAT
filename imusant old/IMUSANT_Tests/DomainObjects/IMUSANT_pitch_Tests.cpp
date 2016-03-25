@@ -102,3 +102,21 @@ TEST_F(IMUSANT_pitch_Tests, TestGreaterThan)
     ASSERT_FALSE(D4_Flat > D4);
     
 }
+
+TEST_F(IMUSANT_pitch_Tests, TestPC)
+{
+    ASSERT_TRUE(C4.getPC() == 0);
+    ASSERT_TRUE(D4.getPC() == 2);
+    ASSERT_TRUE(D4_Sharp.getPC() == 3);
+    ASSERT_TRUE(D4_Flat.getPC() == 1);
+    ASSERT_TRUE(B4.getPC() == 11);
+}
+
+TEST_F(IMUSANT_pitch_Tests, TestMidiKeyNumber)
+{
+    ASSERT_TRUE(C4.getMidiKeyNumber()==60);
+    ASSERT_TRUE(B4.getMidiKeyNumber()==71);
+    ASSERT_TRUE(C5.getMidiKeyNumber()==72);
+    ASSERT_TRUE(D4_Sharp.getMidiKeyNumber()==63);
+    ASSERT_TRUE(D4_Flat.getMidiKeyNumber()==61);
+}
