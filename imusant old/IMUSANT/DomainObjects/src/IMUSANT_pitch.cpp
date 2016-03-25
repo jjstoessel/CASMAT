@@ -70,7 +70,7 @@ namespace IMUSANT
     
     //static member: obtains the Line of Fifths index for a note from multidimensional array fLineOf5ths
     //name and alteration must be set.
-    enum IMUSANT_pitch::TPC IMUSANT_pitch::GetTonalPitchClass(type name, sign alt)
+    enum IMUSANT_pitch::TPC IMUSANT_pitch::CalcTonalPitchClass(type name, sign alt)
     {
         TPC tpc = tpcUndefined;
        
@@ -130,7 +130,7 @@ namespace IMUSANT
         fMSName = name; //ms_note;
         fInChord = inChord;
         fVoice = voice;
-        fTPC = GetTonalPitchClass(name, alteration);
+        fTPC = CalcTonalPitchClass(name, alteration);
         //fNPC =
         
     }
@@ -146,7 +146,7 @@ namespace IMUSANT
             throw "IMUSANT_pitch::setAlteration() - Unexpected value for alter.  Expected a number of semitones received " + alter;
         }
         fAlteration = alteration;
-        fTPC = GetTonalPitchClass(fName, fAlteration);
+        fTPC = CalcTonalPitchClass(fName, fAlteration);
         //fNBC =
     }
     

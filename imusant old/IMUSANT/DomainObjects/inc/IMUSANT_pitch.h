@@ -132,8 +132,8 @@ namespace IMUSANT
         //! convert a string to a numeric pitch
         static type			xml(const string str);
 
-        void                setTonalPitchClass() { fTPC = GetTonalPitchClass(fName, fAlteration); } //make private?
-        static  enum TPC    GetTonalPitchClass(type name, sign alt); //static function
+        void                setTonalPitchClass() { fTPC = CalcTonalPitchClass(fName, fAlteration); } //make private?
+        static  enum TPC    CalcTonalPitchClass(type name, sign alt); //static function
 
         static IMUSANT_pitch MakeUniquePitch();
         

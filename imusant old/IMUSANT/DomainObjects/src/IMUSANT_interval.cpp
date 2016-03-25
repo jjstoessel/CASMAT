@@ -5,6 +5,8 @@
  *  Created by Jason Stoessel on 24/06/06.
  *  Copyright 2006–2016 UNE. All rights reserved.
  *
+ *  Description: This is the musical interval domain object. more here
+ *
  *  Changes:
  *
  *  29 Jan  2015    Recommissioned for CATSMAT
@@ -85,8 +87,8 @@ namespace IMUSANT
         return os;
     }
     
-    
-    //THIS NEEDS TO BE CONVERTED TO A BIMAP STRUCTURE!!!
+    //fIntervalStrings[] and fIntervalTable are co-dependent
+    //THESE NEED TO BE CONVERTED TO A BIMAP or or array of pairs STRUCTURE!!!
     //better error handling, etc.
     string	IMUSANT_interval::fIntervalStrings[] = {
         "dimdim2", "dimdim6", "dimdim3", "dimdim7", "dimdim4",
@@ -157,7 +159,6 @@ namespace IMUSANT
     }
     
     // convert an integer to an interval_type - returns "undefined" if there is no match.
-
     IMUSANT_interval::interval_type IMUSANT_interval::int2intervaltype(int interval)
     {
         //  cout << "INTERVAL = " << interval << endl;
@@ -267,7 +268,7 @@ namespace IMUSANT
         return ret;
     }
     
-    //returns the interval numbers without quality
+    //returns the interval numbers without quality, i.e. 1 = unison, 2=second, etc.
     int IMUSANT_interval::getNumber() const
     {
         int ret;
@@ -328,7 +329,7 @@ namespace IMUSANT
         return ret;
     }
 
-    
+    //a pretty dumb dissonance classification - needs plug-in class for different dissonance rules
     IMUSANT_interval::quality IMUSANT_interval::getQuality()
     {
         quality q = perfect;
@@ -499,22 +500,36 @@ namespace IMUSANT
         return *this;
     }
     
+    /*
+     *  operator int()
+     *  Uses algorithm based upon Line of Fifths theory to calculate the number of semitones
+     *  in an pitch interval (pi). Since a fifth is pi=7, multiplying abs(fInterval) gives
+     *  the number of semintones interated in a line of fifths, but for abs(fInterval) > 1, must
+     *  be constrained to the octave by mod 12. A negative result must be "inverted"
+     *  by transposing an octave (pi=12), and additional octaves (pi=12) added for coumpound intervals.
+     *
+     *  pi = n*7%12 (effectively base 7 to base 12)
+     *
+     *  returns: semitones in interval
+     *  used by: operator-=, operator+=
+     */
     IMUSANT_interval::operator int() const
     {
         int r = 0;
         
+        //no need to handle unisons
         if (abs(fInterval)>0)
         {
-            if (abs(fInterval)==1)
+            if (abs(fInterval)==1) //handle 5ths
                 r = 7 * fInterval;
             else
-                r = (fInterval*7) % 12;
+                r = (fInterval*7) % 12; //handle all other intervals as multiples of 5ths
         
-            if (r<0)
+            if (r<0) //inverted negative intervals
                 r+=12;
         }
         
-        r+=12*fOctaves;
+        r+=12*fOctaves; //convert to a compount interval
         
         return r;
     }
@@ -534,6 +549,14 @@ namespace IMUSANT
         return *this;
     }
     
+    /*
+     *  operator-=
+     *
+     *  Adds two intervals together (compounding)
+     *
+     *  returns: new interval
+     *
+     */
     IMUSANT_interval& IMUSANT_interval::operator-=( const IMUSANT_interval& rhs )
     {
         fInterval = int2intervaltype((int)*this - (int)rhs);
@@ -541,6 +564,12 @@ namespace IMUSANT
         return *this;
     }
     
+    /*
+     * operator++
+     *
+     * Expands an interval by a semitone. Esoteric function not currently used.
+     *
+     */
     IMUSANT_interval& IMUSANT_interval::operator++() //prefix: returns &*this
     {
         // fInterval++;
@@ -549,17 +578,28 @@ namespace IMUSANT
         return *this;
     }
     
+    /*
+     * const operator++
+     *
+     * Expands an interval by a semitone. Esoteric function not currently used.
+     *
+     */
     const IMUSANT_interval IMUSANT_interval::operator++(int) //postfix: returns copy
     {
         IMUSANT_interval ret(*this);
         
-        // ret.fInterval++;
         ret.increment_fInterval();
         ret.check();
         
         return ret;
     }
     
+    /*
+     * increment_fInterval()
+     *
+     * Expands upwards by an interval by a semitone.
+     *
+     */
     void
     IMUSANT_interval::
     increment_fInterval()
@@ -574,7 +614,8 @@ namespace IMUSANT
                 }
                 else
                 {
-                    fInterval = fIntervalTbl[index+1];  // otherwise set fInterval to the next value.
+                    //fInterval = fIntervalTbl[index+1];  // otherwise set fInterval to the next value.
+                    fInterval+=7;
                 }
             }
         }

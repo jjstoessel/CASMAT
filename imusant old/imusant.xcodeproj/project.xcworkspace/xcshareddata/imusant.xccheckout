@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>ACAD595F-B70A-48F1-A1A6-6A599F8490CA</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>imusant</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3E0BF0653CA2B649C202DB3506D10578E06A1425</key>
 		<string>https://github.com/jjstoessel/CATSMAT.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>imusant old/imusant.xcodeproj/project.xcworkspace</string>
+	<string>imusant old/imusant.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3E0BF0653CA2B649C202DB3506D10578E06A1425</key>

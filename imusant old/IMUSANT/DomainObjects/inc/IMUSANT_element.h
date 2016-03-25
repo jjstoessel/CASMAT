@@ -10,8 +10,7 @@
  Notes:
  These are the internal data structures of IMUSANT
  Changes:
- 4 May 2006: - After consulation with supervisor, it was decided that the model should implement an extensible
- hierarchical model for data containment.  Although some of the elements of MusicXML will be excluded
+ 4 May 2006 Implemented an extensible hierarchical model for data containment.  Although some of the elements of MusicXML will be excluded
  from the present model, this represents the more complex but ultimately powerful implementation.
  - basic MusicXML parsing is being obtained from the Grame MusicXML Library via the TXML2IMUSANTVisitor class
  although heirarchical container class is still in coding phase.

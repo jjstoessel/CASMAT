@@ -201,8 +201,10 @@ namespace IMUSANT
         S_IMUSANT_note      fCurrentNote;
         S_IMUSANT_note      fPreviousNote;
         TRational           fCurrentNoteDurationType;
-        TRational           fCurrentNoteTimeModification;
         long                fCurrentNumberofDotsOnNote;
+        TRational           fCurrentNoteTimeModification;
+        TRational           fCurrentNormalNoteDurationType;
+        long                fCurrentNormalNumberofDotsOnNote;
         bool                fInLyricElement = false;
         S_IMUSANT_lyric     fCurrentLyric;
         bool                fInPitchElement = false;

@@ -502,11 +502,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
-            timestampString = "479018551.534629"
+            timestampString = "479194876.105724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "IMUSANT_interval::int2intervaltype(int interval)"
             landmarkType = "5">
          </BreakpointContent>
@@ -518,11 +518,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
-            timestampString = "479018551.534629"
+            timestampString = "479194876.105724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "IMUSANT_interval::MakeUniqueInterval()"
             landmarkType = "5">
          </BreakpointContent>
@@ -539,7 +539,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "IMUSANT_pitch::GetTonalPitchClass(type name, sign alt)"
+            landmarkName = "IMUSANT_pitch::CalcTonalPitchClass(type name, sign alt)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -555,7 +555,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
             endingLineNumber = "89"
-            landmarkName = "IMUSANT_pitch::GetTonalPitchClass(type name, sign alt)"
+            landmarkName = "IMUSANT_pitch::CalcTonalPitchClass(type name, sign alt)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -566,11 +566,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_pitch.cpp"
-            timestampString = "478243662.34881"
+            timestampString = "479189783.039302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "IMUSANT_pitch::operator&gt; (const IMUSANT_pitch&amp; pitch)"
             landmarkType = "5">
          </BreakpointContent>
@@ -592,20 +592,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT/DomainObjects/inc/IMUSANT_pitch.h"
-            timestampString = "478235638.98481"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -615,7 +601,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "IMUSANT_pitch::GetTonalPitchClass(type name, sign alt)"
+            landmarkName = "IMUSANT_pitch::CalcTonalPitchClass(type name, sign alt)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -626,11 +612,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
-            timestampString = "479020704.801732"
+            timestampString = "479194876.105724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "514"
-            endingLineNumber = "514">
+            startingLineNumber = "529"
+            endingLineNumber = "529">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -672,12 +658,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
-            timestampString = "479018551.534629"
+            timestampString = "479194876.105724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "IMUSANT_interval::IMUSANT_interval(IMUSANT_pitch::type p1, IMUSANT_pitch::type p2, int octave1, int octave2, IMUSANT_pitch::sign alteration1, IMUSANT_pitch::sign alteration2)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Converters/MusicXML_v3/src/IMUSANT_mxmlv3_to_imusant_visitor.cpp"
+            timestampString = "480481529.792971"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "618"
+            endingLineNumber = "618"
+            landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitStart( S_time_modification&amp; elt)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Converters/MusicXML_v3/src/IMUSANT_mxmlv3_to_imusant_visitor.cpp"
+            timestampString = "480481529.792971"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
+            landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitEnd( S_note&amp; elt)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Converters/MusicXML_v3/src/IMUSANT_mxmlv3_to_imusant_visitor.cpp"
+            timestampString = "480481529.792971"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "641"
+            endingLineNumber = "641"
+            landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitStart( S_time_modification&amp; elt)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Converters/MusicXML_v3/src/IMUSANT_mxmlv3_to_imusant_visitor.cpp"
+            timestampString = "480481529.792971"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "648"
+            endingLineNumber = "648"
+            landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitStart( S_time_modification&amp; elt)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
