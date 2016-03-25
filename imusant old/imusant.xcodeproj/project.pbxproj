@@ -56,7 +56,6 @@
 		496A00941B9BCBED0070BCE1 /* Telemann.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80F21B9A77F000A673F7 /* Telemann.xml */; };
 		496A00951B9BCC410070BCE1 /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0201B76C10B0052496C /* Kyrie.xml */; };
 		496A00961B9BCC410070BCE1 /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0211B76C10B0052496C /* Sanctus.xml */; };
-		496A01251B9BCD1C0070BCE1 /* test_files in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA8068E41B27BC5700AEFB27 /* test_files */; };
 		496EF4C71B229D8100FE715F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF4C61B229D8100FE715F /* main.cpp */; };
 		496EF4CE1B229DA500FE715F /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */; };
 		496EF4D01B229DA500FE715F /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */; };
@@ -442,7 +441,6 @@
 			dstPath = IMUSANT_testdata;
 			dstSubfolderSpec = 16;
 			files = (
-				496A01251B9BCD1C0070BCE1 /* test_files in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,7 +1089,6 @@
 		BA7E94381B2CFAA700818128 /* CATSMAT_dyad_sequences_base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_dyad_sequences_base.hpp; path = catsmat/CATSMAT_dyad_sequences_base.hpp; sourceTree = SOURCE_ROOT; };
 		BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_dyadtuple_sequences.cpp; path = catsmat/CATSMAT_dyadtuple_sequences.cpp; sourceTree = SOURCE_ROOT; };
 		BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_dyadtuple_sequences.hpp; path = catsmat/CATSMAT_dyadtuple_sequences.hpp; sourceTree = SOURCE_ROOT; };
-		BA8068E41B27BC5700AEFB27 /* test_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test_files; sourceTree = "<group>"; };
 		BAA8D7CE1AA42BD80053ADE3 /* common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
 		BAA8D7CF1AA42BD80053ADE3 /* conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = conversions.cpp; sourceTree = "<group>"; };
 		BAA8D7D31AA42BD80053ADE3 /* Iexpat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Iexpat.cpp; sourceTree = "<group>"; };
@@ -1279,7 +1276,6 @@
 				4970E0261B76DD870052496C /* SuffixTree */,
 				BA7E94371B2AA56500818128 /* Loki */,
 				96BC9F83133B09AF00A65384 /* External Frameworks and Libraries */,
-				BA8068E41B27BC5700AEFB27 /* test_files */,
 			);
 			name = imusant;
 			sourceTree = "<group>";
