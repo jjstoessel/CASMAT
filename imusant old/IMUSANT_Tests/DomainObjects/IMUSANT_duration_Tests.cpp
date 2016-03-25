@@ -32,6 +32,25 @@ protected:
 };
 
 
+TEST_F(IMUSANT_duration_Tests, set)
+{
+    // This test fails because it seems you cannot initialise a TRational = 0 as is done in the following code IMUSANT_duration:
+    // void set( TRational dur, long dots, TRational timemod=1, TRational normal_dur=0, long normal_dots=0)
+    
+    S_IMUSANT_duration duration = new_IMUSANT_duration();
+    duration->set(IMUSANT_duration::semibreve, 0);
+    
+    TRational foo = 0;
+    ASSERT_EQ(foo.getDenominator(), 0);  // FAILS here...
+    ASSERT_EQ(foo.getNumerator(), 0);
+    
+    ASSERT_EQ(duration->fTimeModification.getDenominator(), 1);
+    ASSERT_EQ(duration->fTimeModification.getNumerator(), 1);
+    ASSERT_EQ(duration->fNormalDuration.getDenominator(), 0);
+    ASSERT_EQ(duration->fNormalDuration.getNumerator(), 0);
+    ASSERT_EQ(duration->fNormalDots, 0);
+}
+
 TEST_F(IMUSANT_duration_Tests, asAbsoluteNumeric)
 {
     S_IMUSANT_duration duration = new_IMUSANT_duration();
