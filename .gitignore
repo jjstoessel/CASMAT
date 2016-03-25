@@ -41,6 +41,5 @@ Thumbs.db
 /imusantnb/build/
 *.xcuserstate
 *.xcexplist
+*.xcuserdatad
 
-
-*.xcuserstate
