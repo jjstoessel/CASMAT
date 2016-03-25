@@ -68,7 +68,10 @@ namespace IMUSANT
         fOctave(0),
         fInChord(false),
         fVoice(1),
-        fAlteration(natural)
+        fAlteration(natural),
+        fTPC(tpcUndefined),
+        fPC(-1),
+        fMidiKeyNumber(-1)
         {
         }
         
@@ -92,12 +95,14 @@ namespace IMUSANT
         const type		ms_name() const		{ return fMSName; }
         bool			in_chord() const	{ return fInChord; }
         unsigned short	voice() const       { return fVoice; }
-        int             getTPC() const         { return fTPC; }
+        int             getTPC() const      { return fTPC; }
+        int             getPC() const       { return fPC; }         //returns pitch class
+        int             getMidiKeyNumber() const { return fMidiKeyNumber; }   //returns midi key number
         
         //setters
         void			setName(const type name) { fName=name; }
         void            setName(const string name) { fName = xml(name); }
-        void			setAlteration(const sign alter) { fAlteration = alter; }
+        void			setAlteration(const sign alter) { fAlteration = alter; fMidiKeyNumber = CalcMidiKeyNumber(); }
         void            setAlteration(const string alter);   // A number of semitones with +ve being sharp and -ve being flat. No validation performed.
         void			setOctave( const unsigned short octave ) { fOctave = octave; }
         void			setOctave( const string octave );
@@ -139,6 +144,9 @@ namespace IMUSANT
         
     private:
         
+        int             CalcPitchClass();
+        int             CalcMidiKeyNumber();
+        
         type			fName;
         sign            fAlteration;
         unsigned short	fOctave;
@@ -150,8 +158,9 @@ namespace IMUSANT
         static bimap<string, type> fPitch2String;
         static type 	fPitchTbl[];
         static string 	fPitchStrings[];
-        TPC             fTPC; //tonal pitch class storage, based on line of fifths
-        int             fNPC; //non-tonal pitch class storage, i.e. C=0, C#/Db=1, etc.
+        TPC             fTPC; //tonal pitch class storage, based on line of fifths. Most important pitch variable
+        int             fPC; //non-tonal pitch class storage, i.e. C=0, C#/Db=1, etc.
+        int             fMidiKeyNumber; //code to midi keyboard pitch representations
         static int      fLineOf5ths[35][3];
 
     };

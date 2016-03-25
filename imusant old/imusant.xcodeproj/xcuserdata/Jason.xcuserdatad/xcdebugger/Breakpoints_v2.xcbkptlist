@@ -214,6 +214,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "CATSMAT::CATSMAT_cp_matrix::split(IMUSANT::IMUSANT_note const&amp;)"
                   moduleName = "imusantcat"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Jason/Musicology/computer_analysis/imusant%20old/catsmat/CATSMAT_cp_matrix.cpp"
                   timestampString = "445680593.34332"
                   startingColumnNumber = "9223372036854775807"
@@ -228,6 +229,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "CATSMAT::CATSMAT_cp_matrix::split(IMUSANT::IMUSANT_note const&amp;)"
                   moduleName = "imusantcat"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Jason/Musicology/computer_analysis/imusant%20old/catsmat/CATSMAT_cp_matrix.cpp"
                   timestampString = "445680593.343525"
                   startingColumnNumber = "9223372036854775807"
@@ -242,6 +244,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "CATSMAT::CATSMAT_cp_matrix::split(IMUSANT::IMUSANT_note const&amp;)"
                   moduleName = "imusantcat"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Jason/Musicology/computer_analysis/imusant%20old/catsmat/CATSMAT_cp_matrix.cpp"
                   timestampString = "445680593.343742"
                   startingColumnNumber = "9223372036854775807"
@@ -280,6 +283,38 @@
             startingLineNumber = "88"
             endingLineNumber = "88"
             landmarkName = "CATSMAT_cp_matrix::split(const IMUSANT_note&amp; note)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/DomainObjects/src/IMUSANT_pitch.cpp"
+            timestampString = "480571331.862583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "IMUSANT_pitch:: CalcPitchClass()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/DomainObjects/src/IMUSANT_pitch.cpp"
+            timestampString = "480572227.917597"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "IMUSANT_pitch:: CalcMidiKeyNumber()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
