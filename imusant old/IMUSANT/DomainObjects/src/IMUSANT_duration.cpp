@@ -102,7 +102,7 @@ namespace IMUSANT
             << "<TIME_MOD>" << fTimeModification.toString() << "<\\TIME_MOD>";
     }
     
-    long
+    float
     IMUSANT_duration::
     asAbsoluteNumeric() const
     {
@@ -110,23 +110,25 @@ namespace IMUSANT
         // This algorithm translates the static duration values defined above (oneohtwofourth etc) into
         // integral values starting with oneohtwofourth=1, and increasing each longer value by powers of two.
         //
+        // When we account for tuples (triplets and the like), and dotted notes, this algorithm may return a
+        // floating point number.
+        //
         
         // Calculate the simple numeric value by normalising to a scale where smallest rhythmic value = 1.
         long numerator = fDuration.getNumerator() * SMALLEST_POSSIBLE_NOTE_VALUE_MULTIPLIER;
-        long initial_numeric = numerator / fDuration.getDenominator();
+        float initial_numeric = numerator / fDuration.getDenominator();
         
-        // Account for time modifications
-        long initial_numeric_with_time_mod = (initial_numeric * fTimeModification.getDenominator()) / fTimeModification.getNumerator();
+        // Account for time modifications (tuples)
+        float initial_numeric_with_time_mod = (initial_numeric * fTimeModification.getDenominator()) / fTimeModification.getNumerator();
 
         // Account for dots. For each additional dot we add a diminishing fraction of the
         // initial note duration value.
         // (A half of the initial value for the first dot, a quarter for the second, and so on)
-        long incremental_val = initial_numeric_with_time_mod;
+        float incremental_val = initial_numeric_with_time_mod;
         int fraction_of_initial_value_to_add = 2;
         for (long index = fDots; index > 0 ; index--)
         {
-            // The cast to long below avoids fractions on small values for initial_numeric.
-            incremental_val = (long) (incremental_val + (initial_numeric_with_time_mod / fraction_of_initial_value_to_add));
+            incremental_val = (incremental_val + (initial_numeric_with_time_mod / fraction_of_initial_value_to_add));
             fraction_of_initial_value_to_add = fraction_of_initial_value_to_add * 2;
         }
         

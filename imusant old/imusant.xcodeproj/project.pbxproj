@@ -36,6 +36,8 @@
 		1EDE2F221B3E7CFA00DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
 		491DA4451C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */; };
 		494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */; };
+		495A50251CA5ABFC006985E2 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495A50231CA5A3A5006985E2 /* LBDM_Segmented_Part_Test_1.xml */; };
+		495A502C1CA5BA76006985E2 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */; };
 		496A00831B9BCBED0070BCE1 /* ActorPreludeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80BF1B9A77F000A673F7 /* ActorPreludeSample.xml */; };
 		496A00841B9BCBED0070BCE1 /* BeetAnGeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C21B9A77F000A673F7 /* BeetAnGeSample.xml */; };
 		496A00851B9BCBED0070BCE1 /* Binchois.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C51B9A77F000A673F7 /* Binchois.xml */; };
@@ -222,8 +224,6 @@
 		49714EF21C01793000C0A52C /* BeetAnGeSample.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 498D80C21B9A77F000A673F7 /* BeetAnGeSample.xml */; };
 		4973E9BA1C50DA8E0086AB4A /* MusicXML_ParserTest3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4973E9B91C50DA640086AB4A /* MusicXML_ParserTest3.xml */; };
 		497DF4F61C9D309100D18A04 /* IMUSANT_test_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497DF4F41C9D309100D18A04 /* IMUSANT_test_utilities.cpp */; };
-		497DF4F91C9D3D4100D18A04 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497DF4F71C9D3D4100D18A04 /* IMUSANT_segmented_part_LBDM.cpp */; };
-		497DF4FA1C9D3ECE00D18A04 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497DF4F71C9D3D4100D18A04 /* IMUSANT_segmented_part_LBDM.cpp */; };
 		49B727B71C1418E400FCF494 /* CATSMAT_menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49B727B51C1418E400FCF494 /* CATSMAT_menu.cpp */; };
 		49C80D941BA4E71300DCA903 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D021BA4E5C900DCA903 /* factory.cpp */; };
 		49C80D951BA4E71300DCA903 /* unrolled_xml_tree_browser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D0D1BA4E5C900DCA903 /* unrolled_xml_tree_browser.cpp */; };
@@ -411,9 +411,10 @@
 		494D25BB1BDAFE0500141228 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = IMUSANT_testdata/MusicXMLv3.simple_test_data;
+			dstPath = IMUSANT_testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				495A50251CA5ABFC006985E2 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */,
 				49D6903C1C8BC96B00EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml in CopyFiles */,
 				1E76912A1C81518500D371D8 /* MusicXML_ParserTest5.xml in CopyFiles */,
 				49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */,
@@ -536,6 +537,9 @@
 		1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.xml; sourceTree = "<group>"; };
 		491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_part_LBDM_Tests.cpp; path = IMUSANT_Tests/Analysis/IMUSANT_segmented_part_LBDM_Tests.cpp; sourceTree = "<group>"; };
 		494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest1.xml; sourceTree = "<group>"; };
+		495A50231CA5A3A5006985E2 /* LBDM_Segmented_Part_Test_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBDM_Segmented_Part_Test_1.xml; sourceTree = "<group>"; };
+		495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_part_LBDM.cpp; path = LocalBoundaryDetectionModel/IMUSANT_segmented_part_LBDM.cpp; sourceTree = "<group>"; };
+		495A502A1CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_segmented_part_LBDM.h; path = LocalBoundaryDetectionModel/IMUSANT_segmented_part_LBDM.h; sourceTree = "<group>"; };
 		496EF4C41B229D8100FE715F /* CATSMAT_Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CATSMAT_Tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		496EF4C61B229D8100FE715F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		496EF4D71B22A58A00FE715F /* libMusicXML.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libMusicXML.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -574,8 +578,6 @@
 		4973E9B91C50DA640086AB4A /* MusicXML_ParserTest3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest3.xml; sourceTree = "<group>"; };
 		497DF4F41C9D309100D18A04 /* IMUSANT_test_utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_test_utilities.cpp; path = IMUSANT_Tests/Utilities/IMUSANT_test_utilities.cpp; sourceTree = "<group>"; };
 		497DF4F51C9D309100D18A04 /* IMUSANT_test_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_test_utilities.h; path = IMUSANT_Tests/Utilities/IMUSANT_test_utilities.h; sourceTree = "<group>"; };
-		497DF4F71C9D3D4100D18A04 /* IMUSANT_segmented_part_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_part_LBDM.cpp; sourceTree = "<group>"; };
-		497DF4F81C9D3D4100D18A04 /* IMUSANT_segmented_part_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segmented_part_LBDM.h; sourceTree = "<group>"; };
 		498D54511C32A72200439018 /* MusicXMLv3_Elements_Reqs.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = MusicXMLv3_Elements_Reqs.xlsx; sourceTree = "<group>"; };
 		498D80BB1B9A77F000A673F7 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		498D80BD1B9A77F000A673F7 /* ActorPreludeSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = ActorPreludeSample.mxl; sourceTree = "<group>"; };
@@ -1385,6 +1387,15 @@
 			path = source_files;
 			sourceTree = "<group>";
 		};
+		495A50281CA5B93F006985E2 /* LocalBoundaryDetectionModel */ = {
+			isa = PBXGroup;
+			children = (
+				495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */,
+				495A502A1CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.h */,
+			);
+			name = LocalBoundaryDetectionModel;
+			sourceTree = "<group>";
+		};
 		496EF4C51B229D8100FE715F /* CATSMAT_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1521,6 +1532,7 @@
 		4970E0141B76B4F40052496C /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
+				495A50281CA5B93F006985E2 /* LocalBoundaryDetectionModel */,
 				4970E0151B76B5040052496C /* inc */,
 				4970E0161B76B50A0052496C /* src */,
 			);
@@ -1532,7 +1544,6 @@
 			children = (
 				BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */,
 				1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substring.h */,
-				497DF4F81C9D3D4100D18A04 /* IMUSANT_segmented_part_LBDM.h */,
 			);
 			path = inc;
 			sourceTree = "<group>";
@@ -1542,7 +1553,6 @@
 			children = (
 				BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */,
 				1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */,
-				497DF4F71C9D3D4100D18A04 /* IMUSANT_segmented_part_LBDM.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1643,6 +1653,7 @@
 		498D80BA1B9A77F000A673F7 /* MusicXMLv3 */ = {
 			isa = PBXGroup;
 			children = (
+				495A50231CA5A3A5006985E2 /* LBDM_Segmented_Part_Test_1.xml */,
 				49D6903B1C8BC91900EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml */,
 				1E7691291C81511700D371D8 /* MusicXML_ParserTest5.xml */,
 				49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */,
@@ -3099,7 +3110,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				497DF4FA1C9D3ECE00D18A04 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
+				495A502C1CA5BA76006985E2 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
 				4970E0481B76E7D50052496C /* IMUSANT_XMLFile.cpp in Sources */,
 				4970E0491B76E7D50052496C /* IMUSANT_XMLReader.cpp in Sources */,
 				4970E04A1B76E7D50052496C /* IMUSANT_XMLVisitor.cpp in Sources */,
@@ -3174,7 +3185,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				497DF4F91C9D3D4100D18A04 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
 				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

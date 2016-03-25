@@ -44,24 +44,24 @@ protected:
     static void SetUpTestCase() {
         _test_utils = new IMUSANT_test_utilities("IMUSANT_testdata");
         
-//        fScore_ParserTest1 = _test_utils->initialise_score_from_file("REVISIT");
+        fScore_ParserTest1 = _test_utils->initialiseScoreFromFile("LBDM_Segmented_Part_Test_1.xml");
 
     }
     
     static IMUSANT_test_utilities * _test_utils;
-    
-//    static S_IMUSANT_score fScore_ParserTest1;
+    static S_IMUSANT_score fScore_ParserTest1;
     
 };
 
-
 IMUSANT_test_utilities * IMUSANT_segmented_part_LBDM_Tests::_test_utils = NULL;
+S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_ParserTest1 = NULL;
+
 
 
 // ************* TEST CASES START HERE *********** //
 
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, REVISIT)
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)
 {
     S_IMUSANT_part part = new_IMUSANT_part();
     
@@ -70,4 +70,23 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, REVISIT)
     ASSERT_FALSE(segmented_part == NULL);
 
     delete segmented_part;
+}
+
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, addProfileEntry)
+{
+    S_IMUSANT_part part;
+    fScore_ParserTest1->getPartById("P1", part);
+    
+    IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
+    IMUSANT_IOI_interval_profile ioi_profile;
+    ioi_profile.initialise(notes.size());
+    
+    
+    for (int index = 1; index < notes.size(); index++)
+    {
+        ioi_profile.addProfileEntry(index, notes);
+    }
+
+    ASSERT_EQ(234, ioi_profile.intervals.size());
 }
