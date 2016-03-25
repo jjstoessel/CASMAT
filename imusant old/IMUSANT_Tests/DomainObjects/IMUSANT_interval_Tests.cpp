@@ -304,7 +304,6 @@ TEST_F(IMUSANT_interval_Tests, Calculate_Csharp_Adoubleflat_Test)
     
     result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3, IMUSANT_pitch::sharp, IMUSANT_pitch::double_flat);
     ASSERT_EQ(IMUSANT_interval::dimdim6, result) << "C# to Abb - Double Diminished 6th";
-}
 
 TEST_F(IMUSANT_interval_Tests, add_intervals)
 {
@@ -314,4 +313,4 @@ TEST_F(IMUSANT_interval_Tests, add_intervals)
     int1+=int2;
     
     ASSERT_EQ(IMUSANT_interval::maj3, int1.getInterval()) << "add two major seconds - major third";
-}
+}}

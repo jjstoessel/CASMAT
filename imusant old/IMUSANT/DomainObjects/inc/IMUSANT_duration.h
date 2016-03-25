@@ -90,7 +90,9 @@ namespace IMUSANT
         
         TRational		fDuration;
         long            fDots;
-        TRational       fTimeModification; // Represented as numerator=actual and deonominator=normal.  See the MusicXML v3 documentation for time-modification.  See also D-01024 in VersionOne
+        TRational       fTimeModification;
+        TRational       fNormalDuration;    //the duration subject to fTimeModification
+        long            fNormalDots;
         
         
         static TRational unmeasured;
