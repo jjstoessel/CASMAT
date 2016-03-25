@@ -34,7 +34,6 @@ namespace IMUSANT
         onsets[index] = onsets[index-1] + next_duration;
         
         intervals[index] = fabs(onsets[index+1] - onsets[index]);
-        foo();
     }
     
     //
