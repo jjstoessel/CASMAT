@@ -41,7 +41,10 @@ Thumbs.db
 /imusantnb/build/
 *.xcuserstate
 *.xcexplist
+<<<<<<< HEAD
 *.xcuserdatad
 imusant old/imusant.xcodeproj/project.xcworkspace/xcuserdata/Jason.xcuserdatad/UserInterfaceState.xcuserstate
 
 imusant old/imusant.xcodeproj/project.xcworkspace/xcuserdata/Jason.xcuserdatad/UserInterfaceState.xcuserstate
+=======
+>>>>>>> master

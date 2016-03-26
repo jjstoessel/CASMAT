@@ -102,6 +102,43 @@ namespace IMUSANT
             << "<TIME_MOD>" << fTimeModification.toString() << "<\\TIME_MOD>";
     }
     
+<<<<<<< HEAD
+=======
+    float
+    IMUSANT_duration::
+    asAbsoluteNumeric() const
+    {
+        //
+        // This algorithm translates the static duration values defined above (oneohtwofourth etc) into
+        // integral values starting with oneohtwofourth=1, and increasing each longer value by powers of two.
+        //
+        // When we account for tuples (triplets and the like), and dotted notes, this algorithm may return a
+        // floating point number.
+        //
+        
+        // Calculate the simple numeric value by normalising to a scale where smallest rhythmic value = 1.
+        long numerator = fDuration.getNumerator() * SMALLEST_POSSIBLE_NOTE_VALUE_MULTIPLIER;
+        float initial_numeric = numerator / fDuration.getDenominator();
+        
+        // Account for time modifications (tuples)
+        float initial_numeric_with_time_mod = (initial_numeric * fTimeModification.getDenominator()) / fTimeModification.getNumerator();
+
+        // Account for dots. For each additional dot we add a diminishing fraction of the
+        // initial note duration value.
+        // (A half of the initial value for the first dot, a quarter for the second, and so on)
+        float incremental_val = initial_numeric_with_time_mod;
+        int fraction_of_initial_value_to_add = 2;
+        for (long index = fDots; index > 0 ; index--)
+        {
+            incremental_val = (incremental_val + (initial_numeric_with_time_mod / fraction_of_initial_value_to_add));
+            fraction_of_initial_value_to_add = fraction_of_initial_value_to_add * 2;
+        }
+        
+        return incremental_val;
+    }
+    
+    
+>>>>>>> master
     //--
     //takes durations and reduces them to simplest form
     long
