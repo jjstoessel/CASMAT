@@ -4,6 +4,7 @@
 //
 //  Created by Derrick Hill on 17/12/2015.
 //
+//  26 Mar 2016 Removed old test comments for previous implementation (pre-TPC) of IMUSANT_interval (JS)
 //
 
 #include <stdio.h>
@@ -232,20 +233,9 @@ TEST_F(IMUSANT_interval_Tests, Calculate_Cflat_Csharp_Test)
     
     int result;
     
-    //
-    // The following test "fails" in the original implementation
-    // because it returns a value of 2 which does not map onto any
-    // of the intervalic values supported by IMUSANT_interval.  But
-    // is the name for this interval?
-    //
-    // One implication of this is that the xml translation functions
-    // don't work for what should be a legitimate value returned from
-    // IMUSANT_interval::calculate().
-    //
-    
     // Cb to C# - no interval defined in our scheme
     result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::C, 3, 3, IMUSANT_pitch::flat, IMUSANT_pitch::sharp);
-    ASSERT_EQ(IMUSANT_interval::augaug1, result) << "Cb to C# - Major 2dn (?????)";
+    ASSERT_EQ(IMUSANT_interval::augaug1, result) << "Cb to C# - Doubly Aug Unison";
 }
 
 TEST_F(IMUSANT_interval_Tests, Calculate_C_Gsharp_Test)
@@ -270,7 +260,7 @@ TEST_F(IMUSANT_interval_Tests, Calculate_C_Gdoublesharp_Test)
     // What is the name for this interval??
     // If this passes I would expect the Cb to C# test to also pass.
     result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::G, 3, 3, IMUSANT_pitch::natural, IMUSANT_pitch::double_sharp);
-    ASSERT_EQ(IMUSANT_interval::augaug5, result) << "C to G## - Doubly Aug 6th  (really?)";
+    ASSERT_EQ(IMUSANT_interval::augaug5, result) << "C to G## - Doubly Aug 5th";
 }
 
 TEST_F(IMUSANT_interval_Tests, Calculate_C_Aflat_Test)

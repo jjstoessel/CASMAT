@@ -499,7 +499,7 @@ namespace IMUSANT
         fLocation = rhs.fLocation;
         return *this;
     }
-    
+#pragma mark IMUSANT_interval::operator int()
     /*
      *  operator int()
      *  Uses algorithm based upon Line of Fifths theory to calculate the number of semitones
