@@ -41,12 +41,12 @@ TEST_F(IMUSANT_duration_Tests, set)
     duration->set(IMUSANT_duration::semibreve, 0);
     
     TRational foo = 0;
-    ASSERT_EQ(foo.getDenominator(), 0);  // FAILS here...
+    ASSERT_EQ(foo.getDenominator(), 1);  // was testing zero; must never be zero to avoid zero divides
     ASSERT_EQ(foo.getNumerator(), 0);
     
     ASSERT_EQ(duration->fTimeModification.getDenominator(), 1);
     ASSERT_EQ(duration->fTimeModification.getNumerator(), 1);
-    ASSERT_EQ(duration->fNormalDuration.getDenominator(), 0);
+    ASSERT_EQ(duration->fNormalDuration.getDenominator(), 1); //cannot be 0, must be 1 or greater
     ASSERT_EQ(duration->fNormalDuration.getNumerator(), 0);
     ASSERT_EQ(duration->fNormalDots, 0);
 }
