@@ -305,3 +305,27 @@ TEST_F(IMUSANT_interval_Tests, add_intervals)
     
     ASSERT_EQ(IMUSANT_interval::maj3, int1.getInterval()) << "add two major seconds - major third";
 }
+
+TEST_F(IMUSANT_interval_Tests, compare_intervals)
+{
+    IMUSANT_interval int1(IMUSANT_pitch::C, IMUSANT_pitch::D, 3, 3);
+    IMUSANT_interval int2(IMUSANT_pitch::D, IMUSANT_pitch::D, 3, 4);
+    IMUSANT_interval int3(IMUSANT_pitch::C, IMUSANT_pitch::F, 3, 3);
+    IMUSANT_interval int4(IMUSANT_pitch::D, IMUSANT_pitch::A, 3, 3);
+    IMUSANT_interval int5(IMUSANT_pitch::E, IMUSANT_pitch::G, 3, 3);
+    IMUSANT_interval int6(IMUSANT_pitch::F, IMUSANT_pitch::A, 3, 3);
+    IMUSANT_interval int7(IMUSANT_pitch::D, IMUSANT_pitch::C, 3, 4);
+    IMUSANT_interval int8(IMUSANT_pitch::C, IMUSANT_pitch::B, 3, 3);
+    IMUSANT_interval int9(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3);
+    IMUSANT_interval int10(IMUSANT_pitch::E, IMUSANT_pitch::C, 3, 4);
+    IMUSANT_interval int11(IMUSANT_pitch::E, IMUSANT_pitch::B, 3, 3);
+    
+    ASSERT_TRUE(int1<int2);
+    ASSERT_TRUE(int3<int4);
+    ASSERT_TRUE(int4==int11);
+    ASSERT_TRUE(int1!=int2);
+    ASSERT_TRUE(int5<int6);
+    ASSERT_TRUE(int1!=int9);
+    ASSERT_TRUE(int7<int8);
+    ASSERT_TRUE(int9>int10);
+}
