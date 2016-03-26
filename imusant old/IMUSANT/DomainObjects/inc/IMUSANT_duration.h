@@ -34,7 +34,7 @@ namespace IMUSANT
         IMUSANT_duration(): fDuration(IMUSANT_duration::unmeasured),
         fDots(0),
         fTimeModification("1/1"),
-        fNormalDuration(0), //zero time modification default
+        fNormalDuration(0,1), //zero time modification default
         fNormalDots(0)
         {
             // empty constructor
@@ -67,7 +67,7 @@ namespace IMUSANT
         friend ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
         void	print (ostream& os) const;
         
-        void set( TRational dur, long dots, TRational timemod=1, TRational normal_dur=0, long normal_dots=0)
+        void set( TRational dur, long dots, TRational timemod=1, TRational normal_dur=TRational("0/1"), long normal_dots=0)
         {
             fDuration=dur;
             fDots=dots,
