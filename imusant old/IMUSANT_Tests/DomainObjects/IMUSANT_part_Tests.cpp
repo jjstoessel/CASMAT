@@ -39,7 +39,7 @@ protected:
         S_IMUSANT_note note = new_IMUSANT_note();
         
         S_IMUSANT_duration d1 = new_IMUSANT_duration();
-        d1->set(*new TRational(dur_numerator, dur_denominator), dur_dots, 0);
+        d1->set(*new TRational(dur_numerator, dur_denominator), dur_dots, 0, IMUSANT_duration::unmeasured, 0);
         
         note->setDuration(d1);
         

@@ -31,11 +31,12 @@ namespace IMUSANT
         
         friend SMARTP<IMUSANT_duration> new_IMUSANT_duration();
         
-        IMUSANT_duration(): fDuration(IMUSANT_duration::unmeasured),
-        fDots(0),
-        fTimeModification("1/1"),
-        fNormalDuration(0,1), //zero time modification default
-        fNormalDots(0)
+        IMUSANT_duration() :
+            fDuration(IMUSANT_duration::unmeasured),
+            fDots(0),
+            fTimeModification(IMUSANT_duration::unmeasured),
+            fNormalDuration(IMUSANT_duration::unmeasured),
+            fNormalDots(0)
         {
             // empty constructor
         }
@@ -67,7 +68,21 @@ namespace IMUSANT
         friend ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
         void	print (ostream& os) const;
         
-        void set( TRational dur, long dots, TRational timemod=1, TRational normal_dur=TRational("0/1"), long normal_dots=0)
+        
+        // Simple version for no time modification.
+        void set(TRational dur, long dots)
+        {
+            fDuration = dur;
+            fDots = dots,
+            fTimeModification = IMUSANT_duration::unmeasured,
+            fNormalDuration = IMUSANT_duration::unmeasured,
+            fNormalDots = 0;
+        }
+        
+        // Use this when there is a time modification.
+        // See the MusicXML v3 documentation for the time-modification element to understand the last three parameters.
+        // If there is no need to use normal_dur then set it to IMUSANT_duration::unmeasured.
+        void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots)
         {
             fDuration=dur;
             fDots=dots,
@@ -75,9 +90,10 @@ namespace IMUSANT
             fNormalDuration = normal_dur;
             fNormalDots = normal_dots;
         }
+
         
         IMUSANT_duration	getSimplifiedDuration() const;
-        float                asAbsoluteNumeric() const;
+        float               asAbsoluteNumeric() const;
         
         //checks that TRational type is actually dotted note, return dots and changes dur
         static long	NormaliseDuration(TRational& dur);

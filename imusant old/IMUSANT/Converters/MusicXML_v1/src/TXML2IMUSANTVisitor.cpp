@@ -610,7 +610,7 @@ namespace IMUSANT
             {
                 timemod.set(gn->timemodification()->getActualNotes(), gn->timemodification()->getNormalNotes());
             }
-            dur->set(r, dots, timemod);
+            dur->set(r, dots, timemod, IMUSANT_duration::unmeasured, 0);
         }
         
         
@@ -619,7 +619,7 @@ namespace IMUSANT
                 TRational r;
                 NoteType::rational(gn->getType(), r);
                 r.rationalise();
-                dur->set(r, gn->getDots(),1);
+                dur->set(r, gn->getDots(),1, IMUSANT_duration::unmeasured, 0);
             }
             if (gn->getVoice() != TGraphNote::undefined)
                 voice = (unsigned short)gn->getVoice();
