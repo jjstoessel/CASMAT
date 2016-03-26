@@ -119,8 +119,12 @@ namespace IMUSANT
         float initial_numeric = numerator / fDuration.getDenominator();
         
         // Account for time modifications (tuples)
-        float initial_numeric_with_time_mod = (initial_numeric * fTimeModification.getDenominator()) / fTimeModification.getNumerator();
-
+        float initial_numeric_with_time_mod = initial_numeric;
+        if (fTimeModification != IMUSANT_duration::unmeasured)
+        {
+            initial_numeric_with_time_mod = (initial_numeric * fTimeModification.getDenominator()) / fTimeModification.getNumerator();
+        }
+        
         // Account for dots. For each additional dot we add a diminishing fraction of the
         // initial note duration value.
         // (A half of the initial value for the first dot, a quarter for the second, and so on)
@@ -131,6 +135,9 @@ namespace IMUSANT
             incremental_val = (incremental_val + (initial_numeric_with_time_mod / fraction_of_initial_value_to_add));
             fraction_of_initial_value_to_add = fraction_of_initial_value_to_add * 2;
         }
+        
+        // Account for normal-type
+        // REVISIT
         
         return incremental_val;
     }

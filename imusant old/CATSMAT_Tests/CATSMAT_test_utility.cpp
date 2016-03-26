@@ -97,7 +97,7 @@ CATSMAT_test_utility::CreateNote(IMUSANT_pitch::type note_name, int octave, TRat
     pitch->set(note_name, octave, 1);
     
     S_IMUSANT_duration duration = new_IMUSANT_duration();
-    duration->set(note_duration, 0, *new TRational(0,0));
+    duration->set(note_duration, 0);
     
     const long FIRST_NOTE_IN_MEASURE = 1;
     long note_index = FIRST_NOTE_IN_MEASURE;

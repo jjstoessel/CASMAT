@@ -71,7 +71,7 @@ TEST_F(IMUSANT_note_Tests, BasicPrintTest)
     TRational dur(6,8);
     long dots = 3;
     TRational time_mod(3,2);
-    duration->set(dur, dots,  time_mod);
+    duration->set(dur, dots,  time_mod, IMUSANT_duration::unmeasured, 0);
     
     S_IMUSANT_pitch pitch = new_IMUSANT_pitch();
     pitch->set(IMUSANT_pitch::type::D, 2, 1, IMUSANT_pitch::natural, false);
