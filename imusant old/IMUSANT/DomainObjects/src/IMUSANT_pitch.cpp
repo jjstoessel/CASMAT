@@ -131,7 +131,8 @@ namespace IMUSANT
         fInChord = inChord;
         fVoice = voice;
         fTPC = CalcTonalPitchClass(name, alteration);
-        //fNPC =
+        fPC = CalcPitchClass();
+        fMidiKeyNumber = CalcMidiKeyNumber();
         
     }
     
@@ -147,7 +148,8 @@ namespace IMUSANT
         }
         fAlteration = alteration;
         fTPC = CalcTonalPitchClass(fName, fAlteration);
-        //fNBC =
+        fPC = CalcPitchClass();
+        fMidiKeyNumber = CalcMidiKeyNumber();
     }
     
     void
@@ -161,6 +163,8 @@ namespace IMUSANT
             throw "IMUSANT_pitch::setOctave() - Unexpected value for octave.  Expected range 0-9 but received " + octave;
         }
         fOctave = oct;
+        //reset midi code only
+        fMidiKeyNumber = CalcMidiKeyNumber();
     }
     
     bool
@@ -201,11 +205,45 @@ namespace IMUSANT
         fName==pitch.name() &&
         fAlteration==pitch.alteration() &&
         fOctave==pitch.octave();
+        //set other pitch representations
     }
     
     void IMUSANT_pitch::print (ostream& os) const
     {
         os << IMUSANT_pitch::xml(fName) << fAlteration << "@" << fOctave /*<< std::endl*/;
+    }
+    
+    //Calculates the Pitch Class number as per traditional pitch class theory, octave agnostic
+    //requires fName and fAlteration
+    int
+    IMUSANT_pitch::
+    CalcPitchClass()
+    {
+        int pc = -1; //undefined
+        
+        if (fName!=undefined)
+        {
+            (fName < 3) ? pc = fName*2 : pc = fName*2 - 1;
+            pc += fAlteration;
+            if (pc<0) pc+=12;
+        }
+        
+        return pc;
+    }
+    
+    //Calculates the Midi Key number for a given pitch.
+    //Requires fName, fAlteration, and fOctave
+    //C4 (middle C) is midi key number 60; is limited to C0
+    int
+    IMUSANT_pitch::
+    CalcMidiKeyNumber()
+    {
+        int midinumber = -1;
+        
+        if (fName!=undefined && fPC!=-1) {
+            midinumber = fPC + (fOctave+1)*12;
+        }
+        return midinumber;
     }
     
 } //namespace IMUSANT
