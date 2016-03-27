@@ -236,8 +236,7 @@ namespace IMUSANT
     IMUSANT_interval::calculate(const S_IMUSANT_pitch& first, const S_IMUSANT_pitch& second)
     {
         IMUSANT_interval ret;
-        //make sure TPC set; this should be set on pitch creation, but isn't at the moment
-        first->setTonalPitchClass(); second->setTonalPitchClass();
+
         if (first->name()!=IMUSANT_pitch::undefined && second->name()!=IMUSANT_pitch::undefined)
         {
             //Must account for octaves for compound intervals.

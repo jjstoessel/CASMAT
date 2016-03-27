@@ -130,7 +130,6 @@ namespace IMUSANT
         fMSName = name; //ms_note;
         fInChord = inChord;
         fVoice = voice;
-        fTPC = CalcTonalPitchClass(name, alteration);
         fPC = CalcPitchClass();
         fMidiKeyNumber = CalcMidiKeyNumber();
         
@@ -147,7 +146,6 @@ namespace IMUSANT
             throw "IMUSANT_pitch::setAlteration() - Unexpected value for alter.  Expected a number of semitones received " + alter;
         }
         fAlteration = alteration;
-        fTPC = CalcTonalPitchClass(fName, fAlteration);
         fPC = CalcPitchClass();
         fMidiKeyNumber = CalcMidiKeyNumber();
     }
