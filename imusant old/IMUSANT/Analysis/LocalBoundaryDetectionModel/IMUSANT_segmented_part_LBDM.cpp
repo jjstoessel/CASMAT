@@ -13,28 +13,33 @@ namespace IMUSANT
 {
     
     //
-    // IMUSANT_IOI_interval_profile
+    // INTERVAL PROFILES
     //
     
     void
-    IMUSANT_IOI_interval_profile::
+    IMUSANT_interval_profile::
     initialise(vector<float>::size_type number_of_elements)
     {
-        onsets.reserve(number_of_elements);
-        intervals.reserve(number_of_elements);
-        onsets[0] = 0;
+        intervals.assign(number_of_elements, 0);
     }
     
     void
     IMUSANT_IOI_interval_profile::
     addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> notes)
     {
-        float next_duration = 0;
-        next_duration += notes[index]->duration()->asAbsoluteNumeric();
-        onsets[index] = onsets[index-1] + next_duration;
-        
-        intervals[index] = fabs(onsets[index+1] - onsets[index]);
+        // Onset Interval Profile is just a vector containing the duration of each note.
+        intervals[index] = notes[index]->duration()->asAbsoluteNumeric();
     }
+    
+    void
+    IMUSANT_pitch_interval_profile::
+    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> notes)
+    {
+        // Pitch Interval Profile is a vector containing the pitch of each note.
+        // REVISIT - error handling required - this code is not safe.
+        intervals[index] = notes[index]->pitch()->getTPC();
+    }
+    
     
     //
     // IMUSANT_segmented_part_LBDM
@@ -48,10 +53,10 @@ namespace IMUSANT
         IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
         ioi_interval_profile.initialise(notes.size());
         
-        for (int index = 1; index < notes.size(); index++)
+        for (int index = 0; index < notes.size(); index++)
         {
             ioi_interval_profile.addProfileEntry(index, notes);
-            
+            pitch_interval_profile.addProfileEntry(index, notes);
         }
     }
     

@@ -73,7 +73,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)
 }
 
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, addProfileEntry)
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_addProfileEntry)
 {
     S_IMUSANT_part part;
     fScore_ParserTest1->getPartById("P1", part);
@@ -82,11 +82,67 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, addProfileEntry)
     IMUSANT_IOI_interval_profile ioi_profile;
     ioi_profile.initialise(notes.size());
     
-    
-    for (int index = 1; index < notes.size(); index++)
+    for (int index = 0; index < notes.size(); index++)
     {
         ioi_profile.addProfileEntry(index, notes);
     }
 
-    ASSERT_EQ(234, ioi_profile.intervals.size());
+    ASSERT_EQ(17, ioi_profile.intervals.size());
+    ASSERT_EQ(256, ioi_profile.intervals[0]);
+    ASSERT_EQ(256, ioi_profile.intervals[1]);
+    ASSERT_EQ(256, ioi_profile.intervals[2]);
+    ASSERT_EQ(256, ioi_profile.intervals[3]);
+    ASSERT_EQ(512, ioi_profile.intervals[4]);
+    ASSERT_EQ(512, ioi_profile.intervals[5]);
+    ASSERT_EQ(1024, ioi_profile.intervals[6]);
+    ASSERT_EQ(128, ioi_profile.intervals[7]);
+    ASSERT_EQ(128, ioi_profile.intervals[8]);
+    ASSERT_EQ(128, ioi_profile.intervals[9]);
+    ASSERT_EQ(128, ioi_profile.intervals[10]);
+    ASSERT_EQ(512, ioi_profile.intervals[11]);
+    ASSERT_EQ(384, ioi_profile.intervals[12]);
+    ASSERT_EQ(128, ioi_profile.intervals[13]);
+    ASSERT_EQ(384, ioi_profile.intervals[14]);
+    ASSERT_EQ(128, ioi_profile.intervals[15]);
+    ASSERT_EQ(1024, ioi_profile.intervals[16]);
+              
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
+{
+    S_IMUSANT_part part;
+    fScore_ParserTest1->getPartById("P1", part);
+    
+    IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
+    IMUSANT_pitch_interval_profile pitch_profile;
+    pitch_profile.initialise(notes.size());
+    
+    for (int index = 0; index < notes.size(); index++)
+    {
+        pitch_profile.addProfileEntry(index, notes);
+    }
+    
+    
+    ASSERT_EQ(17, pitch_profile.intervals.size());
+    
+    
+    // This test is failing from here.
+    ASSERT_EQ(256, pitch_profile.intervals[0]);
+    ASSERT_EQ(256, pitch_profile.intervals[1]);
+    ASSERT_EQ(256, pitch_profile.intervals[2]);
+    ASSERT_EQ(256, pitch_profile.intervals[3]);
+    ASSERT_EQ(512, pitch_profile.intervals[4]);
+    ASSERT_EQ(512, pitch_profile.intervals[5]);
+    ASSERT_EQ(1024, pitch_profile.intervals[6]);
+    ASSERT_EQ(128, pitch_profile.intervals[7]);
+    ASSERT_EQ(128, pitch_profile.intervals[8]);
+    ASSERT_EQ(128, pitch_profile.intervals[9]);
+    ASSERT_EQ(128, pitch_profile.intervals[10]);
+    ASSERT_EQ(512, pitch_profile.intervals[11]);
+    ASSERT_EQ(384, pitch_profile.intervals[12]);
+    ASSERT_EQ(128, pitch_profile.intervals[13]);
+    ASSERT_EQ(384, pitch_profile.intervals[14]);
+    ASSERT_EQ(128, pitch_profile.intervals[15]);
+    ASSERT_EQ(1024, pitch_profile.intervals[16]);
+    
 }
