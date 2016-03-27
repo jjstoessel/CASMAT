@@ -4,6 +4,7 @@
 //
 //  Created by Derrick Hill on 17/12/2015.
 //
+//  26 Mar 2016 Removed old test comments for previous implementation (pre-TPC) of IMUSANT_interval (JS)
 //
 
 #include <stdio.h>
@@ -232,20 +233,9 @@ TEST_F(IMUSANT_interval_Tests, Calculate_Cflat_Csharp_Test)
     
     int result;
     
-    //
-    // The following test "fails" in the original implementation
-    // because it returns a value of 2 which does not map onto any
-    // of the intervalic values supported by IMUSANT_interval.  But
-    // is the name for this interval?
-    //
-    // One implication of this is that the xml translation functions
-    // don't work for what should be a legitimate value returned from
-    // IMUSANT_interval::calculate().
-    //
-    
     // Cb to C# - no interval defined in our scheme
     result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::C, 3, 3, IMUSANT_pitch::flat, IMUSANT_pitch::sharp);
-    ASSERT_EQ(IMUSANT_interval::augaug1, result) << "Cb to C# - Major 2dn (?????)";
+    ASSERT_EQ(IMUSANT_interval::augaug1, result) << "Cb to C# - Doubly Aug Unison";
 }
 
 TEST_F(IMUSANT_interval_Tests, Calculate_C_Gsharp_Test)
@@ -270,7 +260,7 @@ TEST_F(IMUSANT_interval_Tests, Calculate_C_Gdoublesharp_Test)
     // What is the name for this interval??
     // If this passes I would expect the Cb to C# test to also pass.
     result = calculate_pitch_interval(IMUSANT_pitch::C, IMUSANT_pitch::G, 3, 3, IMUSANT_pitch::natural, IMUSANT_pitch::double_sharp);
-    ASSERT_EQ(IMUSANT_interval::augaug5, result) << "C to G## - Doubly Aug 6th  (really?)";
+    ASSERT_EQ(IMUSANT_interval::augaug5, result) << "C to G## - Doubly Aug 5th";
 }
 
 TEST_F(IMUSANT_interval_Tests, Calculate_C_Aflat_Test)
@@ -314,4 +304,28 @@ TEST_F(IMUSANT_interval_Tests, add_intervals)
     int1+=int2;
     
     ASSERT_EQ(IMUSANT_interval::maj3, int1.getInterval()) << "add two major seconds - major third";
+}
+
+TEST_F(IMUSANT_interval_Tests, compare_intervals)
+{
+    IMUSANT_interval int1(IMUSANT_pitch::C, IMUSANT_pitch::D, 3, 3);
+    IMUSANT_interval int2(IMUSANT_pitch::D, IMUSANT_pitch::D, 3, 4);
+    IMUSANT_interval int3(IMUSANT_pitch::C, IMUSANT_pitch::F, 3, 3);
+    IMUSANT_interval int4(IMUSANT_pitch::D, IMUSANT_pitch::A, 3, 3);
+    IMUSANT_interval int5(IMUSANT_pitch::E, IMUSANT_pitch::G, 3, 3);
+    IMUSANT_interval int6(IMUSANT_pitch::F, IMUSANT_pitch::A, 3, 3);
+    IMUSANT_interval int7(IMUSANT_pitch::D, IMUSANT_pitch::C, 3, 4);
+    IMUSANT_interval int8(IMUSANT_pitch::C, IMUSANT_pitch::B, 3, 3);
+    IMUSANT_interval int9(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3);
+    IMUSANT_interval int10(IMUSANT_pitch::E, IMUSANT_pitch::C, 3, 4);
+    IMUSANT_interval int11(IMUSANT_pitch::E, IMUSANT_pitch::B, 3, 3);
+    
+    ASSERT_TRUE(int1<int2);
+    ASSERT_TRUE(int3<int4);
+    ASSERT_TRUE(int4==int11);
+    ASSERT_TRUE(int1!=int2);
+    ASSERT_TRUE(int5<int6);
+    ASSERT_TRUE(int1!=int9);
+    ASSERT_TRUE(int7<int8);
+    ASSERT_TRUE(int9>int10);
 }

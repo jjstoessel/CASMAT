@@ -119,8 +119,9 @@ find_repeated_substrings_by_directory(string relative_path_to_test_data_director
 TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1)
 {
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
-    
+    //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    repeated_substrings_result = find_repeated_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+
     // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
     // stringstream actual_output;
     // actual_output << IMUSANT_repeated_interval_substring::output_operator_help();
