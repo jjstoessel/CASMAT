@@ -25,7 +25,7 @@ namespace IMUSANT
     
     void
     IMUSANT_IOI_interval_profile::
-    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> notes)
+    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
     {
         // Onset Interval Profile is just a vector containing the duration of each note.
         intervals[index] = notes[index]->duration()->asAbsoluteNumeric();
@@ -33,11 +33,20 @@ namespace IMUSANT
     
     void
     IMUSANT_pitch_interval_profile::
-    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> notes)
+    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
     {
         // Pitch Interval Profile is a vector containing the pitch of each note.
         // REVISIT - error handling required - this code is not safe.
-        intervals[index] = notes[index]->pitch()->getTPC();
+        
+        intervals[index] = IMUSANT_pitch::tpcUndefined;
+        S_IMUSANT_pitch pitch = notes[index]->pitch();
+        
+        if (pitch != NULL)
+        {
+            int TPC = pitch->getTPC();
+            intervals[index] = TPC;
+        }
+        
     }
     
     

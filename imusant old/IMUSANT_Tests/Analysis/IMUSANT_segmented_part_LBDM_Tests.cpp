@@ -111,7 +111,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_addProfileEntry)
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
 {
     S_IMUSANT_part part;
-    fScore_ParserTest1->getPartById("P1", part);
+    fScore_ParserTest1->getPartById("P2", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
     IMUSANT_pitch_interval_profile pitch_profile;
@@ -123,26 +123,23 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
     }
     
     
-    ASSERT_EQ(17, pitch_profile.intervals.size());
+    ASSERT_EQ(12, pitch_profile.intervals.size());
     
+    for (int index = 0 ; index < pitch_profile.intervals.size() ; index ++ )
+    {
+        cout << pitch_profile.intervals[index] << endl;
+    }
     
-    // This test is failing from here.
-    ASSERT_EQ(256, pitch_profile.intervals[0]);
-    ASSERT_EQ(256, pitch_profile.intervals[1]);
-    ASSERT_EQ(256, pitch_profile.intervals[2]);
-    ASSERT_EQ(256, pitch_profile.intervals[3]);
-    ASSERT_EQ(512, pitch_profile.intervals[4]);
-    ASSERT_EQ(512, pitch_profile.intervals[5]);
-    ASSERT_EQ(1024, pitch_profile.intervals[6]);
-    ASSERT_EQ(128, pitch_profile.intervals[7]);
-    ASSERT_EQ(128, pitch_profile.intervals[8]);
-    ASSERT_EQ(128, pitch_profile.intervals[9]);
-    ASSERT_EQ(128, pitch_profile.intervals[10]);
-    ASSERT_EQ(512, pitch_profile.intervals[11]);
-    ASSERT_EQ(384, pitch_profile.intervals[12]);
-    ASSERT_EQ(128, pitch_profile.intervals[13]);
-    ASSERT_EQ(384, pitch_profile.intervals[14]);
-    ASSERT_EQ(128, pitch_profile.intervals[15]);
-    ASSERT_EQ(1024, pitch_profile.intervals[16]);
-    
+    ASSERT_EQ(0, pitch_profile.intervals[0]);
+    ASSERT_EQ(5, pitch_profile.intervals[1]);
+    ASSERT_EQ(3, pitch_profile.intervals[2]);
+    ASSERT_EQ(1, pitch_profile.intervals[3]);
+    ASSERT_EQ(-1, pitch_profile.intervals[4]);
+    ASSERT_EQ(4, pitch_profile.intervals[5]);
+    ASSERT_EQ(2, pitch_profile.intervals[6]);
+    ASSERT_EQ(0, pitch_profile.intervals[7]);
+    ASSERT_EQ(4, pitch_profile.intervals[8]);
+    ASSERT_EQ(1, pitch_profile.intervals[9]);
+    ASSERT_EQ(0, pitch_profile.intervals[10]);
+    ASSERT_EQ(IMUSANT_pitch::tpcUndefined, pitch_profile.intervals[11]);
 }

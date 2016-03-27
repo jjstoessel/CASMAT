@@ -22,14 +22,14 @@ namespace IMUSANT
     public:
         void initialise(vector<float>::size_type number_of_elements);
         vector<float> intervals;
-        virtual void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> notes) {};
+        virtual void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes) {};
     };
     
     class IMUSANT_IOI_interval_profile : public IMUSANT_interval_profile
     {
     public:
         IMUSANT_IOI_interval_profile() {};
-        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> notes);
+        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
 
     };
     
@@ -37,7 +37,7 @@ namespace IMUSANT
     {
     public:
         IMUSANT_pitch_interval_profile() {};
-        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> notes);
+        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
     };
 
     
