@@ -70,7 +70,9 @@ namespace IMUSANT
     
     //static member: obtains the Line of Fifths index for a note from multidimensional array fLineOf5ths
     //name and alteration must be set.
-    enum IMUSANT_pitch::TPC IMUSANT_pitch::CalcTonalPitchClass(type name, sign alt)
+    enum IMUSANT_pitch::TPC
+    IMUSANT_pitch::
+    CalcTonalPitchClass(type name, sign alt)
     {
         TPC tpc = tpcUndefined;
        
@@ -130,9 +132,7 @@ namespace IMUSANT
         fMSName = name; //ms_note;
         fInChord = inChord;
         fVoice = voice;
-        fPC = CalcPitchClass();
         fMidiKeyNumber = CalcMidiKeyNumber();
-        
     }
     
     void
@@ -146,7 +146,6 @@ namespace IMUSANT
             throw "IMUSANT_pitch::setAlteration() - Unexpected value for alter.  Expected a number of semitones received " + alter;
         }
         fAlteration = alteration;
-        fPC = CalcPitchClass();
         fMidiKeyNumber = CalcMidiKeyNumber();
     }
     
@@ -215,7 +214,7 @@ namespace IMUSANT
     //requires fName and fAlteration
     int
     IMUSANT_pitch::
-    CalcPitchClass()
+    CalcPitchClass() const
     {
         int pc = -1; //undefined
         
@@ -237,9 +236,10 @@ namespace IMUSANT
     CalcMidiKeyNumber()
     {
         int midinumber = -1;
+        int pc = CalcPitchClass();
         
-        if (fName!=undefined && fPC!=-1) {
-            midinumber = fPC + (fOctave+1)*12;
+        if (fName!=undefined && pc!=-1) {
+            midinumber = pc + (fOctave+1)*12;
         }
         return midinumber;
     }

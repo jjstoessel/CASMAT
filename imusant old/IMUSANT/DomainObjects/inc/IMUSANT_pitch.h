@@ -63,14 +63,13 @@ namespace IMUSANT
         VEXP friend SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
         
         IMUSANT_pitch() :
-        fName(undefined),
-        fMSName(undefined),
-        fOctave(0),
-        fInChord(false),
-        fVoice(1),
-        fAlteration(natural),
-        fPC(-1),
-        fMidiKeyNumber(-1)
+            fName(undefined),
+            fMSName(undefined),
+            fOctave(0),
+            fInChord(false),
+            fVoice(1),
+            fAlteration(natural),
+            fMidiKeyNumber(-1)
         {
         }
         
@@ -95,7 +94,7 @@ namespace IMUSANT
         bool			in_chord() const	{ return fInChord; }
         unsigned short	voice() const       { return fVoice; }
         int             getTPC()            { return CalcTonalPitchClass(fName, fAlteration); }
-        int             getPC() const       { return fPC; }         //returns pitch class
+        int             getPC() const       { return CalcPitchClass(); }         //returns pitch class
         int             getMidiKeyNumber() const { return fMidiKeyNumber; }   //returns midi key number
         
         //setters
@@ -142,7 +141,7 @@ namespace IMUSANT
         
         //alternative pitch representation calculators
         enum TPC        CalcTonalPitchClass(type name, sign alt);
-        int             CalcPitchClass();
+        int             CalcPitchClass() const;
         int             CalcMidiKeyNumber();
         
         type			fName;
@@ -156,7 +155,6 @@ namespace IMUSANT
         static bimap<string, type> fPitch2String;
         static type 	fPitchTbl[];
         static string 	fPitchStrings[];
-        int             fPC; //non-tonal pitch class storage, i.e. C=0, C#/Db=1, etc.
         int             fMidiKeyNumber; //code to midi keyboard pitch representations
         static int      fLineOf5ths[35][3];
 
