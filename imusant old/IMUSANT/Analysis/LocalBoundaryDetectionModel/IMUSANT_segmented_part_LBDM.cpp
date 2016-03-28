@@ -24,6 +24,36 @@ namespace IMUSANT
     }
     
     void
+    IMUSANT_interval_profile::
+    calculateChangeVector()
+    {
+        for (int index = 0; index < intervals.size() - 1; index++)
+        {
+            float value1 = intervals[index];
+            float value2 = intervals[index + 1];
+            float degree_of_change = 0;
+            
+            if (value1 + value2 != 0
+                &&
+                value1 >= 0
+                &&
+                value2 >= 0)
+            {
+                degree_of_change = fabs(value1 - value2)  / (value1 + value2);
+            }
+            
+            change_vector.push_back(degree_of_change);
+        }
+    }
+    
+    void
+    IMUSANT_interval_profile::
+    calculateStrengthVector()
+    {
+        
+    }
+    
+    void
     IMUSANT_IOI_interval_profile::
     addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
     {
@@ -43,7 +73,7 @@ namespace IMUSANT
         
         if (pitch != NULL)
         {
-            int TPC = pitch->getTPC();
+            int TPC = pitch->getPC();
             intervals[index] = TPC;
         }
         
@@ -61,6 +91,7 @@ namespace IMUSANT
     {
         IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
         ioi_interval_profile.initialise(notes.size());
+        pitch_interval_profile.initialise(notes.size());
         
         for (int index = 0; index < notes.size(); index++)
         {
