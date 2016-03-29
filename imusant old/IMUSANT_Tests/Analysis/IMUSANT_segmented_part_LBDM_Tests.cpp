@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <math.h>
 
 #include "gtest/gtest.h"
 
@@ -18,7 +19,7 @@
 using namespace IMUSANT;
 using namespace boost;
 
-// #define VERBOSE = 0;
+#define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests : public ::testing::Test {
@@ -39,6 +40,11 @@ protected:
     virtual void SetUp() {
         // Code here will be called immediately after the constructor (right
         // before each test).
+    }
+    
+    bool equalWithinTollerance(float f1, float f2)
+    {
+        return (fabs(f1 - f2) < 0.001);
     }
     
     static void SetUpTestCase() {
@@ -73,7 +79,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)
 }
 
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, addProfileEntry)
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_addProfileEntry)
 {
     S_IMUSANT_part part;
     fScore_ParserTest1->getPartById("P1", part);
@@ -82,11 +88,100 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, addProfileEntry)
     IMUSANT_IOI_interval_profile ioi_profile;
     ioi_profile.initialise(notes.size());
     
-    
-    for (int index = 1; index < notes.size(); index++)
+    for (int index = 0; index < notes.size(); index++)
     {
         ioi_profile.addProfileEntry(index, notes);
     }
 
-    ASSERT_EQ(234, ioi_profile.intervals.size());
+    ASSERT_EQ(17, ioi_profile.intervals.size());
+    ASSERT_EQ(256, ioi_profile.intervals[0]);
+    ASSERT_EQ(256, ioi_profile.intervals[1]);
+    ASSERT_EQ(256, ioi_profile.intervals[2]);
+    ASSERT_EQ(256, ioi_profile.intervals[3]);
+    ASSERT_EQ(512, ioi_profile.intervals[4]);
+    ASSERT_EQ(512, ioi_profile.intervals[5]);
+    ASSERT_EQ(1024, ioi_profile.intervals[6]);
+    ASSERT_EQ(128, ioi_profile.intervals[7]);
+    ASSERT_EQ(128, ioi_profile.intervals[8]);
+    ASSERT_EQ(128, ioi_profile.intervals[9]);
+    ASSERT_EQ(128, ioi_profile.intervals[10]);
+    ASSERT_EQ(512, ioi_profile.intervals[11]);
+    ASSERT_EQ(384, ioi_profile.intervals[12]);
+    ASSERT_EQ(128, ioi_profile.intervals[13]);
+    ASSERT_EQ(384, ioi_profile.intervals[14]);
+    ASSERT_EQ(128, ioi_profile.intervals[15]);
+    ASSERT_EQ(1024, ioi_profile.intervals[16]);
+              
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
+{
+    S_IMUSANT_part part;
+    fScore_ParserTest1->getPartById("P2", part);
+    
+    IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
+    IMUSANT_pitch_interval_profile pitch_profile;
+    pitch_profile.initialise(notes.size());
+    
+    for (int index = 0; index < notes.size(); index++)
+    {
+        pitch_profile.addProfileEntry(index, notes);
+    }
+    
+    
+    ASSERT_EQ(12, pitch_profile.intervals.size());
+    
+    
+#ifdef VERBOSE
+    for (int index = 0 ; index < pitch_profile.intervals.size() ; index ++ )
+    {
+        cout << pitch_profile.intervals[index] << endl;
+    }
+#endif
+    
+    ASSERT_EQ(0, pitch_profile.intervals[0]);
+    ASSERT_EQ(11, pitch_profile.intervals[1]);
+    ASSERT_EQ(9, pitch_profile.intervals[2]);
+    ASSERT_EQ(7, pitch_profile.intervals[3]);
+    ASSERT_EQ(5, pitch_profile.intervals[4]);
+    ASSERT_EQ(4, pitch_profile.intervals[5]);
+    ASSERT_EQ(2, pitch_profile.intervals[6]);
+    ASSERT_EQ(0, pitch_profile.intervals[7]);
+    ASSERT_EQ(4, pitch_profile.intervals[8]);
+    ASSERT_EQ(7, pitch_profile.intervals[9]);
+    ASSERT_EQ(0, pitch_profile.intervals[10]);
+    ASSERT_EQ(IMUSANT_pitch::tpcUndefined, pitch_profile.intervals[11]);
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, interval_profile_calculateChangeVector)
+{
+    S_IMUSANT_part part;
+    fScore_ParserTest1->getPartById("P2", part);
+    
+    IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
+    IMUSANT_pitch_interval_profile profile;
+    profile.initialise(notes.size());
+    
+    for (int index = 0; index < notes.size(); index++)
+    {
+        profile.addProfileEntry(index, notes);
+    }
+    
+    profile.calculateChangeVector();
+    
+    
+    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[0]));
+    ASSERT_TRUE(equalWithinTollerance(0.100, profile.change_vector[1]));
+    ASSERT_TRUE(equalWithinTollerance(0.125, profile.change_vector[2]));
+    ASSERT_TRUE(equalWithinTollerance(0.166, profile.change_vector[3]));
+    ASSERT_TRUE(equalWithinTollerance(0.111, profile.change_vector[4]));
+    ASSERT_TRUE(equalWithinTollerance(0.333, profile.change_vector[5]));
+    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[6]));
+    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[7]));
+    ASSERT_TRUE(equalWithinTollerance(0.272, profile.change_vector[8]));
+    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[9]));
+    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[10]));
+    
+    
+    
 }
