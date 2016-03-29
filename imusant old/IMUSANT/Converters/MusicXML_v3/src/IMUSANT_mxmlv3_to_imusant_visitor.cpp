@@ -673,7 +673,6 @@ namespace IMUSANT
     visitEnd( S_pitch& elt)
     {
         debug("S_pitch end");
-        fCurrentPitch->setTonalPitchClass();
         fCurrentNote->setPitch(fCurrentPitch);
         fCurrentNote->setType(IMUSANT_NoteType::pitch);
         fInPitchElement = false;

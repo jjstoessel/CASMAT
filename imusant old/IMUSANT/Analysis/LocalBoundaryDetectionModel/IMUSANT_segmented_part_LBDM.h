@@ -20,25 +20,31 @@ namespace IMUSANT
     class IMUSANT_interval_profile
     {
     public:
+        void initialise(vector<float>::size_type number_of_elements);
         vector<float> intervals;
-        
-    private:
-        
-        
+        vector<float> change_vector;
+        vector<float> strength_vector;
+        virtual void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes) {};
+        void calculateChangeVector();
+        void calculateStrengthVector();
     };
     
     class IMUSANT_IOI_interval_profile : public IMUSANT_interval_profile
     {
     public:
-        
         IMUSANT_IOI_interval_profile() {};
-        void initialise(vector<float>::size_type number_of_elements);
-        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> notes);
-        
-    private:
-        
-        vector<float> onsets;
+        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
+
     };
+    
+    class IMUSANT_pitch_interval_profile : public IMUSANT_interval_profile
+    {
+    public:
+        IMUSANT_pitch_interval_profile() {};
+        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
+    };
+
+    
     
     class IMUSANT_segmented_part_LBDM
     {
