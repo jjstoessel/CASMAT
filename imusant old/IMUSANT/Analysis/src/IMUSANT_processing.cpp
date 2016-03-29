@@ -313,16 +313,26 @@ namespace IMUSANT
     {
         vector<IMUSANT_repeated_interval_substring> ret_val;
         
-        if (IDs.size()<=0)  // No fies have been added...
+        if (IDs.size()<=0)  // No files have been added...
         {
             return ret_val;
         }
-        
+#ifdef OLD
         interval_tree tree = build_suffix_tree();
-        
+#endif
+#ifdef NEW
+        interval_tree* tree = build_interval_suffix_tree();
+#endif
+#ifdef DEBUG
+        tree->print(cout);
+#endif
         vector< pair<vector<interval_tree::number>, int> > common_substrings;
+#ifdef OLD
         common_substrings = tree.find_common_subsequences(IDs, min_length);
-        
+#endif
+#ifdef NEW
+        common_substrings = tree->find_common_subsequences(IDs, min_length);
+#endif
         vector< pair<vector<interval_tree::number>, int> >::iterator common_substrings_iter;
         for (common_substrings_iter = common_substrings.begin();
              common_substrings_iter != common_substrings.end();
@@ -338,8 +348,9 @@ namespace IMUSANT
                  substring_iter++)
             {
                 IMUSANT_collection_visitor movement = processed_files[substring_iter->first];
+#ifdef OLD
                 vector<IMUSANT_interval> intervals = movement.getIntervalVector()->getIntervals();
-                
+
                 if (! int_sequence_added_to_ret_value)
                 {
                     // Add the interval sequence into the return value.
@@ -359,32 +370,95 @@ namespace IMUSANT
                                                            range.partID,
                                                            range.first.measure,
                                                            range.first.note_index );
+#endif
+#ifdef NEW
+                //loop through interval vector (*i) for each movement
+                for (auto i = movement.getPartwiseIntervalVectors().begin();
+                     i!=movement.getPartwiseIntervalVectors().end();
+                     i++)
+                {
+                    vector<IMUSANT_interval> intervals = (*i)->getIntervals();
+                    
+                    if (! int_sequence_added_to_ret_value)
+                    {
+                        for (interval_tree::size_type t = substring_iter->second;
+                             t < substring_iter->second + common_substrings_iter->second;
+                             t++)
+                        {
+                            repeated_interval_substring.interval_sequence->add(intervals[t]);
+                        }
+                        int_sequence_added_to_ret_value = true;
+                    }
+                    
+                    IMUSANT_interval interval = intervals[substring_iter->second];
+                    IMUSANT_range range = interval.getLocation();
+                    repeated_interval_substring.add_occurrence(substring_iter->first,
+                                                               range.partID,
+                                                               range.first.measure,
+                                                               range.first.note_index );
+                }
+#endif
             }
             
             ret_val.push_back(repeated_interval_substring);
             
         }
+        
+#ifdef NEW
+        delete tree;
+#endif
         return ret_val;
     }
     
-    
+ #ifdef OLD
     IMUSANT_processing::interval_tree
     IMUSANT_processing::
     build_suffix_tree()
     {
+
         vector<IMUSANT_interval> intervals_from_next_processed_file;
+
         intervals_from_next_processed_file = processed_files[*IDs.begin()].getIntervalVector()->getIntervals();
-        
+
         interval_tree tree(intervals_from_next_processed_file,*IDs.begin());
-        
+
         for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
         {
+
             intervals_from_next_processed_file = processed_files[*j].getIntervalVector()->getIntervals();
             tree.add_sentence(intervals_from_next_processed_file, *j);
         }
         return tree;
     }
+#endif
     
+#ifdef NEW
+    IMUSANT_processing::interval_tree*
+    IMUSANT_processing::
+    build_interval_suffix_tree()
+    {
+        //get first part from first file
+        interval_tree* tree = NULL;
+        
+        for (auto i = IDs.begin(); i!=IDs.end(); i++)
+        {
+            for (auto j = processed_files[*i].getPartwiseIntervalVectors().begin(); j!=processed_files[*i].getPartwiseIntervalVectors().end(); j++)
+            {
+                vector<IMUSANT_interval> part_intervals = (*j)->getIntervals();
+                if (tree==NULL) {
+                    //tree=new interval_tree(part_intervals,*i); part_intervals.back().getOctaves();
+                    tree=new interval_tree(part_intervals,part_intervals.back().getOctaves());
+                }
+                else
+                    //tree->add_sentence(part_intervals, *i); //this won't work since ID must be unique; could use unique terminator as ID
+                    tree->add_sentence(part_intervals,part_intervals.back().getOctaves());
+            }
+        }
+        
+        return tree;
+        
+    }
+ #endif
     void
     IMUSANT_processing::find_repeated_contour_substrings(int min_length)
     {
@@ -436,6 +510,7 @@ namespace IMUSANT
     {
         if (IDs.size()>0)
         {
+#ifdef OLD
             interval_tree tree(processed_files[*IDs.begin()].getIntervalVector()->getIntervals(),*IDs.begin());
             
             for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
@@ -444,6 +519,11 @@ namespace IMUSANT
             }
             
             repeats<vector<IMUSANT_interval> > rep(&tree);
+#endif
+#ifdef NEW
+            interval_tree* tree = build_interval_suffix_tree();
+            repeats<vector<IMUSANT_interval> > rep(tree);
+#endif
             list<repeats<vector<IMUSANT_interval> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
             list<repeats<vector<IMUSANT_interval> >::supermax_node*>::const_iterator q=supermaxs.begin();
             for (; q!=supermaxs.end(); q++)
@@ -455,6 +535,9 @@ namespace IMUSANT
                 cout << " ";
                 cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
             }
+#ifdef NEW
+            delete tree;
+#endif
         }
     }
     
@@ -491,6 +574,7 @@ namespace IMUSANT
     
     void IMUSANT_processing::find_lcs_pairs_intervals(bool consecutive)
     {
+#ifdef OLD
         if (IDs.size()>1)
         {
             for (vector<int>::iterator IDiter1=IDs.begin(); IDiter1!=IDs.end(); IDiter1++)
@@ -579,10 +663,12 @@ namespace IMUSANT
                 }
             }
         }
+#endif
     }
     
     void IMUSANT_processing::find_lcs_pairs_intervals_reverse(bool consecutive)
     {
+#ifdef OLD
         if (IDs.size()>1)
         {
             for (vector<int>::iterator IDiter1=IDs.begin(); IDiter1!=IDs.end(); IDiter1++)
@@ -676,6 +762,7 @@ namespace IMUSANT
                 }
             }
         }
+#endif
     }
     
     //Find longest common subsequence of pitches for pairs of file/works
