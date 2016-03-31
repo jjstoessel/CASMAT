@@ -15,6 +15,8 @@
 #include "libIMUSANT.h"
 #include <boost/filesystem.hpp>
 
+#define VERBOSE //toggle for verbose output
+
 using namespace IMUSANT;
 using namespace boost;
 
@@ -123,18 +125,20 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
     repeated_substrings_result = find_repeated_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
 
     // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
-    // stringstream actual_output;
-    // actual_output << IMUSANT_repeated_interval_substring::output_operator_help();
+#ifdef VERBOSE
+    stringstream actual_output;
+    actual_output << IMUSANT_repeated_interval_substring::output_operator_help();
     
-//    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
-//    {
-//        actual_output << repeated_substrings_result[index];
-//    }
-//    
-//    actual_output << endl;
-//    
-//    cout << actual_output.str();
-//
+    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+    {
+        actual_output << repeated_substrings_result[index];
+    }
+   
+    actual_output << endl;
+
+    cout << actual_output.str();
+#endif
+    
     ASSERT_FALSE(true) << "Repeated Interval Substrings should not span different parts? - Deliberatly failing test (WIP)";
 }
 

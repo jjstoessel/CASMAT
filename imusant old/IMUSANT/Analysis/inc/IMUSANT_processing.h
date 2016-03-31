@@ -51,7 +51,7 @@ public:
 	
 private:
 
-	map<int,IMUSANT_collection_visitor> processed_files;
+	map<int,IMUSANT_collection_visitor> scores;
 	vector<int> IDs;
     
     typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
