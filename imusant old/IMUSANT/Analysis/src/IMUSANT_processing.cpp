@@ -336,7 +336,7 @@ namespace IMUSANT
         vector<int> local_ids;
         
         for (auto i = sentences.begin(); i!=sentences.begin(); i++) {
-            local_ids.push_back((*i).first());
+            //local_ids.push_back((*i).first());
         }
         
         common_substrings = tree->find_common_subsequences(IDs, min_length);

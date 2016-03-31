@@ -345,9 +345,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "441"
-            endingLineNumber = "441"
-            landmarkName = "IMUSANT_processing:: build_interval_suffix_tree()"
-            landmarkType = "5">
+            endingLineNumber = "441">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
