@@ -149,9 +149,12 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
 	//call sub-elements
 	elt->measures().accept(*this);
 #ifdef NEW
-    //stow partwise derived data vectors
-    fCurrentIntervalVector->add(IMUSANT_interval::MakeUniqueInterval()); //add unique terminator
-    fPartwiseIntervalVectors.push_back(fCurrentIntervalVector);
+    //stow partwise derived data vectors, but only if they contain elements
+    if (! fCurrentIntervalVector->getIntervals().empty())
+    {
+        fCurrentIntervalVector->add(IMUSANT_interval::MakeUniqueInterval()); //add unique terminator
+        fPartwiseIntervalVectors.push_back(fCurrentIntervalVector);
+    }
 #endif
 }
 

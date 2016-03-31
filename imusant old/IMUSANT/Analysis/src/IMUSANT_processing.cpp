@@ -331,6 +331,14 @@ namespace IMUSANT
         common_substrings = tree.find_common_subsequences(IDs, min_length);
 #endif
 #ifdef NEW
+        //clunky interim approach until IDs is resolved
+        map<int, vector<IMUSANT_interval> > sentences = tree->get_sentences();
+        vector<int> local_ids;
+        
+        for (auto i = sentences.begin(); i!=sentences.begin(); i++) {
+            local_ids.push_back((*i).first());
+        }
+        
         common_substrings = tree->find_common_subsequences(IDs, min_length);
 #endif
         vector< pair<vector<interval_tree::number>, int> >::iterator common_substrings_iter;

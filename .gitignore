@@ -8,7 +8,6 @@
 *.so
 *.dylib
 *.dsp
- *.xcscheme
 
 # Packages #
 ############
@@ -39,5 +38,4 @@
 ehthumbs.db
 Thumbs.db
 /imusantnb/build/
-*.xcuserstate
 *.xcexplist
