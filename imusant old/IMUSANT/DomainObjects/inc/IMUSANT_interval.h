@@ -83,7 +83,7 @@ namespace IMUSANT
         //getters and setters
         int                 getInterval() { return fInterval; }
         direction           getDirection() { return fDirection; }
-        int                 getOctaves() { return fOctaves; }
+        int                 getOctaves() const { return fOctaves; }
         IMUSANT_range		getLocation() const { return fLocation; }
         //calculated gets
         int                 getNumber() const;

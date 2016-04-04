@@ -15,11 +15,12 @@
 #include "IMUSANT_score.h"
 #include "IMUSANT_collectionvisitor.h"
 #include "IMUSANT_repeated_interval_substring.h"
-
 #include "suffixtree.h"
-
 #include <map>
 #include <vector>
+
+#define NEW
+//#define OLD
 
 using namespace std;
 using namespace boost;
@@ -50,11 +51,16 @@ public:
 	
 private:
 
-	map<int,IMUSANT_collection_visitor> processed_files;
+	map<int,IMUSANT_collection_visitor> scores;
 	vector<int> IDs;
     
     typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
+#ifdef OLD
     interval_tree build_suffix_tree();
+#endif
+#ifdef NEW
+    interval_tree* build_interval_suffix_tree();
+#endif
     
     enum music_file_format {imusant, musicxml1, musicxml3, mei, unknown};
     music_file_format decide_file_type(const filesystem::path& path);
