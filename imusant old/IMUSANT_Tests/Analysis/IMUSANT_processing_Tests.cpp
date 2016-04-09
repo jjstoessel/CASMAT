@@ -145,53 +145,56 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
 
 TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_from_v1_directory)
 {
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = find_repeated_substrings_by_directory("MusicXMLv1.simple_test_data");
-    
-    ASSERT_EQ(48, repeated_substrings_result.size());
-    
-    stringstream actual_output;
-    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
-    {
-        actual_output << repeated_substrings_result[index];
-    }
-    
-    actual_output << endl;
-    
-    //    cout << actual_output.str();
-    //    cout << FindRepeatedIntervalSubstrings_RefactorTest_Expected;
-    
-    ASSERT_EQ(FindRepeatedIntervalSubstrings_RefactorTest_Expected, actual_output.str());
+//    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+//    repeated_substrings_result = find_repeated_substrings_by_directory("MusicXMLv1.simple_test_data");
+//    
+//    ASSERT_EQ(48, repeated_substrings_result.size());
+//    
+//    stringstream actual_output;
+//    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+//    {
+//        actual_output << repeated_substrings_result[index];
+//    }
+//    
+//    actual_output << endl;
+//    
+//    //    cout << actual_output.str();
+//    //    cout << FindRepeatedIntervalSubstrings_RefactorTest_Expected;
+//    
+//    ASSERT_EQ(FindRepeatedIntervalSubstrings_RefactorTest_Expected, actual_output.str());
+    ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
 }
 
 TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing)
 {
-    vector<IMUSANT_repeated_interval_substring> v1_repeated_substrings_result;
-    v1_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv1/Josquin_MSN_Kyrie.xml");
-    
-    vector<IMUSANT_repeated_interval_substring> v3_repeated_substrings_result;
-    v3_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv3/Josquin_MSN_Kyrie_v3_exported_from_v1.xml");
-    
-    ASSERT_EQ(v1_repeated_substrings_result.size(), v3_repeated_substrings_result.size())  << "EXPECTED FAILURE - Output vectors are not the same length.";
-  
-    stringstream v1_actual_output;
-    stringstream v3_actual_output;
-    
-    for(int index = 0 ; index < v1_repeated_substrings_result.size(); index++)
-    {
-        v1_actual_output << v1_repeated_substrings_result[index];
-    }
-    
-    for(int index = 0 ; index < v3_repeated_substrings_result.size(); index++)
-    {
-        v3_actual_output << v3_repeated_substrings_result[index];
-    }
-    
-    ASSERT_EQ(v1_actual_output.str(), v3_actual_output.str()) << "Output strings are not identical.";
+//    vector<IMUSANT_repeated_interval_substring> v1_repeated_substrings_result;
+//    v1_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv1/Josquin_MSN_Kyrie.xml");
+//    
+//    vector<IMUSANT_repeated_interval_substring> v3_repeated_substrings_result;
+//    v3_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv3/Josquin_MSN_Kyrie_v3_exported_from_v1.xml");
+//    
+//    ASSERT_EQ(v1_repeated_substrings_result.size(), v3_repeated_substrings_result.size())  << "EXPECTED FAILURE - Output vectors are not the same length.";
+//  
+//    stringstream v1_actual_output;
+//    stringstream v3_actual_output;
+//    
+//    for(int index = 0 ; index < v1_repeated_substrings_result.size(); index++)
+//    {
+//        v1_actual_output << v1_repeated_substrings_result[index];
+//    }
+//    
+//    for(int index = 0 ; index < v3_repeated_substrings_result.size(); index++)
+//    {
+//        v3_actual_output << v3_repeated_substrings_result[index];
+//    }
+//    
+//    ASSERT_EQ(v1_actual_output.str(), v3_actual_output.str()) << "Output strings are not identical.";
     
     //cout << "V1 ACTUAL:" << endl << v1_actual_output.str() << endl;
     //cout << endl;
     //cout << "V3 ACTUAL:" << endl << v3_actual_output.str() << endl;
+    
+        ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
 }
 
 TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
@@ -199,11 +202,13 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
     // This is a fairly complex file so I'm including a very rough test
     // here just to make sure that the parser covers it.
 
-    string relative_path = "MusicXMLv3.xmlsamples/Telemann.xml";
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
+//    string relative_path = "MusicXMLv3.xmlsamples/Telemann.xml";
+//    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+//    repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
+//    
+//    ASSERT_EQ(299, repeated_substrings_result.size());
     
-    ASSERT_EQ(299, repeated_substrings_result.size());
+            ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
 }
 
 
