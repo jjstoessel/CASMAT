@@ -27,6 +27,10 @@ namespace IMUSANT
     IMUSANT_interval_profile::
     calculateChangeVector()
     {
+        // The degree of change for the first interval is itself.
+        change_vector.push_back(intervals[0]);
+        
+        // The degree of change for subsequent intervals is calculated.
         for (int index = 0; index < intervals.size() - 1; index++)
         {
             float value1 = intervals[index];
@@ -50,7 +54,17 @@ namespace IMUSANT
     IMUSANT_interval_profile::
     calculateStrengthVector()
     {
+        strength_vector.clear();
         
+        for (int index = 0; index < intervals.size() - 1; index++)
+        {
+            float interval_value = intervals[index];
+            float preceding_change_value = change_vector[index];
+            float succeeding_change_value = change_vector[index+1];
+            
+            float boundary_strength = interval_value * (preceding_change_value + succeeding_change_value);
+            strength_vector.push_back(boundary_strength);
+        }
     }
     
     void
@@ -73,10 +87,9 @@ namespace IMUSANT
         
         if (pitch != NULL)
         {
-            int TPC = pitch->getPC();
-            intervals[index] = TPC;
+            int midi_key_number = pitch->getMidiKeyNumber();
+            intervals[index] = midi_key_number;
         }
-        
     }
     
     

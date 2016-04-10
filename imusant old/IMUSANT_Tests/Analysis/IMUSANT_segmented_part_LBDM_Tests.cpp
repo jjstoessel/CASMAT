@@ -19,7 +19,7 @@
 using namespace IMUSANT;
 using namespace boost;
 
-#define VERBOSE = 1;
+// #define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests : public ::testing::Test {
@@ -139,17 +139,17 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
     }
 #endif
     
-    ASSERT_EQ(0, pitch_profile.intervals[0]);
-    ASSERT_EQ(11, pitch_profile.intervals[1]);
-    ASSERT_EQ(9, pitch_profile.intervals[2]);
-    ASSERT_EQ(7, pitch_profile.intervals[3]);
-    ASSERT_EQ(5, pitch_profile.intervals[4]);
-    ASSERT_EQ(4, pitch_profile.intervals[5]);
-    ASSERT_EQ(2, pitch_profile.intervals[6]);
-    ASSERT_EQ(0, pitch_profile.intervals[7]);
-    ASSERT_EQ(4, pitch_profile.intervals[8]);
-    ASSERT_EQ(7, pitch_profile.intervals[9]);
-    ASSERT_EQ(0, pitch_profile.intervals[10]);
+    ASSERT_EQ(72, pitch_profile.intervals[0]);
+    ASSERT_EQ(71, pitch_profile.intervals[1]);
+    ASSERT_EQ(69, pitch_profile.intervals[2]);
+    ASSERT_EQ(67, pitch_profile.intervals[3]);
+    ASSERT_EQ(65, pitch_profile.intervals[4]);
+    ASSERT_EQ(64, pitch_profile.intervals[5]);
+    ASSERT_EQ(62, pitch_profile.intervals[6]);
+    ASSERT_EQ(60, pitch_profile.intervals[7]);
+    ASSERT_EQ(64, pitch_profile.intervals[8]);
+    ASSERT_EQ(67, pitch_profile.intervals[9]);
+    ASSERT_EQ(72, pitch_profile.intervals[10]);
     ASSERT_EQ(IMUSANT_pitch::tpcUndefined, pitch_profile.intervals[11]);
 }
 
@@ -170,18 +170,45 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, interval_profile_calculateChangeVector
     profile.calculateChangeVector();
     
     
-    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[0]));
-    ASSERT_TRUE(equalWithinTollerance(0.100, profile.change_vector[1]));
-    ASSERT_TRUE(equalWithinTollerance(0.125, profile.change_vector[2]));
-    ASSERT_TRUE(equalWithinTollerance(0.166, profile.change_vector[3]));
-    ASSERT_TRUE(equalWithinTollerance(0.111, profile.change_vector[4]));
-    ASSERT_TRUE(equalWithinTollerance(0.333, profile.change_vector[5]));
-    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[6]));
-    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[7]));
-    ASSERT_TRUE(equalWithinTollerance(0.272, profile.change_vector[8]));
-    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[9]));
-    ASSERT_TRUE(equalWithinTollerance(1.000, profile.change_vector[10]));
+    ASSERT_TRUE(equalWithinTollerance(72.000, profile.change_vector[0]));
+    ASSERT_TRUE(equalWithinTollerance(0.0069, profile.change_vector[1]));
+    ASSERT_TRUE(equalWithinTollerance(0.0142, profile.change_vector[2]));
+    ASSERT_TRUE(equalWithinTollerance(0.0147, profile.change_vector[3]));
+    ASSERT_TRUE(equalWithinTollerance(0.0151, profile.change_vector[4]));
+    ASSERT_TRUE(equalWithinTollerance(0.0077, profile.change_vector[5]));
+    ASSERT_TRUE(equalWithinTollerance(0.0158, profile.change_vector[6]));
+    ASSERT_TRUE(equalWithinTollerance(0.0163, profile.change_vector[7]));
+    ASSERT_TRUE(equalWithinTollerance(0.0322, profile.change_vector[8]));
+    ASSERT_TRUE(equalWithinTollerance(0.0229, profile.change_vector[9]));
+    ASSERT_TRUE(equalWithinTollerance(0.0359, profile.change_vector[10]));
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, interval_profile_calculateStrengthVector)
+{
+    S_IMUSANT_part part;
+    fScore_ParserTest1->getPartById("P2", part);
     
+    IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
+    IMUSANT_pitch_interval_profile profile;
+    profile.initialise(notes.size());
     
+    for (int index = 0; index < notes.size(); index++)
+    {
+        profile.addProfileEntry(index, notes);
+    }
     
+    profile.calculateChangeVector();
+    profile.calculateStrengthVector();
+    
+    ASSERT_TRUE(equalWithinTollerance(5184.5039, profile.strength_vector[0]));
+    ASSERT_TRUE(equalWithinTollerance(1.5107, profile.strength_vector[1]));
+    ASSERT_TRUE(equalWithinTollerance(2.0004, profile.strength_vector[2]));
+    ASSERT_TRUE(equalWithinTollerance(2.0004, profile.strength_vector[3]));
+    ASSERT_TRUE(equalWithinTollerance(1.4887, profile.strength_vector[4]));
+    ASSERT_TRUE(equalWithinTollerance(1.5119, profile.strength_vector[5]));
+    ASSERT_TRUE(equalWithinTollerance(2.0005, profile.strength_vector[6]));
+    ASSERT_TRUE(equalWithinTollerance(2.9190, profile.strength_vector[7]));
+    ASSERT_TRUE(equalWithinTollerance(3.5301, profile.strength_vector[8]));
+    ASSERT_TRUE(equalWithinTollerance(3.9444, profile.strength_vector[9]));
+    ASSERT_TRUE(equalWithinTollerance(74.5899, profile.strength_vector[10]));
 }
