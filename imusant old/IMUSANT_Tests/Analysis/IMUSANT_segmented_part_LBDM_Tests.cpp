@@ -183,7 +183,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, interval_profile_calculateChangeVector
     ASSERT_TRUE(equalWithinTollerance(0.0359, profile.change_vector[10]));
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, interval_profile_calculateStrengthVector)
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_interval_profile_P2_calculateStrengthVector)
 {
     S_IMUSANT_part part;
     fScore_ParserTest1->getPartById("P2", part);
@@ -212,3 +212,108 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, interval_profile_calculateStrengthVect
     ASSERT_TRUE(equalWithinTollerance(3.9444, profile.strength_vector[9]));
     ASSERT_TRUE(equalWithinTollerance(74.5899, profile.strength_vector[10]));
 }
+
+const int P1_COUNT = 17;
+const int PITCH = 0;
+const int IOI = 1;
+const int WEIGHTED_AVG = 2;
+
+float strength_part1_expected[P1_COUNT][3] =
+{
+    {5184,  65536,          (5184 + 65536) / 2},
+    {0,     0,              0},
+    {0,     0,              0},
+    {0,     85.3333,        42.6666},
+    {0,     170.6666,       85.3333},
+    {0,     170.6666,       85.3333},
+    {0,     1137.7777,      568.88885},
+    {0,     99.5555,        49.77775},
+    {0,     0,              0},
+    {0,     0,              0},
+    {0,     76.8003,        38.40015},
+    {0,     380.3428,       190.1714},
+    {0,     246.8571,       123.42855},
+    {0,     128.0000,       64},
+    {0,     384.0000,       192},
+    {0,     163.5555,       81.77775},
+    {0,     796.4444,       398.2222}
+};
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_interval_profile_P1_calculateStrengthVector)
+{
+    S_IMUSANT_part part;
+    fScore_ParserTest1->getPartById("P1", part);
+    
+    IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
+    IMUSANT_pitch_interval_profile profile;
+    profile.initialise(notes.size());
+    
+    for (int index = 0; index < notes.size(); index++)
+    {
+        profile.addProfileEntry(index, notes);
+    }
+    
+    profile.calculateChangeVector();
+    profile.calculateStrengthVector();
+    
+    for (int jdex = 0 ; jdex < P1_COUNT; jdex++)
+    {
+        ASSERT_TRUE(equalWithinTollerance(strength_part1_expected[jdex][PITCH], profile.strength_vector[jdex]))
+                << "Failed with jdex = " << jdex
+                << "Expected " << strength_part1_expected[jdex][PITCH]
+                << ". Received " << profile.strength_vector[jdex]
+                << endl;
+    }
+}
+
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, ioi_interval_profile_calculateStrengthVector)
+{
+    S_IMUSANT_part part;
+    fScore_ParserTest1->getPartById("P1", part);
+    
+    IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
+    IMUSANT_IOI_interval_profile profile;
+    profile.initialise(notes.size());
+    
+    for (int index = 0; index < notes.size(); index++)
+    {
+        profile.addProfileEntry(index, notes);
+    }
+    
+    profile.calculateChangeVector();
+    profile.calculateStrengthVector();
+    
+    for (int jdex = 0 ; jdex < P1_COUNT; jdex++)
+    {
+        ASSERT_TRUE(equalWithinTollerance(strength_part1_expected[jdex][IOI], profile.strength_vector[jdex]))
+                << "Failed with jdex = " << jdex
+                << ". Expected " << strength_part1_expected[jdex][IOI]
+                << ". Received " << profile.strength_vector[jdex]
+                << endl;
+    }
+    
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile)
+{
+    S_IMUSANT_part part;
+    fScore_ParserTest1->getPartById("P1", part);
+    
+    IMUSANT_segmented_part_LBDM seg_part(part);
+    
+    vector<float> lbsp = seg_part.getOverallLocalBoundaryStrengthProfile();
+    
+    for (int jdex = 0 ; jdex < P1_COUNT; jdex++)
+    {
+        ASSERT_TRUE(equalWithinTollerance(strength_part1_expected[jdex][WEIGHTED_AVG], lbsp[jdex])) << "Failed with jdex = " << jdex
+                                                                                                    << ". Expected " << strength_part1_expected[jdex][WEIGHTED_AVG]
+                                                                                                    << ". Received " << lbsp[jdex]
+                                                                                                    << endl;
+    }
+    
+}
+
+
+
+

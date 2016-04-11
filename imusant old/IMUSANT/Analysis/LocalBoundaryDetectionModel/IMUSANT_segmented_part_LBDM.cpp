@@ -56,7 +56,8 @@ namespace IMUSANT
     {
         strength_vector.clear();
         
-        for (int index = 0; index < intervals.size() - 1; index++)
+        int index;
+        for (index = 0; index < intervals.size() - 1; index++)
         {
             float interval_value = intervals[index];
             float preceding_change_value = change_vector[index];
@@ -65,6 +66,10 @@ namespace IMUSANT
             float boundary_strength = interval_value * (preceding_change_value + succeeding_change_value);
             strength_vector.push_back(boundary_strength);
         }
+        
+        float last_value_ignoring_succeeding_change_value = intervals[index] * change_vector[index];
+        
+        strength_vector.push_back(last_value_ignoring_succeeding_change_value);
     }
     
     void
@@ -97,6 +102,15 @@ namespace IMUSANT
     // IMUSANT_segmented_part_LBDM
     //
     
+    vector<float> &
+    IMUSANT_segmented_part_LBDM::
+    getOverallLocalBoundaryStrengthProfile()
+    {
+        buildIntervalProfiles();
+        calculateOverallLocalBoundaryStrengthVector();
+        return overall_local_boundary_strength_profile;
+    }
+    
     
     void
     IMUSANT_segmented_part_LBDM::
@@ -111,6 +125,25 @@ namespace IMUSANT
             ioi_interval_profile.addProfileEntry(index, notes);
             pitch_interval_profile.addProfileEntry(index, notes);
         }
+        
+        ioi_interval_profile.calculateChangeVector();
+        pitch_interval_profile.calculateChangeVector();
+        
+        ioi_interval_profile.calculateStrengthVector();
+        pitch_interval_profile.calculateStrengthVector();
     }
     
+    void
+    IMUSANT_segmented_part_LBDM::
+    calculateOverallLocalBoundaryStrengthVector()
+    {
+        overall_local_boundary_strength_profile.clear();
+        
+        float weighted_avg_strength = 0;
+        for (int index = 0; index < ioi_interval_profile.strength_vector.size(); index++)
+        {
+            weighted_avg_strength = (ioi_interval_profile.strength_vector[index] + pitch_interval_profile.strength_vector[index] ) / 2;
+            overall_local_boundary_strength_profile.push_back(weighted_avg_strength);
+        }
+    }
 }

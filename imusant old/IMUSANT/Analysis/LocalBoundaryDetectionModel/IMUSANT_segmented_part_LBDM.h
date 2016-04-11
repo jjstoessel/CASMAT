@@ -55,18 +55,19 @@ namespace IMUSANT
             fPart = the_part;
         }
         
-        IMUSANT_interval_profile getLocalBoundaryStrengthProfile();
+        vector<float>& getOverallLocalBoundaryStrengthProfile();
         
         
     private:
         
         S_IMUSANT_part fPart;
+        vector<float> overall_local_boundary_strength_profile;
         
         const float weight_interonset_interval = 0.5;
         const float weight_pitch = 0.25;
         const float weight_rest = 0.25;
         
-        IMUSANT_interval_profile pitch_interval_profile;
+        IMUSANT_pitch_interval_profile pitch_interval_profile;
         IMUSANT_IOI_interval_profile ioi_interval_profile;
         IMUSANT_interval_profile rest_interval_profile;
         
@@ -74,10 +75,8 @@ namespace IMUSANT
         // Pitch is calculated using a numeric representation of Pitch yet to be implemented.
         // Rests are calculated using the getType propererty of IMUSANT_note.
         void buildIntervalProfiles();
-              
-        void calculateChange();
-        void calculateStrength();
-        void calculateLocalBoundaries();
+        
+        void calculateOverallLocalBoundaryStrengthVector();
     };
 }
 
