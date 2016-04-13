@@ -142,7 +142,13 @@ namespace IMUSANT
         float weighted_avg_strength = 0;
         for (int index = 0; index < ioi_interval_profile.strength_vector.size(); index++)
         {
-            weighted_avg_strength = (ioi_interval_profile.strength_vector[index] + pitch_interval_profile.strength_vector[index] ) / 2;
+            weighted_avg_strength =
+                (
+                 (ioi_interval_profile.strength_vector[index] * fWeightInteronsetInterval)
+                 +
+                 (pitch_interval_profile.strength_vector[index] * fWeightPitch)
+                )
+                / 2;
             overall_local_boundary_strength_profile.push_back(weighted_avg_strength);
         }
     }

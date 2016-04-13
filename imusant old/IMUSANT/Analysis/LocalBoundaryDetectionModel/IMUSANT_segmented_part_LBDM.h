@@ -63,9 +63,9 @@ namespace IMUSANT
         S_IMUSANT_part fPart;
         vector<float> overall_local_boundary_strength_profile;
         
-        const float weight_interonset_interval = 0.5;
-        const float weight_pitch = 0.25;
-        const float weight_rest = 0.25;
+        const float fWeightInteronsetInterval = 0.5;
+        const float fWeightPitch = 0.25;
+        const float fWeightRest = 0.25;
         
         IMUSANT_pitch_interval_profile pitch_interval_profile;
         IMUSANT_IOI_interval_profile ioi_interval_profile;
