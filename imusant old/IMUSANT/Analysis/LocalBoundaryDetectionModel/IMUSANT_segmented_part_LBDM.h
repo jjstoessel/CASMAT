@@ -10,42 +10,15 @@
 #define __imusant__IMUSANT_segmented_part_LBDM__
 
 #include <stdio.h>
+
 #include "IMUSANT_part.h"
+#include "IMUSANT_interval_profile_LBDM.h"
 
 using namespace std;
 
 namespace IMUSANT
 {
-    
-    class IMUSANT_interval_profile
-    {
-    public:
-        void initialise(vector<float>::size_type number_of_elements);
-        vector<float> intervals;
-        vector<float> change_vector;
-        vector<float> strength_vector;
-        virtual void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes) {};
-        void calculateChangeVector();
-        void calculateStrengthVector();
-    };
-    
-    class IMUSANT_IOI_interval_profile : public IMUSANT_interval_profile
-    {
-    public:
-        IMUSANT_IOI_interval_profile() {};
-        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
 
-    };
-    
-    class IMUSANT_pitch_interval_profile : public IMUSANT_interval_profile
-    {
-    public:
-        IMUSANT_pitch_interval_profile() {};
-        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
-    };
-
-    
-    
     class IMUSANT_segmented_part_LBDM
     {
     public:
@@ -57,7 +30,23 @@ namespace IMUSANT
         
         vector<float>& getOverallLocalBoundaryStrengthProfile();
         
-        
+        // This output operator produces output that can be extracted as an array initialisation for
+        // the purposes of test case expected output. The format is as follows:
+        //
+        //   PITCH			IOI			REST			WEIGHTED AVG
+        // {5184,		65536,			0.0000,			17032},             // 0
+        // {0,			0,              0.0000,			0},                 // 1
+        // {0,			0,              0.0000,			0},                 // 2
+        // ...
+        //
+        // Where:
+        // PITCH = The value of the strength vector for the Pitch Interval Profile
+        // IOI = The value of the strength vector for the IOI Interval Profile
+        // REST = The value of the strength vector for the Rest Interval Profile
+        // WEIGHTED AVG = The overall local boundary strength profile.
+        //
+        friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part);
+
     private:
         
         S_IMUSANT_part fPart;

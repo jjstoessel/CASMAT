@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1E08059C1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E08059B1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp */; };
+		1E0D00DB1CBE4F9A0035CA98 /* Yankee_Doodle.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E0D00DA1CBE4F7C0035CA98 /* Yankee_Doodle.xml */; };
+		1E0D00DE1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D00DC1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp */; };
+		1E0D00DF1CC048A50035CA98 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D00DC1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp */; };
 		1E1836291B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E1836281B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp */; };
 		1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E18362A1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp */; };
 		1E2FA2C61B35A517002BB14F /* Josquin_MAF_Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */; };
@@ -416,6 +419,7 @@
 			dstPath = IMUSANT_testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				1E0D00DB1CBE4F9A0035CA98 /* Yankee_Doodle.xml in CopyFiles */,
 				495A50251CA5ABFC006985E2 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */,
 				49D6903C1C8BC96B00EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml in CopyFiles */,
 				1E76912A1C81518500D371D8 /* MusicXML_ParserTest5.xml in CopyFiles */,
@@ -503,6 +507,9 @@
 		08FB7796FE84155DC02AAC07 /* xml2imusant_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xml2imusant_main.cpp; sourceTree = "<group>"; };
 		1E08059B1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_dyadtuple_sequences_Tests.cpp; sourceTree = "<group>"; };
 		1E08059D1B50B8AF00765041 /* CATSMAT_dyadtuple_sequences_Expected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CATSMAT_dyadtuple_sequences_Expected.h; sourceTree = "<group>"; };
+		1E0D00DA1CBE4F7C0035CA98 /* Yankee_Doodle.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Yankee_Doodle.xml; sourceTree = "<group>"; };
+		1E0D00DC1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_interval_profile_LBDM.cpp; path = LocalBoundaryDetectionModel/IMUSANT_interval_profile_LBDM.cpp; sourceTree = "<group>"; };
+		1E0D00DD1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_interval_profile_LBDM.h; path = LocalBoundaryDetectionModel/IMUSANT_interval_profile_LBDM.h; sourceTree = "<group>"; };
 		1E1836281B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = CATSMAT_dyad_sequences_Test.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		1E18362A1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = CATSMAT_test_utility.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		1E18362B1B48C4CF009B5D2C /* CATSMAT_test_utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CATSMAT_test_utility.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -1397,6 +1404,8 @@
 			children = (
 				495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */,
 				495A502A1CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.h */,
+				1E0D00DC1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp */,
+				1E0D00DD1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.h */,
 			);
 			name = LocalBoundaryDetectionModel;
 			sourceTree = "<group>";
@@ -1658,6 +1667,7 @@
 		498D80BA1B9A77F000A673F7 /* MusicXMLv3 */ = {
 			isa = PBXGroup;
 			children = (
+				1E0D00DA1CBE4F7C0035CA98 /* Yankee_Doodle.xml */,
 				495A50231CA5A3A5006985E2 /* LBDM_Segmented_Part_Test_1.xml */,
 				49D6903B1C8BC91900EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml */,
 				1E7691291C81511700D371D8 /* MusicXML_ParserTest5.xml */,
@@ -3117,6 +3127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495A502C1CA5BA76006985E2 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
+				1E0D00DF1CC048A50035CA98 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
 				4970E0481B76E7D50052496C /* IMUSANT_XMLFile.cpp in Sources */,
 				4970E0491B76E7D50052496C /* IMUSANT_XMLReader.cpp in Sources */,
 				4970E04A1B76E7D50052496C /* IMUSANT_XMLVisitor.cpp in Sources */,
@@ -3192,6 +3203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
+				1E0D00DE1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

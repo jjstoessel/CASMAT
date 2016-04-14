@@ -7,97 +7,11 @@
 //
 
 #include "IMUSANT_segmented_part_LBDM.h"
-#include "math.h"
+
+#include <iomanip>
 
 namespace IMUSANT
 {
-    
-    //
-    // INTERVAL PROFILES
-    //
-    
-    void
-    IMUSANT_interval_profile::
-    initialise(vector<float>::size_type number_of_elements)
-    {
-        intervals.assign(number_of_elements, 0);
-    }
-    
-    void
-    IMUSANT_interval_profile::
-    calculateChangeVector()
-    {
-        // The degree of change for the first interval is itself.
-        change_vector.push_back(intervals[0]);
-        
-        // The degree of change for subsequent intervals is calculated.
-        for (int index = 0; index < intervals.size() - 1; index++)
-        {
-            float value1 = intervals[index];
-            float value2 = intervals[index + 1];
-            float degree_of_change = 0;
-            
-            if (value1 + value2 != 0
-                &&
-                value1 >= 0
-                &&
-                value2 >= 0)
-            {
-                degree_of_change = fabs(value1 - value2)  / (value1 + value2);
-            }
-            
-            change_vector.push_back(degree_of_change);
-        }
-    }
-    
-    void
-    IMUSANT_interval_profile::
-    calculateStrengthVector()
-    {
-        strength_vector.clear();
-        
-        int index;
-        for (index = 0; index < intervals.size() - 1; index++)
-        {
-            float interval_value = intervals[index];
-            float preceding_change_value = change_vector[index];
-            float succeeding_change_value = change_vector[index+1];
-            
-            float boundary_strength = interval_value * (preceding_change_value + succeeding_change_value);
-            strength_vector.push_back(boundary_strength);
-        }
-        
-        float last_value_ignoring_succeeding_change_value = intervals[index] * change_vector[index];
-        
-        strength_vector.push_back(last_value_ignoring_succeeding_change_value);
-    }
-    
-    void
-    IMUSANT_IOI_interval_profile::
-    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
-    {
-        // Onset Interval Profile is just a vector containing the duration of each note.
-        intervals[index] = notes[index]->duration()->asAbsoluteNumeric();
-    }
-    
-    void
-    IMUSANT_pitch_interval_profile::
-    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
-    {
-        // Pitch Interval Profile is a vector containing the pitch of each note.
-        // REVISIT - error handling required - this code is not safe.
-        
-        intervals[index] = IMUSANT_pitch::tpcUndefined;
-        S_IMUSANT_pitch pitch = notes[index]->pitch();
-        
-        if (pitch != NULL)
-        {
-            int midi_key_number = pitch->getMidiKeyNumber();
-            intervals[index] = midi_key_number;
-        }
-    }
-    
-    
     //
     // IMUSANT_segmented_part_LBDM
     //
@@ -152,4 +66,38 @@ namespace IMUSANT
             overall_local_boundary_strength_profile.push_back(weighted_avg_strength);
         }
     }
+    
+    ostream&
+    operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part)
+    {
+        IMUSANT_pitch_interval_profile pitch_profile = segmented_part.pitch_interval_profile;
+        IMUSANT_IOI_interval_profile ioi_profile = segmented_part.ioi_interval_profile;
+        
+        string space = "\t\t\t";
+        
+        os.width(10);
+        
+        os << "STRENGTH VECTORS" << endl;
+        os << "{" << endl ;
+        os << "//" << space << "PITCH" << space << "IOI" << space << "REST" << space << "WEIGHTED AVG" << endl;
+        
+        for (int index = 0; index < segmented_part.pitch_interval_profile.strength_vector.size(); index++)
+        {
+            os  << std::setprecision(5) << std::fixed
+                << space << "{"
+                << pitch_profile.strength_vector[index] << "," << space
+                << ioi_profile.strength_vector[index] << "," << space
+                << "0.0000" << "," << space   // REVISIT - The rest vector goes in here.
+                << segmented_part.overall_local_boundary_strength_profile[index]
+                << "}," << space
+                << "// " << index
+                << endl;
+        }
+        
+        os << "}" << endl;
+        
+        return os;
+    }
+
+    
 }
