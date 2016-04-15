@@ -35,11 +35,13 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 		const string& getPartName() { return fPartName; }
 		const string& getPartAbbrev() { return fPartAbbrev; }
 		const string& getID() { return fXMLID; }
+        const int   getDivisions() { return fDivisions; }
 		
 		void	setPartName( const string& partName ) { fPartName = partName; }
 		void	setPartAbbrev( const string& partAbbrev ) { fPartAbbrev = partAbbrev; }
 		void	setVoiceCount(const long voiceCount) { fVoiceCount = voiceCount; } //test variable?
 		void	setID( const string& ID) { fXMLID = ID; }
+        void    setDivisions( int divisions) { fDivisions = divisions; }
 		
 		S_IMUSANT_measure&	getCurrentMeasure() { return fMeasures.back(); }
 		IMUSANT_vector<S_IMUSANT_measure> measures() { return fMeasures; }
@@ -56,10 +58,11 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 	private:
     
 		IMUSANT_vector<S_IMUSANT_measure>	fMeasures;
-		long	fVoiceCount = 0;
+		long                    fVoiceCount = 0;
 		string 					fPartName = "";
         string 					fPartAbbrev = "";
 		string 					fXMLID = "";
+        int                     fDivisions = 1;
 };
 typedef SMARTP<IMUSANT_part> S_IMUSANT_part;
 

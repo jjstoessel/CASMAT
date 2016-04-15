@@ -245,11 +245,15 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, PartsAndMeasures_ParserTest1)
     IMUSANT_vector<S_IMUSANT_measure> pt3_measures = part_list[2]->measures();
     IMUSANT_vector<S_IMUSANT_measure> pt4_measures = part_list[3]->measures();
     
-    
     ASSERT_EQ(NUM_MEASURES_PARSER_TEST_1, pt1_measures.size());
     ASSERT_EQ(NUM_MEASURES_PARSER_TEST_1, pt2_measures.size());
     ASSERT_EQ(NUM_MEASURES_PARSER_TEST_1, pt3_measures.size());
     ASSERT_EQ(NUM_MEASURES_PARSER_TEST_1, pt4_measures.size());
+    
+    ASSERT_EQ(12, part_list[0]->getDivisions());
+    ASSERT_EQ(12, part_list[1]->getDivisions());
+    ASSERT_EQ(12, part_list[2]->getDivisions());
+    ASSERT_EQ(12, part_list[3]->getDivisions());
 }
 
 

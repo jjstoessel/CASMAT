@@ -16,7 +16,7 @@
 namespace IMUSANT
 {
     
-#define debug(method) // cout << "Visiting " << method << endl; fflush(stdout)
+#define debug(method) cout << "Visiting " << method << endl; fflush(stdout)
 
     
     IMUSANT_mxmlv3_to_imusant_visitor::
@@ -139,6 +139,15 @@ namespace IMUSANT
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_divisions &elt)
+    {
+        string divisions_str = elt->getValue();
+        int divisions = atoi(divisions_str.c_str());
+        fCurrentPart->setDivisions(divisions);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_voice &elt)
     {
         debug("S_voice");
@@ -151,7 +160,7 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_clef &elt)
     {
-        debug("S_clef");
+        debug("S_clef Start");
         
         IMUSANT_clef the_clef(IMUSANT_clef::undefined, 0, 0);
         fCurrentClef = the_clef;
@@ -190,7 +199,7 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitEnd( S_clef &elt)
     {
-        debug("End S_clef");
+        debug("S_clef End");
         
         if (fCurrentMeasure != 0)
         {
@@ -547,6 +556,15 @@ namespace IMUSANT
         {
             fCurrentNote->setType(IMUSANT_NoteType::rest);
         }
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart(S_duration& elt)
+    {
+        // REVISIT - WIP S-04441
+        debug("S_duration");
+        string duration = elt->getValue();
     }
     
     void

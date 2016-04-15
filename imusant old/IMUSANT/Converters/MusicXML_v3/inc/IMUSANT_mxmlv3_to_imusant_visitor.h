@@ -50,6 +50,7 @@ namespace IMUSANT
     public visitor<S_part_name>,
     public visitor<S_part_abbreviation>,
     public visitor<S_part>,
+    public visitor<S_divisions>,
     public visitor<S_voice>,
     public visitor<S_clef>,
     public visitor<S_sign>,
@@ -68,6 +69,7 @@ namespace IMUSANT
     public visitor<S_beat_type>,
     public visitor<S_note>,
     public visitor<S_rest>,
+    public visitor<S_duration>,
     public visitor<S_fermata>,
     public visitor<S_type>,
     public visitor<S_dot>,
@@ -116,6 +118,7 @@ namespace IMUSANT
         virtual void visitStart( S_part_abbreviation& elt);
         
         virtual void visitStart( S_part& elt);
+        virtual void visitStart( S_divisions& elt);
         virtual void visitStart( S_voice& elt);
         
         virtual void visitStart( S_clef& elt);
@@ -147,6 +150,7 @@ namespace IMUSANT
         virtual void visitStart( S_note& elt);
         virtual void visitEnd( S_note& elt);
         virtual void visitStart( S_rest& elt);
+        virtual void visitStart( S_duration& elt);
         
         virtual void visitStart( S_fermata& elt);
         
