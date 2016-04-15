@@ -98,5 +98,40 @@ namespace IMUSANT
             intervals[index] = midi_key_number;
         }
     }
+    
+    ostream&
+    operator<< (ostream& os, const IMUSANT_interval_profile& profile)
+    {
+        os << "INTERVALS" << endl;
+        profile.printFloatVector(os, profile.intervals);
+        
+        os << endl << "CHANGE VECTOR" << endl;
+        profile.printFloatVector(os, profile.change_vector);
+        
+        os << endl << "STRENGTH VECTOR" << endl;
+        profile.printFloatVector(os, profile.strength_vector);
+        
+        return os;
+    }
+    
+    ostream&
+    IMUSANT_interval_profile::
+    printFloatVector(ostream& os, const vector<float>& the_vector) const
+    {
+        if (the_vector.size() == 0)
+        {
+            os << "Empty Vector" << endl;
+        }
+        else
+        {
+            os << the_vector[0];
+            for (int index = 1 ; index < the_vector.size(); index++)
+            {
+                os << ", " << the_vector[index];
+            }
+            os << endl;
+        }
+        return os;
+    }
 }
 

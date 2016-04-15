@@ -1402,10 +1402,10 @@
 		495A50281CA5B93F006985E2 /* LocalBoundaryDetectionModel */ = {
 			isa = PBXGroup;
 			children = (
-				495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */,
 				495A502A1CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.h */,
-				1E0D00DC1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp */,
+				495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */,
 				1E0D00DD1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.h */,
+				1E0D00DC1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp */,
 			);
 			name = LocalBoundaryDetectionModel;
 			sourceTree = "<group>";

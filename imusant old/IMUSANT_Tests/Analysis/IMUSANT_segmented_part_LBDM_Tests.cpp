@@ -240,7 +240,11 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_addProfileEntry)
     ASSERT_EQ(384, ioi_profile.intervals[14]);
     ASSERT_EQ(128, ioi_profile.intervals[15]);
     ASSERT_EQ(1024, ioi_profile.intervals[16]);
-              
+    
+#ifdef VERBOSE
+    cout << ioi_profile;
+#endif
+    
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
@@ -260,14 +264,6 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
     
     ASSERT_EQ(12, pitch_profile.intervals.size());
     
-    
-#ifdef VERBOSE
-    for (int index = 0 ; index < pitch_profile.intervals.size() ; index ++ )
-    {
-        cout << pitch_profile.intervals[index] << endl;
-    }
-#endif
-    
     ASSERT_EQ(72, pitch_profile.intervals[0]);
     ASSERT_EQ(71, pitch_profile.intervals[1]);
     ASSERT_EQ(69, pitch_profile.intervals[2]);
@@ -280,6 +276,11 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
     ASSERT_EQ(67, pitch_profile.intervals[9]);
     ASSERT_EQ(72, pitch_profile.intervals[10]);
     ASSERT_EQ(IMUSANT_pitch::tpcUndefined, pitch_profile.intervals[11]);
+    
+    
+#ifdef VERBOSE
+    cout << pitch_profile;
+#endif
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_calculateChangeVector)
@@ -310,6 +311,10 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_calculateChangeVector)
     ASSERT_TRUE(equalWithinTollerance(0.0322, profile.change_vector[8]));
     ASSERT_TRUE(equalWithinTollerance(0.0229, profile.change_vector[9]));
     ASSERT_TRUE(equalWithinTollerance(0.0359, profile.change_vector[10]));
+    
+#ifdef VERBOSE
+    cout << profile;
+#endif
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_P1_calculateStrengthVector)
@@ -337,6 +342,10 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_P1_calculateStrengthVect
                 << ". Received " << profile.strength_vector[jdex]
                 << endl;
     }
+    
+#ifdef VERBOSE
+    cout << profile;
+#endif
 }
 
 
@@ -365,7 +374,11 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_P1_calculateStrengthVector
                 << ". Received " << profile.strength_vector[jdex]
                 << endl;
     }
-    
+
+#ifdef VERBOSE
+    cout << profile;
+#endif
+   
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P1)
@@ -408,6 +421,11 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_P2_calculateStrengthVect
             << ". Received " << profile.strength_vector[jdex]
             << endl;
     }
+    
+#ifdef VERBOSE
+    cout << profile;
+#endif
+
 }
 
 
@@ -436,6 +454,10 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_P2_calculateStrengthVector
         << ". Received " << profile.strength_vector[jdex]
         << endl;
     }
+  
+#ifdef VERBOSE
+    cout << profile;
+#endif
     
 }
 

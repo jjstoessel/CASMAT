@@ -28,11 +28,11 @@ namespace IMUSANT
         void calculateChangeVector();
         void calculateStrengthVector();
         
- //       friend ostream& operator<< (ostream& os, const IMUSANT_interval_profile& profile);
+        friend ostream& operator<< (ostream& os, const IMUSANT_interval_profile& profile);
         
-//    private:
-//        void printVector(ostream& os, vector<float>& the_vector)
-//        
+    private:
+        ostream& printFloatVector(ostream& os, const vector<float>& the_vector) const;
+        
     };
     
     class IMUSANT_IOI_interval_profile : public IMUSANT_interval_profile
