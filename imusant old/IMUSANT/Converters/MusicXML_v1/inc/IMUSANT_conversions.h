@@ -3,13 +3,13 @@
  *  imusant
  *
  *  Created by Jason Stoessel on 13/06/06.
- *  Copyright 2006 __MyCompanyName__. All rights reserved.
+ *  Copyright 2006 UNE. All rights reserved.
  *
  */
 
 /*!
-\brief provides conversions between numeric line types and strings
-*/
+ \brief provides conversions between numeric line types and strings
+ */
 
 #ifndef __IMUSANT_Conversions__
 #define __IMUSANT_Conversions__
@@ -24,40 +24,35 @@ using namespace std;
 
 namespace IMUSANT
 {
-
     // TODO - this class seems to contain dependencies om MusicXML v1.
-class IMUSANT_NoteStyle 
-{
+    class IMUSANT_NoteStyle
+    {
     public:
-	enum type { hidden = 0, normal=1, grace=2, cue=3, count=4 };
-
-    //! convert a numeric start-stop value to a MusicXML string
-    static const string	xml (type d);
-    //! convert a MusicXML string to a numeric value
-    static       type	xml (const string str);
-
+        enum type { hidden = 0, normal=1, grace=2, cue=3, count=4 };
+        
+        static const string	xml (type d);               //! convert a numeric start-stop value to a MusicXML string
+        static       type	xml (const string str);     //! convert a MusicXML string to a numeric value
+        
     private:
-	static bimap<string, type> fType2String;
-	static type 	fTypeTbl[];
-	static string 	fTypeStrings[];        
-};
-
-class IMUSANT_NoteType 
-{
+        static bimap<string, type> fType2String;
+        static type 	fTypeTbl[];
+        static string 	fTypeStrings[];
+    };
+    
+    class IMUSANT_NoteType
+    {
     public:
-	enum type { pitch, rest, nonpitch, count=3 };
-
-    //! convert a numeric start-stop value to a MusicXML string
-    static const string	xml (type d);
-    //! convert a MusicXML string to a numeric value
-    static       type	xml (const string str);
-
+        enum type { pitch, rest, nonpitch, count=3 };
+        
+        static const string	xml (type d);               //! convert a numeric value to a MusicXML string
+        static       type	xml (const string str);     //! convert a MusicXML string to a numeric value
+        
     private:
-	static bimap<string, type> fType2String;
-	static type 	fTypeTbl[];
-	static string 	fTypeStrings[];        
-};
-
+        static bimap<string, type> fType2String;
+        static type 	fTypeTbl[];
+        static string 	fTypeStrings[];
+    };
+    
     class IMUSANT_syllabic
     {
     public:
@@ -68,11 +63,8 @@ class IMUSANT_NoteType
             beginend=begin|end, beginmiddle=begin|middle, middleend=middle|end, count=9
         };
         
-        //! convert a numericvalue to a string
-        static const string	xml (type syll);
-        
-        //! convert a string to a numeric value
-        static       type	xml (const string str);
+        static const string	xml (type syll);            //! convert a numeric value to a string
+        static       type	xml (const string str);     //! convert a string to a numeric value
         
         //convert MusicXML syllabic type to IMUSANT syllabic type
         static		 type	MusicXML2IMUSANTSyllabic(const TLyric::syllabic musicXMLType);
@@ -83,6 +75,6 @@ class IMUSANT_NoteType
         static type	fTypeTbl[];
         static string	fTypeStrings[];
     };
-
+    
 } //namespace IMUSANT
 #endif
