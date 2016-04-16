@@ -132,7 +132,6 @@ namespace IMUSANT
         fMSName = name; //ms_note;
         fInChord = inChord;
         fVoice = voice;
-        fMidiKeyNumber = CalcMidiKeyNumber();
     }
     
     void
@@ -146,7 +145,6 @@ namespace IMUSANT
             throw "IMUSANT_pitch::setAlteration() - Unexpected value for alter.  Expected a number of semitones received " + alter;
         }
         fAlteration = alteration;
-        fMidiKeyNumber = CalcMidiKeyNumber();
     }
     
     void
@@ -160,8 +158,6 @@ namespace IMUSANT
             throw "IMUSANT_pitch::setOctave() - Unexpected value for octave.  Expected range 0-9 but received " + octave;
         }
         fOctave = oct;
-        //reset midi code only
-        fMidiKeyNumber = CalcMidiKeyNumber();
     }
     
     bool
@@ -233,7 +229,7 @@ namespace IMUSANT
     //C4 (middle C) is midi key number 60; is limited to C0
     int
     IMUSANT_pitch::
-    CalcMidiKeyNumber()
+    CalcMidiKeyNumber() const
     {
         int midinumber = -1;
         int pc = CalcPitchClass();

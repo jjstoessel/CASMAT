@@ -68,8 +68,7 @@ namespace IMUSANT
             fOctave(0),
             fInChord(false),
             fVoice(1),
-            fAlteration(natural),
-            fMidiKeyNumber(-1)
+            fAlteration(natural)
         {
         }
         
@@ -95,12 +94,12 @@ namespace IMUSANT
         unsigned short	voice() const       { return fVoice; }
         int             getTPC()            { return CalcTonalPitchClass(fName, fAlteration); }
         int             getPC() const       { return CalcPitchClass(); }         //returns pitch class
-        int             getMidiKeyNumber() const { return fMidiKeyNumber; }   //returns midi key number
+        int             getMidiKeyNumber() const { return CalcMidiKeyNumber(); }   //returns midi key number
         
         //setters
         void			setName(const type name) { fName=name; }
         void            setName(const string name) { fName = xml(name); }
-        void			setAlteration(const sign alter) { fAlteration = alter; fMidiKeyNumber = CalcMidiKeyNumber(); }
+        void			setAlteration(const sign alter) { fAlteration = alter; }
         void            setAlteration(const string alter);   // A number of semitones with +ve being sharp and -ve being flat. No validation performed.
         void			setOctave( const unsigned short octave ) { fOctave = octave; }
         void			setOctave( const string octave );
@@ -142,7 +141,7 @@ namespace IMUSANT
         //alternative pitch representation calculators
         enum TPC        CalcTonalPitchClass(type name, sign alt);
         int             CalcPitchClass() const;
-        int             CalcMidiKeyNumber();
+        int             CalcMidiKeyNumber() const;
         
         type			fName;
         sign            fAlteration;
@@ -155,7 +154,6 @@ namespace IMUSANT
         static bimap<string, type> fPitch2String;
         static type 	fPitchTbl[];
         static string 	fPitchStrings[];
-        int             fMidiKeyNumber; //code to midi keyboard pitch representations
         static int      fLineOf5ths[35][3];
 
     };
