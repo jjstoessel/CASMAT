@@ -16,7 +16,7 @@
 namespace IMUSANT
 {
     
-#define debug(method) cout << "Visiting " << method << endl; fflush(stdout)
+#define debug(method) // cout << "Visiting " << method << endl; fflush(stdout)
 
     
     IMUSANT_mxmlv3_to_imusant_visitor::
@@ -562,9 +562,30 @@ namespace IMUSANT
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart(S_duration& elt)
     {
-        // REVISIT - WIP S-04441
+        //
+        // See VersionOne S-01114.
+        //
+        // See the MusicXML v3 documentation for the "divisions" element,
+        // which is within the "attributes" element on "part".
+        //
+        
         debug("S_duration");
-        string duration = elt->getValue();
+        
+        int duration = atoi(elt->getValue().c_str());
+        TRational duration_rat;
+        duration_rat.set(duration, 1);
+        
+        int divisions = fCurrentPart->getDivisions();
+        TRational divisions_rat;
+        divisions_rat.set(divisions, 1);
+        
+        // (1/4 divided by Divisions) * Duration = Type
+        
+        TRational note_type = (IMUSANT_duration::crochet /  divisions_rat) * duration_rat;
+        
+        note_type.rationalise();
+        
+        fCurrentNoteDurationType = note_type;
     }
     
     void
