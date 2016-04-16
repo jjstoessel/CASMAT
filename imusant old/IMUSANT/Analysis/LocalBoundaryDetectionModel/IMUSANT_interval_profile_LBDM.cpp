@@ -129,7 +129,13 @@ namespace IMUSANT
         // Pitch Interval Profile is a vector containing the pitch of each note.
         // REVISIT - error handling required - this code is not safe.
         
-        intervals[index] = IMUSANT_pitch::tpcUndefined;
+        //
+        // The degree of change from a pitched note to an unpitched note (e.g a rest)
+        // is the pitch of the pitched note.  For example, from C4 (Midi 60) to a rest
+        // is a change of 60.
+        //
+        
+        intervals[index] = 0; 
         S_IMUSANT_pitch pitch = notes[index]->pitch();
         
         if (pitch != NULL)

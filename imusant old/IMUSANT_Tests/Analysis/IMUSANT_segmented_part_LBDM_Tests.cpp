@@ -19,7 +19,7 @@
 using namespace IMUSANT;
 using namespace boost;
 
-// #define VERBOSE = 1;
+#define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests : public ::testing::Test {
@@ -84,6 +84,7 @@ S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_YankeeDoodle = NULL;
 // ************* EXPECTED OUTPUT TABLES *********** //
 const int P1_COUNT = 17;
 const int P2_COUNT = 12;
+const int P3_COUNT = 19;
 const int YANKEEDOODLE_COUNT = 55;
 
 const int PITCH_STRENGTH_EXPECTED = 0;
@@ -116,7 +117,7 @@ float strength_P1_expected[P1_COUNT][4] =
 float strength_P2_expected[P2_COUNT][4] =
 {
     //	PITCH           IOI                 REST			WEIGHTED AVG
-    {5184.50391,		262144.00000,		0.0000,			66184.06250},			// 0
+    {5184.50391,		262144.00000,		0.0000,			66184.06250},		// 0
     {1.51079,			0.00000,			0.0000,			0.18885},			// 1
     {2.00042,			0.00000,			0.0000,			0.25005},			// 2
     {2.00045,			0.00000,			0.0000,			0.25006},			// 3
@@ -127,9 +128,32 @@ float strength_P2_expected[P2_COUNT][4] =
     {3.53016,			0.00000,			0.0000,			0.44127},			// 8
     {3.94442,			0.00000,			0.0000,			0.49305},			// 9
     {74.58991,			0.00000,			0.0000,			9.32374},			// 10
-    {1342177024.00000,	0.00000,			0.0000,			167772128.00000},			// 11
+    {00.00000,          0.00000,			512.0000,      64.00000},           // 11
 };
 
+float strength_P3_expected[P3_COUNT][4] =
+{
+//	PITCH               IOI                 REST                WEIGHTED AVG
+    {2307.26221,		65536.00000,		0.00000,			16672.40820},			// 0
+    {5.27992,			0.00000,			0.00000,			0.65999},               // 1
+    {3.53794,			0.00000,			0.00000,			0.44224},               // 2
+    {49.92000,			153.60001,			0.00000,			44.64000},              // 3
+    {0.00000,           1228.80005,			2048.00000,			563.20001},             // 4
+    {49.92000,			153.60001,			0.00000,			44.64000},              // 5
+    {3.53794,			0.00000,			0.00000,			0.44224},               // 6
+    {3.93336,			0.00000,			0.00000,			0.49167},               // 7
+    {5.21739,			0.00000,			0.00000,			0.65217},               // 8
+    {3.93336,			0.00000,			0.00000,			0.49167},               // 9
+    {53.45795,			85.33334,			0.00000,			28.01558},              // 10
+    {0.00000,           341.33334,			1024.00000,			213.33334},             // 11
+    {120.00000,			85.33334,			0.00000,			36.33334},              // 12
+    {0.00000,           0.00000,			512.00000,			64.00000},              // 13
+    {110.00000,			0.00000,			0.00000,			13.75000},              // 14
+    {0.00000,           0.00000,			512.00000,			64.00000},              // 15
+    {104.00000,			0.00000,			0.00000,			13.00000},              // 16
+    {0.00000,           85.33334,			512.00000,			85.33334},              // 17
+    {48.00000,			170.66667,			0.00000,			48.66667},              // 18
+};
 
 float strength_YD_expected[YANKEEDOODLE_COUNT][4] =
 {
@@ -275,7 +299,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
     ASSERT_EQ(64, pitch_profile.intervals[8]);
     ASSERT_EQ(67, pitch_profile.intervals[9]);
     ASSERT_EQ(72, pitch_profile.intervals[10]);
-    ASSERT_EQ(IMUSANT_pitch::tpcUndefined, pitch_profile.intervals[11]);
+    ASSERT_EQ(0, pitch_profile.intervals[11]);
     
     
 #ifdef VERBOSE
@@ -459,7 +483,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_P2_calculateStrengthVect
     {
         ASSERT_TRUE(equalWithinTollerance(strength_P2_expected[jdex][PITCH_STRENGTH_EXPECTED], profile.strength_vector[jdex]))
             << "Failed with jdex = " << jdex
-            << "Expected " << strength_P2_expected[jdex][PITCH_STRENGTH_EXPECTED]
+            << " Expected " << strength_P2_expected[jdex][PITCH_STRENGTH_EXPECTED]
             << ". Received " << profile.strength_vector[jdex]
             << endl;
     }
@@ -503,6 +527,41 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_P2_calculateStrengthVector
     
 }
 
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, rest_profile_P3_calculateStrengthVector)
+{
+    S_IMUSANT_part part;
+    fScore_LBDM_Test1->getPartById("P3", part);
+    
+    IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
+    IMUSANT_rest_interval_profile profile;
+    profile.initialise(notes.size());
+    
+    for (int index = 0; index < notes.size(); index++)
+    {
+        profile.addProfileEntry(index, notes);
+    }
+    
+    profile.calculateChangeVector();
+    profile.calculateStrengthVector();
+    
+        cout << profile;
+    
+    for (int jdex = 0 ; jdex < P3_COUNT; jdex++)
+    {
+        ASSERT_TRUE(equalWithinTollerance(strength_P3_expected[jdex][REST_STRENGTH_EXPECTED], profile.strength_vector[jdex]))
+        << "Failed with jdex = " << jdex
+        << ". Expected " << strength_P3_expected[jdex][REST_STRENGTH_EXPECTED]
+        << ". Received " << profile.strength_vector[jdex]
+        << endl;
+    }
+    
+#ifdef VERBOSE
+    cout << profile;
+#endif
+    
+}
+
+
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P2)
 {
     vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P2");
@@ -514,6 +573,20 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
             << ". Expected " << strength_P2_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED]
             << ". Received " << lbsp[jdex]
             << endl;
+    }
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P3)
+{
+    vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P3");
+    
+    for (int jdex = 0 ; jdex < P3_COUNT; jdex++)
+    {
+        ASSERT_TRUE(equalWithinTollerance(strength_P3_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED], lbsp[jdex]))
+        << "Failed with jdex = " << jdex
+        << ". Expected " << strength_P3_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED]
+        << ". Received " << lbsp[jdex]
+        << endl;
     }
 }
 

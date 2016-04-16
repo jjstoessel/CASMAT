@@ -67,6 +67,8 @@ namespace IMUSANT
                  (ioi_interval_profile.strength_vector[index] * fWeightInteronsetInterval)
                  +
                  (pitch_interval_profile.strength_vector[index] * fWeightPitch)
+                 +
+                 (rest_interval_profile.strength_vector[index] * fWeightRest)
                 )
                 / 2;
             overall_local_boundary_strength_profile.push_back(weighted_avg_strength);
@@ -78,6 +80,7 @@ namespace IMUSANT
     {
         IMUSANT_pitch_interval_profile pitch_profile = segmented_part.pitch_interval_profile;
         IMUSANT_IOI_interval_profile ioi_profile = segmented_part.ioi_interval_profile;
+        IMUSANT_rest_interval_profile rest_profile = segmented_part.rest_interval_profile;
         
         string space = "\t\t\t";
         
@@ -93,7 +96,7 @@ namespace IMUSANT
                 << space << "{"
                 << pitch_profile.strength_vector[index] << "," << space
                 << ioi_profile.strength_vector[index] << "," << space
-                << "0.0000" << "," << space   // REVISIT - The rest vector goes in here.
+                << rest_profile.strength_vector[index] << "," << space   
                 << segmented_part.overall_local_boundary_strength_profile[index]
                 << "}," << space
                 << "// " << index
