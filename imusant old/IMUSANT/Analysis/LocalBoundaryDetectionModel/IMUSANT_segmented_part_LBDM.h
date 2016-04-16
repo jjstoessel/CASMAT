@@ -33,7 +33,7 @@ namespace IMUSANT
         // This output operator produces output that can be extracted as an array initialisation for
         // the purposes of test case expected output. The format is as follows:
         //
-        //   PITCH			IOI			REST			WEIGHTED AVG
+        // PITCH		IOI             REST			WEIGHTED AVG
         // {5184,		65536,			0.0000,			17032},             // 0
         // {0,			0,              0.0000,			0},                 // 1
         // {0,			0,              0.0000,			0},                 // 2

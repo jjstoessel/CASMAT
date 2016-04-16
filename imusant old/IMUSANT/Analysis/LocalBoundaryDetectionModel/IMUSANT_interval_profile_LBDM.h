@@ -48,7 +48,13 @@ namespace IMUSANT
         IMUSANT_pitch_interval_profile() {};
         void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
     };
-    
+
+    class IMUSANT_rest_interval_profile : public IMUSANT_interval_profile
+    {
+    public:
+        IMUSANT_rest_interval_profile() {};
+        void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
+    };
 }
 
 

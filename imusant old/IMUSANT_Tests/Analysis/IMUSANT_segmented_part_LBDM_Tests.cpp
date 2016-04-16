@@ -19,7 +19,7 @@
 using namespace IMUSANT;
 using namespace boost;
 
-#define VERBOSE = 1;
+// #define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests : public ::testing::Test {
@@ -50,7 +50,7 @@ protected:
     static void SetUpTestCase() {
         _test_utils = new IMUSANT_test_utilities("IMUSANT_testdata");
         
-        fScore_ParserTest1 = _test_utils->initialiseScoreFromFile("LBDM_Segmented_Part_Test_1.xml");
+        fScore_LBDM_Test1 = _test_utils->initialiseScoreFromFile("LBDM_Segmented_Part_Test_1.xml");
         fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("Yankee_Doodle.xml");
     }
     
@@ -70,13 +70,13 @@ protected:
     }
     
     static IMUSANT_test_utilities * _test_utils;
-    static S_IMUSANT_score fScore_ParserTest1;
+    static S_IMUSANT_score fScore_LBDM_Test1;
     static S_IMUSANT_score fScore_YankeeDoodle;
     
 };
 
 IMUSANT_test_utilities * IMUSANT_segmented_part_LBDM_Tests::_test_utils = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_ParserTest1 = NULL;
+S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_LBDM_Test1 = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_YankeeDoodle = NULL;
 
 
@@ -211,7 +211,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_addProfileEntry)
 {
     S_IMUSANT_part part;
-    fScore_ParserTest1->getPartById("P1", part);
+    fScore_LBDM_Test1->getPartById("P1", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
     IMUSANT_IOI_interval_profile ioi_profile;
@@ -250,7 +250,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_addProfileEntry)
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
 {
     S_IMUSANT_part part;
-    fScore_ParserTest1->getPartById("P2", part);
+    fScore_LBDM_Test1->getPartById("P2", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
     IMUSANT_pitch_interval_profile pitch_profile;
@@ -283,10 +283,52 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_addProfileEntry)
 #endif
 }
 
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, rest_profile_addProfileEntry)
+{
+    S_IMUSANT_part part;
+    fScore_LBDM_Test1->getPartById("P3", part);
+    
+    IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
+    IMUSANT_rest_interval_profile rest_profile;
+    rest_profile.initialise(notes.size());
+    
+    for (int index = 0; index < notes.size(); index++)
+    {
+        rest_profile.addProfileEntry(index, notes);
+    }
+    
+    ASSERT_EQ(19, rest_profile.intervals.size());
+    ASSERT_EQ(0, rest_profile.intervals[0]);
+    ASSERT_EQ(0, rest_profile.intervals[1]);
+    ASSERT_EQ(0, rest_profile.intervals[2]);
+    ASSERT_EQ(0, rest_profile.intervals[3]);
+    ASSERT_EQ(1024, rest_profile.intervals[4]);
+    ASSERT_EQ(0, rest_profile.intervals[5]);
+    ASSERT_EQ(0, rest_profile.intervals[6]);
+    ASSERT_EQ(0, rest_profile.intervals[7]);
+    ASSERT_EQ(0, rest_profile.intervals[8]);
+    ASSERT_EQ(0, rest_profile.intervals[9]);
+    ASSERT_EQ(0, rest_profile.intervals[10]);
+    ASSERT_EQ(512, rest_profile.intervals[11]);
+    ASSERT_EQ(0, rest_profile.intervals[12]);
+    ASSERT_EQ(256, rest_profile.intervals[13]);
+    ASSERT_EQ(0, rest_profile.intervals[14]);
+    ASSERT_EQ(256, rest_profile.intervals[15]);
+    ASSERT_EQ(0, rest_profile.intervals[16]);
+    ASSERT_EQ(256, rest_profile.intervals[17]);
+    ASSERT_EQ(0, rest_profile.intervals[18]);
+    
+#ifdef VERBOSE
+    cout << rest_profile;
+#endif
+    
+}
+
+
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_calculateChangeVector)
 {
     S_IMUSANT_part part;
-    fScore_ParserTest1->getPartById("P2", part);
+    fScore_LBDM_Test1->getPartById("P2", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
     IMUSANT_pitch_interval_profile profile;
@@ -320,7 +362,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_calculateChangeVector)
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_P1_calculateStrengthVector)
 {
     S_IMUSANT_part part;
-    fScore_ParserTest1->getPartById("P1", part);
+    fScore_LBDM_Test1->getPartById("P1", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
     IMUSANT_pitch_interval_profile profile;
@@ -352,7 +394,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_P1_calculateStrengthVect
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_P1_calculateStrengthVector)
 {
     S_IMUSANT_part part;
-    fScore_ParserTest1->getPartById("P1", part);
+    fScore_LBDM_Test1->getPartById("P1", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
     IMUSANT_IOI_interval_profile profile;
@@ -383,7 +425,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_P1_calculateStrengthVector
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P1)
 {
-    vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_ParserTest1, "P1");
+    vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P1");
 
     for (int jdex = 0 ; jdex < P1_COUNT; jdex++)
     {
@@ -399,7 +441,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_P2_calculateStrengthVector)
 {
     S_IMUSANT_part part;
-    fScore_ParserTest1->getPartById("P2", part);
+    fScore_LBDM_Test1->getPartById("P2", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
     IMUSANT_pitch_interval_profile profile;
@@ -432,7 +474,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, pitch_profile_P2_calculateStrengthVect
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_P2_calculateStrengthVector)
 {
     S_IMUSANT_part part;
-    fScore_ParserTest1->getPartById("P2", part);
+    fScore_LBDM_Test1->getPartById("P2", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
     IMUSANT_IOI_interval_profile profile;
@@ -463,7 +505,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, IOI_profile_P2_calculateStrengthVector
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P2)
 {
-    vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_ParserTest1, "P2");
+    vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P2");
 
     for (int jdex = 0 ; jdex < P2_COUNT; jdex++)
     {
@@ -488,4 +530,6 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
         << endl;
     }
 }
+
+
 

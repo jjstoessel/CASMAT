@@ -74,31 +74,6 @@ namespace IMUSANT
         strength_vector.push_back(last_value_ignoring_succeeding_change_value);
     }
     
-    void
-    IMUSANT_IOI_interval_profile::
-    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
-    {
-        // Onset Interval Profile is just a vector containing the duration of each note.
-        intervals[index] = notes[index]->duration()->asAbsoluteNumeric();
-    }
-    
-    void
-    IMUSANT_pitch_interval_profile::
-    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
-    {
-        // Pitch Interval Profile is a vector containing the pitch of each note.
-        // REVISIT - error handling required - this code is not safe.
-        
-        intervals[index] = IMUSANT_pitch::tpcUndefined;
-        S_IMUSANT_pitch pitch = notes[index]->pitch();
-        
-        if (pitch != NULL)
-        {
-            int midi_key_number = pitch->getMidiKeyNumber();
-            intervals[index] = midi_key_number;
-        }
-    }
-    
     ostream&
     operator<< (ostream& os, const IMUSANT_interval_profile& profile)
     {
@@ -133,5 +108,54 @@ namespace IMUSANT
         }
         return os;
     }
+
+
+    
+    // ****** IOI Interval Profile ******** //
+    
+    void
+    IMUSANT_IOI_interval_profile::
+    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
+    {
+        // Onset Interval Profile is just a vector containing the duration of each note.
+        intervals[index] = notes[index]->duration()->asAbsoluteNumeric();
+    }
+  
+    // ******** PITCH Interval Profile ******** //
+    void
+    IMUSANT_pitch_interval_profile::
+    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
+    {
+        // Pitch Interval Profile is a vector containing the pitch of each note.
+        // REVISIT - error handling required - this code is not safe.
+        
+        intervals[index] = IMUSANT_pitch::tpcUndefined;
+        S_IMUSANT_pitch pitch = notes[index]->pitch();
+        
+        if (pitch != NULL)
+        {
+            int midi_key_number = pitch->getMidiKeyNumber();
+            intervals[index] = midi_key_number;
+        }
+    }
+    
+    // ******** REST Interval Profile ******** //
+    void
+    IMUSANT_rest_interval_profile::
+    addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
+    {
+        // Rest Interval Profile is a vector containing the ???? of each rest.
+        // REVISIT - error handling required - this code is not safe.
+        
+        if (notes[index]->getType() == IMUSANT_NoteType::rest)
+        {
+            intervals[index] = notes[index]->duration()->asAbsoluteNumeric();;
+        }
+        else
+        {
+            intervals[index] = 0;
+        }
+    }
+    
 }
 

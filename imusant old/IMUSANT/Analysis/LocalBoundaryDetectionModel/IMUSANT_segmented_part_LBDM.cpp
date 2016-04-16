@@ -31,20 +31,26 @@ namespace IMUSANT
     buildIntervalProfiles()
     {
         IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
+        
         ioi_interval_profile.initialise(notes.size());
         pitch_interval_profile.initialise(notes.size());
+        rest_interval_profile.initialise(notes.size());
         
         for (int index = 0; index < notes.size(); index++)
         {
             ioi_interval_profile.addProfileEntry(index, notes);
             pitch_interval_profile.addProfileEntry(index, notes);
+            rest_interval_profile.addProfileEntry(index, notes);
         }
         
         ioi_interval_profile.calculateChangeVector();
         pitch_interval_profile.calculateChangeVector();
+        rest_interval_profile.calculateChangeVector();
         
         ioi_interval_profile.calculateStrengthVector();
         pitch_interval_profile.calculateStrengthVector();
+        rest_interval_profile.calculateStrengthVector();
+        
     }
     
     void
