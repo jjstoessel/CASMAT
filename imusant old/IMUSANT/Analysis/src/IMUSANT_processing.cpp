@@ -55,7 +55,7 @@ namespace IMUSANT
     
     void
     IMUSANT_processing::
-    process_directory_files(const filesystem::path& full_path)
+    processDirectoryFiles(const filesystem::path& full_path)
     {
         string xml_extn = ".xml";
         
@@ -70,7 +70,7 @@ namespace IMUSANT
                 
                 if (extn.compare(xml_extn) == 0)
                 {
-                    add_file(*iter);
+                    addFile(*iter);
                 }
             }
         }
@@ -78,28 +78,28 @@ namespace IMUSANT
     
     S_IMUSANT_score
     IMUSANT_processing::
-    add_file(const filesystem::path& path)
+    addFile(const filesystem::path& path)
     {
         // All the IMUSANT objects (such as IMUSANT_interval) inherit from SMARTTABLE or use SMARTP which are MusicXML v1 objects.
         // Not sure that this is a problem at this point, but something to be aware of.
         
         IMUSANT_processing::music_file_format file_format;
-        file_format = decide_file_type(path);
+        file_format = decideFileType(path);
         
         S_IMUSANT_score ret_val;
         
         switch (file_format)
         {
             case musicxml1:
-                ret_val = process_musicxml1_file(path);
+                ret_val = processMusicxml1File(path);
                 break;
                 
             case musicxml3:
-                ret_val = process_musicxml3_file(path);
+                ret_val = processMusicxml3File(path);
                 break;
                 
             case imusant:
-                ret_val = process_imusant_file(path);
+                ret_val = processImusantFile(path);
                 break;
                 
             case unknown:
@@ -112,7 +112,7 @@ namespace IMUSANT
                 
         }
         
-        create_collection_visitor_for_score(ret_val);
+        createCollectionVisitorForScore(ret_val);
         scores.push_back(ret_val);
         
         return ret_val;
@@ -120,7 +120,7 @@ namespace IMUSANT
     
     void
     IMUSANT_processing::
-    create_collection_visitor_for_score(const S_IMUSANT_score score)
+    createCollectionVisitorForScore(const S_IMUSANT_score score)
     {
         //ensure unique ID
         int i = 1;
@@ -138,7 +138,7 @@ namespace IMUSANT
     
     vector<string>
     IMUSANT_processing::
-    list_works_and_movements()
+    listWorksAndMovements()
     {
         vector<string> ret_val;
         
@@ -164,7 +164,7 @@ namespace IMUSANT
     
     IMUSANT_processing::music_file_format
     IMUSANT_processing::
-    decide_file_type(const filesystem::path& path)
+    decideFileType(const filesystem::path& path)
     {
         IMUSANT_processing::music_file_format return_val = unknown;
         
@@ -224,7 +224,7 @@ namespace IMUSANT
         
     S_IMUSANT_score
     IMUSANT_processing::
-    process_musicxml1_file(const filesystem::path& path)
+    processMusicxml1File(const filesystem::path& path)
     {
         // This is a IMUSANT object which derives from a MusicXML v1 object.
         TXML2IMUSANTVisitor c;
@@ -256,7 +256,7 @@ namespace IMUSANT
     
     S_IMUSANT_score
     IMUSANT_processing::
-    process_musicxml3_file(const filesystem::path& path)
+    processMusicxml3File(const filesystem::path& path)
     {
         string file_path = path.generic_string();
        // cout << "IMUSANT_processing::process_musicxml3_file() - File: " << file_path << endl;
@@ -285,7 +285,7 @@ namespace IMUSANT
     
     S_IMUSANT_score
     IMUSANT_processing::
-    process_imusant_file(const filesystem::path& path)
+    processImusantFile(const filesystem::path& path)
     {
         // TODO - this doesn't do anything at the moment...
         
@@ -298,10 +298,11 @@ namespace IMUSANT
     }
     
     string
-    IMUSANT_processing::find_and_print_repeated_interval_substrings(int min_length)
+    IMUSANT_processing::
+    findAndPrintRepeatedIntervalSubstrings(int min_length)
     {
         vector<IMUSANT_repeated_interval_substring> the_result;
-        the_result = find_repeated_interval_substrings(min_length);
+        the_result = findRepeatedIntervalSubstrings(min_length);
         
         stringstream the_result_as_stringstream;
         for(int index = 0 ; index < the_result.size(); index++)
@@ -316,7 +317,7 @@ namespace IMUSANT
     
     vector<IMUSANT_repeated_interval_substring>
     IMUSANT_processing::
-    find_repeated_interval_substrings(int min_length)
+    findRepeatedIntervalSubstrings(int min_length)
     {
         vector<IMUSANT_repeated_interval_substring> ret_val;
         
@@ -328,7 +329,7 @@ namespace IMUSANT
         interval_tree tree = build_suffix_tree();
 #endif
 #ifdef NEW
-        interval_tree* tree = build_interval_suffix_tree();
+        interval_tree* tree = buildIntervalSuffixTree();
 #endif
 #ifdef DEBUG
         tree->print(cout);
@@ -462,7 +463,7 @@ namespace IMUSANT
 #ifdef NEW
     IMUSANT_processing::interval_tree*
     IMUSANT_processing::
-    build_interval_suffix_tree()
+    buildIntervalSuffixTree()
     {
         //get first part from first file
         interval_tree* tree = NULL;
@@ -487,7 +488,7 @@ namespace IMUSANT
     }
  #endif
     void
-    IMUSANT_processing::find_repeated_contour_substrings(int min_length)
+    IMUSANT_processing::findRepeatedContourSubstrings(int min_length)
     {
         if (IDs.size()>0)
         {
@@ -533,7 +534,7 @@ namespace IMUSANT
         }
     }
     
-    void IMUSANT_processing::find_supermaximals_intervals(int min_length, int min_percent)
+    void IMUSANT_processing::findSupermaximalsIntervals(int min_length, int min_percent)
     {
         if (IDs.size()>0)
         {
@@ -548,7 +549,7 @@ namespace IMUSANT
             repeats<vector<IMUSANT_interval> > rep(&tree);
 #endif
 #ifdef NEW
-            interval_tree* tree = build_interval_suffix_tree();
+            interval_tree* tree = buildIntervalSuffixTree();
             repeats<vector<IMUSANT_interval> > rep(tree);
 #endif
             list<repeats<vector<IMUSANT_interval> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
@@ -568,7 +569,9 @@ namespace IMUSANT
         }
     }
     
-    void IMUSANT_processing::find_supermaximals_contours(int min_length, int min_percent)
+    void
+    IMUSANT_processing::
+    findSupermaximalsContours(int min_length, int min_percent)
     {
         if (IDs.size()>0)
         {
@@ -599,7 +602,9 @@ namespace IMUSANT
     // Pattern MAtching and text compression algorithms, available from:
     // http://www-igm.univ-mlv.fr/~mac/REC/DOC/03-CRC.ps
     
-    void IMUSANT_processing::find_lcs_pairs_intervals(bool consecutive)
+    void
+    IMUSANT_processing::
+    findLcsPairsIntervals(bool consecutive)
     {
 #ifdef OLD
         if (IDs.size()>1)
@@ -693,7 +698,9 @@ namespace IMUSANT
 #endif
     }
     
-    void IMUSANT_processing::find_lcs_pairs_intervals_reverse(bool consecutive)
+    void
+    IMUSANT_processing::
+    findLcsPairsIntervalsReverse(bool consecutive)
     {
 #ifdef OLD
         if (IDs.size()>1)
@@ -793,7 +800,9 @@ namespace IMUSANT
     }
     
     //Find longest common subsequence of pitches for pairs of file/works
-    void IMUSANT_processing::find_lcs_pairs_pitches(bool consecutive)
+    void
+    IMUSANT_processing::
+    findLcsPairsPitches(bool consecutive)
     {
         if (IDs.size()>1)
         {
@@ -858,7 +867,7 @@ namespace IMUSANT
     
     void
     IMUSANT_processing::
-    find_melodic_segments_LBDM()
+    findMelodicSegments_LBDM()
     {
         // We have >1 score, each of which may have >1 part.
 

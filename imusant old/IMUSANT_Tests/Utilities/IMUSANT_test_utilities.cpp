@@ -17,7 +17,7 @@ initialiseScoreFromFile(string relative_path)
     filesystem::path file_path = makePathToTestFile(relative_path);
     
     IMUSANT_processing parser;
-    S_IMUSANT_score parser_test_score = parser.add_file(file_path);
+    S_IMUSANT_score parser_test_score = parser.addFile(file_path);
     return parser_test_score;
 }
 

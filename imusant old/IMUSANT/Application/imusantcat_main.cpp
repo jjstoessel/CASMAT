@@ -91,7 +91,7 @@ int main (int argc, char * const argv[]) {
 				}
 				if (filesystem::is_directory( full_path ) )
 				{
-					processor.process_directory_files(full_path);
+					processor.processDirectoryFiles(full_path);
 					cout << "Data files loaded into memory." << endl << endl;
 					runToolMenu (processor);
 					end = true;
@@ -110,7 +110,7 @@ int main (int argc, char * const argv[]) {
 						}
 						else if (!filesystem::is_directory( full_path ) )
 						{
-							processor.add_file(full_path);
+							processor.addFile(full_path);
 						}
 						cout << "Add another file? (y/n):";
 						
@@ -199,45 +199,44 @@ void runToolMenu(IMUSANT_processing& processor)
 			case '1':
 				cout << "Enter minimum length: ";
 				cin >> length;
-				cout << processor.find_and_print_repeated_interval_substrings(length);
+				cout << processor.findAndPrintRepeatedIntervalSubstrings(length);
 				break;
 			case '2':
 				cout << "Enter minimum length: ";
 				cin >> length;
-				processor.find_repeated_contour_substrings(length);
+				processor.findRepeatedContourSubstrings(length);
 				break;
 			case '3':
-				processor.find_supermaximals_intervals(4,100);
+				processor.findSupermaximalsIntervals(4,100);
 				break;
 			case '4':
-				processor.find_supermaximals_contours(4,100);
+				processor.findSupermaximalsContours(4,100);
 				break;
 			case '5':
 				cout << "Only find continguous segments? (y/n) ";
 				cin >> yn;
 				if (yn == 'y') continguous = true;
-				processor.find_lcs_pairs_intervals(continguous);
+				processor.findLcsPairsIntervals(continguous);
 				break;
 			case '6':
 				cout << "Only find continguous segments? (y/n) ";
 				cin >> yn;
 				if (yn == 'y') continguous = true;
-				processor.find_lcs_pairs_intervals_reverse(continguous);
+				processor.findLcsPairsIntervalsReverse(continguous);
 				break;
 			case '7':
 				cout << "Only find continguous segments? (y/n) ";
 				cin >> yn;
 				if (yn == 'y') continguous = true;
-				processor.find_lcs_pairs_pitches(continguous);
+				processor.findLcsPairsPitches(continguous);
 				break;
 			case '8':	
-				processor.find_repeated_interval_substrings();
-				processor.find_repeated_contour_substrings();
-				processor.find_supermaximals_intervals(4,100);
-				processor.find_supermaximals_contours(4,100);
-				processor.find_lcs_pairs_intervals(false);
-				processor.find_lcs_pairs_pitches(false);
-				processor.find_lcs_pairs_intervals_reverse(false);
+				processor.findRepeatedIntervalSubstrings();
+				processor.findSupermaximalsIntervals(4,100);
+				processor.findSupermaximalsContours(4,100);
+				processor.findLcsPairsIntervals(false);
+				processor.findLcsPairsPitches(false);
+				processor.findLcsPairsIntervalsReverse(false);
 				break;
 		}
 		cout << "Run another test? (y/n): ";

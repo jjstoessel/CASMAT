@@ -75,10 +75,10 @@ find_repeated_substrings_by_file(string relative_path_to_test_data_file)
     
     IMUSANT_processing *the_processor = new IMUSANT_processing();
     
-    the_processor->add_file(testdata);
+    the_processor->addFile(testdata);
     
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = the_processor->find_repeated_interval_substrings();
+    repeated_substrings_result = the_processor->findRepeatedIntervalSubstrings();
     
     return repeated_substrings_result;
 }
@@ -106,10 +106,10 @@ find_repeated_substrings_by_directory(string relative_path_to_test_data_director
     
     IMUSANT_processing *the_processor = new IMUSANT_processing();
     
-    the_processor->process_directory_files(testdata);
+    the_processor->processDirectoryFiles(testdata);
     
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = the_processor->find_repeated_interval_substrings();
+    repeated_substrings_result = the_processor->findRepeatedIntervalSubstrings();
     
     return repeated_substrings_result;
 }

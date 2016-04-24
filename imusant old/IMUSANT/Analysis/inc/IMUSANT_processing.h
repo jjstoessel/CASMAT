@@ -34,23 +34,21 @@ class IMUSANT_processing
 public:
 	IMUSANT_processing() {}
 	
-	void	process_directory_files(const filesystem::path& full_path);
-	S_IMUSANT_score	add_file(const filesystem::path& path);
+	void	processDirectoryFiles(const filesystem::path& full_path);
+	S_IMUSANT_score	addFile(const filesystem::path& path);
     
-    vector<S_IMUSANT_score> get_scores();
-    vector<string> list_works_and_movements();
+    const vector<S_IMUSANT_score> getScores() { return scores; }
+    vector<string> listWorksAndMovements();
     
-	string	find_and_print_repeated_interval_substrings(int min_length=4);
-    vector<IMUSANT_repeated_interval_substring> find_repeated_interval_substrings(int min_length=4);
-	void	find_repeated_contour_substrings(int min_length=5);
-	void	find_repeated_interval_subsequences(int min_length=4);
-	void	find_repeated_contour_subsequences(int min_length=5);
-	void	find_supermaximals_intervals(int min_length, int min_percent);
-	void	find_supermaximals_contours(int min_length, int min_percent);
-	void	find_lcs_pairs_intervals(bool consecutive=true);
-	void	find_lcs_pairs_intervals_reverse(bool consecutive=true);
-	void	find_lcs_pairs_pitches(bool consecutive=true);
-    void	find_melodic_segments_LBDM();
+	string	findAndPrintRepeatedIntervalSubstrings(int min_length=4);
+    vector<IMUSANT_repeated_interval_substring> findRepeatedIntervalSubstrings(int min_length=4);
+	void	findRepeatedContourSubstrings(int min_length=5);
+	void	findSupermaximalsIntervals(int min_length, int min_percent);
+	void	findSupermaximalsContours(int min_length, int min_percent);
+	void	findLcsPairsIntervals(bool consecutive=true);
+	void	findLcsPairsIntervalsReverse(bool consecutive=true);
+	void	findLcsPairsPitches(bool consecutive=true);
+    void	findMelodicSegments_LBDM();
 	
 private:
     
@@ -58,23 +56,23 @@ private:
 
 	map<int,IMUSANT_collection_visitor> collection_visitors;    // One collection visditor for each score.
 	vector<int> IDs;                                            // Index into collection_visitors.
-    void create_collection_visitor_for_score(const S_IMUSANT_score score);
+    void createCollectionVisitorForScore(const S_IMUSANT_score score);
     
     typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
     
 #ifdef OLD
-    interval_tree build_suffix_tree();
+    interval_tree buildSuffixTree();
 #endif
 #ifdef NEW
-    interval_tree* build_interval_suffix_tree();
+    interval_tree* buildIntervalSuffixTree();
 #endif
     
     enum music_file_format {imusant, musicxml1, musicxml3, mei, unknown};
-    music_file_format decide_file_type(const filesystem::path& path);
+    music_file_format decideFileType(const filesystem::path& path);
     
-    S_IMUSANT_score process_musicxml1_file(const filesystem::path& path);
-    S_IMUSANT_score process_musicxml3_file(const filesystem::path& path);
-    S_IMUSANT_score process_imusant_file(const filesystem::path& path);
+    S_IMUSANT_score processMusicxml1File(const filesystem::path& path);
+    S_IMUSANT_score processMusicxml3File(const filesystem::path& path);
+    S_IMUSANT_score processImusantFile(const filesystem::path& path);
 };
 
 } //namespace IMUSANT

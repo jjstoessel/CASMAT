@@ -133,7 +133,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MXMLv3_Dichterliebe01)
     filesystem::path file_path = _test_utils->makePathToTestFile(relative_path);
     
     IMUSANT_processing parser;
-    S_IMUSANT_score score = parser.add_file(file_path);
+    S_IMUSANT_score score = parser.addFile(file_path);
     
     ASSERT_EQ(score->getWorkNum(),  "Op. 48");
     ASSERT_EQ(score->getWorkTitle(), "Dichterliebe");
