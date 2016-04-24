@@ -36,6 +36,8 @@ public:
 	
 	void	process_directory_files(const filesystem::path& full_path);
 	S_IMUSANT_score	add_file(const filesystem::path& path);
+    
+    vector<S_IMUSANT_score> get_scores();
     vector<string> list_works_and_movements();
     
 	string	find_and_print_repeated_interval_substrings(int min_length=4);
@@ -51,11 +53,15 @@ public:
     void	find_melodic_segments_LBDM();
 	
 private:
+    
+    vector<S_IMUSANT_score> scores;                             // One score for each file that has been added.
 
-	map<int,IMUSANT_collection_visitor> scores;
-	vector<int> IDs;
+	map<int,IMUSANT_collection_visitor> collection_visitors;    // One collection visditor for each score.
+	vector<int> IDs;                                            // Index into collection_visitors.
+    void create_collection_visitor_for_score(const S_IMUSANT_score score);
     
     typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
+    
 #ifdef OLD
     interval_tree build_suffix_tree();
 #endif
