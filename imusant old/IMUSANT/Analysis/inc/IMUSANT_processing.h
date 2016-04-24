@@ -20,7 +20,7 @@
 #include <vector>
 
 #define NEW
-//#define OLD
+// #define OLD   ----- This doesn't compile any more.
 
 using namespace std;
 using namespace boost;

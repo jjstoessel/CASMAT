@@ -326,7 +326,7 @@ namespace IMUSANT
             return ret_val;
         }
 #ifdef OLD
-        interval_tree tree = build_suffix_tree();
+        interval_tree tree = buildSuffixTree();
 #endif
 #ifdef NEW
         interval_tree* tree = buildIntervalSuffixTree();
@@ -441,7 +441,7 @@ namespace IMUSANT
  #ifdef OLD
     IMUSANT_processing::interval_tree
     IMUSANT_processing::
-    build_suffix_tree()
+    buildSuffixTree()
     {
 
         vector<IMUSANT_interval> intervals_from_next_processed_file;
