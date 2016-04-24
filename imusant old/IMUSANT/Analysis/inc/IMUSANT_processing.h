@@ -48,6 +48,7 @@ public:
 	void	find_lcs_pairs_intervals(bool consecutive=true);
 	void	find_lcs_pairs_intervals_reverse(bool consecutive=true);
 	void	find_lcs_pairs_pitches(bool consecutive=true);
+    void	find_melodic_segments_LBDM();
 	
 private:
 

@@ -849,4 +849,24 @@ namespace IMUSANT
         }
     }
     
+    void
+    IMUSANT_processing::
+    find_melodic_segments_LBDM()
+    {
+     // TODO
+//        vector<string> ret_val;
+//        
+//        if (IDs.size()>0)
+//        {
+//            IMUSANT_collection_visitor next;
+//            
+//            for (vector<int>::iterator j = IDs.begin(); j!=IDs.end(); j++)
+//            {
+//                next = scores[*j];
+//                  DO SOMETHING HERE
+//            }
+//        }
+    }
+
+    
 } //namespace IMUSANT

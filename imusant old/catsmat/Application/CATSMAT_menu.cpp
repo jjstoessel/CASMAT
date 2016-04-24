@@ -134,17 +134,18 @@ outputToolsMenu(ostream &out)
     out << "E.  Find longest common intervallic subsequence in all pairs" << endl;
     out << "F.  Find longest common intervallic subsequence in all pairs (reverse method)" << endl;
     out << "G.  Find longest common pitch subsequence in all pairs" << endl;
-    out << "H.  Run all IMUSANT tools" << endl;
+    out << "H.  Find melodic segments using LBDM" << endl;
+    out << "I.  Run all IMUSANT tools" << endl;
     out << endl;
     out << "CATSMAT ANALYSIS TOOLS" << endl;
-    out << "I. Find repeated dyad sequences" << endl ;
-    out << "J. Find repeated dyadtuple sequences" << endl;
-    out << "K. Find repeated sonority sequences" << endl;
-    out << "L. Run all CATSMAT tools" << endl;
+    out << "J. Find repeated dyad sequences" << endl ;
+    out << "K. Find repeated dyadtuple sequences" << endl;
+    out << "L. Find repeated sonority sequences" << endl;
+    out << "M. Run all CATSMAT tools" << endl;
     out << endl;
-    out << "M. Run all tools" << endl;
+    out << "N. Run all tools" << endl;
     out << endl;
-    out << "Please select analysis tool (A - M; any other key to exit): " << endl;
+    out << "Please select analysis tool (A - N; any other key to exit): " << endl;
     out << endl;
 }
 
@@ -214,6 +215,11 @@ runToolsMenu(CATSMAT_processing* processor)
                 
             case 'H':
             case 'h':
+                cout << "H: Not impemented yet.";
+                break;
+                
+            case 'I':
+            case 'i':
                 processor->find_repeated_interval_substrings();
                 processor->find_repeated_contour_substrings();
                 processor->find_supermaximals_intervals(4,100);
@@ -223,28 +229,28 @@ runToolsMenu(CATSMAT_processing* processor)
                 processor->find_lcs_pairs_intervals_reverse(false);
                 break;
                 
-            case 'I':
-            case 'i':
-                cout << "I: Not impemented yet.";
-                break;
-                
             case 'J':
             case 'j':
-                cout << "J: Not impemented yet.";
+                cout << "I: Not impemented yet.";
                 break;
                 
             case 'K':
             case 'k':
-                cout << "K: Not impemented yet.";
+                cout << "J: Not impemented yet.";
                 break;
                 
             case 'L':
             case 'l':
-                cout << "L: Not impemented yet.";
+                cout << "K: Not impemented yet.";
                 break;
                 
             case 'M':
             case 'm':
+                cout << "L: Not impemented yet.";
+                break;
+                
+            case 'N':
+            case 'n':
                 cout << "M: Not impemented yet.";
                 break;
                 
