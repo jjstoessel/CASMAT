@@ -107,6 +107,13 @@ namespace IMUSANT
         
         return os;
     }
+    
+    S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part)
+    {
+        IMUSANT_segmented_part_LBDM* o = new IMUSANT_segmented_part_LBDM(the_part);
+        assert (o!=0);
+        return o;
+    }
 
     
 }

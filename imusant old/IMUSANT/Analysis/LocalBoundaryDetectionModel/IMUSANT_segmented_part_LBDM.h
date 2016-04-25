@@ -18,15 +18,18 @@ using namespace std;
 
 namespace IMUSANT
 {
-
-    class IMUSANT_segmented_part_LBDM
+    class IMUSANT_segmented_part_LBDM : public smartable
     {
     public:
+
+        friend SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part);
         
         IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part)
         {
             fPart = the_part;
         }
+        
+        virtual ~IMUSANT_segmented_part_LBDM() {}
         
         vector<float>& getOverallLocalBoundaryStrengthProfile();
         
@@ -46,7 +49,7 @@ namespace IMUSANT
         // WEIGHTED AVG = The overall local boundary strength profile.
         //
         friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part);
-
+ 
     private:
         
         S_IMUSANT_part fPart;
@@ -67,6 +70,9 @@ namespace IMUSANT
         
         void calculateOverallLocalBoundaryStrengthVector();
     };
+    
+    typedef SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;
+    SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM();
 }
 
 #endif /* defined(__imusant__IMUSANT_segmented_part_LBDM__) */

@@ -3124,8 +3124,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				495A502C1CA5BA76006985E2 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
-				1E0D00DF1CC048A50035CA98 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
 				4970E0481B76E7D50052496C /* IMUSANT_XMLFile.cpp in Sources */,
 				4970E0491B76E7D50052496C /* IMUSANT_XMLReader.cpp in Sources */,
 				4970E04A1B76E7D50052496C /* IMUSANT_XMLVisitor.cpp in Sources */,
@@ -3156,6 +3154,8 @@
 				496EF6EA1B22B05500FE715F /* IMUSANT_score.cpp in Sources */,
 				496EF6EB1B22B05500FE715F /* IMUSANT_visitor.cpp in Sources */,
 				4970E0191B76B97F0052496C /* IMUSANT_collectionvisitor.cpp in Sources */,
+				1E0D00DF1CC048A50035CA98 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
+				495A502C1CA5BA76006985E2 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
