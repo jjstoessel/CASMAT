@@ -19,7 +19,7 @@
 using namespace IMUSANT;
 using namespace boost;
 
-#define VERBOSE = 1;
+// #define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests : public ::testing::Test {
@@ -544,7 +544,9 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, rest_profile_P3_calculateStrengthVecto
     profile.calculateChangeVector();
     profile.calculateStrengthVector();
     
-        cout << profile;
+#ifdef VERBOSE
+    cout << profile;
+#endif
     
     for (int jdex = 0 ; jdex < P3_COUNT; jdex++)
     {
@@ -605,23 +607,42 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
 }
 
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, OutputOperator)
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, LongOutputOperator)
 {
-    vector<S_IMUSANT_part> parts = fScore_LBDM_Test1->partlist()->parts();
+    string soprano_expected =
+    "PART NAME - Soprano\nSTRENGTH VECTORS\nNOTE1                       NOTE2                                  PITCH             IOI            REST    WEIGHTED AVG\n{\n{-,                         {1.1, 72, 256},                      5184.00,        65536.00,            0.00,        17032.00},             // 0\n{{1.1, 72, 256},            {1.2, 72, 256},                         0.00,            0.00,            0.00,            0.00},             // 1\n{{1.2, 72, 256},            {1.3, 72, 256},                         0.00,            0.00,            0.00,            0.00},             // 2\n{{1.3, 72, 256},            {1.4, 72, 256},                         0.00,           85.33,            0.00,           21.33},             // 3\n{{1.4, 72, 256},            {2.1, 72, 512},                         0.00,          170.67,            0.00,           42.67},             // 4\n{{2.1, 72, 512},            {2.2, 72, 512},                         0.00,          170.67,            0.00,           42.67},             // 5\n{{2.2, 72, 512},            {3.1, 72, 1024},                        0.00,         1137.78,            0.00,          284.44},             // 6\n{{3.1, 72, 1024},           {4.1, 72, 128},                         0.00,           99.56,            0.00,           24.89},             // 7\n{{4.1, 72, 128},            {4.2, 72, 128},                         0.00,            0.00,            0.00,            0.00},             // 8\n{{4.2, 72, 128},            {4.3, 72, 128},                         0.00,            0.00,            0.00,            0.00},             // 9\n{{4.3, 72, 128},            {4.4, 72, 128},                         0.00,           76.80,            0.00,           19.20},             // 10\n{{4.4, 72, 128},            {4.5, 72, 512},                         0.00,          380.34,            0.00,           95.09},             // 11\n{{4.5, 72, 512},            {5.1, 72, 384},                         0.00,          246.86,            0.00,           61.71},             // 12\n{{5.1, 72, 384},            {5.2, 72, 128},                         0.00,          128.00,            0.00,           32.00},             // 13\n{{5.2, 72, 128},            {5.3, 72, 384},                         0.00,          384.00,            0.00,           96.00},             // 14\n{{5.3, 72, 384},            {5.4, 72, 128},                         0.00,          163.56,            0.00,           40.89},             // 15\n{{5.4, 72, 128},            {6.1, 72, 1024},                        0.00,          796.44,            0.00,          199.11},             // 16\n}\n";
     
-    for (vector<S_IMUSANT_part>::iterator part_iter = parts.begin(); part_iter != parts.end(); part_iter++)
-    {
-        S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(*part_iter);
-  
-        seg_part->getOverallLocalBoundaryStrengthProfile();
-        
-        cout << *seg_part << endl;
-        
-        cout << (*seg_part).printForTesting();
-        
-        ASSERT_TRUE(false) << "IMPLEMENT THIS TEST";
-    }
+    
+    S_IMUSANT_part& soprano = fScore_LBDM_Test1->partlist()->getPart("P1");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(soprano);
+    
+    seg_part->getOverallLocalBoundaryStrengthProfile();
+    
+    stringstream soprano_long_actual;
+    soprano_long_actual << *seg_part;
+    ASSERT_EQ(soprano_expected, soprano_long_actual.str());
+
+ }
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, ShortOutputOperator)
+{
+    string soprano_expected =
+    "PART NAME - Soprano\nSTRENGTH VECTORS\n           PITCH             IOI            REST    WEIGHTED AVG\n{\n{         5184.00,        65536.00,            0.00,        17032.00},             // 0\n{            0.00,            0.00,            0.00,            0.00},             // 1\n{            0.00,            0.00,            0.00,            0.00},             // 2\n{            0.00,           85.33,            0.00,           21.33},             // 3\n{            0.00,          170.67,            0.00,           42.67},             // 4\n{            0.00,          170.67,            0.00,           42.67},             // 5\n{            0.00,         1137.78,            0.00,          284.44},             // 6\n{            0.00,           99.56,            0.00,           24.89},             // 7\n{            0.00,            0.00,            0.00,            0.00},             // 8\n{            0.00,            0.00,            0.00,            0.00},             // 9\n{            0.00,           76.80,            0.00,           19.20},             // 10\n{            0.00,          380.34,            0.00,           95.09},             // 11\n{            0.00,          246.86,            0.00,           61.71},             // 12\n{            0.00,          128.00,            0.00,           32.00},             // 13\n{            0.00,          384.00,            0.00,           96.00},             // 14\n{            0.00,          163.56,            0.00,           40.89},             // 15\n{            0.00,          796.44,            0.00,          199.11},             // 16\n}\n";
+    
+    
+    S_IMUSANT_part& soprano = fScore_LBDM_Test1->partlist()->getPart("P1");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(soprano);
+    
+    seg_part->getOverallLocalBoundaryStrengthProfile();
+    
+    stringstream soprano_short_actual;
+    soprano_short_actual << (*seg_part).printForTesting();
+    ASSERT_EQ(soprano_expected, soprano_short_actual.str());
+    
 }
+
 
 
 
