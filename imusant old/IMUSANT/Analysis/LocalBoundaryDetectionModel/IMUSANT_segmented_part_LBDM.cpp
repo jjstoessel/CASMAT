@@ -65,11 +65,11 @@ namespace IMUSANT
         {
             weighted_avg_strength =
                 (
-                 (ioi_interval_profile.strength_vector[index] * fWeightInteronsetInterval)
+                 (ioi_interval_profile.strength_vector[index] * WEIGHT_INTERONSET_INTERVAL)
                  +
-                 (pitch_interval_profile.strength_vector[index] * fWeightPitch)
+                 (pitch_interval_profile.strength_vector[index] * WEIGHT_PITCH)
                  +
-                 (rest_interval_profile.strength_vector[index] * fWeightRest)
+                 (rest_interval_profile.strength_vector[index] * WEIGHT_REST)
                 )
                 / 2;
             overall_local_boundary_strength_profile.push_back(weighted_avg_strength);
