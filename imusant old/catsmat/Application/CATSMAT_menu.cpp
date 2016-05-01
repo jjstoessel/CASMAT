@@ -215,8 +215,16 @@ runToolsMenu(CATSMAT_processing* processor)
                 
             case 'H':
             case 'h':
-                cout << "H: Not impemented yet.";
+            {
+                vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
+                segmented_parts = processor->findMelodicSegments_LBDM();
+                for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_part_iter = segmented_parts.begin(); seg_part_iter != segmented_parts.end() ; seg_part_iter++)
+                {
+                    cout << *(*seg_part_iter) << endl;
+                }
+            
                 break;
+            }
                 
             case 'I':
             case 'i':

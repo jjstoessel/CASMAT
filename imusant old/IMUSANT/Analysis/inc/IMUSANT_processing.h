@@ -14,6 +14,7 @@
 
 #include "IMUSANT_score.h"
 #include "IMUSANT_collectionvisitor.h"
+#include "IMUSANT_segmented_part_LBDM.h"
 #include "IMUSANT_repeated_interval_substring.h"
 #include "suffixtree.h"
 #include <map>
@@ -48,7 +49,7 @@ public:
 	void	findLcsPairsIntervals(bool consecutive=true);
 	void	findLcsPairsIntervalsReverse(bool consecutive=true);
 	void	findLcsPairsPitches(bool consecutive=true);
-    void	findMelodicSegments_LBDM();
+    vector<S_IMUSANT_segmented_part_LBDM> findMelodicSegments_LBDM();
 	
 private:
     

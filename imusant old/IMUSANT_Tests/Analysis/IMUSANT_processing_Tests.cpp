@@ -38,6 +38,8 @@ protected:
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_file(string path_to_test_data_file);
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_directory(string path_to_test_data_directory);
     
+    vector<S_IMUSANT_segmented_part_LBDM> findSegmentedPartsByFile(string path_to_test_data_file);
+    
     filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
   
 };
@@ -112,6 +114,35 @@ find_repeated_substrings_by_directory(string relative_path_to_test_data_director
     repeated_substrings_result = the_processor->findRepeatedIntervalSubstrings();
     
     return repeated_substrings_result;
+}
+
+vector<S_IMUSANT_segmented_part_LBDM>
+IMUSANT_processing_Tests::
+findSegmentedPartsByFile(string relative_path_to_test_data_file)
+{
+    filesystem::path testdata = make_path_to_test_file(relative_path_to_test_data_file);
+    
+    filesystem::file_status status = filesystem::status(testdata);
+    if (!filesystem::exists(status))
+    {
+        cerr << "Can't find the test data file at " <<  relative_path_to_test_data_file << endl;
+        throw("File not found: " + relative_path_to_test_data_file) ;
+    }
+    
+    if (!filesystem::is_regular_file(status))
+    {
+        cerr << "This path is not a file: " <<  relative_path_to_test_data_file << endl;
+        throw("Not a file: " + relative_path_to_test_data_file) ;
+    }
+    
+    IMUSANT_processing *the_processor = new IMUSANT_processing();
+    
+    the_processor->addFile(testdata);
+    
+    vector<S_IMUSANT_segmented_part_LBDM> segmented_parts_result;
+    segmented_parts_result = the_processor->findMelodicSegments_LBDM();
+    
+    return segmented_parts_result;
 }
 
 
@@ -211,5 +242,35 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
             ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
 }
 
+
+TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)
+{
+    vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
+    
+    segmented_parts = findSegmentedPartsByFile("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    
+#ifdef VERBOSE
+//    stringstream actual_output;
+//    actual_output << IMUSANT_repeated_interval_substring::output_operator_help();
+//    
+//    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+//    {
+//        actual_output << repeated_substrings_result[index];
+//    }
+//    
+//    actual_output << endl;
+//    
+//    cout << actual_output.str();
+#endif
+    
+    for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_parts_iter = segmented_parts.begin(); seg_parts_iter != segmented_parts.end() ; seg_parts_iter++)
+    {
+        S_IMUSANT_segmented_part_LBDM sp = (*seg_parts_iter);
+        vector<float> overall_local_boundary_strength_profile = sp->getOverallLocalBoundaryStrengthProfile();
+        cout << *sp << endl;
+    }
+    
+    ASSERT_FALSE(true) << "Failing FindMelodicSegments_LBDM_Test1";
+}
 
 

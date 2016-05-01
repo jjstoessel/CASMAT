@@ -31,10 +31,42 @@ namespace IMUSANT
         
         virtual ~IMUSANT_segmented_part_LBDM() {}
         
+        
+        //
+        // You must call this function to initialise the class from the data in the Part.
+        //
         vector<float>& getOverallLocalBoundaryStrengthProfile();
         
-        // This output operator produces output that can be extracted as an array initialisation for
-        // the purposes of test case expected output. The format is as follows:
+        
+        // This output operator produces a table that lists the notes used for calculating
+        // boundary strength, together with the strength vectors.  Output is as follows:
+        //
+        //        PART NAME - Alto
+        //        STRENGTH VECTORS
+        //        NOTE1                       NOTE2                                  PITCH             IOI            REST    WEIGHTED AVG
+        //        {
+        //            {-,                         {1.1, 72, 512},                      5184.50,       262144.00,            0.00,        66184.06},             // 0
+        //            {{1.1, 72, 512},            {1.2, 71, 512},                         1.51,            0.00,            0.00,            0.19},             // 1
+        //            [...snip...]
+        //            {{6.1, 72, 512},            {6.2, -, 512, rest},                    0.00,            0.00,          512.00,           64.00},             // 11
+        //        }
+        //
+        // Where:
+        // NOTE1 = The first note in the interval from which change was calculated.
+        // NOTE2 = The second note in the interval.
+        // PITCH = The value of the strength vector for the Pitch Interval Profile
+        // IOI = The value of the strength vector for the IOI Interval Profile
+        // REST = The value of the strength vector for the Rest Interval Profile
+        // WEIGHTED AVG = The overall local boundary strength profile for the interval.
+        //
+        // Where the note values represented by this {1.1, 72, 512} are
+        // {MeasureNumber.NoteIndex, MidiKeyNumber, DurationAsAbsoluteNumeric}
+        //
+        friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part);
+        
+        // This output operator produces compilable output that can be extracted as an
+        // array initialisation for the purposes of capturing test case expected output.
+        // The format is as follows:
         //
         // PITCH		IOI             REST			WEIGHTED AVG
         // {5184,		65536,			0.0000,			17032},             // 0
@@ -42,13 +74,7 @@ namespace IMUSANT
         // {0,			0,              0.0000,			0},                 // 2
         // ...
         //
-        // Where:
-        // PITCH = The value of the strength vector for the Pitch Interval Profile
-        // IOI = The value of the strength vector for the IOI Interval Profile
-        // REST = The value of the strength vector for the Rest Interval Profile
-        // WEIGHTED AVG = The overall local boundary strength profile.
-        //
-        friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part);
+        string printForTesting() const;
  
     private:
         
@@ -69,10 +95,12 @@ namespace IMUSANT
         void buildIntervalProfiles();
         
         void calculateOverallLocalBoundaryStrengthVector();
+        
+        string print(bool include_notes) const;
     };
     
     typedef SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;
-    SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM();
+    SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part);
 }
 
 #endif /* defined(__imusant__IMUSANT_segmented_part_LBDM__) */

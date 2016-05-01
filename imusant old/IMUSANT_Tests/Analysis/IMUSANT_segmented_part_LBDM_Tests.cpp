@@ -1,4 +1,4 @@
-//
+
 //  IMUSANT_segmented_part_LBDM_Tests.cpp
 //  imusant
 //
@@ -601,6 +601,25 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
         << ". Expected " << strength_YD_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED]
         << ". Received " << lbsp[jdex]
         << endl;
+    }
+}
+
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, OutputOperator)
+{
+    vector<S_IMUSANT_part> parts = fScore_LBDM_Test1->partlist()->parts();
+    
+    for (vector<S_IMUSANT_part>::iterator part_iter = parts.begin(); part_iter != parts.end(); part_iter++)
+    {
+        S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(*part_iter);
+  
+        seg_part->getOverallLocalBoundaryStrengthProfile();
+        
+        cout << *seg_part << endl;
+        
+        cout << (*seg_part).printForTesting();
+        
+        ASSERT_TRUE(false) << "IMPLEMENT THIS TEST";
     }
 }
 

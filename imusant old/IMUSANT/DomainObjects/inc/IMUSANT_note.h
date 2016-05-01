@@ -75,6 +75,8 @@ namespace IMUSANT
         
         void print(ostream& os) const;
         void print_short(ostream& os) const;
+        ostream& pretty_print(ostream& os) const;
+        string pretty_print() const;
         
         friend ostream& operator<< (ostream& os, const S_IMUSANT_note& elt );
         

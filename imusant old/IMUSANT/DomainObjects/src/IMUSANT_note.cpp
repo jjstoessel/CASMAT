@@ -111,6 +111,53 @@ namespace IMUSANT
         os << "<\\NOTE>" << endl;
     }
     
+    string
+    IMUSANT_note::
+    pretty_print() const
+    {
+        stringstream os;
+        
+        os << "{";
+        
+        os << fMeasureNumber << "." << fNoteIndex << ", ";
+        
+        
+        if (fPitch != NULL)
+        {
+            os << fPitch->getMidiKeyNumber();
+        }
+        else
+        {
+            os << "-";
+        }
+        
+        
+        if (fDuration != NULL)
+        {
+            os << ", ";
+            os << fDuration->asAbsoluteNumeric();
+        }
+        
+        
+        if (fType ==  IMUSANT_NoteType::rest)
+        {
+            os << ", ";
+            os << "rest";
+        };
+        
+        os << "}";
+        
+        return os.str();
+    }
+    
+    ostream&
+    IMUSANT_note::
+    pretty_print(ostream& os) const
+    {
+        os << pretty_print();
+        return os;
+    }
+    
     void
     IMUSANT_note::
     setPreviousTieNote (const S_IMUSANT_note& previous)
