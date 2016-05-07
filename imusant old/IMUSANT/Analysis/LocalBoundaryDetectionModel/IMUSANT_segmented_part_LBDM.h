@@ -75,6 +75,11 @@ namespace IMUSANT
         // ...
         //
         string printForTesting() const;
+        
+        S_IMUSANT_part getPart()
+        {
+            return fPart;
+        }
  
     private:
         

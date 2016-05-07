@@ -170,7 +170,7 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
     cout << actual_output.str();
 #endif
     
-    ASSERT_FALSE(true) << "Repeated Interval Substrings should not span different parts? - Deliberatly failing test (WIP)";
+    ASSERT_FALSE(true) << "Deliberately failing this test. (WIP)Repeated Interval Substrings should not span different parts?";
 }
 
 
@@ -193,7 +193,7 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_from_v1_direc
 //    //    cout << FindRepeatedIntervalSubstrings_RefactorTest_Expected;
 //    
 //    ASSERT_EQ(FindRepeatedIntervalSubstrings_RefactorTest_Expected, actual_output.str());
-    ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
+    ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
 
 TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing)
@@ -225,7 +225,7 @@ TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing
     //cout << endl;
     //cout << "V3 ACTUAL:" << endl << v3_actual_output.str() << endl;
     
-        ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
+        ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
 
 TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
@@ -239,10 +239,15 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
 //    
 //    ASSERT_EQ(299, repeated_substrings_result.size());
     
-            ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
+            ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
 
 
+//
+// This is a simple test to see that IMUSANT_processing is basically returning a result that matches the
+// file(s).  All the logic tests for S_IMUSANT_segmented_part_LBDM are in the test file that corresponds
+// to that class.
+//
 TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)
 {
     vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
@@ -250,27 +255,34 @@ TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)
     segmented_parts = findSegmentedPartsByFile("/RepeatedIntervalSubstrings_SimpleTest1.xml");
     
 #ifdef VERBOSE
-//    stringstream actual_output;
-//    actual_output << IMUSANT_repeated_interval_substring::output_operator_help();
-//    
-//    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
-//    {
-//        actual_output << repeated_substrings_result[index];
-//    }
-//    
-//    actual_output << endl;
-//    
-//    cout << actual_output.str();
-#endif
-    
     for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_parts_iter = segmented_parts.begin(); seg_parts_iter != segmented_parts.end() ; seg_parts_iter++)
     {
         S_IMUSANT_segmented_part_LBDM sp = (*seg_parts_iter);
-        vector<float> overall_local_boundary_strength_profile = sp->getOverallLocalBoundaryStrengthProfile();
         cout << *sp << endl;
     }
+#endif
     
-    ASSERT_FALSE(true) << "Failing FindMelodicSegments_LBDM_Test1";
+    ASSERT_EQ(4, segmented_parts.size()) << "Unexpected number of parts.";
+    
+    S_IMUSANT_part soprano = segmented_parts[0]->getPart();
+    S_IMUSANT_part alto = segmented_parts[1]->getPart();
+    S_IMUSANT_part tenor = segmented_parts[2]->getPart();
+    S_IMUSANT_part bass = segmented_parts[3]->getPart();
+    
+    ASSERT_EQ("Soprano", soprano->getPartName());
+    ASSERT_EQ("Alto", alto->getPartName());
+    ASSERT_EQ("Tenor", tenor->getPartName());
+    ASSERT_EQ("Bass", bass->getPartName());
+    
+    vector<float> soprano_strengths = segmented_parts[0]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> alto_strengths = segmented_parts[1]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> tenor_strengths = segmented_parts[2]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> bass_strengths = segmented_parts[3]->getOverallLocalBoundaryStrengthProfile();
+    
+    ASSERT_EQ(13, soprano_strengths.size());
+    ASSERT_EQ(13, alto_strengths.size());
+    ASSERT_EQ(13, tenor_strengths.size());
+    ASSERT_EQ(8, bass_strengths.size());
 }
 
 
