@@ -38,7 +38,7 @@ protected:
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_file(string path_to_test_data_file);
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_directory(string path_to_test_data_directory);
     
-    vector<S_IMUSANT_segmented_part_LBDM> findSegmentedPartsByFile(string path_to_test_data_file);
+    vector<S_IMUSANT_segmented_part_LBDM> findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files);
     
     filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
   
@@ -118,26 +118,30 @@ find_repeated_substrings_by_directory(string relative_path_to_test_data_director
 
 vector<S_IMUSANT_segmented_part_LBDM>
 IMUSANT_processing_Tests::
-findSegmentedPartsByFile(string relative_path_to_test_data_file)
+findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files)
 {
-    filesystem::path testdata = make_path_to_test_file(relative_path_to_test_data_file);
-    
-    filesystem::file_status status = filesystem::status(testdata);
-    if (!filesystem::exists(status))
-    {
-        cerr << "Can't find the test data file at " <<  relative_path_to_test_data_file << endl;
-        throw("File not found: " + relative_path_to_test_data_file) ;
-    }
-    
-    if (!filesystem::is_regular_file(status))
-    {
-        cerr << "This path is not a file: " <<  relative_path_to_test_data_file << endl;
-        throw("Not a file: " + relative_path_to_test_data_file) ;
-    }
-    
     IMUSANT_processing *the_processor = new IMUSANT_processing();
     
-    the_processor->addFile(testdata);
+    for (vector<string>::iterator path_iter = relative_paths_to_test_data_files.begin(); path_iter != relative_paths_to_test_data_files.end(); path_iter++)
+    {
+        string relative_path_to_test_data_file = *path_iter;
+        filesystem::path testdata = make_path_to_test_file(relative_path_to_test_data_file);
+        
+        filesystem::file_status status = filesystem::status(testdata);
+        if (!filesystem::exists(status))
+        {
+            cerr << "Can't find the test data file at " <<  relative_path_to_test_data_file << endl;
+            throw("File not found: " + relative_path_to_test_data_file) ;
+        }
+        
+        if (!filesystem::is_regular_file(status))
+        {
+            cerr << "This path is not a file: " <<  relative_path_to_test_data_file << endl;
+            throw("Not a file: " + relative_path_to_test_data_file) ;
+        }
+        
+        the_processor->addFile(testdata);
+    }
     
     vector<S_IMUSANT_segmented_part_LBDM> segmented_parts_result;
     segmented_parts_result = the_processor->findMelodicSegments_LBDM();
@@ -252,7 +256,9 @@ TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)
 {
     vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
     
-    segmented_parts = findSegmentedPartsByFile("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    vector<string> test_data_files;
+    test_data_files.push_back("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    segmented_parts = findSegmentedPartsByFile(test_data_files);
     
 #ifdef VERBOSE
     for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_parts_iter = segmented_parts.begin(); seg_parts_iter != segmented_parts.end() ; seg_parts_iter++)
