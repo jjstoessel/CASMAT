@@ -257,7 +257,10 @@ TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)
     vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
     
     vector<string> test_data_files;
-    test_data_files.push_back("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    test_data_files.push_back("/LBDM_Segmented_Part_Test_1.xml");
+    test_data_files.push_back("/LBDM_Segmented_Part_Test_2.xml");
+    test_data_files.push_back("/LBDM_Segmented_Part_Test_3.xml");
+
     segmented_parts = findSegmentedPartsByFile(test_data_files);
     
 #ifdef VERBOSE
@@ -268,27 +271,47 @@ TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)
     }
 #endif
     
-    ASSERT_EQ(4, segmented_parts.size()) << "Unexpected number of parts.";
+    ASSERT_EQ(9, segmented_parts.size()) << "Unexpected number of parts.";
     
-    S_IMUSANT_part soprano = segmented_parts[0]->getPart();
-    S_IMUSANT_part alto = segmented_parts[1]->getPart();
-    S_IMUSANT_part tenor = segmented_parts[2]->getPart();
-    S_IMUSANT_part bass = segmented_parts[3]->getPart();
+    S_IMUSANT_part t1_soprano = segmented_parts[0]->getPart();
+    S_IMUSANT_part t1_alto = segmented_parts[1]->getPart();
+    S_IMUSANT_part t1_tenor = segmented_parts[2]->getPart();
+    S_IMUSANT_part t1_bass = segmented_parts[3]->getPart();
+    S_IMUSANT_part t2_soprano = segmented_parts[4]->getPart();
+    S_IMUSANT_part t2_alto = segmented_parts[5]->getPart();
+    S_IMUSANT_part t2_tenor = segmented_parts[6]->getPart();
+    S_IMUSANT_part t2_bass = segmented_parts[7]->getPart();
+    S_IMUSANT_part t3_piano = segmented_parts[8]->getPart();
     
-    ASSERT_EQ("Soprano", soprano->getPartName());
-    ASSERT_EQ("Alto", alto->getPartName());
-    ASSERT_EQ("Tenor", tenor->getPartName());
-    ASSERT_EQ("Bass", bass->getPartName());
+    ASSERT_EQ("Soprano", t1_soprano->getPartName());
+    ASSERT_EQ("Alto", t1_alto->getPartName());
+    ASSERT_EQ("Tenor", t1_tenor->getPartName());
+    ASSERT_EQ("Bass", t1_bass->getPartName());
+    ASSERT_EQ("Soprano", t2_soprano->getPartName());
+    ASSERT_EQ("Alto", t2_alto->getPartName());
+    ASSERT_EQ("Tenor", t2_tenor->getPartName());
+    ASSERT_EQ("Bass", t2_bass->getPartName());
+    ASSERT_EQ("Piano", t3_piano->getPartName());
     
-    vector<float> soprano_strengths = segmented_parts[0]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> alto_strengths = segmented_parts[1]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> tenor_strengths = segmented_parts[2]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> bass_strengths = segmented_parts[3]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t1_soprano_strengths = segmented_parts[0]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t1_alto_strengths = segmented_parts[1]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t1_tenor_strengths = segmented_parts[2]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t1_bass_strengths = segmented_parts[3]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t2_soprano_strengths = segmented_parts[4]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t2_alto_strengths = segmented_parts[5]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t2_tenor_strengths = segmented_parts[6]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t2_bass_strengths = segmented_parts[7]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t3_piano_strengths = segmented_parts[8]->getOverallLocalBoundaryStrengthProfile();
     
-    ASSERT_EQ(13, soprano_strengths.size());
-    ASSERT_EQ(13, alto_strengths.size());
-    ASSERT_EQ(13, tenor_strengths.size());
-    ASSERT_EQ(8, bass_strengths.size());
+    ASSERT_EQ(17, t1_soprano_strengths.size());
+    ASSERT_EQ(12, t1_alto_strengths.size());
+    ASSERT_EQ(19, t1_tenor_strengths.size());
+    ASSERT_EQ(6, t1_bass_strengths.size());
+    ASSERT_EQ(17, t2_soprano_strengths.size());
+    ASSERT_EQ(12, t2_alto_strengths.size());
+    ASSERT_EQ(19, t2_tenor_strengths.size());
+    ASSERT_EQ(15, t2_bass_strengths.size());
+    ASSERT_EQ(31, t3_piano_strengths.size());
 }
 
 
