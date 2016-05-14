@@ -38,7 +38,7 @@ protected:
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_file(string path_to_test_data_file);
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_directory(string path_to_test_data_directory);
     
-    vector<S_IMUSANT_segmented_part_LBDM> findSegmentedPartsByFile(string path_to_test_data_file);
+    vector<S_IMUSANT_segmented_part_LBDM> findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files);
     
     filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
   
@@ -118,26 +118,30 @@ find_repeated_substrings_by_directory(string relative_path_to_test_data_director
 
 vector<S_IMUSANT_segmented_part_LBDM>
 IMUSANT_processing_Tests::
-findSegmentedPartsByFile(string relative_path_to_test_data_file)
+findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files)
 {
-    filesystem::path testdata = make_path_to_test_file(relative_path_to_test_data_file);
-    
-    filesystem::file_status status = filesystem::status(testdata);
-    if (!filesystem::exists(status))
-    {
-        cerr << "Can't find the test data file at " <<  relative_path_to_test_data_file << endl;
-        throw("File not found: " + relative_path_to_test_data_file) ;
-    }
-    
-    if (!filesystem::is_regular_file(status))
-    {
-        cerr << "This path is not a file: " <<  relative_path_to_test_data_file << endl;
-        throw("Not a file: " + relative_path_to_test_data_file) ;
-    }
-    
     IMUSANT_processing *the_processor = new IMUSANT_processing();
     
-    the_processor->addFile(testdata);
+    for (vector<string>::iterator path_iter = relative_paths_to_test_data_files.begin(); path_iter != relative_paths_to_test_data_files.end(); path_iter++)
+    {
+        string relative_path_to_test_data_file = *path_iter;
+        filesystem::path testdata = make_path_to_test_file(relative_path_to_test_data_file);
+        
+        filesystem::file_status status = filesystem::status(testdata);
+        if (!filesystem::exists(status))
+        {
+            cerr << "Can't find the test data file at " <<  relative_path_to_test_data_file << endl;
+            throw("File not found: " + relative_path_to_test_data_file) ;
+        }
+        
+        if (!filesystem::is_regular_file(status))
+        {
+            cerr << "This path is not a file: " <<  relative_path_to_test_data_file << endl;
+            throw("Not a file: " + relative_path_to_test_data_file) ;
+        }
+        
+        the_processor->addFile(testdata);
+    }
     
     vector<S_IMUSANT_segmented_part_LBDM> segmented_parts_result;
     segmented_parts_result = the_processor->findMelodicSegments_LBDM();
@@ -170,7 +174,7 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
     cout << actual_output.str();
 #endif
     
-    ASSERT_FALSE(true) << "Repeated Interval Substrings should not span different parts? - Deliberatly failing test (WIP)";
+    ASSERT_FALSE(true) << "Deliberately failing this test. (WIP)Repeated Interval Substrings should not span different parts?";
 }
 
 
@@ -225,7 +229,7 @@ TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing
     //cout << endl;
     //cout << "V3 ACTUAL:" << endl << v3_actual_output.str() << endl;
     
-        ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
+        ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
 
 TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
@@ -239,38 +243,75 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
 //    
 //    ASSERT_EQ(299, repeated_substrings_result.size());
     
-            ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
+            ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
 
 
+//
+// This is a simple test to see that IMUSANT_processing is basically returning a result that matches the
+// file(s).  All the logic tests for S_IMUSANT_segmented_part_LBDM are in the test file that corresponds
+// to that class.
+//
 TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)
 {
     vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
     
-    segmented_parts = findSegmentedPartsByFile("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    vector<string> test_data_files;
+    test_data_files.push_back("/LBDM_Segmented_Part_Test_1.xml");
+    test_data_files.push_back("/LBDM_Segmented_Part_Test_2.xml");
+    test_data_files.push_back("/LBDM_Segmented_Part_Test_3.xml");
+
+    segmented_parts = findSegmentedPartsByFile(test_data_files);
     
 #ifdef VERBOSE
-//    stringstream actual_output;
-//    actual_output << IMUSANT_repeated_interval_substring::output_operator_help();
-//    
-//    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
-//    {
-//        actual_output << repeated_substrings_result[index];
-//    }
-//    
-//    actual_output << endl;
-//    
-//    cout << actual_output.str();
-#endif
-    
     for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_parts_iter = segmented_parts.begin(); seg_parts_iter != segmented_parts.end() ; seg_parts_iter++)
     {
         S_IMUSANT_segmented_part_LBDM sp = (*seg_parts_iter);
-        vector<float> overall_local_boundary_strength_profile = sp->getOverallLocalBoundaryStrengthProfile();
         cout << *sp << endl;
     }
+#endif
     
-    ASSERT_FALSE(true) << "Failing FindMelodicSegments_LBDM_Test1";
+    ASSERT_EQ(9, segmented_parts.size()) << "Unexpected number of parts.";
+    
+    S_IMUSANT_part t1_soprano = segmented_parts[0]->getPart();
+    S_IMUSANT_part t1_alto = segmented_parts[1]->getPart();
+    S_IMUSANT_part t1_tenor = segmented_parts[2]->getPart();
+    S_IMUSANT_part t1_bass = segmented_parts[3]->getPart();
+    S_IMUSANT_part t2_soprano = segmented_parts[4]->getPart();
+    S_IMUSANT_part t2_alto = segmented_parts[5]->getPart();
+    S_IMUSANT_part t2_tenor = segmented_parts[6]->getPart();
+    S_IMUSANT_part t2_bass = segmented_parts[7]->getPart();
+    S_IMUSANT_part t3_piano = segmented_parts[8]->getPart();
+    
+    ASSERT_EQ("Soprano", t1_soprano->getPartName());
+    ASSERT_EQ("Alto", t1_alto->getPartName());
+    ASSERT_EQ("Tenor", t1_tenor->getPartName());
+    ASSERT_EQ("Bass", t1_bass->getPartName());
+    ASSERT_EQ("Soprano", t2_soprano->getPartName());
+    ASSERT_EQ("Alto", t2_alto->getPartName());
+    ASSERT_EQ("Tenor", t2_tenor->getPartName());
+    ASSERT_EQ("Bass", t2_bass->getPartName());
+    ASSERT_EQ("Piano", t3_piano->getPartName());
+    
+    vector<float> t1_soprano_strengths = segmented_parts[0]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t1_alto_strengths = segmented_parts[1]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t1_tenor_strengths = segmented_parts[2]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t1_bass_strengths = segmented_parts[3]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t2_soprano_strengths = segmented_parts[4]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t2_alto_strengths = segmented_parts[5]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t2_tenor_strengths = segmented_parts[6]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t2_bass_strengths = segmented_parts[7]->getOverallLocalBoundaryStrengthProfile();
+    vector<float> t3_piano_strengths = segmented_parts[8]->getOverallLocalBoundaryStrengthProfile();
+    
+    ASSERT_EQ(17, t1_soprano_strengths.size());
+    ASSERT_EQ(12, t1_alto_strengths.size());
+    ASSERT_EQ(19, t1_tenor_strengths.size());
+    ASSERT_EQ(6, t1_bass_strengths.size());
+    ASSERT_EQ(17, t2_soprano_strengths.size());
+    ASSERT_EQ(12, t2_alto_strengths.size());
+    ASSERT_EQ(19, t2_tenor_strengths.size());
+    ASSERT_EQ(15, t2_bass_strengths.size());
+    ASSERT_EQ(31, t3_piano_strengths.size());
 }
 
 

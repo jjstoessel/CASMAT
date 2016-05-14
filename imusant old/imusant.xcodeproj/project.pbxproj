@@ -38,6 +38,9 @@
 		1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
 		1EDE2F221B3E7CFA00DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
 		491DA4451C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */; };
+		49394E841CDD7EE400EC7D84 /* LBDM_Segmented_Part_Test_2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49394E831CDD7EB400EC7D84 /* LBDM_Segmented_Part_Test_2.xml */; };
+		49394E871CDD83E600EC7D84 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49394E861CDD83CC00EC7D84 /* LBDM_Segmented_Part_Test_3.xml */; };
+		49394E891CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49394E881CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp */; };
 		494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */; };
 		495A50251CA5ABFC006985E2 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495A50231CA5A3A5006985E2 /* LBDM_Segmented_Part_Test_1.xml */; };
 		495A502C1CA5BA76006985E2 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */; };
@@ -418,6 +421,8 @@
 			dstPath = IMUSANT_testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				49394E871CDD83E600EC7D84 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */,
+				49394E841CDD7EE400EC7D84 /* LBDM_Segmented_Part_Test_2.xml in CopyFiles */,
 				1E0D00DB1CBE4F9A0035CA98 /* Yankee_Doodle.xml in CopyFiles */,
 				495A50251CA5ABFC006985E2 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */,
 				49D6903C1C8BC96B00EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml in CopyFiles */,
@@ -545,6 +550,10 @@
 		1EDE2F201B3E7CC900DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz; sourceTree = "<group>"; };
 		1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.xml; sourceTree = "<group>"; };
 		491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_part_LBDM_Tests.cpp; path = IMUSANT_Tests/Analysis/IMUSANT_segmented_part_LBDM_Tests.cpp; sourceTree = "<group>"; };
+		49394E831CDD7EB400EC7D84 /* LBDM_Segmented_Part_Test_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBDM_Segmented_Part_Test_2.xml; sourceTree = "<group>"; };
+		49394E861CDD83CC00EC7D84 /* LBDM_Segmented_Part_Test_3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBDM_Segmented_Part_Test_3.xml; sourceTree = "<group>"; };
+		49394E881CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_interval_profile_LBDM_Tests.cpp; path = IMUSANT_Tests/Analysis/IMUSANT_interval_profile_LBDM_Tests.cpp; sourceTree = "<group>"; };
+		49394E8A1CDD90C800EC7D84 /* IMUSANT_segmented_part_LBDM_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_segmented_part_LBDM_Expected.h; path = IMUSANT_Tests/Analysis/IMUSANT_segmented_part_LBDM_Expected.h; sourceTree = "<group>"; };
 		494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest1.xml; sourceTree = "<group>"; };
 		495A50231CA5A3A5006985E2 /* LBDM_Segmented_Part_Test_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBDM_Segmented_Part_Test_1.xml; sourceTree = "<group>"; };
 		495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_part_LBDM.cpp; path = LocalBoundaryDetectionModel/IMUSANT_segmented_part_LBDM.cpp; sourceTree = "<group>"; };
@@ -1591,7 +1600,9 @@
 			children = (
 				4970E01C1B76BFC40052496C /* IMUSANT_processing_Tests.cpp */,
 				4970E0241B76D0590052496C /* IMUSANT_processing_Expected.h */,
+				49394E881CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp */,
 				491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */,
+				49394E8A1CDD90C800EC7D84 /* IMUSANT_segmented_part_LBDM_Expected.h */,
 			);
 			name = Analysis;
 			sourceTree = "<group>";
@@ -1668,6 +1679,8 @@
 			children = (
 				1E0D00DA1CBE4F7C0035CA98 /* Yankee_Doodle.xml */,
 				495A50231CA5A3A5006985E2 /* LBDM_Segmented_Part_Test_1.xml */,
+				49394E831CDD7EB400EC7D84 /* LBDM_Segmented_Part_Test_2.xml */,
+				49394E861CDD83CC00EC7D84 /* LBDM_Segmented_Part_Test_3.xml */,
 				49D6903B1C8BC91900EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml */,
 				1E7691291C81511700D371D8 /* MusicXML_ParserTest5.xml */,
 				49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */,
@@ -2970,6 +2983,7 @@
 				1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */,
 				1E905DD91C21C01F0017850F /* IMUSANT_interval_Tests.cpp in Sources */,
 				1E6C38D51BB766020025BA7E /* IMUSANT_score_Tests.cpp in Sources */,
+				49394E891CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp in Sources */,
 				49F1FFF71C9E4B8A00910F07 /* IMUSANT_duration_Tests.cpp in Sources */,
 				1E3E47B91BF5E71200F2C037 /* IMUSANT_note_Tests.cpp in Sources */,
 				49F1FFF51C9D5A8F00910F07 /* IMUSANT_part_Tests.cpp in Sources */,
