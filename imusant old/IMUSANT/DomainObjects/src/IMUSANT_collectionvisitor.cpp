@@ -15,6 +15,7 @@
 #include "IMUSANT_partlist.h"
 #include "IMUSANT_score.h"
 #include "IMUSANT_barline.h"
+#include "IMUSANT_marker_interval.h"
 #include "search.h"
 #include "suffixtree.h"
 #include "iterator.h"

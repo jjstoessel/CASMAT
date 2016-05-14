@@ -167,13 +167,20 @@ namespace IMUSANT
                          IMUSANT_pitch::sign alteration1 = IMUSANT_pitch::natural,
                          IMUSANT_pitch::sign alteration2 = IMUSANT_pitch::natural);
         virtual ~IMUSANT_interval() {}
+    
+    protected:
+        interval_type   fInterval; //fTIC Tonal interval class
+        quality         fQuality;
+        direction       fDirection;
+        int             fOctaves;
+        IMUSANT_range	fLocation;
         
     private:
         
         void                check();
         void                check(int calculated_interval);
         
-        interval_type       fInterval; //fTIC Tonal interval class
+        
         void                increment_fInterval();
         
         static bimap<string, IMUSANT_interval::interval_type>   fInterval2String;
@@ -181,10 +188,7 @@ namespace IMUSANT
         static string                                           fIntervalStrings[];
         
         static interval_type int2intervaltype(int iv);
-        quality         fQuality;
-        direction       fDirection;
-        int             fOctaves;
-        IMUSANT_range	fLocation;
+       
         
     };
     

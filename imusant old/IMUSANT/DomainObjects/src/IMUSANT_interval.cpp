@@ -178,7 +178,7 @@ namespace IMUSANT
         }
         return return_value;
     }
-    
+
     IMUSANT_interval IMUSANT_interval::MakeUniqueInterval()
     {
         static int unique = undefined;
@@ -192,7 +192,7 @@ namespace IMUSANT
         
         return out;
     }
-    
+
     //public ctor member
     IMUSANT_interval::IMUSANT_interval(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second)
     {

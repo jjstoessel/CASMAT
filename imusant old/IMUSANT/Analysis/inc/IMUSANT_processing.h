@@ -55,17 +55,19 @@ private:
     
     vector<S_IMUSANT_score> scores;                             // One score for each file that has been added.
 
-	map<int,IMUSANT_collection_visitor> collection_visitors;    // One collection visditor for each score.
-	vector<int> IDs;                                            // Index into collection_visitors.
+	map<int,IMUSANT_collection_visitor> collection_visitors;    // One collection visitor for each score.
+	vector<int> IDs;                                            // Index into collection_visitors. OLD!
     void createCollectionVisitorForScore(const S_IMUSANT_score score);
     
     typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
+    typedef map<int, vector<IMUSANT_interval> > ID_ivec_map;
     
 #ifdef OLD
     interval_tree buildSuffixTree();
 #endif
 #ifdef NEW
-    interval_tree* buildIntervalSuffixTree();
+    //interval_tree* buildIntervalSuffixTree();
+    interval_tree* buildIntervalSuffixTree(ID_ivec_map& id_ivec_map);
 #endif
     
     enum music_file_format {imusant, musicxml1, musicxml3, mei, unknown};
@@ -75,6 +77,8 @@ private:
     S_IMUSANT_score processMusicxml3File(const filesystem::path& path);
     S_IMUSANT_score processImusantFile(const filesystem::path& path);
 };
+
+
 
 } //namespace IMUSANT
 #endif
