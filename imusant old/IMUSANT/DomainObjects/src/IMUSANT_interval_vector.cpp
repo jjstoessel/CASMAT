@@ -32,7 +32,7 @@ namespace IMUSANT
     {
         if ( fIntervals.size()<fMaximumIntervals)
         {
-            //assumes ownwership of interval
+            //copies interval
             fIntervals.push_back(interval);
             return true;
         }

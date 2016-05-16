@@ -173,8 +173,9 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
 
     cout << actual_output.str();
 #endif
+    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
     
-    ASSERT_FALSE(true) << "Deliberately failing this test. (WIP)Repeated Interval Substrings should not span different parts?";
+    //ASSERT_FALSE(true) << "Deliberately failing this test. (WIP)Repeated Interval Substrings should not span different parts?";
 }
 
 
@@ -232,18 +233,47 @@ TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing
         ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
 
-TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
-{
-    // This is a fairly complex file so I'm including a very rough test
-    // here just to make sure that the parser covers it.
-
+//  MusicXMLv3.xmlsamples/Telemann.xml is not a simple partwise score but uses a "orchestral part" - we need to capture and alert user!
+//TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
+//{
+//    // This is a fairly complex file so I'm including a very rough test
+//    // here just to make sure that the parser covers it.
+//
 //    string relative_path = "MusicXMLv3.xmlsamples/Telemann.xml";
 //    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
 //    repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
 //    
 //    ASSERT_EQ(299, repeated_substrings_result.size());
+//    
+//    ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
+//}
+
+TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mxml3)
+{
+    // This is a fairly complex file so I'm including a very rough test
+    // here just to make sure that the parser covers it.
     
-            ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
+    string relative_path = "/Kyrie.xml";
+    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
+
+#ifdef VERBOSE
+    stringstream actual_output;
+    actual_output << IMUSANT_repeated_interval_substring::output_operator_help();
+    
+    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+    {
+        actual_output << repeated_substrings_result[index];
+    }
+    
+    actual_output << endl;
+    
+    cout << actual_output.str();
+#endif
+    
+    ASSERT_EQ(299, repeated_substrings_result.size());
+    
+    //ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
 
 

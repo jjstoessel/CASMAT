@@ -145,7 +145,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
 	fCurrentPartID++;
 #ifdef NEW
     fCurrentIntervalVector = new_IMUSANT_interval_vector();
-    
+    fCurrentIntervalVector->setMaximum(0x7fffffff);
 #endif
 	//call sub-elements
 	elt->measures().accept(*this);

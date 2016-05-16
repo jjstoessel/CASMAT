@@ -241,17 +241,9 @@ namespace IMUSANT
             throw "Parse error";
         }
         
-        //ensure unique ID
-        int i = 1;
-        while (find(IDs.begin(), IDs.end(), i)!=IDs.end()) i++;
-        
         //error checking required!
         score->accept(c);
-        collection_visitors[i].ignoreRepeatedPitches(false);
-        c.get_imusant_score()->accept(collection_visitors[i]);
-        
-        IDs.push_back(i);
-        
+    
         return c.get_imusant_score();
     }
     
