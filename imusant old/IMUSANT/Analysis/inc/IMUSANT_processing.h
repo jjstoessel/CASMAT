@@ -22,6 +22,7 @@
 
 #define NEW
 // #define OLD   ----- This doesn't compile any more.
+// #define VERBOSE ----- Print out data structures for testing - use with caution
 
 using namespace std;
 using namespace boost;
@@ -62,13 +63,10 @@ private:
     typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
     typedef map<int, vector<IMUSANT_interval> > ID_ivec_map;
     
-#ifdef OLD
-    interval_tree buildSuffixTree();
-#endif
-#ifdef NEW
-    //interval_tree* buildIntervalSuffixTree();
     interval_tree* buildIntervalSuffixTree(ID_ivec_map& id_ivec_map);
-#endif
+    
+    template<typename T> suffixtree< vector<T> >* buildIntervalSuffixTree(map<int, vector<T> >& id_vec_map);
+    template<typename T> suffixtree< vector<T> >* buildSuffixTree(const map<int, vector<T> >& id_vec_map);
     
     enum music_file_format {imusant, musicxml1, musicxml3, mei, unknown};
     music_file_format decideFileType(const filesystem::path& path);

@@ -318,34 +318,17 @@ namespace IMUSANT
         {
             return ret_val;
         }
-#ifdef OLD
-        interval_tree tree = buildSuffixTree();
-#endif
-#ifdef NEW
+
+
         ID_ivec_map id_ivec_map;
         interval_tree* tree = buildIntervalSuffixTree(id_ivec_map);
-#endif
-#ifdef DEBUG
+
+#ifdef VERBOSE
         tree->print(cout);
 #endif
         vector< pair<vector<interval_tree::number>, int> > common_substrings;
-#ifdef OLD
-        common_substrings = tree.find_common_subsequences(IDs, min_length);
-#endif
-#ifdef FORGET_NEW
-        //clunky interim approach until IDs is resolved
-        map<int, vector<IMUSANT_interval> > sentences_map = tree->get_sentences();
-        vector<int> local_ids;
         
-        for (auto i = sentences_map.begin(); i!=sentences_map.end(); i++) {
-            int key = i->first;
-            local_ids.push_back(key);
-        }
-        
-        common_substrings = tree->find_common_subsequences(local_ids, min_length);
-#endif
-        
-#ifdef NEW
+
         //get IDS from map of ID to each interval_vector
         vector<int> local_ids;
         for (auto ivm = id_ivec_map.begin(); ivm != id_ivec_map.end(); ivm++) {
@@ -353,7 +336,7 @@ namespace IMUSANT
         }
         //iterate tree for each ID
         common_substrings = tree->find_common_subsequences(local_ids, min_length);
-#endif
+
         //iterate through substring results
         vector< pair<vector<interval_tree::number>, int> >::iterator common_substrings_iter;
         for (common_substrings_iter = common_substrings.begin();
@@ -366,37 +349,6 @@ namespace IMUSANT
             bool int_sequence_added_to_ret_value = false;
             
             //interate through substring
-#ifdef OLD
-            for (substring_iter = common_substrings_iter->first.begin();
-                 substring_iter != common_substrings_iter->first.end();
-                 substring_iter++)
-            {
-                IMUSANT_collection_visitor movement = scores[substring_iter->first];
-
-                vector<IMUSANT_interval> intervals = movement.getIntervalVector()->getIntervals();
-
-                if (! int_sequence_added_to_ret_value)
-                {
-                    // Add the interval sequence into the return value.
-                    for (interval_tree::size_type t = substring_iter->second;
-                         t < substring_iter->second + common_substrings_iter->second;
-                         t++)
-                    {
-                        repeated_interval_substring.interval_sequence->add(intervals[t]);
-                    }
-                    int_sequence_added_to_ret_value = true;
-                }
-                
-                // Add the loction of this repetition of the interval sequence into the return value.
-                IMUSANT_interval interval = intervals[substring_iter->second];
-                IMUSANT_range range = interval.getLocation();
-                repeated_interval_substring.add_occurrence(substring_iter->first,
-                                                           range.partID,
-                                                           range.first.measure,
-                                                           range.first.note_index );
-            }
-#endif
-#ifdef NEW
             for (substring_iter = common_substrings_iter->first.begin();
                  substring_iter != common_substrings_iter->first.end();
                  substring_iter++)
@@ -423,70 +375,47 @@ namespace IMUSANT
                                                            range.first.measure,
                                                            range.first.note_index );
                
-#endif
             }
             
             ret_val.push_back(repeated_interval_substring);
             
         }
         
-#ifdef NEW
         delete tree;
-#endif
+        
         return ret_val;
     }
     
- #ifdef OLD
-    IMUSANT_processing::interval_tree
-    IMUSANT_processing::
-    buildSuffixTree()
-    {
-
-        vector<IMUSANT_interval> intervals_from_next_processed_file;
-
-        intervals_from_next_processed_file = scores[*IDs.begin()].getIntervalVector()->getIntervals();
-
-        interval_tree tree(intervals_from_next_processed_file,*IDs.begin());
-
-        for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
-        {
-
-            intervals_from_next_processed_file = scores[*j].getIntervalVector()->getIntervals();
-            tree.add_sentence(intervals_from_next_processed_file, *j);
-        }
-        return tree;
-    }
-#endif
+// This here for the record in the short term - delete after next commit-push
+//    IMUSANT_processing::interval_tree*
+//    IMUSANT_processing::
+//    buildIntervalSuffixTree(ID_ivec_map& id_ivec_map)
+//    {
+//        //get first part from first file
+//        interval_tree* tree = NULL;
+//        int ID = 0;
+//        
+//        for (auto i = collection_visitors.begin(); i!=collection_visitors.end(); i++)
+//        {
+//            IMUSANT_collection_visitor collection = i->second;
+//            for (auto j = collection.getPartwiseIntervalVectors().begin(); j!=collection.getPartwiseIntervalVectors().end(); j++)
+//            {
+//                ++ID;
+//                id_ivec_map[ID] = (*j)->getIntervals();
+//                
+//                if (tree==NULL) {
+//                     tree=new interval_tree(id_ivec_map[ID], ID);
+//                }
+//                else
+//                    tree->add_sentence(id_ivec_map[ID], ID);
+//            }
+//        }
+//        
+//        return tree;
+//        
+//    }
     
-#ifdef FORGET_NEW
-    IMUSANT_processing::interval_tree*
-    IMUSANT_processing::
-    buildIntervalSuffixTree()
-    {
-        //get first part from first file
-        interval_tree* tree = NULL;
-        
-        for (auto i = IDs.begin(); i!=IDs.end(); i++)
-        {
-            for (auto j = collection_visitors[*i].getPartwiseIntervalVectors().begin(); j!=collection_visitors[*i].getPartwiseIntervalVectors().end(); j++)
-            {
-                vector<IMUSANT_interval> part_intervals = (*j)->getIntervals();
-                if (tree==NULL) {
-                    //tree=new interval_tree(part_intervals,*i); part_intervals.back().getOctaves();
-                    tree=new interval_tree(part_intervals,part_intervals.back().getOctaves());
-                }
-                else
-                    //tree->add_sentence(part_intervals, *i); //this won't work since ID must be unique; could use unique terminator as ID
-                    tree->add_sentence(part_intervals,part_intervals.back().getOctaves());
-            }
-        }
-        
-        return tree;
-        
-    }
-#endif
-    
-#ifdef NEW
+    //Prepare list of interval strings and feed to template class to create actual tree
     IMUSANT_processing::interval_tree*
     IMUSANT_processing::
     buildIntervalSuffixTree(ID_ivec_map& id_ivec_map)
@@ -503,18 +432,34 @@ namespace IMUSANT
                 ++ID;
                 id_ivec_map[ID] = (*j)->getIntervals();
                 
-                if (tree==NULL) {
-                     tree=new interval_tree(id_ivec_map[ID], ID);
-                }
-                else
-                    tree->add_sentence(id_ivec_map[ID], ID);
             }
         }
         
-        return tree;
+        tree = buildSuffixTree(id_ivec_map);
         
+        return tree;
     }
-#endif
+    
+    template<typename T> suffixtree< vector<T> >*
+    IMUSANT_processing::
+    buildSuffixTree(const map<int, vector<T> >& id_vec_map)
+    {
+        //get first part from first file
+        suffixtree< vector<T> >* tree = NULL;
+        
+        for (auto i = id_vec_map.begin(); i!=id_vec_map.end(); i++)
+        {
+
+            if (tree==NULL) {
+                tree=new interval_tree(i->second, i->first);
+            }
+            else
+                tree->add_sentence(i->second, i->first);
+        }
+        
+        return tree;
+    }
+
     
     void
     IMUSANT_processing::findRepeatedContourSubstrings(int min_length)

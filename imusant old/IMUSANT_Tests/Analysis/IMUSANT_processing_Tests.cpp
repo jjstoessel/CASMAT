@@ -15,7 +15,7 @@
 #include "libIMUSANT.h"
 #include <boost/filesystem.hpp>
 
-#define VERBOSE //toggle for verbose output
+//#define VERBOSE //toggle for verbose output
 
 using namespace IMUSANT;
 using namespace boost;
@@ -160,17 +160,16 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
     repeated_substrings_result = find_repeated_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
 
     // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
-#ifdef VERBOSE
     stringstream actual_output;
-    actual_output << IMUSANT_repeated_interval_substring::output_operator_help();
+    
+    cout << IMUSANT_repeated_interval_substring::output_operator_help();
     
     for(int index = 0 ; index < repeated_substrings_result.size(); index++)
     {
         actual_output << repeated_substrings_result[index];
     }
-   
     actual_output << endl;
-
+#ifdef VERBOSE
     cout << actual_output.str();
 #endif
     ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
@@ -203,34 +202,34 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_from_v1_direc
 
 TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing)
 {
-//    vector<IMUSANT_repeated_interval_substring> v1_repeated_substrings_result;
-//    v1_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv1/Josquin_MSN_Kyrie.xml");
-//    
-//    vector<IMUSANT_repeated_interval_substring> v3_repeated_substrings_result;
-//    v3_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv3/Josquin_MSN_Kyrie_v3_exported_from_v1.xml");
-//    
-//    ASSERT_EQ(v1_repeated_substrings_result.size(), v3_repeated_substrings_result.size())  << "EXPECTED FAILURE - Output vectors are not the same length.";
-//  
-//    stringstream v1_actual_output;
-//    stringstream v3_actual_output;
-//    
-//    for(int index = 0 ; index < v1_repeated_substrings_result.size(); index++)
-//    {
-//        v1_actual_output << v1_repeated_substrings_result[index];
-//    }
-//    
-//    for(int index = 0 ; index < v3_repeated_substrings_result.size(); index++)
-//    {
-//        v3_actual_output << v3_repeated_substrings_result[index];
-//    }
-//    
-//    ASSERT_EQ(v1_actual_output.str(), v3_actual_output.str()) << "Output strings are not identical.";
+    vector<IMUSANT_repeated_interval_substring> v1_repeated_substrings_result;
+    v1_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv1/Josquin_MSN_Kyrie.xml");
     
-    //cout << "V1 ACTUAL:" << endl << v1_actual_output.str() << endl;
-    //cout << endl;
-    //cout << "V3 ACTUAL:" << endl << v3_actual_output.str() << endl;
+    vector<IMUSANT_repeated_interval_substring> v3_repeated_substrings_result;
+    v3_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv3/Josquin_MSN_Kyrie_v3_exported_from_v1.xml");
     
-        ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
+    ASSERT_EQ(v1_repeated_substrings_result.size(), v3_repeated_substrings_result.size())  << "EXPECTED FAILURE - Output vectors are not the same length.";
+  
+    stringstream v1_actual_output;
+    stringstream v3_actual_output;
+    
+    for(int index = 0 ; index < v1_repeated_substrings_result.size(); index++)
+    {
+        v1_actual_output << v1_repeated_substrings_result[index];
+    }
+    
+    for(int index = 0 ; index < v3_repeated_substrings_result.size(); index++)
+    {
+        v3_actual_output << v3_repeated_substrings_result[index];
+    }
+    
+    ASSERT_EQ(v1_actual_output.str(), v3_actual_output.str()) << "Output strings are not identical.";
+    
+    cout << "V1 ACTUAL:" << endl << v1_actual_output.str() << endl;
+    cout << endl;
+    cout << "V3 ACTUAL:" << endl << v3_actual_output.str() << endl;
+    
+    //ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
 
 //  MusicXMLv3.xmlsamples/Telemann.xml is not a simple partwise score but uses a "orchestral part" - we need to capture and alert user!
@@ -271,7 +270,7 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mx
     cout << actual_output.str();
 #endif
     
-    ASSERT_EQ(299, repeated_substrings_result.size());
+    ASSERT_EQ(154, repeated_substrings_result.size());
     
     //ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
