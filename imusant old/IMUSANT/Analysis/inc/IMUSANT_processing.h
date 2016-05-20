@@ -15,14 +15,15 @@
 #include "IMUSANT_score.h"
 #include "IMUSANT_collectionvisitor.h"
 #include "IMUSANT_segmented_part_LBDM.h"
-#include "IMUSANT_repeated_interval_substring.h"
+//#include "IMUSANT_repeated_interval_substring.h"
+#include "IMUSANT_t_repeated_substring.h"
 #include "suffixtree.h"
 #include <map>
 #include <vector>
 
 #define NEW
-// #define OLD   ----- This doesn't compile any more.
-// #define VERBOSE ----- Print out data structures for testing - use with caution
+//#define OLD   //----- This doesn't compile any more.
+// #define VERBOSE //----- Print out data structures for testing - use with caution
 
 using namespace std;
 using namespace boost;
@@ -30,7 +31,10 @@ using namespace ns_suffixtree;
 
 namespace IMUSANT
 {
-
+//#ifdef NEW
+    //class IMUSANT_repeated_interval_substring : public IMUSANT_t_repeated_substring<IMUSANT_interval> {};
+//#endif
+    
 class IMUSANT_processing
 {
 public:
@@ -43,8 +47,14 @@ public:
     vector<string> listWorksAndMovements();
     
 	string	findAndPrintRepeatedIntervalSubstrings(int min_length=4);
+
     vector<IMUSANT_repeated_interval_substring> findRepeatedIntervalSubstrings(int min_length=4);
-	void	findRepeatedContourSubstrings(int min_length=5);
+#ifdef OLD
+    void	findRepeatedContourSubstrings(int min_length=5);
+#endif
+#ifdef NEW
+    vector<IMUSANT_repeated_contour_substring> findRepeatedContourSubstrings(int min_length=5);
+#endif
 	void	findSupermaximalsIntervals(int min_length, int min_percent);
 	void	findSupermaximalsContours(int min_length, int min_percent);
 	void	findLcsPairsIntervals(bool consecutive=true);
@@ -52,6 +62,9 @@ public:
 	void	findLcsPairsPitches(bool consecutive=true);
     vector<S_IMUSANT_segmented_part_LBDM> findMelodicSegments_LBDM();
 	
+    typedef suffixtree< vector<IMUSANT_interval> >  interval_tree;
+    typedef suffixtree< vector<IMUSANT_contour_symbol> > contour_tree;
+    
 private:
     
     vector<S_IMUSANT_score> scores;                             // One score for each file that has been added.
@@ -60,13 +73,15 @@ private:
 	vector<int> IDs;                                            // Index into collection_visitors. OLD!
     void createCollectionVisitorForScore(const S_IMUSANT_score score);
     
-    typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
-    typedef map<int, vector<IMUSANT_interval> > ID_ivec_map;
     
-    interval_tree* buildIntervalSuffixTree(ID_ivec_map& id_ivec_map);
+    typedef map<int, vector<IMUSANT_interval> >     ID_ivec_map;
+    typedef map<int, vector<IMUSANT_contour_symbol> > ID_cvec_map;
     
-    template<typename T> suffixtree< vector<T> >* buildIntervalSuffixTree(map<int, vector<T> >& id_vec_map);
-    template<typename T> suffixtree< vector<T> >* buildSuffixTree(const map<int, vector<T> >& id_vec_map);
+    interval_tree*  buildIntervalSuffixTree(ID_ivec_map& id_ivec_map);
+    contour_tree*   buildContourSuffixTree(ID_cvec_map& id_cvec_map);
+    
+    //template<class T> suffixtree< vector<T> >* buildIntervalSuffixTree(map<int, vector<T> >& id_vec_map);
+    template<class T> suffixtree< vector<T> >* buildSuffixTree(const map<int, vector<T> >& id_vec_map);
     
     enum music_file_format {imusant, musicxml1, musicxml3, mei, unknown};
     music_file_format decideFileType(const filesystem::path& path);

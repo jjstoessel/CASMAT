@@ -61,14 +61,15 @@ namespace IMUSANT
             void visit ( S_IMUSANT_score& elt );
 #ifdef OLD
             const S_IMUSANT_interval_vector& getIntervalVector() const { return fIntervalVector; }
+            const S_IMUSANT_contour&	getMelodicContour() const { return fMelodicContour; }
 #endif
 #ifdef NEW
-            const vector<S_IMUSANT_interval_vector>& getPartwiseIntervalVectors() const {return fPartwiseIntervalVectors; }
+            const vector<S_IMUSANT_interval_vector>&    getPartwiseIntervalVectors() const {return fPartwiseIntervalVectors; }
+            const vector<S_IMUSANT_contour>&            getPartwiseContourVectors() const {return fPartwiseContourVectors; }
 #endif
             const S_IMUSANT_rvec_collection& getRhythmVector() { return fRhythmCollection; } //reimpliment;
             const string& getMovementTitle() const { return fMovementTitle; }
             const string& getWorkTitle() const { return fWorkTitle; }
-            const S_IMUSANT_contour&	getMelodicContour() const { return fMelodicContour; }
             const S_IMUSANT_pitch_vector& getPitchVector() { return fPitchVector; }
             
             void ignoreRepeatedPitches(bool ignore) { fIgnoreRepeatedPitches = ignore; }
@@ -82,16 +83,21 @@ namespace IMUSANT
             //S_IMUSANT_ivec_collection	fIntervalCollection;
             //collection of rhythm vectors
             S_IMUSANT_rvec_collection       fRhythmCollection;
-            //local storage of interval vectors
+        
 #ifdef OLD
+            //local storage of interval vectors
             S_IMUSANT_interval_vector       fIntervalVector;
-#endif
-#ifdef NEW
-            S_IMUSANT_interval_vector           fCurrentIntervalVector;
-            vector<S_IMUSANT_interval_vector>   fPartwiseIntervalVectors;
-#endif
             //local storage of melodic contour
             S_IMUSANT_contour               fMelodicContour;
+#endif
+#ifdef NEW
+            //local storage of interval vectors
+            S_IMUSANT_interval_vector           fCurrentIntervalVector;
+            S_IMUSANT_contour                   fCurrentMelodicContour;
+            vector<S_IMUSANT_interval_vector>   fPartwiseIntervalVectors;
+            vector<S_IMUSANT_contour>           fPartwiseContourVectors;
+#endif
+        
             //local storage of pitches
             S_IMUSANT_pitch_vector          fPitchVector;
         

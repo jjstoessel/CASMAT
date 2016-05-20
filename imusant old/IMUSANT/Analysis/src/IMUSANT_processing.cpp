@@ -51,7 +51,6 @@ using namespace boost;
 namespace IMUSANT
 {
     
-    typedef suffixtree< vector<IMUSANT_contour_symbol> > contour_tree;
     typedef boost::multi_array<int, 2> int_2d_array_t;
     
     void
@@ -294,8 +293,9 @@ namespace IMUSANT
     IMUSANT_processing::
     findAndPrintRepeatedIntervalSubstrings(int min_length)
     {
-        vector<IMUSANT_repeated_interval_substring> the_result;
-        the_result = findRepeatedIntervalSubstrings(min_length);
+        //vector<IMUSANT_repeated_interval_substring> the_result;
+        //the_result = findRepeatedIntervalSubstrings(min_length);
+        vector<IMUSANT_t_repeated_substring<IMUSANT_interval> > the_result;
         
         stringstream the_result_as_stringstream;
         for(int index = 0 ; index < the_result.size(); index++)
@@ -328,7 +328,6 @@ namespace IMUSANT
 #endif
         vector< pair<vector<interval_tree::number>, int> > common_substrings;
         
-
         //get IDS from map of ID to each interval_vector
         vector<int> local_ids;
         for (auto ivm = id_ivec_map.begin(); ivm != id_ivec_map.end(); ivm++) {
@@ -343,7 +342,7 @@ namespace IMUSANT
              common_substrings_iter != common_substrings.end();
              common_substrings_iter++)
         {
-            IMUSANT_repeated_interval_substring repeated_interval_substring; //result storage
+            IMUSANT_repeated_interval_substring repeated_interval_substring;
             
             vector< interval_tree::number >::const_iterator substring_iter;
             bool int_sequence_added_to_ret_value = false;
@@ -353,17 +352,12 @@ namespace IMUSANT
                  substring_iter != common_substrings_iter->first.end();
                  substring_iter++)
             {
-                vector<IMUSANT_interval> intervals = id_ivec_map[substring_iter->first];
+                vector<IMUSANT_interval> intervals = id_ivec_map[substring_iter->first]; //eliminate and call equate directly after test.
 
                 if (! int_sequence_added_to_ret_value)
                 {
                     // Add the interval sequence into the return value.
-                    for (interval_tree::size_type t = substring_iter->second;
-                         t < substring_iter->second + common_substrings_iter->second;
-                         t++)
-                    {
-                        repeated_interval_substring.interval_sequence->add(intervals[t]);
-                    }
+                    repeated_interval_substring.sequence = intervals;
                     int_sequence_added_to_ret_value = true;
                 }
                 
@@ -440,7 +434,7 @@ namespace IMUSANT
         return tree;
     }
     
-    template<typename T> suffixtree< vector<T> >*
+    template<class T> suffixtree< vector<T> >*
     IMUSANT_processing::
     buildSuffixTree(const map<int, vector<T> >& id_vec_map)
     {
@@ -451,7 +445,7 @@ namespace IMUSANT
         {
 
             if (tree==NULL) {
-                tree=new interval_tree(i->second, i->first);
+                tree=new suffixtree< vector<T> >(i->second, i->first);
             }
             else
                 tree->add_sentence(i->second, i->first);
@@ -460,7 +454,7 @@ namespace IMUSANT
         return tree;
     }
 
-    
+#ifdef OLD
     void
     IMUSANT_processing::findRepeatedContourSubstrings(int min_length)
     {
@@ -507,26 +501,116 @@ namespace IMUSANT
             
         }
     }
+#endif
+#ifdef NEW
+    vector<IMUSANT_repeated_contour_substring>
+    IMUSANT_processing::
+    findRepeatedContourSubstrings(int min_length)
+    {
+        
+        vector<IMUSANT_repeated_contour_substring> ret_val;
+        
+        if (IDs.size()>0)
+        {
+            ID_cvec_map id_cvec_map;
+            
+            //construct contour tree
+            contour_tree* tree = buildContourSuffixTree(id_cvec_map);
+            //construct contour tree
+            
+            vector<int> local_ids;
+            for (auto cvm = id_cvec_map.begin(); cvm != id_cvec_map.end(); cvm++) {
+                local_ids.push_back(cvm->first);
+            }
+            vector< pair<vector<contour_tree::number>, int> > mc_results;
+            mc_results = tree->find_common_subsequences(local_ids, min_length);
+            
+            for (auto iter_mc=mc_results.begin();iter_mc!=mc_results.end(); iter_mc++)
+            {
+                //convert to same model of findRepeatedContourSubstrings here!!!
+#ifdef NEW
+                IMUSANT_repeated_contour_substring repeated_contour_substring;
+#endif
+                vector< contour_tree::number >::const_iterator mc_c=iter_mc->first.begin();
+                bool first_time = true;
+                for (;mc_c!=iter_mc->first.end(); mc_c++)
+                {
+                    
+
+                    if (first_time)
+                    {
+#ifdef OLD
+                        for (contour_tree::size_type t = mc_c->second; t < mc_c->second+iter_mc->second; t++)
+                        {
+                            cout << id_cvec_map[mc_c->first][t] << " ";
+                        }
+#endif
+#ifdef NEW
+                        repeated_contour_substring.sequence = id_cvec_map[mc_c->first];
+#endif
+                        first_time=false;
+                    }
+                    
+                    IMUSANT_contour_symbol symbol = id_cvec_map[mc_c->first][mc_c->second];
+                    IMUSANT_range range=symbol.getLocation();
+#ifdef OLD
+                    cout << "(" << mc_c->first << "," <<range.partID << "," << range.first.measure << "," << range.first.note_index << ")";
+#endif
+#ifdef NEW
+                    repeated_contour_substring.add_occurrence( mc_c->first,
+                                                               range.partID,
+                                                               range.first.measure,
+                                                               range.first.note_index );
+#endif
+                }
+#ifdef OLD
+                cout << endl;
+                cout << "Length: " << iter_mc->second << " Occurrences: " << iter_mc->first.size() << endl << endl;
+#endif
+#ifdef NEW
+                ret_val.push_back(repeated_contour_substring);
+#endif
+            }
+            cout << endl;
+            
+            delete tree;
+        }
+        
+        return ret_val;
+    }
     
+    IMUSANT_processing::contour_tree*
+    IMUSANT_processing::
+    buildContourSuffixTree(ID_cvec_map& id_cvec_map)
+    {
+        //get first part from first file
+        contour_tree* tree = NULL;
+        int ID = 0;
+        
+        for (auto i = collection_visitors.begin(); i!=collection_visitors.end(); i++)
+        {
+            IMUSANT_collection_visitor collection = i->second;
+            for (auto j = collection.getPartwiseContourVectors().begin(); j!=collection.getPartwiseContourVectors().end(); j++)
+            {
+                ++ID;
+                id_cvec_map[ID] = (*j)->getContours();
+            }
+        }
+        
+        tree = buildSuffixTree(id_cvec_map);
+        
+        return tree;
+    }
+#endif
     void IMUSANT_processing::findSupermaximalsIntervals(int min_length, int min_percent)
     {
         if (IDs.size()>0)
         {
-#ifdef OLD
-            interval_tree tree(scores[*IDs.begin()].getIntervalVector()->getIntervals(),*IDs.begin());
             
-            for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
-            {
-                tree.add_sentence(scores[*j].getIntervalVector()->getIntervals(),*j);
-            }
-            
-            repeats<vector<IMUSANT_interval> > rep(&tree);
-#endif
-#ifdef NEW
             ID_ivec_map id_ivec_map;
             interval_tree* tree = buildIntervalSuffixTree(id_ivec_map);
             repeats<vector<IMUSANT_interval> > rep(tree);
-#endif
+
             list<repeats<vector<IMUSANT_interval> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
             list<repeats<vector<IMUSANT_interval> >::supermax_node*>::const_iterator q=supermaxs.begin();
             for (; q!=supermaxs.end(); q++)
@@ -538,9 +622,8 @@ namespace IMUSANT
                 cout << " ";
                 cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
             }
-#ifdef NEW
+
             delete tree;
-#endif
         }
     }
     
@@ -548,28 +631,28 @@ namespace IMUSANT
     IMUSANT_processing::
     findSupermaximalsContours(int min_length, int min_percent)
     {
-        if (IDs.size()>0)
-        {
-            contour_tree cont_tree(*(collection_visitors[*IDs.begin()].getMelodicContour()),*IDs.begin());
-            
-            for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
-            {
-                cont_tree.add_sentence(*(collection_visitors[*j].getMelodicContour()),*j);
-            }
-            
-            repeats<vector<IMUSANT_contour_symbol> > rep(&cont_tree);
-            list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
-            list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*>::const_iterator q=supermaxs.begin();
-            for (; q!=supermaxs.end(); q++)
-            {
-                for (repeats<vector<IMUSANT_contour_symbol> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
-                {
-                    cout << *t;
-                }
-                cout << " ";
-                cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
-            }
-        }
+//        if (IDs.size()>0)
+//        {
+//            contour_tree cont_tree(*(collection_visitors[*IDs.begin()].getMelodicContour()),*IDs.begin());
+//            
+//            for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
+//            {
+//                cont_tree.add_sentence(*(collection_visitors[*j].getMelodicContour()),*j);
+//            }
+//            
+//            repeats<vector<IMUSANT_contour_symbol> > rep(&cont_tree);
+//            list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
+//            list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*>::const_iterator q=supermaxs.begin();
+//            for (; q!=supermaxs.end(); q++)
+//            {
+//                for (repeats<vector<IMUSANT_contour_symbol> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
+//                {
+//                    cout << *t;
+//                }
+//                cout << " ";
+//                cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
+//            }
+//        }
     }
     
     // Find longest common subsequence of intervals for pairs of file/works

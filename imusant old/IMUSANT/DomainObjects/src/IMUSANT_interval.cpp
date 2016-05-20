@@ -596,7 +596,7 @@ namespace IMUSANT
     /*
      * increment_fInterval()
      *
-     * Expands upwards by an interval by a semitone.
+     * Expands interval upwards by a semitone.
      *
      */
     void

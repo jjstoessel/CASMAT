@@ -37,6 +37,7 @@ protected:
     
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_file(string path_to_test_data_file);
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_directory(string path_to_test_data_directory);
+    void                                        find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file);
     
     vector<S_IMUSANT_segmented_part_LBDM> findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files);
     
@@ -84,6 +85,36 @@ find_repeated_substrings_by_file(string relative_path_to_test_data_file)
     
     return repeated_substrings_result;
 }
+
+//vector<IMUSANT_repeated_interval_substring>
+void
+IMUSANT_processing_Tests::
+find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file)
+{
+    filesystem::path testdata = make_path_to_test_file(relative_path_to_test_data_file);
+    
+    filesystem::file_status status = filesystem::status(testdata);
+    if (!filesystem::exists(status))
+    {
+        cerr << "Can't find the test data file at " <<  relative_path_to_test_data_file << endl;
+        throw("File not found: " + relative_path_to_test_data_file) ;
+    }
+    
+    if (!filesystem::is_regular_file(status))
+    {
+        cerr << "This path is not a file: " <<  relative_path_to_test_data_file << endl;
+        throw("Not a file: " + relative_path_to_test_data_file) ;
+    }
+    
+    IMUSANT_processing *the_processor = new IMUSANT_processing();
+    
+    the_processor->addFile(testdata);
+    
+    vector<IMUSANT_repeated_contour_substring> repeated_substrings_result;
+    repeated_substrings_result = the_processor->findRepeatedContourSubstrings();
+    
+}
+
 
 vector<IMUSANT_repeated_interval_substring>
 IMUSANT_processing_Tests::
@@ -175,6 +206,30 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
     ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
     
     //ASSERT_FALSE(true) << "Deliberately failing this test. (WIP)Repeated Interval Substrings should not span different parts?";
+}
+
+TEST_F(IMUSANT_processing_Tests, findSupermaximalsIntervals_simple_test_1)
+{
+//    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+//    //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
+//    repeated_substrings_result = find_repeated_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+//    
+//    // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
+//    stringstream actual_output;
+//    
+//    cout << IMUSANT_repeated_interval_substring::output_operator_help();
+//    
+//    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+//    {
+//        actual_output << repeated_substrings_result[index];
+//    }
+//    actual_output << endl;
+//#ifdef VERBOSE
+//    cout << actual_output.str();
+//#endif
+//    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
+    
+    ASSERT_FALSE(true) << "Deliberately failing this test. Needs implementation.";
 }
 
 
@@ -273,6 +328,31 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mx
     ASSERT_EQ(154, repeated_substrings_result.size());
     
     //ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
+}
+
+
+TEST_F(IMUSANT_processing_Tests, find_repeated_contour_substrings_simple_test_1)
+{
+    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    
+    /*repeated_substrings_result = */ find_repeated_contour_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    
+    // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
+//    stringstream actual_output;
+//    
+//    cout << IMUSANT_repeated_interval_substring::output_operator_help();
+//    
+//    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+//    {
+//        actual_output << repeated_substrings_result[index];
+//    }
+//    actual_output << endl;
+//#ifdef VERBOSE
+//    cout << actual_output.str();
+//#endif
+//    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
+    
+    ASSERT_FALSE(true) << "Deliberately failing this test. Return string on ";
 }
 
 
