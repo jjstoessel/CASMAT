@@ -6,6 +6,11 @@
 //
 //
 
+#include <stdlib.h>  // for system()
+#include <iostream>
+#include <fstream>
+#include <string>
+
 #include "CATSMAT_test_utility.h"
 
 
@@ -70,6 +75,97 @@ CATSMAT_test_utility::ConvertDyadSequencesToString(CATSMAT::CATSMAT_dyad_sequenc
     the_dyads_as_stringstream << the_dyad_sequences;
     std::string the_dyads_as_string = the_dyads_as_stringstream.str();
     return the_dyads_as_string;
+}
+
+
+void
+CATSMAT_test_utility::DiffActualAndExpected(string actual, string expected)
+{
+    // Send the strings to files so that we can use UNIX diff to compare them.
+    
+    string actual_file_path = GetTempFilePath();
+    string expected_file_path = GetTempFilePath();
+    
+    ofstream actual_file(actual_file_path);
+    ofstream expected_file(expected_file_path);
+    
+    actual_file << actual << endl;
+    expected_file << expected << endl;
+    
+    DiffFiles(actual_file_path, expected_file_path);
+}
+
+void
+CATSMAT_test_utility::DiffFiles(string actual_file_path, string expected_file_path)
+{
+    // Run UNIX diff and send the output to the screen
+    string temp_output_file_path = GetTempFilePath();
+
+    string command = "diff -a --text " + actual_file_path + " " + expected_file_path + " > " + temp_output_file_path;
+    
+    ExecuteSystemCommand(command);
+    OutputDiffResult(temp_output_file_path);
+}
+
+string
+CATSMAT_test_utility::GetTempFilePath()
+{
+    boost::filesystem::path temp = boost::filesystem::temp_directory_path();
+    boost::filesystem::path temp_file_name = boost::filesystem::unique_path();
+    
+    temp /= temp_file_name;
+    temp.replace_extension(".txt");
+    
+    // cout << "Temp file is: " << temp.string() << endl;
+    
+    return temp.string();
+}
+
+void
+CATSMAT_test_utility::ExecuteSystemCommand(string system_command)
+{
+    if (! std::system(NULL))
+    {
+        cerr << "CATSMAT_test_utility::ExecuteSystemCommand() - system() call not available" << endl;
+        throw "CATSMAT_test_utility::ExecuteSystemCommand() - system() call not available";
+    }
+    
+    int status;
+    status = std::system(system_command.c_str());
+    
+    if (status < 0)
+    {
+        cout << "CATSMAT_test_utility::ExecuteSystemCommand() - Error: " << strerror(errno) << endl;
+        throw "CATSMAT_test_utility::ExecuteSystemCommand() - Error";
+    }
+    else
+    {
+        if (! WIFEXITED(status))
+        {
+            cout << "CATSMAT_test_utility::ExecuteSystemCommand() - Program exited abnormaly\n";
+            throw "CATSMAT_test_utility::ExecuteSystemCommand() - Program exited abnormaly";
+        }
+    }
+}
+
+void
+CATSMAT_test_utility::OutputDiffResult(string temp_output_file_path)
+{
+    string line;
+    ifstream myfile (temp_output_file_path);
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            cout << line << endl;
+        }
+        myfile.close();
+    }
+    else
+    {
+        cout << "CATSMAT_test_utility::OutputDiffResult() - Unable to open file" << endl;
+    }
+    cout << endl;
 }
 
 string
