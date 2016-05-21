@@ -174,7 +174,7 @@ namespace IMUSANT
             ||
             !filesystem::is_regular_file(status))
         {
-            cerr << "Problem with the file " << path.leaf() << ".  Status is " << &status << endl;;
+            cerr << "IMUSANT_processing::decideFileType() - Problem with the file " << path.leaf() << ".  Status is " << &status << endl;;
             cerr << "Path is: " << path << endl;
             return_val = unknown;
         }
