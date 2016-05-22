@@ -19,11 +19,7 @@
 #include "IMUSANT_segmented_part_LBDM.h"
 
 #include "IMUSANT_processing.h"
-#include "TMusicXMLFile.h"
-#include "IMUSANT_XMLFile.h"
-#include "IMUSANT_XMLVisitor.h"
-#include "IMUSANT_XMLReader.h"
-#include "TScore.h"
+#include "IMUSANT_XMLReader.h"  // This brings in SMRTP from MXML v1.
 #include "suffixtree.h"
 #include "iterator.h"
 #include "repeats.h"
@@ -231,30 +227,6 @@ namespace IMUSANT
         return return_val;
     }
     
-    //    S_IMUSANT_score
-    //    IMUSANT_processing::
-    //    processMusicxml1File(const filesystem::path& path)
-    //    {
-    //        // This is a IMUSANT object which derives from a MusicXML v1 object.
-    //        TXML2IMUSANTVisitor c;
-    //
-    //        // This is a MusicXML v1 object.
-    //        MusicXML::TMusicXMLFile reader;
-    //
-    //        //convert first
-    //        SScore score = reader.read((string&)path);  // This is a MusicXML v1 object.
-    //        if (score == NULL)
-    //        {
-    //            cerr << "Parse error in " << path.leaf() << endl;
-    //            throw "Parse error";
-    //        }
-    //
-    //        //error checking required!
-    //        score->accept(c);
-    //
-    //        return c.get_imusant_score();
-    //    }
-    
     S_IMUSANT_score
     IMUSANT_processing::
     processMusicxml3File(const filesystem::path& path)
@@ -379,35 +351,6 @@ namespace IMUSANT
         
         return ret_val;
     }
-    
-    // This here for the record in the short term - delete after next commit-push
-    //    IMUSANT_processing::interval_tree*
-    //    IMUSANT_processing::
-    //    buildIntervalSuffixTree(ID_ivec_map& id_ivec_map)
-    //    {
-    //        //get first part from first file
-    //        interval_tree* tree = NULL;
-    //        int ID = 0;
-    //
-    //        for (auto i = collection_visitors.begin(); i!=collection_visitors.end(); i++)
-    //        {
-    //            IMUSANT_collection_visitor collection = i->second;
-    //            for (auto j = collection.getPartwiseIntervalVectors().begin(); j!=collection.getPartwiseIntervalVectors().end(); j++)
-    //            {
-    //                ++ID;
-    //                id_ivec_map[ID] = (*j)->getIntervals();
-    //
-    //                if (tree==NULL) {
-    //                     tree=new interval_tree(id_ivec_map[ID], ID);
-    //                }
-    //                else
-    //                    tree->add_sentence(id_ivec_map[ID], ID);
-    //            }
-    //        }
-    //
-    //        return tree;
-    //
-    //    }
     
     //Prepare list of interval strings and feed to template class to create actual tree
     IMUSANT_processing::interval_tree*
