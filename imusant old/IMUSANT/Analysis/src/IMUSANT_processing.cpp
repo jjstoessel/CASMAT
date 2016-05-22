@@ -19,6 +19,7 @@
 #include "IMUSANT_segmented_part_LBDM.h"
 
 #include "IMUSANT_processing.h"
+
 #include "IMUSANT_XMLReader.h"  // This brings in SMRTP from MXML v1.
 #include "suffixtree.h"
 #include "iterator.h"
