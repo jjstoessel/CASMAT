@@ -197,37 +197,28 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_from_v1_direc
     //ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
 }
 
-TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing)
-{
-    vector<IMUSANT_repeated_interval_substring> v1_repeated_substrings_result;
-    v1_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv1/Josquin_MSN_Kyrie.xml");
-    
-    vector<IMUSANT_repeated_interval_substring> v3_repeated_substrings_result;
-    v3_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv3/Josquin_MSN_Kyrie_v3_exported_from_v1.xml");
-    
-    ASSERT_EQ(v1_repeated_substrings_result.size(), v3_repeated_substrings_result.size())  << "EXPECTED FAILURE - Output vectors are not the same length.";
-  
-    stringstream v1_actual_output;
-    stringstream v3_actual_output;
-    
-    for(int index = 0 ; index < v1_repeated_substrings_result.size(); index++)
-    {
-        v1_actual_output << v1_repeated_substrings_result[index];
-    }
-    
-    for(int index = 0 ; index < v3_repeated_substrings_result.size(); index++)
-    {
-        v3_actual_output << v3_repeated_substrings_result[index];
-    }
-    
-    ASSERT_EQ(v1_actual_output.str(), v3_actual_output.str()) << "Output strings are not identical.";
-    
-#ifdef VERBOSE
-    cout << "V1 ACTUAL:" << endl << v1_actual_output.str() << endl;
-    cout << endl;
-    cout << "V3 ACTUAL:" << endl << v3_actual_output.str() << endl;
-#endif
 
+TEST_F(IMUSANT_processing_Tests, exception_when_adding_music_xml_v1_file)
+{
+    bool expected_exception_caught = false;
+    MusicXML1FormatException expected_ex;     //  = *new MusicXML1FormatException();
+    string expected_what(expected_ex.what());
+    
+    cout << "Ignore following output unless this test fails..." << endl;
+    
+    try
+    {
+        vector<IMUSANT_repeated_interval_substring> v1_repeated_substrings_result;
+        v1_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv1/Josquin_MSN_Kyrie.xml");
+    }
+    catch (MusicXML1FormatException ex)
+    {
+        string actual_what(ex.what());
+        ASSERT_EQ(expected_what, actual_what);
+        expected_exception_caught = true;
+    }
+    
+    ASSERT_TRUE(expected_exception_caught);
 }
 
 
