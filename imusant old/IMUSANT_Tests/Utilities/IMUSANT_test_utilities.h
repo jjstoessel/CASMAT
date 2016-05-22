@@ -28,7 +28,13 @@ public:
     S_IMUSANT_score initialiseScoreFromFile(string relative_path);
     filesystem::path makePathToTestFile(string relative_path_to_test_data_file);
 
+    void DiffActualAndExpected(string actual, string expected);
+    
 private:
+    string GetTempFilePath();
+    void DiffFiles(string file1, string file2 );
+    void ExecuteSystemCommand(string system_command);
+    void OutputDiffResult(string temp_output_file_path);
     
     string _root_test_data_dir_name;
     

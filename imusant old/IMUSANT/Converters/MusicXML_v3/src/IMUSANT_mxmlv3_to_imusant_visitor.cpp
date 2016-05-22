@@ -489,7 +489,7 @@ namespace IMUSANT
         fCurrentNote->setMeasureNum(fCurrentMeasure->getMeasureNum());
         fCurrentNote->setNoteIndex(++fCurrentNoteIndex);
         fCurrentNumberofDotsOnNote = 0;
-        fCurrentNoteTimeModification.set(0,0);
+        fCurrentNoteTimeModification.set(1,1);
         fCurrentNoteDurationType.set(0,0);
         fCurrentNormalNumberofDotsOnNote = 0;
     }
@@ -655,8 +655,8 @@ namespace IMUSANT
         if (fInNoteElement)
         {
             string element_name;
-            int actual_notes = 0;
-            int normal_notes = 0;
+            int actual_notes = 1;
+            int normal_notes = 1;
             MusicXML2::xmlelement *next_element;
             
             for (int index = 0 ; index < elt->elements().size()  ; index++ )

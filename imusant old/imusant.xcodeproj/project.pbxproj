@@ -419,7 +419,7 @@
 		494D25BB1BDAFE0500141228 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = IMUSANT_testdata;
+			dstPath = IMUSANT_testdata/MusicXMLv3;
 			dstSubfolderSpec = 16;
 			files = (
 				49394E871CDD83E600EC7D84 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */,
