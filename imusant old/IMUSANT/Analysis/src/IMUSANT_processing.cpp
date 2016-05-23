@@ -295,6 +295,7 @@ namespace IMUSANT
 #endif
         vector< pair<vector<interval_tree::number>, int> > common_substrings;
         
+        
         //get IDS from map of ID to each interval_vector
         vector<int> local_ids;
         for (auto ivm = id_ivec_map.begin(); ivm != id_ivec_map.end(); ivm++) {
@@ -319,12 +320,18 @@ namespace IMUSANT
                  substring_iter != common_substrings_iter->first.end();
                  substring_iter++)
             {
-                vector<IMUSANT_interval> intervals = id_ivec_map[substring_iter->first]; //eliminate and call equate directly after test.
+                vector<IMUSANT_interval> intervals = id_ivec_map[substring_iter->first];
 
                 if (! int_sequence_added_to_ret_value)
                 {
                     // Add the interval sequence into the return value.
-                    repeated_interval_substring.sequence = intervals;
+                    for (interval_tree::size_type t = substring_iter->second;
+                         t < substring_iter->second + common_substrings_iter->second;
+                         t++)
+                    {
+                         repeated_interval_substring.sequence.push_back(intervals[t]);
+                    }
+                    
                     int_sequence_added_to_ret_value = true;
                 }
                 
@@ -392,55 +399,6 @@ namespace IMUSANT
         return tree;
     }
 
-#ifdef OLD
-    void
-    IMUSANT_processing::findRepeatedContourSubstrings(int min_length)
-    {
-        if (IDs.size()>0)
-        {
-            //construct contour tree
-            contour_tree cont_tree(*(collection_visitors[*IDs.begin()].getMelodicContour()),*IDs.begin());
-            
-            for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
-            {
-                cont_tree.add_sentence(*(collection_visitors[*j].getMelodicContour()),*j);
-            }
-            
-            vector< pair<vector<contour_tree::number>, int> > mc_results;
-            mc_results = cont_tree.find_common_subsequences(IDs,min_length);
-            cout << "Melodic contour tree created."<< endl;
-            cout << "Found common contour subsequences of " << min_length << " or more elements at: " << endl;
-            vector< pair<vector<contour_tree::number>, int> >::iterator iter_mc=mc_results.begin();
-            for (;iter_mc!=mc_results.end(); iter_mc++)
-            {
-                
-                cout << "Instance: ";
-                vector< contour_tree::number >::const_iterator mc_c=iter_mc->first.begin();
-                bool first_time = true;
-                for (;mc_c!=iter_mc->first.end(); mc_c++)
-                {
-                    IMUSANT_contour_symbol symbol = (*(collection_visitors[mc_c->first].getMelodicContour()))[mc_c->second];
-                    if (first_time)
-                    {
-                        for (contour_tree::size_type t = mc_c->second; t < mc_c->second+iter_mc->second; t++)
-                        {
-                            cout << (*(collection_visitors[mc_c->first].getMelodicContour()))[t] << " ";
-                        }
-                        first_time=false;
-                    }
-                    IMUSANT_range range=symbol.getLocation();
-                    cout << "(" << mc_c->first << "," <<range.partID << "," << range.first.measure << "," << range.first.note_index << ")";
-                }
-                
-                cout << endl;
-                cout << "Length: " << iter_mc->second << " Occurrences: " << iter_mc->first.size() << endl << endl;
-            }
-            cout << endl;
-            
-        }
-    }
-#endif
-#ifdef NEW
     vector<IMUSANT_repeated_contour_substring>
     IMUSANT_processing::
     findRepeatedContourSubstrings(int min_length)
@@ -451,7 +409,6 @@ namespace IMUSANT
         if (IDs.size()>0)
         {
             ID_cvec_map id_cvec_map;
-            
             //construct contour tree
             contour_tree* tree = buildContourSuffixTree(id_cvec_map);
             //construct contour tree
@@ -465,49 +422,30 @@ namespace IMUSANT
             
             for (auto iter_mc=mc_results.begin();iter_mc!=mc_results.end(); iter_mc++)
             {
-                //convert to same model of findRepeatedContourSubstrings here!!!
-#ifdef NEW
                 IMUSANT_repeated_contour_substring repeated_contour_substring;
-#endif
                 vector< contour_tree::number >::const_iterator mc_c=iter_mc->first.begin();
                 bool first_time = true;
                 for (;mc_c!=iter_mc->first.end(); mc_c++)
                 {
-                    
-
                     if (first_time)
                     {
-#ifdef OLD
                         for (contour_tree::size_type t = mc_c->second; t < mc_c->second+iter_mc->second; t++)
                         {
-                            cout << id_cvec_map[mc_c->first][t] << " ";
+                            repeated_contour_substring.sequence.push_back(id_cvec_map[mc_c->first][t]);
                         }
-#endif
-#ifdef NEW
-                        repeated_contour_substring.sequence = id_cvec_map[mc_c->first];
-#endif
+
                         first_time=false;
                     }
                     
                     IMUSANT_contour_symbol symbol = id_cvec_map[mc_c->first][mc_c->second];
                     IMUSANT_range range=symbol.getLocation();
-#ifdef OLD
-                    cout << "(" << mc_c->first << "," <<range.partID << "," << range.first.measure << "," << range.first.note_index << ")";
-#endif
-#ifdef NEW
                     repeated_contour_substring.add_occurrence( mc_c->first,
                                                                range.partID,
                                                                range.first.measure,
                                                                range.first.note_index );
-#endif
+
                 }
-#ifdef OLD
-                cout << endl;
-                cout << "Length: " << iter_mc->second << " Occurrences: " << iter_mc->first.size() << endl << endl;
-#endif
-#ifdef NEW
                 ret_val.push_back(repeated_contour_substring);
-#endif
             }
             cout << endl;
             
@@ -539,7 +477,7 @@ namespace IMUSANT
         
         return tree;
     }
-#endif
+
     void IMUSANT_processing::findSupermaximalsIntervals(int min_length, int min_percent)
     {
         if (IDs.size()>0)

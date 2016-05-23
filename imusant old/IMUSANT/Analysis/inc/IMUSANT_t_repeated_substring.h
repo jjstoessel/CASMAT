@@ -35,7 +35,7 @@ namespace IMUSANT
     {
     public:
         
-        IMUSANT_t_repeated_substring();
+        IMUSANT_t_repeated_substring() {}
         virtual ~IMUSANT_t_repeated_substring() {}
     
         //
@@ -89,12 +89,6 @@ namespace IMUSANT
         }
     };
     
-    template <typename T>
-    IMUSANT_t_repeated_substring<T>::
-    IMUSANT_t_repeated_substring()
-    {
-        sequence.resize(10);
-    }
     //
     // Interval Sequence
     //

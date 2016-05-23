@@ -37,7 +37,7 @@ protected:
     
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_file(string path_to_test_data_file);
     vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_directory(string path_to_test_data_directory);
-    void                                        find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file);
+    vector<IMUSANT_repeated_contour_substring> find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file);
     
     vector<S_IMUSANT_segmented_part_LBDM> findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files);
     
@@ -86,8 +86,7 @@ find_repeated_substrings_by_file(string relative_path_to_test_data_file)
     return repeated_substrings_result;
 }
 
-//vector<IMUSANT_repeated_interval_substring>
-void
+vector<IMUSANT_repeated_contour_substring>
 IMUSANT_processing_Tests::
 find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file)
 {
@@ -112,6 +111,8 @@ find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file)
     
     vector<IMUSANT_repeated_contour_substring> repeated_substrings_result;
     repeated_substrings_result = the_processor->findRepeatedContourSubstrings();
+    
+    return repeated_substrings_result;
     
 }
 
@@ -304,28 +305,28 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mx
 }
 
 
-TEST_F(IMUSANT_processing_Tests, find_repeated_contour_substrings_simple_test_1)
+TEST_F(IMUSANT_processing_Tests, findRepeatedContourSubstrings_simple_test_1)
 {
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    vector<IMUSANT_repeated_contour_substring> repeated_substrings_result;
     
-    /*repeated_substrings_result = */ find_repeated_contour_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    repeated_substrings_result = find_repeated_contour_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
     
     // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
-//    stringstream actual_output;
-//    
-//    cout << IMUSANT_repeated_interval_substring::output_operator_help();
-//    
-//    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
-//    {
-//        actual_output << repeated_substrings_result[index];
-//    }
-//    actual_output << endl;
-//#ifdef VERBOSE
-//    cout << actual_output.str();
-//#endif
-//    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
+    stringstream actual_output;
     
-    ASSERT_FALSE(true) << "Deliberately failing this test. Return string on ";
+    cout << IMUSANT_repeated_interval_substring::output_operator_help();
+    
+    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+    {
+        actual_output << repeated_substrings_result[index];
+    }
+    actual_output << endl;
+#ifdef VERBOSE
+    cout << actual_output.str();
+#endif
+    ASSERT_EQ(FindRepeatedContourSubstrings_simple_test_1_Expected, actual_output.str());
+    
+    //ASSERT_FALSE(true) << "Deliberately failing this test. Return string on ";
 }
 
 
