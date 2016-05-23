@@ -187,25 +187,22 @@ findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files)
 TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1)
 {
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
     repeated_substrings_result = find_repeated_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
 
-    // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
     stringstream actual_output;
-    
-    cout << IMUSANT_repeated_interval_substring::output_operator_help();
     
     for(int index = 0 ; index < repeated_substrings_result.size(); index++)
     {
         actual_output << repeated_substrings_result[index];
     }
     actual_output << endl;
+    
 #ifdef VERBOSE
+    cout << IMUSANT_repeated_interval_substring::output_operator_help();
     cout << actual_output.str();
 #endif
-    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
     
-    //ASSERT_FALSE(true) << "Deliberately failing this test. (WIP)Repeated Interval Substrings should not span different parts?";
+    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
 }
 
 TEST_F(IMUSANT_processing_Tests, findSupermaximalsIntervals_simple_test_1)
@@ -255,52 +252,30 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_from_v1_direc
     //ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
 }
 
-TEST_F(IMUSANT_processing_Tests, compare_v1_and_v3_repeated_substring_processing)
+
+TEST_F(IMUSANT_processing_Tests, exception_when_adding_music_xml_v1_file)
 {
-    vector<IMUSANT_repeated_interval_substring> v1_repeated_substrings_result;
-    v1_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv1/Josquin_MSN_Kyrie.xml");
+    bool expected_exception_caught = false;
+    MusicXML1FormatException expected_ex;     //  = *new MusicXML1FormatException();
+    string expected_what(expected_ex.what());
     
-    vector<IMUSANT_repeated_interval_substring> v3_repeated_substrings_result;
-    v3_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv3/Josquin_MSN_Kyrie_v3_exported_from_v1.xml");
+    cout << "Ignore following output unless this test fails..." << endl;
     
-    ASSERT_EQ(v1_repeated_substrings_result.size(), v3_repeated_substrings_result.size())  << "EXPECTED FAILURE - Output vectors are not the same length.";
-  
-    stringstream v1_actual_output;
-    stringstream v3_actual_output;
-    
-    for(int index = 0 ; index < v1_repeated_substrings_result.size(); index++)
+    try
     {
-        v1_actual_output << v1_repeated_substrings_result[index];
+        vector<IMUSANT_repeated_interval_substring> v1_repeated_substrings_result;
+        v1_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv1/Josquin_MSN_Kyrie.xml");
+    }
+    catch (MusicXML1FormatException ex)
+    {
+        string actual_what(ex.what());
+        ASSERT_EQ(expected_what, actual_what);
+        expected_exception_caught = true;
     }
     
-    for(int index = 0 ; index < v3_repeated_substrings_result.size(); index++)
-    {
-        v3_actual_output << v3_repeated_substrings_result[index];
-    }
-    
-    ASSERT_EQ(v1_actual_output.str(), v3_actual_output.str()) << "Output strings are not identical.";
-    
-    cout << "V1 ACTUAL:" << endl << v1_actual_output.str() << endl;
-    cout << endl;
-    cout << "V3 ACTUAL:" << endl << v3_actual_output.str() << endl;
-    
-    //ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
+    ASSERT_TRUE(expected_exception_caught);
 }
 
-//  MusicXMLv3.xmlsamples/Telemann.xml is not a simple partwise score but uses a "orchestral part" - we need to capture and alert user!
-//TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Telemann_mxml3)
-//{
-//    // This is a fairly complex file so I'm including a very rough test
-//    // here just to make sure that the parser covers it.
-//
-//    string relative_path = "MusicXMLv3.xmlsamples/Telemann.xml";
-//    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-//    repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
-//    
-//    ASSERT_EQ(299, repeated_substrings_result.size());
-//    
-//    ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
-//}
 
 TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mxml3)
 {
@@ -326,8 +301,6 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mx
 #endif
     
     ASSERT_EQ(154, repeated_substrings_result.size());
-    
-    //ASSERT_TRUE(false) << "Deliberately failing this test.  See D-01025 in VersionOne.";
 }
 
 

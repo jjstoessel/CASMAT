@@ -14,6 +14,8 @@
 
 #include "gtest/gtest.h"
 
+#define VERBOSE
+
 using namespace boost;
 
 // The fixture for testing class CATSMAT_cp_matrix.
@@ -174,6 +176,12 @@ TEST_F(CATSMAT_cp_matrix_Test, Kyrie)
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
     string Kyrie_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    
+#ifdef VERBOSE
+    cout << "Diff for Kyrie_Actual and Kyrie_Expected" << endl;
+    testUtil.DiffActualAndExpected(Kyrie_Actual, Kyrie_Expected);
+#endif
+    
     ASSERT_EQ(Kyrie_Expected, Kyrie_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);

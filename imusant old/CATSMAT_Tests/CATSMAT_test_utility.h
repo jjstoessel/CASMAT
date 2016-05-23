@@ -44,7 +44,16 @@ public:
     
     const string ERR_MSG_FAILED_TO_PARSE_XML =
     "Failed to parse XML file. \nHave you added this file into the Copy Files build phase?";
+    
+    void DiffActualAndExpected(string actual, string expected);
+    
+private:
+    string GetTempFilePath();
+    void DiffFiles(string file1, string file2 );
+    void ExecuteSystemCommand(string system_command);
+    void OutputDiffResult(string temp_output_file_path);
+
 };
 
 
-#endif /* defined(__imusant__CATSMAT_test_utility__) */
+#endif

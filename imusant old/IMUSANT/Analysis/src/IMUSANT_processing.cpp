@@ -19,12 +19,8 @@
 #include "IMUSANT_segmented_part_LBDM.h"
 
 #include "IMUSANT_processing.h"
-#include "TMusicXMLFile.h"
-#include "IMUSANT_XMLFile.h"
-#include "TXML2IMUSANTVisitor.h"
-#include "IMUSANT_XMLVisitor.h"
-#include "IMUSANT_XMLReader.h"
-#include "TScore.h"
+
+#include "IMUSANT_XMLReader.h"  // This brings in SMRTP from MXML v1.
 #include "suffixtree.h"
 #include "iterator.h"
 #include "repeats.h"
@@ -70,7 +66,14 @@ namespace IMUSANT
                 
                 if (extn.compare(xml_extn) == 0)
                 {
-                    addFile(*iter);
+                    try
+                    {
+                        addFile(*iter);
+                    }
+                    catch (std::exception& e)
+                    {
+                        cerr << "Error Adding file to processor.  Skipping " << full_path.string() << endl << "Exception :" << e.what() << endl;
+                    }
                 }
             }
         }
@@ -80,34 +83,36 @@ namespace IMUSANT
     IMUSANT_processing::
     addFile(const filesystem::path& path)
     {
-        // All the IMUSANT objects (such as IMUSANT_interval) inherit from SMARTTABLE or use SMARTP which are MusicXML v1 objects.
-        // Not sure that this is a problem at this point, but something to be aware of.
+        // Previously we supported MusicXML v1 and there has been talk of other file formats.
+        // This method is stricty redundant at the moment, but when we use new formats, this is
+        // where to hook them in.
         
         IMUSANT_processing::music_file_format file_format;
         file_format = decideFileType(path);
         
         S_IMUSANT_score ret_val;
+        MusicXML1FormatException mxml1ex;
+        UnknownFormatException uknownex;
         
         switch (file_format)
         {
             case musicxml1:
-                ret_val = processMusicxml1File(path);
+                cerr << mxml1ex.what() << endl;
+                throw mxml1ex;
                 break;
                 
             case musicxml3:
                 ret_val = processMusicxml3File(path);
                 break;
                 
-            case imusant:
-                ret_val = processImusantFile(path);
-                break;
-                
             case unknown:
-                ret_val = NULL;
+                cerr << uknownex.what() << endl;
+                throw uknownex;
                 break;
                 
             default:
-                ret_val = NULL;
+                cerr << uknownex.what() << endl;
+                throw uknownex;
                 break;
                 
         }
@@ -221,48 +226,24 @@ namespace IMUSANT
         
         return return_val;
     }
-        
-    S_IMUSANT_score
-    IMUSANT_processing::
-    processMusicxml1File(const filesystem::path& path)
-    {
-        // This is a IMUSANT object which derives from a MusicXML v1 object.
-        TXML2IMUSANTVisitor c;
-        
-        // This is a MusicXML v1 object.
-        MusicXML::TMusicXMLFile reader;
-        
-        //convert first
-        SScore score = reader.read((string&)path);  // This is a MusicXML v1 object.
-        if (score == NULL)
-        {
-            cerr << "Parse error in " << path.leaf() << endl;
-            throw "Parse error";
-        }
-        
-        //error checking required!
-        score->accept(c);
-    
-        return c.get_imusant_score();
-    }
     
     S_IMUSANT_score
     IMUSANT_processing::
     processMusicxml3File(const filesystem::path& path)
     {
         string file_path = path.generic_string();
-       // cout << "IMUSANT_processing::process_musicxml3_file() - File: " << file_path << endl;
+        // cout << "IMUSANT_processing::process_musicxml3_file() - File: " << file_path << endl;
         
         MusicXML2::xmlreader r;
         MusicXML2::SXMLFile sxml_file = r.read(file_path.c_str());
-
+        
         MusicXML2::Sxmlelement sxml_element;
         if (sxml_file)
         {
             sxml_element = sxml_file->elements();
             
             string element_name = sxml_element->getName();
-          //  cout << "IMUSANT_processing::process_musicxml3_file() - Element Name: " << element_name << endl;
+            //  cout << "IMUSANT_processing::process_musicxml3_file() - Element Name: " << element_name << endl;
         }
         
         IMUSANT_mxmlv3_to_imusant_visitor parser;
@@ -273,20 +254,6 @@ namespace IMUSANT
         }
         
         return parser.get_imusant_score();
-    }
-    
-    S_IMUSANT_score
-    IMUSANT_processing::
-    processImusantFile(const filesystem::path& path)
-    {
-        // TODO - this doesn't do anything at the moment...
-        
-        filesystem::path mutable_path = path;
-        IMUSANT_XMLFile ixml;
-        ixml.read((string&)mutable_path); //reader file
-        //verify, catalogue to default directory
-        
-        return NULL;
     }
     
     string
@@ -318,11 +285,11 @@ namespace IMUSANT
         {
             return ret_val;
         }
-
-
+        
+        
         ID_ivec_map id_ivec_map;
         interval_tree* tree = buildIntervalSuffixTree(id_ivec_map);
-
+        
 #ifdef VERBOSE
         tree->print(cout);
 #endif
@@ -335,7 +302,7 @@ namespace IMUSANT
         }
         //iterate tree for each ID
         common_substrings = tree->find_common_subsequences(local_ids, min_length);
-
+        
         //iterate through substring results
         vector< pair<vector<interval_tree::number>, int> >::iterator common_substrings_iter;
         for (common_substrings_iter = common_substrings.begin();
@@ -368,7 +335,7 @@ namespace IMUSANT
                                                            range.partID,
                                                            range.first.measure,
                                                            range.first.note_index );
-               
+                
             }
             
             ret_val.push_back(repeated_interval_substring);
@@ -379,35 +346,6 @@ namespace IMUSANT
         
         return ret_val;
     }
-    
-// This here for the record in the short term - delete after next commit-push
-//    IMUSANT_processing::interval_tree*
-//    IMUSANT_processing::
-//    buildIntervalSuffixTree(ID_ivec_map& id_ivec_map)
-//    {
-//        //get first part from first file
-//        interval_tree* tree = NULL;
-//        int ID = 0;
-//        
-//        for (auto i = collection_visitors.begin(); i!=collection_visitors.end(); i++)
-//        {
-//            IMUSANT_collection_visitor collection = i->second;
-//            for (auto j = collection.getPartwiseIntervalVectors().begin(); j!=collection.getPartwiseIntervalVectors().end(); j++)
-//            {
-//                ++ID;
-//                id_ivec_map[ID] = (*j)->getIntervals();
-//                
-//                if (tree==NULL) {
-//                     tree=new interval_tree(id_ivec_map[ID], ID);
-//                }
-//                else
-//                    tree->add_sentence(id_ivec_map[ID], ID);
-//            }
-//        }
-//        
-//        return tree;
-//        
-//    }
     
     //Prepare list of interval strings and feed to template class to create actual tree
     IMUSANT_processing::interval_tree*
@@ -443,7 +381,7 @@ namespace IMUSANT
         
         for (auto i = id_vec_map.begin(); i!=id_vec_map.end(); i++)
         {
-
+            
             if (tree==NULL) {
                 tree=new suffixtree< vector<T> >(i->second, i->first);
             }
@@ -944,6 +882,6 @@ namespace IMUSANT
         
         return segmented_parts;
     }
-
+    
     
 } //namespace IMUSANT
