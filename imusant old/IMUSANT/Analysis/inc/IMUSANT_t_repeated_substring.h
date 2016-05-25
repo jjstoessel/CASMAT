@@ -139,38 +139,40 @@ namespace IMUSANT
     output_operator_help()
     {
         string ret_val =
-        "The output shows the discovered pattern in the following format \n" \
-        "interval up/down (measure, index, part) \n" \
-        "Followed by a list of occurrences in the format \n" \
-        "(movement, voice, measure, index) \n";
+        "Override base template clase for custom operator help.";
         
         return ret_val;
     }
-    
-//    template <typename T>
-//    ostream&
-//    operator<< ( ostream& os, const IMUSANT_t_repeated_substring<T>& substring )
-//    {
-//        os << substring.sequence;
-//        
-//        for (int index = 0; index < substring.occurrences.size(); index++)
-//        {
-//            typename IMUSANT_t_repeated_substring<T>::occurrence occ;
-//            occ = substring.occurrences[index];
-//            os << "("
-//            << "MVT: " << occ.movement << ", "
-//            << "VCE: " << occ.voice << ", "
-//            << "MES: " << occ.measure << ", "
-//            << "IDX: " << occ.note_index << ") ";
-//        }
-//        
-//        os << endl << endl;
-//        
-//        return os;
-//    }
 
-    class IMUSANT_repeated_interval_substring : public IMUSANT_t_repeated_substring<IMUSANT_interval> {};
-    class IMUSANT_repeated_contour_substring: public IMUSANT_t_repeated_substring<IMUSANT_contour_symbol> {};
+    class IMUSANT_repeated_interval_substring : public IMUSANT_t_repeated_substring<IMUSANT_interval>
+    {
+    public:
+        static string  output_operator_help()
+        {
+            string ret_val =
+            "The output shows the discovered pattern in the following format \n" \
+            "interval up/down (measure, index, part) \n" \
+            "Followed by a list of occurrences in the format \n" \
+            "(movement, voice, measure, index) \n";
+            
+            return ret_val;
+        }
+    };
+    class IMUSANT_repeated_contour_substring: public IMUSANT_t_repeated_substring<IMUSANT_contour_symbol>
+    {
+    public:
+        static string  output_operator_help()
+        {
+            string ret_val =
+            "The output shows the discovered pattern in the following format \n" \
+            "step, leap or large leap (+/- up/down) (measure, index, part) \n" \
+            "Followed by a list of occurrences in the format \n" \
+            "(movement, voice, measure, index) \n";
+            
+            return ret_val;
+        }
+
+    };
     
 }
 

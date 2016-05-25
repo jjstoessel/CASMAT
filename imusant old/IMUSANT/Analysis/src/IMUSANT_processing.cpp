@@ -379,7 +379,7 @@ namespace IMUSANT
         return tree;
     }
     
-    template<class T> suffixtree< vector<T> >*
+    template<typename T> suffixtree< vector<T> >*
     IMUSANT_processing::
     buildSuffixTree(const map<int, vector<T> >& id_vec_map)
     {
@@ -477,8 +477,10 @@ namespace IMUSANT
         
         return tree;
     }
-
-    void IMUSANT_processing::findSupermaximalsIntervals(int min_length, int min_percent)
+#ifdef OLD
+    void
+    IMUSANT_processing::
+    findSupermaximalsIntervals(int min_length, int min_percent)
     {
         if (IDs.size()>0)
         {
@@ -502,7 +504,48 @@ namespace IMUSANT
             delete tree;
         }
     }
-    
+#endif
+#ifdef NEW
+    vector<IMUSANT_repeated_interval_substring>
+    IMUSANT_processing::
+    findSupermaximalsIntervals(int min_length, int min_percent)
+    {
+        vector<IMUSANT_repeated_interval_substring> ret_val;
+        
+        if (IDs.size()>0)
+        {
+            
+            ID_ivec_map id_ivec_map;
+            interval_tree* tree = buildIntervalSuffixTree(id_ivec_map);
+            repeats<vector<IMUSANT_interval> > rep(tree);
+            
+            list<repeats<vector<IMUSANT_interval> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
+            list<repeats<vector<IMUSANT_interval> >::supermax_node*>::const_iterator q=supermaxs.begin();
+            for (; q!=supermaxs.end(); q++)
+            {
+                IMUSANT_repeated_interval_substring repeated_substring;
+                
+                for (repeats<vector<IMUSANT_interval> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
+                {
+                    repeated_substring.sequence.push_back(*t);
+                }
+                
+                cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
+                repeated_substring.add_occurrence( 0,
+                                                   (*q)->num_witness,
+                                                   (*q)->num_leaves,
+                                                   (*q)->percent );
+                
+                ret_val.push_back(repeated_substring);
+            }
+            
+            delete tree;
+        }
+        
+        return ret_val;
+    }
+
+#endif
     void
     IMUSANT_processing::
     findSupermaximalsContours(int min_length, int min_percent)
@@ -630,6 +673,113 @@ namespace IMUSANT
             }
         }
 #endif
+#ifdef NEW
+        
+        ID_ivec_map id_ivec_map;
+        int ID = 0;
+        vector<int> local_IDS;
+        for (auto i = collection_visitors.begin(); i!=collection_visitors.end(); i++)
+        {
+            IMUSANT_collection_visitor collection = i->second;
+            for (auto j = collection.getPartwiseIntervalVectors().begin(); j!=collection.getPartwiseIntervalVectors().end(); j++)
+            {
+                ++ID;
+                id_ivec_map[ID] = (*j)->getIntervals();
+                local_IDS.push_back(ID);
+                
+            }
+        }
+
+        if (local_IDS.size()>1) // need two more more for a comparison!
+        {
+            for (auto i = local_IDS.begin(); i!=local_IDS.end(); i++)
+            {
+                vector<IMUSANT_interval> x = id_ivec_map[*i];
+                vector<IMUSANT_interval>::size_type m = x.size();
+                
+                for (auto j = i+1 ; j!=local_IDS.end(); j++) //vector<int>::iterator IDiter2=IDiter1+1; IDiter2!=IDs.end(); IDiter2++)
+                {
+                    
+                    //cout << "Longest common subsequence of " << scores[*IDiter1].getMovementTitle() << " with "
+                    //<< scores[*IDiter2].getMovementTitle() << endl;
+                    
+                    vector<IMUSANT_interval> y = id_ivec_map[*j];
+                    int a = 0, b = 0;
+                    vector<IMUSANT_interval>::size_type n = y.size();
+                    int_2d_array_t lcs(boost::extents[m][n]); //ints auto zeroed
+                    
+                    
+                    for (; a < m-1; a++)
+                    {
+                        for (b=0; b<n-1; b++)
+                        {
+                            if (x[a]==y[b])
+                            {
+                                lcs[a+1][b+1]=lcs[a][b]+1;
+                            }
+                            else
+                            {
+                                lcs[a+1][b+1]=MAX(lcs[a+1][b],lcs[a][b+1]);
+                            }
+                        }
+                    }
+                    
+                    //now trace back to find lcs
+                    //i--;
+                    //j--;
+                    deque<pair<IMUSANT_interval,IMUSANT_interval> > z;
+                    while (a > 0 && b > 0)
+                    {
+                        if(lcs[a][b]==lcs[a-1][b-1]+1 && x[a-1]==y[b-1])
+                        {
+                            z.push_front(make_pair<IMUSANT_interval,IMUSANT_interval>(x[a-1],y[b-1]));
+                            a--; b--;
+                        }
+                        else if (lcs[a-1][b] > lcs[a][b-1]) a--;
+                        else b--;
+                    }
+                    
+                    cout << "Common subsequence: " << endl;
+                    for (deque<pair<IMUSANT_interval,IMUSANT_interval> >::iterator iv=z.begin(); iv!=z.end(); iv++)
+                    {
+                        IMUSANT_range loc1 = iv->first.getLocation();
+                        IMUSANT_range loc2 = iv->second.getLocation();
+                        if (consecutive)
+                        {
+                            if (iv+1!=z.end())
+                            {
+                                IMUSANT_range loc1next = (iv+1)->first.getLocation();
+                                IMUSANT_range loc2next = (iv+1)->second.getLocation();
+                                
+                                if ((loc1.last.measure==loc1next.first.measure
+                                     && loc1.last.note_index==loc1next.first.note_index)
+                                    && (loc2.last.measure==loc2next.first.measure
+                                        && loc2.last.note_index==loc2next.first.note_index) )
+                                {
+                                    cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
+                                    << loc1.first.note_index << "; " << loc2.partID << ","
+                                    << loc2.first.measure << "," << loc2.first.note_index << ") " << endl;
+                                }
+                                else
+                                {
+                                    cout << "====" << endl;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
+                            << loc1.first.note_index << "; " << loc2.partID << ","
+                            << loc2.first.measure << "," << loc2.first.note_index << ") " << endl ;
+                        }
+                    }
+                    cout << endl;
+                    
+                }
+            }
+        }
+#endif
+
     }
     
     void

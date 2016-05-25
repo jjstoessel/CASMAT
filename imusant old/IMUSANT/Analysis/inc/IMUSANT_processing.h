@@ -49,13 +49,13 @@ namespace IMUSANT
         
         string	findAndPrintRepeatedIntervalSubstrings(int min_length=4);
         vector<IMUSANT_repeated_interval_substring> findRepeatedIntervalSubstrings(int min_length=4);
+        vector<IMUSANT_repeated_contour_substring> findRepeatedContourSubstrings(int min_length=5);
 #ifdef OLD
-        void	findRepeatedContourSubstrings(int min_length=5);
+        void	findSupermaximalsIntervals(int min_length, int min_percent);
 #endif
 #ifdef NEW
-        vector<IMUSANT_repeated_contour_substring> findRepeatedContourSubstrings(int min_length=5);
+        vector<IMUSANT_repeated_interval_substring> findSupermaximalsIntervals(int min_length, int min_percent);
 #endif
-        void	findSupermaximalsIntervals(int min_length, int min_percent);
         void	findSupermaximalsContours(int min_length, int min_percent);
         void	findLcsPairsIntervals(bool consecutive=true);
         void	findLcsPairsIntervalsReverse(bool consecutive=true);
