@@ -40,7 +40,7 @@ protected:
     vector<IMUSANT_repeated_contour_substring>  find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file);
     
     vector<IMUSANT_repeated_interval_substring> find_supermaximals_intervals_by_file(string relative_path_to_test_data_file);
-    void                                        find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file);
+    void                                        find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search=false, bool retrograde=false);
     
     vector<S_IMUSANT_segmented_part_LBDM>       findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files);
     
@@ -138,11 +138,11 @@ find_supermaximals_intervals_by_file(string relative_path_to_test_data_file)
 
 void
 IMUSANT_processing_Tests::
-find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file)
+find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search, bool retrograde)
 {
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
     
-    the_processor->findLcsPairsIntervals();
+    the_processor->findLcsPairsIntervals(true,reverse_search,retrograde);
 }
 
 
@@ -288,6 +288,8 @@ TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
     //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
     //repeated_substrings_result =
     find_lcs_pairs_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    
+    //find_lcs_pairs_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml", false, true); // REMOVE TO SEPARATE TEST
     //
     //    // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
     //    stringstream actual_output;

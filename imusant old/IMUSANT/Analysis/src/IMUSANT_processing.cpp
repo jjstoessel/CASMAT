@@ -581,7 +581,7 @@ namespace IMUSANT
     
     void
     IMUSANT_processing::
-    findLcsPairsIntervals(bool consecutive)
+    findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
 #ifdef OLD
         if (IDs.size()>1)
@@ -690,103 +690,111 @@ namespace IMUSANT
             }
         }
 
-        if (local_IDS.size()>1) // need two more more for a comparison!
+        for (auto i = local_IDS.begin(); i!=local_IDS.end(); i++)
         {
-            for (auto i = local_IDS.begin(); i!=local_IDS.end(); i++)
+            vector<IMUSANT_interval> x = id_ivec_map[*i];
+            if (reverse_search) {
+                x.pop_back();
+                reverse(x.begin(),x.end());
+                retrograde = true; //switch for double reverse search
+            }
+            vector<IMUSANT_interval>::size_type m = x.size();
+            
+            for (auto j = i+1 ; j!=local_IDS.end(); j++) //will bail if only one element
             {
-                vector<IMUSANT_interval> x = id_ivec_map[*i];
-                vector<IMUSANT_interval>::size_type m = x.size();
                 
-                for (auto j = i+1 ; j!=local_IDS.end(); j++) //vector<int>::iterator IDiter2=IDiter1+1; IDiter2!=IDs.end(); IDiter2++)
+                //cout << "Longest common subsequence of " << scores[*IDiter1].getMovementTitle() << " with "
+                //<< scores[*IDiter2].getMovementTitle() << endl;
+                
+                vector<IMUSANT_interval> y = id_ivec_map[*j];
+                if (retrograde) {
+                    y.pop_back();
+                    reverse(y.begin(), y.end());
+                }
+                int a = 0, b = 0;
+                vector<IMUSANT_interval>::size_type n = y.size();
+                int_2d_array_t lcs(boost::extents[m][n]); //ints auto zeroed
+                
+                
+                for (; a < m-1; a++)
                 {
-                    
-                    //cout << "Longest common subsequence of " << scores[*IDiter1].getMovementTitle() << " with "
-                    //<< scores[*IDiter2].getMovementTitle() << endl;
-                    
-                    vector<IMUSANT_interval> y = id_ivec_map[*j];
-                    int a = 0, b = 0;
-                    vector<IMUSANT_interval>::size_type n = y.size();
-                    int_2d_array_t lcs(boost::extents[m][n]); //ints auto zeroed
-                    
-                    
-                    for (; a < m-1; a++)
+                    for (b=0; b<n-1; b++)
                     {
-                        for (b=0; b<n-1; b++)
+                        if (x[a]==y[b])
                         {
-                            if (x[a]==y[b])
-                            {
-                                lcs[a+1][b+1]=lcs[a][b]+1;
-                            }
-                            else
-                            {
-                                lcs[a+1][b+1]=MAX(lcs[a+1][b],lcs[a][b+1]);
-                            }
-                        }
-                    }
-                    
-                    //now trace back to find lcs
-                    //i--;
-                    //j--;
-                    deque<pair<IMUSANT_interval,IMUSANT_interval> > z;
-                    while (a > 0 && b > 0)
-                    {
-                        if(lcs[a][b]==lcs[a-1][b-1]+1 && x[a-1]==y[b-1])
-                        {
-                            z.push_front(make_pair<IMUSANT_interval,IMUSANT_interval>(x[a-1],y[b-1]));
-                            a--; b--;
-                        }
-                        else if (lcs[a-1][b] > lcs[a][b-1]) a--;
-                        else b--;
-                    }
-                    
-                    cout << "Common subsequence: " << endl;
-                    for (deque<pair<IMUSANT_interval,IMUSANT_interval> >::iterator iv=z.begin(); iv!=z.end(); iv++)
-                    {
-                        IMUSANT_range loc1 = iv->first.getLocation();
-                        IMUSANT_range loc2 = iv->second.getLocation();
-                        if (consecutive)
-                        {
-                            if (iv+1!=z.end())
-                            {
-                                IMUSANT_range loc1next = (iv+1)->first.getLocation();
-                                IMUSANT_range loc2next = (iv+1)->second.getLocation();
-                                
-                                if ((loc1.last.measure==loc1next.first.measure
-                                     && loc1.last.note_index==loc1next.first.note_index)
-                                    && (loc2.last.measure==loc2next.first.measure
-                                        && loc2.last.note_index==loc2next.first.note_index) )
-                                {
-                                    cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
-                                    << loc1.first.note_index << "; " << loc2.partID << ","
-                                    << loc2.first.measure << "," << loc2.first.note_index << ") " << endl;
-                                }
-                                else
-                                {
-                                    cout << "====" << endl;
-                                }
-                            }
+                            lcs[a+1][b+1]=lcs[a][b]+1;
                         }
                         else
                         {
-                            cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
-                            << loc1.first.note_index << "; " << loc2.partID << ","
-                            << loc2.first.measure << "," << loc2.first.note_index << ") " << endl ;
+                            lcs[a+1][b+1]=MAX(lcs[a+1][b],lcs[a][b+1]);
                         }
                     }
-                    cout << endl;
-                    
                 }
+                
+                //now trace back to find lcs
+                int limit_a = 0, limit_b = 0;
+                if (reverse_search) limit_a = 1;
+                if (retrograde) limit_b = 1;
+    
+                deque<pair<IMUSANT_interval,IMUSANT_interval> > z;
+                while (a > limit_a && b > limit_b )
+                {
+                    if(lcs[a][b]==lcs[a-1][b-1]+1 && x[a-1]==y[b-1])
+                    {
+                        z.push_front(make_pair<IMUSANT_interval,IMUSANT_interval>(x[a-1],y[b-1]));
+                        a--; b--;
+                    }
+                    else if (lcs[a-1][b] > lcs[a][b-1]) a--;
+                    else b--;
+                }
+                
+                cout << "Common subsequence: " << endl;
+                for (deque<pair<IMUSANT_interval,IMUSANT_interval> >::iterator iv=z.begin(); iv!=z.end(); iv++)
+                {
+                    IMUSANT_range loc1 = iv->first.getLocation();
+                    IMUSANT_range loc2 = iv->second.getLocation();
+                    if (consecutive)
+                    {
+                        if (iv+1!=z.end())
+                        {
+                            IMUSANT_range loc1next = (iv+1)->first.getLocation();
+                            IMUSANT_range loc2next = (iv+1)->second.getLocation();
+                            
+                            if ((loc1.last.measure==loc1next.first.measure
+                                 && loc1.last.note_index==loc1next.first.note_index)
+                                && (loc2.last.measure==loc2next.first.measure
+                                    && loc2.last.note_index==loc2next.first.note_index) )
+                            {
+                                cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
+                                << loc1.first.note_index << "; " << loc2.partID << ","
+                                << loc2.first.measure << "," << loc2.first.note_index << ") " << endl;
+                            }
+                            else
+                            {
+                                cout << "====" << endl;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
+                        << loc1.first.note_index << "; " << loc2.partID << ","
+                        << loc2.first.measure << "," << loc2.first.note_index << ") " << endl ;
+                    }
+                }
+                cout << endl;
+                
             }
         }
 #endif
 
     }
-    
+#ifdef OLD
     void
     IMUSANT_processing::
     findLcsPairsIntervalsReverse(bool consecutive)
     {
-#ifdef OLD
+
         if (IDs.size()>1)
         {
             for (vector<int>::iterator IDiter1=IDs.begin(); IDiter1!=IDs.end(); IDiter1++)
@@ -880,9 +888,9 @@ namespace IMUSANT
                 }
             }
         }
-#endif
+
     }
-    
+ #endif
     //Find longest common subsequence of pitches for pairs of file/works
     void
     IMUSANT_processing::

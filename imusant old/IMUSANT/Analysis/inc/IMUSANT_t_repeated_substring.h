@@ -158,6 +158,7 @@ namespace IMUSANT
             return ret_val;
         }
     };
+    
     class IMUSANT_repeated_contour_substring: public IMUSANT_t_repeated_substring<IMUSANT_contour_symbol>
     {
     public:

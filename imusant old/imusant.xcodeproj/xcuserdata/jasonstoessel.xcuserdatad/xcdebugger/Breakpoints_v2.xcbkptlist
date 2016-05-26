@@ -920,11 +920,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT_Tests/Analysis/IMUSANT_processing_Tests.cpp"
-            timestampString = "485847806.725111"
+            timestampString = "485937865.629573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
             landmarkName = "TEST_F(IMUSANT_processing_Tests, findRepeatedContourSubstrings_simple_test_1)"
             landmarkType = "7">
          </BreakpointContent>
@@ -936,11 +936,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT_Tests/Analysis/IMUSANT_processing_Tests.cpp"
-            timestampString = "485847806.725111"
+            timestampString = "485937865.629573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
             landmarkName = "TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1053,7 +1053,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "145"
             endingLineNumber = "145"
-            landmarkName = "IMUSANT_processing_Tests:: find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file)"
+            landmarkName = "IMUSANT_processing_Tests:: find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search, bool retrograde)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1064,12 +1064,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/Analysis/src/IMUSANT_processing.cpp"
-            timestampString = "485848495.027866"
+            timestampString = "485938003.283075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "730"
-            endingLineNumber = "730"
-            landmarkName = "IMUSANT_processing:: findLcsPairsIntervals(bool consecutive)"
+            startingLineNumber = "735"
+            endingLineNumber = "735"
+            landmarkName = "IMUSANT_processing:: findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1080,12 +1080,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/Analysis/src/IMUSANT_processing.cpp"
-            timestampString = "485848506.601152"
+            timestampString = "485938922.302437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "742"
-            endingLineNumber = "742"
-            landmarkName = "IMUSANT_processing:: findLcsPairsIntervals(bool consecutive)"
+            startingLineNumber = "785"
+            endingLineNumber = "785"
+            landmarkName = "IMUSANT_processing:: findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_processing.cpp"
+            timestampString = "485938186.151486"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "678"
+            endingLineNumber = "678"
+            landmarkName = "IMUSANT_processing:: findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_processing.cpp"
+            timestampString = "485938199.165158"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "693"
+            endingLineNumber = "693"
+            landmarkName = "IMUSANT_processing:: findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_processing.cpp"
+            timestampString = "485940206.708555"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "751"
+            endingLineNumber = "751"
+            landmarkName = "IMUSANT_processing:: findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -57,9 +57,15 @@ namespace IMUSANT
         vector<IMUSANT_repeated_interval_substring> findSupermaximalsIntervals(int min_length, int min_percent);
 #endif
         void	findSupermaximalsContours(int min_length, int min_percent);
+#ifdef OLD
         void	findLcsPairsIntervals(bool consecutive=true);
         void	findLcsPairsIntervalsReverse(bool consecutive=true);
+#endif
+        
         void	findLcsPairsPitches(bool consecutive=true);
+#ifdef NEW
+        void    findLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
+#endif
         vector<S_IMUSANT_segmented_part_LBDM> findMelodicSegments_LBDM();
         
         
