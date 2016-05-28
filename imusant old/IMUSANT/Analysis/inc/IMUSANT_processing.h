@@ -15,15 +15,16 @@
 #include "IMUSANT_score.h"
 #include "IMUSANT_collectionvisitor.h"
 #include "IMUSANT_segmented_part_LBDM.h"
-#include "IMUSANT_repeated_interval_substring.h"
+//#include "IMUSANT_repeated_interval_substring.h"
+#include "IMUSANT_t_repeated_substring.h"
 #include "suffixtree.h"
 #include <map>
 #include <vector>
 #include <exception>
 
 #define NEW
-// #define OLD   ----- This doesn't compile any more.
-// #define VERBOSE ----- Print out data structures for testing - use with caution
+//#define OLD   //----- This doesn't compile any more.
+// #define VERBOSE //----- Print out data structures for testing - use with caution
 
 using namespace std;
 using namespace boost;
@@ -31,7 +32,10 @@ using namespace ns_suffixtree;
 
 namespace IMUSANT
 {
-    
+//#ifdef NEW
+    //class IMUSANT_repeated_interval_substring : public IMUSANT_t_repeated_substring<IMUSANT_interval> {};
+//#endif
+
     class IMUSANT_processing
     {
     public:
@@ -45,13 +49,26 @@ namespace IMUSANT
         
         string	findAndPrintRepeatedIntervalSubstrings(int min_length=4);
         vector<IMUSANT_repeated_interval_substring> findRepeatedIntervalSubstrings(int min_length=4);
-        void	findRepeatedContourSubstrings(int min_length=5);
+        vector<IMUSANT_repeated_contour_substring> findRepeatedContourSubstrings(int min_length=5);
+#ifdef OLD
         void	findSupermaximalsIntervals(int min_length, int min_percent);
+#endif
+#ifdef NEW
+        vector<IMUSANT_repeated_interval_substring> findSupermaximalsIntervals(int min_length, int min_percent);
+#endif
         void	findSupermaximalsContours(int min_length, int min_percent);
+#ifdef OLD
         void	findLcsPairsIntervals(bool consecutive=true);
         void	findLcsPairsIntervalsReverse(bool consecutive=true);
+#endif
+        
         void	findLcsPairsPitches(bool consecutive=true);
+#ifdef NEW
+        void    findLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
+#endif
         vector<S_IMUSANT_segmented_part_LBDM> findMelodicSegments_LBDM();
+        
+        
         
     private:
         
@@ -61,12 +78,15 @@ namespace IMUSANT
         vector<int> IDs;                                            // Index into collection_visitors. OLD!
         void createCollectionVisitorForScore(const S_IMUSANT_score score);
         
-        typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
+        typedef suffixtree< vector<IMUSANT_interval> >  interval_tree;
+        typedef suffixtree< vector<IMUSANT_contour_symbol> > contour_tree;
+        
         typedef map<int, vector<IMUSANT_interval> > ID_ivec_map;
+        typedef map<int, vector<IMUSANT_contour_symbol> > ID_cvec_map;
         
-        interval_tree* buildIntervalSuffixTree(ID_ivec_map& id_ivec_map);
+        interval_tree*  buildIntervalSuffixTree(ID_ivec_map& id_ivec_map);
+        contour_tree*   buildContourSuffixTree(ID_cvec_map& id_cvec_map);
         
-        template<typename T> suffixtree< vector<T> >* buildIntervalSuffixTree(map<int, vector<T> >& id_vec_map);
         template<typename T> suffixtree< vector<T> >* buildSuffixTree(const map<int, vector<T> >& id_vec_map);
         
         enum music_file_format {musicxml1, musicxml3, mei, unknown};
@@ -91,8 +111,6 @@ namespace IMUSANT
             return "Unrecognised file format.";
         }
     };
-    
-    
-    
+
 } //namespace IMUSANT
 #endif

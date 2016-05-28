@@ -4,7 +4,11 @@
 //
 //  Created by Derrick Hill on 19/03/2016.
 //
-//
+//  C++ implimentation of Lower Boundary Detection Model as described in
+//  Cambouropoulos, Emilios. 2001. "The Local Boundary Detection Model (LBDM) and its Application in the Study
+//  of Expressive Timing." In Proceedings of the International Computer Music Conference (ICMC'2001) 17-22 September, Havana,
+//  Cuba. International Computer Music Association.
+
 
 #include "IMUSANT_segmented_part_LBDM.h"
 

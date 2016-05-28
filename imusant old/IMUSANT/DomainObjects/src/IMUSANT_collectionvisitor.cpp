@@ -113,7 +113,12 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 				//contour symbol storage
 				IMUSANT_contour_symbol symbol(fLastNote->pitch(), elt->pitch());
 				symbol.setLocation(fCurrentPartID,fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
+#ifdef OLD
 				fMelodicContour->push_back(symbol);
+#endif
+#ifdef NEW
+                fCurrentMelodicContour->push_back(symbol);
+#endif
 			}
 		}
 		
@@ -146,6 +151,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
 #ifdef NEW
     fCurrentIntervalVector = new_IMUSANT_interval_vector();
     fCurrentIntervalVector->setMaximum(0x7fffffff);
+    fCurrentMelodicContour = new_IMUSANT_contour();
 #endif
 	//call sub-elements
 	elt->measures().accept(*this);
@@ -155,6 +161,11 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
     {
         fCurrentIntervalVector->add(IMUSANT_interval::MakeUniqueInterval()); //add unique terminator
         fPartwiseIntervalVectors.push_back(fCurrentIntervalVector);
+    }
+    
+    if (! fCurrentMelodicContour->empty()) {
+        fCurrentMelodicContour->push_back(IMUSANT_contour_symbol::MakeUniqueSymbol());
+        fPartwiseContourVectors.push_back(fCurrentMelodicContour);
     }
 #endif
 }
@@ -173,8 +184,9 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 #ifdef OLD
 	fIntervalVector = new_IMUSANT_interval_vector();	
 	fIntervalVector->setMaximum(0x7fffffff);
+    fMelodicContour = new_IMUSANT_contour();
 #endif
-	fMelodicContour = new_IMUSANT_contour();
+	
 	fPitchVector = new_IMUSANT_pitch_vector();
 	
 	fMovementTitle = elt->getMovementTitle();
@@ -185,9 +197,10 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 	//add unique teminator elements in anticipation of processing.
 #ifdef OLD
 	fIntervalVector->add(IMUSANT_interval::MakeUniqueInterval());
+    fMelodicContour->push_back(IMUSANT_contour_symbol::MakeUniqueSymbol());
 #endif
 	fPitchVector->push_back(IMUSANT_pitch::MakeUniquePitch());
-	fMelodicContour->push_back(IMUSANT_contour_symbol::MakeUniqueSymbol());
+	
 }
 
 

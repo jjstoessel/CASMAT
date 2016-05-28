@@ -107,22 +107,25 @@ IMUSANT_contour_symbol IMUSANT_contour_symbol::calculate(const S_IMUSANT_pitch& 
 {
 	IMUSANT_contour_symbol ret;
 	IMUSANT_interval iv = IMUSANT_interval::calculate(first,second);
+    IMUSANT_interval dim3(IMUSANT_interval::dim3);
+    
 	if (iv.getOctaves() == 0)
 	{
-		if (iv.getInterval()==IMUSANT_interval::unison)
+        
+		if (iv==IMUSANT_interval(IMUSANT_interval::unison))
 		{
 			ret.fSymbol = unison;
 		}
 		else if (iv.getDirection()==IMUSANT_interval::descending)
 		{
-			if (iv.getInterval() < IMUSANT_interval::dim3)
+			if (iv < dim3)
 				ret.fSymbol = step_down;
 			else
 				ret.fSymbol = leap_down;
 		}
 		else if (iv.getDirection()==IMUSANT_interval::ascending)
 		{
-			if (iv.getInterval() < IMUSANT_interval::dim3)
+			if (iv < dim3)
 				ret.fSymbol = step_up;
 			else
 				ret.fSymbol = leap_up;

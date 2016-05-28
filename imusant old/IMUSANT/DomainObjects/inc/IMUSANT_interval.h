@@ -81,7 +81,7 @@ namespace IMUSANT
         friend SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
         
         //getters and setters
-        int                 getInterval() { return fInterval; }
+        interval_type       getInterval() { return fInterval; }
         direction           getDirection() { return fDirection; }
         int                 getOctaves() const { return fOctaves; }
         IMUSANT_range		getLocation() const { return fLocation; }

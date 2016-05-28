@@ -21,7 +21,7 @@ namespace IMUSANT
     {
     public:
         void initialise(vector<float>::size_type number_of_elements);
-        vector<float> intervals;
+        vector<float> profile_vector;
         vector<float> change_vector;
         vector<float> strength_vector;
         virtual void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes) {};
