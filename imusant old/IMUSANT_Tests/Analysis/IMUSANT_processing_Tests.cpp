@@ -70,14 +70,14 @@ check_file(string relative_path_to_test_data_file)
     filesystem::file_status status = filesystem::status(testdata);
     if (!filesystem::exists(status))
     {
-        cerr << "Can't find the test data file at " <<  relative_path_to_test_data_file << endl;
-        throw("File not found: " + relative_path_to_test_data_file) ;
+        cerr << "Can't find the test data file at " <<  testdata << endl;
+        throw("File not found: " + testdata.string() );
     }
     
     if (!filesystem::is_regular_file(status))
     {
-        cerr << "This path is not a file: " <<  relative_path_to_test_data_file << endl;
-        throw("Not a file: " + relative_path_to_test_data_file) ;
+        cerr << "This path is not a file: " <<  testdata << endl;
+        throw("Not a file: " + testdata.string() );
     }
 
     return testdata;
@@ -217,7 +217,7 @@ findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files)
 TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1)
 {
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = find_repeated_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    repeated_substrings_result = find_repeated_substrings_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
 
     stringstream actual_output;
     
@@ -239,7 +239,7 @@ TEST_F(IMUSANT_processing_Tests, findSupermaximalsIntervals_simple_test_1)
 {
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
     //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
-    repeated_substrings_result = find_supermaximals_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    repeated_substrings_result = find_supermaximals_intervals_by_file("MusicXMLv3//RepeatedIntervalSubstrings_SimpleTest1.xml");
 //    
 //    // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
 //    stringstream actual_output;
@@ -287,7 +287,7 @@ TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
     //vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
     //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
     //repeated_substrings_result =
-    find_lcs_pairs_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    find_lcs_pairs_intervals_by_file("MusicXMLv3//RepeatedIntervalSubstrings_SimpleTest1.xml");
     
     //find_lcs_pairs_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml", false, true); // REMOVE TO SEPARATE TEST
     //
@@ -338,7 +338,7 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mx
     // This is a fairly complex file so I'm including a very rough test
     // here just to make sure that the parser covers it.
     
-    string relative_path = "/Kyrie.xml";
+    string relative_path = "MusicXMLv3/Kyrie.xml";
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
     repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
 
@@ -364,12 +364,14 @@ TEST_F(IMUSANT_processing_Tests, findRepeatedContourSubstrings_simple_test_1)
 {
     vector<IMUSANT_repeated_contour_substring> repeated_substrings_result;
     
-    repeated_substrings_result = find_repeated_contour_substrings_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    repeated_substrings_result = find_repeated_contour_substrings_by_file("MusicXMLv3//RepeatedIntervalSubstrings_SimpleTest1.xml");
     
     // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
     stringstream actual_output;
     
+#ifdef VERBOSE
     cout << IMUSANT_repeated_interval_substring::output_operator_help();
+#endif
     
     for(int index = 0 ; index < repeated_substrings_result.size(); index++)
     {
@@ -395,9 +397,9 @@ TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)
     vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
     
     vector<string> test_data_files;
-    test_data_files.push_back("/LBDM_Segmented_Part_Test_1.xml");
-    test_data_files.push_back("/LBDM_Segmented_Part_Test_2.xml");
-    test_data_files.push_back("/LBDM_Segmented_Part_Test_3.xml");
+    test_data_files.push_back("MusicXMLv3//LBDM_Segmented_Part_Test_1.xml");
+    test_data_files.push_back("MusicXMLv3//LBDM_Segmented_Part_Test_2.xml");
+    test_data_files.push_back("MusicXMLv3//LBDM_Segmented_Part_Test_3.xml");
 
     segmented_parts = findSegmentedPartsByFile(test_data_files);
     
