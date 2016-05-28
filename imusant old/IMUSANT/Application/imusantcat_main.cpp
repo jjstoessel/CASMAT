@@ -222,7 +222,7 @@ void runToolMenu(IMUSANT_processing& processor)
 				cout << "Only find continguous segments? (y/n) ";
 				cin >> yn;
 				if (yn == 'y') continguous = true;
-				processor.findLcsPairsIntervalsReverse(continguous);
+				processor.findLcsPairsIntervals(continguous,true);
 				break;
 			case '7':
 				cout << "Only find continguous segments? (y/n) ";
@@ -236,7 +236,7 @@ void runToolMenu(IMUSANT_processing& processor)
 				processor.findSupermaximalsContours(4,100);
 				processor.findLcsPairsIntervals(false);
 				processor.findLcsPairsPitches(false);
-				processor.findLcsPairsIntervalsReverse(false);
+				processor.findLcsPairsIntervals(false,true);
 				break;
 		}
 		cout << "Run another test? (y/n): ";

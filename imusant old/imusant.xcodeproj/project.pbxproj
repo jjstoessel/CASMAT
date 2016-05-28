@@ -333,7 +333,6 @@
 		49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		BA4207E21CE806F6007204AF /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
-		BA4207E51CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4207E41CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp */; };
 		BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
 		BA7E941D1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
 		BA7E943B1B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */; };
@@ -3273,7 +3272,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA4207E51CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp in Sources */,
 				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
 				1E0D00DE1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
 			);
