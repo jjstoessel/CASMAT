@@ -50,8 +50,8 @@ protected:
     static void SetUpTestCase() {
         _test_utils = new IMUSANT_test_utilities("IMUSANT_testdata");
         
-        fScore_LBDM_Test1 = _test_utils->initialiseScoreFromFile("LBDM_Segmented_Part_Test_1.xml");
-        fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("Yankee_Doodle.xml");
+        fScore_LBDM_Test1 = _test_utils->initialiseScoreFromFile("MusicXMLv3/LBDM_Segmented_Part_Test_1.xml");
+        fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("MusicXMLv3/Yankee_Doodle.xml");
     }
     
     vector<float> getOverallStrengthVectorFromPart(S_IMUSANT_score score, string part_id)
