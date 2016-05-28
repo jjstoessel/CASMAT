@@ -7,6 +7,7 @@
  *
  */
 #include <iostream>
+#include <fstream>
 #include <deque>
 #include <utility>
 #include <exception>
