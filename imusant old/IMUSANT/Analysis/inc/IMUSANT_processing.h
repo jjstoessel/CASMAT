@@ -83,6 +83,7 @@ namespace IMUSANT
         
         typedef map<int, vector<IMUSANT_interval> > ID_ivec_map;
         typedef map<int, vector<IMUSANT_contour_symbol> > ID_cvec_map;
+        typedef map<int, vector<IMUSANT_pitch> > ID_pvec_map;
         
         interval_tree*  buildIntervalSuffixTree(ID_ivec_map& id_ivec_map);
         contour_tree*   buildContourSuffixTree(ID_cvec_map& id_cvec_map);

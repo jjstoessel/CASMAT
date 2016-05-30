@@ -18,12 +18,12 @@ using namespace std;
 namespace IMUSANT
 {
 
-class VEXP IMUSANT_chord : public IMUSANT_element
+class IMUSANT_chord : public IMUSANT_element
 {
 	public:
 		enum sorttype { pitch, duration };
 	
-		VEXP friend SMARTP<IMUSANT_chord> new_IMUSANT_chord();
+		friend SMARTP<IMUSANT_chord> new_IMUSANT_chord();
 		
 		void    accept(IMUSANT_visitor& visitor);
 	

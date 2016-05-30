@@ -106,8 +106,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 				interval.setLocation(fCurrentPartID, fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
 #ifdef OLD
 				fIntervalVector->add(interval);
-#endif
-#ifdef NEW
+#elif defined (NEW)
                 fCurrentIntervalVector->add(interval);
 #endif
 				//contour symbol storage
@@ -115,16 +114,21 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 				symbol.setLocation(fCurrentPartID,fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
 #ifdef OLD
 				fMelodicContour->push_back(symbol);
-#endif
-#ifdef NEW
+#elifdef (NEW)
                 fCurrentMelodicContour->push_back(symbol);
 #endif
 			}
 		}
-		
+        
+#ifdef OLD
 		//pitch storage
 		if (!elt->isTiedPrevious() && !(fIgnoreRepeatedPitches && elt->pitch()==fLastNote->pitch()))
 			fPitchVector->push_back(*(elt->pitch()));
+#elif defined (NEW)
+        if (!elt->isTiedPrevious() && !(fIgnoreRepeatedPitches && elt->pitch()==fLastNote->pitch())){
+            fCurrentPitchVector->push_back(*elt->pitch());
+        }
+#endif
 		
 		fLastNote = elt;
 	}
@@ -152,6 +156,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
     fCurrentIntervalVector = new_IMUSANT_interval_vector();
     fCurrentIntervalVector->setMaximum(0x7fffffff);
     fCurrentMelodicContour = new_IMUSANT_contour();
+    fCurrentPitchVector = new_IMUSANT_pitch_vector();
 #endif
 	//call sub-elements
 	elt->measures().accept(*this);
@@ -166,6 +171,11 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
     if (! fCurrentMelodicContour->empty()) {
         fCurrentMelodicContour->push_back(IMUSANT_contour_symbol::MakeUniqueSymbol());
         fPartwiseContourVectors.push_back(fCurrentMelodicContour);
+    }
+    
+    if (! fCurrentPitchVector->empty()) {
+        fCurrentPitchVector->push_back(IMUSANT_pitch::MakeUniquePitch());
+        fPartwisePitchVectors.push_back(fCurrentPitchVector);
     }
 #endif
 }
@@ -185,9 +195,9 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 	fIntervalVector = new_IMUSANT_interval_vector();	
 	fIntervalVector->setMaximum(0x7fffffff);
     fMelodicContour = new_IMUSANT_contour();
+    fPitchVector = new_IMUSANT_pitch_vector();
 #endif
 	
-	fPitchVector = new_IMUSANT_pitch_vector();
 	
 	fMovementTitle = elt->getMovementTitle();
     fWorkTitle = elt->getWorkTitle();
@@ -198,8 +208,9 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 #ifdef OLD
 	fIntervalVector->add(IMUSANT_interval::MakeUniqueInterval());
     fMelodicContour->push_back(IMUSANT_contour_symbol::MakeUniqueSymbol());
+    fPitchVector->push_back(IMUSANT_pitch::MakeUniquePitch());
 #endif
-	fPitchVector->push_back(IMUSANT_pitch::MakeUniquePitch());
+	
 	
 }
 

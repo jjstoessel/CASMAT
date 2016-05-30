@@ -132,6 +132,9 @@ find_supermaximals_intervals_by_file(string relative_path_to_test_data_file)
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
     repeated_substrings_result = the_processor->findSupermaximalsIntervals(4, 100); //parameterise
     
+    //removed below to separate test
+    the_processor->findLcsPairsPitches();
+    
     return repeated_substrings_result;
     
 }

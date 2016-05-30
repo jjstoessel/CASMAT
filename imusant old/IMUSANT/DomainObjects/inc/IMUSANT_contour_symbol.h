@@ -109,7 +109,7 @@ class IMUSANT_contour : public smartable, public vector<IMUSANT_contour_symbol>
 	
 		friend SMARTP<IMUSANT_contour> new_IMUSANT_contour();
     
-    vector<IMUSANT_contour_symbol>& getContours() { return *this; }
+        vector<IMUSANT_contour_symbol>& getContours() { return *this; }
 	
 };
 typedef SMARTP<IMUSANT_contour> S_IMUSANT_contour;
