@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "IMUSANT_conversions.h"
+
 #include "IMUSANT_mxmlv3_to_imusant_visitor.h"
 
 namespace IMUSANT
@@ -848,23 +850,23 @@ namespace IMUSANT
     visitStart(S_chord& elt)
     {
         debug("S_chord");
-        
-        fCurrentNoteInChord = true;
-        
-        if (fInChord)
-        {
-            // Just add the current note into the current chord.
-            fCurrentChord->add(fCurrentNote);
-        }
-        else
-        {
-            // this is the first </chord> element so add the previous note and the current note into a new chord.
-            fCurrentChord = new_IMUSANT_chord();
-            fCurrentMeasure->addElement(fCurrentChord);
-            fCurrentChord->add(fPreviousNote);
-            fCurrentChord->add(fCurrentNote);
-            fInChord = true;
-        }
+//        
+//        fCurrentNoteInChord = true;
+//        
+//        if (fInChord)
+//        {
+//            // Just add the current note into the current chord.
+//            fCurrentChord->add(fCurrentNote);
+//        }
+//        else
+//        {
+//            // this is the first </chord> element so add the previous note and the current note into a new chord.
+//            fCurrentChord = new_IMUSANT_chord();
+//            fCurrentMeasure->addElement(fCurrentChord);
+//            fCurrentChord->add(fPreviousNote);
+//            fCurrentChord->add(fCurrentNote);
+//            fInChord = true;
+//        }
     }
     
     void

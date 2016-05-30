@@ -17,7 +17,7 @@
 using namespace IMUSANT;
 using namespace boost;
 
-// #define VERBOSE = 0;
+#define VERBOSE = 0;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_mxmlv3_to_imusant_visitor_Tests : public ::testing::Test {
