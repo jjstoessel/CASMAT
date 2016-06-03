@@ -105,7 +105,7 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
     
-    list<S_IMUSANT_chord> chords_in_matrix = theMatrix->getCPmatrix();
+    list<S_CATSMAT_chord> chords_in_matrix = theMatrix->getCPmatrix();
     ASSERT_EQ(13, chords_in_matrix.size()) << "Unexpected number of chords in the matrix.";
 }
 

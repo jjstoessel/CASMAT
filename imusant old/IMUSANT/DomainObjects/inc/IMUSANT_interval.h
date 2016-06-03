@@ -59,7 +59,7 @@ namespace IMUSANT
         //These interval numbers are based upon line of fifths theory, and relies on
         //the implementation of Tonal Pitch Class in IMUSANT_pitch
         //consequently, interval comparison routines needed to be rewritten
-        enum //interval_type
+        enum
         {
             dimdim2=-19, dimdim6=-18, dimdim3=-17, dimdim7=-16,dimdim4=-15,
             dimdim1=-14, dimdim5=-13, dim2=-12, dim6=-11, dim3=-10, dim7=-9, dim4=-8,
@@ -81,7 +81,7 @@ namespace IMUSANT
         friend SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
         
         //getters and setters
-        interval_type       getInterval() { return fInterval; }
+        interval_type       getInterval()  { return fInterval; }
         direction           getDirection() { return fDirection; }
         int                 getOctaves() const { return fOctaves; }
         IMUSANT_range		getLocation() const { return fLocation; }

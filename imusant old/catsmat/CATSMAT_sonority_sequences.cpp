@@ -36,44 +36,44 @@ void CATSMAT_sonority_sequences::Visit(const CATSMAT_cp_matrix& matrix)
             
             //find lowest not in chord which can contain rests.
             
-            auto bass = (*chord)->getNotes().begin();
+            auto bass = (*(*chord)).begin();
             
-            while ( bass != (*chord)->getNotes().end() && (*bass)->getType()==IMUSANT_NoteType::rest)
-            {
-                bass++;
-            }
+//            while ( bass != (*chord)->getNotes().end() && (*bass)->getType()==IMUSANT_NoteType::rest)
+//            {
+//                bass++;
+//            }
+//            
+//            if (bass!=(*chord)->getNotes().end())
+//            {
+//        
+//                //start in the middle and move up
+//                for (auto note = bass+1;
+//                     note != (*chord)->getNotes().end();
+//                     note++)
+//                {
+//                    //chord (or sonority) quality is ORing interval quality so that
+//                    //all perfect | perfect = 1; perfect | imperfect = 3; perfect | disonance = 5; imperfect | dissonance = 6, and Perf|Imp|Dis = 7
+//                    //this functionality needs to be moved soon to chord
+//                    //an interval is between two notes!
+//                    if ((*note)->getType()!=IMUSANT_NoteType::rest && (*bass)->getType()!=IMUSANT_NoteType::rest )
+//                    {
+//                        IMUSANT_interval interval((*note)->pitch(), (*bass)->pitch());
+//                        
+//                        //interval.setLocation(1, (*bass)->getMeasureNum(), (*bass)->getNoteIndex(), (*note)->getMeasureNum(), (*note)->getNoteIndex());
+//                        
+//                        chord_quality->quality |= interval.getQuality();
+//                        chord_quality->measure = (*bass)->getMeasureNum();
+//                        chord_quality->index = (*bass)->getNoteIndex();
+//                    }
+//                   
+//                }
             
-            if (bass!=(*chord)->getNotes().end())
-            {
-        
-                //start in the middle and move up
-                for (auto note = bass+1;
-                     note != (*chord)->getNotes().end();
-                     note++)
-                {
-                    //chord (or sonority) quality is ORing interval quality so that
-                    //all perfect | perfect = 1; perfect | imperfect = 3; perfect | disonance = 5; imperfect | dissonance = 6, and Perf|Imp|Dis = 7
-                    //this functionality needs to be moved soon to chord
-                    //an interval is between two notes!
-                    if ((*note)->getType()!=IMUSANT_NoteType::rest && (*bass)->getType()!=IMUSANT_NoteType::rest )
-                    {
-                        IMUSANT_interval interval((*note)->pitch(), (*bass)->pitch());
-                        
-                        //interval.setLocation(1, (*bass)->getMeasureNum(), (*bass)->getNoteIndex(), (*note)->getMeasureNum(), (*note)->getNoteIndex());
-                        
-                        chord_quality->quality |= interval.getQuality();
-                        chord_quality->measure = (*bass)->getMeasureNum();
-                        chord_quality->index = (*bass)->getNoteIndex();
-                    }
-                   
-                }
-                
                 //only add sonority if it has a quality
                 //NB. chord_quality.quality < 4 are consonant
-                if (chord_quality->quality!=0 && chord_quality->quality < 4) {
-                    fQualityVector.push_back(*chord_quality);
-                }
-            }
+//                if (chord_quality->quality!=0 && chord_quality->quality < 4) {
+//                    fQualityVector.push_back(*chord_quality);
+//                }
+//            }
         }
     }
 
