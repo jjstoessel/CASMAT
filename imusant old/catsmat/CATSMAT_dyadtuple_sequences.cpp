@@ -18,6 +18,14 @@ using namespace ns_suffixtree;
 
 namespace CATSMAT
 {
+    /*!
+     \brief CATSMAT_dyadtuple_sequences::Visit
+     
+     A visitor function to iterate through a cp_matrix and extract a quadruple of each dyad
+     that includes the two vertical interval formed between each part and the two melodic 
+     intervals in both parts.
+     
+     */
     void
     CATSMAT_dyadtuple_sequences::Visit(const CATSMAT_cp_matrix& matrix)
     {
@@ -86,6 +94,8 @@ namespace CATSMAT
                     S_IMUSANT_note note_1 = (**chord)[i];
                     S_IMUSANT_note note_3 = (**next_chord)[i];
                     
+                    assert(note_1!=NULL && note_3!=NULL);
+                    
                     if (note_1->getType()!=IMUSANT_NoteType::rest || note_3->getType()!=IMUSANT_NoteType::rest)
                     {
                         IMUSANT_interval topStep(note_1->pitch(), note_3->pitch());
@@ -93,7 +103,9 @@ namespace CATSMAT
                         
                         for (int j = i+1; j<matrix.partCount(); j++) {
                             S_IMUSANT_note note_2 = (**chord)[j];
-                            S_IMUSANT_note note_4 = (**chord)[j];
+                            S_IMUSANT_note note_4 = (**next_chord)[j];
+                            
+                            assert(note_2!=NULL && note_4!=NULL);
                             
                             if ( note_2->getType()!=IMUSANT_NoteType::rest && note_4->getType()!=IMUSANT_NoteType::rest)
                             {

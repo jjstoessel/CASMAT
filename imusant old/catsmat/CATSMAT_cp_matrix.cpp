@@ -183,31 +183,33 @@ namespace CATSMAT
     {
         //create the new chord, ready for filling in for loop
         S_CATSMAT_chord insert_chord = new_CATSMAT_chord();
-        S_IMUSANT_note  new_insert_note = new_IMUSANT_note();
-        //resize notes in other parts in current chord; begin filling new chord, but don't fill the note
+        S_IMUSANT_note  new_note = new_IMUSANT_note();
+        
+        //resize notes in previous part in current chord; begin filling new chord, but don't fill the note
         //for the current voice since it will be known only in the next call of add(note&)
-        for (auto i = (*fCurrentChord)->begin(); i!=(*fCurrentChord)->end(); i++)
+        for (int i = 0; i<fCurrentPart; i++)
         {
-            //create a new note like the one that already exists, change duration
-            //to remainder, insert into the new chord
-            //To do: ties.
+            //first creating new chord to be inserted before the current chord using the values of note
             S_IMUSANT_note      insert_note = new_IMUSANT_note();
             S_IMUSANT_duration  insert_duration = new_IMUSANT_duration();
-            
-            *insert_note = *i->second;
+        
+            *insert_note = *(*fCurrentChord)->at(i);
             *insert_duration = *note.duration();
             insert_note->setDuration(insert_duration);
-            insert_note->setNextTieNote(i->second); //set the old note as tied to previous
-            (*insert_chord)[fCurrentPart] = insert_note;
-            if ( *i->second->duration() != *i->second->duration() - *note.duration())
-                *i->second->duration() -= *note.duration();
+            insert_note->setNextTieNote((*fCurrentChord)->at(i));
+            (*insert_chord)[i] = insert_note;
+            
+            //resize the note in the other part
+            if (*(*fCurrentChord)->at(i)->duration() != *(*fCurrentChord)->at(i)->duration() - *note.duration()) {
+                *(*fCurrentChord)->at(i)->duration() -= *note.duration();
+            }
         }
         
         assert(note.duration()->fDuration!=IMUSANT_duration::unmeasured);
         //finally add new note (clone note&) to new chord to be pre-inserted
-        *new_insert_note = note;
-        (*insert_chord)[fCurrentPart] = new_insert_note;
-        //insert new chord before current chord
+        *new_note = note;
+        (*insert_chord)[fCurrentPart] = new_note;
+        //insert new chord *before* current chord
         fCPMatrix.insert(fCurrentChord, insert_chord);
     }
         
