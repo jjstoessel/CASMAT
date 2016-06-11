@@ -36,8 +36,4 @@ namespace CATSMAT
         os << "<CHORD/>" << endl;
     }
     
-    void	CATSMAT_chord::sort()
-    {
-        //nothing here yet; sonority sequences depends on it
-    }
 }

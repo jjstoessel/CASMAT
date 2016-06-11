@@ -17,6 +17,7 @@
 #endif /* defined(__imusant__CATSMAT_sonority__) */
 
 using namespace IMUSANT;
+using namespace std;
 
 namespace CATSMAT {
     
@@ -28,7 +29,6 @@ namespace CATSMAT {
         void	print(ostream& os) const;
         void    print_short(ostream& os) const;
         
-        void	sort();
     };
     
     typedef SMARTP<CATSMAT_chord> S_CATSMAT_chord;

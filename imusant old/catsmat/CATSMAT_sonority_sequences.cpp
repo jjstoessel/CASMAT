@@ -7,6 +7,8 @@
 //
 
 #include "CATSMAT_sonority_sequences.hpp"
+#include "CATSMAT_t_utilities.h"
+#include <map>
 
 using namespace CATSMAT;
 
@@ -28,18 +30,19 @@ void CATSMAT_sonority_sequences::Visit(const CATSMAT_cp_matrix& matrix)
 {
     if (!matrix.getCPmatrix().empty())
     {
-        for (auto chord = matrix.getCPmatrix().begin(); chord!=matrix.getCPmatrix().end(); chord++)
+        for (list<S_CATSMAT_chord>::const_iterator chord = matrix.getCPmatrix().begin(); chord!=matrix.getCPmatrix().end(); chord++)
         {
-            (*chord)->sort(); //nb destructive; copy constructor needed in chord.
+            //(*chord)->sort(); //nb destructive; copy constructor needed in chord.
             
+            multimap<S_IMUSANT_note, int> sorted_chord = flip_map(*(S_CATSMAT_chord)*chord);
             sonority* chord_quality = new sonority();
             
             //find lowest not in chord which can contain rests.
             
             auto bass = (*(*chord)).begin();
             
-//            while ( bass != (*chord)->getNotes().end() && (*bass)->getType()==IMUSANT_NoteType::rest)
-//            {
+            //while ( bass != (*chord)->end() && (*bass)->getType()==IMUSANT_NoteType::rest)
+            //{
 //                bass++;
 //            }
 //            

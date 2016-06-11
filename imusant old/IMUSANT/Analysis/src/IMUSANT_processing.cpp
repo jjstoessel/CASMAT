@@ -291,6 +291,10 @@ namespace IMUSANT
         ID_ivec_map id_ivec_map;
         interval_tree* tree = buildIntervalSuffixTree(id_ivec_map);
         
+        if (id_ivec_map.size()==0) {
+            return ret_val;
+        }
+        
 #ifdef VERBOSE
         tree->print(cout);
 #endif
@@ -413,6 +417,10 @@ namespace IMUSANT
             //construct contour tree
             contour_tree* tree = buildContourSuffixTree(id_cvec_map);
             //construct contour tree
+            
+            if (id_cvec_map.size()==0) { //no parts found
+                return ret_val;
+            }
             
             vector<int> local_ids;
             for (auto cvm = id_cvec_map.begin(); cvm != id_cvec_map.end(); cvm++) {

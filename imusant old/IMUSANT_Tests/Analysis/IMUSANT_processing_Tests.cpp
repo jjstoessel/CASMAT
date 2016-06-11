@@ -290,7 +290,7 @@ TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
     //vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
     //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
     //repeated_substrings_result =
-    find_lcs_pairs_intervals_by_file("MusicXMLv3//RepeatedIntervalSubstrings_SimpleTest1.xml");
+    find_lcs_pairs_intervals_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
     
     //find_lcs_pairs_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml", false, true); // REMOVE TO SEPARATE TEST
     //
@@ -367,7 +367,7 @@ TEST_F(IMUSANT_processing_Tests, findRepeatedContourSubstrings_simple_test_1)
 {
     vector<IMUSANT_repeated_contour_substring> repeated_substrings_result;
     
-    repeated_substrings_result = find_repeated_contour_substrings_by_file("MusicXMLv3//RepeatedIntervalSubstrings_SimpleTest1.xml");
+    repeated_substrings_result = find_repeated_contour_substrings_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
     
     // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
     stringstream actual_output;

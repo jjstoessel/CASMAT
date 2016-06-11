@@ -114,7 +114,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 				symbol.setLocation(fCurrentPartID,fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
 #ifdef OLD
 				fMelodicContour->push_back(symbol);
-#elifdef (NEW)
+#elif defined (NEW)
                 fCurrentMelodicContour->push_back(symbol);
 #endif
 			}
