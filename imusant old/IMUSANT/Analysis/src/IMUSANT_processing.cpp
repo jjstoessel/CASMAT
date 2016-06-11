@@ -261,9 +261,8 @@ namespace IMUSANT
     IMUSANT_processing::
     findAndPrintRepeatedIntervalSubstrings(int min_length)
     {
-        //vector<IMUSANT_repeated_interval_substring> the_result;
-        //the_result = findRepeatedIntervalSubstrings(min_length);
-        vector<IMUSANT_t_repeated_substring<IMUSANT_interval> > the_result;
+        vector<IMUSANT_repeated_interval_substring> the_result;
+        the_result = findRepeatedIntervalSubstrings(min_length);
         
         stringstream the_result_as_stringstream;
         for(int index = 0 ; index < the_result.size(); index++)

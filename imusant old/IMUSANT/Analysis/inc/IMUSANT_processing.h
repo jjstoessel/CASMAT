@@ -71,7 +71,7 @@ namespace IMUSANT
         
         
     private:
-        
+        //JS: Change so that IDs is key to map of scores
         vector<S_IMUSANT_score> scores;                             // One score for each file that has been added.
         
         map<int,IMUSANT_collection_visitor> collection_visitors;    // One collection visitor for each score.
