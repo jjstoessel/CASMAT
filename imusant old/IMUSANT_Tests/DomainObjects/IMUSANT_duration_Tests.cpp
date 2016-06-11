@@ -37,12 +37,12 @@ TEST_F(IMUSANT_duration_Tests, set2)
     S_IMUSANT_duration duration = new_IMUSANT_duration();
     duration->set(IMUSANT_duration::semibreve, 0);
     
-    ASSERT_TRUE(duration->fTimeModification == IMUSANT_duration::unmeasured);
-    ASSERT_EQ(0, duration->fTimeModification.getNumerator());
+    ASSERT_TRUE(duration->fTimeModification == TRational(1,1));
+    ASSERT_EQ(1, duration->fTimeModification.getNumerator());
     ASSERT_EQ(1, duration->fTimeModification.getDenominator());
     
-    ASSERT_TRUE(duration->fNormalDuration == IMUSANT_duration::unmeasured);
-    ASSERT_EQ(0, duration->fNormalDuration.getNumerator());
+    ASSERT_TRUE(duration->fNormalDuration == IMUSANT_duration::semibreve);
+    ASSERT_EQ(1, duration->fNormalDuration.getNumerator());
     ASSERT_EQ(1, duration->fNormalDuration.getDenominator());
     ASSERT_EQ(0, duration->fNormalDots);
 }
