@@ -59,10 +59,7 @@ namespace IMUSANT
         
         static const string	xmlmode (mode m);
         static       mode	xmlmode (const string str);
-        
-        static mode	ConvertXML2IMUSANTMode( const long xmlMode );
-        
-        
+
         
     private:
         

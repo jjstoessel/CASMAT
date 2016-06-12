@@ -60,7 +60,7 @@ namespace IMUSANT
         } TPC;
 
         
-        VEXP friend SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
+        VEXP friend IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
         
         IMUSANT_pitch() :
             fName(undefined),
@@ -158,9 +158,9 @@ namespace IMUSANT
 
     };
     
-    typedef SMARTP<IMUSANT_pitch> S_IMUSANT_pitch;
+    typedef IMUSANT_SMARTP<IMUSANT_pitch> S_IMUSANT_pitch;
     
-    VEXP SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
+    VEXP IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
     
 } //namespace IMUSANT
 

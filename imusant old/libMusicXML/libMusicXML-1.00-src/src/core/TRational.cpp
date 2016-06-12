@@ -1,5 +1,5 @@
 /*
-  Copyright © Grame 2003
+  Copyright ï¿½ Grame 2003
 
   This library is free software; you can redistribute it and modify it under
   the terms of the GNU Library General Public License as published by the
@@ -19,7 +19,7 @@
   
 */
 
-#include "TRational.h"
+#include "../include/TRational.h"
 #include <sstream>
 #include <cmath>
 

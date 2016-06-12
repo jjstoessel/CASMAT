@@ -11,28 +11,26 @@
 #include <fstream>
 #include <string>
 
+#include "IMUSANT_processing.h"
+
 #include "CATSMAT_test_utility.h"
 
 
-SScore
-CATSMAT_test_utility::ConvertMusicXmlToSscore(filesystem::path music_xml_file) const
+S_IMUSANT_score
+CATSMAT_test_utility::
+InitialiseScoreFromFile(string relative_path) const
 {
-    TMusicXMLFile reader;
-    SScore xml_score = reader.read((string&)music_xml_file);
-    return xml_score;
+    filesystem::path file_path = MakePathToTestData(relative_path);
+    
+    IMUSANT_processing parser;
+    S_IMUSANT_score parser_test_score = parser.addFile(file_path);
+    return parser_test_score;
 }
 
-S_IMUSANT_score
-CATSMAT_test_utility::ConvertSscoreToImusantscore(SScore xml_score) const
-{
-    TXML2IMUSANTVisitor xml_2_imusant_translator;
-    xml_score->accept(xml_2_imusant_translator);
-    S_IMUSANT_score imusant_score = xml_2_imusant_translator.get_imusant_score();
-    return imusant_score;
-}
 
 unsigned long
-CATSMAT_test_utility::GetNumPartsInScore(S_IMUSANT_score imusant_score) const
+CATSMAT_test_utility::
+GetNumPartsInScore(S_IMUSANT_score imusant_score) const
 {
     IMUSANT_vector<S_IMUSANT_part> parts = imusant_score->partlist()->parts();
     unsigned long num_parts_in_score = parts.size();
@@ -51,11 +49,8 @@ CATSMAT_test_utility::ConvertImusantscoreToCpmatrix(S_IMUSANT_score imusant_scor
 CATSMAT::S_CATSMAT_cp_matrix
 CATSMAT_test_utility::ConvertMusicXmlToCpmatrix(string relative_path_to_xml_file) const
 {
-    filesystem::path full_path = MakePathToTestData(relative_path_to_xml_file);
-    
-    SScore xml_score = ConvertMusicXmlToSscore(full_path);
-    S_IMUSANT_score imusant_score = ConvertSscoreToImusantscore(xml_score);
-    CATSMAT::S_CATSMAT_cp_matrix the_matrix = ConvertImusantscoreToCpmatrix(imusant_score);
+    S_IMUSANT_score the_score = InitialiseScoreFromFile(relative_path_to_xml_file);
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = ConvertImusantscoreToCpmatrix(the_score);
     return the_matrix;
 }
 

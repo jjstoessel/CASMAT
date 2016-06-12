@@ -26,7 +26,7 @@ namespace IMUSANT
 {
 
 class IMUSANT_score;
-typedef SMARTP<IMUSANT_score> 	S_IMUSANT_score;
+typedef IMUSANT_SMARTP<IMUSANT_score> 	S_IMUSANT_score;
 
 typedef pair<string,string>		STRPAIR;
 typedef vector<STRPAIR>			STRPAIRVECTOR;
@@ -34,7 +34,7 @@ typedef vector<STRPAIR>			STRPAIRVECTOR;
 class VEXP IMUSANT_score : public smartable, public IMUSANT_visitable
 {
 	public:
-		EXP friend SMARTP<IMUSANT_score> new_IMUSANT_score(const string& movtTitle);
+		EXP friend IMUSANT_SMARTP<IMUSANT_score> new_IMUSANT_score(const string& movtTitle);
 		
 		friend	ostream& operator<<(ostream& os, S_IMUSANT_score& score);
         
@@ -92,9 +92,9 @@ class VEXP IMUSANT_score : public smartable, public IMUSANT_visitable
 		string				fDate;			//publication date; composition date?
 };
 
-typedef SMARTP<IMUSANT_score> S_IMUSANT_score;
+typedef IMUSANT_SMARTP<IMUSANT_score> S_IMUSANT_score;
     
-EXP SMARTP<IMUSANT_score> new_IMUSANT_score(const string& movtTitle="");
+EXP IMUSANT_SMARTP<IMUSANT_score> new_IMUSANT_score(const string& movtTitle="");
 
 } //namespace IMUSANT
 #endif

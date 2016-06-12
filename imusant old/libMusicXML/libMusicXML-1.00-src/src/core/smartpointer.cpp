@@ -22,6 +22,6 @@
 
 */
 
-#include "smartpointer.h"
+#include "../include/smartpointer.h"
 
-void smartable::removeReference() { if (--refCount == 0) delete this; }
+void MusicXML::smartable::removeReference() { if (--refCount == 0) delete this; }

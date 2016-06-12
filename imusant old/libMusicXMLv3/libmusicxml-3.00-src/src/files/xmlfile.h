@@ -28,7 +28,7 @@
 #include <ostream>
 #include <string>
 #include "exports.h"
-#include "xml.h"
+#include "../elements/xml.h"
 #include "ctree.h"
 
 namespace MusicXML2 

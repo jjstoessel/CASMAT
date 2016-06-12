@@ -60,17 +60,17 @@ namespace IMUSANT
             last=koron
         };
         
-        EXP friend SMARTP<IMUSANT_accidental> new_IMUSANT_accidental();
+        EXP friend IMUSANT_SMARTP<IMUSANT_accidental> new_IMUSANT_accidental();
         
         accident			getAccident() const		{ return fAccident; }
-        YesNo::type			getCautionary() const	{ return fCautionary; }
-        YesNo::type			getEditorial() const	{ return fEditorial; }
-        YesNo::type			getCancelling() const	{ return fCancelling; }
+        IMUSANT_YesNo::type			getCautionary() const	{ return fCautionary; }
+        IMUSANT_YesNo::type			getEditorial() const	{ return fEditorial; }
+        IMUSANT_YesNo::type			getCancelling() const	{ return fCancelling; }
         
         void setAccident(accident acc) { fAccident = acc; }
-        void setCautionary(YesNo::type	 yn) { fCautionary = yn; }
-        void setEditorial(YesNo::type	 yn) { fEditorial = yn; }
-        void setCancelling(YesNo::type	yn)	 { fCancelling = yn; }
+        void setCautionary(IMUSANT_YesNo::type	 yn) { fCautionary = yn; }
+        void setEditorial(IMUSANT_YesNo::type	 yn) { fEditorial = yn; }
+        void setCancelling(IMUSANT_YesNo::type	yn)	 { fCancelling = yn; }
         
         //! convert a numeric accidental type to a MusicXML string
         static const string	xml(accident d);
@@ -85,9 +85,9 @@ namespace IMUSANT
     protected:
         IMUSANT_accidental() :
             fAccident(undefined),
-            fCautionary(YesNo::undefined),
-            fEditorial(YesNo::undefined),
-            fCancelling(YesNo::undefined)
+            fCautionary(IMUSANT_YesNo::undefined),
+            fEditorial(IMUSANT_YesNo::undefined),
+            fCancelling(IMUSANT_YesNo::undefined)
         {
             // empty constructor
         }
@@ -96,15 +96,15 @@ namespace IMUSANT
         
     private:
         accident        fAccident;
-        YesNo::type		fCautionary;
-        YesNo::type		fEditorial;
-        YesNo::type		fCancelling;
+        IMUSANT_YesNo::type		fCautionary;
+        IMUSANT_YesNo::type		fEditorial;
+        IMUSANT_YesNo::type		fCancelling;
         
         static bimap<string, accident> fAccident2String;
         static accident fAccidentTbl[];
         static string 	fAccidentStrings[];
     };
-    typedef SMARTP<IMUSANT_accidental> S_IMUSANT_accidental;
+    typedef IMUSANT_SMARTP<IMUSANT_accidental> S_IMUSANT_accidental;
     
     EXP S_IMUSANT_accidental new_IMUSANT_accidental();
     
@@ -185,8 +185,6 @@ namespace IMUSANT
         //! convert a string to a numeric value
         static       symbol	xmlsymbol (const string str);
         
-        static symbol ConvertXML2IMUSANTSymbol( const int xmltime );
-        
     private:
         vector<long>	fBeatNum;	  //number of beats
         vector<long>	fBeatDenom;  //beat type
@@ -205,7 +203,7 @@ namespace IMUSANT
     {
     public:
         
-        friend SMARTP<IMUSANT_lyric> new_IMUSANT_lyric();
+        friend IMUSANT_SMARTP<IMUSANT_lyric> new_IMUSANT_lyric();
         
         void	addSyllable(const string text) { this->fSyllables.push_back(text); }
         
@@ -235,9 +233,9 @@ namespace IMUSANT
         string					fNumber_v3;
         string                  fName;
     };
-    typedef SMARTP<IMUSANT_lyric> S_IMUSANT_lyric;
+    typedef IMUSANT_SMARTP<IMUSANT_lyric> S_IMUSANT_lyric;
     
-    SMARTP<IMUSANT_lyric> new_IMUSANT_lyric();
+    IMUSANT_SMARTP<IMUSANT_lyric> new_IMUSANT_lyric();
     
 } //namespace IMUSANT
 #endif

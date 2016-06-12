@@ -29,7 +29,7 @@ namespace IMUSANT
     {
     public:
         
-        VEXP friend SMARTP<IMUSANT_measure> new_IMUSANT_measure();
+        VEXP friend IMUSANT_SMARTP<IMUSANT_measure> new_IMUSANT_measure();
         
         
         IMUSANT_vector<S_IMUSANT_element>&	elements();
@@ -70,9 +70,9 @@ namespace IMUSANT
         IMUSANT_vector<S_IMUSANT_barline>   fBarlines;  //  convenience for getting at barlines regardless of other elements.
         long                                fMeasNum;
     };
-    typedef SMARTP<IMUSANT_measure>	S_IMUSANT_measure;
+    typedef IMUSANT_SMARTP<IMUSANT_measure>	S_IMUSANT_measure;
     
-    VEXP    SMARTP<IMUSANT_measure> new_IMUSANT_measure();
+    VEXP    IMUSANT_SMARTP<IMUSANT_measure> new_IMUSANT_measure();
     
 } //namespace IMUSANT
 #endif

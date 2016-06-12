@@ -15,7 +15,6 @@
 #ifndef __IMUSANT_part__
 #define __IMUSANT_part__
 
-#include "smartclasses.h"
 #include "IMUSANT_measure.h"
 
 #include <string>
@@ -28,7 +27,7 @@ namespace IMUSANT
 class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable 
 {
 	public:
-		VEXP friend SMARTP<IMUSANT_part> new_IMUSANT_part();
+		VEXP friend IMUSANT_SMARTP<IMUSANT_part> new_IMUSANT_part();
 		
 		void	addMeasure(const S_IMUSANT_measure& measure) { fMeasures.push_back(measure); }
 		
@@ -64,9 +63,9 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 		string 					fXMLID = "";
         int                     fDivisions = 1;
 };
-typedef SMARTP<IMUSANT_part> S_IMUSANT_part;
+typedef IMUSANT_SMARTP<IMUSANT_part> S_IMUSANT_part;
 
-VEXP SMARTP<IMUSANT_part> new_IMUSANT_part();
+VEXP IMUSANT_SMARTP<IMUSANT_part> new_IMUSANT_part();
     
 } //namespace IMUSANT
 #endif

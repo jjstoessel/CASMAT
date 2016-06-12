@@ -24,7 +24,7 @@ namespace IMUSANT
     {
     public:
         
-        friend SMARTP<IMUSANT_ending> new_IMUSANT_ending();
+        friend IMUSANT_SMARTP<IMUSANT_ending> new_IMUSANT_ending();
         
         enum type { undefined=0, start=1, stop, last=stop };
         static const string	xml (type d);               // convert a string to a numeric value
@@ -44,7 +44,7 @@ namespace IMUSANT
         type	fType;
         long	fOrdinal;
     };
-    typedef SMARTP<IMUSANT_ending> S_IMUSANT_ending;
+    typedef IMUSANT_SMARTP<IMUSANT_ending> S_IMUSANT_ending;
     
     
     //
@@ -53,7 +53,7 @@ namespace IMUSANT
     class IMUSANT_repeat : public smartable
     {
     public:
-        friend SMARTP<IMUSANT_repeat> new_IMUSANT_repeat();
+        friend IMUSANT_SMARTP<IMUSANT_repeat> new_IMUSANT_repeat();
         
         enum direction { undefined=0, forward=1, backward, last=backward };
         static const string	xml (direction d);                 // convert type to string
@@ -74,7 +74,7 @@ namespace IMUSANT
         long		fTimes;
         
     };
-    typedef SMARTP<IMUSANT_repeat> S_IMUSANT_repeat;
+    typedef IMUSANT_SMARTP<IMUSANT_repeat> S_IMUSANT_repeat;
     
     
     //
@@ -93,7 +93,7 @@ namespace IMUSANT
             light_heavy, heavy_light, heavy_heavy,
             last=heavy_heavy };
         
-        EXP friend SMARTP<IMUSANT_barline> new_IMUSANT_barline();
+        EXP friend IMUSANT_SMARTP<IMUSANT_barline> new_IMUSANT_barline();
         
         virtual void accept(IMUSANT_visitor& visitor);
         
@@ -138,13 +138,13 @@ namespace IMUSANT
         //SSegno 		fSegno;
         //SCoda 		fCoda;
     };
-    typedef SMARTP<IMUSANT_barline> S_IMUSANT_barline;
+    typedef IMUSANT_SMARTP<IMUSANT_barline> S_IMUSANT_barline;
     
     
     
-    SMARTP<IMUSANT_ending> new_IMUSANT_ending();
-    SMARTP<IMUSANT_repeat> new_IMUSANT_repeat();
-    EXP SMARTP<IMUSANT_barline> new_IMUSANT_barline();
+    IMUSANT_SMARTP<IMUSANT_ending> new_IMUSANT_ending();
+    IMUSANT_SMARTP<IMUSANT_repeat> new_IMUSANT_repeat();
+    EXP IMUSANT_SMARTP<IMUSANT_barline> new_IMUSANT_barline();
     
 } //namespace IMUSANT
 
