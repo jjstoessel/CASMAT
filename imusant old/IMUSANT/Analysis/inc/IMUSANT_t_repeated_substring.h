@@ -10,7 +10,11 @@
 #define __imusant__IMUSANT_t_repeated_substring__
 
 #include <stdio.h>
+#include <iostream>
 #include <vector>
+
+#include "IMUSANT_interval.h"
+#include "IMUSANT_contour_symbol.h"
 
 using namespace std;
 

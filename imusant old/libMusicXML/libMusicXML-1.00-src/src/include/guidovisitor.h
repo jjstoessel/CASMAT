@@ -25,10 +25,11 @@
 #define __guidovisitor__
 
 #include "exports.h"
-#include "smartpointer.h"
+#include "./smartpointer.h"
 
 #include <string>
 using namespace std;
+using namespace MusicXML;
 
 typedef SMARTP<class guidoelement> 	Sguidoelement;
 typedef SMARTP<class guidonote> 	Sguidonote;

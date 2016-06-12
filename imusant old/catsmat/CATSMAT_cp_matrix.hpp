@@ -35,8 +35,8 @@ public:
     
     LOKI_DEFINE_CONST_VISITABLE()
     
-    friend  SMARTP<CATSMAT_cp_matrix> new_CATSMAT_cp_matrix();
-    friend  ostream& operator<< (ostream& os, const SMARTP<CATSMAT_cp_matrix>& elt );
+    friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_cp_matrix();
+    friend  ostream& operator<< (ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
     
     bool    addpart();
     bool	add(const IMUSANT_note& note);
@@ -70,7 +70,7 @@ private:
     
 };
 
-typedef SMARTP<CATSMAT_cp_matrix> S_CATSMAT_cp_matrix;
+typedef IMUSANT_SMARTP<CATSMAT_cp_matrix> S_CATSMAT_cp_matrix;
     
 S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix();
     

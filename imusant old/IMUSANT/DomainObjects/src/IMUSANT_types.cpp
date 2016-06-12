@@ -8,10 +8,7 @@
  */
 
 #include "IMUSANT_types.h"
-#include "TTimeSign.h"
 #include "IMUSANT_pitch.h"
-
-using namespace MusicXML;
 
 namespace IMUSANT
 {
@@ -143,32 +140,32 @@ namespace IMUSANT
         return fType2String[str];
     }
     
-    IMUSANT_time::symbol
-    IMUSANT_time::
-    ConvertXML2IMUSANTSymbol( const int xmltime )
-    {
-        symbol sym = undefined;
-        
-        switch (xmltime)
-        {
-            case TTimeSign::undefined:
-                break;
-            case TTimeSign::common:
-                sym = IMUSANT_time::common;
-                break;
-            case TTimeSign::cut:
-                sym = IMUSANT_time::cut;
-                break;
-            case TTimeSign::single_number:
-                sym = IMUSANT_time::single_number;
-                break;
-            case TTimeSign::normal:
-                sym = IMUSANT_time::normal;
-                break;
-        };
-        
-        return sym;
-    }
+//    IMUSANT_time::symbol
+//    IMUSANT_time::
+//    ConvertXML2IMUSANTSymbol( const int xmltime )
+//    {
+//        symbol sym = undefined;
+//        
+//        switch (xmltime)
+//        {
+//            case TTimeSign::undefined:
+//                break;
+//            case TTimeSign::common:
+//                sym = IMUSANT_time::common;
+//                break;
+//            case TTimeSign::cut:
+//                sym = IMUSANT_time::cut;
+//                break;
+//            case TTimeSign::single_number:
+//                sym = IMUSANT_time::single_number;
+//                break;
+//            case TTimeSign::normal:
+//                sym = IMUSANT_time::normal;
+//                break;
+//        };
+//        
+//        return sym;
+//    }
     
     ostream& operator<< (ostream& os, const IMUSANT_time& elt )
     {

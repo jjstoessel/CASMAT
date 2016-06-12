@@ -35,10 +35,10 @@ namespace IMUSANT
     {
         public:
         
-        friend SMARTP<IMUSANT_pitch_vector> new_IMUSANT_pitch_vector();
+        friend IMUSANT_SMARTP<IMUSANT_pitch_vector> new_IMUSANT_pitch_vector();
         
     };
-    typedef SMARTP<IMUSANT_pitch_vector> S_IMUSANT_pitch_vector;
+    typedef IMUSANT_SMARTP<IMUSANT_pitch_vector> S_IMUSANT_pitch_vector;
 
     S_IMUSANT_pitch_vector new_IMUSANT_pitch_vector();
         

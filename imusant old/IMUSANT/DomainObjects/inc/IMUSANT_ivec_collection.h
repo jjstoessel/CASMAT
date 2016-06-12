@@ -23,7 +23,7 @@ typedef vector<S_IMUSANT_interval_vector> SEGMENTS;
 class IMUSANT_ivec_collection : public SEGMENTS, public smartable
 {
 	public:
-		friend SMARTP<IMUSANT_ivec_collection> new_IMUSANT_ivec_collection(long min, long max);
+		friend IMUSANT_SMARTP<IMUSANT_ivec_collection> new_IMUSANT_ivec_collection(long min, long max);
 		
 	protected:
 				IMUSANT_ivec_collection(long min, long max);
@@ -33,7 +33,7 @@ class IMUSANT_ivec_collection : public SEGMENTS, public smartable
 		long	fMaximum;
 		long	fMinimum;
 };
-typedef SMARTP<IMUSANT_ivec_collection> S_IMUSANT_ivec_collection;
+typedef IMUSANT_SMARTP<IMUSANT_ivec_collection> S_IMUSANT_ivec_collection;
 
 S_IMUSANT_ivec_collection new_IMUSANT_ivec_collection(long min=3, long max=12);
     

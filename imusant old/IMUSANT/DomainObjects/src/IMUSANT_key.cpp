@@ -8,9 +8,6 @@
  */
 
 #include "IMUSANT_key.h"
-#include "TKey.h"
-
-using namespace MusicXML;
 
 namespace IMUSANT
 {   
@@ -96,47 +93,6 @@ namespace IMUSANT
     ostream& operator<< (ostream& os, const IMUSANT_key& elt )
     {
         elt.print(os); return os;
-    }
-    
-    IMUSANT_key::mode
-    IMUSANT_key::
-    ConvertXML2IMUSANTMode( const long xmlMode )
-    {
-        mode IMUSANT_mode = IMUSANT_key::generic;
-        
-        switch (xmlMode)
-        {
-            case TKey::major:
-                IMUSANT_mode = IMUSANT_key::major;
-                break;
-            case TKey::minor:
-                IMUSANT_mode = IMUSANT_key::minor;
-                break;
-            case TKey::dorian:
-                IMUSANT_mode = IMUSANT_key::dorian;
-                break;
-            case TKey::phrygian:
-                IMUSANT_mode = IMUSANT_key::phrygian;
-                break;
-            case TKey::lydian:
-                IMUSANT_mode = IMUSANT_key::lydian;
-                break;
-            case TKey::mixolydian:
-                IMUSANT_mode = IMUSANT_key::mixolydian;
-                break;
-            case TKey::aeolian:
-                IMUSANT_mode = IMUSANT_key::aeolian;
-                break;
-            case TKey::ionian:
-                IMUSANT_mode = IMUSANT_key::ionian;
-                break;
-            case TKey::locrian:
-                IMUSANT_mode = IMUSANT_key::locrian;
-                break;
-                //Music XML only appears to store authentic modes.
-        }
-        
-        return IMUSANT_mode;
     }
     
     bool

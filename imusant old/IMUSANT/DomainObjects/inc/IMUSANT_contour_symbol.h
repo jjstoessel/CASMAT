@@ -36,8 +36,8 @@ class IMUSANT_contour_symbol : public smartable
 		enum {	dont_care_down=-3, leap_down=-2, step_down=-1, unison=0, step_up=1, leap_up=2, 
 				dont_care_up=3, count=7, undefined=0x4FFFFFFF }; //undefined is internal variable
 		
-	friend SMARTP<IMUSANT_contour_symbol> new_IMUSANT_contour_symbol();
-	friend SMARTP<IMUSANT_contour_symbol> new_IMUSANT_contour_symbol(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
+	friend IMUSANT_SMARTP<IMUSANT_contour_symbol> new_IMUSANT_contour_symbol();
+	friend IMUSANT_SMARTP<IMUSANT_contour_symbol> new_IMUSANT_contour_symbol(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
 	
 		//getter and setters
 		void				setLocation(long partID, long startMeasure, 
@@ -100,19 +100,19 @@ class IMUSANT_contour_symbol : public smartable
 	static int	fSymbolTbl[];
 	static string	fSymbolStrings[];
 };
-typedef SMARTP<IMUSANT_contour_symbol> S_IMUSANT_contour_symbol;
+typedef IMUSANT_SMARTP<IMUSANT_contour_symbol> S_IMUSANT_contour_symbol;
 
 
 class IMUSANT_contour : public smartable, public vector<IMUSANT_contour_symbol> 
 {
 	public:
 	
-		friend SMARTP<IMUSANT_contour> new_IMUSANT_contour();
+		friend IMUSANT_SMARTP<IMUSANT_contour> new_IMUSANT_contour();
     
     vector<IMUSANT_contour_symbol>& getContours() { return *this; }
 	
 };
-typedef SMARTP<IMUSANT_contour> S_IMUSANT_contour;
+typedef IMUSANT_SMARTP<IMUSANT_contour> S_IMUSANT_contour;
 
 S_IMUSANT_contour new_IMUSANT_contour();
     S_IMUSANT_contour_symbol new_IMUSANT_contour_symbol();

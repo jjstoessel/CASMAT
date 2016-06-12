@@ -20,7 +20,7 @@ namespace IMUSANT
 class IMUSANT_rvec_collection : public smartable
 {
 	public:
-		friend SMARTP<IMUSANT_rvec_collection> new_IMUSANT_rvec_collection();
+		friend IMUSANT_SMARTP<IMUSANT_rvec_collection> new_IMUSANT_rvec_collection();
 		
 	protected:
 				IMUSANT_rvec_collection(){}
@@ -28,7 +28,7 @@ class IMUSANT_rvec_collection : public smartable
 		
 	private:
 };
-typedef SMARTP<IMUSANT_rvec_collection> S_IMUSANT_rvec_collection;
+typedef IMUSANT_SMARTP<IMUSANT_rvec_collection> S_IMUSANT_rvec_collection;
 
 S_IMUSANT_rvec_collection new_IMUSANT_rvec_collection();
 
