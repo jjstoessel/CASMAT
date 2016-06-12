@@ -19,9 +19,10 @@
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_note.h"
-#include "IMUSANT_chord.h"
+//#include "IMUSANT_chord.h"
 #include "IMUSANT_interval_vector.h"
 #include "CATSMAT_visitable.hpp"
+#include "CATSMAT_chord.hpp"
 
 using namespace std;
 using namespace IMUSANT;
@@ -60,15 +61,15 @@ private:
     void            split(const IMUSANT_note& note);
     IMUSANT_note    distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note = NULL);
 
-    
-    list< S_IMUSANT_chord >             fCPMatrix; //a vector of vectors, each of which represent a chord
-    vector<S_IMUSANT_interval_vector>   fVIntervalVector;
-    
-    unsigned long                       fCurrentPart;
-    list<S_IMUSANT_chord>::iterator     fCurrentChord;
-    IMUSANT_time                        fCurrentTime;
-    
-};
+        
+        list< S_CATSMAT_chord >             fCPMatrix; //a vector of vectors, each of which represent a chord
+        vector<S_IMUSANT_interval_vector>   fVIntervalVector;
+        
+        int                                 fCurrentPart;
+        list<S_CATSMAT_chord>::iterator     fCurrentChord;
+        IMUSANT_time                        fCurrentTime;
+        
+    };
 
 typedef IMUSANT_SMARTP<CATSMAT_cp_matrix> S_CATSMAT_cp_matrix;
     

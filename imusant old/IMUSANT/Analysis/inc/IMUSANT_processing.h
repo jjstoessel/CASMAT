@@ -71,7 +71,7 @@ namespace IMUSANT
         
         
     private:
-        
+        //JS: Change so that IDs is key to map of scores
         vector<S_IMUSANT_score> scores;                             // One score for each file that has been added.
         
         map<int,IMUSANT_collection_visitor> collection_visitors;    // One collection visitor for each score.
@@ -83,6 +83,7 @@ namespace IMUSANT
         
         typedef map<int, vector<IMUSANT_interval> > ID_ivec_map;
         typedef map<int, vector<IMUSANT_contour_symbol> > ID_cvec_map;
+        typedef map<int, vector<IMUSANT_pitch> > ID_pvec_map;
         
         interval_tree*  buildIntervalSuffixTree(ID_ivec_map& id_ivec_map);
         contour_tree*   buildContourSuffixTree(ID_cvec_map& id_cvec_map);

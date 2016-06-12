@@ -51,14 +51,16 @@ namespace CATSMAT
      */
     
     void
-    CATSMAT_dyad_sequences::process(const list<S_IMUSANT_chord>& matrix)
+    CATSMAT_dyad_sequences::process(const list<S_CATSMAT_chord>& matrix)
     {
         if (!matrix.empty())
         {
+#ifdef OLD
             for (auto chord = matrix.begin(); chord!=matrix.end(); chord++)
             {
+               
                 long i = 0;
-                
+
                 for (IMUSANT_vector<S_IMUSANT_note>::const_iterator note1 = (*chord)->getNotes().begin();
                      note1 != (*chord)->getNotes().end();
                      note1++)
@@ -90,14 +92,53 @@ namespace CATSMAT
                                 fVIntervalVector[i]->add(interval);
                             }
                         }
-                        
+
                         i++;
                     }
-                    
+
                 }
-                
+            
                 fSaveI = i;
             }
+#elif defined (NEW) //map structure implementation
+            for (auto chord = matrix.begin(); chord!=matrix.end(); chord++) {
+                map<int, S_IMUSANT_note>::size_type chord_size = (*(*chord)).size();
+                
+                int dyad_pair = 0;
+                
+                for (int i = 0; i<chord_size; i++)
+                {
+                    for (int j=i; ++j<chord_size; /*nothing here*/)
+                    {
+                        map<int, S_IMUSANT_note> chord_notes = *(*chord);
+                        if (chord_notes[i]->getType()!=IMUSANT_NoteType::rest && chord_notes[j]->getType()!=IMUSANT_NoteType::rest)
+                        {
+                            IMUSANT_interval interval(chord_notes[j]->pitch(), chord_notes[i]->pitch());
+                            
+                            // cout << "Interval: " << interval << std::endl;
+                            
+                            interval.setLocation(i,
+                                                 chord_notes[j]->getMeasureNum(),
+                                                 chord_notes[j]->getNoteIndex(),
+                                                 chord_notes[i]->getMeasureNum(),
+                                                 chord_notes[i]->getNoteIndex());
+                            
+                            //only insert interval if not a repeated interval
+                            if (!(chord_notes[i]->isTiedPrevious() && chord_notes[j]->isTiedPrevious())
+                                &&
+                                (interval.getQuality()!=IMUSANT_interval::dissonant))
+                            {
+                                fVIntervalVector[dyad_pair]->add(interval);
+                            }
+                        }
+                        dyad_pair++;
+                    }
+                }
+                
+                fSaveI = dyad_pair;
+            }
+#endif
+           
         }
     }
     

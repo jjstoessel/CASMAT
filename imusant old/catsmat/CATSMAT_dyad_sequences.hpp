@@ -37,7 +37,7 @@ namespace CATSMAT
         
     private:
         
-        void    process(const list<S_IMUSANT_chord>& matrix);
+        void    process(const list<S_CATSMAT_chord>& matrix);
         void    find_repeated_substrings(vector< pair<interval_tree::size_type, interval_tree::size_type> >& results,
                                          const interval_tree::node& n,
                                          int min_length=2);

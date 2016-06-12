@@ -391,7 +391,8 @@ namespace IMUSANT
         
         if (ret.fOctaves==0) // simple inversion
         {
-            ret.fInterval*=-1; //changing the sign of a tonal interval inverts it.
+            //ret.fInterval*=-1; //changing the sign of a tonal interval inverts it.
+            ret.fInterval*=IMUSANT_interval::per4;
             ret.fDirection=static_cast<direction>(ret.fDirection*-1);
         }
         else // hand inversions of compound intervals correctly

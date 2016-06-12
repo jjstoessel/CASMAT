@@ -438,7 +438,7 @@ getContentsOfConfigurationFile(boost::filesystem::path full_path)
 {
     vector<string> ret_val;
     string next_line;
-    ifstream input_stream;
+    std::ifstream input_stream;
     
     //  0427 569 018
     

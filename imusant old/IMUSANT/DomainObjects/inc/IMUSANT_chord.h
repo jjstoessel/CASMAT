@@ -18,7 +18,7 @@ using namespace std;
 namespace IMUSANT
 {
 
-class VEXP IMUSANT_chord : public IMUSANT_element
+class IMUSANT_chord : public IMUSANT_element
 {
 	public:
 		enum sorttype { pitch, duration };

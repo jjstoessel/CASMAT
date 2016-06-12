@@ -261,9 +261,8 @@ namespace IMUSANT
     IMUSANT_processing::
     findAndPrintRepeatedIntervalSubstrings(int min_length)
     {
-        //vector<IMUSANT_repeated_interval_substring> the_result;
-        //the_result = findRepeatedIntervalSubstrings(min_length);
-        vector<IMUSANT_t_repeated_substring<IMUSANT_interval> > the_result;
+        vector<IMUSANT_repeated_interval_substring> the_result;
+        the_result = findRepeatedIntervalSubstrings(min_length);
         
         stringstream the_result_as_stringstream;
         for(int index = 0 ; index < the_result.size(); index++)
@@ -290,6 +289,10 @@ namespace IMUSANT
         
         ID_ivec_map id_ivec_map;
         interval_tree* tree = buildIntervalSuffixTree(id_ivec_map);
+        
+        if (id_ivec_map.size()==0) {
+            return ret_val;
+        }
         
 #ifdef VERBOSE
         tree->print(cout);
@@ -414,6 +417,10 @@ namespace IMUSANT
             contour_tree* tree = buildContourSuffixTree(id_cvec_map);
             //construct contour tree
             
+            if (id_cvec_map.size()==0) { //no parts found
+                return ret_val;
+            }
+            
             vector<int> local_ids;
             for (auto cvm = id_cvec_map.begin(); cvm != id_cvec_map.end(); cvm++) {
                 local_ids.push_back(cvm->first);
@@ -531,7 +538,9 @@ namespace IMUSANT
                     repeated_substring.sequence.push_back(*t);
                 }
                 
-                cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
+                //cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
+                
+                //this is a dumb interim solution by JS at the moment.
                 repeated_substring.add_occurrence( 0,
                                                    (*q)->num_witness,
                                                    (*q)->num_leaves,
@@ -893,12 +902,14 @@ namespace IMUSANT
     }
  #endif
     //Find longest common subsequence of pitches for pairs of file/works
+#ifdef OLD
     void
     IMUSANT_processing::
     findLcsPairsPitches(bool consecutive)
     {
         if (IDs.size()>1)
         {
+            
             for (vector<int>::iterator IDiter1=IDs.begin(); IDiter1!=IDs.end(); IDiter1++)
             {
                 vector<IMUSANT_pitch> x = *(collection_visitors[*IDiter1].getPitchVector());
@@ -957,6 +968,91 @@ namespace IMUSANT
             }
         }
     }
+#elif defined (NEW)
+    void
+    IMUSANT_processing::
+    findLcsPairsPitches(bool consecutive)
+    {
+        ID_pvec_map id_pvec_map;
+        int ID = 0;
+        vector<int> local_IDS;
+        
+        for (auto coll = collection_visitors.begin(); coll!=collection_visitors.end(); coll++)
+        {
+            IMUSANT_collection_visitor collection = coll->second;
+            for (auto j = collection.getPartwisePitchVectors().begin(); j!=collection.getPartwisePitchVectors().end(); j++)
+            {
+                ++ID;
+                id_pvec_map[ID] = (*j)->getPitches();
+                local_IDS.push_back(ID);
+                
+            }
+        }
+        
+        for (auto i = local_IDS.begin(); i!=local_IDS.end(); i++)
+        {
+            vector<IMUSANT_pitch> x = id_pvec_map[*i];
+            vector<IMUSANT_pitch>::size_type m = x.size();
+            
+            for (auto j = i+1 ; j!=local_IDS.end(); j++)
+            {
+                
+                //cout << "Longest common subsequence of " << collection_visitors[*IDiter1].getMovementTitle() << " with "
+                //<< collection_visitors[*IDiter2].getMovementTitle() << endl;
+                
+                vector<IMUSANT_pitch> y = id_pvec_map[*j];
+                int a = 0, b = 0;
+                vector<IMUSANT_interval>::size_type n = y.size();
+                int_2d_array_t lcs(boost::extents[m][n]); //ints auto zeroed
+                
+                for (; a< m-1; a++)
+                {
+                    for (; b<n-1; b++)
+                    {
+                        if (x[a]==y[b])
+                        {
+                            lcs[a+1][b+1]=lcs[a][b]+1;
+                        }
+                        else
+                        {
+                            lcs[a+1][b+1]=MAX(lcs[a+1][b],lcs[a][b+1]);
+                        }
+                    }
+                }
+#ifdef DEBUG
+                for (int f = 0; f<m; f++) {
+                    for (int g = 0; g<n; g++) {
+                        cout << lcs[f][g];
+                    }
+                    cout << endl;
+                }
+#endif
+                
+                deque<pair<IMUSANT_pitch,IMUSANT_pitch> > z;
+                while (a > 0 && b > 0)
+                {
+                    if(lcs[a][b]==lcs[a-1][b-1]+1 && x[a-1]==y[b-1])
+                    {
+                        z.push_front(make_pair<IMUSANT_pitch,IMUSANT_pitch>(x[a-1],y[b-1]));
+                        a--; j--;
+                    }
+                    else if (lcs[a-1][b] > lcs[a][b-1]) a--;
+                    else b--;
+                }
+                
+                cout << "Common subsequence: ";
+                for (deque<pair<IMUSANT_pitch,IMUSANT_pitch> >::iterator iv=z.begin(); iv!=z.end(); iv++)
+                {
+                    cout << iv->first;
+                }
+                cout << endl;
+                
+            }
+        }
+     
+    }
+
+#endif
     
     vector<S_IMUSANT_segmented_part_LBDM>
     IMUSANT_processing::

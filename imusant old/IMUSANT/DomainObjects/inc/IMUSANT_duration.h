@@ -34,7 +34,7 @@ namespace IMUSANT
         IMUSANT_duration() :
             fDuration(IMUSANT_duration::unmeasured),
             fDots(0),
-            fTimeModification(IMUSANT_duration::unmeasured),
+            fTimeModification(TRational(1,1)),
             fNormalDuration(IMUSANT_duration::unmeasured),
             fNormalDots(0)
         {
@@ -74,8 +74,8 @@ namespace IMUSANT
         {
             fDuration = dur;
             fDots = dots,
-            fTimeModification = IMUSANT_duration::unmeasured,
-            fNormalDuration = IMUSANT_duration::unmeasured,
+            fTimeModification = TRational(1,1);
+            fNormalDuration = dur;
             fNormalDots = 0;
         }
         
