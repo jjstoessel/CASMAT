@@ -55,52 +55,6 @@ namespace CATSMAT
     {
         if (!matrix.empty())
         {
-#ifdef OLD
-            for (auto chord = matrix.begin(); chord!=matrix.end(); chord++)
-            {
-               
-                long i = 0;
-
-                for (IMUSANT_vector<S_IMUSANT_note>::const_iterator note1 = (*chord)->getNotes().begin();
-                     note1 != (*chord)->getNotes().end();
-                     note1++)
-                {
-                    for ( IMUSANT_vector<S_IMUSANT_note>::const_iterator note2 = note1;
-                         ++note2 != (*chord)->getNotes().end(); /*nothing here!*/)
-                    {
-                        // cout << "Note 1: " << (*note1);
-                        // cout << "Note 2: " << (*note2);
-                        
-                        //an interval is between two notes!
-                        if ((*note1)->getType()!=IMUSANT_NoteType::rest && (*note2)->getType()!=IMUSANT_NoteType::rest )
-                        {
-                            IMUSANT_interval interval((*note2)->pitch(), (*note1)->pitch());
-                            
-                            // cout << "Interval: " << interval << std::endl;
-                            
-                            interval.setLocation(i,
-                                                 (*note2)->getMeasureNum(),
-                                                 (*note2)->getNoteIndex(),
-                                                 (*note1)->getMeasureNum(),
-                                                 (*note1)->getNoteIndex());
-                            
-                            //only insert interval if not a repeated interval
-                            if (!((*note1)->isTiedPrevious() && (*note2)->isTiedPrevious())
-                                &&
-                                (interval.getQuality()!=IMUSANT_interval::dissonant))
-                            {
-                                fVIntervalVector[i]->add(interval);
-                            }
-                        }
-
-                        i++;
-                    }
-
-                }
-            
-                fSaveI = i;
-            }
-#elif defined (NEW) //map structure implementation
             for (auto chord = matrix.begin(); chord!=matrix.end(); chord++) {
                 map<int, S_IMUSANT_note>::size_type chord_size = (*(*chord)).size();
                 
@@ -137,8 +91,6 @@ namespace CATSMAT
                 
                 fSaveI = dyad_pair;
             }
-#endif
-           
         }
     }
     

@@ -42,50 +42,7 @@ namespace CATSMAT
                  chord!=matrix.getCPmatrix().end() && next_chord!=matrix.getCPmatrix().end();
                  chord++, next_chord++)
             {
-                  int i = 0;
-                
-//                auto note1 = (*chord)->begin();
-//                auto note3 = (*next_chord)->begin();
-//                
-//                
-//                for (/*nothing here*/;
-//                     note1 != (*chord)->end() && note3 != (*next_chord)->end();
-//                     note1++, note3++)
-//                {
-//                    int vint1 = 0, vint2 = 0, tophint = 0, bottomhint = 0;
-//                    
-//                    if ((*note1)->getType()!=IMUSANT_NoteType::rest || (*note3)->getType()!=IMUSANT_NoteType::rest )
-//                    {
-//                        IMUSANT_interval topStep((*note1)->pitch(), (*note3)->pitch());
-//                        tophint = topStep.getNumber();
-//                        
-//                        auto note2 = note1, note4 = note3;
-//                        
-//                        for (/*nothing here */;
-//                             ++note2 != (*chord)->getNotes().end() && ++note4 != (*next_chord)->getNotes().end();
-//                             /*nothing here!*/)
-//                        {
-//                            //an interval is between two notes!
-//                            if ( (*note2)->getType()!=IMUSANT_NoteType::rest && (*note4)->getType()!=IMUSANT_NoteType::rest)
-//                            {
-//                                IMUSANT_interval vInterval1((*note2)->pitch(), (*note1)->pitch());
-//                                IMUSANT_interval vInterval2((*note4)->pitch(), (*note3)->pitch());
-//                                IMUSANT_interval bottomStep((*note2)->pitch(),(*note4)->pitch());
-//                                
-//                                vint1 = vInterval1.getNumber();
-//                                vint2 = vInterval2.getNumber();
-//                                bottomhint = bottomStep.getNumber();
-//                                
-//                                {
-//                                    quadruple_int dyad_tuple(vint1, vint2, tophint, bottomhint);
-//                                    fTupleVector[i].push_back(dyad_tuple);
-//                                }
-//                            }
-//                            i++;
-//                        }
-//                    }
-//
-//                }
+                int i = 0;
                 //  note 1 --- note 3
                 //   |          |
                 //  note 2 --- note 4

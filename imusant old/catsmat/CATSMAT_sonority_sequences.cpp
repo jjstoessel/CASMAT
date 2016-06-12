@@ -29,7 +29,7 @@ namespace CATSMAT
     void
     sonority::print(ostream& os) const
     {
-        os << "( " << mMeasure << ", " << index << ", " << mQuality << ")" << endl;
+        os << "( " << mMeasure << ", " << mIndex << ", " << mQuality << ")" << endl;
     }
 
     ostream& operator<< (ostream& os, const sonority& elt )
