@@ -19,7 +19,6 @@
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_note.h"
-//#include "IMUSANT_chord.h"
 #include "IMUSANT_interval_vector.h"
 #include "CATSMAT_visitable.hpp"
 #include "CATSMAT_chord.hpp"
@@ -44,7 +43,7 @@ public:
     void    set(const IMUSANT_time& time) { fCurrentTime = time; }
     void	clear() { fCPMatrix.clear(); }
     
-    const   list< S_IMUSANT_chord >& getCPmatrix() const { return fCPMatrix; }
+    const   list< S_CATSMAT_chord >& getCPmatrix() const { return fCPMatrix; }
     const   vector<S_IMUSANT_interval_vector> getVerticalIntervals() const { return fVIntervalVector; }
     
     void    print(ostream& os);
