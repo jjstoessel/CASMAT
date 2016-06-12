@@ -334,41 +334,103 @@ namespace IMUSANT
         quality q = perfect;
         
         //switch (this->simple())
-        switch (this->fInterval)
-        {
-            case per1:
-            case per5:
-                //case octave:
-                q = perfect;
-                break;
-            case min3:
-            case maj3:
-            case min6:
-            case maj6:
-                q = imperfect;
-                break;
-            case dim1:
-            case aug1:
-            case dim2:
-            case min2:
-            case maj2:
-            case aug2:
-            case dim3:
-            case aug3:
-            case dim4:
-            case per4:
-            case aug4:
-            case dim5:
-            case aug5:
-            case dim6:
-            case aug6:
-            case dim7:
-            case min7:
-            case maj7:
-            case aug7:
-                q = dissonant;
-                break;
+//        switch (this->fInterval)
+//        {
+//            case per1:
+//            case per5:
+//                //case octave:
+//                q = perfect;
+//                break;
+//            case min3:
+//            case maj3:
+//            case min6:
+//            case maj6:
+//                q = imperfect;
+//                break;
+//            case dim1:
+//            case aug1:
+//            case dim2:
+//            case min2:
+//            case maj2:
+//            case aug2:
+//            case dim3:
+//            case aug3:
+//            case dim4:
+//            case per4:
+//            case aug4:
+//            case dim5:
+//            case aug5:
+//            case dim6:
+//            case aug6:
+//            case dim7:
+//            case min7:
+//            case maj7:
+//            case aug7:
+//                q = dissonant;
+//                break;
+//        }
+        
+        if (this->fInterval>=0) {
+            if (this->fInterval >= augaug4) {
+                q=double_augmented;
+            }
+            else if (this->fInterval >= aug4)
+            {
+                q=augmented;
+            }
+            else
+            {
+                switch (this->fInterval) {
+                    case per1:
+                    case per5:
+                        q = perfect;
+                        break;
+                    case maj6:
+                    case maj3:
+                        q = imperfect;
+                        break;
+                    case maj2:
+                    case maj7:
+                        q = dissonant;
+                        break;
+                    default:
+                        q = none;
+                        break;
+                }
+            
+            }
         }
+        else // <0
+        {
+            if (this->fInterval<=dimdim5) {
+                q=double_diminished;
+            }
+            else if (this->fInterval<=dim5)
+            {
+                q=diminished;
+            }
+            else
+            {
+                switch (this->fInterval)
+                {
+                    case min6:
+                    case min3:
+                        q = imperfect;
+                        break;
+                    case per4:
+                    case min2:
+                    case min7:
+                        q = dissonant;
+                        break;
+                    default:
+                        q = none;
+                        break;
+                }
+            
+            }
+        }
+            
+        
         
         return q;
     }

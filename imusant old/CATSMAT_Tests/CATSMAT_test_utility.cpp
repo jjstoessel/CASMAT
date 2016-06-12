@@ -206,3 +206,12 @@ CATSMAT_test_utility::CreateNote(IMUSANT_pitch::type note_name, int octave, TRat
     
     return *note;
 }
+
+string
+CATSMAT_test_utility::ConvertSonoritySequencesToString(CATSMAT_sonority_sequences the_sonority_sequences ) const
+{
+    std::stringstream the_sonorities_as_stringstream;
+    the_sonorities_as_stringstream << the_sonority_sequences;
+    std::string the_sonorities_as_string = the_sonorities_as_stringstream.str();
+    return the_sonorities_as_string;
+}
