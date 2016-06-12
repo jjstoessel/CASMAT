@@ -285,7 +285,6 @@ namespace IMUSANT
             return ret_val;
         }
         
-        
         ID_ivec_map id_ivec_map;
         interval_tree* tree = buildIntervalSuffixTree(id_ivec_map);
         

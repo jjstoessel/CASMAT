@@ -22,6 +22,20 @@ namespace CATSMAT
     {
     public:
         
+        sonority(int q = 0, int m = 0, int i = 0) : mQuality(q), mMeasure(m), mIndex(i) {}
+        sonority(const sonority& iv) : mQuality(iv.getQuality()), mMeasure(iv.getMeasure()), mIndex(iv.getIndex()) {}
+        
+        int     getQuality() const { return mQuality; }
+        long    getMeasure() const { return mMeasure; }
+        long    getIndex() const  { return mIndex; }
+        
+        void    setQuality(const int q) { mQuality = q; }
+        void    setLocation(const long m, long i) { mMeasure = m; mIndex = i; }
+        
+        friend  ostream& operator<< (ostream& os, const sonority& elt );
+        void        print(ostream& os) const;
+        
+        
         inline bool operator==(const sonority& r) const { return (compare(r)==0);}
         inline bool operator!=(const sonority& r) const { return !(*this==r); }
         inline bool operator<(const sonority& r) const { return (compare(r)<0); }
@@ -30,12 +44,12 @@ namespace CATSMAT
         inline bool operator<=( const sonority& r)  const { return (compare(r)<=0); }
         
         sonority& operator=(const sonority& r);
+    private:
         
-        sonority(int q = 0, int m = 0, int i = 0) : quality(q), measure(m), index(i) {}
         signed int  compare(const sonority& i) const;
-        sonority(const sonority& iv) : quality(iv.quality), measure(iv.measure), index(iv.index) {}
-        int quality;
-        long measure, index;
+        
+        int mQuality;
+        long mMeasure, mIndex;
     };
 
     class CATSMAT_sonority_sequences : public CATSMAT_dyad_sequences_base
