@@ -202,7 +202,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 cout << "Only find continguous segments? (y/n) ";
                 cin >> yn;
                 if (yn == 'y') continguous = true;
-                processor->findLcsPairsIntervalsReverse(continguous);
+                processor->findLcsPairsIntervals(continguous);
                 break;
                 
             case 'G':
@@ -234,7 +234,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 processor->findSupermaximalsContours(4,100);
                 processor->findLcsPairsIntervals(false);
                 processor->findLcsPairsPitches(false);
-                processor->findLcsPairsIntervalsReverse(false);
+                processor->findLcsPairsIntervals(false);
                 break;
                 
             case 'J':
