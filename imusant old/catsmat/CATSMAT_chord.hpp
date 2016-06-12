@@ -24,14 +24,14 @@ namespace CATSMAT {
     class CATSMAT_chord : public smartable, public map<int, S_IMUSANT_note>
     {
     public:
-        friend SMARTP<CATSMAT_chord> new_CATSMAT_sonority();
+        friend IMUSANT_SMARTP<CATSMAT_chord> new_CATSMAT_sonority();
         
         void	print(ostream& os) const;
         void    print_short(ostream& os) const;
         
     };
     
-    typedef SMARTP<CATSMAT_chord> S_CATSMAT_chord;
+    typedef IMUSANT_SMARTP<CATSMAT_chord> S_CATSMAT_chord;
     
     S_CATSMAT_chord new_CATSMAT_chord();
 }

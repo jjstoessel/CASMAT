@@ -12,6 +12,8 @@
 #include "CATSMAT_cp_matrix_Sanctus_Expected.h"
 #include "CATSMAT_cp_matrix_Josquin_MAF_Kyrie_Expected.h"
 
+#include "IMUSANT_score.h"
+
 #include "gtest/gtest.h"
 
 #define VERBOSE
@@ -69,16 +71,17 @@ TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_1_Measure.xml");
-    
-    SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
-    
-    S_IMUSANT_score imusant_score = testUtil.ConvertSscoreToImusantscore(sscore);
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("TestScore_1_Measure.xml");
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
     string TestScore_1_Measure_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+
+#ifdef VERBOSE
+    cout << "Diff for TestScore_1_Measure_Actual and TestScore_1_Measure_Expected" << endl;
+    testUtil.DiffActualAndExpected(TestScore_1_Measure_Actual, TestScore_1_Measure_Expected);
+#endif
+    
     ASSERT_EQ(TestScore_1_Measure_Expected, TestScore_1_Measure_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
@@ -88,18 +91,19 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_1_Measure)
 
 TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_4_Measures.xml");
-    
-    SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
-    
-    S_IMUSANT_score imusant_score = testUtil.ConvertSscoreToImusantscore(sscore);
-    
+  
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("TestScore_4_Measures.xml");
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
     //cout << theMatrix;
     
     string TestScore_4_Measures_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    
+#ifdef VERBOSE
+    cout << "Diff for TestScore_4_Measures_Actual and TestScore_4_Measures_Expected" << endl;
+    testUtil.DiffActualAndExpected(TestScore_4_Measures_Actual, TestScore_4_Measures_Expected);
+#endif
+    
     ASSERT_EQ(TestScore_4_Measures_Expected, TestScore_4_Measures_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
@@ -109,36 +113,40 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures)
     ASSERT_EQ(13, chords_in_matrix.size()) << "Unexpected number of chords in the matrix.";
 }
 
-TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithQuaverPassingNotes)
+ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithQuaverPassingNotes)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_4_Measures_WithQuaverPassingNotes.xml");
-    
-    SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
-    
-    S_IMUSANT_score imusant_score = testUtil.ConvertSscoreToImusantscore(sscore);
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("TestScore_4_Measures_WithQuaverPassingNotes.xml");
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
     string TestScore_4_Measures_WithQuaverPassingNotes_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    
+#ifdef VERBOSE
+    cout << "Diff for TestScore_4_Measures_WithQuaverPassingNotes_Actual and TestScore_4_Measures_WithQuaverPassingNotes_Expected" << endl;
+    testUtil.DiffActualAndExpected(TestScore_4_Measures_WithQuaverPassingNotes_Actual, TestScore_4_Measures_WithQuaverPassingNotes_Expected);
+#endif
+    
     ASSERT_EQ(TestScore_4_Measures_WithQuaverPassingNotes_Expected, TestScore_4_Measures_WithQuaverPassingNotes_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
 
-TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes)
+
+ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
-    
-    SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
-    
-    S_IMUSANT_score imusant_score = testUtil.ConvertSscoreToImusantscore(sscore);
-    
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
+
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
     string TestScore_4_Measures_WithSemiQuaverPassingNotes_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    
+    
+#ifdef VERBOSE
+    cout << "Diff for TestScore_4_Measures_WithSemiQuaverPassingNotes_Actual and TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected" << endl;
+    testUtil.DiffActualAndExpected(TestScore_4_Measures_WithSemiQuaverPassingNotes_Actual, TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected);
+#endif
+    
     ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, TestScore_4_Measures_WithSemiQuaverPassingNotes_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
@@ -148,31 +156,28 @@ TEST_F(CATSMAT_cp_matrix_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes)
 
 TEST_F(CATSMAT_cp_matrix_Test, Sanctus)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("Sanctus.xml");
-    
-    SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
-    
-    S_IMUSANT_score imusant_score = testUtil.ConvertSscoreToImusantscore(sscore);
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Sanctus.xml");
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
     string Sanctus_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+    
+#ifdef VERBOSE
+    cout << "Diff for Sanctus_Actual and Sanctus_Expected" << endl;
+    testUtil.DiffActualAndExpected(Sanctus_Actual, Sanctus_Expected);
+#endif
+    
     ASSERT_EQ(Sanctus_Expected, Sanctus_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
 
+
 TEST_F(CATSMAT_cp_matrix_Test, Kyrie)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("Kyrie.xml");
-    
-    SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
-    
-    S_IMUSANT_score imusant_score = testUtil.ConvertSscoreToImusantscore(sscore);
-    
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Kyrie.xml");
+
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
     string Kyrie_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
@@ -190,20 +195,21 @@ TEST_F(CATSMAT_cp_matrix_Test, Kyrie)
 
 TEST_F(CATSMAT_cp_matrix_Test, Josquin_MAF_Kyrie)
 {
-    filesystem::path testdata = testUtil.MakePathToTestData("Josquin_MAF_Kyrie.xml");
-    
-    SScore sscore = testUtil.ConvertMusicXmlToSscore(testdata);
-    ASSERT_FALSE(sscore == NULL) << testUtil.ERR_MSG_FAILED_TO_PARSE_XML;
-    
-    S_IMUSANT_score imusant_score = testUtil.ConvertSscoreToImusantscore(sscore);
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Josquin_MAF_Kyrie.xml");
     
     CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
     
     string Josquin_MAF_Kyrie_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+#ifdef VERBOSE
+    cout << "Diff for Josquin_MAF_Kyrie_Actual and Josquin_MAF_Kyrie_Expected" << endl;
+    testUtil.DiffActualAndExpected(Josquin_MAF_Kyrie_Actual, Josquin_MAF_Kyrie_Expected);
+#endif
+    
     ASSERT_EQ(Josquin_MAF_Kyrie_Expected, Josquin_MAF_Kyrie_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
+
 
 

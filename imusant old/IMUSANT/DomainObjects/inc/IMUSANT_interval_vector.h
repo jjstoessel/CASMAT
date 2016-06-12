@@ -24,7 +24,7 @@ class IMUSANT_interval_vector : public smartable
 {
 	public:
 	
-		friend SMARTP<IMUSANT_interval_vector> new_IMUSANT_interval_vector();
+		friend IMUSANT_SMARTP<IMUSANT_interval_vector> new_IMUSANT_interval_vector();
 		
 		void	setMinimum(long min) { fMinimumIntervals=min; fIntervals.reserve(min); }
 		void	setMaximum(long max) { fMaximumIntervals=max; }
@@ -38,7 +38,7 @@ class IMUSANT_interval_vector : public smartable
 		
 		void print(ostream& os);
 		
-		friend ostream& operator<< (ostream& os, const SMARTP<IMUSANT_interval_vector>& elt );
+		friend ostream& operator<< (ostream& os, const IMUSANT_SMARTP<IMUSANT_interval_vector>& elt );
 		
 	protected:
 	
@@ -55,7 +55,7 @@ class IMUSANT_interval_vector : public smartable
 	long	fMaximumIntervals;
 	
 };
-typedef SMARTP<IMUSANT_interval_vector> S_IMUSANT_interval_vector;
+typedef IMUSANT_SMARTP<IMUSANT_interval_vector> S_IMUSANT_interval_vector;
     
 S_IMUSANT_interval_vector new_IMUSANT_interval_vector();
 

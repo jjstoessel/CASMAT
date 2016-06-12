@@ -22,7 +22,7 @@ namespace IMUSANT
     {
     public:
 
-        friend SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part);
+        friend IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part);
         
         IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part)
         {
@@ -105,8 +105,8 @@ namespace IMUSANT
         string print(bool include_notes) const;
     };
     
-    typedef SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;
-    SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part);
+    typedef IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;
+    IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part);
 }
 
 #endif /* defined(__imusant__IMUSANT_segmented_part_LBDM__) */

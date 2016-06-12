@@ -25,9 +25,9 @@
 #ifndef __smartclasses__
 #define __smartclasses__
 
-#include "smartpointer.h"
+#include "./smartpointer.h"
 
-namespace MusicXML 
+namespace MusicXML
 {
 template <class C> class SmartVisitable;
 

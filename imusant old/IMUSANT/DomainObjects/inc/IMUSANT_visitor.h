@@ -23,17 +23,17 @@ namespace IMUSANT
 {
 
 //forward declarations
-typedef SMARTP<class IMUSANT_element>			S_IMUSANT_element;
-typedef SMARTP<class IMUSANT_note>				S_IMUSANT_note;
-typedef SMARTP<class IMUSANT_comment>			S_IMUSANT_comment;
-typedef SMARTP<class IMUSANT_part_attributes>	S_IMUSANT_attributes;
-typedef SMARTP<class IMUSANT_score>				S_IMUSANT_score;
-typedef SMARTP<class IMUSANT_chord>				S_IMUSANT_chord;
-typedef SMARTP<class IMUSANT_measure>			S_IMUSANT_measure;
-typedef SMARTP<class IMUSANT_part>				S_IMUSANT_part;
-typedef SMARTP<class IMUSANT_partlist>			S_IMUSANT_partlist;
-typedef SMARTP<class IMUSANT_lyric>				S_IMUSANT_lyric;
-typedef SMARTP<class IMUSANT_barline>			S_IMUSANT_barline;
+typedef IMUSANT_SMARTP<class IMUSANT_element>			S_IMUSANT_element;
+typedef IMUSANT_SMARTP<class IMUSANT_note>				S_IMUSANT_note;
+typedef IMUSANT_SMARTP<class IMUSANT_comment>			S_IMUSANT_comment;
+typedef IMUSANT_SMARTP<class IMUSANT_part_attributes>	S_IMUSANT_attributes;
+typedef IMUSANT_SMARTP<class IMUSANT_score>				S_IMUSANT_score;
+typedef IMUSANT_SMARTP<class IMUSANT_chord>				S_IMUSANT_chord;
+typedef IMUSANT_SMARTP<class IMUSANT_measure>			S_IMUSANT_measure;
+typedef IMUSANT_SMARTP<class IMUSANT_part>				S_IMUSANT_part;
+typedef IMUSANT_SMARTP<class IMUSANT_partlist>			S_IMUSANT_partlist;
+typedef IMUSANT_SMARTP<class IMUSANT_lyric>				S_IMUSANT_lyric;
+typedef IMUSANT_SMARTP<class IMUSANT_barline>			S_IMUSANT_barline;
 
 /*!
 \brief an abstract generic IMUSANT visitor

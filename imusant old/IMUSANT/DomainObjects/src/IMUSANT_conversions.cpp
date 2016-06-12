@@ -70,30 +70,57 @@ IMUSANT_NoteType::type	IMUSANT_NoteType::xml (const string str) { return fType2S
         return fType2String[str];
     }
 
-    //convert TLyric Syllabic to IMUSANT_lyric syllabic
-    IMUSANT_syllabic::type
-    IMUSANT_syllabic::
-    MusicXML2IMUSANTSyllabic(const TLyric::syllabic musicXMLType)
+//    //convert TLyric Syllabic to IMUSANT_lyric syllabic
+//    IMUSANT_syllabic::type
+//    IMUSANT_syllabic::
+//    MusicXML2IMUSANTSyllabic(const TLyric::syllabic musicXMLType)
+//    {
+//        type rType = undefined;
+//        
+//        switch (musicXMLType)
+//        {
+//            case TLyric::single:
+//                rType = single;
+//                break;
+//            case TLyric::begin:
+//                rType = begin;
+//                break;
+//            case TLyric::end:
+//                rType = end;
+//                break;
+//            case TLyric::middle:
+//                rType = middle;
+//                break;
+//        }
+//        
+//        return rType;
+//    }
+    
+    //--------------------------------------------------------------------------------
+    IMUSANT_YesNo::type
+    IMUSANT_YesNo::
+    fYNTbl[] = { yes, no };
+    
+    string
+    IMUSANT_YesNo::
+    fYNStrings[] = { "yes", "no" };
+    
+    bimap<string, IMUSANT_YesNo::type>
+    IMUSANT_YesNo::
+    fYN2String(fYNStrings, fYNTbl, last);
+    
+    const string
+    IMUSANT_YesNo::
+    xml (type d)
     {
-        type rType = undefined;
-        
-        switch (musicXMLType)
-        {
-            case TLyric::single:
-                rType = single;
-                break;
-            case TLyric::begin:
-                rType = begin;
-                break;
-            case TLyric::end:
-                rType = end;
-                break;
-            case TLyric::middle:
-                rType = middle;
-                break;
-        }
-        
-        return rType;
+        return fYN2String[d];
+    }
+    
+    IMUSANT_YesNo::type
+    IMUSANT_YesNo::
+    xml (const string str)
+    {
+        return fYN2String[str];
     }
 
 }//namespace IMUSANT

@@ -37,7 +37,7 @@ namespace IMUSANT
     class IMUSANT_visitor;
     class IMUSANT_element;
     
-    VEXP ostream& operator<< (ostream& os, const SMARTP<IMUSANT_element>& elt);
+    VEXP ostream& operator<< (ostream& os, const IMUSANT_SMARTP<IMUSANT_element>& elt);
     
     
     /*!
@@ -59,7 +59,7 @@ namespace IMUSANT
         virtual ~IMUSANT_element() {}
     };
     
-    typedef SMARTP<IMUSANT_element> S_IMUSANT_element;
+    typedef IMUSANT_SMARTP<IMUSANT_element> S_IMUSANT_element;
     
 } //namespace IMUSANT
 /*! @} */

@@ -14,11 +14,6 @@
 #include "CATSMAT_dyadtuple_sequences.hpp"
 #include "CATSMAT_sonority_sequences.hpp"
 
-// #include "CATSMAT_cp_matrix_Expected.h"
-
-#include "TMusicXMLFile.h"
-#include "TXML2IMUSANTVisitor.h"
-
 #include <boost/filesystem.hpp>
 #include "gtest/gtest.h"
 
@@ -30,9 +25,9 @@ class CATSMAT_test_utility {
 public:
     
     filesystem::path MakePathToTestData(string relative_path) const;
-  
-    SScore ConvertMusicXmlToSscore(filesystem::path music_xml_file) const;
-    S_IMUSANT_score ConvertSscoreToImusantscore(SScore xml_score) const;
+    
+    S_IMUSANT_score InitialiseScoreFromFile(string relative_path) const;
+    
     S_CATSMAT_cp_matrix ConvertImusantscoreToCpmatrix(S_IMUSANT_score imusant_score) const;
     S_CATSMAT_cp_matrix ConvertMusicXmlToCpmatrix(string relative_path_to_xml_file) const;
     

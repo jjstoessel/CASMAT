@@ -22,7 +22,7 @@ class IMUSANT_record : public smartable
 {
 	public:
 	
-		friend SMARTP<IMUSANT_record> new_IMUSANT_record();
+		friend IMUSANT_SMARTP<IMUSANT_record> new_IMUSANT_record();
 		
 		enum { undefined=-1 };
 		
@@ -48,7 +48,7 @@ class IMUSANT_record : public smartable
 		long	fStartNoteIndex;
 				
 };
-typedef SMARTP<IMUSANT_record> S_IMUSANT_record;
+typedef IMUSANT_SMARTP<IMUSANT_record> S_IMUSANT_record;
 
 S_IMUSANT_record new_IMUSANT_record();
     

@@ -78,8 +78,8 @@ namespace IMUSANT
         enum direction { descending=-1, unison=0, ascending = 1 };
         
         
-        friend SMARTP<IMUSANT_interval> new_IMUSANT_interval();
-        friend SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
+        friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval();
+        friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
         
         //getters and setters
         interval_type       getInterval()  { return fInterval; }
@@ -193,7 +193,7 @@ namespace IMUSANT
         
     };
     
-    typedef SMARTP<IMUSANT_interval> S_IMUSANT_interval;
+    typedef IMUSANT_SMARTP<IMUSANT_interval> S_IMUSANT_interval;
     
     //new function definitions
     S_IMUSANT_interval new_IMUSANT_interval();

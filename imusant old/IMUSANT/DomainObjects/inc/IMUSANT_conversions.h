@@ -17,14 +17,11 @@
 #include <string>
 
 #include "bimap.h"
-#include "TNote.h"
 
-using namespace MusicXML;
 using namespace std;
 
 namespace IMUSANT
 {
-    // TODO - this class seems to contain dependencies om MusicXML v1.  bimap.
     class IMUSANT_NoteStyle
     {
     public:
@@ -66,15 +63,32 @@ namespace IMUSANT
         static const string	xml (type syll);            //! convert a numeric value to a string
         static       type	xml (const string str);     //! convert a string to a numeric value
         
-        //convert MusicXML syllabic type to IMUSANT syllabic type
-        static		 type	MusicXML2IMUSANTSyllabic(const TLyric::syllabic musicXMLType);
-        
+       
     private:
         //could add laughing, humming, etc.
         static bimap<string, type>	fType2String;
         static type	fTypeTbl[];
         static string	fTypeStrings[];
     };
+    
+
+    class IMUSANT_YesNo
+    {
+    public:
+        enum type { undefined, yes, no, last=no };
+        
+        //! convert a numeric yes-no value to a MusicXML string
+        static const string	xml (type d);
+        //! convert a MusicXML string to a numeric yes-no value
+        static       type	xml (const string str);
+        
+    private:
+        static bimap<string, type> fYN2String;
+        static type 	fYNTbl[];
+        static string 	fYNStrings[];
+    };
+    
+    
     
 } //namespace IMUSANT
 #endif

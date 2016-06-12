@@ -40,7 +40,7 @@ namespace IMUSANT
         
     public:
         
-        VEXP friend SMARTP<IMUSANT_note> new_IMUSANT_note();
+        VEXP friend IMUSANT_SMARTP<IMUSANT_note> new_IMUSANT_note();
         
         void setPitch( const S_IMUSANT_pitch pitch ) { fPitch = pitch; }
         void setDuration( const S_IMUSANT_duration dur ) { fDuration = dur; }
@@ -134,9 +134,9 @@ namespace IMUSANT
         bool                            fHasFermata = false;
         
     };
-    typedef SMARTP<IMUSANT_note> S_IMUSANT_note;
+    typedef IMUSANT_SMARTP<IMUSANT_note> S_IMUSANT_note;
     
-    VEXP SMARTP<IMUSANT_note> new_IMUSANT_note();
+    VEXP IMUSANT_SMARTP<IMUSANT_note> new_IMUSANT_note();
     
 } //namespace IMUSANT
 #endif

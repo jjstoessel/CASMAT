@@ -29,7 +29,7 @@ namespace IMUSANT
     {
     public:
         
-        friend SMARTP<IMUSANT_duration> new_IMUSANT_duration();
+        friend IMUSANT_SMARTP<IMUSANT_duration> new_IMUSANT_duration();
         
         IMUSANT_duration() :
             fDuration(IMUSANT_duration::unmeasured),
@@ -142,9 +142,9 @@ namespace IMUSANT
         static string					fDurationStringsv3[];   // values for MusicXML Version 3
     };
     
-    typedef SMARTP<IMUSANT_duration> S_IMUSANT_duration;
+    typedef IMUSANT_SMARTP<IMUSANT_duration> S_IMUSANT_duration;
     
-    SMARTP<IMUSANT_duration> new_IMUSANT_duration();
+    IMUSANT_SMARTP<IMUSANT_duration> new_IMUSANT_duration();
     
 }
 #endif //namespace IMUSANT
