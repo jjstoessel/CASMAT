@@ -3,7 +3,7 @@
  *  imusant
  *
  *  Created by Jason Stoessel on 26/07/06.
- *  Copyright 2006 __MyCompanyName__. All rights reserved.
+ *  Copyright 2006–2016. All rights reserved.
  *
  */
 
@@ -15,16 +15,11 @@
 #include "IMUSANT_score.h"
 #include "IMUSANT_collectionvisitor.h"
 #include "IMUSANT_segmented_part_LBDM.h"
-//#include "IMUSANT_repeated_interval_substring.h"
 #include "IMUSANT_t_repeated_substring.h"
 #include "suffixtree.h"
 #include <map>
 #include <vector>
 #include <exception>
-
-#define NEW
-//#define OLD   //----- This doesn't compile any more.
-// #define VERBOSE //----- Print out data structures for testing - use with caution
 
 using namespace std;
 using namespace boost;
