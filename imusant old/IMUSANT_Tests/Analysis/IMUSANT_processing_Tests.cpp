@@ -14,6 +14,9 @@
 
 #include "libIMUSANT.h"
 #include <boost/filesystem.hpp>
+#include "IMUSANT_interval_processor.h"
+#include "IMUSANT_contour_processor.h"
+#include "IMUSANT_pitch_processor.h"
 
 //#define VERBOSE //toggle for verbose output
 
@@ -102,8 +105,11 @@ find_repeated_substrings_by_file(string relative_path_to_test_data_file)
 {
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
     
+    IMUSANT_interval_processor interval_processor;
+    interval_processor.Visit(*the_processor);
+    
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = the_processor->findRepeatedIntervalSubstrings();
+    repeated_substrings_result = interval_processor.findRepeatedIntervalSubstrings();
     
     return repeated_substrings_result;
 }
@@ -114,9 +120,10 @@ find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file)
 {
     
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
-    
+    IMUSANT_contour_processor contour_processor;
+    contour_processor.Visit(*the_processor);
     vector<IMUSANT_repeated_contour_substring> repeated_substrings_result;
-    repeated_substrings_result = the_processor->findRepeatedContourSubstrings();
+    repeated_substrings_result = contour_processor.findRepeatedContourSubstrings();
     
     return repeated_substrings_result;
     
@@ -128,12 +135,16 @@ find_supermaximals_intervals_by_file(string relative_path_to_test_data_file)
 {
     
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
+    IMUSANT_interval_processor interval_processor;
+    interval_processor.Visit(*the_processor);
     
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = the_processor->findSupermaximalsIntervals(4, 100); //parameterise
+    repeated_substrings_result = interval_processor.findSupermaximalsIntervals(4, 100); //parameterise
     
     //removed below to separate test
-    the_processor->findLcsPairsPitches();
+    IMUSANT_pitch_processor pitch_processor;
+    pitch_processor.Visit(*the_processor);
+    pitch_processor.findLcsPairsPitches();
     
     return repeated_substrings_result;
     
@@ -144,8 +155,9 @@ IMUSANT_processing_Tests::
 find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search, bool retrograde)
 {
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
-    
-    the_processor->findLcsPairsIntervals(true,reverse_search,retrograde);
+    IMUSANT_interval_processor interval_processor;
+    interval_processor.Visit(*the_processor);
+    interval_processor.findLcsPairsIntervals(true,reverse_search,retrograde);
 }
 
 
@@ -173,9 +185,11 @@ find_repeated_substrings_by_directory(string relative_path_to_test_data_director
     IMUSANT_processing *the_processor = new IMUSANT_processing();
     
     the_processor->processDirectoryFiles(testdata);
+    IMUSANT_interval_processor interval_processor;
+    interval_processor.Visit(*the_processor);
     
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = the_processor->findRepeatedIntervalSubstrings();
+    repeated_substrings_result = interval_processor.findRepeatedIntervalSubstrings();
     
     return repeated_substrings_result;
 }
