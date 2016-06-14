@@ -3393,12 +3393,14 @@
 				HEADER_SEARCH_PATHS = (
 					$BOOST_ROOT_INC_DIR,
 					$GOOGLE_TEST_FRAMEWORK_DIR/Headers,
+					$LOKI_INC_DIR,
 				);
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/boost/lib,
 				);
+				LOKI_INC_DIR = "$(PROJECT_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = IMUSANT_Tests;
@@ -3442,12 +3444,14 @@
 				HEADER_SEARCH_PATHS = (
 					$BOOST_ROOT_INC_DIR,
 					$GOOGLE_TEST_FRAMEWORK_DIR/Headers,
+					$LOKI_INC_DIR,
 				);
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/boost/lib,
 				);
+				LOKI_INC_DIR = "$(PROJECT_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = IMUSANT_Tests;

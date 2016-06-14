@@ -11,20 +11,21 @@
 
 #include <stdio.h>
 #include "boost/multi_array.hpp"
-#include "/Users/Jason/Development/CATSMAT/imusant old/Loki/Visitor.h"
+#include "Loki/Visitor.h"
 #include "suffixtree.h"
 #include "IMUSANT_processing.h"
 
 using namespace std;
 using namespace ns_suffixtree;
-using namespace Loki;
 
 #define MAX(X,Y) ( (X>Y)? (X) : (Y) ) //move to general macros header
 
 namespace IMUSANT
 {
     template <typename T>
-    class IMUSANT_processor : public BaseVisitor, public Loki::Visitor<IMUSANT_processing, void, true>
+    class IMUSANT_processor :
+        public Loki::BaseVisitor,
+        public Loki::Visitor<IMUSANT_processing, void, true>
     {
     public:
         
