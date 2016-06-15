@@ -329,12 +329,6 @@
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		9668DB921D0D7A8900C5AAA6 /* IMUSANT_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB901D0D7A8900C5AAA6 /* IMUSANT_processor.cpp */; };
 		9668DB931D0D7A8900C5AAA6 /* IMUSANT_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB901D0D7A8900C5AAA6 /* IMUSANT_processor.cpp */; };
-		9668DB961D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */; };
-		9668DB971D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */; };
-		9668DB9D1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp */; };
-		9668DB9E1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp */; };
-		9668DBA11D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp */; };
-		9668DBA21D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp */; };
 		96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */; };
 		BA4207E21CE806F6007204AF /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
 		BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
@@ -352,6 +346,9 @@
 		BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */; };
 		BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
 		BAB505881B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
+		BACF15C11D113FDA001C3991 /* IMUSANT_interval_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */; };
+		BACF15C21D113FE2001C3991 /* IMUSANT_contour_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp */; };
+		BACF15C31D113FE6001C3991 /* IMUSANT_pitch_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3016,20 +3013,17 @@
 				497DF4F61C9D309100D18A04 /* IMUSANT_test_utilities.cpp in Sources */,
 				4970E01D1B76BFC40052496C /* IMUSANT_processing_Tests.cpp in Sources */,
 				1E76912C1C816B2600D371D8 /* IMUSANT_measure_Tests.cpp in Sources */,
-				9668DBA21D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp in Sources */,
 				491DA4451C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp in Sources */,
 				1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */,
 				1E905DD91C21C01F0017850F /* IMUSANT_interval_Tests.cpp in Sources */,
 				1E6C38D51BB766020025BA7E /* IMUSANT_score_Tests.cpp in Sources */,
 				9668DB931D0D7A8900C5AAA6 /* IMUSANT_processor.cpp in Sources */,
-				9668DB971D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp in Sources */,
 				49394E891CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp in Sources */,
 				49F1FFF71C9E4B8A00910F07 /* IMUSANT_duration_Tests.cpp in Sources */,
 				1E3E47B91BF5E71200F2C037 /* IMUSANT_note_Tests.cpp in Sources */,
 				49F1FFF51C9D5A8F00910F07 /* IMUSANT_part_Tests.cpp in Sources */,
 				1E450E291B75810A00BDF9EF /* main.cpp in Sources */,
 				4970E00D1B7589700052496C /* IMUSANT_key_Tests.cpp in Sources */,
-				9668DB9E1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp in Sources */,
 				1E3E47D91BF7FE8500F2C037 /* IMUSANT_mxmlv3_to_imusant_visitor_Tests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3181,6 +3175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BACF15C21D113FE2001C3991 /* IMUSANT_contour_processor.cpp in Sources */,
 				490E3BBA1D0CFBE70091A44E /* IMUSANT_repeated_interval_substring.cpp in Sources */,
 				490E3BBB1D0CFBE70091A44E /* IMUSANT_t_repeated_substring.cpp in Sources */,
 				4959E13A1CF13BE300FAC403 /* smartpointer.cpp in Sources */,
@@ -3200,6 +3195,8 @@
 				496EF6E01B22B05500FE715F /* IMUSANT_duration.cpp in Sources */,
 				496EF6E11B22B05500FE715F /* IMUSANT_key.cpp in Sources */,
 				496EF6E21B22B05500FE715F /* IMUSANT_element.cpp in Sources */,
+				BACF15C11D113FDA001C3991 /* IMUSANT_interval_processor.cpp in Sources */,
+				BACF15C31D113FE6001C3991 /* IMUSANT_pitch_processor.cpp in Sources */,
 				496EF6E31B22B05500FE715F /* IMUSANT_note.cpp in Sources */,
 				496EF6E41B22B05500FE715F /* IMUSANT_barline.cpp in Sources */,
 				496EF6E51B22B05500FE715F /* IMUSANT_chord.cpp in Sources */,
@@ -3258,9 +3255,6 @@
 			files = (
 				9668DB921D0D7A8900C5AAA6 /* IMUSANT_processor.cpp in Sources */,
 				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
-				9668DBA11D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp in Sources */,
-				9668DB961D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp in Sources */,
-				9668DB9D1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3324,11 +3318,15 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GOOGLE_TEST_FRAMEWORK_DIR = /usr/local;
-				HEADER_SEARCH_PATHS = $BOOST_ROOT_INC_DIR;
+				HEADER_SEARCH_PATHS = (
+					$BOOST_ROOT_INC_DIR,
+					"$(LOKI_INC_DIR)",
+				);
 				LIBRARY_SEARCH_PATHS = $BOOST_ROOT_LIB_DIR;
 				LIB_MUSIC_XML_3_DIR = "$(PROJECT_DIR)/libMusicXMLv3";
+				LOKI_INC_DIR = "$(PROJECT_DIR)";
 				ONLY_ACTIVE_ARCH = YES;
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "$(LOKI_INC_DIR)";
 				ZERO_LINK = YES;
 			};
 			name = Debug;
@@ -3344,10 +3342,14 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GOOGLE_TEST_FRAMEWORK_DIR = /usr/local;
-				HEADER_SEARCH_PATHS = $BOOST_ROOT_INC_DIR;
+				HEADER_SEARCH_PATHS = (
+					$BOOST_ROOT_INC_DIR,
+					"$(LOKI_INC_DIR)",
+				);
 				LIBRARY_SEARCH_PATHS = $BOOST_ROOT_LIB_DIR;
 				LIB_MUSIC_XML_3_DIR = "$(PROJECT_DIR)/libMusicXMLv3";
-				USER_HEADER_SEARCH_PATHS = "";
+				LOKI_INC_DIR = "$(PROJECT_DIR)";
+				USER_HEADER_SEARCH_PATHS = "$(LOKI_INC_DIR)";
 			};
 			name = Release;
 		};
@@ -3882,6 +3884,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "";
+				LOKI_INC_DIR = "";
 				PRODUCT_NAME = imusantcat;
 				SDKROOT = macosx10.10;
 				USER_HEADER_SEARCH_PATHS = "/usr/local/include/**";
@@ -3924,6 +3927,7 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "";
+				LOKI_INC_DIR = "";
 				PRODUCT_NAME = imusantcat;
 				SDKROOT = macosx10.10;
 				USER_HEADER_SEARCH_PATHS = "/usr/local/include/**";

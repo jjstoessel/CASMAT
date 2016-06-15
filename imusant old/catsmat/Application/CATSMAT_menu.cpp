@@ -10,9 +10,11 @@
 
 #include <fstream>
 #include <stdlib.h>
-
 #include <exception>
 
+#include "IMUSANT_interval_processor.h"
+#include "IMUSANT_pitch_processor.h"
+#include "IMUSANT_contour_processor.h"
 
 using namespace std;
 using namespace CATSMAT;
@@ -155,6 +157,9 @@ CATSMAT_menu::
 runToolsMenu(CATSMAT_processing* processor)
 {
     bool moreTools = true;
+    IMUSANT_interval_processor  ip;
+    IMUSANT_pitch_processor     pp;
+    IMUSANT_contour_processor   cp;
     do
     {
         outputToolsMenu(cout);
@@ -167,26 +172,30 @@ runToolsMenu(CATSMAT_processing* processor)
         {
             case 'A':
             case 'a':
+                ip.Visit(*processor);
                 cout << "Enter minimum length: ";
                 cin >> length;
-                cout << processor->findAndPrintRepeatedIntervalSubstrings(length);
+                cout << ip.findAndPrintRepeatedIntervalSubstrings(length);
                 break;
                 
             case 'B':
             case'b':
                 cout << "Enter minimum length: ";
                 cin >> length;
-                processor->findRepeatedContourSubstrings(length);
+                cp.Visit(*processor);
+                cp.findRepeatedContourSubstrings(length);
                 break;
                 
             case 'C':
             case 'c':
-                processor->findSupermaximalsIntervals(4,100);
+                ip.Visit(*processor);
+                ip.findSupermaximalsIntervals(4,100);
                 break;
                 
             case 'D':
             case 'd':
-                processor->findSupermaximalsContours(4,100);
+                cp.Visit(*processor);
+                cp.findSupermaximalsContours(4,100);
                 break;
                 
             case 'E':
@@ -194,7 +203,8 @@ runToolsMenu(CATSMAT_processing* processor)
                 cout << "Only find continguous segments? (y/n) ";
                 cin >> yn;
                 if (yn == 'y') continguous = true;
-                processor->findLcsPairsIntervals(continguous);
+                ip.Visit(*processor);
+                ip.findLcsPairsIntervals(continguous);
                 break;
                 
             case 'F':
@@ -202,8 +212,8 @@ runToolsMenu(CATSMAT_processing* processor)
                 cout << "Only find continguous segments? (y/n) ";
                 cin >> yn;
                 if (yn == 'y') continguous = true;
-                //processor->findLcsPairsIntervalsReverse(continguous);
-                processor->findLcsPairsIntervals(continguous,true);
+                ip.Visit(*processor);
+                ip.findLcsPairsIntervals(continguous,true);
                 break;
                 
             case 'G':
@@ -211,7 +221,8 @@ runToolsMenu(CATSMAT_processing* processor)
                 cout << "Only find continguous segments? (y/n) ";
                 cin >> yn;
                 if (yn == 'y') continguous = true;
-                processor->findLcsPairsPitches(continguous);
+                pp.Visit(*processor);
+                pp.findLcsPairsPitches(continguous);
                 break;
                 
             case 'H':
@@ -229,14 +240,17 @@ runToolsMenu(CATSMAT_processing* processor)
                 
             case 'I':
             case 'i':
-                processor->findRepeatedIntervalSubstrings();
-                processor->findRepeatedContourSubstrings();
-                processor->findSupermaximalsIntervals(4,100);
-                processor->findSupermaximalsContours(4,100);
-                processor->findLcsPairsIntervals(false);
-                processor->findLcsPairsPitches(false);
-                //processor->findLcsPairsIntervalsReverse(false);
-                processor->findLcsPairsIntervals(false, true);
+                ip.Visit(*processor);
+                cp.Visit(*processor);
+                pp.Visit(*processor);
+
+                ip.findRepeatedIntervalSubstrings();
+                cp.findRepeatedContourSubstrings();
+                ip.findSupermaximalsIntervals(4,100);
+                cp.findSupermaximalsContours(4,100);
+                ip.findLcsPairsIntervals(false);
+                pp.findLcsPairsPitches(false);
+                ip.findLcsPairsIntervals(false, true);
                 break;
                 
             case 'J':
