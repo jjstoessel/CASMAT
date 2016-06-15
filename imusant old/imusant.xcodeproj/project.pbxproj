@@ -327,8 +327,6 @@
 		49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */; };
 		961789941D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 961789931D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
-		9668DB921D0D7A8900C5AAA6 /* IMUSANT_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB901D0D7A8900C5AAA6 /* IMUSANT_processor.cpp */; };
-		9668DB931D0D7A8900C5AAA6 /* IMUSANT_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB901D0D7A8900C5AAA6 /* IMUSANT_processor.cpp */; };
 		96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */; };
 		BA4207E21CE806F6007204AF /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
 		BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
@@ -1028,7 +1026,6 @@
 		965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_vector.cpp; sourceTree = "<group>"; };
 		965209A90A4D1F37006AFD81 /* IMUSANT_ivec_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_ivec_collection.h; sourceTree = "<group>"; };
 		965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_ivec_collection.cpp; sourceTree = "<group>"; };
-		9668DB901D0D7A8900C5AAA6 /* IMUSANT_processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_processor.cpp; path = imusant.xcodeproj/../IMUSANT/Analysis/src/IMUSANT_processor.cpp; sourceTree = SOURCE_ROOT; };
 		9668DB911D0D7A8900C5AAA6 /* IMUSANT_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processor.h; path = IMUSANT/Analysis/src/IMUSANT_processor.h; sourceTree = SOURCE_ROOT; };
 		9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_interval_processor.cpp; path = IMUSANT/Analysis/src/IMUSANT_interval_processor.cpp; sourceTree = SOURCE_ROOT; };
 		9668DB951D0D803B00C5AAA6 /* IMUSANT_interval_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_interval_processor.h; path = IMUSANT/Analysis/src/IMUSANT_interval_processor.h; sourceTree = SOURCE_ROOT; };
@@ -1619,7 +1616,6 @@
 			isa = PBXGroup;
 			children = (
 				BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */,
-				9668DB901D0D7A8900C5AAA6 /* IMUSANT_processor.cpp */,
 				9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */,
 				9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp */,
 				9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp */,
@@ -3017,7 +3013,6 @@
 				1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */,
 				1E905DD91C21C01F0017850F /* IMUSANT_interval_Tests.cpp in Sources */,
 				1E6C38D51BB766020025BA7E /* IMUSANT_score_Tests.cpp in Sources */,
-				9668DB931D0D7A8900C5AAA6 /* IMUSANT_processor.cpp in Sources */,
 				49394E891CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp in Sources */,
 				49F1FFF71C9E4B8A00910F07 /* IMUSANT_duration_Tests.cpp in Sources */,
 				1E3E47B91BF5E71200F2C037 /* IMUSANT_note_Tests.cpp in Sources */,
@@ -3253,7 +3248,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9668DB921D0D7A8900C5AAA6 /* IMUSANT_processor.cpp in Sources */,
 				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

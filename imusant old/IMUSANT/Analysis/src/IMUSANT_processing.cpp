@@ -35,8 +35,6 @@
 
 #include "IMUSANT_mxmlv3_to_imusant_visitor.h"
 
-#define MAX(X,Y) ( (X>Y)? (X) : (Y) )
-
 
 using namespace std;
 using namespace ns_suffixtree;
