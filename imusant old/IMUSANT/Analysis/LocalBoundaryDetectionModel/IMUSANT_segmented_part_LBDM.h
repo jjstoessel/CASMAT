@@ -18,6 +18,8 @@ using namespace std;
 
 namespace IMUSANT
 {
+    typedef vector<S_IMUSANT_note> IMUSANT_segment;
+    
     class IMUSANT_segmented_part_LBDM : public smartable
     {
     public:
@@ -36,6 +38,8 @@ namespace IMUSANT
         // You must call this function to initialise the class from the data in the Part.
         //
         vector<float>& getOverallLocalBoundaryStrengthProfile();
+        
+        vector< IMUSANT_segment > getSegments();
         
         
         // This output operator produces a table that lists the notes used for calculating

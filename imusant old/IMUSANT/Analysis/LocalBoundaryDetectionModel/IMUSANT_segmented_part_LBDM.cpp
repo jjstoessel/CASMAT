@@ -80,6 +80,30 @@ namespace IMUSANT
         }
     }
     
+    vector< IMUSANT_segment >
+    IMUSANT_segmented_part_LBDM::
+    getSegments()
+    {
+        // REVISIT - assuming that calculateOverallLocalBoundaryStrengthVector() has already been called
+
+        float last_value = 0;
+        cout << *this;
+        for (int index = 0; index < overall_local_boundary_strength_profile.size(); index++)
+        {
+            if (overall_local_boundary_strength_profile[index] > last_value * 2.5
+                &&
+                overall_local_boundary_strength_profile[index] > overall_local_boundary_strength_profile[index + 1])   // REVISIT - the +1 is an out of bounds error.
+            {
+                cout << "CANDIDATE: " << overall_local_boundary_strength_profile[index] << endl;
+            }
+            last_value = overall_local_boundary_strength_profile[index];
+            cout << overall_local_boundary_strength_profile[index] << endl;
+        }
+    
+        vector<IMUSANT_segment> ret_val;
+        return ret_val;
+    }
+    
     
 #define NOTE_WIDTH 28
 #define DATA_WIDTH 16
