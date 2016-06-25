@@ -4378,12 +4378,6 @@
         <dot/>
         <stem>down</stem>
         </note>
-      <note print-object="no">
-        <rest/>
-        <duration>2</duration>
-        <voice>1</voice>
-        <type>quarter</type>
-        </note>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
         </barline>
@@ -6054,12 +6048,6 @@
         <type>half</type>
         <dot/>
         <stem>up</stem>
-        </note>
-      <note print-object="no">
-        <rest/>
-        <duration>2</duration>
-        <voice>1</voice>
-        <type>quarter</type>
         </note>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
