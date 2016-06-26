@@ -153,9 +153,13 @@ namespace IMUSANT
     visitStart( S_voice &elt)
     {
         debug("S_voice");
-        string voice_str = elt->getValue();
-        int voice = atoi(voice_str.c_str());
-        fCurrentNote->setVoice(voice);
+        
+        if (fInNoteElement)
+        {
+            string voice_str = elt->getValue();
+            int voice = atoi(voice_str.c_str());
+            fCurrentNote->setVoice(voice);
+        }
     }
     
     void
