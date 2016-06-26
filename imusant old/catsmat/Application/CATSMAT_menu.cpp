@@ -137,6 +137,7 @@ outputToolsMenu(ostream &out)
     out << "F.  Find longest common intervallic subsequence in all pairs (reverse method)" << endl;
     out << "G.  Find longest common pitch subsequence in all pairs" << endl;
     out << "H.  Find melodic segments using LBDM" << endl;
+    out << "O.  Print all scores" << endl;
     out << "I.  Run all IMUSANT tools" << endl;
     out << endl;
     out << "CATSMAT ANALYSIS TOOLS" << endl;
@@ -235,6 +236,18 @@ runToolsMenu(CATSMAT_processing* processor)
                     cout << *(*seg_part_iter) << endl;
                 }
             
+                break;
+            }
+                
+            case 'O':
+            case 'o':
+            {
+                vector<S_IMUSANT_score> scores = processor->getScores();
+                for (int index = 0 ; index < scores.size(); index++)
+                {
+                    cout << scores[index] << endl << endl  << endl;
+                }
+                
                 break;
             }
                 

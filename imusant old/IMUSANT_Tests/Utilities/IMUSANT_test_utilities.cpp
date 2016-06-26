@@ -117,6 +117,7 @@ OutputDiffResult(string temp_output_file_path)
 {
     string line;
     ifstream myfile (temp_output_file_path);
+    
     if (myfile.is_open())
     {
         while ( getline (myfile,line) )
