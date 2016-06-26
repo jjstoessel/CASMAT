@@ -16,7 +16,7 @@
 
 #include "gtest/gtest.h"
 
-#define VERBOSE
+// #define VERBOSE
 
 using namespace boost;
 
