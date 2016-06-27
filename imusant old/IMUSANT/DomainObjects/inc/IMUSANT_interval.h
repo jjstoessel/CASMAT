@@ -116,9 +116,10 @@ namespace IMUSANT
         direction           getDirection() { return fDirection; }
         int                 getOctaves() const { return fOctaves; }
         IMUSANT_range		getLocation() const { return fLocation; }
+        quality             getQuality() { return fQuality; }
         //calculated gets
         int                 getNumber() const;
-        quality             getQuality() { return fQuality; }
+        
         
         
         void                setInterval(interval_type interval) { fInterval=interval; }
