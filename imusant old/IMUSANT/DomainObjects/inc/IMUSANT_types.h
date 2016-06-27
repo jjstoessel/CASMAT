@@ -62,9 +62,9 @@ namespace IMUSANT
         
         EXP friend IMUSANT_SMARTP<IMUSANT_accidental> new_IMUSANT_accidental();
         
-        accident			getAccident() const		{ return fAccident; }
+        accident                    getAccident()   const	{ return fAccident; }
         IMUSANT_YesNo::type			getCautionary() const	{ return fCautionary; }
-        IMUSANT_YesNo::type			getEditorial() const	{ return fEditorial; }
+        IMUSANT_YesNo::type			getEditorial()  const	{ return fEditorial; }
         IMUSANT_YesNo::type			getCancelling() const	{ return fCancelling; }
         
         void setAccident(accident acc) { fAccident = acc; }

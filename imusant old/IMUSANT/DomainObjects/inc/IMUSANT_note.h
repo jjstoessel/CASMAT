@@ -42,6 +42,28 @@ namespace IMUSANT
         
         VEXP friend IMUSANT_SMARTP<IMUSANT_note> new_IMUSANT_note();
         
+        IMUSANT_note()
+        :
+        fTieNext(NULL),
+        fTiePrevious(NULL),
+        fStyle(IMUSANT_NoteStyle::normal),
+        fType(IMUSANT_NoteType::pitch),
+        fVoice(-1)
+        {}
+        
+        IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration )
+        :
+        fPitch(pitch),
+        fDuration(duration),
+        fTieNext(NULL),
+        fTiePrevious(NULL),
+        fStyle(IMUSANT_NoteStyle::normal),
+        fType(IMUSANT_NoteType::pitch),
+        fVoice(-1)
+        {}
+        
+        virtual ~IMUSANT_note(){}
+        
         void setPitch( const S_IMUSANT_pitch pitch ) { fPitch = pitch; }
         void setDuration( const S_IMUSANT_duration dur ) { fDuration = dur; }
         void setAccidental( const S_IMUSANT_accidental acc ) { fAccidental = acc; }
@@ -92,28 +114,7 @@ namespace IMUSANT
         bool operator< (const IMUSANT_note& note) const;
         
         static bool higher(const IMUSANT_note& note1, const IMUSANT_note& note2);
-        
-        IMUSANT_note()
-        :
-        fTieNext(NULL),
-        fTiePrevious(NULL),
-        fStyle(IMUSANT_NoteStyle::normal),
-        fType(IMUSANT_NoteType::pitch),
-        fVoice(-1)
-        {}
-        
-        IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration )
-        :
-        fPitch(pitch),
-        fDuration(duration),
-        fTieNext(NULL),
-        fTiePrevious(NULL),
-        fStyle(IMUSANT_NoteStyle::normal),
-        fType(IMUSANT_NoteType::pitch),
-        fVoice(-1)
-        {}
-        
-        virtual ~IMUSANT_note(){}
+
         
     private:
         

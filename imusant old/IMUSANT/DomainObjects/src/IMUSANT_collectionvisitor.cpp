@@ -104,31 +104,17 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 				//exact interval storage
 				IMUSANT_interval interval(fLastNote->pitch(), elt->pitch());
 				interval.setLocation(fCurrentPartID, fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
-#ifdef OLD
-				fIntervalVector->add(interval);
-#elif defined (NEW)
                 fCurrentIntervalVector->add(interval);
-#endif
 				//contour symbol storage
 				IMUSANT_contour_symbol symbol(fLastNote->pitch(), elt->pitch());
 				symbol.setLocation(fCurrentPartID,fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
-#ifdef OLD
-				fMelodicContour->push_back(symbol);
-#elif defined (NEW)
                 fCurrentMelodicContour->push_back(symbol);
-#endif
 			}
 		}
         
-#ifdef OLD
-		//pitch storage
-		if (!elt->isTiedPrevious() && !(fIgnoreRepeatedPitches && elt->pitch()==fLastNote->pitch()))
-			fPitchVector->push_back(*(elt->pitch()));
-#elif defined (NEW)
         if (!elt->isTiedPrevious() && !(fIgnoreRepeatedPitches && elt->pitch()==fLastNote->pitch())){
             fCurrentPitchVector->push_back(*elt->pitch());
         }
-#endif
 		
 		fLastNote = elt;
 	}
@@ -152,15 +138,12 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
 	//create part summary
 	fLastNote = 0;
 	fCurrentPartID++;
-#ifdef NEW
     fCurrentIntervalVector = new_IMUSANT_interval_vector();
     fCurrentIntervalVector->setMaximum(0x7fffffff);
     fCurrentMelodicContour = new_IMUSANT_contour();
     fCurrentPitchVector = new_IMUSANT_pitch_vector();
-#endif
 	//call sub-elements
 	elt->measures().accept(*this);
-#ifdef NEW
     //stow partwise derived data vectors, but only if they contain elements
     if (! fCurrentIntervalVector->getIntervals().empty())
     {
@@ -177,7 +160,6 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
         fCurrentPitchVector->push_back(IMUSANT_pitch::MakeUniquePitch());
         fPartwisePitchVectors.push_back(fCurrentPitchVector);
     }
-#endif
 }
 
 #pragma mark IMUSANT_partlist handler
@@ -191,27 +173,12 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 {
 	//initialise storage containers
 	fRhythmCollection = new_IMUSANT_rvec_collection();
-#ifdef OLD
-	fIntervalVector = new_IMUSANT_interval_vector();	
-	fIntervalVector->setMaximum(0x7fffffff);
-    fMelodicContour = new_IMUSANT_contour();
-    fPitchVector = new_IMUSANT_pitch_vector();
-#endif
-	
-	
 	fMovementTitle = elt->getMovementTitle();
     fWorkTitle = elt->getWorkTitle();
 	
 	if ((IMUSANT_partlist*)elt->partlist())
 		elt->partlist()->accept(*this);
 	//add unique teminator elements in anticipation of processing.
-#ifdef OLD
-	fIntervalVector->add(IMUSANT_interval::MakeUniqueInterval());
-    fMelodicContour->push_back(IMUSANT_contour_symbol::MakeUniqueSymbol());
-    fPitchVector->push_back(IMUSANT_pitch::MakeUniquePitch());
-#endif
-	
-	
 }
 
 

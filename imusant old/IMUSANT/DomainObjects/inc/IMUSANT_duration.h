@@ -104,28 +104,28 @@ namespace IMUSANT
         static TRational	xmlv1(const string str);
         static TRational	xmlv3(const string str);
         
-        TRational		fDuration;
-        long            fDots;
-        TRational       fTimeModification;
-        TRational       fNormalDuration;    //the duration subject to fTimeModification
-        long            fNormalDots;
+        TRational           fDuration;
+        long                fDots;
+        TRational           fTimeModification;
+        TRational           fNormalDuration;    //the duration subject to fTimeModification
+        long                fNormalDots;
         
         
         static TRational unmeasured;
-        static TRational maxima; // 8  - asAbsoluteNumeric = 8192
-        static TRational longa; // 4 -  - asAbsoluteNumeric =  4096
-        static TRational breve; // 2  - asAbsoluteNumeric = 2048
-        static TRational semibreve; // 1 =  - asAbsoluteNumeric = 1024
-        static TRational minim; // 1/2  - asAbsoluteNumeric = 512
-        static TRational crochet; // 1/4 -  - asAbsoluteNumeric = 256
-        static TRational quaver; // 8th  - asAbsoluteNumeric = 128
-        static TRational semiquaver; //16th  - asAbsoluteNumeric = 64
-        static TRational demisemiquaver; //32nd  - asAbsoluteNumeric = 32
-        static TRational hemidemisemiquaver; // 64th  - asAbsoluteNumeric = 16
-        static TRational hundredandtwentyeighth;  // 128th  - asAbsoluteNumeric = 8
-        static TRational twofiftysixth; // 256th - asAbsoluteNumeric = 4
-        static TRational fivetwelfth; // 512th  - asAbsoluteNumeric =  2
-        static TRational oneohtwofourth; // 1024th - asAbsoluteNumeric = 1
+        static TRational maxima;                // 8  - asAbsoluteNumeric = 8192
+        static TRational longa;                 // 4 -  - asAbsoluteNumeric =  4096
+        static TRational breve;                 // 2  - asAbsoluteNumeric = 2048
+        static TRational semibreve;             // 1 =  - asAbsoluteNumeric = 1024
+        static TRational minim;                 // 1/2  - asAbsoluteNumeric = 512
+        static TRational crochet;               // 1/4 -  - asAbsoluteNumeric = 256
+        static TRational quaver;                // 8th  - asAbsoluteNumeric = 128
+        static TRational semiquaver;            // 16th  - asAbsoluteNumeric = 64
+        static TRational demisemiquaver;        // 32nd  - asAbsoluteNumeric = 32
+        static TRational hemidemisemiquaver;    // 64th  - asAbsoluteNumeric = 16
+        static TRational hundredandtwentyeighth;// 128th  - asAbsoluteNumeric = 8
+        static TRational twofiftysixth;         // 256th - asAbsoluteNumeric = 4
+        static TRational fivetwelfth;           // 512th  - asAbsoluteNumeric =  2
+        static TRational oneohtwofourth;        // 1024th - asAbsoluteNumeric = 1
         
         // We multiply the fractional representations of the duration by this value to normalise the values
         // to use a base of 1 for the smallest possible note value.  The smallest note we support is a 1024th.
