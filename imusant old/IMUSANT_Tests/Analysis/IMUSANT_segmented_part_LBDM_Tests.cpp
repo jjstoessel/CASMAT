@@ -188,6 +188,21 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, ShortOutputOperator)
     
 }
 
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegments_From_Score_LBDM_Test1)
+{
+    S_IMUSANT_part& soprano = fScore_YankeeDoodle->partlist()->getPart("P1");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(soprano);
+    
+    seg_part->getOverallLocalBoundaryStrengthProfile();
+    
+    vector<IMUSANT_segment> segments = seg_part->getSegments();
+    
+    ASSERT_EQ(4, segments.size()) << "Unexpected number of segments";
+    
+    // ASSERT_TRUE(false) << "IMUSANT_segmented_part_LBDM_Tests::GetSegments - Deliberatly failing this test.";
+}
+
 
 
 

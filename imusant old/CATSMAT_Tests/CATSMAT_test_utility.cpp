@@ -81,6 +81,9 @@ CATSMAT_test_utility::DiffActualAndExpected(string actual, string expected)
     string actual_file_path = GetTempFilePath();
     string expected_file_path = GetTempFilePath();
     
+    cout << "Actual file: " << actual_file_path << endl;
+    cout << "Expected file: " << expected_file_path << endl;
+    
     ofstream actual_file(actual_file_path);
     ofstream expected_file(expected_file_path);
     
