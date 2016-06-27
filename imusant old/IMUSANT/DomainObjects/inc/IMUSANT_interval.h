@@ -88,7 +88,8 @@ namespace IMUSANT
         IMUSANT_range		getLocation() const { return fLocation; }
         //calculated gets
         int                 getNumber() const;
-        quality             getQuality();
+        quality             getQuality() { return fQuality; }
+        
         
         void                setInterval(interval_type interval) { fInterval=interval; }
         void                setOctaves(int oct) { fOctaves=oct; }
@@ -117,10 +118,10 @@ namespace IMUSANT
         void operator+(const IMUSANT_interval& rhs );
         friend ostream& operator<<( ostream& os, const IMUSANT_interval& i );
         friend istream& operator>>( istream& is, IMUSANT_interval& i );
-        const IMUSANT_interval& operator=( const IMUSANT_interval& rhs );
+        IMUSANT_interval& operator=( const IMUSANT_interval& rhs );
         
         //conversion operators
-        const IMUSANT_interval& operator=( const int binv );
+        //const IMUSANT_interval& operator=( const int binv );
         inline operator int() const;
         
         //increment/decrement
@@ -131,6 +132,8 @@ namespace IMUSANT
         
         IMUSANT_interval& operator++(); //prefix: returns &*this
         const IMUSANT_interval operator++(int); //postfix: returns copy
+        
+        quality             calcQuality();
         
         //static function returns interval and direction
         static IMUSANT_interval calculate(const S_IMUSANT_pitch& first, const S_IMUSANT_pitch& second);
@@ -151,6 +154,7 @@ namespace IMUSANT
         fInterval(iv.fInterval),
         fDirection(iv.fDirection),
         fOctaves(iv.fOctaves),
+        fQuality(iv.fQuality),
         fLocation(iv.fLocation)
         {}
         

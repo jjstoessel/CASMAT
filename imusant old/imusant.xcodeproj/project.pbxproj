@@ -36,7 +36,6 @@
 		1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
 		1EDE2F221B3E7CFA00DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
 		490E3BB91CFA5EB90091A44E /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
-		490E3BBA1D0CFBE70091A44E /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */; };
 		490E3BBB1D0CFBE70091A44E /* IMUSANT_t_repeated_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4207E41CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp */; };
 		491DA4451C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */; };
 		49394E841CDD7EE400EC7D84 /* LBDM_Segmented_Part_Test_2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49394E831CDD7EB400EC7D84 /* LBDM_Segmented_Part_Test_2.xml */; };
@@ -541,8 +540,6 @@
 		1E905DD41C1FE0230017850F /* CATSMAT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_processing.cpp; path = catsmat/CATSMAT_processing.cpp; sourceTree = SOURCE_ROOT; };
 		1E905DD51C1FE0230017850F /* CATSMAT_processing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_processing.hpp; path = catsmat/CATSMAT_processing.hpp; sourceTree = SOURCE_ROOT; };
 		1E905DD81C21C01F0017850F /* IMUSANT_interval_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_Tests.cpp; sourceTree = "<group>"; };
-		1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_repeated_interval_substring.cpp; sourceTree = "<group>"; };
-		1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_repeated_interval_substring.h; sourceTree = "<group>"; };
 		1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_1_Measure.xml; sourceTree = "<group>"; };
 		1EDE2F171B3E0ACD00DB1BD0 /* TestScore_1_Measure.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_1_Measure.mscz; sourceTree = "<group>"; };
 		1EDE2F181B3E0ACD00DB1BD0 /* TestScore_4_Measures.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures.mscz; sourceTree = "<group>"; };
@@ -1606,7 +1603,6 @@
 				9668DB951D0D803B00C5AAA6 /* IMUSANT_interval_processor.h */,
 				9668DB9C1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.h */,
 				9668DBA01D0ED53700C5AAA6 /* IMUSANT_pitch_processor.h */,
-				1EDAD2C01B7B26B800556002 /* IMUSANT_repeated_interval_substring.h */,
 				BA4207E31CEEAB49007204AF /* IMUSANT_t_repeated_substring.h */,
 			);
 			path = inc;
@@ -1619,7 +1615,6 @@
 				9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */,
 				9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp */,
 				9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp */,
-				1EDAD2BF1B7B26B800556002 /* IMUSANT_repeated_interval_substring.cpp */,
 				BA4207E41CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp */,
 			);
 			path = src;
@@ -3171,7 +3166,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BACF15C21D113FE2001C3991 /* IMUSANT_contour_processor.cpp in Sources */,
-				490E3BBA1D0CFBE70091A44E /* IMUSANT_repeated_interval_substring.cpp in Sources */,
 				490E3BBB1D0CFBE70091A44E /* IMUSANT_t_repeated_substring.cpp in Sources */,
 				4959E13A1CF13BE300FAC403 /* smartpointer.cpp in Sources */,
 				96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */,
@@ -3351,7 +3345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -3408,7 +3402,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;

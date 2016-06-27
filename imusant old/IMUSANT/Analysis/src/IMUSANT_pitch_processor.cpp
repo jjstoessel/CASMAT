@@ -41,11 +41,31 @@ namespace IMUSANT {
         return tree;
     }
 
+    string
+    IMUSANT_pitch_processor::
+    findAndPrintLcsPairsPitches(bool consecutive)
+    {
+        SUBSTR_VECTOR the_result;
+        the_result = findLcsPairsPitches(consecutive);
+        
+        stringstream the_result_as_stringstream;
+        for(int index = 0 ; index < the_result.size(); index++)
+        {
+            the_result_as_stringstream << the_result[index];
+        }
+        
+        the_result_as_stringstream << endl;
+        
+        return the_result_as_stringstream.str();
+    }
+
     //Find longest common subsequence of pitches for pairs of file/works
-    void
+    IMUSANT_pitch_processor::SUBSTR_VECTOR
     IMUSANT_pitch_processor::
     findLcsPairsPitches(bool consecutive)
     {
+        SUBSTR_VECTOR ret_val;
+        
         for (auto i = mID_vec_map.begin(); i!=mID_vec_map.end(); i++)
         {
             vector<IMUSANT_pitch> x = i->second;
@@ -74,7 +94,7 @@ namespace IMUSANT {
                         }
                     }
                 }
-#ifdef DEBUG
+#ifdef _DEBUG //remove underscore to DEBUG
                 for (int f = 0; f<m; f++) {
                     for (int g = 0; g<n; g++) {
                         cout << lcs[f][g];
@@ -96,16 +116,29 @@ namespace IMUSANT {
                     else b--;
                 }
                 
-                cout << "Common subsequence: ";
+//                cout << "Common subsequence: ";
+//                for (deque<pair<IMUSANT_pitch,IMUSANT_pitch> >::iterator iv=z.begin(); iv!=z.end(); iv++)
+//                {
+//                    cout << iv->first;
+//                }
+//                cout << endl;
+                
+                IMUSANT_repeated_pitch_substring ps;
                 for (deque<pair<IMUSANT_pitch,IMUSANT_pitch> >::iterator iv=z.begin(); iv!=z.end(); iv++)
                 {
-                    cout << iv->first;
+                    ps.sequence.push_back(iv->first);
                 }
-                cout << endl;
+                if (!ps.sequence.empty()) {
+                    ret_val.push_back(ps);
+                }
                 
             }
         }
         
+         return ret_val;
+        
     }
+    
+   
 
 }

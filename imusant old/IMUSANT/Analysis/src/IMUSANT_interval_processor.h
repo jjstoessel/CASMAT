@@ -26,6 +26,7 @@ namespace IMUSANT {
         
         string          findAndPrintRepeatedIntervalSubstrings(int min_length=4);
         SUBSTR_VECTOR   findRepeatedIntervalSubstrings(int min_length=4);
+        string          findAndPrintSuperMaximalIntervals(int min_length=4, int min_percent=100);
         SUBSTR_VECTOR   findSupermaximalsIntervals(int min_length=4, int min_percent=100);
         void            findLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
         

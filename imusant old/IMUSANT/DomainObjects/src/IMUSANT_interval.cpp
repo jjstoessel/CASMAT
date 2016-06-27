@@ -246,7 +246,6 @@ namespace IMUSANT
                 ret.fInterval = IMUSANT_interval::per1;
                 ret.fOctaves = abs(second->octave() - first->octave());
                 ret.fDirection = IMUSANT_interval::unison;
-                //ret.fQuality = perfect;
             }
             else if (*second>*first) //ascending interval
             {
@@ -260,7 +259,7 @@ namespace IMUSANT
                 ret.fOctaves = ((first->name() + (first->octave()*IMUSANT_pitch::diatonicSteps)) - (second->name() + (second->octave()*IMUSANT_pitch::diatonicSteps)))/7;
                 ret.fDirection = IMUSANT_interval::descending;
             }
-            ret.fQuality = ret.getQuality();
+            ret.fQuality = ret.calcQuality();
             //ret.check();
         }
         
@@ -328,47 +327,12 @@ namespace IMUSANT
         return ret;
     }
 
+    //IMUSANT_interval::quality IMUSANT_interval::getQuality()
+    
     //a pretty dumb dissonance classification - needs plug-in class for different dissonance rules
-    IMUSANT_interval::quality IMUSANT_interval::getQuality()
+    IMUSANT_interval::quality IMUSANT_interval::calcQuality()
     {
         quality q = perfect;
-        
-        //switch (this->simple())
-//        switch (this->fInterval)
-//        {
-//            case per1:
-//            case per5:
-//                //case octave:
-//                q = perfect;
-//                break;
-//            case min3:
-//            case maj3:
-//            case min6:
-//            case maj6:
-//                q = imperfect;
-//                break;
-//            case dim1:
-//            case aug1:
-//            case dim2:
-//            case min2:
-//            case maj2:
-//            case aug2:
-//            case dim3:
-//            case aug3:
-//            case dim4:
-//            case per4:
-//            case aug4:
-//            case dim5:
-//            case aug5:
-//            case dim6:
-//            case aug6:
-//            case dim7:
-//            case min7:
-//            case maj7:
-//            case aug7:
-//                q = dissonant;
-//                break;
-//        }
         
         if (this->fInterval>=0) {
             if (this->fInterval >= augaug4) {
@@ -515,7 +479,7 @@ namespace IMUSANT
             fInterval = int2intervaltype(base_interval);
         }
         
-        fQuality = getQuality();
+        fQuality = calcQuality();
     }
     
     //private member function: checks interval is in correct form.
@@ -552,7 +516,7 @@ namespace IMUSANT
     }
     
     //operators
-    const IMUSANT_interval& IMUSANT_interval::operator=( const IMUSANT_interval& rhs )
+    IMUSANT_interval& IMUSANT_interval::operator=( const IMUSANT_interval& rhs )
     {
         fInterval = rhs.fInterval;
         fOctaves = rhs.fOctaves;
@@ -596,13 +560,13 @@ namespace IMUSANT
         return r;
     }
     
-    const IMUSANT_interval& IMUSANT_interval::operator=( const int binv )
-    {
-        fInterval = int2intervaltype(binv);
-        check();
-        
-        return *this;
-    }
+//    const IMUSANT_interval& IMUSANT_interval::operator=( const int binv )
+//    {
+//        fInterval = int2intervaltype(binv);
+//        check();
+//        
+//        return *this;
+//    }
     
     IMUSANT_interval& IMUSANT_interval::operator+=( const IMUSANT_interval& rhs )
     {

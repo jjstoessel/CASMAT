@@ -19,12 +19,13 @@ namespace IMUSANT {
     class IMUSANT_pitch_processor : public IMUSANT_processor<IMUSANT_pitch>
     {
     public:
-        //typedef vector<IMUSANT_repeated_pitch_substring> SUBSTR_VECTOR;
+        typedef vector<IMUSANT_repeated_pitch_substring> SUBSTR_VECTOR;
         
         IMUSANT_pitch_processor() {}
         
         void    Visit(const IMUSANT_processing&);
-        void	findLcsPairsPitches(bool consecutive=true);
+        string  findAndPrintLcsPairsPitches(bool consecutive=true);
+        SUBSTR_VECTOR	findLcsPairsPitches(bool consecutive=true);
         
     private:
         

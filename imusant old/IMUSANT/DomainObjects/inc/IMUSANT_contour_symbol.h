@@ -84,8 +84,7 @@ class IMUSANT_contour_symbol : public smartable
 	
     //protected:
 		IMUSANT_contour_symbol() : fSymbol(undefined) {}
-		IMUSANT_contour_symbol(const IMUSANT_contour_symbol& iv)\
-			: fSymbol(iv.fSymbol), fLocation(iv.fLocation) {}
+		IMUSANT_contour_symbol(const IMUSANT_contour_symbol& iv) : fSymbol(iv.fSymbol), fLocation(iv.fLocation) {}
 		IMUSANT_contour_symbol(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second);
 		IMUSANT_contour_symbol(signed short iv) : fSymbol(iv) { check(); }
 		virtual ~IMUSANT_contour_symbol(){}

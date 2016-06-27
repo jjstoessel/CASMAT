@@ -1,3 +1,4 @@
+
 //
 //  IMUSANT_interval_processor.cpp
 //
@@ -51,6 +52,7 @@ namespace IMUSANT {
             {
                 ++ID;
                 mID_vec_map[ID] = (*j)->getIntervals();
+                //mID_vec_map.insert(make_pair<int,vector<IMUSANT_interval> >(ID, (*j)->getIntervals()));
                 
             }
         }
@@ -114,7 +116,7 @@ namespace IMUSANT {
             vector< _tree::number >::const_iterator substring_iter;
             bool int_sequence_added_to_ret_value = false;
             
-            //interate through substring
+            //iterate through substring
             for (substring_iter = common_substrings_iter->first.begin();
                  substring_iter != common_substrings_iter->first.end();
                  substring_iter++)
@@ -257,6 +259,24 @@ namespace IMUSANT {
                 cout << endl;
             }
         }
+    }
+    
+    string
+    IMUSANT_interval_processor::
+    findAndPrintSuperMaximalIntervals(int min_length, int min_percent)
+    {
+        SUBSTR_VECTOR the_result;
+        the_result = findSupermaximalsIntervals(min_length, min_percent);
+        
+        stringstream the_result_as_stringstream;
+        for(int index = 0 ; index < the_result.size(); index++)
+        {
+            the_result_as_stringstream << the_result[index];
+        }
+        
+        the_result_as_stringstream << endl;
+        
+        return the_result_as_stringstream.str();
     }
     
     IMUSANT_interval_processor::SUBSTR_VECTOR

@@ -46,6 +46,7 @@ protected:
     void                                        find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search=false, bool retrograde=false);
     
     vector<S_IMUSANT_segmented_part_LBDM>       findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files);
+    void    find_lcs_pairs_pitches_by_file(string relative_path_to_test_data_file);
     
     filesystem::path make_path_to_test_file(string relative_path_to_test_data_file);
     IMUSANT_processing* file_to_processor(string relative_path_to_test_data_file);
@@ -141,10 +142,6 @@ find_supermaximals_intervals_by_file(string relative_path_to_test_data_file)
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
     repeated_substrings_result = interval_processor.findSupermaximalsIntervals(4, 100); //parameterise
     
-    //removed below to separate test
-    IMUSANT_pitch_processor pitch_processor;
-    pitch_processor.Visit(*the_processor);
-    pitch_processor.findLcsPairsPitches();
     
     return repeated_substrings_result;
     
@@ -157,7 +154,19 @@ find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool re
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
     IMUSANT_interval_processor interval_processor;
     interval_processor.Visit(*the_processor);
+    
     interval_processor.findLcsPairsIntervals(true,reverse_search,retrograde);
+}
+
+void
+IMUSANT_processing_Tests::
+find_lcs_pairs_pitches_by_file(string relative_path_to_test_data_file)
+{
+    IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
+    
+    IMUSANT_pitch_processor pitch_processor;
+    pitch_processor.Visit(*the_processor);
+    string s = pitch_processor.findAndPrintLcsPairsPitches(true);
 }
 
 
@@ -305,6 +314,33 @@ TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
     //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
     //repeated_substrings_result =
     find_lcs_pairs_intervals_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    
+    //find_lcs_pairs_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml", false, true); // REMOVE TO SEPARATE TEST
+    //
+    //    // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
+    //    stringstream actual_output;
+    //
+    //    cout << IMUSANT_repeated_interval_substring::output_operator_help();
+    //
+    //    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+    //    {
+    //        actual_output << repeated_substrings_result[index];
+    //    }
+    //    actual_output << endl;
+    //#ifdef VERBOSE
+    //    cout << actual_output.str();
+    //#endif
+    //    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
+    
+    ASSERT_FALSE(true) << "Deliberately failing this test. Needs implementation.";
+}
+
+TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_pitches_simple_test_1)
+{
+    //vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
+    //repeated_substrings_result =
+    find_lcs_pairs_pitches_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
     
     //find_lcs_pairs_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml", false, true); // REMOVE TO SEPARATE TEST
     //

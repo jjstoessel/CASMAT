@@ -39,7 +39,7 @@ namespace IMUSANT
     {
     public:
         
-        IMUSANT_t_repeated_substring() {}
+        IMUSANT_t_repeated_substring() : sequence(), occurrences() {}
         virtual ~IMUSANT_t_repeated_substring() {}
     
         //
@@ -177,6 +177,22 @@ namespace IMUSANT
             return ret_val;
         }
 
+    };
+    
+    class IMUSANT_repeated_pitch_substring: public IMUSANT_t_repeated_substring<IMUSANT_pitch>
+    {
+    public:
+        static string  output_operator_help()
+        {
+            string ret_val =
+            "The output shows the discovered pattern in the following format \n" \
+            "pitch name,alteration, octave (measure, index, part) \n" \
+            "Followed by a list of occurrences in the format \n" \
+            "(movement, voice, measure, index) \n";
+            
+            return ret_val;
+        }
+        
     };
     
 }
