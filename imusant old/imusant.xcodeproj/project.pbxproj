@@ -326,6 +326,8 @@
 		961789941D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 961789931D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */; };
+		BA1E393D1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA1E393B1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp */; };
+		BA1E393E1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1E393C1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h */; };
 		BA4207E21CE806F6007204AF /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
 		BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
 		BA7E941D1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */; };
@@ -1091,6 +1093,8 @@
 		96A71CB91A9160CB0021C86A /* TXML2GuidoVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXML2GuidoVisitor.h; sourceTree = "<group>"; };
 		96A71CBA1A9160CB0021C86A /* UTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTools.h; sourceTree = "<group>"; };
 		96A71CBB1A9160CB0021C86A /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
+		BA1E393B1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_LBDM_segmenter.cpp; path = src/IMUSANT_LBDM_segmenter.cpp; sourceTree = "<group>"; };
+		BA1E393C1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_LBDM_segmenter.h; path = src/IMUSANT_LBDM_segmenter.h; sourceTree = "<group>"; };
 		BA4207E11CE805BF007204AF /* Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie.xml; sourceTree = "<group>"; };
 		BA4207E31CEEAB49007204AF /* IMUSANT_t_repeated_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_repeated_substring.h; sourceTree = "<group>"; };
 		BA4207E41CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_t_repeated_substring.cpp; sourceTree = "<group>"; };
@@ -1453,6 +1457,8 @@
 				495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */,
 				1E0D00DD1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.h */,
 				1E0D00DC1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp */,
+				BA1E393C1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h */,
+				BA1E393B1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp */,
 			);
 			name = LocalBoundaryDetectionModel;
 			sourceTree = "<group>";
@@ -2754,6 +2760,7 @@
 				4959E1371CF13BE300FAC403 /* exports.h in Headers */,
 				496EF6BF1B22B01700FE715F /* libIMUSANT.h in Headers */,
 				4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */,
+				BA1E393E1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h in Headers */,
 				496EF6C11B22B01700FE715F /* libIMUSANTPriv.h in Headers */,
 				4959E1361CF13BE300FAC403 /* bimap.h in Headers */,
 				1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */,
@@ -3193,6 +3200,7 @@
 				496EF6EA1B22B05500FE715F /* IMUSANT_score.cpp in Sources */,
 				4970E0191B76B97F0052496C /* IMUSANT_collectionvisitor.cpp in Sources */,
 				1E0D00DF1CC048A50035CA98 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
+				BA1E393D1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp in Sources */,
 				495A502C1CA5BA76006985E2 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

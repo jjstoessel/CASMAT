@@ -15,6 +15,7 @@
 #include "IMUSANT_interval_processor.h"
 #include "IMUSANT_pitch_processor.h"
 #include "IMUSANT_contour_processor.h"
+#include "IMUSANT_LBDM_segmenter.h"
 
 using namespace std;
 using namespace CATSMAT;
@@ -230,7 +231,10 @@ runToolsMenu(CATSMAT_processing* processor)
             case 'h':
             {
                 vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
-                segmented_parts = processor->findMelodicSegments_LBDM();
+                //segmented_parts = processor->findMelodicSegments_LBDM();
+                IMUSANT_LBDM_segmenter segmenter;
+                segmenter.Visit(*processor);
+                segmented_parts = segmenter.getSegmentedParts();
                 for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_part_iter = segmented_parts.begin(); seg_part_iter != segmented_parts.end() ; seg_part_iter++)
                 {
                     cout << *(*seg_part_iter) << endl;

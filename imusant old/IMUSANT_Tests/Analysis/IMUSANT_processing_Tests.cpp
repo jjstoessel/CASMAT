@@ -17,6 +17,7 @@
 #include "IMUSANT_interval_processor.h"
 #include "IMUSANT_contour_processor.h"
 #include "IMUSANT_pitch_processor.h"
+#include "IMUSANT_LBDM_segmenter.h"
 
 //#define VERBOSE //toggle for verbose output
 
@@ -231,7 +232,10 @@ findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files)
     }
     
     vector<S_IMUSANT_segmented_part_LBDM> segmented_parts_result;
-    segmented_parts_result = the_processor->findMelodicSegments_LBDM();
+    //segmented_parts_result = the_processor->findMelodicSegments_LBDM();
+    IMUSANT_LBDM_segmenter segmenter;
+    segmenter.Visit(*the_processor);
+    segmented_parts_result = segmenter.getSegmentedParts();
     
     return segmented_parts_result;
 }
