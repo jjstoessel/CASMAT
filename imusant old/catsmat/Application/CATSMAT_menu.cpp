@@ -192,7 +192,7 @@ runToolsMenu(CATSMAT_processing* processor)
             case 'C':
             case 'c':
                 ip.Visit(*processor);
-                ip.findSupermaximalsIntervals(4,100);
+                cout << ip.findAndPrintSuperMaximalIntervals(4,100); //length and percent need to be inputs
                 break;
             //Find contour supermaximals
             case 'D':
