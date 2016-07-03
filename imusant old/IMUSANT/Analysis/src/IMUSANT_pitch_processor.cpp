@@ -116,13 +116,6 @@ namespace IMUSANT {
                     else b--;
                 }
                 
-//                cout << "Common subsequence: ";
-//                for (deque<pair<IMUSANT_pitch,IMUSANT_pitch> >::iterator iv=z.begin(); iv!=z.end(); iv++)
-//                {
-//                    cout << iv->first;
-//                }
-//                cout << endl;
-                
                 IMUSANT_repeated_pitch_substring ps;
                 for (deque<pair<IMUSANT_pitch,IMUSANT_pitch> >::iterator iv=z.begin(); iv!=z.end(); iv++)
                 {
