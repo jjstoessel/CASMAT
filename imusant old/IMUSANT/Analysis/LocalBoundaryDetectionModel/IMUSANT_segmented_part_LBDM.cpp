@@ -85,23 +85,92 @@ namespace IMUSANT
     getSegments()
     {
         // REVISIT - assuming that calculateOverallLocalBoundaryStrengthVector() has already been called
-
-        float last_value = 0;
+        
         cout << *this;
-        for (int index = 0; index < overall_local_boundary_strength_profile.size(); index++)
-        {
-            if (overall_local_boundary_strength_profile[index] > last_value * 2.5
-                &&
-                overall_local_boundary_strength_profile[index] > overall_local_boundary_strength_profile[index + 1])   // REVISIT - the +1 is an out of bounds error.
-            {
-                cout << "CANDIDATE: " << overall_local_boundary_strength_profile[index] << endl;
-            }
-            last_value = overall_local_boundary_strength_profile[index];
-            cout << overall_local_boundary_strength_profile[index] << endl;
-        }
-    
+        
         vector<IMUSANT_segment> ret_val;
+        
+        int next_start_index = 0;
+        
+        while (next_start_index < overall_local_boundary_strength_profile.size())
+        {
+            int new_boundary_index = findNextSegmentBoundary(next_start_index);
+            next_start_index = new_boundary_index + 1;
+            
+            cout << "Next segment boundary is at: " << new_boundary_index << endl;
+            
+            // REVISIT - build the segment here...
+        }
+        
         return ret_val;
+    }
+    
+    int
+    IMUSANT_segmented_part_LBDM::
+    findNextSegmentBoundary(int start_index)
+    {
+        // Examine the values N positions either side of start_index.
+        // If they are all less than the value at start_index, then start_index identifies a segment boundary.
+        
+        bool found = false;
+        int boundary_index = start_index;
+        int N = 2;
+        
+        while (boundary_index < overall_local_boundary_strength_profile.size() && !found)
+        {
+            if (isThisASegmentBoundary(boundary_index, N))
+            {
+                found = true;
+            }
+            else
+            {
+                boundary_index++;
+            }
+        }
+        return boundary_index;
+    }
+    
+    bool
+    IMUSANT_segmented_part_LBDM::
+    isThisASegmentBoundary(int index_position, int span)
+    {
+        int num_previous_positions_to_examine = (index_position >= span) ? span : index_position;
+        int num_succeeding_positions_to_examine = (overall_local_boundary_strength_profile.size() - 1 - index_position > span) ? span : overall_local_boundary_strength_profile.size() - 1 - index_position;
+        bool result = true;
+        
+        for (int index = num_previous_positions_to_examine; index > 0; index--)
+        {
+            if (overall_local_boundary_strength_profile[index_position] < overall_local_boundary_strength_profile[index_position - index])
+            {
+                result = false;
+            }
+        }
+        
+        for (int index = num_succeeding_positions_to_examine; index > 0 ; index--)
+        {
+            if (overall_local_boundary_strength_profile[index_position] < overall_local_boundary_strength_profile[index_position + index])
+            {
+                result = false;
+            }
+        }
+        
+        return result;
+    }
+    
+    IMUSANT_segment
+    IMUSANT_segmented_part_LBDM::
+    buildSegment(int start_index, int end_index)
+    {
+        IMUSANT_segment ret_val;
+        return ret_val;
+
+//        S_IMUSANT_note the_note = fPart->notes()[note_index];
+//
+//        for (int note_index = start_index; note_index <= end_index; note_index++)
+//        {
+//            ret_val.push_back(the_note);
+//        }
+        
     }
     
     

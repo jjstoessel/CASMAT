@@ -106,6 +106,11 @@ namespace IMUSANT
         
         void calculateOverallLocalBoundaryStrengthVector();
         
+        int findNextSegmentBoundary(int start_index);
+        bool isThisASegmentBoundary(int index_position, int span);
+        IMUSANT_segment buildSegment(int start_index, int end_index);
+
+        
         string print(bool include_notes) const;
     };
     
