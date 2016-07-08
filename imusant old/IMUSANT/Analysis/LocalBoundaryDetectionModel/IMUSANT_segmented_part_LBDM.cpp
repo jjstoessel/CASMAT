@@ -84,22 +84,29 @@ namespace IMUSANT
     IMUSANT_segmented_part_LBDM::
     getSegments()
     {
+        vector<IMUSANT_segment> ret_val;
+        return ret_val;
+    }
+    
+    vector< int >
+    IMUSANT_segmented_part_LBDM::
+    getSegmentBoundaries()
+    {
         // REVISIT - assuming that calculateOverallLocalBoundaryStrengthVector() has already been called
         
         cout << *this;
         
-        vector<IMUSANT_segment> ret_val;
-        
+        vector<int> ret_val;
         int next_start_index = 0;
         
         while (next_start_index < overall_local_boundary_strength_profile.size())
         {
             int new_boundary_index = findNextSegmentBoundary(next_start_index);
+            
+            ret_val.push_back(new_boundary_index);
             next_start_index = new_boundary_index + 1;
             
             cout << "Next segment boundary is at: " << new_boundary_index << endl;
-            
-            // REVISIT - build the segment here...
         }
         
         return ret_val;
@@ -134,8 +141,10 @@ namespace IMUSANT
     IMUSANT_segmented_part_LBDM::
     isThisASegmentBoundary(int index_position, int span)
     {
-        int num_previous_positions_to_examine = (index_position >= span) ? span : index_position;
-        int num_succeeding_positions_to_examine = (overall_local_boundary_strength_profile.size() - 1 - index_position > span) ? span : overall_local_boundary_strength_profile.size() - 1 - index_position;
+        int num_previous_positions_to_examine = getArrayPositionsWithoutOverflowingLowerBound(index_position, span);
+        int num_succeeding_positions_to_examine = getArrayPositionsWithoutOverflowingUpperBound(index_position, span);
+        
+        //
         bool result = true;
         
         for (int index = num_previous_positions_to_examine; index > 0; index--)
@@ -155,6 +164,35 @@ namespace IMUSANT
         }
         
         return result;
+    }
+    
+    int
+    IMUSANT_segmented_part_LBDM::
+    getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span)
+    {
+        // make sure we don't overrun the start of the array going backwards;
+        int ret_val = (index_position >= span) ? span : index_position;
+        return ret_val;
+    }
+    
+    int
+    IMUSANT_segmented_part_LBDM::
+    getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span)
+    {
+        // make sure we don't overrun the end of the array going forwards;
+        int ret_val;
+        int array_upper_bound = (int) overall_local_boundary_strength_profile.size() - 1;
+        
+        if (array_upper_bound - index_position > span)
+        {
+            ret_val = span;
+        }
+        else
+        {
+           ret_val = array_upper_bound - index_position;
+        }
+        
+        return ret_val;
     }
     
     IMUSANT_segment

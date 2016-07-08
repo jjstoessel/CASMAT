@@ -40,6 +40,7 @@ namespace IMUSANT
         vector<float>& getOverallLocalBoundaryStrengthProfile();
         
         vector< IMUSANT_segment > getSegments();
+        vector< int >             getSegmentBoundaries();
         
         
         // This output operator produces a table that lists the notes used for calculating
@@ -108,6 +109,8 @@ namespace IMUSANT
         
         int findNextSegmentBoundary(int start_index);
         bool isThisASegmentBoundary(int index_position, int span);
+        int getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span);
+        int getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span);
         IMUSANT_segment buildSegment(int start_index, int end_index);
 
         

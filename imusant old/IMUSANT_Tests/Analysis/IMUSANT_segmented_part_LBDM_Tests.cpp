@@ -196,9 +196,19 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegments_From_Score_LBDM_Test1)
     
     seg_part->getOverallLocalBoundaryStrengthProfile();
     
-    vector<IMUSANT_segment> segments = seg_part->getSegments();
+    vector<int> segment_boundaries = seg_part->getSegmentBoundaries();
+
+    ASSERT_EQ(9, segment_boundaries.size()) << "Unexpected number of segment boundaries";
     
-    ASSERT_EQ(4, segments.size()) << "Unexpected number of segments";
+    ASSERT_EQ(0, segment_boundaries[0]);
+    ASSERT_EQ(7, segment_boundaries[1]);
+    ASSERT_EQ(12, segment_boundaries[2]);
+    ASSERT_EQ(28, segment_boundaries[3]);
+    ASSERT_EQ(35, segment_boundaries[4]);
+    ASSERT_EQ(41, segment_boundaries[5]);
+    ASSERT_EQ(49, segment_boundaries[6]);
+    ASSERT_EQ(53, segment_boundaries[7]);
+    ASSERT_EQ(55, segment_boundaries[8]);
     
     // ASSERT_TRUE(false) << "IMUSANT_segmented_part_LBDM_Tests::GetSegments - Deliberatly failing this test.";
 }
