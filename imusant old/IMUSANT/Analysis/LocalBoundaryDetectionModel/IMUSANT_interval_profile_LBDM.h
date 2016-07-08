@@ -32,6 +32,8 @@ namespace IMUSANT
         
     private:
         ostream& printFloatVector(ostream& os, const vector<float>& the_vector) const;
+        float calculateDegreeOfChange(float value1, float value2);
+        float calculateBoundaryStrength(float interval_value, float preceding_change_value, float succeeding_change_value);
         
     };
     

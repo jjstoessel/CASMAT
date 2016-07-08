@@ -35,21 +35,27 @@ namespace IMUSANT
         // The degree of change for subsequent intervals is calculated.
         for (int index = 0; index < profile_vector.size() - 1; index++)
         {
-            float value1 = profile_vector[index];
-            float value2 = profile_vector[index + 1];
-            float degree_of_change = 0;
-            
-            if (value1 + value2 != 0
-                &&
-                value1 >= 0
-                &&
-                value2 >= 0)
-            {
-                degree_of_change = fabs(value1 - value2)  / (value1 + value2);
-            }
-            
+            float degree_of_change = calculateDegreeOfChange(profile_vector[index], profile_vector[index + 1]);
             change_vector.push_back(degree_of_change);
         }
+    }
+    
+    float
+    IMUSANT_interval_profile::
+    calculateDegreeOfChange(float value1, float value2)
+    {
+        float degree_of_change = 0;
+        
+        if (value1 + value2 != 0
+            &&
+            value1 >= 0
+            &&
+            value2 >= 0)
+        {
+            degree_of_change = fabs(value1 - value2)  / (value1 + value2);
+        }
+        
+        return degree_of_change;
     }
     
     void
@@ -61,11 +67,7 @@ namespace IMUSANT
         int index;
         for (index = 0; index < profile_vector.size() - 1; index++)
         {
-            float interval_value = profile_vector[index];
-            float preceding_change_value = change_vector[index];
-            float succeeding_change_value = change_vector[index+1];
-            
-            float boundary_strength = interval_value * (preceding_change_value + succeeding_change_value);
+            float boundary_strength = calculateBoundaryStrength(profile_vector[index], change_vector[index], change_vector[index+1]);
             strength_vector.push_back(boundary_strength);
         }
         
@@ -73,6 +75,15 @@ namespace IMUSANT
         
         strength_vector.push_back(last_value_ignoring_succeeding_change_value);
     }
+    
+    float
+    IMUSANT_interval_profile::
+    calculateBoundaryStrength(float interval_value, float preceding_change_value, float succeeding_change_value)
+    {
+        float boundary_strength = interval_value * (preceding_change_value + succeeding_change_value);
+        return boundary_strength;
+    }
+
     
     ostream&
     operator<< (ostream& os, const IMUSANT_interval_profile& profile)
