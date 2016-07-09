@@ -117,11 +117,10 @@ namespace IMUSANT
         
         bool found = false;
         int boundary_index = start_index;
-        int N = 2;
         
         while (boundary_index < overall_local_boundary_strength_profile.size() && !found)
         {
-            if (isThisASegmentBoundary(boundary_index, N))
+            if (isThisASegmentBoundary(boundary_index))
             {
                 found = true;
             }
@@ -135,8 +134,10 @@ namespace IMUSANT
     
     bool
     IMUSANT_segmented_part_LBDM::
-    isThisASegmentBoundary(int strength_profile_index_position, int span) const
+    isThisASegmentBoundary(int strength_profile_index_position) const
     {
+        int span = SEGMENT_BOUNDARY_CALCULATION_SPAN;
+        
         int num_previous_positions_to_examine = getArrayPositionsWithoutOverflowingLowerBound(strength_profile_index_position, span);
         int num_succeeding_positions_to_examine = getArrayPositionsWithoutOverflowingUpperBound(strength_profile_index_position, span);
         
@@ -272,7 +273,7 @@ namespace IMUSANT
             << "},"
             << FILL_DATA << "// " << index;
             
-            if (include_boundaries && isThisASegmentBoundary(index, 2))
+            if (include_boundaries && isThisASegmentBoundary(index))
             {
                 ret_val << FILL_DATA << "BOUNDARY";
             }

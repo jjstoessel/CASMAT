@@ -52,6 +52,7 @@ protected:
         
         fScore_LBDM_Test1 = _test_utils->initialiseScoreFromFile("MusicXMLv3/LBDM_Segmented_Part_Test_1.xml");
         fScore_LBDM_Test3 = _test_utils->initialiseScoreFromFile("MusicXMLv3/LBDM_Segmented_Part_Test_3.xml");
+        fScore_Kyrie = _test_utils->initialiseScoreFromFile("MusicXMLv3/Kyrie.xml");
         fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("MusicXMLv3/Yankee_Doodle.xml");
     }
     
@@ -73,6 +74,7 @@ protected:
     static IMUSANT_test_utilities * _test_utils;
     static S_IMUSANT_score fScore_LBDM_Test1;
     static S_IMUSANT_score fScore_LBDM_Test3;
+    static S_IMUSANT_score fScore_Kyrie;
     static S_IMUSANT_score fScore_YankeeDoodle;
 
     
@@ -81,6 +83,7 @@ protected:
 IMUSANT_test_utilities * IMUSANT_segmented_part_LBDM_Tests::_test_utils = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_LBDM_Test1 = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_LBDM_Test3 = NULL;
+S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_Kyrie = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_YankeeDoodle = NULL;
 
 // ************* TEST CASES START HERE *********** //
@@ -199,6 +202,8 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_Y
     
     seg_part->getOverallLocalBoundaryStrengthProfile();
     
+    seg_part->setSegmentBoundaryCalculationSpan(2);
+    
     vector<int> segment_boundaries = seg_part->getSegmentBoundaries();
     
 #ifdef VERBOSE
@@ -226,6 +231,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_T
     
     seg_part->getOverallLocalBoundaryStrengthProfile();
     
+    seg_part->setSegmentBoundaryCalculationSpan(2);
     vector<int> segment_boundaries = seg_part->getSegmentBoundaries();
     
 #ifdef VERBOSE
@@ -243,6 +249,46 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_T
     ASSERT_EQ(26, segment_boundaries[6]);
     ASSERT_EQ(30, segment_boundaries[7]);
 
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_Kyrie)
+{
+    S_IMUSANT_part& the_part = fScore_Kyrie->partlist()->getPart("P1");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
+    
+    seg_part->getOverallLocalBoundaryStrengthProfile();
+    
+    seg_part->setSegmentBoundaryCalculationSpan(4);
+    vector<int> segment_boundaries = seg_part->getSegmentBoundaries();
+    
+#ifdef VERBOSE
+    cout << seg_part->print(true, true) << endl;
+#endif
+    
+    ASSERT_EQ(22, segment_boundaries.size()) << "Unexpected number of segment boundaries";
+    
+    ASSERT_EQ(0, segment_boundaries[0]);
+    ASSERT_EQ(5, segment_boundaries[1]);
+    ASSERT_EQ(11, segment_boundaries[2]);
+    ASSERT_EQ(19, segment_boundaries[3]);
+    ASSERT_EQ(28, segment_boundaries[4]);
+    ASSERT_EQ(38, segment_boundaries[5]);
+    ASSERT_EQ(44, segment_boundaries[6]);
+    ASSERT_EQ(54, segment_boundaries[7]);
+    ASSERT_EQ(62, segment_boundaries[8]);
+    ASSERT_EQ(68, segment_boundaries[9]);
+    ASSERT_EQ(76, segment_boundaries[10]);
+    ASSERT_EQ(86, segment_boundaries[11]);
+    ASSERT_EQ(93, segment_boundaries[12]);
+    ASSERT_EQ(103, segment_boundaries[13]);
+    ASSERT_EQ(111, segment_boundaries[14]);
+    ASSERT_EQ(122, segment_boundaries[15]);
+    ASSERT_EQ(128, segment_boundaries[16]);
+    ASSERT_EQ(134, segment_boundaries[17]);
+    ASSERT_EQ(147, segment_boundaries[18]);
+    ASSERT_EQ(159, segment_boundaries[19]);
+    ASSERT_EQ(170, segment_boundaries[20]);    
 }
 
 

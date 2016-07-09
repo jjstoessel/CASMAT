@@ -41,7 +41,8 @@ namespace IMUSANT
         
         vector< IMUSANT_segment > getSegments();
         vector< int >             getSegmentBoundaries();
-        
+        void                      setSegmentBoundaryCalculationSpan(int segment_boundary_calculation_span) {SEGMENT_BOUNDARY_CALCULATION_SPAN = segment_boundary_calculation_span; };
+
         
         // This output operator produces a table that lists the notes used for calculating
         // boundary strength, together with the strength vectors.  Output is as follows:
@@ -98,6 +99,8 @@ namespace IMUSANT
         const float WEIGHT_PITCH = 0.25;
         const float WEIGHT_REST = 0.25;
         
+        int SEGMENT_BOUNDARY_CALCULATION_SPAN = 4;
+        
         IMUSANT_pitch_interval_profile pitch_interval_profile;
         IMUSANT_IOI_interval_profile ioi_interval_profile;
         IMUSANT_rest_interval_profile rest_interval_profile;
@@ -110,7 +113,7 @@ namespace IMUSANT
         void calculateOverallLocalBoundaryStrengthVector();
         
         int findNextSegmentBoundary(int start_index);
-        bool isThisASegmentBoundary(int strength_profile_index_position, int span) const;
+        bool isThisASegmentBoundary(int strength_profile_index_position) const;
         int getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const;
         int getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const;
         IMUSANT_segment buildSegment(int start_index, int end_index);
