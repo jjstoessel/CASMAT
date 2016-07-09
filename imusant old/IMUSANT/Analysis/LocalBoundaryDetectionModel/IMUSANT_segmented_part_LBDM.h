@@ -80,6 +80,8 @@ namespace IMUSANT
         // ...
         //
         string printForTesting() const;
+        string print(bool include_notes, bool include_boundaries = false) const;
+
         
         S_IMUSANT_part getPart()
         {
@@ -108,13 +110,11 @@ namespace IMUSANT
         void calculateOverallLocalBoundaryStrengthVector();
         
         int findNextSegmentBoundary(int start_index);
-        bool isThisASegmentBoundary(int index_position, int span);
-        int getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span);
-        int getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span);
+        bool isThisASegmentBoundary(int strength_profile_index_position, int span) const;
+        int getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const;
+        int getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const;
         IMUSANT_segment buildSegment(int start_index, int end_index);
 
-        
-        string print(bool include_notes) const;
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;

@@ -94,8 +94,6 @@ namespace IMUSANT
     {
         // REVISIT - assuming that calculateOverallLocalBoundaryStrengthVector() has already been called
         
-        cout << *this;
-        
         vector<int> ret_val;
         int next_start_index = 0;
         
@@ -105,8 +103,6 @@ namespace IMUSANT
             
             ret_val.push_back(new_boundary_index);
             next_start_index = new_boundary_index + 1;
-            
-            cout << "Next segment boundary is at: " << new_boundary_index << endl;
         }
         
         return ret_val;
@@ -139,17 +135,17 @@ namespace IMUSANT
     
     bool
     IMUSANT_segmented_part_LBDM::
-    isThisASegmentBoundary(int index_position, int span)
+    isThisASegmentBoundary(int strength_profile_index_position, int span) const
     {
-        int num_previous_positions_to_examine = getArrayPositionsWithoutOverflowingLowerBound(index_position, span);
-        int num_succeeding_positions_to_examine = getArrayPositionsWithoutOverflowingUpperBound(index_position, span);
+        int num_previous_positions_to_examine = getArrayPositionsWithoutOverflowingLowerBound(strength_profile_index_position, span);
+        int num_succeeding_positions_to_examine = getArrayPositionsWithoutOverflowingUpperBound(strength_profile_index_position, span);
         
         //
         bool result = true;
         
         for (int index = num_previous_positions_to_examine; index > 0; index--)
         {
-            if (overall_local_boundary_strength_profile[index_position] < overall_local_boundary_strength_profile[index_position - index])
+            if (overall_local_boundary_strength_profile[strength_profile_index_position] < overall_local_boundary_strength_profile[strength_profile_index_position - index])
             {
                 result = false;
             }
@@ -157,7 +153,7 @@ namespace IMUSANT
         
         for (int index = num_succeeding_positions_to_examine; index > 0 ; index--)
         {
-            if (overall_local_boundary_strength_profile[index_position] < overall_local_boundary_strength_profile[index_position + index])
+            if (overall_local_boundary_strength_profile[strength_profile_index_position] < overall_local_boundary_strength_profile[strength_profile_index_position + index])
             {
                 result = false;
             }
@@ -168,7 +164,7 @@ namespace IMUSANT
     
     int
     IMUSANT_segmented_part_LBDM::
-    getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span)
+    getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const
     {
         // make sure we don't overrun the start of the array going backwards;
         int ret_val = (index_position >= span) ? span : index_position;
@@ -177,7 +173,7 @@ namespace IMUSANT
     
     int
     IMUSANT_segmented_part_LBDM::
-    getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span)
+    getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const
     {
         // make sure we don't overrun the end of the array going forwards;
         int ret_val;
@@ -200,7 +196,7 @@ namespace IMUSANT
     buildSegment(int start_index, int end_index)
     {
         IMUSANT_segment ret_val;
-        return ret_val;
+        
 
 //        S_IMUSANT_note the_note = fPart->notes()[note_index];
 //
@@ -208,6 +204,8 @@ namespace IMUSANT
 //        {
 //            ret_val.push_back(the_note);
 //        }
+        
+        return ret_val;
         
     }
     
@@ -234,7 +232,7 @@ namespace IMUSANT
     
     string
     IMUSANT_segmented_part_LBDM::
-    print(bool include_notes) const
+    print(bool include_notes, bool include_boundaries) const
     {
         IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
         
@@ -272,8 +270,14 @@ namespace IMUSANT
             << FILL_DATA << rest_interval_profile.strength_vector[index] << ","
             << FILL_DATA << overall_local_boundary_strength_profile[index]
             << "},"
-            << FILL_DATA << "// " << index
-            << endl;
+            << FILL_DATA << "// " << index;
+            
+            if (include_boundaries && isThisASegmentBoundary(index, 2))
+            {
+                ret_val << FILL_DATA << "BOUNDARY";
+            }
+            
+            ret_val << endl;
         }
         
         ret_val << "}" << endl;
