@@ -62,7 +62,6 @@ namespace IMUSANT
         void add_occurrence(occurrence the_occurrence);
         void add_occurrence(long movement, long voice, long measure, long note_index);
         
-        //vector<occurrence>::size_type num_occurrences();
         typename vector<occurrence>::size_type num_occurrences() const;
         
         static string output_operator_help();

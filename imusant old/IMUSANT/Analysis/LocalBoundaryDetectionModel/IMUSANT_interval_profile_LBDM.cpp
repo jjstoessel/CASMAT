@@ -30,7 +30,8 @@ namespace IMUSANT
     calculateChangeVector()
     {
         // The degree of change for the first interval is itself.
-        change_vector.push_back(profile_vector[0]);
+        //change_vector.push_back(profile_vector[0]);
+        change_vector.push_back(calculateDegreeOfChange(0, profile_vector[0])); //equivalent to change_vector.push_back(1);
         
         // The degree of change for subsequent intervals is calculated.
         for (int index = 0; index < profile_vector.size() - 1; index++)
