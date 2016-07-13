@@ -82,7 +82,7 @@ namespace IMUSANT
     
     ostream& operator<<( ostream& os, const IMUSANT_range& range )
     {
-        os << range.first.measure << ", " << range.first.note_index << ", " << range.partID;
+        os << range.partID << ", " << range.first.measure << "." << range.first.note_index << "–" << range.last.measure << "." << range.last.note_index ;
         
         return os;
     }

@@ -207,7 +207,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 cin >> yn;
                 if (yn == 'y') continguous = true;
                 ip.Visit(*processor);
-                ip.findLcsPairsIntervals(continguous);
+                cout << ip.findAndPrintLcsPairsIntervals(continguous);
                 break;
             //Find longest common intervallic subsequence in all pairs (reverse method)
             case 'F':
@@ -216,7 +216,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 cin >> yn;
                 if (yn == 'y') continguous = true;
                 ip.Visit(*processor);
-                ip.findLcsPairsIntervals(continguous,true);
+                cout << ip.findAndPrintLcsPairsIntervals(continguous,true);
                 break;
             //Find longest common pitch subsequence in all pairs
             case 'G':

@@ -153,15 +153,35 @@ namespace IMUSANT {
         return ret_val;
     }
     
+    
+    string
+    IMUSANT_interval_processor::findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
+    {
+        SUBSTR_VECTOR the_result;
+        the_result = findLcsPairsIntervals(consecutive,reverse_search,retrograde);
+        
+        stringstream the_result_as_stringstream;
+        for(int index = 0 ; index < the_result.size(); index++)
+        {
+            the_result_as_stringstream << the_result[index];
+        }
+        
+        the_result_as_stringstream << endl;
+        
+        return the_result_as_stringstream.str();
+    }
+    
     // Find longest common subsequence of intervals for pairs of file/works
     // This example of dynamic programming is adapted from Crochemore and Lecroq,
     // Pattern MAtching and text compression algorithms, available from:
     // http://www-igm.univ-mlv.fr/~mac/REC/DOC/03-CRC.ps
-    void
+    IMUSANT_interval_processor::SUBSTR_VECTOR
     IMUSANT_interval_processor::
     findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
-        if (mID_vec_map.size()==0) return;
+        SUBSTR_VECTOR ret_val;
+        
+        //if (mID_vec_map.size()==0) return ret_val;
         
         for (auto i = mID_vec_map.begin(); i!=mID_vec_map.end(); i++)
         {
@@ -172,12 +192,9 @@ namespace IMUSANT {
                 retrograde = true; //switch for double reverse search
             }
             vector<IMUSANT_interval>::size_type m = x.size();
-            
-            for (auto j = i ; j!=mID_vec_map.end(); j++) //will bail if only one element
+            auto j = i;
+            for ( j++ ; j!=mID_vec_map.end(); j++) //will bail if only one element
             {
-                
-                //cout << "Longest common subsequence of " << scores[*IDiter1].getMovementTitle() << " with "
-                //<< scores[*IDiter2].getMovementTitle() << endl;
                 
                 vector<IMUSANT_interval> y = j->second;
                 if (retrograde) {
@@ -222,7 +239,9 @@ namespace IMUSANT {
                     else b--;
                 }
                 
-                cout << "Common subsequence: " << endl;
+                IMUSANT_repeated_interval_substring repeated_interval_substring;
+                bool first_loc_set = false;
+                //cout << "Common subsequence: " << endl;
                 for (deque<pair<IMUSANT_interval,IMUSANT_interval> >::iterator iv=z.begin(); iv!=z.end(); iv++)
                 {
                     IMUSANT_range loc1 = iv->first.getLocation();
@@ -231,34 +250,42 @@ namespace IMUSANT {
                     {
                         if (iv+1!=z.end())
                         {
-                            IMUSANT_range loc1next = (iv+1)->first.getLocation();
-                            IMUSANT_range loc2next = (iv+1)->second.getLocation();
-                            
-                            if ((loc1.last.measure==loc1next.first.measure
-                                 && loc1.last.note_index==loc1next.first.note_index)
-                                && (loc2.last.measure==loc2next.first.measure
-                                    && loc2.last.note_index==loc2next.first.note_index) )
+                            repeated_interval_substring.sequence.push_back(iv->first);
+                            if (!first_loc_set)
                             {
-                                cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
-                                << loc1.first.note_index << "; " << loc2.partID << ","
-                                << loc2.first.measure << "," << loc2.first.note_index << ") " << endl;
-                            }
-                            else
-                            {
-                                cout << "====" << endl;
+                                repeated_interval_substring.add_occurrence(i->first,
+                                                                           loc1.partID,
+                                                                           loc1.first.measure,
+                                                                           loc1.first.note_index );
+                                repeated_interval_substring.add_occurrence(j->first,
+                                                                           loc2.partID,
+                                                                           loc2.first.measure,
+                                                                           loc2.first.note_index );
+                                first_loc_set = true;
                             }
                         }
                     }
                     else
                     {
-                        cout	<< iv->first << " (" << loc1.partID << "," << loc1.first.measure << ","
-                        << loc1.first.note_index << "; " << loc2.partID << ","
-                        << loc2.first.measure << "," << loc2.first.note_index << ") " << endl ;
+                        repeated_interval_substring.sequence.push_back(iv->first);
+                        if (!first_loc_set)
+                        {
+                            repeated_interval_substring.add_occurrence(i->first,
+                                                                       loc1.partID,
+                                                                       loc1.first.measure,
+                                                                       loc1.first.note_index );
+                            repeated_interval_substring.add_occurrence(j->first,
+                                                                       loc2.partID,
+                                                                       loc2.first.measure,
+                                                                       loc2.first.note_index );
+                            first_loc_set = true;
+                        }
                     }
                 }
-                cout << endl;
+                ret_val.push_back(repeated_interval_substring);
             }
         }
+        return ret_val;
     }
     
     string
