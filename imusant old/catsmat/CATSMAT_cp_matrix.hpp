@@ -61,7 +61,7 @@ namespace CATSMAT {
         IMUSANT_note    distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note = NULL);
 
         
-        list< S_CATSMAT_chord >             fCPMatrix; //a vector of vectors, each of which represent a chord
+        list< S_CATSMAT_chord >             fCPMatrix; //a vector of vectors, each column of which represents a chord
         vector<S_IMUSANT_interval_vector>   fVIntervalVector;
         
         int                                 fCurrentPart;

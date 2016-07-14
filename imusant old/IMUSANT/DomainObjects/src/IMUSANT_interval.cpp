@@ -51,8 +51,8 @@ namespace IMUSANT
     {
         if (i.fOctaves < IMUSANT_interval::undefined-FLAGSPACE) //don't try to print terminator elements.
         {
-            os << IMUSANT_interval::xmlinterval(i.fInterval) << " ";
-            os << (((i.fDirection==IMUSANT_interval::descending)?("\\"):((i.fDirection==IMUSANT_interval::descending)?("/"):("")))) << " ";
+            os << ((i.fInterval==IMUSANT_interval::per1 && i.fOctaves>0)? "8ve" : IMUSANT_interval::xmlinterval(i.fInterval)) << " ";
+            os << (((i.fDirection==IMUSANT_interval::descending)?("\\"):((i.fDirection==IMUSANT_interval::descending)?("\/"):("")))) << " ";
         }
         else
             os << "undefined ";
@@ -83,7 +83,7 @@ namespace IMUSANT
     ostream& operator<<( ostream& os, const IMUSANT_range& range )
     {
         os << range.partID << ", " << range.first.measure << "." << range.first.note_index << "–" << range.last.measure << "." << range.last.note_index ;
-        
+        //(range.partID.first==range.partID.second ? range.partID.first : (cout << range.partID.first << " & " << range.partID.second))
         return os;
     }
     
@@ -555,7 +555,7 @@ namespace IMUSANT
                 r+=12;
         }
         
-        r+=12*fOctaves; //convert to a compount interval
+        r+=12*fOctaves; //convert to a compound interval
         
         return r;
     }

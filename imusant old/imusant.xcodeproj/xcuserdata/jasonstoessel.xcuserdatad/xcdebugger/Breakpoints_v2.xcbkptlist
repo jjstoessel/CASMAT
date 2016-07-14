@@ -190,9 +190,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "CATSMAT_dyadtuple_sequences::find_repeated_tuplet_sequences(int min)"
-            landmarkType = "5">
+            endingLineNumber = "177">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_processing.cpp"
-            timestampString = "457227230.225867"
+            timestampString = "490160218.333778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92">
+            startingLineNumber = "121"
+            endingLineNumber = "121">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -253,7 +251,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "CATSMAT_sonority_sequences::find_repeated(int min)"
+            landmarkName = "CATSMAT_sonority_sequences::print(ostream&amp; os)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -269,8 +267,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
             endingLineNumber = "39"
-            landmarkName = "CATSMAT_sonority_sequences::Visit(const CATSMAT_cp_matrix&amp; matrix)"
-            landmarkType = "5">
+            landmarkName = "operator&lt;&lt; (ostream&amp; os, const sonority&amp; elt )"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -331,8 +329,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
-            landmarkName = "CATSMAT_sonority_sequences::Visit(const CATSMAT_cp_matrix&amp; matrix)"
-            landmarkType = "5">
+            landmarkName = "operator&lt;&lt; (ostream&amp; os, const sonority&amp; elt )"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1002,11 +1000,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_dyad_sequences.cpp"
-            timestampString = "486456169.139173"
+            timestampString = "490150755.032952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "CATSMAT_dyad_sequences::process(const list&lt;S_CATSMAT_chord&gt;&amp; matrix)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1038,9 +1036,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "CATSMAT_dyadtuple_sequences::Visit(const CATSMAT_cp_matrix&amp; matrix)"
-            landmarkType = "5">
+            endingLineNumber = "94">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1079,13 +1075,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/src/IMUSANT_interval_processor.cpp"
-            timestampString = "490085598.726752"
+            filePath = "catsmat/Application/CATSMAT_menu.cpp"
+            timestampString = "490160218.333778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "IMUSANT_interval_processor:: findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "CATSMAT_menu:: addUserSpecifiedFile(CATSMAT_processing *processor)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1095,29 +1091,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/src/IMUSANT_interval_processor.cpp"
-            timestampString = "490085598.726752"
+            filePath = "catsmat/CATSMAT_processing.cpp"
+            timestampString = "490148152.940459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "IMUSANT_interval_processor:: findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "CATSMAT_processing:: find_repeated_dyad_sequences(int min)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "catsmat/Application/CATSMAT_menu.cpp"
-            timestampString = "490085909.719661"
+            filePath = "catsmat/CATSMAT_dyad_sequences.cpp"
+            timestampString = "490150750.798822"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "CATSMAT_menu:: addUserSpecifiedFile(CATSMAT_processing *processor)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "CATSMAT_dyad_sequences::find_repeated(int min)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
