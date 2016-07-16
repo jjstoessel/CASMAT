@@ -21,7 +21,7 @@
 using namespace IMUSANT;
 using namespace boost;
 
-// #define VERBOSE = 1;
+//#define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_interval_profile_LBDM
 class IMUSANT_interval_profile_LBDM_Tests :
@@ -201,7 +201,7 @@ TEST_F(IMUSANT_interval_profile_LBDM_Tests, pitch_profile_calculateChangeVector)
     profile.calculateChangeVector();
     
     
-    ASSERT_TRUE(equalWithinTollerance(72.000, profile.change_vector[0]));
+    ASSERT_TRUE(equalWithinTollerance(1.0000, profile.change_vector[0]));
     ASSERT_TRUE(equalWithinTollerance(0.0069, profile.change_vector[1]));
     ASSERT_TRUE(equalWithinTollerance(0.0142, profile.change_vector[2]));
     ASSERT_TRUE(equalWithinTollerance(0.0147, profile.change_vector[3]));

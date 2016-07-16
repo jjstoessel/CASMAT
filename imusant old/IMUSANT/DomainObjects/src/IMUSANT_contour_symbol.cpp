@@ -95,7 +95,7 @@ IMUSANT_contour_symbol::IMUSANT_contour_symbol(const S_IMUSANT_pitch first, cons
 void
 IMUSANT_contour_symbol::setLocation(long partID, long startMeasure, long startNoteIndex, long endMeasure, long endNoteIndex)
 {
-	fLocation.partID = partID;
+	fLocation.partID = partID,partID;
 	fLocation.first.measure = startMeasure;
 	fLocation.first.note_index = startNoteIndex;
 	fLocation.last.measure = endMeasure;

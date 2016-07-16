@@ -207,7 +207,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 cin >> yn;
                 if (yn == 'y') continguous = true;
                 ip.Visit(*processor);
-                ip.findLcsPairsIntervals(continguous);
+                cout << ip.findAndPrintLcsPairsIntervals(continguous);
                 break;
             //Find longest common intervallic subsequence in all pairs (reverse method)
             case 'F':
@@ -216,7 +216,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 cin >> yn;
                 if (yn == 'y') continguous = true;
                 ip.Visit(*processor);
-                ip.findLcsPairsIntervals(continguous,true);
+                cout << ip.findAndPrintLcsPairsIntervals(continguous,true);
                 break;
             //Find longest common pitch subsequence in all pairs
             case 'G':
@@ -225,7 +225,6 @@ runToolsMenu(CATSMAT_processing* processor)
                 cin >> yn;
                 if (yn == 'y') continguous = true;
                 pp.Visit(*processor);
-                //pp.findLcsPairsPitches(continguous);
                 cout << pp.findAndPrintLcsPairsPitches(continguous);
                 break;
             //Find melodic segments using LBDM
@@ -265,7 +264,9 @@ runToolsMenu(CATSMAT_processing* processor)
             //Find repeated dyad sequences
             case 'J':
             case 'j':
-                cout << "J: Not impemented yet.";
+                cout << "Enter minimum length: ";
+                cin >> length;
+                processor->find_repeated_dyad_sequences(length);
                 break;
             //Find repeated dyadtuple sequences
             case 'K':
@@ -275,7 +276,9 @@ runToolsMenu(CATSMAT_processing* processor)
             //Find repeated sonority sequences
             case 'L':
             case 'l':
-                cout << "L: Not impemented yet.";
+                cout << "Enter minimum length: ";
+                cin >> length;
+                processor->find_repeated_sonority_sequences(length);
                 break;
             //Run all CATSMAT tools
             case 'M':

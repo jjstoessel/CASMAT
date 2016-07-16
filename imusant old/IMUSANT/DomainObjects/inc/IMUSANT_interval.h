@@ -37,7 +37,7 @@ namespace IMUSANT
         } location;
         
         IMUSANT_range()
-        { partID = 0;  first.measure=0; first.note_index=0; last.measure=0; last.note_index = 0; }
+        { partID=0;  first.measure=0; first.note_index=0; last.measure=0; last.note_index = 0; }
         
         const IMUSANT_range& operator=( const IMUSANT_range& rhs )
         {
