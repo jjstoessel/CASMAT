@@ -65,6 +65,9 @@ namespace IMUSANT
             SEGMENT_BOUNDARY_CALCULATION_SPAN = segment_boundary_calculation_span;
         };
         
+        // The integers are indexes into the profile arrays.
+        vector< int > getSegmentBoundaries();
+        
         
         // This output operator produces a table that lists the notes used for calculating
         // boundary strength, together with the strength vectors.  Output is as follows:
@@ -133,6 +136,7 @@ namespace IMUSANT
         
         void calculateOverallLocalBoundaryStrengthVector();
         
+        int             findNextSegmentBoundary(int start_index);
         bool            isThisASegmentBoundary(int strength_profile_index_position) const;
         int             getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const;
         int             getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const;
