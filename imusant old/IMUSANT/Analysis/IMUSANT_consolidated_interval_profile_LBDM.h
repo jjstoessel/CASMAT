@@ -11,12 +11,19 @@
 
 #include <stdio.h>
 
-#include "IMUSANT_segmented_part_LBDM.h"
-
 using namespace std;
 
 namespace IMUSANT
 {
+    // Where:
+    // StartNote = The first note in the interval from which change was calculated.
+    // EndNote = The second note in the interval.
+    // Pitch = The value of the strength vector for the Pitch Interval Profile
+    // IOI = The value of the strength vector for the IOI Interval Profile
+    // Rest = The value of the strength vector for the Rest Interval Profile
+    // Weighted Avg = The overall local boundary strength profile for the interval.
+    // Is Boundary = Is this interval on a segment boundary.
+    
     class IMUSANT_consolidated_interval_profile_LBDM
     {
     public:
@@ -100,6 +107,16 @@ namespace IMUSANT
             return fWeightedAvgStrength;
         }
         
+        void isBoundary(bool is_boundary)
+        {
+            fIsBoundary = is_boundary;
+        }
+        
+        bool isBoundary()
+        {
+            return fIsBoundary;
+        }
+        
         
     private:
         S_IMUSANT_note fStartNote;
@@ -108,6 +125,7 @@ namespace IMUSANT
         float fIOI = 0;
         float fRest = 0;
         float fWeightedAvgStrength = 0;
+        bool fIsBoundary = false;
     };
     
     class IMUSANT_consolidated_interval_profile_vector_LBDM : public vector <IMUSANT_consolidated_interval_profile_LBDM>

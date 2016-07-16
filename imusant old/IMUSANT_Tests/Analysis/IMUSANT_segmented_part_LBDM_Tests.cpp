@@ -21,7 +21,7 @@ using namespace IMUSANT;
 
 using namespace boost;
 
-// #define VERBOSE = 1;
+//#define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests :
@@ -362,6 +362,64 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_K
     ASSERT_EQ(170, segment_boundaries[20]);    
 }
 
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegments_From_Score_YankeeDoodle)
+{
+    S_IMUSANT_part& the_part = fScore_YankeeDoodle->partlist()->getPart("P1");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
+    
+    seg_part->getOverallLocalBoundaryStrengthProfile();
+    seg_part->setSegmentBoundaryCalculationSpan(4);
+    IMUSANT_consolidated_interval_profile_vector_LBDM data = seg_part->getConsolidatedProfiles();
+    
+    vector<IMUSANT_segment> segments = seg_part->getSegments();
+    
+    ASSERT_EQ(6, segments.size()) << "Unexpected number of segments";
+    
+    ASSERT_EQ(12, segments[0].size());
+    ASSERT_EQ(16, segments[1].size());
+    ASSERT_EQ(7, segments[2].size());
+    ASSERT_EQ(6, segments[3].size());
+    ASSERT_EQ(12, segments[4].size());
+    ASSERT_EQ(2, segments[5].size());
+    
+    ASSERT_EQ(1, segments[0][0]->getMeasureNum());
+    ASSERT_EQ(1, segments[0][0]->getNoteIndex());
+    
+    ASSERT_EQ(2, segments[0][11]->getMeasureNum());
+    ASSERT_EQ(4, segments[0][11]->getNoteIndex());
+    
+    ASSERT_EQ(2, segments[1][0]->getMeasureNum());
+    ASSERT_EQ(5, segments[1][0]->getNoteIndex());
+    
+    ASSERT_EQ(4, segments[1][15]->getMeasureNum());
+    ASSERT_EQ(6, segments[1][15]->getNoteIndex());
+    
+    ASSERT_EQ(5, segments[2][0]->getMeasureNum());
+    ASSERT_EQ(1, segments[2][0]->getNoteIndex());
+    
+    ASSERT_EQ(5, segments[2][6]->getMeasureNum());
+    ASSERT_EQ(7, segments[2][6]->getNoteIndex());
+    
+    ASSERT_EQ(6, segments[3][0]->getMeasureNum());
+    ASSERT_EQ(1, segments[3][0]->getNoteIndex());
+    
+    ASSERT_EQ(6, segments[3][5]->getMeasureNum());
+    ASSERT_EQ(6, segments[3][5]->getNoteIndex());
+    
+    ASSERT_EQ(7, segments[4][0]->getMeasureNum());
+    ASSERT_EQ(1, segments[4][0]->getNoteIndex());
+    
+    ASSERT_EQ(8, segments[4][11]->getMeasureNum());
+    ASSERT_EQ(4, segments[4][11]->getNoteIndex());
+    
+    ASSERT_EQ(8, segments[5][0]->getMeasureNum());
+    ASSERT_EQ(5, segments[5][0]->getNoteIndex());
+    
+    ASSERT_EQ(8, segments[5][1]->getMeasureNum());
+    ASSERT_EQ(6, segments[5][1]->getNoteIndex());
+}
 
 
 

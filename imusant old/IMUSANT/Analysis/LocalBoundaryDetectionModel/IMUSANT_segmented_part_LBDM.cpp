@@ -110,6 +110,8 @@ namespace IMUSANT
             next_row.setRest(rest_interval_profile.strength_vector[index]);
             next_row.setWeightedAverage(overall_local_boundary_strength_profile[index]);
             
+            next_row.isBoundary(isThisASegmentBoundary(index));
+            
             ret_val.push_back(next_row);
         }
         
@@ -117,78 +119,40 @@ namespace IMUSANT
     }
     
     
+    //
+    // For the calculation of segments we always use the EndNote element of each
+    // IMUSANT_consolidated_interval_profile_LBDM.
+    //
     vector< IMUSANT_segment >
     IMUSANT_segmented_part_LBDM::
     getSegments()
     {
         vector<IMUSANT_segment> ret_val;
-        ret_val = getSegments(getSegmentBoundaries());
-        return ret_val;
-    }
-    
-    vector< IMUSANT_segment >
-    IMUSANT_segmented_part_LBDM::
-    getSegments(vector< int > segment_boundaries)
-    {
-        // REVISIT
-        throw("IMUSANT_segmented_part_LBDM::getSegments(vector< int > segment_boundaries)  - Not implemented yet");
         
-        vector<IMUSANT_segment> ret_val;
+        IMUSANT_consolidated_interval_profile_vector_LBDM profiles_with_boundaries = getConsolidatedProfiles();
         
-        IMUSANT_segment next_segment;
-        
-        int next_start_pos = segment_boundaries[0];
-        for (int index =  next_start_pos; index < segment_boundaries.size(); index++)
+        for (int index = 0; index < profiles_with_boundaries.size(); )
         {
+            IMUSANT_segment next_segment;
+            bool segment_end=false;
             
-        }
-        
-        return ret_val;
-    }
-    
-    vector< int >
-    IMUSANT_segmented_part_LBDM::
-    getSegmentBoundaries()
-    {
-        // REVISIT - assuming that calculateOverallLocalBoundaryStrengthVector() has already been called
-        
-        vector<int> ret_val;
-        int next_start_index = 0;
-        
-        while (next_start_index < overall_local_boundary_strength_profile.size())
-        {
-            int new_boundary_index = findNextSegmentBoundary(next_start_index);
+            while (! segment_end)
+            {
+                next_segment.push_back(profiles_with_boundaries[index].getEndNote());
             
-            ret_val.push_back(new_boundary_index);
-            next_start_index = new_boundary_index + 1;
-        }
-        
-        return ret_val;
-    }
-    
-    int
-    IMUSANT_segmented_part_LBDM::
-    findNextSegmentBoundary(int start_index)
-    {
-        // Examine the values N positions either side of start_index.
-        // If they are all less than the value at start_index, then start_index identifies a segment boundary.
-        
-        bool found = false;
-        int boundary_index = start_index;
-        
-        while (boundary_index < overall_local_boundary_strength_profile.size() && !found)
-        {
-            if (isThisASegmentBoundary(boundary_index))
-            {
-                found = true;
-            }
-            else
-            {
-                boundary_index++;
+                if (index == profiles_with_boundaries.size() - 1 ||  profiles_with_boundaries[index+1].isBoundary())
+                {
+                    ret_val.push_back(next_segment);
+                    segment_end = true;
+                }
+                
+                index++;
             }
         }
-        return boundary_index;
+        
+        return ret_val;
     }
+    
     
     bool
     IMUSANT_segmented_part_LBDM::
@@ -248,18 +212,6 @@ namespace IMUSANT
         }
         
         return ret_val;
-    }
-    
-    IMUSANT_segment
-    IMUSANT_segmented_part_LBDM::
-    buildSegment(int start_index, int end_index)
-    {
-        // REVISIT
-        throw("IMUSANT_segmented_part_LBDM::buildSegment()  - Not implemented yet");
-
-        IMUSANT_segment ret_val;
-        return ret_val;
-        
     }
     
     

@@ -34,18 +34,37 @@ namespace IMUSANT
         
         virtual ~IMUSANT_segmented_part_LBDM() {}
         
+        //
+        // This method returns all the data you really need. Each row is a note-to-note interval
+        // with the associated strengths, and an indication of whether the row represents a
+        // boundary between segments.
+        //
+        // For the calculation of segments we always use the EndNote element of each
+        // IMUSANT_consolidated_interval_profile_LBDM.
+        //
+        IMUSANT_consolidated_interval_profile_vector_LBDM  getConsolidatedProfiles();
         
         //
         // You must call this function to initialise the class from the data in the Part.
         //
         vector<float>& getOverallLocalBoundaryStrengthProfile();
         
+        //
+        // This method returns you segments in the form of note vectors.
+        //
         vector< IMUSANT_segment > getSegments();
-        vector< int >             getSegmentBoundaries();
-        void                      setSegmentBoundaryCalculationSpan(int segment_boundary_calculation_span) {SEGMENT_BOUNDARY_CALCULATION_SPAN = segment_boundary_calculation_span; };
-        IMUSANT_consolidated_interval_profile_vector_LBDM  getConsolidatedProfiles();
         
-
+        //
+        // The algorithm for calculating segments looks either side of each interval
+        // to determine whether the strength of the interval represents a peak in
+        // strength.  This number determines how far either side of each interval
+        // the algorithm looks.
+        //
+        void setSegmentBoundaryCalculationSpan(int segment_boundary_calculation_span)
+        {
+            SEGMENT_BOUNDARY_CALCULATION_SPAN = segment_boundary_calculation_span;
+        };
+        
         
         // This output operator produces a table that lists the notes used for calculating
         // boundary strength, together with the strength vectors.  Output is as follows:
@@ -108,21 +127,15 @@ namespace IMUSANT
         IMUSANT_rest_interval_profile rest_interval_profile;
         
         // IOI's calculated using Duration.asAbsoluteNumeric() on each Note.
-        // Pitch is calculated using a numeric representation of Pitch yet to be implemented.
+        // Pitch is calculated using a numeric representation of Pitch (MIDI)
         // Rests are calculated using the getType property of IMUSANT_note.
         void buildIntervalProfiles();
         
         void calculateOverallLocalBoundaryStrengthVector();
         
-        // REVISIT - not implemented yet
-        vector< IMUSANT_segment > getSegments(vector< int > segment_boundaries);
-        
-        int findNextSegmentBoundary(int start_index);
-        bool isThisASegmentBoundary(int strength_profile_index_position) const;
-        int getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const;
-        int getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const;
-        // REVISIT - not implemenmted yet.
-        IMUSANT_segment buildSegment(int start_index, int end_index);
+        bool            isThisASegmentBoundary(int strength_profile_index_position) const;
+        int             getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const;
+        int             getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const;
 
     };
     
