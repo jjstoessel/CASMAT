@@ -21,7 +21,7 @@ using namespace IMUSANT;
 
 using namespace boost;
 
-#define VERBOSE = 1;
+// #define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests :
@@ -70,6 +70,21 @@ protected:
 #endif
         return lbsp;
     }
+    
+    bool checkEqualWithinTolleranceField(float expected, float actual, int index_pos)
+    {
+        if (equalWithinTollerance(expected, actual))
+            return true;
+        else
+        {
+            cout << "Failed with jdex = " << index_pos
+            << ". Expected " << expected
+            << ". Received " << actual
+            << endl;
+            
+            return false;
+        }
+    };
     
     static IMUSANT_test_utilities * _test_utils;
     static S_IMUSANT_score fScore_LBDM_Test1;
@@ -154,6 +169,62 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
         << ". Expected " << strength_YD_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED]
         << ". Received " << lbsp[jdex]
         << endl;
+    }
+}
+
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, getConsolidatedProfiles_YankeeDoodle)
+{
+    S_IMUSANT_part part;
+    fScore_YankeeDoodle->getPartById("P1", part);
+    
+    IMUSANT_segmented_part_LBDM seg_part(part);
+    seg_part.getOverallLocalBoundaryStrengthProfile();
+    
+    IMUSANT_consolidated_interval_profile_vector_LBDM consolidated_profiles = seg_part.getConsolidatedProfiles();
+    
+    int count_expected = YANKEEDOODLE_COUNT;
+    ASSERT_EQ(count_expected, consolidated_profiles.size());
+    
+    for (int jdex = 0 ; jdex < YANKEEDOODLE_COUNT; jdex++)
+    {
+        IMUSANT_consolidated_interval_profile_LBDM next_row = consolidated_profiles[jdex];
+        
+        ASSERT_TRUE(checkEqualWithinTolleranceField(strength_YD_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED],
+                                                    next_row.getWeightedAverage(),
+                                                    jdex));
+        
+        
+        ASSERT_TRUE(checkEqualWithinTolleranceField(strength_YD_expected[jdex][IOI_STRENGTH_EXPECTED],
+                                                    next_row.getIOI(),
+                                                    jdex));
+                    
+        ASSERT_TRUE(checkEqualWithinTolleranceField(strength_YD_expected[jdex][REST_STRENGTH_EXPECTED],
+                                                    next_row.getRest(),
+                                                    jdex));
+        
+        ASSERT_TRUE(checkEqualWithinTolleranceField(strength_YD_expected[jdex][PITCH_STRENGTH_EXPECTED],
+                                                    next_row.getPitch(),
+                                                    jdex));
+        
+        if (next_row.getStartNote() != NULL)
+        {
+            ASSERT_TRUE(checkEqualWithinTolleranceField(notes_YD_expected[jdex][START_INDEX_EXPECTED],
+                                                        next_row.getStartNote()->getNoteIndex(),
+                                                        jdex));
+            
+            ASSERT_TRUE(checkEqualWithinTolleranceField(notes_YD_expected[jdex][START_MEASURE_EXPECTED],
+                                                        next_row.getStartNote()->getMeasureNum(),
+                                                        jdex));
+        }
+        
+        ASSERT_TRUE(checkEqualWithinTolleranceField(notes_YD_expected[jdex][END_INDEX_EXPECTED],
+                                                    next_row.getEndNote()->getNoteIndex(),
+                                                    jdex));
+        
+        ASSERT_TRUE(checkEqualWithinTolleranceField(notes_YD_expected[jdex][END_MEASURE_EXPECTED],
+                                                    next_row.getEndNote()->getMeasureNum(),
+                                                    jdex));
     }
 }
 

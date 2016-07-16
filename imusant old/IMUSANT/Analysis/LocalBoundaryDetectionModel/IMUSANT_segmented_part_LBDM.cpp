@@ -1,13 +1,16 @@
 //
 //  IMUSANT_segmented_part_LBDM.cpp
-//  imusant
 //
 //  Created by Derrick Hill on 19/03/2016.
 //
 //  C++ implimentation of Lower Boundary Detection Model as described in
-//  Cambouropoulos, Emilios. 2001. "The Local Boundary Detection Model (LBDM) and its Application in the Study
-//  of Expressive Timing." In Proceedings of the International Computer Music Conference (ICMC'2001) 17-22 September, Havana,
-//  Cuba. International Computer Music Association.
+//  Cambouropoulos, Emilios. 2001.
+//  "The Local Boundary Detection Model (LBDM) and its Application in the
+//   Study of Expressive Timing."
+//  In Proceedings of the International Computer Music Conference (ICMC'2001)
+//  17-22 September, Havana, Cuba.
+//  International Computer Music Association.
+//
 
 
 #include "IMUSANT_segmented_part_LBDM.h"
@@ -80,11 +83,66 @@ namespace IMUSANT
         }
     }
     
+    IMUSANT_consolidated_interval_profile_vector_LBDM
+    IMUSANT_segmented_part_LBDM::
+    getConsolidatedProfiles()
+    {
+        IMUSANT_consolidated_interval_profile_vector_LBDM ret_val;
+        
+        IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
+        
+        for (int index = 0; index < pitch_interval_profile.strength_vector.size(); index++)
+        {
+            IMUSANT_consolidated_interval_profile_LBDM next_row;
+            
+            if (index == 0)
+            {
+                next_row.setStartNote(NULL);
+            }
+            else
+            {
+                next_row.setStartNote(notes[index - 1]);
+            }
+            
+            next_row.setEndNote(notes[index]);
+            next_row.setPitch(pitch_interval_profile.strength_vector[index]);
+            next_row.setIOI(ioi_interval_profile.strength_vector[index]);
+            next_row.setRest(rest_interval_profile.strength_vector[index]);
+            next_row.setWeightedAverage(overall_local_boundary_strength_profile[index]);
+            
+            ret_val.push_back(next_row);
+        }
+        
+        return ret_val;
+    }
+    
+    
     vector< IMUSANT_segment >
     IMUSANT_segmented_part_LBDM::
     getSegments()
     {
         vector<IMUSANT_segment> ret_val;
+        ret_val = getSegments(getSegmentBoundaries());
+        return ret_val;
+    }
+    
+    vector< IMUSANT_segment >
+    IMUSANT_segmented_part_LBDM::
+    getSegments(vector< int > segment_boundaries)
+    {
+        // REVISIT
+        throw("IMUSANT_segmented_part_LBDM::getSegments(vector< int > segment_boundaries)  - Not implemented yet");
+        
+        vector<IMUSANT_segment> ret_val;
+        
+        IMUSANT_segment next_segment;
+        
+        int next_start_pos = segment_boundaries[0];
+        for (int index =  next_start_pos; index < segment_boundaries.size(); index++)
+        {
+            
+        }
+        
         return ret_val;
     }
     
@@ -196,16 +254,10 @@ namespace IMUSANT
     IMUSANT_segmented_part_LBDM::
     buildSegment(int start_index, int end_index)
     {
-        IMUSANT_segment ret_val;
-        
+        // REVISIT
+        throw("IMUSANT_segmented_part_LBDM::buildSegment()  - Not implemented yet");
 
-//        S_IMUSANT_note the_note = fPart->notes()[note_index];
-//
-//        for (int note_index = start_index; note_index <= end_index; note_index++)
-//        {
-//            ret_val.push_back(the_note);
-//        }
-        
+        IMUSANT_segment ret_val;
         return ret_val;
         
     }
@@ -217,6 +269,7 @@ namespace IMUSANT
 #define FILL_NOTE left << setw(NOTE_WIDTH) << setfill(SEPARATOR)
 #define FILL_DATA right << setw(DATA_WIDTH) << setfill(SEPARATOR) << std::setprecision(2) << std::fixed           // Set the number of decimal places in the putput.
     
+
     ostream&
     operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part)
     {

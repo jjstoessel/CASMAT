@@ -13,6 +13,7 @@
 
 #include "IMUSANT_part.h"
 #include "IMUSANT_interval_profile_LBDM.h"
+#include "IMUSANT_consolidated_interval_profile_LBDM.h"
 
 using namespace std;
 
@@ -42,6 +43,8 @@ namespace IMUSANT
         vector< IMUSANT_segment > getSegments();
         vector< int >             getSegmentBoundaries();
         void                      setSegmentBoundaryCalculationSpan(int segment_boundary_calculation_span) {SEGMENT_BOUNDARY_CALCULATION_SPAN = segment_boundary_calculation_span; };
+        IMUSANT_consolidated_interval_profile_vector_LBDM  getConsolidatedProfiles();
+        
 
         
         // This output operator produces a table that lists the notes used for calculating
@@ -94,7 +97,6 @@ namespace IMUSANT
         S_IMUSANT_part fPart;
         vector<float> overall_local_boundary_strength_profile;
         
-        // const float fWeightInteronsetInterval = 0.5;
         const float WEIGHT_INTERONSET_INTERVAL = 0.5;
         const float WEIGHT_PITCH = 0.25;
         const float WEIGHT_REST = 0.25;
@@ -107,15 +109,19 @@ namespace IMUSANT
         
         // IOI's calculated using Duration.asAbsoluteNumeric() on each Note.
         // Pitch is calculated using a numeric representation of Pitch yet to be implemented.
-        // Rests are calculated using the getType propererty of IMUSANT_note.
+        // Rests are calculated using the getType property of IMUSANT_note.
         void buildIntervalProfiles();
         
         void calculateOverallLocalBoundaryStrengthVector();
+        
+        // REVISIT - not implemented yet
+        vector< IMUSANT_segment > getSegments(vector< int > segment_boundaries);
         
         int findNextSegmentBoundary(int start_index);
         bool isThisASegmentBoundary(int strength_profile_index_position) const;
         int getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const;
         int getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const;
+        // REVISIT - not implemenmted yet.
         IMUSANT_segment buildSegment(int start_index, int end_index);
 
     };
