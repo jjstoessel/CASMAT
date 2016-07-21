@@ -640,3 +640,24 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, Frermata_ParserTest5)
 }
 
 
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, ExpectingAnException_ScoreInstrument_Telemann_mxml3)
+{
+    // MusicXMLv3.xmlsamples/Telemann.xml is not a simple partwise score but uses a "orchestral part".
+    // Exception should be thrown.
+    
+    bool exception_occurred = false;
+    
+    try
+    {
+        _test_utils->initialiseScoreFromFile("MusicXMLv3.xmlsamples/Telemann.xml");
+    }
+    catch (string s)
+    {
+        exception_occurred = true;
+    }
+    
+    ASSERT_TRUE(exception_occurred) << "Didn't receive the expected exception";
+
+}
+
+

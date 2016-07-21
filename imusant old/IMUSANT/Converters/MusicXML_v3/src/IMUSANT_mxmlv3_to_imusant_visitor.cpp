@@ -104,6 +104,14 @@ namespace IMUSANT
     
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_score_instrument & elt)
+    {
+        debug("S_score_instrument - NOT IMPLEMENTED YET");
+        throw "NOT IMPLEMENTED - S_score_instrument in IMUSANT_mxmlv3_to_imusant_visitor::visitStart(S_score_instrument).";
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_part_name& elt)
     {
         debug("S_part_name");
