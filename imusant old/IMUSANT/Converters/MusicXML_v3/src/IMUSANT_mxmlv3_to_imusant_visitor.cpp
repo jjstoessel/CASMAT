@@ -97,6 +97,8 @@ namespace IMUSANT
         S_IMUSANT_part part = new_IMUSANT_part();
         fCurrentPart = part;
         
+        fNumberOfInstraumentsInPart = 0;
+        
         part->setID(elt->getAttributeValue("id"));
         
         fImusantScore->addPart(part);
@@ -107,7 +109,12 @@ namespace IMUSANT
     visitStart( S_score_instrument & elt)
     {
         debug("S_score_instrument - NOT IMPLEMENTED YET");
-        throw "NOT IMPLEMENTED - S_score_instrument in IMUSANT_mxmlv3_to_imusant_visitor::visitStart(S_score_instrument).";
+        fNumberOfInstraumentsInPart++;
+        
+        if (fNumberOfInstraumentsInPart > 1)
+        {
+            throw "NOT IMPLEMENTED - We only support one instrument per part in IMUSANT_mxmlv3_to_imusant_visitor::visitStart(S_score_instrument).";
+        }
     }
     
     void

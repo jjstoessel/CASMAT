@@ -215,6 +215,7 @@ namespace IMUSANT
         S_IMUSANT_lyric     fCurrentLyric;
         bool                fInPitchElement = false;
         S_IMUSANT_pitch     fCurrentPitch;
+        int                 fNumberOfInstraumentsInPart = 0;
     };
 }
 
