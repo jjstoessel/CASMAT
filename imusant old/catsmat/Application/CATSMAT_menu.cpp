@@ -238,7 +238,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     segmented_parts = segmenter.getSegmentedParts();
                     for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_part_iter = segmented_parts.begin(); seg_part_iter != segmented_parts.end() ; seg_part_iter++)
                     {
-                        cout << *(*seg_part_iter) << endl;
+                        cout << ((*seg_part_iter)->print(true,true)) << endl;
                     }
                 
                     
