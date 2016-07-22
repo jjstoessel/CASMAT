@@ -67,7 +67,7 @@ private:
     
     IMUSANT_pitch CreatePitch(IMUSANT_pitch::type note,
                               unsigned short octave,
-                              IMUSANT_pitch::sign alteration)
+                              IMUSANT_pitch::inflection alteration)
     {
         IMUSANT_pitch *the_pitch = new IMUSANT_pitch();
         

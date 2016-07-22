@@ -86,17 +86,7 @@ namespace IMUSANT
             //collection of interval vectors
             //S_IMUSANT_ivec_collection	fIntervalCollection;
             //collection of rhythm vectors
-            S_IMUSANT_rvec_collection       fRhythmCollection;
-        
-#ifdef OLD
-            //local storage of interval vectors
-            S_IMUSANT_interval_vector       fIntervalVector;
-            //local storage of melodic contour
-            S_IMUSANT_contour               fMelodicContour;
-            //local storage of pitches
-            S_IMUSANT_pitch_vector          fPitchVector;
-#endif
-#ifdef NEW
+            S_IMUSANT_rvec_collection           fRhythmCollection;
             //local storage of interval vectors
             S_IMUSANT_interval_vector           fCurrentIntervalVector;
             S_IMUSANT_contour                   fCurrentMelodicContour;
@@ -104,15 +94,11 @@ namespace IMUSANT
             vector<S_IMUSANT_interval_vector>   fPartwiseIntervalVectors;
             vector<S_IMUSANT_contour>           fPartwiseContourVectors;
             vector<S_IMUSANT_pitch_vector>      fPartwisePitchVectors;
-#endif
-        
-        
         
             string			fWorkTitle;
             string			fMovementTitle;
             vector<string>	fLyrics;
 
-            
             // global flag to denote chords writing
             bool			fInChord;
             S_IMUSANT_note	fLastNote;

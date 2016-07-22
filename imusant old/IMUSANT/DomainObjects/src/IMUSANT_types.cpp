@@ -28,7 +28,7 @@ namespace IMUSANT
     // String to value mapping tables...
     IMUSANT_accidental::accident IMUSANT_accidental::fAccidentTbl[] =
     {
-        undefined, sharp, natural, flat, double_sharp, sharp_sharp, flat_flat,
+        none, sharp, natural, flat, double_sharp, sharp_sharp, flat_flat,
         natural_sharp, natural_flat, quarter_flat, quarter_sharp,
         three_quarters_flat, three_quarters_sharp,
         sharp_down, sharp_up, natural_down, natural_up, flat_down, flat_up,
@@ -39,7 +39,7 @@ namespace IMUSANT
     
     string IMUSANT_accidental::fAccidentStrings[] =
     {
-        "undefine", "sharp", "natural", "flat", "double-sharp", "sharp-sharp", "flat-flat",
+        "none", "sharp", "natural", "flat", "double-sharp", "sharp-sharp", "flat-flat",
         "natural-sharp", "natural-flat", "quarter-flat", "quarter-sharp",
         "three-quarters-flat", "three-quarters-sharp",
         "sharp-down", "sharp-up", "natural-down", "natural-up", "flat-down", "flat-up",
@@ -67,9 +67,9 @@ namespace IMUSANT
     
     IMUSANT_accidental::accident
     IMUSANT_accidental::
-    AlterToAccident(signed short alter)
+    AlterToAccident(IMUSANT_pitch::inflection alter)
     {
-        accident acc = undefined;
+        accident acc = none;
         
         switch (alter)
         {

@@ -199,8 +199,8 @@ CATSMAT_test_utility::CreateNote(IMUSANT_pitch::type note_name, int octave, TRat
     IMUSANT_note *note = new IMUSANT_note();
     
     note->setNoteIndex(note_index);
-    note->setPitch(pitch);
-    note->setDuration(duration);
+    note->setPitch(*pitch);
+    note->setDuration(*duration);
     
     return *note;
 }

@@ -23,6 +23,75 @@ namespace IMUSANT
         return os;
     }
     
+    IMUSANT_note::
+    IMUSANT_note() :
+    fTieNext(NULL),
+    fTiePrevious(NULL),
+    fStyle(IMUSANT_NoteStyle::normal),
+    fType(IMUSANT_NoteType::pitch),
+    fVoice(-1)
+    {
+        initialize();
+    }
+    
+    IMUSANT_note::
+    IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration )
+    :
+    fTieNext(NULL),
+    fTiePrevious(NULL),
+    fStyle(IMUSANT_NoteStyle::normal),
+    fType(IMUSANT_NoteType::pitch),
+    fVoice(-1)
+    {
+        initialize();
+        
+        *fPitch = *pitch;
+        *fDuration = *duration;
+    }
+    
+    IMUSANT_note::
+    IMUSANT_note(const IMUSANT_note& note)
+    {
+        initialize();
+        
+        *this = note;
+    }
+    
+    IMUSANT_note::~IMUSANT_note(){}
+    
+    void
+    IMUSANT_note::
+    initialize()
+    {
+        fPitch = new_IMUSANT_pitch();
+        fDuration = new_IMUSANT_duration();
+        fAccidental = new_IMUSANT_accidental();
+    }
+    
+    IMUSANT_note&
+    IMUSANT_note::
+    operator= (const IMUSANT_note& rhs)
+    {
+        *fPitch = *(rhs.pitch());
+        *fDuration = *(rhs.duration());
+        *fAccidental = *(rhs.accidental());
+        
+        fLyrics = rhs.lyrics();
+        fMSLyrics = rhs.fMSLyrics;
+        fStem = rhs.fStem;
+        fStaff = rhs.fStaff;
+        fMeasureNumber = rhs.fMeasureNumber;
+        fNoteIndex = rhs.fNoteIndex;
+        fHasFermata = rhs.fHasFermata;
+        fTieNext = rhs.getNextTieNote();
+        fTiePrevious = rhs.getPreviousTieNote();
+        fStyle = rhs.getStyle();
+        fType = rhs.getType();
+        fVoice = rhs.getVoice();
+        
+        return *this;
+    }
+    
     void
     IMUSANT_note::
     print_short(ostream& os) const
@@ -260,8 +329,8 @@ namespace IMUSANT
     IMUSANT_note::
     operator< (const IMUSANT_note& note) const
     {
-        signed short i = (this->pitch()->name() + this->pitch()->alteration()) + ((IMUSANT_pitch::last+1)*this->pitch()->octave());
-        signed short j = (note.pitch()->name() + note.pitch()->alteration()) + ((IMUSANT_pitch::last+1)*note.pitch()->octave());
+        signed short i = (this->pitch()->name() + this->pitch()->getInflection()) + ((IMUSANT_pitch::last+1)*this->pitch()->octave());
+        signed short j = (note.pitch()->name() + note.pitch()->getInflection()) + ((IMUSANT_pitch::last+1)*note.pitch()->octave());
         return (i - j) < 0;
     }
     

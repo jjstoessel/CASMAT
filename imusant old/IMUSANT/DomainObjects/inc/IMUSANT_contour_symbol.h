@@ -40,8 +40,7 @@ class IMUSANT_contour_symbol : public smartable
 	friend IMUSANT_SMARTP<IMUSANT_contour_symbol> new_IMUSANT_contour_symbol(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
 	
 		//getter and setters
-		void				setLocation(long partID, long startMeasure, 
-								long startNoteIndex, long endMeasure, long endNoteIndex);
+		void				setLocation(long startPartID, long startMeasure, long startNoteIndex, long endPartID, long endMeasure, long endNoteIndex);
 		IMUSANT_range		getLocation() const { return fLocation; }
 		//returns the inverted interval
 		IMUSANT_contour_symbol	inverted();
@@ -84,8 +83,7 @@ class IMUSANT_contour_symbol : public smartable
 	
     //protected:
 		IMUSANT_contour_symbol() : fSymbol(undefined) {}
-		IMUSANT_contour_symbol(const IMUSANT_contour_symbol& iv)\
-			: fSymbol(iv.fSymbol), fLocation(iv.fLocation) {}
+		IMUSANT_contour_symbol(const IMUSANT_contour_symbol& iv) : fSymbol(iv.fSymbol), fLocation(iv.fLocation) {}
 		IMUSANT_contour_symbol(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second);
 		IMUSANT_contour_symbol(signed short iv) : fSymbol(iv) { check(); }
 		virtual ~IMUSANT_contour_symbol(){}

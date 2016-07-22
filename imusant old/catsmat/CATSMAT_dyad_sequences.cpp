@@ -69,11 +69,10 @@ namespace CATSMAT
                         {
                             IMUSANT_interval interval(chord_notes[j]->pitch(), chord_notes[i]->pitch());
                             
-                            // cout << "Interval: " << interval << std::endl;
-                            
                             interval.setLocation(i,
                                                  chord_notes[j]->getMeasureNum(),
                                                  chord_notes[j]->getNoteIndex(),
+                                                 j,
                                                  chord_notes[i]->getMeasureNum(),
                                                  chord_notes[i]->getNoteIndex());
                             
@@ -103,14 +102,13 @@ namespace CATSMAT
             for (auto i = fVIntervalVector.begin(); i!=fVIntervalVector.end(); i++)
             {
                 interval_tree* tree = new interval_tree((*i)->getIntervals(),1); //change last parameter to id for whole work tree.
-                //cout << *tree;
                 vector<pair<interval_tree::size_type, interval_tree::size_type> >* results = new vector<pair<interval_tree::size_type, interval_tree::size_type> >();
                 find_repeated_substrings(*results, tree->root_node(), min);
                 
-                map<int, interval_tree::value_type > m = tree->get_sentences(); //const vector<IMUSANT_interval>& int_v = (*i)->getIntervals();
+                map<int, interval_tree::value_type > m = tree->get_sentences();
                 interval_tree::value_type int_v = m[1];
                 
-                cout << "duet: " << int_v[0].getLocation().partID << endl;
+                cout << "duet: " << int_v[0].getLocation().first.partID << "-" << int_v[0].getLocation().last.partID << endl;
                 
                 for (auto j=results->begin(); j!=results->end(); j++)
                 {

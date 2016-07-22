@@ -97,7 +97,8 @@ namespace IMUSANT
     IMUSANT_duration::
     print (ostream& os) const
     {
-        os  << "<RHYTHM_TYPE>" << fDuration.toString() << "<\\RHYTHM_TYPE>"
+        os  //<< "<RHYTHM_TYPE>" << fDuration.toString() << "<\\RHYTHM_TYPE>"
+            << "<RHYTHM_TYPE>" << xmlv1(fDuration) << "<\\RHYTHM_TYPE>"
             << "<DOTS>" << to_string(fDots) << "<\\DOTS>"
             << "<TIME_MOD>" << fTimeModification.toString() << "<\\TIME_MOD>";
     }
@@ -142,7 +143,14 @@ namespace IMUSANT
         return incremental_val;
     }
     
-    
+    const IMUSANT_duration&
+    IMUSANT_duration::
+    operator= (const IMUSANT_duration& dur)
+    {
+        this->set(dur.fDuration, dur.fDots,dur.fTimeModification, dur.fNormalDuration, dur.fNormalDots);
+        NormaliseDuration(fDuration);
+        return *this;
+    }
     //--
     //takes durations and reduces them to simplest form
     long
@@ -156,7 +164,7 @@ namespace IMUSANT
         
         while   (
                  dur.getNumerator()!=0 && \
-                 dur.getNumerator() > dur.getDenominator() && \
+                 dur.getNumerator() > dur.getDenominator()/2 && \
                  (dur.getDenominator()%dur.getNumerator()==1 || \
                   dur.getDenominator()%dur.getNumerator()==2 )
                  )

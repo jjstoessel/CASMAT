@@ -10,20 +10,16 @@
 #ifndef __IMUSANT_PROCESSING__
 #define __IMUSANT_PROCESSING__
 
+#include <vector>
+#include <exception>
 #include <boost/filesystem.hpp>
 
 #include "IMUSANT_score.h"
 #include "IMUSANT_collectionvisitor.h"
-#include "IMUSANT_segmented_part_LBDM.h"
-#include "IMUSANT_t_repeated_substring.h"
-#include "suffixtree.h"
-#include <map>
-#include <vector>
-#include <exception>
 
 using namespace std;
 using namespace boost;
-using namespace ns_suffixtree;
+
 
 namespace IMUSANT
 {
@@ -38,8 +34,6 @@ namespace IMUSANT
         map<S_IMUSANT_score,IMUSANT_collection_visitor> getCollections() const { return collection_visitors; }
         const vector<S_IMUSANT_score> getScores() const { return scores; }
         vector<string> listWorksAndMovements();
-
-        vector<S_IMUSANT_segmented_part_LBDM> findMelodicSegments_LBDM();
 
         typedef map<S_IMUSANT_score,IMUSANT_collection_visitor> COLLECTIONMAP;
         

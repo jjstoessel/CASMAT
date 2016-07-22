@@ -31,7 +31,7 @@ class VEXP CATSMAT_collection_visitor : public IMUSANT_collection_visitor
 {
 	public:
 					CATSMAT_collection_visitor();
-		virtual		~CATSMAT_collection_visitor() {}
+                    ~CATSMAT_collection_visitor() {}
 		
 		void visit ( S_IMUSANT_chord& elt );
 		void visit ( S_IMUSANT_measure& elt );

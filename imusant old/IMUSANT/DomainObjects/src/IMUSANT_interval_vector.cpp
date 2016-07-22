@@ -61,7 +61,6 @@ namespace IMUSANT
              interval++ )
         {
             os << (*interval) <<  "(" << interval->getLocation() << ")" <<  ", ";
-            // os << (*interval) << ", ";
         }
         os << endl;
     }

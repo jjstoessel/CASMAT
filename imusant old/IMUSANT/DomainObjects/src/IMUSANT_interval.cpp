@@ -51,8 +51,8 @@ namespace IMUSANT
     {
         if (i.fOctaves < IMUSANT_interval::undefined-FLAGSPACE) //don't try to print terminator elements.
         {
-            os << IMUSANT_interval::xmlinterval(i.fInterval) << " ";
-            os << (((i.fDirection==IMUSANT_interval::descending)?("\\"):((i.fDirection==IMUSANT_interval::descending)?("/"):("")))) << " ";
+            os << ((i.fInterval==IMUSANT_interval::per1 && i.fOctaves>0)? "8ve" : IMUSANT_interval::xmlinterval(i.fInterval)) << " ";
+            os << (((i.fDirection==IMUSANT_interval::descending)?("\\"):((i.fDirection==IMUSANT_interval::descending)?("\/"):("")))) << " ";
         }
         else
             os << "undefined ";
@@ -82,8 +82,8 @@ namespace IMUSANT
     
     ostream& operator<<( ostream& os, const IMUSANT_range& range )
     {
-        os << range.first.measure << ", " << range.first.note_index << ", " << range.partID;
-        
+        os << range.first.partID << ", " << range.first.measure << "." << range.first.note_index << "–" << range.last.partID << range.last.measure << "." << range.last.note_index ;
+        //(range.partID.first==range.partID.second ? range.partID.first : (cout << range.partID.first << " & " << range.partID.second))
         return os;
     }
     
@@ -203,8 +203,8 @@ namespace IMUSANT
                                        IMUSANT_pitch::type p2,
                                        int octave1,
                                        int octave2,
-                                       IMUSANT_pitch::sign alteration1,
-                                       IMUSANT_pitch::sign alteration2)
+                                       IMUSANT_pitch::inflection alteration1,
+                                       IMUSANT_pitch::inflection alteration2)
     {
         S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
         S_IMUSANT_pitch pitch2 = new_IMUSANT_pitch();
@@ -220,9 +220,10 @@ namespace IMUSANT
     
     //record note locations that form interval
     void
-    IMUSANT_interval::setLocation(long partID, long startMeasure, long startNoteIndex, long endMeasure, long endNoteIndex)
+    IMUSANT_interval::setLocation(long startPartID, long startMeasure, long startNoteIndex, long endPartID, long endMeasure, long endNoteIndex)
     {
-        fLocation.partID = partID;
+        fLocation.first.partID = startPartID;
+        fLocation.last.partID = endPartID;
         fLocation.first.measure = startMeasure;
         fLocation.first.note_index = startNoteIndex;
         fLocation.last.measure = endMeasure;
@@ -246,7 +247,6 @@ namespace IMUSANT
                 ret.fInterval = IMUSANT_interval::per1;
                 ret.fOctaves = abs(second->octave() - first->octave());
                 ret.fDirection = IMUSANT_interval::unison;
-                //ret.fQuality = perfect;
             }
             else if (*second>*first) //ascending interval
             {
@@ -260,7 +260,7 @@ namespace IMUSANT
                 ret.fOctaves = ((first->name() + (first->octave()*IMUSANT_pitch::diatonicSteps)) - (second->name() + (second->octave()*IMUSANT_pitch::diatonicSteps)))/7;
                 ret.fDirection = IMUSANT_interval::descending;
             }
-            ret.fQuality = ret.getQuality();
+            ret.fQuality = ret.calcQuality();
             //ret.check();
         }
         
@@ -328,47 +328,12 @@ namespace IMUSANT
         return ret;
     }
 
+    //IMUSANT_interval::quality IMUSANT_interval::getQuality()
+    
     //a pretty dumb dissonance classification - needs plug-in class for different dissonance rules
-    IMUSANT_interval::quality IMUSANT_interval::getQuality()
+    IMUSANT_interval::quality IMUSANT_interval::calcQuality()
     {
         quality q = perfect;
-        
-        //switch (this->simple())
-//        switch (this->fInterval)
-//        {
-//            case per1:
-//            case per5:
-//                //case octave:
-//                q = perfect;
-//                break;
-//            case min3:
-//            case maj3:
-//            case min6:
-//            case maj6:
-//                q = imperfect;
-//                break;
-//            case dim1:
-//            case aug1:
-//            case dim2:
-//            case min2:
-//            case maj2:
-//            case aug2:
-//            case dim3:
-//            case aug3:
-//            case dim4:
-//            case per4:
-//            case aug4:
-//            case dim5:
-//            case aug5:
-//            case dim6:
-//            case aug6:
-//            case dim7:
-//            case min7:
-//            case maj7:
-//            case aug7:
-//                q = dissonant;
-//                break;
-//        }
         
         if (this->fInterval>=0) {
             if (this->fInterval >= augaug4) {
@@ -515,7 +480,7 @@ namespace IMUSANT
             fInterval = int2intervaltype(base_interval);
         }
         
-        fQuality = getQuality();
+        fQuality = calcQuality();
     }
     
     //private member function: checks interval is in correct form.
@@ -552,7 +517,7 @@ namespace IMUSANT
     }
     
     //operators
-    const IMUSANT_interval& IMUSANT_interval::operator=( const IMUSANT_interval& rhs )
+    IMUSANT_interval& IMUSANT_interval::operator=( const IMUSANT_interval& rhs )
     {
         fInterval = rhs.fInterval;
         fOctaves = rhs.fOctaves;
@@ -591,18 +556,18 @@ namespace IMUSANT
                 r+=12;
         }
         
-        r+=12*fOctaves; //convert to a compount interval
+        r+=12*fOctaves; //convert to a compound interval
         
         return r;
     }
     
-    const IMUSANT_interval& IMUSANT_interval::operator=( const int binv )
-    {
-        fInterval = int2intervaltype(binv);
-        check();
-        
-        return *this;
-    }
+//    const IMUSANT_interval& IMUSANT_interval::operator=( const int binv )
+//    {
+//        fInterval = int2intervaltype(binv);
+//        check();
+//        
+//        return *this;
+//    }
     
     IMUSANT_interval& IMUSANT_interval::operator+=( const IMUSANT_interval& rhs )
     {

@@ -18,6 +18,24 @@ namespace IMUSANT {
         mTreePtr = buildContourSuffixTree(collections);
     }
     
+    string
+    IMUSANT_contour_processor::
+    findAndPrintRepeatedContourSubstrings(int min_length)
+    {
+        SUBSTR_VECTOR the_result;
+        the_result = findRepeatedContourSubstrings(min_length);
+        
+        stringstream the_result_as_stringstream;
+        for(int index = 0 ; index < the_result.size(); index++)
+        {
+            the_result_as_stringstream << the_result[index];
+        }
+        
+        the_result_as_stringstream << endl;
+        
+        return the_result_as_stringstream.str();
+    }
+    
     IMUSANT_contour_processor::SUBSTR_VECTOR
     IMUSANT_contour_processor::
     findRepeatedContourSubstrings(int min_length)
@@ -55,7 +73,7 @@ namespace IMUSANT {
                 IMUSANT_contour_symbol symbol = mID_vec_map[mc_c->first][mc_c->second];
                 IMUSANT_range range=symbol.getLocation();
                 repeated_contour_substring.add_occurrence( mc_c->first,
-                                                          range.partID,
+                                                          range.first.partID,
                                                           range.first.measure,
                                                           range.first.note_index );
                 

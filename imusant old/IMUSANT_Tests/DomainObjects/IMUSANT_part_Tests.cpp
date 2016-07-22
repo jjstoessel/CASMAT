@@ -41,11 +41,11 @@ protected:
         S_IMUSANT_duration d1 = new_IMUSANT_duration();
         d1->set(*new TRational(dur_numerator, dur_denominator), dur_dots, 0, IMUSANT_duration::unmeasured, 0);
         
-        note->setDuration(d1);
+        note->setDuration(*d1);
         
         S_IMUSANT_pitch p1 = new_IMUSANT_pitch();
         p1->set(note_name, octave, voice);
-        note->setPitch(p1);
+        note->setPitch(*p1);
         
         return note;
     }

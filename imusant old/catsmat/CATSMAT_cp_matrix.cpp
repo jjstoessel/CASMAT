@@ -153,7 +153,7 @@ namespace CATSMAT
             
             *part_duration = *current_chord_dur;
             *part_note = note;
-            part_note->setDuration(part_duration);
+            part_note->setDuration(*part_duration);
             if (previous_note!=NULL) part_note->setPreviousTieNote(previous_note);
             
             (*(*fCurrentChord))[fCurrentPart] = part_note;
@@ -161,6 +161,7 @@ namespace CATSMAT
             //call recusively
             S_IMUSANT_duration dur = remainder.duration();
             *dur -= *part_duration;
+            remainder.setDuration(*dur);
             
             fCurrentChord++;
             
@@ -195,12 +196,13 @@ namespace CATSMAT
         
             *insert_note = *(*fCurrentChord)->at(i);
             *insert_duration = *note.duration();
-            insert_note->setDuration(insert_duration);
+            insert_note->setDuration(*insert_duration);
             insert_note->setNextTieNote((*fCurrentChord)->at(i));
             (*insert_chord)[i] = insert_note;
             
             //resize the note in the other part
-            if (*(*fCurrentChord)->at(i)->duration() != *(*fCurrentChord)->at(i)->duration() - *note.duration()) {
+            if (*(*fCurrentChord)->at(i)->duration() != *(*fCurrentChord)->at(i)->duration() - *note.duration())
+            {
                 *(*fCurrentChord)->at(i)->duration() -= *note.duration();
             }
         }

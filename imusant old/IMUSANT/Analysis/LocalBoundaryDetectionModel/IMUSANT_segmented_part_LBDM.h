@@ -13,6 +13,7 @@
 
 #include "IMUSANT_part.h"
 #include "IMUSANT_interval_profile_LBDM.h"
+#include "IMUSANT_consolidated_interval_profile_LBDM.h"
 
 using namespace std;
 
@@ -33,13 +34,39 @@ namespace IMUSANT
         
         virtual ~IMUSANT_segmented_part_LBDM() {}
         
+        //
+        // This method returns all the data you really need. Each row is a note-to-note interval
+        // with the associated strengths, and an indication of whether the row represents a
+        // boundary between segments.
+        //
+        // For the calculation of segments we always use the EndNote element of each
+        // IMUSANT_consolidated_interval_profile_LBDM.
+        //
+        IMUSANT_consolidated_interval_profile_vector_LBDM  getConsolidatedProfiles();
         
         //
         // You must call this function to initialise the class from the data in the Part.
         //
         vector<float>& getOverallLocalBoundaryStrengthProfile();
         
+        //
+        // This method returns you segments in the form of note vectors.
+        //
         vector< IMUSANT_segment > getSegments();
+        
+        //
+        // The algorithm for calculating segments looks either side of each interval
+        // to determine whether the strength of the interval represents a peak in
+        // strength.  This number determines how far either side of each interval
+        // the algorithm looks.
+        //
+        void setSegmentBoundaryCalculationSpan(int segment_boundary_calculation_span)
+        {
+            SEGMENT_BOUNDARY_CALCULATION_SPAN = segment_boundary_calculation_span;
+        };
+        
+        // The integers are indexes into the profile arrays.
+        vector< int > getSegmentBoundaries();
         
         
         // This output operator produces a table that lists the notes used for calculating
@@ -79,6 +106,8 @@ namespace IMUSANT
         // ...
         //
         string printForTesting() const;
+        string print(bool include_notes, bool include_boundaries = false) const;
+
         
         S_IMUSANT_part getPart()
         {
@@ -90,23 +119,28 @@ namespace IMUSANT
         S_IMUSANT_part fPart;
         vector<float> overall_local_boundary_strength_profile;
         
-        // const float fWeightInteronsetInterval = 0.5;
         const float WEIGHT_INTERONSET_INTERVAL = 0.5;
         const float WEIGHT_PITCH = 0.25;
         const float WEIGHT_REST = 0.25;
+        
+        int SEGMENT_BOUNDARY_CALCULATION_SPAN = 4;
         
         IMUSANT_pitch_interval_profile pitch_interval_profile;
         IMUSANT_IOI_interval_profile ioi_interval_profile;
         IMUSANT_rest_interval_profile rest_interval_profile;
         
         // IOI's calculated using Duration.asAbsoluteNumeric() on each Note.
-        // Pitch is calculated using a numeric representation of Pitch yet to be implemented.
-        // Rests are calculated using the getType propererty of IMUSANT_note.
+        // Pitch is calculated using a numeric representation of Pitch (MIDI)
+        // Rests are calculated using the getType property of IMUSANT_note.
         void buildIntervalProfiles();
         
         void calculateOverallLocalBoundaryStrengthVector();
         
-        string print(bool include_notes) const;
+        int             findNextSegmentBoundary(int start_index);
+        bool            isThisASegmentBoundary(int strength_profile_index_position) const;
+        int             getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const;
+        int             getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const;
+
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;

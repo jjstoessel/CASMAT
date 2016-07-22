@@ -34,14 +34,16 @@ namespace IMUSANT
         {
             long measure;
             long note_index;
+            long partID;
         } location;
         
         IMUSANT_range()
-        { partID = 0;  first.measure=0; first.note_index=0; last.measure=0; last.note_index = 0; }
+        { first.partID=0; last.partID=0; first.measure=0; first.note_index=0; last.measure=0; last.note_index = 0; }
         
         const IMUSANT_range& operator=( const IMUSANT_range& rhs )
         {
-            partID=rhs.partID;
+            first.partID=rhs.last.partID;
+            last.partID=rhs.last.partID;
             first.measure=rhs.first.measure; first.note_index=rhs.first.note_index;
             last.measure=rhs.last.measure; last.note_index = rhs.last.note_index;  return *this;
         }
@@ -50,7 +52,7 @@ namespace IMUSANT
         
         location first;
         location last;
-        long partID;
+        //long partID;
     };
     
     class IMUSANT_interval : public smartable
@@ -81,76 +83,18 @@ namespace IMUSANT
         friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval();
         friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
         
-        //getters and setters
-        interval_type       getInterval()  { return fInterval; }
-        direction           getDirection() { return fDirection; }
-        int                 getOctaves() const { return fOctaves; }
-        IMUSANT_range		getLocation() const { return fLocation; }
-        //calculated gets
-        int                 getNumber() const;
-        quality             getQuality();
-        
-        void                setInterval(interval_type interval) { fInterval=interval; }
-        void                setOctaves(int oct) { fOctaves=oct; }
-        void                setDirection(direction dir) { fDirection=dir; }
-        void				setLocation(long partID, long startMeasure,
-                                        long startNoteIndex, long endMeasure, long endNoteIndex);
-        
-        //tests if compound
-        bool                   iscompound() const { return fOctaves > 0; }
-        //returns a non-compound interval
-        IMUSANT_interval       simple();
-        //returns the inverted interval
-        IMUSANT_interval       inverted();
-        //calculates the diatonic inversion required for pre-20th century music
-        IMUSANT_interval       inverted_diatonically(IMUSANT_key& key, IMUSANT_pitch::type first);
-        //returns distance between intervals, hence 0 is equal, hence used in comparison operators
-        int                    compare(const IMUSANT_interval& i) const;
-        
-        //operators
-        inline bool operator==(const IMUSANT_interval& rhs) const	{ return (compare(rhs)==0); }
-        inline bool operator!=(const IMUSANT_interval& rhs) const	{ return (compare(rhs)!=0); }
-        inline bool operator<(const IMUSANT_interval& rhs) const	{ return (compare(rhs)<0); }
-        inline bool operator>(const IMUSANT_interval& rhs) const	{ return (compare(rhs)>0); }
-        inline bool operator<=(const IMUSANT_interval& rhs) const	{ return (compare(rhs)<=0); }
-        inline bool operator>=(const IMUSANT_interval& rhs) const	{ return (compare(rhs)>=0); }
-        void operator+(const IMUSANT_interval& rhs );
-        friend ostream& operator<<( ostream& os, const IMUSANT_interval& i );
-        friend istream& operator>>( istream& is, IMUSANT_interval& i );
-        const IMUSANT_interval& operator=( const IMUSANT_interval& rhs );
-        
-        //conversion operators
-        const IMUSANT_interval& operator=( const int binv );
-        inline operator int() const;
-        
-        //increment/decrement
-        friend IMUSANT_interval operator+( const IMUSANT_interval& lhs, const IMUSANT_interval& rhs );
-        friend IMUSANT_interval operator-( const IMUSANT_interval& lhs, const IMUSANT_interval& rhs );
-        IMUSANT_interval& operator+=( const IMUSANT_interval& rhs );
-        IMUSANT_interval& operator-=( const IMUSANT_interval& rhs );
-        
-        IMUSANT_interval& operator++(); //prefix: returns &*this
-        const IMUSANT_interval operator++(int); //postfix: returns copy
-        
-        //static function returns interval and direction
-        static IMUSANT_interval calculate(const S_IMUSANT_pitch& first, const S_IMUSANT_pitch& second);
-        
-        static const string	xmlinterval (interval_type iv);         //! convert a numeric value to string
-        static       interval_type	xmlinterval (const string str); //! convert a string to a numeric value
-        
-        static IMUSANT_interval MakeUniqueInterval();        //! make a unique interval to append for suffix tree
-        
-        
         IMUSANT_interval() :
         fInterval(undefined),
         fDirection(unison),
-        fOctaves(undefined)
+        fOctaves(undefined),
+        fQuality(none)
         {}
         
         IMUSANT_interval(const IMUSANT_interval& iv) :
         fInterval(iv.fInterval),
         fDirection(iv.fDirection),
         fOctaves(iv.fOctaves),
+        fQuality(iv.fQuality),
         fLocation(iv.fLocation)
         {}
         
@@ -165,9 +109,72 @@ namespace IMUSANT
                          IMUSANT_pitch::type p2,
                          int octave1,
                          int octave2,
-                         IMUSANT_pitch::sign alteration1 = IMUSANT_pitch::natural,
-                         IMUSANT_pitch::sign alteration2 = IMUSANT_pitch::natural);
+                         IMUSANT_pitch::inflection alteration1 = IMUSANT_pitch::natural,
+                         IMUSANT_pitch::inflection alteration2 = IMUSANT_pitch::natural);
         virtual ~IMUSANT_interval() {}
+        
+        //getters and setters
+        interval_type       getInterval()  { return fInterval; }
+        direction           getDirection() { return fDirection; }
+        int                 getOctaves() const { return fOctaves; }
+        IMUSANT_range		getLocation() const { return fLocation; }
+        quality             getQuality() { return fQuality; }
+        //calculated gets
+        int                 getNumber() const;
+        
+        
+        
+        void                setInterval(interval_type interval) { fInterval=interval; }
+        void                setOctaves(int oct) { fOctaves=oct; }
+        void                setDirection(direction dir) { fDirection=dir; }
+        void				setLocation(long startPartID, long startMeasure,long startNoteIndex,
+                                        long endPartID, long endMeasure, long endNoteIndex);
+        
+        //tests if compound
+        bool                iscompound() const { return fOctaves > 0; }
+        //returns a non-compound interval
+        IMUSANT_interval    simple();
+        //returns the inverted interval
+        IMUSANT_interval    inverted();
+        //calculates the diatonic inversion required for pre-20th century music
+        IMUSANT_interval    inverted_diatonically(IMUSANT_key& key, IMUSANT_pitch::type first);
+        //returns distance between intervals, hence 0 is equal, hence used in comparison operators
+        int                 compare(const IMUSANT_interval& i) const;
+        
+        //operators
+        inline bool     operator==(const IMUSANT_interval& rhs) const	{ return (compare(rhs)==0); }
+        inline bool     operator!=(const IMUSANT_interval& rhs) const	{ return (compare(rhs)!=0); }
+        inline bool     operator<(const IMUSANT_interval& rhs) const	{ return (compare(rhs)<0); }
+        inline bool     operator>(const IMUSANT_interval& rhs) const	{ return (compare(rhs)>0); }
+        inline bool     operator<=(const IMUSANT_interval& rhs) const	{ return (compare(rhs)<=0); }
+        inline bool     operator>=(const IMUSANT_interval& rhs) const	{ return (compare(rhs)>=0); }
+        void            operator+(const IMUSANT_interval& rhs );
+        friend ostream& operator<<( ostream& os, const IMUSANT_interval& i );
+        friend istream& operator>>( istream& is, IMUSANT_interval& i );
+        IMUSANT_interval& operator=( const IMUSANT_interval& rhs );
+        
+        //conversion operators
+        //const IMUSANT_interval& operator=( const int binv );
+        inline          operator int() const;
+        
+        //increment/decrement
+        friend IMUSANT_interval operator+( const IMUSANT_interval& lhs, const IMUSANT_interval& rhs );
+        friend IMUSANT_interval operator-( const IMUSANT_interval& lhs, const IMUSANT_interval& rhs );
+        IMUSANT_interval& operator+=( const IMUSANT_interval& rhs );
+        IMUSANT_interval& operator-=( const IMUSANT_interval& rhs );
+        
+        IMUSANT_interval& operator++(); //prefix: returns &*this
+        const IMUSANT_interval operator++(int); //postfix: returns copy
+        
+        quality             calcQuality();
+        
+        //static function returns interval and direction
+        static IMUSANT_interval calculate(const S_IMUSANT_pitch& first, const S_IMUSANT_pitch& second);
+        
+        static const string	xmlinterval (interval_type iv);         //! convert a numeric value to string
+        static       interval_type	xmlinterval (const string str); //! convert a string to a numeric value
+        
+        static IMUSANT_interval MakeUniqueInterval();        //! make a unique interval to append for suffix tree
     
     protected:
         interval_type   fInterval; //fTIC Tonal interval class
@@ -180,8 +187,6 @@ namespace IMUSANT
         
         void                check();
         void                check(int calculated_interval);
-        
-        
         void                increment_fInterval();
         
         static bimap<string, IMUSANT_interval::interval_type>   fInterval2String;
@@ -190,7 +195,6 @@ namespace IMUSANT
         
         static interval_type int2intervaltype(int iv);
        
-        
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_interval> S_IMUSANT_interval;

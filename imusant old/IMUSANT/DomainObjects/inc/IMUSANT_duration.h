@@ -48,11 +48,7 @@ namespace IMUSANT
         
         virtual ~IMUSANT_duration() {}
         
-        const IMUSANT_duration& operator= (const IMUSANT_duration& dur)
-        {
-            this->set(dur.fDuration, dur.fDots,dur.fTimeModification, dur.fNormalDuration, dur.fNormalDots);
-            return *this;
-        }
+        const IMUSANT_duration& operator= (const IMUSANT_duration& dur);
         
         bool                operator!= (const IMUSANT_duration& dur) const;
         bool                operator== (const IMUSANT_duration& dur) const;
@@ -73,10 +69,12 @@ namespace IMUSANT
         void set(TRational dur, long dots)
         {
             fDuration = dur;
-            fDots = dots,
+            fDots = dots;
             fTimeModification = TRational(1,1);
             fNormalDuration = dur;
             fNormalDots = 0;
+            
+            fDots += NormaliseDuration(fDuration);
         }
         
         // Use this when there is a time modification.
@@ -85,10 +83,12 @@ namespace IMUSANT
         void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots)
         {
             fDuration=dur;
-            fDots=dots,
+            fDots=dots;
             fTimeModification=timemod;
             fNormalDuration = normal_dur;
             fNormalDots = normal_dots;
+            
+            fDots += NormaliseDuration(fDuration);
         }
 
         
@@ -104,28 +104,28 @@ namespace IMUSANT
         static TRational	xmlv1(const string str);
         static TRational	xmlv3(const string str);
         
-        TRational		fDuration;
-        long            fDots;
-        TRational       fTimeModification;
-        TRational       fNormalDuration;    //the duration subject to fTimeModification
-        long            fNormalDots;
+        TRational           fDuration;
+        long                fDots;
+        TRational           fTimeModification;
+        TRational           fNormalDuration;    //the duration subject to fTimeModification
+        long                fNormalDots;
         
         
         static TRational unmeasured;
-        static TRational maxima; // 8  - asAbsoluteNumeric = 8192
-        static TRational longa; // 4 -  - asAbsoluteNumeric =  4096
-        static TRational breve; // 2  - asAbsoluteNumeric = 2048
-        static TRational semibreve; // 1 =  - asAbsoluteNumeric = 1024
-        static TRational minim; // 1/2  - asAbsoluteNumeric = 512
-        static TRational crochet; // 1/4 -  - asAbsoluteNumeric = 256
-        static TRational quaver; // 8th  - asAbsoluteNumeric = 128
-        static TRational semiquaver; //16th  - asAbsoluteNumeric = 64
-        static TRational demisemiquaver; //32nd  - asAbsoluteNumeric = 32
-        static TRational hemidemisemiquaver; // 64th  - asAbsoluteNumeric = 16
-        static TRational hundredandtwentyeighth;  // 128th  - asAbsoluteNumeric = 8
-        static TRational twofiftysixth; // 256th - asAbsoluteNumeric = 4
-        static TRational fivetwelfth; // 512th  - asAbsoluteNumeric =  2
-        static TRational oneohtwofourth; // 1024th - asAbsoluteNumeric = 1
+        static TRational maxima;                // 8  - asAbsoluteNumeric = 8192
+        static TRational longa;                 // 4 -  - asAbsoluteNumeric =  4096
+        static TRational breve;                 // 2  - asAbsoluteNumeric = 2048
+        static TRational semibreve;             // 1 =  - asAbsoluteNumeric = 1024
+        static TRational minim;                 // 1/2  - asAbsoluteNumeric = 512
+        static TRational crochet;               // 1/4 -  - asAbsoluteNumeric = 256
+        static TRational quaver;                // 8th  - asAbsoluteNumeric = 128
+        static TRational semiquaver;            // 16th  - asAbsoluteNumeric = 64
+        static TRational demisemiquaver;        // 32nd  - asAbsoluteNumeric = 32
+        static TRational hemidemisemiquaver;    // 64th  - asAbsoluteNumeric = 16
+        static TRational hundredandtwentyeighth;// 128th  - asAbsoluteNumeric = 8
+        static TRational twofiftysixth;         // 256th - asAbsoluteNumeric = 4
+        static TRational fivetwelfth;           // 512th  - asAbsoluteNumeric =  2
+        static TRational oneohtwofourth;        // 1024th - asAbsoluteNumeric = 1
         
         // We multiply the fractional representations of the duration by this value to normalise the values
         // to use a base of 1 for the smallest possible note value.  The smallest note we support is a 1024th.

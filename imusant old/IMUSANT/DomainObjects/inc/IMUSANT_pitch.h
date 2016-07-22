@@ -41,9 +41,10 @@ namespace IMUSANT
             diatonicSteps=7,
             big_undefined =0x4FFFFFFF};
         
-        enum sign {
+        enum inflection {
             double_flat = -2,
             flat = -1,
+            //quarterflat = -0.5, //needs to change series of consts in a struct/class influence to admit quartertones
             natural = 0,
             sharp = 1,
             double_sharp = 2
@@ -77,17 +78,17 @@ namespace IMUSANT
         virtual ~IMUSANT_pitch () {}
         
         void set(type name, unsigned short octave, unsigned short voice,
-                 type ms_note, sign accidental=natural, bool is_chord=false);
+                 type ms_note, inflection accidental=natural, bool is_chord=false);
         
         inline void set(type name, unsigned short octave, unsigned short voice,
-                        sign accidental=natural, bool is_chord=false)
+                        inflection accidental=natural, bool is_chord=false)
         {
             set(name,octave,voice,name,accidental,is_chord);
         }
 
         //getters
         const type		name() const		{ return fName; }
-        const sign      alteration() const	{ return fAlteration; }
+        const inflection getInflection() const	{ return fAlteration; }
         unsigned short 	octave() const		{ return fOctave; }
         const type		ms_name() const		{ return fMSName; }
         bool			in_chord() const	{ return fInChord; }
@@ -99,7 +100,7 @@ namespace IMUSANT
         //setters
         void			setName(const type name) { fName=name; }
         void            setName(const string name) { fName = xml(name); }
-        void			setAlteration(const sign alter) { fAlteration = alter; }
+        void			setAlteration(const inflection alter) { fAlteration = alter; }
         void            setAlteration(const string alter);   // A number of semitones with +ve being sharp and -ve being flat. No validation performed.
         void			setOctave( const unsigned short octave ) { fOctave = octave; }
         void			setOctave( const string octave );
@@ -113,7 +114,7 @@ namespace IMUSANT
         
         IMUSANT_pitch& operator= (const IMUSANT_pitch& pitch)
         {
-            set(pitch.name(), pitch.octave(), pitch.voice(), pitch.ms_name(), pitch.alteration(), pitch.in_chord());
+            set(pitch.name(), pitch.octave(), pitch.voice(), pitch.ms_name(), pitch.getInflection(), pitch.in_chord());
             return *this;
         }
         
@@ -139,12 +140,12 @@ namespace IMUSANT
     private:
         
         //alternative pitch representation calculators
-        enum TPC        CalcTonalPitchClass(type name, sign alt);
+        enum TPC        CalcTonalPitchClass(type name, inflection alt);
         int             CalcPitchClass() const;
         int             CalcMidiKeyNumber() const;
         
         type			fName;
-        sign            fAlteration;
+        inflection      fAlteration;
         unsigned short	fOctave;
         type			fMSName;
         bool			fInChord;

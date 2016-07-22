@@ -1,13 +1,16 @@
 //
 //  IMUSANT_segmented_part_LBDM.cpp
-//  imusant
 //
 //  Created by Derrick Hill on 19/03/2016.
 //
 //  C++ implimentation of Lower Boundary Detection Model as described in
-//  Cambouropoulos, Emilios. 2001. "The Local Boundary Detection Model (LBDM) and its Application in the Study
-//  of Expressive Timing." In Proceedings of the International Computer Music Conference (ICMC'2001) 17-22 September, Havana,
-//  Cuba. International Computer Music Association.
+//  Cambouropoulos, Emilios. 2001.
+//  "The Local Boundary Detection Model (LBDM) and its Application in the
+//   Study of Expressive Timing."
+//  In Proceedings of the International Computer Music Conference (ICMC'2001)
+//  17-22 September, Havana, Cuba.
+//  International Computer Music Association.
+//
 
 
 #include "IMUSANT_segmented_part_LBDM.h"
@@ -80,27 +83,177 @@ namespace IMUSANT
         }
     }
     
+    IMUSANT_consolidated_interval_profile_vector_LBDM
+    IMUSANT_segmented_part_LBDM::
+    getConsolidatedProfiles()
+    {
+        IMUSANT_consolidated_interval_profile_vector_LBDM ret_val;
+        
+        IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
+        
+        for (int index = 0; index < pitch_interval_profile.strength_vector.size(); index++)
+        {
+            IMUSANT_consolidated_interval_profile_LBDM next_row;
+            
+            if (index == 0)
+            {
+                next_row.setStartNote(NULL);
+            }
+            else
+            {
+                next_row.setStartNote(notes[index - 1]);
+            }
+            
+            next_row.setEndNote(notes[index]);
+            next_row.setPitch(pitch_interval_profile.strength_vector[index]);
+            next_row.setIOI(ioi_interval_profile.strength_vector[index]);
+            next_row.setRest(rest_interval_profile.strength_vector[index]);
+            next_row.setWeightedAverage(overall_local_boundary_strength_profile[index]);
+            
+            next_row.isBoundary(isThisASegmentBoundary(index));
+            
+            ret_val.push_back(next_row);
+        }
+        
+        return ret_val;
+    }
+    
+    
+    //
+    // For the calculation of segments we always use the EndNote element of each
+    // IMUSANT_consolidated_interval_profile_LBDM.
+    //
     vector< IMUSANT_segment >
     IMUSANT_segmented_part_LBDM::
     getSegments()
     {
-        // REVISIT - assuming that calculateOverallLocalBoundaryStrengthVector() has already been called
-
-        float last_value = 0;
-        cout << *this;
-        for (int index = 0; index < overall_local_boundary_strength_profile.size(); index++)
-        {
-            if (overall_local_boundary_strength_profile[index] > last_value * 2.5
-                &&
-                overall_local_boundary_strength_profile[index] > overall_local_boundary_strength_profile[index + 1])   // REVISIT - the +1 is an out of bounds error.
-            {
-                cout << "CANDIDATE: " << overall_local_boundary_strength_profile[index] << endl;
-            }
-            last_value = overall_local_boundary_strength_profile[index];
-            cout << overall_local_boundary_strength_profile[index] << endl;
-        }
-    
         vector<IMUSANT_segment> ret_val;
+        
+        IMUSANT_consolidated_interval_profile_vector_LBDM profiles_with_boundaries = getConsolidatedProfiles();
+        
+        for (int index = 0; index < profiles_with_boundaries.size(); )
+        {
+            IMUSANT_segment next_segment;
+            bool segment_end=false;
+            
+            while (! segment_end)
+            {
+                next_segment.push_back(profiles_with_boundaries[index].getEndNote());
+            
+                if (index == profiles_with_boundaries.size() - 1 ||  profiles_with_boundaries[index+1].isBoundary())
+                {
+                    ret_val.push_back(next_segment);
+                    segment_end = true;
+                }
+                
+                index++;
+            }
+        }
+        
+        return ret_val;
+    }
+    
+    vector< int >
+    IMUSANT_segmented_part_LBDM::
+    getSegmentBoundaries()
+    {
+        // REVISIT - assuming that calculateOverallLocalBoundaryStrengthVector() has already been called
+        
+        vector<int> ret_val;
+        int next_start_index = 0;
+        
+        while (next_start_index < overall_local_boundary_strength_profile.size())
+        {
+            int new_boundary_index = findNextSegmentBoundary(next_start_index);
+            
+            ret_val.push_back(new_boundary_index);
+            next_start_index = new_boundary_index + 1;
+        }
+        
+        return ret_val;
+    }
+    
+    int
+    IMUSANT_segmented_part_LBDM::
+    findNextSegmentBoundary(int start_index)
+    {
+        // Examine the values N positions either side of start_index.
+        // If they are all less than the value at start_index, then start_index identifies a segment boundary.
+        
+        bool found = false;
+        int boundary_index = start_index;
+        
+        while (boundary_index < overall_local_boundary_strength_profile.size() && !found)
+        {
+            if (isThisASegmentBoundary(boundary_index))
+            {
+                found = true;
+            }
+            else
+            {
+                boundary_index++;
+            }
+        }
+        return boundary_index;
+    }
+    
+    bool
+    IMUSANT_segmented_part_LBDM::
+    isThisASegmentBoundary(int strength_profile_index_position) const
+    {
+        int span = SEGMENT_BOUNDARY_CALCULATION_SPAN;
+        
+        int num_previous_positions_to_examine = getArrayPositionsWithoutOverflowingLowerBound(strength_profile_index_position, span);
+        int num_succeeding_positions_to_examine = getArrayPositionsWithoutOverflowingUpperBound(strength_profile_index_position, span);
+        
+        //
+        bool result = true;
+        
+        for (int index = num_previous_positions_to_examine; index > 0; index--)
+        {
+            if (overall_local_boundary_strength_profile[strength_profile_index_position] < overall_local_boundary_strength_profile[strength_profile_index_position - index])
+            {
+                result = false;
+            }
+        }
+        
+        for (int index = num_succeeding_positions_to_examine; index > 0 ; index--)
+        {
+            if (overall_local_boundary_strength_profile[strength_profile_index_position] < overall_local_boundary_strength_profile[strength_profile_index_position + index])
+            {
+                result = false;
+            }
+        }
+        
+        return result;
+    }
+    
+    int
+    IMUSANT_segmented_part_LBDM::
+    getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const
+    {
+        // make sure we don't overrun the start of the array going backwards;
+        int ret_val = (index_position >= span) ? span : index_position;
+        return ret_val;
+    }
+    
+    int
+    IMUSANT_segmented_part_LBDM::
+    getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const
+    {
+        // make sure we don't overrun the end of the array going forwards;
+        int ret_val;
+        int array_upper_bound = (int) overall_local_boundary_strength_profile.size() - 1;
+        
+        if (array_upper_bound - index_position > span)
+        {
+            ret_val = span;
+        }
+        else
+        {
+           ret_val = array_upper_bound - index_position;
+        }
+        
         return ret_val;
     }
     
@@ -111,6 +264,7 @@ namespace IMUSANT
 #define FILL_NOTE left << setw(NOTE_WIDTH) << setfill(SEPARATOR)
 #define FILL_DATA right << setw(DATA_WIDTH) << setfill(SEPARATOR) << std::setprecision(2) << std::fixed           // Set the number of decimal places in the putput.
     
+
     ostream&
     operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part)
     {
@@ -127,7 +281,7 @@ namespace IMUSANT
     
     string
     IMUSANT_segmented_part_LBDM::
-    print(bool include_notes) const
+    print(bool include_notes, bool include_boundaries) const
     {
         IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
         
@@ -165,8 +319,14 @@ namespace IMUSANT
             << FILL_DATA << rest_interval_profile.strength_vector[index] << ","
             << FILL_DATA << overall_local_boundary_strength_profile[index]
             << "},"
-            << FILL_DATA << "// " << index
-            << endl;
+            << FILL_DATA << "// " << index;
+            
+            if (include_boundaries && isThisASegmentBoundary(index))
+            {
+                ret_val << FILL_DATA << "BOUNDARY";
+            }
+            
+            ret_val << endl;
         }
         
         ret_val << "}" << endl;

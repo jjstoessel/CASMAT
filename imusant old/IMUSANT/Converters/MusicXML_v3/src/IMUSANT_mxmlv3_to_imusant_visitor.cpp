@@ -97,9 +97,24 @@ namespace IMUSANT
         S_IMUSANT_part part = new_IMUSANT_part();
         fCurrentPart = part;
         
+        fNumberOfInstraumentsInPart = 0;
+        
         part->setID(elt->getAttributeValue("id"));
         
         fImusantScore->addPart(part);
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_score_instrument & elt)
+    {
+        debug("S_score_instrument - NOT IMPLEMENTED YET");
+        fNumberOfInstraumentsInPart++;
+        
+        if (fNumberOfInstraumentsInPart > 1)
+        {
+            throw "NOT IMPLEMENTED - We only support one instrument per part in IMUSANT_mxmlv3_to_imusant_visitor::visitStart(S_score_instrument).";
+        }
     }
     
     void
@@ -514,7 +529,7 @@ namespace IMUSANT
                           fCurrentNoteTimeModification,
                           fCurrentNormalNoteDurationType,
                           fCurrentNormalNumberofDotsOnNote);
-            fCurrentNote->setDuration(duration);
+            fCurrentNote->setDuration(*duration);
             
             // We ignore cue notes and don't add them to the current measure.
             // This is a bit fugly but it avoids having to add this guard into
@@ -718,7 +733,7 @@ namespace IMUSANT
     visitEnd( S_pitch& elt)
     {
         debug("S_pitch end");
-        fCurrentNote->setPitch(fCurrentPitch);
+        fCurrentNote->setPitch(*fCurrentPitch);
         fCurrentNote->setType(IMUSANT_NoteType::pitch);
         fInPitchElement = false;
     }
@@ -820,7 +835,7 @@ namespace IMUSANT
         S_IMUSANT_accidental accidental = new_IMUSANT_accidental();
         accidental->setAccident(accident);
         
-        fCurrentNote->setAccidental(accidental);
+        fCurrentNote->setAccidental(*accidental);
     }
     
     void

@@ -29,53 +29,55 @@ using namespace ns_suffixtree;
 namespace CATSMAT
 {
     
-CATSMAT_collection_visitor::CATSMAT_collection_visitor()
-{
-}
+    CATSMAT_collection_visitor::CATSMAT_collection_visitor() : fCPMatrix(NULL)
+    {
+        
+    }
 
-#pragma mark IMUSANT_chord handler
-void CATSMAT_collection_visitor::visit ( S_IMUSANT_chord& elt )
-{
-    cerr << "Chord is currently not handled in CATSMAT_collection_visitor." << endl;
-    
-    IMUSANT_collection_visitor::visit(elt);
-}
-
-
-#pragma mark IMUSANT_measure handler
-void CATSMAT_collection_visitor::visit ( S_IMUSANT_measure& elt )
-{
-    fCPMatrix->set(elt->getTime());
-    
-	IMUSANT_collection_visitor::visit(elt);
-}
-
-#pragma mark IMUSANT_note handler
-
-void CATSMAT_collection_visitor::visit ( S_IMUSANT_note& elt )
-{
-    fCPMatrix->add(*elt);
-
-	IMUSANT_collection_visitor::visit(elt);
-}
-    
-#pragma mark IMUSANT_part handler
-void CATSMAT_collection_visitor::visit ( S_IMUSANT_part& elt )
-{
-    fCPMatrix->addpart();
-	
-    IMUSANT_collection_visitor::visit(elt);
-}
+    #pragma mark IMUSANT_chord handler
+    void CATSMAT_collection_visitor::visit ( S_IMUSANT_chord& elt )
+    {
+        cerr << "Chord is currently not handled in CATSMAT_collection_visitor." << endl;
+        
+        IMUSANT_collection_visitor::visit(elt);
+    }
 
 
-#pragma mark IMUSANT_score handler
-void CATSMAT_collection_visitor::visit ( S_IMUSANT_score& elt )
-{
-    fCPMatrix = CATSMAT::new_CATSMAT_cp_matrix();
-    
-    IMUSANT_collection_visitor::visit(elt);
-    
-}
+    #pragma mark IMUSANT_measure handler
+    void CATSMAT_collection_visitor::visit ( S_IMUSANT_measure& elt )
+    {
+        fCPMatrix->set(elt->getTime());
+        
+        IMUSANT_collection_visitor::visit(elt);
+    }
+
+    #pragma mark IMUSANT_note handler
+
+    void CATSMAT_collection_visitor::visit ( S_IMUSANT_note& elt )
+    {
+        fCPMatrix->add(*elt);
+
+        IMUSANT_collection_visitor::visit(elt);
+    }
+        
+    #pragma mark IMUSANT_part handler
+    void CATSMAT_collection_visitor::visit ( S_IMUSANT_part& elt )
+    {
+        fCPMatrix->addpart();
+        
+        IMUSANT_collection_visitor::visit(elt);
+    }
+
+
+    #pragma mark IMUSANT_score handler
+    void CATSMAT_collection_visitor::visit ( S_IMUSANT_score& elt )
+    {
+        if (fCPMatrix==NULL)
+        {
+            fCPMatrix = CATSMAT::new_CATSMAT_cp_matrix();
+            IMUSANT_collection_visitor::visit(elt);
+        }
+    }
 
 
 } //namespace CATSMAT

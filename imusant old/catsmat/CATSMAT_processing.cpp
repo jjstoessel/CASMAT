@@ -13,9 +13,9 @@
 
 #include "CATSMAT_processing.hpp"
 
-// #include "CATSMAT_dyad_sequences.hpp"
+#include "CATSMAT_dyad_sequences.hpp"
 // #include "CATSMAT_dyadtuple_sequences.hpp"
-// #include "CATSMAT_sonority_sequences.hpp"
+#include "CATSMAT_sonority_sequences.hpp"
 
 using namespace std;
 using namespace boost;
@@ -27,7 +27,21 @@ namespace CATSMAT
     CATSMAT_processing::
     find_repeated_dyad_sequences(int min)
     {
-        
+        for (auto score : this->getScores())
+        {
+            CATSMAT_collection_visitor  score_to_matrix_translator;
+            CATSMAT_dyad_sequences      dyads;
+            
+            if (score!=NULL)
+            {
+                (*score).accept(score_to_matrix_translator);
+                score_to_matrix_translator.getCPMatrix()->Accept(dyads);
+                
+                cout << "Repeated dyad sequences in " << (*score).getMovementTitle() << endl;
+                dyads.find_repeated(min);
+            }
+            
+        }
     }
     
     void
@@ -41,7 +55,22 @@ namespace CATSMAT
     CATSMAT_processing::
     find_repeated_sonority_sequences(int min)
     {
-        
+        for (auto score : this->getScores())
+        {
+            CATSMAT_collection_visitor      score_to_matrix_translator;
+            CATSMAT_sonority_sequences      sonorities;
+            
+            if (score!=NULL)
+            {
+                (*score).accept(score_to_matrix_translator);
+                score_to_matrix_translator.getCPMatrix()->Accept(sonorities);
+                
+                cout << "Repeated dyad sequences in " << (*score).getMovementTitle() << endl;
+                sonorities.find_repeated(min);
+            }
+            
+        }
+
     }
     
 } //namespace CATSMAT

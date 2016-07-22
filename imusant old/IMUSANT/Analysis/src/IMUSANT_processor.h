@@ -29,9 +29,9 @@ namespace IMUSANT
     {
     public:
         
-        IMUSANT_processor() {}
+        IMUSANT_processor() : mTreePtr(NULL) {}
         ~IMUSANT_processor() { if (mTreePtr!=NULL) delete mTreePtr; }
-    
+
         virtual void    Visit(const IMUSANT_processing&) = 0;
         
         typedef suffixtree< vector<T> >  _tree;
