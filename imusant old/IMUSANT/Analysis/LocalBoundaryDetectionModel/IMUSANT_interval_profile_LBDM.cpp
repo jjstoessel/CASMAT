@@ -150,7 +150,7 @@ namespace IMUSANT
         profile_vector[index] = 0;
         S_IMUSANT_pitch pitch = notes[index]->pitch();
         
-        if (pitch != NULL)
+        if (pitch->name() != IMUSANT_pitch::undefined)
         {
             int midi_key_number = pitch->getMidiKeyNumber();
             profile_vector[index] = midi_key_number;

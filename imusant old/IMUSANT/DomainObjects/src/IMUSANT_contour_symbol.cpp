@@ -93,11 +93,12 @@ IMUSANT_contour_symbol::IMUSANT_contour_symbol(const S_IMUSANT_pitch first, cons
 }
 //record note locations that form interval
 void
-IMUSANT_contour_symbol::setLocation(long partID, long startMeasure, long startNoteIndex, long endMeasure, long endNoteIndex)
+IMUSANT_contour_symbol::setLocation(long startPartID, long startMeasure, long startNoteIndex, long endPartID, long endMeasure, long endNoteIndex)
 {
-	fLocation.partID = partID,partID;
+	fLocation.first.partID = startPartID;
 	fLocation.first.measure = startMeasure;
 	fLocation.first.note_index = startNoteIndex;
+    fLocation.last.partID = endPartID;
 	fLocation.last.measure = endMeasure;
 	fLocation.last.note_index = endNoteIndex;
 }

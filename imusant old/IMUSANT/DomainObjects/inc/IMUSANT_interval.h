@@ -34,14 +34,16 @@ namespace IMUSANT
         {
             long measure;
             long note_index;
+            long partID;
         } location;
         
         IMUSANT_range()
-        { partID=0;  first.measure=0; first.note_index=0; last.measure=0; last.note_index = 0; }
+        { first.partID=0; last.partID=0; first.measure=0; first.note_index=0; last.measure=0; last.note_index = 0; }
         
         const IMUSANT_range& operator=( const IMUSANT_range& rhs )
         {
-            partID=rhs.partID;
+            first.partID=rhs.last.partID;
+            last.partID=rhs.last.partID;
             first.measure=rhs.first.measure; first.note_index=rhs.first.note_index;
             last.measure=rhs.last.measure; last.note_index = rhs.last.note_index;  return *this;
         }
@@ -50,7 +52,7 @@ namespace IMUSANT
         
         location first;
         location last;
-        long partID;
+        //long partID;
     };
     
     class IMUSANT_interval : public smartable
@@ -107,8 +109,8 @@ namespace IMUSANT
                          IMUSANT_pitch::type p2,
                          int octave1,
                          int octave2,
-                         IMUSANT_pitch::sign alteration1 = IMUSANT_pitch::natural,
-                         IMUSANT_pitch::sign alteration2 = IMUSANT_pitch::natural);
+                         IMUSANT_pitch::inflection alteration1 = IMUSANT_pitch::natural,
+                         IMUSANT_pitch::inflection alteration2 = IMUSANT_pitch::natural);
         virtual ~IMUSANT_interval() {}
         
         //getters and setters
@@ -125,8 +127,8 @@ namespace IMUSANT
         void                setInterval(interval_type interval) { fInterval=interval; }
         void                setOctaves(int oct) { fOctaves=oct; }
         void                setDirection(direction dir) { fDirection=dir; }
-        void				setLocation(long partID, long startMeasure,
-                                        long startNoteIndex, long endMeasure, long endNoteIndex);
+        void				setLocation(long startPartID, long startMeasure,long startNoteIndex,
+                                        long endPartID, long endMeasure, long endNoteIndex);
         
         //tests if compound
         bool                iscompound() const { return fOctaves > 0; }

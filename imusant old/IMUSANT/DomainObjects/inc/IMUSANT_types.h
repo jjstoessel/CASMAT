@@ -49,7 +49,7 @@ namespace IMUSANT
     public:
         enum accident
         {
-            undefined = 0,
+            none = 0,
             sharp=1, natural, flat, double_sharp, sharp_sharp, flat_flat,
             natural_sharp, natural_flat, quarter_flat, quarter_sharp,
             three_quarters_flat, three_quarters_sharp,
@@ -77,14 +77,22 @@ namespace IMUSANT
         
         //! convert an MusicXML string to a numeric accidental type
         static accident		xml(const string str);
-        
-        static accident		AlterToAccident(signed short alter);
+        static accident		AlterToAccident(IMUSANT_pitch::inflection alter);
         
         void print(ostream& os) const;
         
+        const IMUSANT_accidental& operator= (const IMUSANT_accidental& rhs)
+        {
+            fAccident = rhs.fAccident;
+            fCautionary = rhs.fCautionary;
+            fEditorial = rhs.fEditorial;
+            fCancelling = rhs.fCancelling;
+            return *this;
+        }
+        
     protected:
         IMUSANT_accidental() :
-            fAccident(undefined),
+            fAccident(none),
             fCautionary(IMUSANT_YesNo::undefined),
             fEditorial(IMUSANT_YesNo::undefined),
             fCancelling(IMUSANT_YesNo::undefined)

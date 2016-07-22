@@ -48,11 +48,7 @@ namespace IMUSANT
         
         virtual ~IMUSANT_duration() {}
         
-        const IMUSANT_duration& operator= (const IMUSANT_duration& dur)
-        {
-            this->set(dur.fDuration, dur.fDots,dur.fTimeModification, dur.fNormalDuration, dur.fNormalDots);
-            return *this;
-        }
+        const IMUSANT_duration& operator= (const IMUSANT_duration& dur);
         
         bool                operator!= (const IMUSANT_duration& dur) const;
         bool                operator== (const IMUSANT_duration& dur) const;
@@ -73,10 +69,12 @@ namespace IMUSANT
         void set(TRational dur, long dots)
         {
             fDuration = dur;
-            fDots = dots,
+            fDots = dots;
             fTimeModification = TRational(1,1);
             fNormalDuration = dur;
             fNormalDots = 0;
+            
+            fDots += NormaliseDuration(fDuration);
         }
         
         // Use this when there is a time modification.
@@ -85,10 +83,12 @@ namespace IMUSANT
         void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots)
         {
             fDuration=dur;
-            fDots=dots,
+            fDots=dots;
             fTimeModification=timemod;
             fNormalDuration = normal_dur;
             fNormalDots = normal_dots;
+            
+            fDots += NormaliseDuration(fDuration);
         }
 
         

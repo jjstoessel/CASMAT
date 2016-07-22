@@ -72,7 +72,7 @@ namespace IMUSANT
     //name and alteration must be set.
     enum IMUSANT_pitch::TPC
     IMUSANT_pitch::
-    CalcTonalPitchClass(type name, sign alt)
+    CalcTonalPitchClass(type name, inflection alt)
     {
         TPC tpc = tpcUndefined;
        
@@ -123,7 +123,7 @@ namespace IMUSANT
     }
     
     
-    void IMUSANT_pitch::set(type name, unsigned short octave, unsigned short voice, type ms_note, sign alteration,
+    void IMUSANT_pitch::set(type name, unsigned short octave, unsigned short voice, type ms_note, inflection alteration,
                             bool inChord)
     {
         fName = name;
@@ -139,7 +139,7 @@ namespace IMUSANT
     setAlteration(const string alter)
     {
         // We are just assuming that the input string is a valid number.
-        sign alteration = (sign)atoi(alter.c_str());
+        inflection alteration = (inflection)atoi(alter.c_str());
         if (alteration == 0 && alter.compare("0") != 0)
         {
             throw "IMUSANT_pitch::setAlteration() - Unexpected value for alter.  Expected a number of semitones received " + alter;
@@ -182,7 +182,7 @@ namespace IMUSANT
             &&
             fName == pitch.name())
         {
-            if (fAlteration > pitch.alteration())  // this note is the same note name and octave, but is sharper.
+            if (fAlteration > pitch.fAlteration)  // this note is the same note name and octave, but is sharper.
             {
                 gt = true;
             }
@@ -196,7 +196,7 @@ namespace IMUSANT
     {
         return
         fName==pitch.name() &&
-        fAlteration==pitch.alteration() &&
+        fAlteration==pitch.fAlteration &&
         fOctave==pitch.octave();
         //set other pitch representations
     }

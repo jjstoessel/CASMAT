@@ -53,8 +53,8 @@ protected:
                              IMUSANT_pitch::type p2,
                              int octave1,
                              int octave2,
-                             IMUSANT_pitch::sign alteration1 = IMUSANT_pitch::natural,
-                             IMUSANT_pitch::sign alteration2 = IMUSANT_pitch::natural)
+                             IMUSANT_pitch::inflection alteration1 = IMUSANT_pitch::natural,
+                             IMUSANT_pitch::inflection alteration2 = IMUSANT_pitch::natural)
     {
 //        S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
 //        S_IMUSANT_pitch pitch2 = new_IMUSANT_pitch();

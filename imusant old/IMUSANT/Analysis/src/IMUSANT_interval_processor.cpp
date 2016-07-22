@@ -140,7 +140,7 @@ namespace IMUSANT {
                 IMUSANT_interval interval = intervals[substring_iter->second];
                 IMUSANT_range range = interval.getLocation();
                 repeated_interval_substring.add_occurrence(substring_iter->first,
-                                                           range.partID,
+                                                           range.first.partID,
                                                            range.first.measure,
                                                            range.first.note_index );
                 
@@ -254,11 +254,11 @@ namespace IMUSANT {
                             if (!first_loc_set)
                             {
                                 repeated_interval_substring.add_occurrence(i->first,
-                                                                           loc1.partID,
+                                                                           loc1.first.partID,
                                                                            loc1.first.measure,
                                                                            loc1.first.note_index );
                                 repeated_interval_substring.add_occurrence(j->first,
-                                                                           loc2.partID,
+                                                                           loc2.first.partID,
                                                                            loc2.first.measure,
                                                                            loc2.first.note_index );
                                 first_loc_set = true;
@@ -271,11 +271,11 @@ namespace IMUSANT {
                         if (!first_loc_set)
                         {
                             repeated_interval_substring.add_occurrence(i->first,
-                                                                       loc1.partID,
+                                                                       loc1.first.partID,
                                                                        loc1.first.measure,
                                                                        loc1.first.note_index );
                             repeated_interval_substring.add_occurrence(j->first,
-                                                                       loc2.partID,
+                                                                       loc2.first.partID,
                                                                        loc2.first.measure,
                                                                        loc2.first.note_index );
                             first_loc_set = true;

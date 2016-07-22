@@ -103,11 +103,11 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 			{
 				//exact interval storage
 				IMUSANT_interval interval(fLastNote->pitch(), elt->pitch());
-				interval.setLocation(fCurrentPartID, fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
+				interval.setLocation(fCurrentPartID, fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), fCurrentPartID, elt->getMeasureNum(), elt->getNoteIndex());
                 fCurrentIntervalVector->add(interval);
 				//contour symbol storage
 				IMUSANT_contour_symbol symbol(fLastNote->pitch(), elt->pitch());
-				symbol.setLocation(fCurrentPartID,fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), elt->getMeasureNum(), elt->getNoteIndex());
+				symbol.setLocation(fCurrentPartID,fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), fCurrentPartID, elt->getMeasureNum(), elt->getNoteIndex());
                 fCurrentMelodicContour->push_back(symbol);
 			}
 		}

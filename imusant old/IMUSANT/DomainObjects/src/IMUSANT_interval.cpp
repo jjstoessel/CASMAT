@@ -82,7 +82,7 @@ namespace IMUSANT
     
     ostream& operator<<( ostream& os, const IMUSANT_range& range )
     {
-        os << range.partID << ", " << range.first.measure << "." << range.first.note_index << "–" << range.last.measure << "." << range.last.note_index ;
+        os << range.first.partID << ", " << range.first.measure << "." << range.first.note_index << "–" << range.last.partID << range.last.measure << "." << range.last.note_index ;
         //(range.partID.first==range.partID.second ? range.partID.first : (cout << range.partID.first << " & " << range.partID.second))
         return os;
     }
@@ -203,8 +203,8 @@ namespace IMUSANT
                                        IMUSANT_pitch::type p2,
                                        int octave1,
                                        int octave2,
-                                       IMUSANT_pitch::sign alteration1,
-                                       IMUSANT_pitch::sign alteration2)
+                                       IMUSANT_pitch::inflection alteration1,
+                                       IMUSANT_pitch::inflection alteration2)
     {
         S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
         S_IMUSANT_pitch pitch2 = new_IMUSANT_pitch();
@@ -220,9 +220,10 @@ namespace IMUSANT
     
     //record note locations that form interval
     void
-    IMUSANT_interval::setLocation(long partID, long startMeasure, long startNoteIndex, long endMeasure, long endNoteIndex)
+    IMUSANT_interval::setLocation(long startPartID, long startMeasure, long startNoteIndex, long endPartID, long endMeasure, long endNoteIndex)
     {
-        fLocation.partID = partID;
+        fLocation.first.partID = startPartID;
+        fLocation.last.partID = endPartID;
         fLocation.first.measure = startMeasure;
         fLocation.first.note_index = startNoteIndex;
         fLocation.last.measure = endMeasure;

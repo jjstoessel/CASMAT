@@ -73,7 +73,7 @@ namespace IMUSANT {
                 IMUSANT_contour_symbol symbol = mID_vec_map[mc_c->first][mc_c->second];
                 IMUSANT_range range=symbol.getLocation();
                 repeated_contour_substring.add_occurrence( mc_c->first,
-                                                          range.partID,
+                                                          range.first.partID,
                                                           range.first.measure,
                                                           range.first.note_index );
                 

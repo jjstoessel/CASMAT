@@ -72,6 +72,7 @@ namespace CATSMAT
                             interval.setLocation(i,
                                                  chord_notes[j]->getMeasureNum(),
                                                  chord_notes[j]->getNoteIndex(),
+                                                 j,
                                                  chord_notes[i]->getMeasureNum(),
                                                  chord_notes[i]->getNoteIndex());
                             
@@ -107,7 +108,7 @@ namespace CATSMAT
                 map<int, interval_tree::value_type > m = tree->get_sentences();
                 interval_tree::value_type int_v = m[1];
                 
-                cout << "duet: " << int_v[0].getLocation().partID << endl;
+                cout << "duet: " << int_v[0].getLocation().first.partID << "-" << int_v[0].getLocation().last.partID << endl;
                 
                 for (auto j=results->begin(); j!=results->end(); j++)
                 {

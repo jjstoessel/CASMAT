@@ -42,31 +42,15 @@ namespace IMUSANT
         
         VEXP friend IMUSANT_SMARTP<IMUSANT_note> new_IMUSANT_note();
         
-        IMUSANT_note()
-        :
-        fTieNext(NULL),
-        fTiePrevious(NULL),
-        fStyle(IMUSANT_NoteStyle::normal),
-        fType(IMUSANT_NoteType::pitch),
-        fVoice(-1)
-        {}
+        IMUSANT_note();
+        IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration );
+        IMUSANT_note(const IMUSANT_note& note);
         
-        IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration )
-        :
-        fPitch(pitch),
-        fDuration(duration),
-        fTieNext(NULL),
-        fTiePrevious(NULL),
-        fStyle(IMUSANT_NoteStyle::normal),
-        fType(IMUSANT_NoteType::pitch),
-        fVoice(-1)
-        {}
+        ~IMUSANT_note();
         
-        virtual ~IMUSANT_note(){}
-        
-        void setPitch( const S_IMUSANT_pitch pitch ) { fPitch = pitch; }
-        void setDuration( const S_IMUSANT_duration dur ) { fDuration = dur; }
-        void setAccidental( const S_IMUSANT_accidental acc ) { fAccidental = acc; }
+        void setPitch( const IMUSANT_pitch& pitch ) { *fPitch = pitch; }
+        void setDuration( const IMUSANT_duration& dur ) { *fDuration = dur; }
+        void setAccidental( const IMUSANT_accidental& acc ) { *fAccidental = acc; }
         void setMeasureNum (const long measureNum) { fMeasureNumber = measureNum; }
         void setNoteIndex (const long noteIndex) { fNoteIndex = noteIndex; }
         void setNextTieNote (const S_IMUSANT_note& next);
@@ -82,7 +66,7 @@ namespace IMUSANT
         const IMUSANT_NoteType::type	getType() const { return fType; }
         const S_IMUSANT_note&	getNextTieNote() const { return fTieNext; }
         const S_IMUSANT_note&	getPreviousTieNote() const { return fTiePrevious; }
-        const int getVoice() { return fVoice; }
+        const int getVoice() const { return fVoice; }
         
         void addLyric(const S_IMUSANT_lyric lyric) { fLyrics.push_back(lyric); }
         
@@ -103,13 +87,14 @@ namespace IMUSANT
         friend ostream& operator<< (ostream& os, const S_IMUSANT_note& elt );
         
         IMUSANT_vector<S_IMUSANT_lyric>		lyrics() const { return fLyrics; }
-        const S_IMUSANT_pitch&		pitch() const { return fPitch; }
-        const S_IMUSANT_duration&	duration() const  { return fDuration; }
-        const S_IMUSANT_accidental&	accidental() const { return fAccidental; }
+        const S_IMUSANT_pitch		pitch() const { return fPitch; }
+        const S_IMUSANT_duration	duration() const  { return fDuration; }
+        const S_IMUSANT_accidental	accidental() const { return fAccidental; }
         const IMUSANT_duration		durationWithTies() const; //returns duration plus tied notes
         const IMUSANT_duration		getPreviousTiedDurations() const; //gets duration of all notes tied previously
         const IMUSANT_duration		getNextTiedDurations() const; //get duration of all notes tied next
         
+        IMUSANT_note& operator= (const IMUSANT_note& rhs);
         bool operator== (const IMUSANT_note& note) const;
         bool operator< (const IMUSANT_note& note) const;
         
@@ -117,6 +102,8 @@ namespace IMUSANT
 
         
     private:
+        
+        void    initialize();
         
         S_IMUSANT_pitch                 fPitch;
         S_IMUSANT_duration              fDuration;

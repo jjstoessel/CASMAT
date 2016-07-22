@@ -26,6 +26,11 @@ const std::string FindRepeatedIntervalSubstrings_Dichterliebe01_Expected = "maj3
 const std::string FindRepeatedIntervalSubstrings_simple_test_1_Expected =
     "[ min2 \\  maj2 \\  maj2 \\  maj2   maj2   min2   ] (MVT: 3, VCE: 3, MES: 5, IDX: 1) (MVT: 2, VCE: 2, MES: 3, IDX: 1) (MVT: 1, VCE: 1, MES: 1, IDX: 1) \n\n[ maj2 \\  maj2   maj2   min2   ] (MVT: 3, VCE: 3, MES: 5, IDX: 3) (MVT: 2, VCE: 2, MES: 3, IDX: 3) (MVT: 1, VCE: 1, MES: 1, IDX: 3) \n\n[ maj2 \\  maj2 \\  maj2   maj2   min2   ] (MVT: 3, VCE: 3, MES: 5, IDX: 2) (MVT: 2, VCE: 2, MES: 3, IDX: 2) (MVT: 1, VCE: 1, MES: 1, IDX: 2) \n\n\n";
 
+const std::string FindLCSPairsIntervals_simple_test_1_Expected =
+    "[ min2 \\  maj2 \\  maj2 \\  maj2   maj2   ] (MVT: 1, VCE: 1, MES: 1, IDX: 1) (MVT: 2, VCE: 2, MES: 3, IDX: 1) \n\n[ min2 \\  maj2 \\  maj2 \\  maj2   maj2   ] (MVT: 1, VCE: 1, MES: 1, IDX: 1) (MVT: 3, VCE: 3, MES: 5, IDX: 1) \n\n[ min2 \\  maj2 \\  maj2 \\  maj2   maj2   ] (MVT: 2, VCE: 2, MES: 3, IDX: 1) (MVT: 3, VCE: 3, MES: 5, IDX: 1) \n\n\n";
+
+const std::string FindLCSPairsPitches_simple_test_1_Expected = "[ C0@5 B0@4 A0@4 G0@4 A0@4 B0@4 C0@5 ] \n\n[ C0@5 B0@4 A0@4 G0@4 A0@4 B0@4 C0@5 ] \n\n[ C0@5 B0@4 A0@4 G0@4 A0@4 B0@4 C0@5 ] \n\n\n";
+
 const std::string FindRepeatedContourSubstrings_simple_test_1_Expected = "[ -s -s -s s s s ] (MVT: 3, VCE: 3, MES: 5, IDX: 1) (MVT: 2, VCE: 2, MES: 3, IDX: 1) (MVT: 1, VCE: 1, MES: 1, IDX: 1) \n\n[ -s -s s s s ] (MVT: 3, VCE: 3, MES: 5, IDX: 2) (MVT: 2, VCE: 2, MES: 3, IDX: 2) (MVT: 1, VCE: 1, MES: 1, IDX: 2) \n\n\n";
 
 
