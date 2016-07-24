@@ -14,9 +14,9 @@ namespace IMUSANT
     
     struct MusicXML3_ElementNotImplemented : public std::exception
     {
-        const char * what ()
+        const char * what () const _NOEXCEPT
         {
-            return "This MusicXML v3 element has not been implemented.";
+            return "You are trying to use a MusicXML v3 element that has not been implemented.";
         }
     };
     

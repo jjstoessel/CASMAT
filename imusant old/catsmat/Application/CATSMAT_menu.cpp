@@ -86,40 +86,49 @@ addFilesToAnalyse(CATSMAT_processing *processor)
         cin >> selectedMenuItem;
         cin.ignore();
         
-        switch (selectedMenuItem)
+        try
         {
-            case '1':
-                addUserSpecifiedFile(processor);
-                finished = false;
-                break;
-                
-            case '2':
-                addFilesFromUserSpecifiedDirectory(processor);
-                finished = false;
-                break;
-                
-            case '3':
-                addFilesFromFixedConfigFile(processor);
-                finished = false;
-                break;
-                
-            case '4':
-                addFilesFromUserSelectedConfigurationFile(processor);
-                finished = false;
-                break;
-                
-            case '8':
-                listWorksAndMovementsAddedSoFar(processor);
-                finished = false;
-                break;
-                
-            case '9':
-                finished = true;
-                break;
-                
-            default:
-                cout << "Invalid selection. Please select a valid menu item." ;
-                finished = false;
+            switch (selectedMenuItem)
+            {
+                case '1':
+                    addUserSpecifiedFile(processor);
+                    finished = false;
+                    break;
+                    
+                case '2':
+                    addFilesFromUserSpecifiedDirectory(processor);
+                    finished = false;
+                    break;
+                    
+                case '3':
+                    addFilesFromFixedConfigFile(processor);
+                    finished = false;
+                    break;
+                    
+                case '4':
+                    addFilesFromUserSelectedConfigurationFile(processor);
+                    finished = false;
+                    break;
+                    
+                case '8':
+                    listWorksAndMovementsAddedSoFar(processor);
+                    finished = false;
+                    break;
+                    
+                case '9':
+                    finished = true;
+                    break;
+                    
+                default:
+                    cout << "Invalid selection. Please select a valid menu item." ;
+                    finished = false;
+            }
+        }
+        catch (std::exception& e)
+        {
+            finished = false;
+            cout << "Unexpected problem: " << e.what() << endl;
+            cout << "Have another go..." << endl << endl;
         }
     }
 }
