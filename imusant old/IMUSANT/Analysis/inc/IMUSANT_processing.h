@@ -53,7 +53,7 @@ namespace IMUSANT
     
     struct MusicXML1FormatException : public std::exception
     {
-        const char * what ()
+        const char * what () const _NOEXCEPT
         {
             return "Invalid file format - MusicXML 1 files should be converted to MusicXML 3 for processing.";
         }
@@ -61,7 +61,7 @@ namespace IMUSANT
     
     struct UnknownFormatException : public std::exception
     {
-        const char * what ()
+        const char * what () const _NOEXCEPT
         {
             return "Unrecognised file format.";
         }
