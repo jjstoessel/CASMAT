@@ -651,7 +651,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, ExpectingAnException_ScoreInstru
     {
         _test_utils->initialiseScoreFromFile("MusicXMLv3.xmlsamples/Telemann.xml");
     }
-    catch (string s)
+    catch (IMUSANT::MusicXML3_ElementNotImplemented& e)
     {
         exception_occurred = true;
     }

@@ -550,6 +550,7 @@
 		1EDE2F1E1B3E763900DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures_WithQuaverPassingNotes.mscz; sourceTree = "<group>"; };
 		1EDE2F201B3E7CC900DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz; sourceTree = "<group>"; };
 		1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.xml; sourceTree = "<group>"; };
+		1EE7EAD11D44582C00F3D342 /* IMUSANT_mxmlv3_exceptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMUSANT_mxmlv3_exceptions.h; sourceTree = "<group>"; };
 		491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_part_LBDM_Tests.cpp; path = IMUSANT_Tests/Analysis/IMUSANT_segmented_part_LBDM_Tests.cpp; sourceTree = "<group>"; };
 		49394E831CDD7EB400EC7D84 /* LBDM_Segmented_Part_Test_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBDM_Segmented_Part_Test_2.xml; sourceTree = "<group>"; };
 		49394E861CDD83CC00EC7D84 /* LBDM_Segmented_Part_Test_3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBDM_Segmented_Part_Test_3.xml; sourceTree = "<group>"; };
@@ -1399,6 +1400,7 @@
 			isa = PBXGroup;
 			children = (
 				1E5218B51BAD029200FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.h */,
+				1EE7EAD11D44582C00F3D342 /* IMUSANT_mxmlv3_exceptions.h */,
 			);
 			name = inc;
 			sourceTree = "<group>";

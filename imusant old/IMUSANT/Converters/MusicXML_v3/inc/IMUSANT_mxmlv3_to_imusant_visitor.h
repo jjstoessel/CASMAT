@@ -27,6 +27,7 @@
 #include "IMUSANT_note.h"
 #include "IMUSANT_barline.h"
 #include "IMUSANT_chord.h"
+#include "IMUSANT_mxmlv3_exceptions.h"
 
 #include "IMUSANT_converters_shared_types.h"
 
@@ -215,8 +216,9 @@ namespace IMUSANT
         S_IMUSANT_lyric     fCurrentLyric;
         bool                fInPitchElement = false;
         S_IMUSANT_pitch     fCurrentPitch;
-        int                 fNumberOfInstraumentsInPart = 0;
+        int                 fNumberOfInstrumentsInPart = 0;
     };
+    
 }
 
 
