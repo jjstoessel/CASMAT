@@ -55,7 +55,7 @@ namespace IMUSANT
     {
         const char * what ()
         {
-            return "Invalid file format - MusicXML 1 files shound be converted to MusicXML 3 for processing.";
+            return "Invalid file format - MusicXML 1 files should be converted to MusicXML 3 for processing.";
         }
     };
     
