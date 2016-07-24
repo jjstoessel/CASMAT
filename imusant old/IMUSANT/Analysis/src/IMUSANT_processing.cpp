@@ -95,7 +95,7 @@ namespace IMUSANT
         switch (file_format)
         {
             case musicxml1:
-                cerr << mxml1ex.what() << endl;
+              //  cerr << mxml1ex.what() << endl;
                 throw mxml1ex;
                 break;
                 
@@ -104,12 +104,12 @@ namespace IMUSANT
                 break;
                 
             case unknown:
-                cerr << uknownex.what() << endl;
+             //   cerr << uknownex.what() << endl;
                 throw uknownex;
                 break;
                 
             default:
-                cerr << uknownex.what() << endl;
+             //   cerr << uknownex.what() << endl;
                 throw uknownex;
                 break;
                 
@@ -220,6 +220,7 @@ namespace IMUSANT
         catch (std::exception& e)
         {
             cerr << "exception occurred " << e.what() << endl;
+            throw e;
         }
         
         return return_val;
