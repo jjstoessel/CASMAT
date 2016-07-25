@@ -27,7 +27,8 @@ namespace IMUSANT {
         
         string          findAndPrintRepeatedContourSubstrings(int min_length=5);
         SUBSTR_VECTOR   findRepeatedContourSubstrings(int min_length=5);
-        void            findSupermaximalsContours(int min_length, int min_percent);
+        string          findAndPrintSupermaximalContours(int min_length, int min_percent);
+        SUBSTR_VECTOR   findSupermaximalsContours(int min_length, int min_percent);
         
     private:
         

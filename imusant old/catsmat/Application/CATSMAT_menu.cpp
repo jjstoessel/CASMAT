@@ -181,6 +181,7 @@ runToolsMenu(CATSMAT_processing* processor)
         cin >> tool;
         switch (tool)
         {
+            //IMUSANT analysis tools
             //Find and print repeated interval substrings
             case 'A':
             case 'a':
@@ -201,13 +202,13 @@ runToolsMenu(CATSMAT_processing* processor)
             case 'C':
             case 'c':
                 ip.Visit(*processor);
-                cout << ip.findAndPrintSuperMaximalIntervals(4,100); //length and percent need to be inputs
+                cout << ip.findAndPrintSupermaximalIntervals(4,100); //length and percent need to be inputs
                 break;
             //Find contour supermaximals
             case 'D':
             case 'd':
                 cp.Visit(*processor);
-                cp.findSupermaximalsContours(4,100);
+                cout << cp.findAndPrintSupermaximalContours(4,100);
                 break;
             //Find longest common intervallic subsequence in all pairs
             case 'E':
@@ -262,14 +263,16 @@ runToolsMenu(CATSMAT_processing* processor)
                 cp.Visit(*processor);
                 pp.Visit(*processor);
 
-                ip.findRepeatedIntervalSubstrings();
-                cp.findRepeatedContourSubstrings();
-                ip.findSupermaximalsIntervals(4,100);
-                cp.findSupermaximalsContours(4,100);
-                ip.findLcsPairsIntervals(false);
-                pp.findLcsPairsPitches(false);
-                ip.findLcsPairsIntervals(false, true);
+                cout << ip.findAndPrintRepeatedIntervalSubstrings();
+                cout << cp.findAndPrintRepeatedContourSubstrings();
+                cout << ip.findAndPrintSupermaximalIntervals(4,100);
+                cout << cp.findAndPrintSupermaximalContours(4,100);
+                cout << ip.findAndPrintLcsPairsIntervals(false);
+                cout << pp.findAndPrintLcsPairsPitches(false);
+                cout << ip.findAndPrintLcsPairsIntervals(false, true);
                 break;
+            
+            //CATSMAT Analysis tools
             //Find repeated dyad sequences
             case 'J':
             case 'j':

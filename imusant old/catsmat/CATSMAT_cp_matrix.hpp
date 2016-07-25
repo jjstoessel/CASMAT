@@ -38,8 +38,8 @@ namespace CATSMAT {
         friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_cp_matrix();
         friend  ostream& operator<< (ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
         
-        bool    addpart();
-        bool	add(const IMUSANT_note& note);
+        void    addpart();
+        void	add(const IMUSANT_note& note);
         void    set(const IMUSANT_time& time) { fCurrentTime = time; }
         void	clear() { fCPMatrix.clear(); }
         
@@ -56,7 +56,7 @@ namespace CATSMAT {
         
     private:
         
-        bool            insert(const IMUSANT_note& note);
+        void            insert(const IMUSANT_note& note);
         void            split(const IMUSANT_note& note);
         IMUSANT_note    distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note = NULL);
 

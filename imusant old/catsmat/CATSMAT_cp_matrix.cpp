@@ -56,7 +56,7 @@ namespace CATSMAT
             (visitor)::visit ( S_IMUSANT_part& elt )
      
      */
-    bool CATSMAT_cp_matrix::addpart()
+    void CATSMAT_cp_matrix::addpart()
     {
         //if a part already exists, create an empty part/row for each "chord" vector<IMUSANT_note>
         //In the case of the first part, the matrix grows by pushing a one-dimensional vector<IMUSANT_note>
@@ -73,8 +73,6 @@ namespace CATSMAT
         }
         
         fCurrentChord = fCPMatrix.begin();
-        
-        return true;
     }
 
     /*!
@@ -83,7 +81,7 @@ namespace CATSMAT
         Adds a note to the current part
      
      */
-    bool	CATSMAT_cp_matrix::add(const IMUSANT_note& note)
+    void	CATSMAT_cp_matrix::add(const IMUSANT_note& note)
     {
         if (fCurrentPart==0) // there are no parts added yet
         {
@@ -100,8 +98,6 @@ namespace CATSMAT
         {
             insert(note);
         }
-        
-        return true;
     }
 
     /*!
@@ -110,10 +106,8 @@ namespace CATSMAT
         Inserts a note into the next chord (and following ones)
      
      */
-    bool    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
+    void    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
     {
-        bool inserted = false;
-        
         assert(fCurrentChord!= fCPMatrix.end());
 
         //call to distribute note and return remainder; if note duration less than current chord duration
@@ -121,14 +115,12 @@ namespace CATSMAT
         IMUSANT_note remainder = distribute(note);
         if (remainder.duration()->fDuration != IMUSANT_duration::unmeasured)
             split(remainder);
-        
-        return inserted;
     }
 
     /*!
         \brief CATSMAT_cp_matrix::distribute
 
-        A recursive function to distribute a longer note over the following durations;
+        A recursive function to distribute a longer note over smaller durations in existing parts/chords;
         returns remainder as IMUSANT_note, which is also the "split note" if the duration is shorter
         than the current chord duration
     */
@@ -167,7 +159,7 @@ namespace CATSMAT
             
             if (dur->fDuration!=IMUSANT_duration::unmeasured && fCurrentChord!=fCPMatrix.end())
             {
-                distribute(remainder, part_note);
+                remainder = distribute(remainder, part_note);
             }
             
         }
