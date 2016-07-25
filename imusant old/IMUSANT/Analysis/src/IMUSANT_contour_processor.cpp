@@ -2,11 +2,12 @@
 //  IMUSANT_contour_processor.cpp
 //  
 //
-//  Created by Jason James Stoessel on 13/06/2016.
+//  Created by Jason Stoessel on 13/06/2016.
 //
 //
 
 #include "IMUSANT_contour_processor.h"
+#include "repeats.h"
 
 namespace IMUSANT {
     
@@ -107,10 +108,57 @@ namespace IMUSANT {
         return tree;
     }
     
-    void
+    string
+    IMUSANT_contour_processor::
+    findAndPrintSupermaximalContours(int min_length, int min_percent)
+    {
+        SUBSTR_VECTOR the_result;
+        the_result = findSupermaximalsContours(min_length, min_percent);
+        
+        stringstream the_result_as_stringstream;
+        for(int index = 0 ; index < the_result.size(); index++)
+        {
+            the_result_as_stringstream << the_result[index];
+        }
+        
+        the_result_as_stringstream << endl;
+        
+        return the_result_as_stringstream.str();
+    }
+
+    
+    IMUSANT_contour_processor::SUBSTR_VECTOR
     IMUSANT_contour_processor::
     findSupermaximalsContours(int min_length, int min_percent)
     {
+        SUBSTR_VECTOR ret_val;
+        
+        if (mTreePtr==NULL || mID_vec_map.empty())
+        {
+            return ret_val;
+        }
+        
+        repeats<vector<IMUSANT_contour_symbol> > rep(mTreePtr);
+        list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
+        //MEMO auto = list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*>::const_iterator
+        for (auto q = supermaxs.begin(); q!=supermaxs.end(); q++)
+        {
+            IMUSANT_repeated_contour_substring repeated_substr;
+            
+            for (repeats<vector<IMUSANT_contour_symbol> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
+            {
+                repeated_substr.sequence.push_back(*t);
+            }
+            
+            repeated_substr.add_occurrence( 0,
+                                           (*q)->num_witness,
+                                           (*q)->num_leaves,
+                                           (*q)->percent );
+            ret_val.push_back(repeated_substr);
+        }
+        
+        return ret_val;
+    }
         //        if (IDs.size()>0)
         //        {
         //            contour_tree cont_tree(*(collection_visitors[*IDs.begin()].getMelodicContour()),*IDs.begin());
@@ -133,6 +181,7 @@ namespace IMUSANT {
         //                cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
         //            }
         //        }
-    }
 
-}
+    
+
+} // namespace IMUSTAN

@@ -290,10 +290,10 @@ namespace IMUSANT {
     
     string
     IMUSANT_interval_processor::
-    findAndPrintSuperMaximalIntervals(int min_length, int min_percent)
+    findAndPrintSupermaximalIntervals(int min_length, int min_percent)
     {
         SUBSTR_VECTOR the_result;
-        the_result = findSupermaximalsIntervals(min_length, min_percent);
+        the_result = findSupermaximalIntervals(min_length, min_percent);
         
         stringstream the_result_as_stringstream;
         for(int index = 0 ; index < the_result.size(); index++)
@@ -308,7 +308,7 @@ namespace IMUSANT {
     
     IMUSANT_interval_processor::SUBSTR_VECTOR
     IMUSANT_interval_processor::
-    findSupermaximalsIntervals(int min_length, int min_percent)
+    findSupermaximalIntervals(int min_length, int min_percent)
     {
         vector<IMUSANT_repeated_interval_substring> ret_val;
 
