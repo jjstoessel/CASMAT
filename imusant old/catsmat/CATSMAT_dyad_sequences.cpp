@@ -70,11 +70,11 @@ namespace CATSMAT
                             IMUSANT_interval interval(chord_notes[j]->pitch(), chord_notes[i]->pitch());
                             
                             interval.setLocation(i,
-                                                 chord_notes[j]->getMeasureNum(),
-                                                 chord_notes[j]->getNoteIndex(),
-                                                 j,
                                                  chord_notes[i]->getMeasureNum(),
-                                                 chord_notes[i]->getNoteIndex());
+                                                 chord_notes[i]->getNoteIndex(),
+                                                 j,
+                                                 chord_notes[j]->getMeasureNum(),
+                                                 chord_notes[j]->getNoteIndex());
                             
                             //only insert interval if not a repeated interval
                             if (!(chord_notes[i]->isTiedPrevious() && chord_notes[j]->isTiedPrevious())
