@@ -230,7 +230,8 @@ namespace IMUSANT
         }
         else
         {
-            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitEnd( S_clef &elt) - Expected fCurrentMeasure to be set but it is null.";
+            MusicXML3_UnexpectedElement e("In S_clef - Expected fCurrentMeasure to be set but it is null");
+            throw e;
         }
     }
     
@@ -377,7 +378,8 @@ namespace IMUSANT
         }
         else
         {
-            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_fifths& elt) - Expected to be in Key element.";
+            MusicXML3_UnexpectedElement e("In S_fifths - Expected to be in Key element");
+            throw e;
         }
     }
     
@@ -394,7 +396,8 @@ namespace IMUSANT
         }
         else
         {
-            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_mode& elt) - Expected to be in Key element.";
+            MusicXML3_UnexpectedElement e("In S_mode, expected to be in Key element.");
+            throw e;
         }
     }
     
@@ -435,7 +438,8 @@ namespace IMUSANT
         }
         else
         {
-            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_beats& elt) - Expected to be in Time element.";
+            MusicXML3_UnexpectedElement e("In S_beats, expected to be in Time element.");
+            throw e;
         }
     }
     
@@ -453,7 +457,8 @@ namespace IMUSANT
         }
         else
         {
-            throw "IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_beat_type& elt) - Expected to be in Time element.";
+            MusicXML3_UnexpectedElement e("In S_beat_type, expected to be in Time element.");
+            throw e;
         }
     }
 
