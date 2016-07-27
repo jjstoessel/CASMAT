@@ -151,7 +151,8 @@ namespace IMUSANT
         
         if (! fImusantScore->getPartById(part_id, fCurrentPart))
         {
-            throw "Unexpected part id in IMUSANT_mxmlv3_to_imusant_visitor::visitStart(S_part). Value is: " + part_id;
+            MusicXML3_UnexpectedElement e("S_part [part_id = " + part_id + "]");
+            throw e;
         }
     }
     
