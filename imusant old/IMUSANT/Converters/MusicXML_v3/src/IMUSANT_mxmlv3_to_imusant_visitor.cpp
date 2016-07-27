@@ -113,11 +113,7 @@ namespace IMUSANT
         
         if (fNumberOfInstrumentsInPart > 1)
         {
-            cerr << "NOT IMPLEMENTED - We only support one instrument per part."  << endl
-                 << "in ......IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_score_instrument & elt)"
-                 << endl;
-            
-            MusicXML3_ElementNotImplemented e;
+            MusicXML3_ElementNotImplemented e("S_score_instrument");
             throw e;
         }
     }
@@ -899,11 +895,7 @@ namespace IMUSANT
     {
         debug("S_transpose");
         
-        cerr << "NOT IMPLEMENTED - Transpose element not supported."  << endl
-             << "in ......IMUSANT_mxmlv3_to_imusant_visitor::visitStart( S_transpose& elt)"
-             << endl;
-        
-        MusicXML3_ElementNotImplemented e;
+        MusicXML3_ElementNotImplemented e("S_transpose");
         throw e;
     }
 }
