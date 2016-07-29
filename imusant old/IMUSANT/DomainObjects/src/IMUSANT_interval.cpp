@@ -23,6 +23,8 @@
 
 #include <stdlib.h>
 
+//#define _USE_GENERIC_INTERVAL_ //A dumb cludge at the moment for using generic interval comparison instead
+
 namespace IMUSANT
 {
     
@@ -540,6 +542,7 @@ namespace IMUSANT
      *  returns: semitones in interval
      *  used by: operator-=, operator+=
      */
+#ifndef _USE_GENERIC_INTERVAL_
     IMUSANT_interval::operator int() const
     {
         int r = 0;
@@ -560,7 +563,25 @@ namespace IMUSANT
         
         return r;
     }
-    
+#elif defined _USE_GENERIC_INTERVAL_   //test only - correct function is above
+    IMUSANT_interval::operator int() const
+    {
+        int r = 0;
+        
+        //no need to handle unisons
+        if (abs(fInterval)>0)
+        {
+            r = getNumber();
+                    
+            if (r<0) //inverted negative intervals
+                    r+=7;
+        }
+        
+        r+=7*fOctaves; //convert to a compound interval
+        
+        return r;
+    }
+#endif
 //    const IMUSANT_interval& IMUSANT_interval::operator=( const int binv )
 //    {
 //        fInterval = int2intervaltype(binv);
