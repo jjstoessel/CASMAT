@@ -536,6 +536,11 @@ namespace IMUSANT
                           fCurrentNormalNumberofDotsOnNote);
             fCurrentNote->setDuration(*duration);
             
+            //Set note type to hidden if "invisible" in the score
+            string printobj = elt->getAttributeValue("print-object");
+            if (printobj=="no") {
+                fCurrentNote->setStyle(IMUSANT_NoteStyle::hidden);
+            }
             // We ignore cue notes and don't add them to the current measure.
             // This is a bit fugly but it avoids having to add this guard into
             // all the sub elements of Note.

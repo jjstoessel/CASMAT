@@ -31,7 +31,7 @@ namespace CATSMAT
     class CATSMAT_dyadtuple_sequences : public CATSMAT_dyad_sequences_base
     {
     public:
-        CATSMAT_dyadtuple_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_dyad_sequences_base(ignoreRepeatedDyads) {}
+        CATSMAT_dyadtuple_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_dyad_sequences_base() {}
         
         void Visit(const CATSMAT_cp_matrix& matrix);
         

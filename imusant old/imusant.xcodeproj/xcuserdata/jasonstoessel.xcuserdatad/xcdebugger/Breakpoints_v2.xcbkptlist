@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_processing.cpp"
-            timestampString = "490160218.333778"
+            timestampString = "491358919.50105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121">
+            startingLineNumber = "125"
+            endingLineNumber = "125">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -517,7 +517,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "209"
             endingLineNumber = "209"
-            landmarkName = "IMUSANT_interval::IMUSANT_interval(IMUSANT_pitch::type p1, IMUSANT_pitch::type p2, int octave1, int octave2, IMUSANT_pitch::sign alteration1, IMUSANT_pitch::sign alteration2)"
+            landmarkName = "IMUSANT_interval::IMUSANT_interval(IMUSANT_pitch::type p1, IMUSANT_pitch::type p2, int octave1, int octave2, IMUSANT_pitch::inflection alteration1, IMUSANT_pitch::inflection alteration2)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -528,11 +528,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/Converters/MusicXML_v3/src/IMUSANT_mxmlv3_to_imusant_visitor.cpp"
-            timestampString = "480481529.792971"
+            timestampString = "491355014.08966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "618"
-            endingLineNumber = "618"
+            startingLineNumber = "623"
+            endingLineNumber = "623"
             landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitStart(S_fermata&amp; elt)"
             landmarkType = "5">
          </BreakpointContent>
@@ -560,11 +560,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/Converters/MusicXML_v3/src/IMUSANT_mxmlv3_to_imusant_visitor.cpp"
-            timestampString = "480481529.792971"
+            timestampString = "491355014.08966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "641"
-            endingLineNumber = "641"
+            startingLineNumber = "646"
+            endingLineNumber = "646"
             landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitStart(S_type&amp; elt)"
             landmarkType = "5">
             <Locations>
@@ -999,22 +999,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_dyad_sequences.cpp"
-            timestampString = "490517107.403486"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "CATSMAT_dyad_sequences::process(const list&lt;S_CATSMAT_chord&gt;&amp; matrix)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_dyadtuple_sequences.cpp"
             timestampString = "486799143.349631"
             startingColumnNumber = "9223372036854775807"
@@ -1058,12 +1042,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/Application/CATSMAT_menu.cpp"
-            timestampString = "491119540.982492"
+            timestampString = "491358919.50105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "CATSMAT_menu:: addUserSpecifiedFile(CATSMAT_processing *processor)"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1079,7 +1063,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
             endingLineNumber = "32"
-            landmarkName = "CATSMAT_processing:: find_repeated_dyad_sequences(int min)"
+            landmarkName = "CATSMAT_processing:: find_repeated_dyad_sequences(int min, bool ignoreDissonances, bool ignoreRepeatedDyads)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1090,11 +1074,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_dyad_sequences.cpp"
-            timestampString = "490517107.403486"
+            timestampString = "491455226.300534"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "CATSMAT_dyad_sequences::find_repeated(int min)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1106,11 +1090,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/Converters/MusicXML_v3/src/IMUSANT_mxmlv3_to_imusant_visitor.cpp"
-            timestampString = "490515025.918669"
+            timestampString = "491355014.08966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "876"
-            endingLineNumber = "876"
+            startingLineNumber = "881"
+            endingLineNumber = "881"
             landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitStart(S_chord&amp; elt)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1273,6 +1257,38 @@
             endingLineNumber = "149"
             landmarkName = "TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P3)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Converters/MusicXML_v3/src/IMUSANT_mxmlv3_to_imusant_visitor.cpp"
+            timestampString = "491355043.723606"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "542"
+            endingLineNumber = "542"
+            landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitEnd( S_note&amp; elt)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_dyad_sequences.cpp"
+            timestampString = "491455226.300534"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "CATSMAT_dyad_sequences::process(const list&lt;S_CATSMAT_chord&gt;&amp; matrix)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

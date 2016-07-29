@@ -15,10 +15,9 @@ using namespace ns_suffixtree;
 namespace CATSMAT
 {
     
-    CATSMAT_dyad_sequences::CATSMAT_dyad_sequences(bool ignoreRepeatedDyads)
-    : CATSMAT_dyad_sequences_base(ignoreRepeatedDyads)
+    CATSMAT_dyad_sequences::CATSMAT_dyad_sequences()
+        : CATSMAT_dyad_sequences_base()
     {
-        
     }
     
     CATSMAT_dyad_sequences::~CATSMAT_dyad_sequences()
@@ -55,7 +54,8 @@ namespace CATSMAT
     {
         if (!matrix.empty())
         {
-            for (auto chord = matrix.begin(); chord!=matrix.end(); chord++) {
+            for (auto chord = matrix.begin(); chord!=matrix.end(); chord++)
+            {
                 map<int, S_IMUSANT_note>::size_type chord_size = (*(*chord)).size();
                 
                 int dyad_pair = 0;
@@ -65,6 +65,8 @@ namespace CATSMAT
                     for (int j=i; ++j<chord_size; /*nothing here*/)
                     {
                         map<int, S_IMUSANT_note> chord_notes = *(*chord);
+                        
+                        //only insert if there is a dyad present
                         if (chord_notes[i]->getType()!=IMUSANT_NoteType::rest && chord_notes[j]->getType()!=IMUSANT_NoteType::rest)
                         {
                             IMUSANT_interval interval(chord_notes[j]->pitch(), chord_notes[i]->pitch());
@@ -77,15 +79,17 @@ namespace CATSMAT
                                                  chord_notes[j]->getNoteIndex());
                             
                             //only insert interval if not a repeated interval
-                            if (!(chord_notes[i]->isTiedPrevious() && chord_notes[j]->isTiedPrevious())
-                                &&
-                                (interval.getQuality()!=IMUSANT_interval::dissonant))
+                            if (
+                                !(chord_notes[i]->isTiedPrevious() && chord_notes[j]->isTiedPrevious()) &&
+                                !((interval.getQuality()==IMUSANT_interval::dissonant) && (fIgnoreDissonances==true))
+                                )
                             {
                                 fVIntervalVector[dyad_pair]->add(interval);
                             }
                         }
-                        dyad_pair++;
+                        dyad_pair++; //complete iteration through one pair of voices
                     }
+                   
                 }
                 
                 fSaveI = dyad_pair;
@@ -93,7 +97,17 @@ namespace CATSMAT
         }
     }
     
-    
+    /*
+     \brief CATSMAT_dyad_sequences::find_repeated
+     
+     Takes a list of chords (from CPMatrix)
+     1. Finds all repeated sequences of dyads between each voice pair
+     2. Prints all repeated sequences of dyads
+     
+     To do:
+     Convert into two functions: find and return list of repeated sequences; print list.
+     
+     */
     void
     CATSMAT_dyad_sequences::find_repeated(int min)
     {
@@ -130,7 +144,14 @@ namespace CATSMAT
         }
     }
     
-    //private recursive function - needs to be templated
+    /*
+     \brief CATSMAT_dyad_sequences::find_repeated
+     
+     Private recursive function for finding related sequences in a interval suffix tree
+     
+     To do: needs to be templated
+    
+     */
     void
     CATSMAT_dyad_sequences::find_repeated_substrings(vector< pair<interval_tree::size_type,
                                                      interval_tree::size_type> >& results,

@@ -57,7 +57,7 @@ namespace CATSMAT
     public:
         typedef suffixtree< vector<sonority> > int_tree;
         
-        CATSMAT_sonority_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_dyad_sequences_base(ignoreRepeatedDyads) {}
+        CATSMAT_sonority_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_dyad_sequences_base() {}
         
         void Visit(const CATSMAT_cp_matrix& matrix);
         

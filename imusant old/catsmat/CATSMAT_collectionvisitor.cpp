@@ -47,6 +47,7 @@ namespace CATSMAT
     void CATSMAT_collection_visitor::visit ( S_IMUSANT_measure& elt )
     {
         fCPMatrix->set(elt->getTime());
+        fCPMatrix->setMeasureNumber(elt->getMeasureNum());
         
         IMUSANT_collection_visitor::visit(elt);
     }
@@ -55,7 +56,10 @@ namespace CATSMAT
 
     void CATSMAT_collection_visitor::visit ( S_IMUSANT_note& elt )
     {
-        fCPMatrix->add(*elt);
+        //we ignore non-printing objects
+        if (elt->getStyle()!=IMUSANT_NoteStyle::hidden) {
+            fCPMatrix->add(*elt);
+        }
 
         IMUSANT_collection_visitor::visit(elt);
     }

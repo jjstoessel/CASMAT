@@ -38,7 +38,7 @@ namespace CATSMAT
      
      */
     CATSMAT_cp_matrix::CATSMAT_cp_matrix()
-        : fCurrentPart(-1)
+        : fCurrentPart(-1), fCurrentMeasureNumber(NULL)
     {
         
     }

@@ -25,12 +25,16 @@ namespace CATSMAT
     
     void
     CATSMAT_processing::
-    find_repeated_dyad_sequences(int min)
+    find_repeated_dyad_sequences(int min, bool ignoreDissonances, bool ignoreRepeatedDyads)
     {
         for (auto score : this->getScores())
         {
             CATSMAT_collection_visitor  score_to_matrix_translator;
             CATSMAT_dyad_sequences      dyads;
+            
+            //set internal parameters called within search functions
+            dyads.ignoreDissonances(ignoreDissonances);
+            dyads.ignoreRepeatedDyads(ignoreRepeatedDyads);
             
             if (score!=NULL)
             {

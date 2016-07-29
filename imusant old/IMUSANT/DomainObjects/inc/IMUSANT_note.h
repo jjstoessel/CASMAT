@@ -70,8 +70,8 @@ namespace IMUSANT
         
         void addLyric(const S_IMUSANT_lyric lyric) { fLyrics.push_back(lyric); }
         
-        bool isTiedPrevious() const { return fTiePrevious!=0; }
-        bool isTiedNext() const { return fTieNext!=0; }
+        bool isTiedPrevious() const { return fTiePrevious!=NULL; }
+        bool isTiedNext() const { return fTieNext!=NULL; }
         bool isSingle() const { return !(isTiedPrevious() || isTiedNext()); }
         bool isTiedBothSides() const { return (isTiedPrevious() && isTiedNext()); }
         bool isNotNormal() const { return fStyle!=IMUSANT_NoteStyle::normal; }
@@ -114,7 +114,7 @@ namespace IMUSANT
         string                          fStaff;			//staff name
         long                            fMeasureNumber;	//internal measure reference
         long                            fNoteIndex;		//index of note in measure
-        S_IMUSANT_note                  fTieNext;
+        S_IMUSANT_note                  fTieNext = NULL;
         S_IMUSANT_note                  fTiePrevious = NULL;
         IMUSANT_NoteStyle::type         fStyle;
         IMUSANT_NoteType::type          fType;

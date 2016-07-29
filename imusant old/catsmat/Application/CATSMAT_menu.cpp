@@ -176,7 +176,7 @@ runToolsMenu(CATSMAT_processing* processor)
         outputToolsMenu(cout);
         
         char tool, yn;
-        bool continguous = false;
+        bool continguous = false, ignoreDissonances=true, ignoreRepeatedDyads=true;
         int length = 5;
         cin >> tool;
         switch (tool)
@@ -276,9 +276,15 @@ runToolsMenu(CATSMAT_processing* processor)
             //Find repeated dyad sequences
             case 'J':
             case 'j':
+                cout << "Ignore dissonances? (y/n) ";
+                cin >> yn;
+                if (yn == 'n') ignoreDissonances = false;
+                cout << "Ignore repeated dyads? (y/n) ";
+                cin >> yn;
+                if (yn == 'n') ignoreRepeatedDyads = false;
                 cout << "Enter minimum length: ";
                 cin >> length;
-                processor->find_repeated_dyad_sequences(length);
+                processor->find_repeated_dyad_sequences(length, ignoreDissonances, ignoreRepeatedDyads );
                 break;
             //Find repeated dyadtuple sequences
             case 'K':

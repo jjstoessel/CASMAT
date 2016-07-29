@@ -1866,10 +1866,10 @@
      <step>F</step>
      <octave>3</octave>
     </pitch>
-    <duration>256</duration>
+    <duration>512</duration>
     <instrument id="P1-I1" />
     <voice>1</voice>
-    <type>quarter</type>
+    <type>half</type>
     <stem>down</stem>
     <staff>1</staff>
    </note>
@@ -3377,12 +3377,16 @@
   </measure>
   <!--============== Part: P2, Measure: 43 ==============-->
   <measure number="43" width="119">
-   <note default-x="15">
-    <rest />
-    <duration>256</duration>
+   <note print-object="no" default-x="15">
+    <pitch>
+        <step>C</step>
+        <octave>3</octave>
+    </pitch>
+    <duration>512</duration>
     <instrument id="P2-I1" />
     <voice>1</voice>
-    <type>whole</type>
+    <type>half</type>
+    <stem>up</stem>
     <staff>1</staff>
    </note>
    <barline>
@@ -4779,13 +4783,13 @@
    <note print-object="no" color="#000000" default-x="15" default-y="1">
     <cue />
     <pitch>
-     <step>C</step>
-     <octave>3</octave>
+     <step>F</step>
+     <octave>2</octave>
     </pitch>
-    <duration>256</duration>
+    <duration>512</duration>
     <instrument id="P3-I1" />
     <voice>1</voice>
-    <type>quarter</type>
+    <type>half</type>
     <stem>up</stem>
     <staff>1</staff>
    </note>

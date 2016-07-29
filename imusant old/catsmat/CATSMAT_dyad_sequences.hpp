@@ -27,13 +27,16 @@ namespace CATSMAT
     public:
         typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
         
-        CATSMAT_dyad_sequences(bool ignoreRepeatedDyads=true);
+        CATSMAT_dyad_sequences();
         ~CATSMAT_dyad_sequences();
         
         void    Visit(const CATSMAT_cp_matrix& matrix);
         
         void    find_repeated(int min=3);
         void    print(ostream& os) const;
+        
+        void    ignoreRepeatedDyads(bool ignore) { fIgnoreRepeatedDyads = ignore; }
+        void    ignoreDissonances(bool ignore) { fIgnoreDissonances = ignore; }
         
     private:
         
@@ -44,6 +47,8 @@ namespace CATSMAT
         
         vector<S_IMUSANT_interval_vector>   fVIntervalVector;
         long                                fSaveI = 0;
+        bool                                fIgnoreRepeatedDyads = true;
+        bool                                fIgnoreDissonances = true;
     };
     
 } //namespace CATSMAT
