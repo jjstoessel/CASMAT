@@ -141,7 +141,7 @@ find_supermaximals_intervals_by_file(string relative_path_to_test_data_file)
     interval_processor.Visit(*the_processor);
     
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = interval_processor.findSupermaximalsIntervals(4, 100); //parameterise
+    repeated_substrings_result = interval_processor.findSupermaximalIntervals(4, 100); //parameterise
     
     return repeated_substrings_result;
 }
