@@ -240,4 +240,20 @@ namespace IMUSANT
         return midinumber;
     }
     
+    void
+    IMUSANT_pitch::
+    transpose(int diatonic, int chromatic, int octave_change, bool doubled)
+    {
+        
+    }
+    
+    IMUSANT_pitch
+    IMUSANT_pitch::
+    asWritten()
+    {
+        // REVISIT - this doesn't work...
+        return MakeUniquePitch();
+    }
+    
+    
 } //namespace IMUSANT

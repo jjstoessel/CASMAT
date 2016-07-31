@@ -111,6 +111,17 @@ namespace IMUSANT
             fVoice = voice;
         }
         
+        // Transposition.
+        // This class should always be initialised with the written pitch.
+        //
+        // If the transpose() method is called, all subsequent calls to the getters on this class will
+        // return the sounding pitch (accounting for the transposition) rather than the written pitch.
+        //
+        // The asWritten() method returns a pitch with any transposition removed.  The getters will return the
+        // written, rather than sounding pitch.
+        void            transpose(int diatonic, int chromatic, int octave_change, bool doubled = false);
+        IMUSANT_pitch   asWritten();
+        
         
         IMUSANT_pitch& operator= (const IMUSANT_pitch& pitch)
         {

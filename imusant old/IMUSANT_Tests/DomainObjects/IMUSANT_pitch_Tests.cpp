@@ -63,8 +63,6 @@ protected:
     IMUSANT_pitch D4_Sharp;
     IMUSANT_pitch D4_Flat;
     
-private:
-    
     IMUSANT_pitch CreatePitch(IMUSANT_pitch::type note,
                               unsigned short octave,
                               IMUSANT_pitch::inflection alteration)
@@ -77,6 +75,8 @@ private:
         
         return *the_pitch;
     };
+    
+    private:
 };
 
 
@@ -119,4 +119,22 @@ TEST_F(IMUSANT_pitch_Tests, TestMidiKeyNumber)
     ASSERT_TRUE(C5.getMidiKeyNumber()==72);
     ASSERT_TRUE(D4_Sharp.getMidiKeyNumber()==63);
     ASSERT_TRUE(D4_Flat.getMidiKeyNumber()==61);
+}
+
+TEST_F(IMUSANT_pitch_Tests, TestTranspose)
+{
+    IMUSANT_pitch lC4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    lC4.transpose(+2,0,0);
+    
+    ASSERT_EQ(IMUSANT_pitch::type::D, lC4.name());
+    
+}
+
+TEST_F(IMUSANT_pitch_Tests, TestAsWritten)
+{
+    IMUSANT_pitch lC4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    lC4.transpose(2,2,1);
+    
+    IMUSANT_pitch lC4AsWritten = lC4.asWritten();
+    ASSERT_EQ(60, lC4AsWritten.getMidiKeyNumber());
 }
