@@ -109,42 +109,57 @@ namespace IMUSANT
         
         IMUSANT_pitch out;
         
-        out.fOctave = --unique;
+        out.fOctaveAsWritten = unique;
+        out.fOctaveSounding = unique;
+        unique--;
         
         if (big_undefined-unique>FLAGSPACE)
             cerr << "Unique flag limit reached" << endl;
         
         return out;
     }
+    
     //copy ctor
     IMUSANT_pitch::IMUSANT_pitch(const IMUSANT_pitch& copy)
     {
-        this->set(copy.fName, copy.fOctave, copy.fVoice, copy.fMSName, copy.fAlteration, copy.fInChord);
+        this->fTransposeChromatic = copy.fTransposeChromatic;
+        this->fTransposeDiatonic = copy.fTransposeDiatonic;
+        this->fTransposeDoubled = copy.fTransposeDoubled;
+        this->fTransposeOctaveChange = copy.fTransposeOctaveChange;
+        
+        this->set(copy.fNameAsWritten, copy.fOctaveAsWritten, copy.fVoice, copy.fMSNameAsWritten, copy.fAlterationAsWritten, copy.fInChord);
     }
     
     
-    void IMUSANT_pitch::set(type name, unsigned short octave, unsigned short voice, type ms_note, inflection alteration,
+    void IMUSANT_pitch::set(type name_as_written,
+                            unsigned short octave_as_written,
+                            unsigned short voice,
+                            type ms_note_as_written,
+                            inflection alteration_as_written,
                             bool inChord)
     {
-        fName = name;
-        fAlteration = alteration;
-        fOctave = octave;
-        fMSName = name; //ms_note;
+        fNameAsWritten = name_as_written;
+        fAlterationAsWritten = alteration_as_written;
+        fOctaveAsWritten = octave_as_written;
+        fMSNameAsWritten = ms_note_as_written;
         fInChord = inChord;
         fVoice = voice;
+        
+        transpose();
     }
     
     void
     IMUSANT_pitch::
-    setAlteration(const string alter)
+    setAlteration(const string alteration_as_written)
     {
         // We are just assuming that the input string is a valid number.
-        inflection alteration = (inflection)atoi(alter.c_str());
-        if (alteration == 0 && alter.compare("0") != 0)
+        inflection alteration = (inflection)atoi(alteration_as_written.c_str());
+        if (alteration == 0 && alteration_as_written.compare("0") != 0)
         {
-            throw "IMUSANT_pitch::setAlteration() - Unexpected value for alter.  Expected a number of semitones received " + alter;
+            throw "IMUSANT_pitch::setAlteration() - Unexpected value for alter.  Expected a number of semitones received " + alteration_as_written;
         }
-        fAlteration = alteration;
+        fAlterationAsWritten = alteration;
+        transpose();
     }
     
     void
@@ -157,7 +172,8 @@ namespace IMUSANT
         {
             throw "IMUSANT_pitch::setOctave() - Unexpected value for octave.  Expected range 0-9 but received " + octave;
         }
-        fOctave = oct;
+        fOctaveAsWritten = oct;
+        transpose();
     }
     
     bool
@@ -165,24 +181,24 @@ namespace IMUSANT
     {
         bool gt = false;
         
-        if (fOctave > pitch.octave())   // this note is higher because it is in a higher octave.
+        if (octave() > pitch.octave())   // this note is higher because it is in a higher octave.
         {
             gt = true;
         }
        
-        if (fOctave == pitch.octave())
+        if (octave() == pitch.octave())
         {
-            if (fName > pitch.name())   // this note is in the same octave, but is a higher note
+            if (name() > pitch.name())   // this note is in the same octave, but is a higher note
             {
                 gt = true;
             }
         }
         
-        if (fOctave == pitch.octave()
+        if (octave() == pitch.octave()
             &&
-            fName == pitch.name())
+            name() == pitch.name())
         {
-            if (fAlteration > pitch.fAlteration)  // this note is the same note name and octave, but is sharper.
+            if (getInflection() > pitch.getInflection() )  // this note is the same note name and octave, but is sharper.
             {
                 gt = true;
             }
@@ -195,15 +211,16 @@ namespace IMUSANT
     IMUSANT_pitch::operator== (const IMUSANT_pitch& pitch) const
     {
         return
-        fName==pitch.name() &&
-        fAlteration==pitch.fAlteration &&
-        fOctave==pitch.octave();
+            name() == pitch.name() &&
+            getInflection() == pitch.getInflection() &&
+            octave() == pitch.octave();
+        
         //set other pitch representations
     }
     
     void IMUSANT_pitch::print (ostream& os) const
     {
-        os << IMUSANT_pitch::xml(fName) << fAlteration << "@" << fOctave /*<< std::endl*/;
+        os << IMUSANT_pitch::xml(fNameSounding) << fAlterationSounding << "@" << fOctaveSounding /*<< std::endl*/;
     }
     
     //Calculates the Pitch Class number as per traditional pitch class theory, octave agnostic
@@ -213,11 +230,12 @@ namespace IMUSANT
     CalcPitchClass() const
     {
         int pc = -1; //undefined
+        type name = fNameSounding;
         
-        if (fName!=undefined)
+        if (name!=undefined)
         {
-            (fName < 3) ? pc = fName*2 : pc = fName*2 - 1;
-            pc += fAlteration;
+            (name < 3) ? pc = name*2 : pc = name*2 - 1;
+            pc += fAlterationSounding;
             if (pc<0) pc+=12;
         }
         
@@ -233,9 +251,10 @@ namespace IMUSANT
     {
         int midinumber = -1;
         int pc = CalcPitchClass();
+        type name = fNameSounding;
         
-        if (fName!=undefined && pc!=-1) {
-            midinumber = pc + (fOctave+1)*12;
+        if (name!=undefined && pc!=-1) {
+            midinumber = pc + (fOctaveSounding+1)*12;
         }
         return midinumber;
     }
@@ -244,7 +263,21 @@ namespace IMUSANT
     IMUSANT_pitch::
     transpose(int diatonic, int chromatic, int octave_change, bool doubled)
     {
+        // REVISIT - this implementation makes this calss behave as it did before the
+        // introduction of the *AsWritten vs *Sounding data members. It's essentially a
+        // noop.
         
+        fNameSounding = fNameAsWritten;
+        fOctaveSounding = fOctaveAsWritten;
+        fMSNameSounding = fMSNameAsWritten;
+        fAlterationSounding = fAlterationAsWritten;
+    }
+    
+    void
+    IMUSANT_pitch::
+    transpose()
+    {
+        transpose(fTransposeDiatonic, fTransposeChromatic, fTransposeOctaveChange, fTransposeDoubled);
     }
     
     IMUSANT_pitch

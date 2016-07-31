@@ -64,12 +64,16 @@ namespace IMUSANT
         VEXP friend IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
         
         IMUSANT_pitch() :
-            fName(undefined),
-            fMSName(undefined),
-            fOctave(0),
+            fNameSounding(undefined),
+            fNameAsWritten(undefined),
+            fMSNameSounding(undefined),
+            fMSNameAsWritten(undefined),
+            fOctaveSounding(0),
+            fOctaveAsWritten(0),
+            fAlterationSounding(natural),
+            fAlterationAsWritten(natural),
             fInChord(false),
-            fVoice(1),
-            fAlteration(natural)
+            fVoice(1)
         {
         }
         
@@ -77,34 +81,34 @@ namespace IMUSANT
         
         virtual ~IMUSANT_pitch () {}
         
-        void set(type name, unsigned short octave, unsigned short voice,
-                 type ms_note, inflection accidental=natural, bool is_chord=false);
+        void set(type name_as_written, unsigned short octave_as_written, unsigned short voice,
+                 type ms_note_as_written, inflection accidental_as_written=natural, bool is_chord=false);
         
-        inline void set(type name, unsigned short octave, unsigned short voice,
-                        inflection accidental=natural, bool is_chord=false)
+        inline void set(type name_as_written, unsigned short octave_as_written, unsigned short voice,
+                        inflection accidental_as_written=natural, bool is_chord=false)
         {
-            set(name,octave,voice,name,accidental,is_chord);
+            set(name_as_written, octave_as_written, voice, name_as_written, accidental_as_written, is_chord);
         }
 
         //getters
-        const type		name() const		{ return fName; }
-        const inflection getInflection() const	{ return fAlteration; }
-        unsigned short 	octave() const		{ return fOctave; }
-        const type		ms_name() const		{ return fMSName; }
+        const type		name() const		{ return fNameSounding; }
+        const inflection getInflection() const	{ return fAlterationSounding; }
+        unsigned short 	octave() const		{ return fOctaveSounding; }
+        const type		ms_name() const		{ return fMSNameSounding; }
         bool			in_chord() const	{ return fInChord; }
         unsigned short	voice() const       { return fVoice; }
-        int             getTPC()            { return CalcTonalPitchClass(fName, fAlteration); }
+        int             getTPC()            { return CalcTonalPitchClass(fNameSounding, fAlterationSounding); }
         int             getPC() const       { return CalcPitchClass(); }         //returns pitch class
         int             getMidiKeyNumber() const { return CalcMidiKeyNumber(); }   //returns midi key number
         
         //setters
-        void			setName(const type name) { fName=name; }
-        void            setName(const string name) { fName = xml(name); }
-        void			setAlteration(const inflection alter) { fAlteration = alter; }
-        void            setAlteration(const string alter);   // A number of semitones with +ve being sharp and -ve being flat. No validation performed.
-        void			setOctave( const unsigned short octave ) { fOctave = octave; }
-        void			setOctave( const string octave );
-        void			setMSName( const type msName ) { fMSName = msName; }
+        void			setName(const type name_as_written) { fNameAsWritten = name_as_written; transpose(); }
+        void            setName(const string name_as_written) { fNameAsWritten = xml(name_as_written); transpose(); }
+        void			setAlteration(const inflection alteration_as_written) { fAlterationAsWritten = alteration_as_written; transpose(); }
+        void            setAlteration(const string alteration_as_written);   // A number of semitones with +ve being sharp and -ve being flat. No validation performed.
+        void			setOctave( const unsigned short octave_as_written ) { fOctaveAsWritten = octave_as_written; transpose(); }
+        void			setOctave( const string octave_as_written );
+        void			setMSName( const type msName_as_written ) { fMSNameAsWritten = msName_as_written; transpose();}
         void			setInChord (const bool inChord) { fInChord = inChord; }
         void			setVoice( const unsigned short voice )
         {
@@ -155,13 +159,24 @@ namespace IMUSANT
         int             CalcPitchClass() const;
         int             CalcMidiKeyNumber() const;
         
-        type			fName;
-        inflection      fAlteration;
-        unsigned short	fOctave;
-        type			fMSName;
+        void transpose();
+        int fTransposeDiatonic;
+        int fTransposeChromatic;
+        int fTransposeOctaveChange;
+        bool fTransposeDoubled;
+        
+        type			fNameSounding;
+        inflection      fAlterationSounding;
+        unsigned short	fOctaveSounding;
+        type			fMSNameSounding;
+        
+        type			fNameAsWritten;
+        inflection      fAlterationAsWritten;
+        unsigned short	fOctaveAsWritten;
+        type			fMSNameAsWritten;
+       
         bool			fInChord;
         unsigned short	fVoice;
-       
         
         static bimap<string, type> fPitch2String;
         static type 	fPitchTbl[];
