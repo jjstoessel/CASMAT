@@ -296,7 +296,6 @@ TEST_F(IMUSANT_processing_Tests, findSupermaximalsIntervals_simple_test_1)
 TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
 {
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
     repeated_substrings_result = find_lcs_pairs_intervals_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
     
     //find_lcs_pairs_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml", false, true); // REMOVE TO SEPARATE TEST
@@ -309,10 +308,12 @@ TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
         actual_output << repeated_substrings_result[index];
     }
     actual_output << endl;
+    
 #ifdef VERBOSE
     cout << IMUSANT_repeated_interval_substring::output_operator_help();
     cout << actual_output.str();
 #endif
+    
     ASSERT_EQ(FindLCSPairsIntervals_simple_test_1_Expected, actual_output.str());
 }
 
