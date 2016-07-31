@@ -70,7 +70,8 @@ namespace IMUSANT
                     }
                     catch (std::exception& e)
                     {
-                        cerr << "Error Adding file to processor.  Skipping " << full_path.string() << endl << "Exception :" << e.what() << endl;
+                        cerr << "Error Adding file to processor.  Skipping " << *iter << endl
+                             << "Exception: " << e.what() << endl;
                     }
                 }
             }
@@ -90,13 +91,17 @@ namespace IMUSANT
         
         S_IMUSANT_score ret_val;
         MusicXML1FormatException mxml1ex;
+        MusicXML2FormatException mxml2ex;
         UnknownFormatException uknownex;
         
         switch (file_format)
         {
             case musicxml1:
-              //  cerr << mxml1ex.what() << endl;
                 throw mxml1ex;
+                break;
+                
+            case musicxml2:
+                throw mxml2ex;
                 break;
                 
             case musicxml3:
@@ -104,12 +109,10 @@ namespace IMUSANT
                 break;
                 
             case unknown:
-             //   cerr << uknownex.what() << endl;
                 throw uknownex;
                 break;
                 
             default:
-             //   cerr << uknownex.what() << endl;
                 throw uknownex;
                 break;
                 
@@ -188,6 +191,7 @@ namespace IMUSANT
             
             const string xml_1_0 = "DTD MusicXML 1.0";
             const string xml_1_1 = "DTD MusicXML 1.1";
+            const string xml_2 = "DTD MusicXML 2.0";
             const string xml_3 = "DTD MusicXML 3.0";
             
             bool found = false;
@@ -206,6 +210,11 @@ namespace IMUSANT
                 {
                     found = true;
                     return_val = musicxml1;
+                }
+                else if (next_line.find(xml_2) != string::npos)
+                {
+                    found = true;
+                    return_val = musicxml2;
                 }
                 else if (next_line.find(xml_3) != string::npos)
                 {

@@ -251,6 +251,8 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
     vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
     repeated_substrings_result = find_repeated_substrings_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
 
+    ASSERT_EQ(3, repeated_substrings_result.size()) << "Unexpected number of substrings";
+    
     stringstream actual_output;
     
     for(int index = 0 ; index < repeated_substrings_result.size(); index++)
@@ -263,8 +265,8 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
     cout << IMUSANT_repeated_interval_substring::output_operator_help();
     cout << actual_output.str();
 #endif
-    
-    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
+
+   ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
 }
 
 TEST_F(IMUSANT_processing_Tests, findSupermaximalsIntervals_simple_test_1)
@@ -289,29 +291,6 @@ TEST_F(IMUSANT_processing_Tests, findSupermaximalsIntervals_simple_test_1)
     //ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
     
     ASSERT_FALSE(true) << "Deliberately failing this test. Needs implementation.";
-}
-
-
-TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_from_v1_directory)
-{
-//    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-//    repeated_substrings_result = find_repeated_substrings_by_directory("MusicXMLv1.simple_test_data");
-//    
-//    ASSERT_EQ(48, repeated_substrings_result.size());
-//    
-//    stringstream actual_output;
-//    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
-//    {
-//        actual_output << repeated_substrings_result[index];
-//    }
-//    
-//    actual_output << endl;
-    
-    //    cout << actual_output.str();
-    //    cout << FindRepeatedIntervalSubstrings_RefactorTest_Expected;
-    
-    //ASSERT_EQ(FindRepeatedIntervalSubstrings_RefactorTest_Expected, actual_output.str()); //use this one
-    //ASSERT_TRUE(false) << "Deliberatly failing this test.  See D-01025 in VersionOne.";
 }
 
 TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
@@ -370,8 +349,6 @@ TEST_F(IMUSANT_processing_Tests, exception_when_adding_music_xml_v1_file)
     bool expected_exception_caught = false;
     MusicXML1FormatException expected_ex;     //  = *new MusicXML1FormatException();
     string expected_what(expected_ex.what());
-    
-    cout << "Ignore following output unless this test fails..." << endl;
     
     try
     {

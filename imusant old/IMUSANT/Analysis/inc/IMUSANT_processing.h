@@ -42,7 +42,7 @@ namespace IMUSANT
         COLLECTIONMAP collection_visitors;
         void createCollectionVisitorForScore(const S_IMUSANT_score score);
 
-        enum music_file_format {musicxml1, musicxml3, mei, unknown};
+        enum music_file_format {musicxml1, musicxml2, musicxml3, mei, unknown};
         music_file_format decideFileType(const filesystem::path& path);
         S_IMUSANT_score processMusicxml1File(const filesystem::path& path);
         S_IMUSANT_score processMusicxml3File(const filesystem::path& path);
@@ -58,7 +58,15 @@ namespace IMUSANT
             return "Invalid file format - MusicXML 1 files should be converted to MusicXML 3 for processing.";
         }
     };
-    
+
+    struct MusicXML2FormatException : public std::exception
+    {
+        const char * what () const _NOEXCEPT
+        {
+            return "Invalid file format - MusicXML 2 files should be converted to MusicXML 3 for processing.";
+        }
+    };
+
     struct UnknownFormatException : public std::exception
     {
         const char * what () const _NOEXCEPT
