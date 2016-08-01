@@ -121,13 +121,49 @@ TEST_F(IMUSANT_pitch_Tests, TestMidiKeyNumber)
     ASSERT_TRUE(D4_Flat.getMidiKeyNumber()==61);
 }
 
-TEST_F(IMUSANT_pitch_Tests, TestTranspose)
+TEST_F(IMUSANT_pitch_Tests, TestTransposeOneOctave)
 {
-    IMUSANT_pitch lC4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-    lC4.transpose(+2,0,0);
+    IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    pitch.transpose(0, 0, 0, false);
     
-    ASSERT_EQ(IMUSANT_pitch::type::D, lC4.name());
+    ASSERT_EQ(60, pitch.getMidiKeyNumber());
     
+    pitch.transpose(0, 0, +1, false);
+    ASSERT_EQ(72, pitch.getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition by one octave.";
+    ASSERT_EQ(IMUSANT_pitch::type::C, pitch.name()) << "Unexpected Name after transposition by one octave.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch.getInflection()) << "Unexpected Inflection after transposition by one octave.";
+    ASSERT_EQ(5, pitch.octave()) << "Unexpected Octave after transposition by one octave.";
+    ASSERT_EQ(IMUSANT_pitch::TPC::tpcC, pitch.getTPC()) << "Unexpected TPC after transposition by one octave.";
+    ASSERT_EQ(0, pitch.getPC()) << "Unexpected PC after transposition by one octave.";
+}
+
+TEST_F(IMUSANT_pitch_Tests, TestTransposeTwoPitchSteps)
+{
+    IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    pitch.transpose(+2, 0, 0, false);
+    
+    ASSERT_EQ(64, pitch.getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::type::E, pitch.name()) << "Unexpected Name after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch.getInflection()) << "Unexpected Inflection after transposition.";
+    ASSERT_EQ(4, pitch.octave()) << "Unexpected Octave after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::TPC::tpcE, pitch.getTPC()) << "Unexpected TPC after transposition.";
+    ASSERT_EQ(4, pitch.getPC()) << "Unexpected PC after transposition.";
+}
+
+TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitones)
+{
+    // REVISIT - The code to make this test pass is not written yet.
+    // REVISIT - See IMUSANT_pitch::transpose(4).
+    
+    IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    pitch.transpose(0, +3, 0, false);
+    
+    ASSERT_EQ(63, pitch.getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::type::D, pitch.name()) << "Unexpected Name after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::sharp, pitch.getInflection()) << "Unexpected Inflection after transposition.";
+    ASSERT_EQ(4, pitch.octave()) << "Unexpected Octave after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::TPC::tpcDs, pitch.getTPC()) << "Unexpected TPC after transposition.";
+    ASSERT_EQ(3, pitch.getPC()) << "Unexpected PC after transposition.";
 }
 
 TEST_F(IMUSANT_pitch_Tests, TestAsWritten)

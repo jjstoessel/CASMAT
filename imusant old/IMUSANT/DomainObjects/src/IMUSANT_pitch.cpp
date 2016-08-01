@@ -263,12 +263,15 @@ namespace IMUSANT
     IMUSANT_pitch::
     transpose(int diatonic, int chromatic, int octave_change, bool doubled)
     {
-        // REVISIT - this implementation makes this calss behave as it did before the
+        // REVISIT - this implementation makes this class behave as it did before the
         // introduction of the *AsWritten vs *Sounding data members. It's essentially a
         // noop.
         
+        fOctaveSounding = fOctaveAsWritten + octave_change;
+        fNameSounding = addPitchSteps(fNameAsWritten, diatonic);
+        
+        
         fNameSounding = fNameAsWritten;
-        fOctaveSounding = fOctaveAsWritten;
         fMSNameSounding = fMSNameAsWritten;
         fAlterationSounding = fAlterationAsWritten;
     }

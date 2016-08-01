@@ -73,7 +73,11 @@ namespace IMUSANT
             fAlterationSounding(natural),
             fAlterationAsWritten(natural),
             fInChord(false),
-            fVoice(1)
+            fVoice(1),
+            fTransposeDiatonic(0),
+            fTransposeChromatic(0),
+            fTransposeOctaveChange(0),
+            fTransposeDoubled(false)
         {
         }
         
@@ -182,7 +186,15 @@ namespace IMUSANT
         static type 	fPitchTbl[];
         static string 	fPitchStrings[];
         static int      fLineOf5ths[35][3];
-
+        
+        // Code to increment enum value for the type enum...
+        // REVISIT this doesn't respect the limits of the values and doesn't wrap.
+        inline type& addPitchSteps(type &note_name, int value)
+        {
+            const int i = static_cast<int>(note_name);
+            note_name = static_cast<type>((i) + value);
+            return note_name;
+        }
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_pitch> S_IMUSANT_pitch;
