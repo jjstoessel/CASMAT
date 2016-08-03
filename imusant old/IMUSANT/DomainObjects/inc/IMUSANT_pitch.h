@@ -189,10 +189,10 @@ namespace IMUSANT
         
         // Code to increment enum value for the type enum...
         // REVISIT this doesn't respect the limits of the values and doesn't wrap.
-        inline type& addPitchSteps(type &note_name, int value)
+        inline type addPitchSteps(type note_name, int value)
         {
             const int i = static_cast<int>(note_name);
-            note_name = static_cast<type>((i) + value);
+            note_name = static_cast<type>(i + value);
             return note_name;
         }
     };

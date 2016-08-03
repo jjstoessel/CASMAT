@@ -148,6 +148,9 @@ TEST_F(IMUSANT_pitch_Tests, TestTransposeTwoPitchSteps)
     ASSERT_EQ(4, pitch.octave()) << "Unexpected Octave after transposition.";
     ASSERT_EQ(IMUSANT_pitch::TPC::tpcE, pitch.getTPC()) << "Unexpected TPC after transposition.";
     ASSERT_EQ(4, pitch.getPC()) << "Unexpected PC after transposition.";
+    
+    // REVISIT - add the beelow when AsWritten is implemented() and tested.
+    // ASSERT_EQ(IMUSANT_pitch::type::C,  pitch.asWritten().name()) << "Unexpected AsWritten.Name after transposition.";
 }
 
 TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitones)

@@ -267,11 +267,17 @@ namespace IMUSANT
         // introduction of the *AsWritten vs *Sounding data members. It's essentially a
         // noop.
         
+        fTransposeDiatonic = diatonic;
+        fTransposeChromatic = chromatic;
+        fTransposeOctaveChange = octave_change;
+        fTransposeDoubled = doubled;
+        
         fOctaveSounding = fOctaveAsWritten + octave_change;
         fNameSounding = addPitchSteps(fNameAsWritten, diatonic);
         
         
-        fNameSounding = fNameAsWritten;
+        
+        
         fMSNameSounding = fMSNameAsWritten;
         fAlterationSounding = fAlterationAsWritten;
     }
