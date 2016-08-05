@@ -54,26 +54,26 @@ protected:
     }
     
     // Objects declared here can be used by all tests in the test case for CATSMAT_cp_matrix_Test.
-    IMUSANT_pitch C4;
-    IMUSANT_pitch D4;
-    IMUSANT_pitch B3;
-    IMUSANT_pitch B4;
-    IMUSANT_pitch C5;
-    IMUSANT_pitch D5;
-    IMUSANT_pitch D4_Sharp;
-    IMUSANT_pitch D4_Flat;
+    S_IMUSANT_pitch C4;
+    S_IMUSANT_pitch D4;
+    S_IMUSANT_pitch B3;
+    S_IMUSANT_pitch B4;
+    S_IMUSANT_pitch C5;
+    S_IMUSANT_pitch D5;
+    S_IMUSANT_pitch D4_Sharp;
+    S_IMUSANT_pitch D4_Flat;
     
-    IMUSANT_pitch CreatePitch(IMUSANT_pitch::type note,
+    S_IMUSANT_pitch CreatePitch(IMUSANT_pitch::type note,
                               unsigned short octave,
                               IMUSANT_pitch::inflection alteration)
     {
-        IMUSANT_pitch *the_pitch = new IMUSANT_pitch();
+        S_IMUSANT_pitch the_pitch = new_IMUSANT_pitch();
         
         the_pitch->setOctave(octave);
         the_pitch->setName(note);
         the_pitch->setAlteration(alteration);
         
-        return *the_pitch;
+        return the_pitch;
     };
     
     private:
@@ -83,71 +83,71 @@ protected:
 TEST_F(IMUSANT_pitch_Tests, TestGreaterThan)
 {
     // Same note
-    ASSERT_FALSE(C4 > C4);
+    ASSERT_FALSE(*C4 > *C4);
     
     // Octaves are different
-    ASSERT_TRUE(C5 > C4);
-    ASSERT_TRUE(C5 > D4_Flat);
-    ASSERT_FALSE(C4 > C5);
+    ASSERT_TRUE(*C5 > *C4);
+    ASSERT_TRUE(*C5 > *D4_Flat);
+    ASSERT_FALSE(*C4 > *C5);
     
     // Same octave, different notes
-    ASSERT_TRUE(D4 > C4);
-    ASSERT_TRUE(B4 > C4);
-    ASSERT_FALSE(D4 > B4);
+    ASSERT_TRUE(*D4 > *C4);
+    ASSERT_TRUE(*B4 > *C4);
+    ASSERT_FALSE(*D4 > *B4);
     
     // Same octave, same note, altered
-    ASSERT_TRUE(D4 > D4_Flat);
-    ASSERT_TRUE(D4_Sharp > D4);
-    ASSERT_TRUE(D4_Sharp > D4_Flat);
-    ASSERT_FALSE(D4_Flat > D4);
+    ASSERT_TRUE(*D4 > *D4_Flat);
+    ASSERT_TRUE(*D4_Sharp > *D4);
+    ASSERT_TRUE(*D4_Sharp > *D4_Flat);
+    ASSERT_FALSE(*D4_Flat > *D4);
     
 }
 
 TEST_F(IMUSANT_pitch_Tests, TestPC)
 {
-    ASSERT_TRUE(C4.getPC() == 0);
-    ASSERT_TRUE(D4.getPC() == 2);
-    ASSERT_TRUE(D4_Sharp.getPC() == 3);
-    ASSERT_TRUE(D4_Flat.getPC() == 1);
-    ASSERT_TRUE(B4.getPC() == 11);
+    ASSERT_TRUE(C4->getPC() == 0);
+    ASSERT_TRUE(D4->getPC() == 2);
+    ASSERT_TRUE(D4_Sharp->getPC() == 3);
+    ASSERT_TRUE(D4_Flat->getPC() == 1);
+    ASSERT_TRUE(B4->getPC() == 11);
 }
 
 TEST_F(IMUSANT_pitch_Tests, TestMidiKeyNumber)
 {
-    ASSERT_TRUE(C4.getMidiKeyNumber()==60);
-    ASSERT_TRUE(B4.getMidiKeyNumber()==71);
-    ASSERT_TRUE(C5.getMidiKeyNumber()==72);
-    ASSERT_TRUE(D4_Sharp.getMidiKeyNumber()==63);
-    ASSERT_TRUE(D4_Flat.getMidiKeyNumber()==61);
+    ASSERT_TRUE(C4->getMidiKeyNumber()==60);
+    ASSERT_TRUE(B4->getMidiKeyNumber()==71);
+    ASSERT_TRUE(C5->getMidiKeyNumber()==72);
+    ASSERT_TRUE(D4_Sharp->getMidiKeyNumber()==63);
+    ASSERT_TRUE(D4_Flat->getMidiKeyNumber()==61);
 }
 
 TEST_F(IMUSANT_pitch_Tests, TestTransposeOneOctave)
 {
-    IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-    pitch.transpose(0, 0, 0, false);
+    S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    pitch->transpose(0, 0, 0, false);
     
-    ASSERT_EQ(60, pitch.getMidiKeyNumber());
+    ASSERT_EQ(60, pitch->getMidiKeyNumber());
     
-    pitch.transpose(0, 0, +1, false);
-    ASSERT_EQ(72, pitch.getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition by one octave.";
-    ASSERT_EQ(IMUSANT_pitch::type::C, pitch.name()) << "Unexpected Name after transposition by one octave.";
-    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch.getInflection()) << "Unexpected Inflection after transposition by one octave.";
-    ASSERT_EQ(5, pitch.octave()) << "Unexpected Octave after transposition by one octave.";
-    ASSERT_EQ(IMUSANT_pitch::TPC::tpcC, pitch.getTPC()) << "Unexpected TPC after transposition by one octave.";
-    ASSERT_EQ(0, pitch.getPC()) << "Unexpected PC after transposition by one octave.";
+    pitch->transpose(0, 0, +1, false);
+    ASSERT_EQ(72, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition by one octave.";
+    ASSERT_EQ(IMUSANT_pitch::type::C, pitch->name()) << "Unexpected Name after transposition by one octave.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch->getInflection()) << "Unexpected Inflection after transposition by one octave.";
+    ASSERT_EQ(5, pitch->octave()) << "Unexpected Octave after transposition by one octave.";
+    ASSERT_EQ(IMUSANT_pitch::TPC::tpcC, pitch->getTPC()) << "Unexpected TPC after transposition by one octave.";
+    ASSERT_EQ(0, pitch->getPC()) << "Unexpected PC after transposition by one octave.";
 }
 
 TEST_F(IMUSANT_pitch_Tests, TestTransposeTwoPitchSteps)
 {
-    IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-    pitch.transpose(+2, 0, 0, false);
+    S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    pitch->transpose(+2, 0, 0, false);
     
-    ASSERT_EQ(64, pitch.getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
-    ASSERT_EQ(IMUSANT_pitch::type::E, pitch.name()) << "Unexpected Name after transposition.";
-    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch.getInflection()) << "Unexpected Inflection after transposition.";
-    ASSERT_EQ(4, pitch.octave()) << "Unexpected Octave after transposition.";
-    ASSERT_EQ(IMUSANT_pitch::TPC::tpcE, pitch.getTPC()) << "Unexpected TPC after transposition.";
-    ASSERT_EQ(4, pitch.getPC()) << "Unexpected PC after transposition.";
+    ASSERT_EQ(64, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::type::E, pitch->name()) << "Unexpected Name after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch->getInflection()) << "Unexpected Inflection after transposition.";
+    ASSERT_EQ(4, pitch->octave()) << "Unexpected Octave after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::TPC::tpcE, pitch->getTPC()) << "Unexpected TPC after transposition.";
+    ASSERT_EQ(4, pitch->getPC()) << "Unexpected PC after transposition.";
     
     // REVISIT - add the beelow when AsWritten is implemented() and tested.
     // ASSERT_EQ(IMUSANT_pitch::type::C,  pitch.asWritten().name()) << "Unexpected AsWritten.Name after transposition.";
@@ -158,22 +158,24 @@ TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitones)
     // REVISIT - The code to make this test pass is not written yet.
     // REVISIT - See IMUSANT_pitch::transpose(4).
     
-    IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-    pitch.transpose(0, +3, 0, false);
+    S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    pitch->transpose(0, +3, 0, false);
     
-    ASSERT_EQ(63, pitch.getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
-    ASSERT_EQ(IMUSANT_pitch::type::D, pitch.name()) << "Unexpected Name after transposition.";
-    ASSERT_EQ(IMUSANT_pitch::inflection::sharp, pitch.getInflection()) << "Unexpected Inflection after transposition.";
-    ASSERT_EQ(4, pitch.octave()) << "Unexpected Octave after transposition.";
-    ASSERT_EQ(IMUSANT_pitch::TPC::tpcDs, pitch.getTPC()) << "Unexpected TPC after transposition.";
-    ASSERT_EQ(3, pitch.getPC()) << "Unexpected PC after transposition.";
+    ASSERT_EQ(63, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::type::D, pitch->name()) << "Unexpected Name after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::sharp, pitch->getInflection()) << "Unexpected Inflection after transposition.";
+    ASSERT_EQ(4, pitch->octave()) << "Unexpected Octave after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::TPC::tpcDs, pitch->getTPC()) << "Unexpected TPC after transposition.";
+    ASSERT_EQ(3, pitch->getPC()) << "Unexpected PC after transposition.";
 }
 
 TEST_F(IMUSANT_pitch_Tests, TestAsWritten)
 {
-    IMUSANT_pitch lC4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-    lC4.transpose(2,2,1);
+    ASSERT_FALSE(true) << "IMPLEMENT THIS TEST";
     
-    IMUSANT_pitch lC4AsWritten = lC4.asWritten();
-    ASSERT_EQ(60, lC4AsWritten.getMidiKeyNumber());
+//    S_IMUSANT_pitch lC4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+//    lC4->transpose(2,2,1);
+//    
+//    S_IMUSANT_pitch lC4AsWritten = lC4->asWritten();
+//    ASSERT_EQ(60, lC4AsWritten->getMidiKeyNumber());
 }
