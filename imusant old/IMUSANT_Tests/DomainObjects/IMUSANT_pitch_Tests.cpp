@@ -153,13 +153,10 @@ TEST_F(IMUSANT_pitch_Tests, TestTransposeTwoPitchSteps)
     // ASSERT_EQ(IMUSANT_pitch::type::C,  pitch.asWritten().name()) << "Unexpected AsWritten.Name after transposition.";
 }
 
-TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitones)
+TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitonesUp)
 {
-    // REVISIT - The code to make this test pass is not written yet.
-    // REVISIT - See IMUSANT_pitch::transpose(4).
-    
     S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-    pitch->transpose(0, +3, 0, false);
+    pitch->transpose(+1, +3, 0, false);  // C to D#.
     
     ASSERT_EQ(63, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
     ASSERT_EQ(IMUSANT_pitch::type::D, pitch->name()) << "Unexpected Name after transposition.";
@@ -169,9 +166,26 @@ TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitones)
     ASSERT_EQ(3, pitch->getPC()) << "Unexpected PC after transposition.";
 }
 
+TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitonesDown)
+{
+    // This test fails because EnharmonicsTable::addPitchSteps() does not handle wrapping.
+    
+    // Also this test probably fails because the transposition down has changed the octave,
+    // and EnharmonicsTable::transpose(4) does not account for this.
+    
+    
+    S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    pitch->transpose(-2, -3, 0, false);  // C to A.
+    
+    ASSERT_EQ(57, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::type::A, pitch->name()) << "Unexpected Name after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch->getInflection()) << "Unexpected Inflection after transposition.";
+    ASSERT_EQ(3, pitch->octave()) << "Unexpected Octave after transposition.";
+}
+
 TEST_F(IMUSANT_pitch_Tests, TestAsWritten)
 {
-    ASSERT_FALSE(true) << "IMPLEMENT THIS TEST";
+    ASSERT_FALSE(true) << "TEST NOT IMPLEMENTED YET";
     
 //    S_IMUSANT_pitch lC4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
 //    lC4->transpose(2,2,1);

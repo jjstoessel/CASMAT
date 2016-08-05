@@ -263,30 +263,39 @@ namespace IMUSANT
     IMUSANT_pitch::
     transpose(int diatonic, int chromatic, int octave_change, bool doubled)
     {
-        // REVISIT - this implementation makes this class behave as it did before the
-        // introduction of the *AsWritten vs *Sounding data members. It's essentially a
-        // noop.
-        
         fTransposeDiatonic = diatonic;
         fTransposeChromatic = chromatic;
         fTransposeOctaveChange = octave_change;
         fTransposeDoubled = doubled;
         
+        EnharmonicsTable transposer;
+        EnharmonicsTable::note transposed_note = transposer.transpose(fNameAsWritten, fAlterationAsWritten, diatonic, chromatic);
+        
+        fNameSounding = transposed_note.note_name;
+        fAlterationSounding = transposed_note.alteration;
         fOctaveSounding = fOctaveAsWritten + octave_change;
-        fNameSounding = addPitchSteps(fNameAsWritten, diatonic);
         
-        
-        
-        
-        fMSNameSounding = fMSNameAsWritten;
-        fAlterationSounding = fAlterationAsWritten;
+        fMSNameSounding = fMSNameAsWritten;  // REVISIT
     }
     
     void
     IMUSANT_pitch::
     transpose()
     {
-        transpose(fTransposeDiatonic, fTransposeChromatic, fTransposeOctaveChange, fTransposeDoubled);
+        if (fTransposeChromatic == 0
+            &&
+            fTransposeDiatonic == 0
+            &&
+            fTransposeOctaveChange == 0)
+        {
+            fOctaveSounding = fOctaveAsWritten;
+            fNameSounding = fNameAsWritten;
+            fAlterationSounding = fAlterationAsWritten;
+        }
+        else
+        {
+            transpose(fTransposeDiatonic, fTransposeChromatic, fTransposeOctaveChange, fTransposeDoubled);
+        }
     }
     
     IMUSANT_pitch
@@ -295,6 +304,68 @@ namespace IMUSANT
     {
         // REVISIT - this doesn't work...
         return MakeUniquePitch();
+    }
+    
+    // --------------------  ENHARMONICS TABLE ------------------------
+    
+    EnharmonicsTable::note
+    EnharmonicsTable::
+    transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, int diatonic_steps, int chromatic_steps)
+    {
+        note transposed_note;
+        
+        transposed_note.note_name = addPitchSteps(written_note_name, diatonic_steps);
+        
+        if (chromatic_steps != 0)
+        {
+            int group = findGroup(written_note_name, written_alteration);
+            int transpose_group = group + chromatic_steps;  // REVISIT allow for wrapping
+            
+            note found_note = findNote(transpose_group, transposed_note.note_name);
+
+            transposed_note.alteration = found_note.alteration;
+        }
+        
+        return transposed_note;
+    }
+    
+    int
+    EnharmonicsTable::
+    findGroup(IMUSANT_pitch::type note_name, IMUSANT_pitch::inflection alteration)
+    {
+        for (int index=0 ; index < NUM_GROUPS; index++)
+        {
+            if (enharmonic_groups[index].note_name == note_name && enharmonic_groups[index].alteration == alteration)
+            {
+                return enharmonic_groups[index].group;
+            }
+        }
+        return -1;
+    }
+    
+    
+    EnharmonicsTable::note
+    EnharmonicsTable::
+    findNote(int group, IMUSANT_pitch::type note_name)
+    {
+        for (int index=0 ; index < NUM_GROUPS; index++)
+        {
+            if (enharmonic_groups[index].note_name == note_name && enharmonic_groups[index].group == group)
+            {
+                return enharmonic_groups[index];
+            }
+        }
+        return note(IMUSANT_pitch::undefined, IMUSANT_pitch::natural, -1);
+        
+    }
+    
+    IMUSANT_pitch::type
+    EnharmonicsTable::
+    addPitchSteps(IMUSANT_pitch::type note_name, int num_pitch_steps)
+    {
+        const int i = static_cast<int>(note_name);
+        note_name = static_cast<IMUSANT_pitch::type>(i + num_pitch_steps);
+        return note_name;
     }
     
     

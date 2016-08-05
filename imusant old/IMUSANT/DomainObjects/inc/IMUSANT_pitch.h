@@ -187,19 +187,102 @@ namespace IMUSANT
         static string 	fPitchStrings[];
         static int      fLineOf5ths[35][3];
         
-        // Code to increment enum value for the type enum...
-        // REVISIT this doesn't respect the limits of the values and doesn't wrap.
-        inline type addPitchSteps(type note_name, int value)
-        {
-            const int i = static_cast<int>(note_name);
-            note_name = static_cast<type>(i + value);
-            return note_name;
-        }
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_pitch> S_IMUSANT_pitch;
     
     VEXP IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
+    
+    class EnharmonicsTable
+    {
+    public:
+        
+        class note
+        {
+        public:
+            
+            note(IMUSANT_pitch::type            note_name,
+                 IMUSANT_pitch::inflection      alteration,
+                 int                            group)
+            :
+                note_name(note_name),
+                alteration(alteration),
+                group(group)
+            {};
+            
+            note()
+            :
+                note_name(IMUSANT_pitch::undefined),
+                alteration(IMUSANT_pitch::natural),
+                group(-1)
+            {};
+            
+            IMUSANT_pitch::type         note_name;
+            IMUSANT_pitch::inflection   alteration;
+            int                         group;
+        };
+        
+        static const int NUM_GROUPS = 35;
+        const note enharmonic_groups[NUM_GROUPS] =
+        {
+            note(IMUSANT_pitch::C, IMUSANT_pitch::natural, 1),
+            note(IMUSANT_pitch::B, IMUSANT_pitch::sharp, 1),
+            note(IMUSANT_pitch::D, IMUSANT_pitch::double_flat, 1),
+            
+            note(IMUSANT_pitch::C, IMUSANT_pitch::sharp, 2),
+            note(IMUSANT_pitch::D, IMUSANT_pitch::flat, 2),
+            note(IMUSANT_pitch::B, IMUSANT_pitch::double_flat, 2),
+            
+            note(IMUSANT_pitch::D, IMUSANT_pitch::natural, 3),
+            note(IMUSANT_pitch::C, IMUSANT_pitch::double_sharp, 3),
+            note(IMUSANT_pitch::E, IMUSANT_pitch::double_flat, 3),
+            
+            note(IMUSANT_pitch::D, IMUSANT_pitch::sharp, 4),
+            note(IMUSANT_pitch::E, IMUSANT_pitch::flat, 4),
+            note(IMUSANT_pitch::F, IMUSANT_pitch::double_flat, 4),
+            
+            note(IMUSANT_pitch::E, IMUSANT_pitch::natural, 5),
+            note(IMUSANT_pitch::F, IMUSANT_pitch::flat, 5),
+            note(IMUSANT_pitch::D, IMUSANT_pitch::double_sharp, 5),
+            
+            note(IMUSANT_pitch::F, IMUSANT_pitch::natural, 6),
+            note(IMUSANT_pitch::E, IMUSANT_pitch::sharp, 6),
+            note(IMUSANT_pitch::G, IMUSANT_pitch::double_flat, 6),
+            
+            note(IMUSANT_pitch::F, IMUSANT_pitch::sharp, 7),
+            note(IMUSANT_pitch::G, IMUSANT_pitch::flat, 7),
+            note(IMUSANT_pitch::E, IMUSANT_pitch::double_sharp, 7),
+            
+            note(IMUSANT_pitch::G, IMUSANT_pitch::natural, 8),
+            note(IMUSANT_pitch::F, IMUSANT_pitch::double_sharp, 8),
+            note(IMUSANT_pitch::A, IMUSANT_pitch::double_flat, 8),
+            
+            note(IMUSANT_pitch::G, IMUSANT_pitch::sharp, 9),
+            note(IMUSANT_pitch::A, IMUSANT_pitch::flat, 9),
+            
+            note(IMUSANT_pitch::A, IMUSANT_pitch::natural, 10),
+            note(IMUSANT_pitch::G, IMUSANT_pitch::double_sharp, 10),
+            note(IMUSANT_pitch::B, IMUSANT_pitch::double_flat, 10),
+            
+            note(IMUSANT_pitch::A, IMUSANT_pitch::sharp, 11),
+            note(IMUSANT_pitch::B, IMUSANT_pitch::flat, 11),
+            note(IMUSANT_pitch::C, IMUSANT_pitch::double_flat, 11),
+            
+            note(IMUSANT_pitch::B, IMUSANT_pitch::natural, 12),
+            note(IMUSANT_pitch::C, IMUSANT_pitch::flat, 12),
+            note(IMUSANT_pitch::A, IMUSANT_pitch::double_sharp, 12)
+        };
+        
+        
+        note transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, int diatonic_steps, int chromatic_steps);
+        
+    private:
+        
+        IMUSANT_pitch::type addPitchSteps(IMUSANT_pitch::type note_name, int num_pitch_steps);
+        int findGroup(IMUSANT_pitch::type note_name, IMUSANT_pitch::inflection alteration);
+        note findNote(int group, IMUSANT_pitch::type note_name);
+        
+    };
     
 } //namespace IMUSANT
 
