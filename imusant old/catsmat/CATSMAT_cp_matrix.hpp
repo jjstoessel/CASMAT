@@ -49,7 +49,7 @@ namespace CATSMAT {
         void    print(ostream& os);
         unsigned long partCount() const { return fCurrentPart + 1; }
         
-        void    setMeasureNumber(long currentMeasure) { fCurrentMeasureNumber = currentMeasure; }
+        void    setMeasureNumber(long currentMeasure);
         
     protected:
         //ctors
@@ -70,6 +70,7 @@ namespace CATSMAT {
         list<S_CATSMAT_chord>::iterator     fCurrentChord;
         IMUSANT_time                        fCurrentTime;
         long                                fCurrentMeasureNumber;
+        IMUSANT_duration                    fCumulativeMeasureDuration;
         
     };
 

@@ -58,7 +58,9 @@ namespace CATSMAT
             (visitor)::visit ( S_IMUSANT_part& elt )
      
      */
-    void CATSMAT_cp_matrix::addpart()
+    void
+    CATSMAT_cp_matrix::
+    addpart()
     {
         //if a part already exists, create an empty part/row for each "chord" vector<IMUSANT_note>
         //In the case of the first part, the matrix grows by pushing a one-dimensional vector<IMUSANT_note>
@@ -83,9 +85,13 @@ namespace CATSMAT
         Adds a note to the current part
      
      */
-    void	CATSMAT_cp_matrix::add(const IMUSANT_note& note)
+    void
+    CATSMAT_cp_matrix::
+    add(const IMUSANT_note& note)
     {
         if (note.getStyle()==IMUSANT_NoteStyle::hidden) throw catsmat_runtime_error("hidden note encountered"); // ignore hidden notes
+        
+        //fCumulativeMeasureDuration += *note.duration();
         
         if (fCurrentPart==0) // there are no parts added yet
         {
@@ -112,8 +118,6 @@ namespace CATSMAT
      */
     void    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
     {
-        if (fCurrentChord==fCPMatrix.end()) throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix.");
-
         //call to distribute note and return remainder; if note duration less than current chord duration
         //note is returned as remainder to spilt chord into two parts.
         IMUSANT_note remainder = distribute(note);
@@ -128,14 +132,21 @@ namespace CATSMAT
         returns remainder as IMUSANT_note, which is also the "split note" if the duration is shorter
         than the current chord duration
     */
-    IMUSANT_note CATSMAT_cp_matrix::distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note)
+    IMUSANT_note
+    CATSMAT_cp_matrix::
+    distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note)
     {
         IMUSANT_note remainder = note;
+        
+        // REVISIT - if duration of final note in current part is greater than duration in other parts,
+        // we run over the end of the map
+        
+        if (fCurrentChord==fCPMatrix.end()) return IMUSANT_note();//throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix.");
         
         S_IMUSANT_duration current_chord_dur = (*(*fCurrentChord)).begin()->second->duration();
         
         //assumes that the duration of all notes in each existing chord are the same due to prior operation.
-        if ( fCurrentChord!=fCPMatrix.end() && *note.duration() >= *current_chord_dur )
+        if ( *note.duration() >= *current_chord_dur )
         {
             /*if ((*fCurrentChord)->getNotes()[fCurrentPart-1]->getMeasureNum() != note.getMeasureNum()) {
              cerr << "Mismatched measure insert" << endl;
@@ -161,7 +172,7 @@ namespace CATSMAT
             
             fCurrentChord++;
             
-            if (dur->fDuration!=IMUSANT_duration::unmeasured && fCurrentChord!=fCPMatrix.end())
+            if (dur->fDuration!=IMUSANT_duration::unmeasured)
             {
                 remainder = distribute(remainder, part_note);
             }
@@ -176,8 +187,12 @@ namespace CATSMAT
         Split split an existing chord with a shorter inserted or remainder note.
      
     */
-    void   CATSMAT_cp_matrix::split(const IMUSANT_note& note)
+    void
+    CATSMAT_cp_matrix::
+    split(const IMUSANT_note& note)
     {
+        if (fCurrentChord==fCPMatrix.end()) throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix.");
+        
         //create the new chord, ready for filling in for loop
         S_CATSMAT_chord insert_chord = new_CATSMAT_chord();
         S_IMUSANT_note  new_note = new_IMUSANT_note();
@@ -210,7 +225,17 @@ namespace CATSMAT
         //insert new chord *before* current chord
         fCPMatrix.insert(fCurrentChord, insert_chord);
     }
-        
+    
+    void
+    CATSMAT_cp_matrix::
+    setMeasureNumber(long currentMeasure)
+    {
+        if (currentMeasure!=fCurrentMeasureNumber) {
+            fCurrentMeasureNumber = currentMeasure;
+            fCumulativeMeasureDuration = IMUSANT_duration();
+        }
+    }
+    
     /*!
      \brief CATSMAT_cp_matrix::print
      

@@ -162,12 +162,13 @@ namespace IMUSANT
         long dots = 0;
         TRational sesquialtera(3,2);
         
-        while   (
-                 dur.getNumerator()!=0 && \
-                 dur.getNumerator() > dur.getDenominator()/2 && \
-                 (dur.getDenominator()%dur.getNumerator()==1 || \
-                  dur.getDenominator()%dur.getNumerator()==2 )
-                 )
+//        while   (
+//                 dur.getNumerator()!=0 && \
+//                 dur.getNumerator() > dur.getDenominator()/2 && \
+//                 (dur.getDenominator()%dur.getNumerator()==1 || \
+//                  dur.getDenominator()%dur.getNumerator()==2 )
+//                 )
+        while (dur.getNumerator()!=1 && dur.getNumerator()%2!=0)
         {
             dots++;
             dur /= sesquialtera;
