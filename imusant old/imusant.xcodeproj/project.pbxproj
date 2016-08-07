@@ -1205,6 +1205,7 @@
 		BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_sonority_sequences.hpp; path = catsmat/CATSMAT_sonority_sequences.hpp; sourceTree = SOURCE_ROOT; };
 		BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_processing.h; sourceTree = "<group>"; };
 		BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_processing.cpp; sourceTree = "<group>"; };
+		BACBE5921D51B60000F94A2B /* CATSMAT_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_exception.h; path = catsmat/CATSMAT_exception.h; sourceTree = SOURCE_ROOT; };
 		BAFC77340A228FDB00A4FACD /* IMUSANT_note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_note.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		BAFC77350A228FDB00A4FACD /* IMUSANT_note.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_note.cpp; sourceTree = "<group>"; };
 		BAFC777E0A22939500A4FACD /* IMUSANT_chord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_chord.h; sourceTree = "<group>"; };
@@ -1786,6 +1787,7 @@
 				BAA8D89F1AABFBD70053ADE3 /* CATSMAT_main.cpp */,
 				49B727B61C1418E400FCF494 /* CATSMAT_menu.h */,
 				49B727B51C1418E400FCF494 /* CATSMAT_menu.cpp */,
+				BACBE5921D51B60000F94A2B /* CATSMAT_exception.h */,
 			);
 			name = Application;
 			sourceTree = "<group>";

@@ -11,6 +11,7 @@
 //
 //
 #include "CATSMAT_cp_matrix.hpp"
+#include "CATSMAT_exception.h"
 
 namespace CATSMAT
 {
@@ -18,7 +19,8 @@ namespace CATSMAT
     S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix()
     {
         CATSMAT_cp_matrix* o = new CATSMAT_cp_matrix();
-        assert(o!=0);
+        //assert(o!=0);
+        if (o==0) throw catsmat_runtime_error("Unable to allocate Contrapuntal Matrix");
         return o;
     }
 
@@ -83,6 +85,8 @@ namespace CATSMAT
      */
     void	CATSMAT_cp_matrix::add(const IMUSANT_note& note)
     {
+        if (note.getStyle()==IMUSANT_NoteStyle::hidden) throw catsmat_runtime_error("hidden note encountered"); // ignore hidden notes
+        
         if (fCurrentPart==0) // there are no parts added yet
         {
             S_CATSMAT_chord chord = new_CATSMAT_chord();
@@ -108,7 +112,7 @@ namespace CATSMAT
      */
     void    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
     {
-        assert(fCurrentChord!= fCPMatrix.end());
+        if (fCurrentChord==fCPMatrix.end()) throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix.");
 
         //call to distribute note and return remainder; if note duration less than current chord duration
         //note is returned as remainder to spilt chord into two parts.
@@ -199,7 +203,7 @@ namespace CATSMAT
             }
         }
         
-        assert(note.duration()->fDuration!=IMUSANT_duration::unmeasured);
+        if (note.duration()->fDuration==IMUSANT_duration::unmeasured) throw catsmat_runtime_error("Unmeasured duration encountered. Check your data.");
         //finally add new note (clone note&) to new chord to be pre-inserted
         *new_note = note;
         (*insert_chord)[fCurrentPart] = new_note;

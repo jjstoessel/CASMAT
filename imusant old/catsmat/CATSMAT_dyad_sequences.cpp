@@ -98,10 +98,10 @@ namespace CATSMAT
     }
     
     /*
-     \brief CATSMAT_dyad_sequences::find_repeated
+     \brief CATSMAT_dyad_sequences::find_repeated_in
      
      Takes a list of chords (from CPMatrix)
-     1. Finds all repeated sequences of dyads between each voice pair
+     1. Finds all repeated sequences of dyads in each voice pair
      2. Prints all repeated sequences of dyads
      
      To do:
@@ -109,7 +109,7 @@ namespace CATSMAT
      
      */
     void
-    CATSMAT_dyad_sequences::find_repeated(int min)
+    CATSMAT_dyad_sequences::find_repeated_in(int min)
     {
         if (fVIntervalVector.size()>0)
         {
@@ -141,6 +141,61 @@ namespace CATSMAT
                 delete results;
                 delete tree;
             }
+        }
+    }
+    
+    /*
+     \brief CATSMAT_dyad_sequences::find_repeated_across
+     
+     Takes a list of chords (from CPMatrix)
+     1. Finds all repeated sequences of dyads across each voice pair using a tree of all dyad pairs
+     2. Prints all repeated sequences of dyads
+     
+     To do:
+     Convert into two functions: find and return list of repeated sequences; print list.
+     
+     */
+    void
+    CATSMAT_dyad_sequences::find_repeated_across(int min)
+    {
+        if (fVIntervalVector.size()>0)
+        {
+            interval_tree* tree = NULL; //change last parameter to id for whole work tree.
+            vector<pair<interval_tree::size_type, interval_tree::size_type> >* results = new vector<pair<interval_tree::size_type, interval_tree::size_type> >();
+            int j = 1;
+            
+            for (auto i = fVIntervalVector.begin(); i!=fVIntervalVector.end(); i++, j++)
+            {
+                if (tree==NULL) {
+                    tree = new interval_tree((*i)->getIntervals(),j);
+                }
+                else
+                    tree->add_sentence((*i)->getIntervals(),j);
+            }
+            
+            find_repeated_substrings(*results, tree->root_node(), min);
+            
+            map<int, interval_tree::value_type > m = tree->get_sentences();
+            interval_tree::value_type int_v = m[1];
+            
+            cout << "duet: " << int_v[0].getLocation().first.partID << "-" << int_v[0].getLocation().last.partID << endl;
+            
+            for (auto j=results->begin(); j!=results->end(); j++)
+            {
+                cout << "Sequence: (";
+                
+                cout << int_v[j->first].getLocation().first.measure;
+                cout << ", " << int_v[j->first].getLocation().first.note_index << ") ";
+                
+                for (auto k = j->first; k<j->second+j->first; k++)
+                {
+                    cout << int_v[k];
+                }
+                cout << endl;
+            }
+            
+            delete results;
+            delete tree;
         }
     }
     

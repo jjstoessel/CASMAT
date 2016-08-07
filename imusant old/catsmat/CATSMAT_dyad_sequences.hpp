@@ -32,7 +32,8 @@ namespace CATSMAT
         
         void    Visit(const CATSMAT_cp_matrix& matrix);
         
-        void    find_repeated(int min=3);
+        void    find_repeated_in(int min=3);
+        void    find_repeated_across(int min=3);
         void    print(ostream& os) const;
         
         void    ignoreRepeatedDyads(bool ignore) { fIgnoreRepeatedDyads = ignore; }

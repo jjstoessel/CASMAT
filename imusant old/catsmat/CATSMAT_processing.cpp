@@ -25,7 +25,7 @@ namespace CATSMAT
     
     void
     CATSMAT_processing::
-    find_repeated_dyad_sequences(int min, bool ignoreDissonances, bool ignoreRepeatedDyads)
+    find_repeated_dyad_sequences(int min, bool ignoreDissonances, bool ignoreRepeatedDyads, bool across)
     {
         for (auto score : this->getScores())
         {
@@ -41,8 +41,11 @@ namespace CATSMAT
                 (*score).accept(score_to_matrix_translator);
                 score_to_matrix_translator.getCPMatrix()->Accept(dyads);
                 
-                cout << "Repeated dyad sequences in " << (*score).getMovementTitle() << endl;
-                dyads.find_repeated(min);
+                cout << "Repeated dyad sequences for each voice pair in " << (*score).getMovementTitle() << endl;
+                if (across)
+                    dyads.find_repeated_across(min);
+                else
+                    dyads.find_repeated_in(min);
             }
             
         }

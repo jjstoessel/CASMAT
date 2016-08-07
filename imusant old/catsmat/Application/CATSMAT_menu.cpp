@@ -150,13 +150,14 @@ outputToolsMenu(ostream &out)
     out << "I.  Run all IMUSANT tools" << endl;
     out << endl;
     out << "CATSMAT ANALYSIS TOOLS" << endl;
-    out << "J. Find repeated dyad sequences" << endl ;
-    out << "K. Find repeated dyadtuple sequences" << endl;
-    out << "L. Find repeated sonority sequences" << endl;
-    out << "M. Run all CATSMAT tools" << endl;
+    out << "J. Find repeated dyad sequences in voice pairs" << endl;
+    out << "K. Find repeated dyad sequences across voice pairs" << endl;
+    out << "L. Find repeated dyadtuple sequences" << endl;
+    out << "M. Find repeated sonority sequences" << endl;
+    out << "N. Run all CATSMAT tools" << endl;
     out << endl;
-    out << "N. Run all tools" << endl;
-    out << "O.  Print all scores" << endl;
+    out << "O. Run all tools" << endl;
+    out << "P.  Print all scores" << endl;
     out << endl;
     out << "Please select analysis tool (A - O; any other key to exit): " << endl;
     out << endl;
@@ -179,152 +180,173 @@ runToolsMenu(CATSMAT_processing* processor)
         bool continguous = false, ignoreDissonances=true, ignoreRepeatedDyads=true;
         int length = 5;
         cin >> tool;
-        switch (tool)
-        {
-            //IMUSANT analysis tools
-            //Find and print repeated interval substrings
-            case 'A':
-            case 'a':
-                ip.Visit(*processor);
-                cout << "Enter minimum length: ";
-                cin >> length;
-                cout << ip.findAndPrintRepeatedIntervalSubstrings(length);
-                break;
-            //Find and print repeated contours substrings
-            case 'B':
-            case 'b':
-                cout << "Enter minimum length: ";
-                cin >> length;
-                cp.Visit(*processor);
-                cout << cp.findAndPrintRepeatedContourSubstrings(length);
-                break;
-            //Find interval supermaximals
-            case 'C':
-            case 'c':
-                ip.Visit(*processor);
-                cout << ip.findAndPrintSupermaximalIntervals(4,100); //length and percent need to be inputs
-                break;
-            //Find contour supermaximals
-            case 'D':
-            case 'd':
-                cp.Visit(*processor);
-                cout << cp.findAndPrintSupermaximalContours(4,100);
-                break;
-            //Find longest common intervallic subsequence in all pairs
-            case 'E':
-            case 'e':
-                cout << "Only find continguous segments? (y/n) ";
-                cin >> yn;
-                if (yn == 'y') continguous = true;
-                ip.Visit(*processor);
-                cout << ip.findAndPrintLcsPairsIntervals(continguous);
-                break;
-            //Find longest common intervallic subsequence in all pairs (reverse method)
-            case 'F':
-            case 'f':
-                cout << "Only find continguous segments? (y/n) ";
-                cin >> yn;
-                if (yn == 'y') continguous = true;
-                ip.Visit(*processor);
-                cout << ip.findAndPrintLcsPairsIntervals(continguous,true);
-                break;
-            //Find longest common pitch subsequence in all pairs
-            case 'G':
-            case 'g':
-                cout << "Only find continguous segments? (y/n) ";
-                cin >> yn;
-                if (yn == 'y') continguous = true;
-                pp.Visit(*processor);
-                cout << pp.findAndPrintLcsPairsPitches(continguous);
-                break;
-            //Find melodic segments using LBDM
-            case 'H':
-            case 'h':
-                {
-                    vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
-                    //segmented_parts = processor->findMelodicSegments_LBDM();
-                    IMUSANT_LBDM_segmenter segmenter;
-                    segmenter.Visit(*processor);
-                    segmented_parts = segmenter.getSegmentedParts();
-                    for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_part_iter = segmented_parts.begin(); seg_part_iter != segmented_parts.end() ; seg_part_iter++)
-                    {
-                        cout << ((*seg_part_iter)->print(true,true)) << endl;
-                    }
-                
-                    
-                }
-                break;
-                
-           
-            //Run all IMUSANT tools
-            case 'I':
-            case 'i':
-                ip.Visit(*processor);
-                cp.Visit(*processor);
-                pp.Visit(*processor);
-
-                cout << ip.findAndPrintRepeatedIntervalSubstrings();
-                cout << cp.findAndPrintRepeatedContourSubstrings();
-                cout << ip.findAndPrintSupermaximalIntervals(4,100);
-                cout << cp.findAndPrintSupermaximalContours(4,100);
-                cout << ip.findAndPrintLcsPairsIntervals(false);
-                cout << pp.findAndPrintLcsPairsPitches(false);
-                cout << ip.findAndPrintLcsPairsIntervals(false, true);
-                break;
-            
-            //CATSMAT Analysis tools
-            //Find repeated dyad sequences
-            case 'J':
-            case 'j':
-                cout << "Ignore dissonances? (y/n) ";
-                cin >> yn;
-                if (yn == 'n') ignoreDissonances = false;
-                cout << "Ignore repeated dyads? (y/n) ";
-                cin >> yn;
-                if (yn == 'n') ignoreRepeatedDyads = false;
-                cout << "Enter minimum length: ";
-                cin >> length;
-                processor->find_repeated_dyad_sequences(length, ignoreDissonances, ignoreRepeatedDyads );
-                break;
-            //Find repeated dyadtuple sequences
-            case 'K':
-            case 'k':
-                cout << "K: Not impemented yet.";
-                break;
-            //Find repeated sonority sequences
-            case 'L':
-            case 'l':
-                cout << "Enter minimum length: ";
-                cin >> length;
-                processor->find_repeated_sonority_sequences(length);
-                break;
-            //Run all CATSMAT tools
-            case 'M':
-            case 'm':
-                cout << "M: Not impemented yet.";
-                break;
-            //Run all tools
-            case 'N':
-            case 'n':
-                cout << "N: Not impemented yet.";
-                break;
-            //Print all scores
-            case 'O':
-            case 'o':
+        try {
+        
+            switch (tool)
             {
-                vector<S_IMUSANT_score> scores = processor->getScores();
-                for (int index = 0 ; index < scores.size(); index++)
+                //IMUSANT analysis tools
+                //Find and print repeated interval substrings
+                case 'A':
+                case 'a':
+                    ip.Visit(*processor);
+                    cout << "Enter minimum length: ";
+                    cin >> length;
+                    cout << ip.findAndPrintRepeatedIntervalSubstrings(length);
+                    break;
+                //Find and print repeated contours substrings
+                case 'B':
+                case 'b':
+                    cout << "Enter minimum length: ";
+                    cin >> length;
+                    cp.Visit(*processor);
+                    cout << cp.findAndPrintRepeatedContourSubstrings(length);
+                    break;
+                //Find interval supermaximals
+                case 'C':
+                case 'c':
+                    ip.Visit(*processor);
+                    cout << ip.findAndPrintSupermaximalIntervals(4,100); //length and percent need to be inputs
+                    break;
+                //Find contour supermaximals
+                case 'D':
+                case 'd':
+                    cp.Visit(*processor);
+                    cout << cp.findAndPrintSupermaximalContours(4,100);
+                    break;
+                //Find longest common intervallic subsequence in all pairs
+                case 'E':
+                case 'e':
+                    cout << "Only find continguous segments? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'y') continguous = true;
+                    ip.Visit(*processor);
+                    cout << ip.findAndPrintLcsPairsIntervals(continguous);
+                    break;
+                //Find longest common intervallic subsequence in all pairs (reverse method)
+                case 'F':
+                case 'f':
+                    cout << "Only find continguous segments? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'y') continguous = true;
+                    ip.Visit(*processor);
+                    cout << ip.findAndPrintLcsPairsIntervals(continguous,true);
+                    break;
+                //Find longest common pitch subsequence in all pairs
+                case 'G':
+                case 'g':
+                    cout << "Only find continguous segments? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'y') continguous = true;
+                    pp.Visit(*processor);
+                    cout << pp.findAndPrintLcsPairsPitches(continguous);
+                    break;
+                //Find melodic segments using LBDM
+                case 'H':
+                case 'h':
+                    {
+                        vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
+                        //segmented_parts = processor->findMelodicSegments_LBDM();
+                        IMUSANT_LBDM_segmenter segmenter;
+                        segmenter.Visit(*processor);
+                        segmented_parts = segmenter.getSegmentedParts();
+                        for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_part_iter = segmented_parts.begin(); seg_part_iter != segmented_parts.end() ; seg_part_iter++)
+                        {
+                            cout << ((*seg_part_iter)->print(true,true)) << endl;
+                        }
+                    
+                        
+                    }
+                    break;
+                    
+               
+                //Run all IMUSANT tools
+                case 'I':
+                case 'i':
+                    ip.Visit(*processor);
+                    cp.Visit(*processor);
+                    pp.Visit(*processor);
+
+                    cout << ip.findAndPrintRepeatedIntervalSubstrings();
+                    cout << cp.findAndPrintRepeatedContourSubstrings();
+                    cout << ip.findAndPrintSupermaximalIntervals(4,100);
+                    cout << cp.findAndPrintSupermaximalContours(4,100);
+                    cout << ip.findAndPrintLcsPairsIntervals(false);
+                    cout << pp.findAndPrintLcsPairsPitches(false);
+                    cout << ip.findAndPrintLcsPairsIntervals(false, true);
+                    break;
+                
+                //CATSMAT Analysis tools
+                //Find repeated dyad sequences
+                case 'J':
+                case 'j':
+                    cout << "Ignore dissonances? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'n') ignoreDissonances = false;
+                    cout << "Ignore repeated dyads? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'n') ignoreRepeatedDyads = false;
+                    cout << "Enter minimum length: ";
+                    cin >> length;
+                    processor->find_repeated_dyad_sequences(length, ignoreDissonances, ignoreRepeatedDyads, false);
+                    break;
+                case 'K':
+                case 'k':
+                    cout << "Ignore dissonances? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'n') ignoreDissonances = false;
+                    cout << "Ignore repeated dyads? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'n') ignoreRepeatedDyads = false;
+                    cout << "Enter minimum length: ";
+                    cin >> length;
+                    processor->find_repeated_dyad_sequences(length, ignoreDissonances, ignoreRepeatedDyads);
+                    break;
+                //Find repeated dyadtuple sequences
+                case 'L':
+                case 'l':
+                    cout << "L: Not impemented yet.";
+                    break;
+                //Find repeated sonority sequences
+                case 'M':
+                case 'm':
+                    cout << "Enter minimum length: ";
+                    cin >> length;
+                    processor->find_repeated_sonority_sequences(length);
+                    break;
+                //Run all CATSMAT tools
+                case 'N':
+                case 'n':
+                    cout << "M: Not impemented yet.";
+                    break;
+                //Run all tools
+                case 'O':
+                case 'o':
+                    cout << "N: Not impemented yet.";
+                    break;
+                //Print all scores
+                case 'P':
+                case 'p':
                 {
-                    cout << scores[index] << endl << endl  << endl;
+                    vector<S_IMUSANT_score> scores = processor->getScores();
+                    for (int index = 0 ; index < scores.size(); index++)
+                    {
+                        cout << scores[index] << endl << endl  << endl;
+                    }
+                    
+                    break;
                 }
-                
-                break;
+                    
             }
-                
+            cout << endl << "Run another test? (y/n): ";
+            cin >> tool;
+            if (tool!='y') moreTools = false;
         }
-        cout << endl << "Run another test? (y/n): ";
-        cin >> tool;
-        if (tool!='y') moreTools = false;
+        
+        catch (std::exception &e)
+        {
+            cout << "Unexpected problem: " << e.what() << endl;
+        }
+       
     } while (moreTools);
 }
 

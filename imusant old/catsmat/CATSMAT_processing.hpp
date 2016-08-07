@@ -28,7 +28,7 @@ public:
 
     CATSMAT_processing() {}
     
-    void find_repeated_dyad_sequences(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
+    void find_repeated_dyad_sequences(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true, bool across=true);
     void find_repeated_dyadtuple_sequences(int min);
     void find_repeated_sonority_sequences(int min);
 	
