@@ -222,6 +222,11 @@ namespace IMUSANT
             int                         group;
         };
         
+        note transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, int diatonic_steps, int chromatic_steps);
+        IMUSANT_pitch::type addPitchSteps(IMUSANT_pitch::type note_name, int num_pitch_steps);
+        
+    private:
+        
         static const int NUM_GROUPS = 35;
         const note enharmonic_groups[NUM_GROUPS] =
         {
@@ -272,13 +277,8 @@ namespace IMUSANT
             note(IMUSANT_pitch::C, IMUSANT_pitch::flat, 12),
             note(IMUSANT_pitch::A, IMUSANT_pitch::double_sharp, 12)
         };
-        
-        
-        note transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, int diatonic_steps, int chromatic_steps);
-        
-    private:
-        
-        IMUSANT_pitch::type addPitchSteps(IMUSANT_pitch::type note_name, int num_pitch_steps);
+
+        IMUSANT_pitch::inflection addChromaticSteps(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, IMUSANT_pitch::type sounding_note_name, int chromatic_steps);
         int findGroup(IMUSANT_pitch::type note_name, IMUSANT_pitch::inflection alteration);
         note findNote(int group, IMUSANT_pitch::type note_name);
         
