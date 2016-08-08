@@ -91,7 +91,7 @@ namespace CATSMAT
     {
         if (note.getStyle()==IMUSANT_NoteStyle::hidden) throw catsmat_runtime_error("hidden note encountered"); // ignore hidden notes
         
-        //fCumulativeMeasureDuration += *note.duration();
+        fCumulativeMeasureDuration += *note.duration();
         
         if (fCurrentPart==0) // there are no parts added yet
         {
@@ -141,7 +141,8 @@ namespace CATSMAT
         // REVISIT - if duration of final note in current part is greater than duration in other parts,
         // we run over the end of the map
         
-        if (fCurrentChord==fCPMatrix.end()) return IMUSANT_note();//throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix.");
+        if (fCurrentChord==fCPMatrix.end()) throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix.");
+            //return IMUSANT_note();
         
         S_IMUSANT_duration current_chord_dur = (*(*fCurrentChord)).begin()->second->duration();
         

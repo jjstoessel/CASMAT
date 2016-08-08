@@ -207,10 +207,11 @@ namespace IMUSANT
     {
         IMUSANT_duration out;
         
-        TRational r = TRational(IMUSANT_duration::xmlv1(getSimplifiedDuration().fDuration)) \
-        + TRational(IMUSANT_duration::xmlv1(right.getSimplifiedDuration().fDuration));
+        //TRational r = TRational(IMUSANT_duration::xmlv1(getSimplifiedDuration().fDuration)) \
+        //+ TRational(IMUSANT_duration::xmlv1(right.getSimplifiedDuration().fDuration));
+        TRational r = getSimplifiedDuration().fDuration + right.getSimplifiedDuration().fDuration;
         out.fDots = NormaliseDuration(r);
-        out.fDuration = IMUSANT_duration::xmlv1(r.toString());
+        out.fDuration = r; //IMUSANT_duration::xmlv1(r.toString());
         out.fTimeModification=1;
         
         return out;
