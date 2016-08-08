@@ -315,18 +315,20 @@ namespace IMUSANT
         note transposed_note;
         
         transposed_note.note_name = addPitchSteps(written_note_name, diatonic_steps);
-        
-        if (chromatic_steps != 0)
-        {
-            int group = findGroup(written_note_name, written_alteration);
-            int transpose_group = group + chromatic_steps;  // REVISIT allow for wrapping
-            
-            note found_note = findNote(transpose_group, transposed_note.note_name);
-
-            transposed_note.alteration = found_note.alteration;
-        }
+        transposed_note.alteration = addChromaticSteps(written_note_name, written_alteration, transposed_note.note_name, chromatic_steps);
         
         return transposed_note;
+    }
+    
+    IMUSANT_pitch::inflection
+    EnharmonicsTable::
+    addChromaticSteps(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, IMUSANT_pitch::type sounding_note_name, int chromatic_steps)
+    {
+        int group = findGroup(written_note_name, written_alteration);
+        int transpose_group = group + chromatic_steps;
+        
+        note found_note = findNote(transpose_group, sounding_note_name);
+        return found_note.alteration;
     }
     
     int
@@ -364,7 +366,15 @@ namespace IMUSANT
     addPitchSteps(IMUSANT_pitch::type note_name, int num_pitch_steps)
     {
         const int i = static_cast<int>(note_name);
-        note_name = static_cast<IMUSANT_pitch::type>(i + num_pitch_steps);
+        
+        while (num_pitch_steps < 0)
+        {
+            num_pitch_steps += IMUSANT_pitch::diatonicSteps;
+        }
+        
+        int calculated_note_value = (i + num_pitch_steps) % IMUSANT_pitch::diatonicSteps;
+        note_name = static_cast<IMUSANT_pitch::type>(calculated_note_value);
+        
         return note_name;
     }
     

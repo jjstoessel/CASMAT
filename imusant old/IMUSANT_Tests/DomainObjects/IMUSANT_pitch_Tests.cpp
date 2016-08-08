@@ -140,7 +140,7 @@ TEST_F(IMUSANT_pitch_Tests, TestTransposeOneOctave)
 TEST_F(IMUSANT_pitch_Tests, TestTransposeTwoPitchSteps)
 {
     S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-    pitch->transpose(+2, 0, 0, false);
+    pitch->transpose(+2, +4, 0, false);
     
     ASSERT_EQ(64, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
     ASSERT_EQ(IMUSANT_pitch::type::E, pitch->name()) << "Unexpected Name after transposition.";
@@ -153,7 +153,7 @@ TEST_F(IMUSANT_pitch_Tests, TestTransposeTwoPitchSteps)
     // ASSERT_EQ(IMUSANT_pitch::type::C,  pitch.asWritten().name()) << "Unexpected AsWritten.Name after transposition.";
 }
 
-TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitonesUp)
+TEST_F(IMUSANT_pitch_Tests, TestTranspose_CtoDsharp_Up)
 {
     S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
     pitch->transpose(+1, +3, 0, false);  // C to D#.
@@ -166,29 +166,78 @@ TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitonesUp)
     ASSERT_EQ(3, pitch->getPC()) << "Unexpected PC after transposition.";
 }
 
+TEST_F(IMUSANT_pitch_Tests, TestTranspose_CtoEflat_Up)
+{
+    S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    pitch->transpose(+2, +3, 0, false);  // C to Eb.
+    
+    ASSERT_EQ(63, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::type::E, pitch->name()) << "Unexpected Name after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::flat, pitch->getInflection()) << "Unexpected Inflection after transposition.";
+    ASSERT_EQ(4, pitch->octave()) << "Unexpected Octave after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::TPC::tpcEb, pitch->getTPC()) << "Unexpected TPC after transposition.";
+    ASSERT_EQ(3, pitch->getPC()) << "Unexpected PC after transposition.";
+}
+
 TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitonesDown)
 {
-    // This test fails because EnharmonicsTable::addPitchSteps() does not handle wrapping.
-    
-    // Also this test probably fails because the transposition down has changed the octave,
-    // and EnharmonicsTable::transpose(4) does not account for this.
-    
-    
     S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-    pitch->transpose(-2, -3, 0, false);  // C to A.
+    pitch->transpose(-2, -3, -1, false);  // C to A.
     
-    ASSERT_EQ(57, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
     ASSERT_EQ(IMUSANT_pitch::type::A, pitch->name()) << "Unexpected Name after transposition.";
     ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch->getInflection()) << "Unexpected Inflection after transposition.";
     ASSERT_EQ(3, pitch->octave()) << "Unexpected Octave after transposition.";
+    ASSERT_EQ(57, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+    
+}
+
+TEST_F(IMUSANT_pitch_Tests, TestTransposeWrapEnharmonicsTable)
+{
+    S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::D, 4, IMUSANT_pitch::natural);
+    pitch->transpose(-1, 10, 1, false);  // D to C + 1 octave.
+    
+    ASSERT_EQ(IMUSANT_pitch::type::C, pitch->name()) << "Unexpected Name after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch->getInflection()) << "Unexpected Inflection after transposition.";
+    ASSERT_EQ(5, pitch->octave()) << "Unexpected Octave after transposition.";
+    ASSERT_EQ(72, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+}
+
+TEST_F(IMUSANT_pitch_Tests, TestEnharmonicsTable_AddPitchSteps)
+{
+    EnharmonicsTable tbl;
+    
+    ASSERT_EQ(IMUSANT_pitch::C, tbl.addPitchSteps(IMUSANT_pitch::type::D, -8));
+    ASSERT_EQ(IMUSANT_pitch::D, tbl.addPitchSteps(IMUSANT_pitch::type::D, -7));
+    ASSERT_EQ(IMUSANT_pitch::E, tbl.addPitchSteps(IMUSANT_pitch::type::D, -6));
+    ASSERT_EQ(IMUSANT_pitch::F, tbl.addPitchSteps(IMUSANT_pitch::type::D, -5));
+    ASSERT_EQ(IMUSANT_pitch::G, tbl.addPitchSteps(IMUSANT_pitch::type::D, -4));
+    ASSERT_EQ(IMUSANT_pitch::A, tbl.addPitchSteps(IMUSANT_pitch::type::D, -3));
+    ASSERT_EQ(IMUSANT_pitch::B, tbl.addPitchSteps(IMUSANT_pitch::type::D, -2));
+    ASSERT_EQ(IMUSANT_pitch::C, tbl.addPitchSteps(IMUSANT_pitch::type::D, -1));
+    ASSERT_EQ(IMUSANT_pitch::D, tbl.addPitchSteps(IMUSANT_pitch::type::D, 0));
+    ASSERT_EQ(IMUSANT_pitch::E, tbl.addPitchSteps(IMUSANT_pitch::type::D, 1));
+    ASSERT_EQ(IMUSANT_pitch::F, tbl.addPitchSteps(IMUSANT_pitch::type::D, 2));
+    ASSERT_EQ(IMUSANT_pitch::G, tbl.addPitchSteps(IMUSANT_pitch::type::D, 3));
+    ASSERT_EQ(IMUSANT_pitch::A, tbl.addPitchSteps(IMUSANT_pitch::type::D, 4));
+    ASSERT_EQ(IMUSANT_pitch::B, tbl.addPitchSteps(IMUSANT_pitch::type::D, 5));
+    ASSERT_EQ(IMUSANT_pitch::C, tbl.addPitchSteps(IMUSANT_pitch::type::D, 6));
+    ASSERT_EQ(IMUSANT_pitch::D, tbl.addPitchSteps(IMUSANT_pitch::type::D, 7));
+    ASSERT_EQ(IMUSANT_pitch::E, tbl.addPitchSteps(IMUSANT_pitch::type::D, 8));
+    ASSERT_EQ(IMUSANT_pitch::F, tbl.addPitchSteps(IMUSANT_pitch::type::D, 9));
+    ASSERT_EQ(IMUSANT_pitch::G, tbl.addPitchSteps(IMUSANT_pitch::type::D, 10));
+    ASSERT_EQ(IMUSANT_pitch::A, tbl.addPitchSteps(IMUSANT_pitch::type::D, 11));
+    ASSERT_EQ(IMUSANT_pitch::B, tbl.addPitchSteps(IMUSANT_pitch::type::D, 12));
+    ASSERT_EQ(IMUSANT_pitch::C, tbl.addPitchSteps(IMUSANT_pitch::type::D, 13));
+    ASSERT_EQ(IMUSANT_pitch::D, tbl.addPitchSteps(IMUSANT_pitch::type::D, 14));
+    ASSERT_EQ(IMUSANT_pitch::E, tbl.addPitchSteps(IMUSANT_pitch::type::D, 15));
 }
 
 TEST_F(IMUSANT_pitch_Tests, TestAsWritten)
 {
-    ASSERT_FALSE(true) << "TEST NOT IMPLEMENTED YET";
+    ASSERT_TRUE(false) << "TEST NOT IMPLEMENTED YET";
     
 //    S_IMUSANT_pitch lC4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-//    lC4->transpose(2,2,1);
+//    lC4->transpose(4,7,0, false);
 //    
 //    S_IMUSANT_pitch lC4AsWritten = lC4->asWritten();
 //    ASSERT_EQ(60, lC4AsWritten->getMidiKeyNumber());

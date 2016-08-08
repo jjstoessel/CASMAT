@@ -89,7 +89,11 @@ namespace IMUSANT
     public visitor<S_cue>,
     public visitor<S_unpitched>,
     public visitor<S_chord>,
-    public visitor<S_transpose>
+    public visitor<S_transpose>,
+    public visitor<S_diatonic>,
+    public visitor<S_chromatic>,
+    public visitor<S_octave_change>,
+    public visitor<S_double>
     {
         
     public:
@@ -183,6 +187,10 @@ namespace IMUSANT
         virtual void visitStart( S_chord& elt);
         
         virtual void visitStart( S_transpose& elt);
+        virtual void visitStart( S_diatonic& elt);
+        virtual void visitStart( S_chromatic& elt);
+        virtual void visitStart( S_octave_change& elt);
+        virtual void visitStart( S_double& elt);
         
     private:
         
@@ -217,6 +225,13 @@ namespace IMUSANT
         bool                fInPitchElement = false;
         S_IMUSANT_pitch     fCurrentPitch;
         int                 fNumberOfInstrumentsInPart = 0;
+        
+        bool                fTransposing = false;
+        int                 fTransposeDiatonic = 0;
+        int                 fTransposeChromatic = 0;
+        int                 fTransposeOctaveChange = 0;
+        bool                fTransposeDoubled = false;
+        
     };
     
 }

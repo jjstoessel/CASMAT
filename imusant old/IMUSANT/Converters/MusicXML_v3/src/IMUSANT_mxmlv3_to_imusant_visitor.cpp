@@ -154,6 +154,8 @@ namespace IMUSANT
             MusicXML3_UnexpectedElement e("S_part [part_id = " + part_id + "]");
             throw e;
         }
+        
+        fTransposing = false;
     }
     
     void
@@ -745,6 +747,12 @@ namespace IMUSANT
     visitEnd( S_pitch& elt)
     {
         debug("S_pitch end");
+        
+        if (fTransposing)
+        {
+            fCurrentPitch->transpose(fTransposeDiatonic, fTransposeChromatic, fTransposeOctaveChange, fTransposeDoubled);
+        }
+        
         fCurrentNote->setPitch(*fCurrentPitch);
         fCurrentNote->setType(IMUSANT_NoteType::pitch);
         fInPitchElement = false;
@@ -906,7 +914,50 @@ namespace IMUSANT
     {
         debug("S_transpose");
         
-        MusicXML3_ElementNotImplemented e("S_transpose");
-        throw e;
+        fTransposing = true;
+        fTransposeDiatonic = 0;
+        fTransposeChromatic = 0;
+        fTransposeOctaveChange = 0;
+        fTransposeDoubled = false;
     }
+    
+     void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_diatonic& elt)
+    {
+        debug("S_diatonic");
+        
+        string str_val = elt->getValue();
+        fTransposeDiatonic = atoi(str_val.c_str());
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_chromatic& elt)
+    {
+        debug("S_chromatic");
+        
+        string str_val = elt->getValue();
+        fTransposeChromatic = atoi(str_val.c_str());
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_octave_change& elt)
+    {
+        debug("S_octave_change");
+        
+        string str_val = elt->getValue();
+        fTransposeOctaveChange = atoi(str_val.c_str());
+    }
+    
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_double& elt)
+    {
+        debug("S_double");
+        fTransposeDoubled = true;
+    }
+    
+    
 }
