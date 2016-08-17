@@ -40,7 +40,7 @@ namespace CATSMAT {
         
         void    addpart();
         void	add(const IMUSANT_note& note);
-        void    set(const IMUSANT_time& time) { fCurrentTime = time; }
+        void    set(const IMUSANT_time& time);
         void	clear() { fCPMatrix.clear(); }
         
         const   list< S_CATSMAT_chord >& getCPmatrix() const { return fCPMatrix; }
@@ -71,7 +71,7 @@ namespace CATSMAT {
         IMUSANT_time                        fCurrentTime;
         long                                fCurrentMeasureNumber;
         IMUSANT_duration                    fCumulativeMeasureDuration;
-        
+        IMUSANT_duration                    fMeasureDuration;
     };
 
 typedef IMUSANT_SMARTP<CATSMAT_cp_matrix> S_CATSMAT_cp_matrix;

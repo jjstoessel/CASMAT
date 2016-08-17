@@ -50,6 +50,7 @@ class VEXP CATSMAT_collection_visitor : public IMUSANT_collection_visitor
 		
         //local storage of counterpoint matrix
         S_CATSMAT_cp_matrix    fCPMatrix;
+    
 };
 
 } //namespace CATSMAT

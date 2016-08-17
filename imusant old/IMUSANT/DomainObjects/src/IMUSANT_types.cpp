@@ -199,6 +199,13 @@ namespace IMUSANT
         }
     }
     
+    bool
+    IMUSANT_time::
+    operator!=(const IMUSANT_time& time) const
+    {
+        return ( fBeatNum != time.getNumerator() || fBeatDenom != time.getDenominator() || fSymbol != time.getSymbol());
+    }
+    
     void
     IMUSANT_time::
     operator=(const IMUSANT_time& time)

@@ -93,6 +93,10 @@ namespace CATSMAT
         
         fCumulativeMeasureDuration += *note.duration();
         
+        if (fCumulativeMeasureDuration>fMeasureDuration) {
+            throw catsmat_runtime_error("Total duration of measure exceeded");
+        }
+        
         if (fCurrentPart==0) // there are no parts added yet
         {
             S_CATSMAT_chord chord = new_CATSMAT_chord();
@@ -227,6 +231,12 @@ namespace CATSMAT
         fCPMatrix.insert(fCurrentChord, insert_chord);
     }
     
+    /*!
+     \brief CATSMAT_cp_matrix::setMeasureNumber
+     
+     Record current measure number
+     
+     */
     void
     CATSMAT_cp_matrix::
     setMeasureNumber(long currentMeasure)
@@ -234,6 +244,52 @@ namespace CATSMAT
         if (currentMeasure!=fCurrentMeasureNumber) {
             fCurrentMeasureNumber = currentMeasure;
             fCumulativeMeasureDuration = IMUSANT_duration();
+        }
+    }
+    
+    /*!
+     \brief CATSMAT_cp_matrix::set(const IMUSANT_time& time)
+     
+     Record current measure time and calculate fMeasureDuration
+     
+     */
+    void
+    CATSMAT_cp_matrix::
+    set(const IMUSANT_time& time)
+    {
+        if (fCurrentTime!=time) {
+            fCurrentTime = time;
+            vector<long> nums = fCurrentTime.getNumerator();
+            vector<long> doms = fCurrentTime.getDenominator();
+            vector<TRational> rats;
+            if (doms.size()<2) {
+                for (auto i = doms.begin(); i!=doms.end();i++) {
+                    TRational rat1(1,*i);
+                    for (auto j=nums.begin(); j!=nums.end(); j++) {
+                        TRational rat2 = rat1*TRational(*j,1);
+                        rats.push_back(rat2);
+                    }
+                }
+            }
+            else
+            {
+                if (doms.size()==nums.size()) {
+                    for (auto i = nums.begin(), j = doms.begin(); i!=nums.end();i++, j++) {
+                        TRational rat(*i,*j);
+                        rats.push_back(rat);
+                    }
+                }
+            }
+            
+            IMUSANT_duration dur;
+            
+            for (auto k = rats.begin(); k!=rats.end(); k++) {
+                IMUSANT_duration add;
+                add.set(*k, 0); //should rationalise.
+                dur += add;
+            }
+        
+            fMeasureDuration = dur;
         }
     }
     
