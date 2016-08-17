@@ -40,9 +40,9 @@ namespace CATSMAT
      
      */
     CATSMAT_cp_matrix::CATSMAT_cp_matrix()
-        : fCurrentPart(-1), fCurrentMeasureNumber(NULL)
+    : fCurrentPart(-1), fCurrentMeasureNumber(NULL), fLeftBarline(IMUSANT_barline::regular)
     {
-        
+        fMeasureDuration.set(TRational(1,1));
     }
 
     CATSMAT_cp_matrix::~CATSMAT_cp_matrix()
@@ -257,7 +257,7 @@ namespace CATSMAT
     CATSMAT_cp_matrix::
     set(const IMUSANT_time& time)
     {
-        if (fCurrentTime!=time) {
+        if (fCurrentTime!=time && time!=IMUSANT_time()) {
             fCurrentTime = time;
             vector<long> nums = fCurrentTime.getNumerator();
             vector<long> doms = fCurrentTime.getDenominator();

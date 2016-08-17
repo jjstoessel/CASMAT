@@ -22,6 +22,7 @@
 #include "IMUSANT_interval_vector.h"
 #include "CATSMAT_visitable.hpp"
 #include "CATSMAT_chord.hpp"
+#include "IMUSANT_barline.h"
 
 using namespace std;
 using namespace IMUSANT;
@@ -50,6 +51,7 @@ namespace CATSMAT {
         unsigned long partCount() const { return fCurrentPart + 1; }
         
         void    setMeasureNumber(long currentMeasure);
+        void    setCurrentLeftBarline(IMUSANT_barline::type barline) { fLeftBarline = barline; }
         
     protected:
         //ctors
@@ -72,6 +74,7 @@ namespace CATSMAT {
         long                                fCurrentMeasureNumber;
         IMUSANT_duration                    fCumulativeMeasureDuration;
         IMUSANT_duration                    fMeasureDuration;
+        IMUSANT_barline::type               fLeftBarline;
     };
 
 typedef IMUSANT_SMARTP<CATSMAT_cp_matrix> S_CATSMAT_cp_matrix;

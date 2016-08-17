@@ -51,7 +51,16 @@ namespace CATSMAT
         
         IMUSANT_collection_visitor::visit(elt);
     }
-
+    
+    #pragma mark IMUSANT_barline handler
+    void CATSMAT_collection_visitor::visit ( S_IMUSANT_barline& elt)
+    {
+        if (elt->getLocation()==IMUSANT_barline::left)
+        {
+            fCPMatrix->setCurrentLeftBarline(elt->getBarStyle());
+        }
+    }
+    
     #pragma mark IMUSANT_note handler
 
     void CATSMAT_collection_visitor::visit ( S_IMUSANT_note& elt )

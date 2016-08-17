@@ -35,6 +35,7 @@ class VEXP CATSMAT_collection_visitor : public IMUSANT_collection_visitor
 		
 		void visit ( S_IMUSANT_chord& elt );
 		void visit ( S_IMUSANT_measure& elt );
+        void visit ( S_IMUSANT_barline& );
 		void visit ( S_IMUSANT_note& elt );
 		void visit ( S_IMUSANT_part& elt );
 		void visit ( S_IMUSANT_score& elt );

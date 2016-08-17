@@ -66,7 +66,7 @@ namespace IMUSANT
         
         
         // Simple version for no time modification.
-        void set(TRational dur, long dots)
+        void set(TRational dur, long dots = 0)
         {
             fDuration = dur;
             fDots = dots;
