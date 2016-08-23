@@ -2463,9 +2463,10 @@
           <step>G</step>
           <octave>4</octave>
           </pitch>
-        <duration>8</duration>
+        <duration>6</duration>
         <voice>1</voice>
-        <type>whole</type>
+        <type>half</type>
+        <dot/>
         <lyric number="1">
           <syllabic>end</syllabic>
           <text>son</text>

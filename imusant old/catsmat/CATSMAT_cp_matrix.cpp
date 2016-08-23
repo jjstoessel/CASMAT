@@ -96,7 +96,10 @@ namespace CATSMAT
         fCumulativeMeasureDuration += *note.duration();
         
         if (fCumulativeMeasureDuration>fMeasureDuration) {
-            throw catsmat_runtime_error("Total duration of measure exceeded");
+            if (fCurrentMeasureNumber==1)
+                fMeasureDuration = fCumulativeMeasureDuration; // a quick hack for the time being for pieces without time signatures
+            else
+                throw catsmat_runtime_error("Total duration of measure exceeded");
         }
         
         if (fCurrentPart==0) // there are no parts added yet
