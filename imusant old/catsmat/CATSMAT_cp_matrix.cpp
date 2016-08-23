@@ -43,6 +43,7 @@ namespace CATSMAT
     : fCurrentPart(-1), fCurrentMeasureNumber(NULL), fLeftBarline(IMUSANT_barline::regular)
     {
         fMeasureDuration.set(TRational(1,1));
+        fCumulativeMeasureDuration.set(TRational(0,1));
     }
 
     CATSMAT_cp_matrix::~CATSMAT_cp_matrix()
@@ -77,6 +78,7 @@ namespace CATSMAT
         }
         
         fCurrentChord = fCPMatrix.begin();
+        fCumulativeMeasureDuration.set(TRational(0,1));
     }
 
     /*!
@@ -196,7 +198,7 @@ namespace CATSMAT
     CATSMAT_cp_matrix::
     split(const IMUSANT_note& note)
     {
-        if (fCurrentChord==fCPMatrix.end()) throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix.");
+        if (fCurrentChord==fCPMatrix.end()) throw catsmat_runtime_error( "Unexpected end of Contrapuntal Matrix.");
         
         //create the new chord, ready for filling in for loop
         S_CATSMAT_chord insert_chord = new_CATSMAT_chord();
@@ -243,7 +245,7 @@ namespace CATSMAT
     {
         if (currentMeasure!=fCurrentMeasureNumber) {
             fCurrentMeasureNumber = currentMeasure;
-            fCumulativeMeasureDuration = IMUSANT_duration();
+            fCumulativeMeasureDuration.set(TRational(0,1));;
         }
     }
     

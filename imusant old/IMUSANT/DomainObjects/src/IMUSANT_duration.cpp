@@ -7,7 +7,7 @@
  *
  */
 
-
+#include <math.h>
 #include "IMUSANT_duration.h"
 
 namespace IMUSANT
@@ -152,7 +152,10 @@ namespace IMUSANT
         return *this;
     }
     //--
-    //takes durations and reduces them to simplest form
+    //  takes durations and reduces them to simplest form
+    //  Dotted notes are a geometric series where the sum value of (S) of a duration with n dots is
+    //      Sn = a (2 - pow(0.5, n))
+    //
     long
     IMUSANT_duration::
     NormaliseDuration(TRational& dur)
@@ -162,19 +165,26 @@ namespace IMUSANT
         long dots = 0;
         TRational sesquialtera(3,2);
         
-//        while   (
-//                 dur.getNumerator()!=0 && \
-//                 dur.getNumerator() > dur.getDenominator()/2 && \
-//                 (dur.getDenominator()%dur.getNumerator()==1 || \
-//                  dur.getDenominator()%dur.getNumerator()==2 )
-//                 )
-        while (dur.getNumerator()!=1 && dur.getNumerator()%2!=0)
+        float r = 0.5; //ratio
+        float gs = 0.0, intpart = 0.0;
+        float base = dur; //cast to float
+        
+        while (dots<5 && modff(log2(base), &intpart)!=0) //modff returns faction part
         {
+            gs = 2 - pow(r,dots+1);
+            base = (float)dur/gs;
             dots++;
-            dur /= sesquialtera;
         }
         
-        dur.rationalise();
+        if (dots > 0 && dots<=4)
+        {
+            if (intpart<=0)
+                dur = TRational(1,pow(2, fabs(intpart)));
+            else
+                dur = TRational(pow(2,intpart),1);
+        }
+        else
+            dots = 0;
         
         return dots;
     }

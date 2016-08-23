@@ -998,11 +998,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "492237231.111666"
+            timestampString = "493616150.91768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81">
+            startingLineNumber = "83"
+            endingLineNumber = "83">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1090,11 +1090,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "492508483.651466"
+            timestampString = "493616150.91768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "CATSMAT_cp_matrix:: distribute(const IMUSANT_note&amp; note, const S_IMUSANT_note previous_note)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1106,11 +1106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "492508483.651466"
+            timestampString = "493616150.91768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "CATSMAT_cp_matrix:: split(const IMUSANT_note&amp; note)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1122,11 +1122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "492508483.651466"
+            timestampString = "493616150.91768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
             landmarkName = "CATSMAT_cp_matrix:: split(const IMUSANT_note&amp; note)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1138,11 +1138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_duration.cpp"
-            timestampString = "492331896.397866"
+            timestampString = "493615806.566463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "IMUSANT_duration:: operator-(const IMUSANT_duration&amp; right)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1154,11 +1154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_duration.cpp"
-            timestampString = "492331896.397866"
+            timestampString = "493615806.566463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "IMUSANT_duration:: operator-=(const IMUSANT_duration&amp; rhs)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1250,28 +1250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "492508483.651466"
+            timestampString = "493616150.91768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Converters/MusicXML_v3/src/IMUSANT_mxmlv3_to_imusant_visitor.cpp"
-            timestampString = "492238935.762432"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "621"
-            endingLineNumber = "621"
-            landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitStart(S_duration&amp; elt)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1329,28 +1313,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IMUSANT/DomainObjects/src/IMUSANT_duration.cpp"
-            timestampString = "492249569.134997"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "IMUSANT_duration:: NormaliseDuration(TRational&amp; dur)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "492505024.815348"
+            timestampString = "493616150.91768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1363,22 +1331,6 @@
             continueAfterRunningActions = "No"
             scope = "0"
             stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "492508483.651466"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "CATSMAT_cp_matrix:: setMeasureNumber(long currentMeasure)"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1434,7 +1386,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "493109841.720451"
+            timestampString = "493524895.096769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -1450,12 +1402,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "493111393.266507"
+            timestampString = "493616150.91768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_cp_matrix.cpp"
+            timestampString = "493616150.91768"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_cp_matrix_Test.cpp"
+            timestampString = "493199737.978308"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "TEST_F(CATSMAT_cp_matrix_Test, Josquin_MAF_Kyrie)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/DomainObjects/src/IMUSANT_duration.cpp"
+            timestampString = "493615806.566463"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "IMUSANT_duration:: NormaliseDuration(TRational&amp; dur)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_cp_matrix.cpp"
+            timestampString = "493616150.91768"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "CATSMAT_cp_matrix:: setMeasureNumber(long currentMeasure)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
