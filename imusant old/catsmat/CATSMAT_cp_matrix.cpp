@@ -150,8 +150,10 @@ namespace CATSMAT
         // REVISIT - if duration of final note in current part is greater than duration in other parts,
         // we run over the end of the map
         
-        if (fCurrentChord==fCPMatrix.end()) throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix.");
-            //return IMUSANT_note();
+        if (fCurrentChord==fCPMatrix.end())
+        {
+            throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix at note " + string(note.pretty_print()));
+        }
         
         S_IMUSANT_duration current_chord_dur = (*(*fCurrentChord)).begin()->second->duration();
         
@@ -201,7 +203,7 @@ namespace CATSMAT
     CATSMAT_cp_matrix::
     split(const IMUSANT_note& note)
     {
-        if (fCurrentChord==fCPMatrix.end()) throw catsmat_runtime_error( "Unexpected end of Contrapuntal Matrix.");
+        if (fCurrentChord==fCPMatrix.end()) throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix at note " + string(note.pretty_print()));
         
         //create the new chord, ready for filling in for loop
         S_CATSMAT_chord insert_chord = new_CATSMAT_chord();

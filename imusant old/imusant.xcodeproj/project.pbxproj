@@ -1098,6 +1098,79 @@
 		96A71CBB1A9160CB0021C86A /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
 		BA1E393B1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_LBDM_segmenter.cpp; path = src/IMUSANT_LBDM_segmenter.cpp; sourceTree = "<group>"; };
 		BA1E393C1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_LBDM_segmenter.h; path = src/IMUSANT_LBDM_segmenter.h; sourceTree = "<group>"; };
+		BA33CBB61D6FD7A8001B7FF3 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Talent_mest_pris_I-IV_115_52r-.xml"; sourceTree = "<group>"; };
+		BA33CBB71D6FD7A8001B7FF3 /* Anon-Tres_dous_compains.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Tres_dous_compains.xml"; sourceTree = "<group>"; };
+		BA33CBB81D6FD7A8001B7FF3 /* Anon-Umblemens_vos_pri.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Umblemens_vos_pri.xml"; sourceTree = "<group>"; };
+		BA33CBB91D6FD7A8001B7FF3 /* Cordier-Tout_par_compas-standardised.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Cordier-Tout_par_compas-standardised.xml"; sourceTree = "<group>"; };
+		BA33CBBA1D6FD7A8001B7FF3 /* Denis_Le_Grant-Se_je_chant_F-Pic_67.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Denis_Le_Grant-Se_je_chant_F-Pic_67.xml"; sourceTree = "<group>"; };
+		BA33CBBB1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_agnus_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_I_agnus_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBBC1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_credo_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_I_credo_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBBD1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_gloria_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_I_gloria_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBBE1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_kyrie_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_I_kyrie_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBBF1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_sanctus_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_I_sanctus_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBC01D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_agnus_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_II_agnus_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBC11D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_credo_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_II_credo_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBC21D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_gloria_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_II_gloria_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBC31D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_kyrie_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_II_kyrie_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBC41D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_sanctus_ed_Eakins.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Faugues-Missa_Lhomme_arme_II_sanctus_ed_Eakins.xml"; sourceTree = "<group>"; };
+		BA33CBC51D6FD7A8001B7FF3 /* Machaut-Ma_fin_est_mon_commencement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Machaut-Ma_fin_est_mon_commencement.xml"; sourceTree = "<group>"; };
+		BA33CBC61D6FD7A8001B7FF3 /* Missa Papae Marcelli Agnus Dei II no ficta.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Missa Papae Marcelli Agnus Dei II no ficta.xml"; sourceTree = "<group>"; };
+		BA33CBC71D6FD7A8001B7FF3 /* Missa Papae Marcelli Agnus Dei II with ficta.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Missa Papae Marcelli Agnus Dei II with ficta.xml"; sourceTree = "<group>"; };
+		BA33CBC81D6FD7A8001B7FF3 /* Ockeghem_Prenez_sur_moi_(Cop).xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Ockeghem_Prenez_sur_moi_(Cop).xml"; sourceTree = "<group>"; };
+		BA33CBC91D6FD7A8001B7FF3 /* PMFC_02-Machaut-Le_lai_de_confort.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_02-Machaut-Le_lai_de_confort.xml"; sourceTree = "<group>"; };
+		BA33CBCA1D6FD7A8001B7FF3 /* PMFC_02_Machaut-Le_lai_de_la_fontaine.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_02_Machaut-Le_lai_de_la_fontaine.xml"; sourceTree = "<group>"; };
+		BA33CBCB1D6FD7A8001B7FF3 /* PMFC_04_153-De_dinmi_tu.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_04_153-De_dinmi_tu.xml"; sourceTree = "<group>"; };
+		BA33CBCC1D6FD7A8001B7FF3 /* PMFC_04_154-Chosi_pensoso.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_04_154-Chosi_pensoso.xml"; sourceTree = "<group>"; };
+		BA33CBCD1D6FD7A8001B7FF3 /* PMFC_06_14-Per_larghi_prati.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_14-Per_larghi_prati.xml"; sourceTree = "<group>"; };
+		BA33CBCE1D6FD7A8001B7FF3 /* PMFC_06_15-Per_ridd_andando.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_15-Per_ridd_andando.xml"; sourceTree = "<group>"; };
+		BA33CBCF1D6FD7A8001B7FF3 /* PMFC_06_Giovanni-03-Chon_brachi_assai.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Giovanni-03-Chon_brachi_assai.xml"; sourceTree = "<group>"; };
+		BA33CBD01D6FD7A8001B7FF3 /* PMFC_06_Giovanni_10-Nel_boscho_senca_folglie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Giovanni_10-Nel_boscho_senca_folglie.xml"; sourceTree = "<group>"; };
+		BA33CBD11D6FD7A8001B7FF3 /* PMFC_06_Jacopo_18-Ogelletto_Silvagio.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Jacopo_18-Ogelletto_Silvagio.xml"; sourceTree = "<group>"; };
+		BA33CBD21D6FD7A8001B7FF3 /* PMFC_06_Jacopo_21a-Per_Sparverare.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Jacopo_21a-Per_Sparverare.xml"; sourceTree = "<group>"; };
+		BA33CBD31D6FD7A8001B7FF3 /* PMFC_06_Jacopo_6-Giungel_bel_tempo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Jacopo_6-Giungel_bel_tempo.xml"; sourceTree = "<group>"; };
+		BA33CBD41D6FD7A8001B7FF3 /* PMFC_06_Piero_03_Con_bracci_assai.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PMFC_06_Piero_03_Con_bracci_assai.xml; sourceTree = "<group>"; };
+		BA33CBD51D6FD7A8001B7FF3 /* PMFC_06_Piero_04-Con_dolce_brama.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Piero_04-Con_dolce_brama.xml"; sourceTree = "<group>"; };
+		BA33CBD61D6FD7A8001B7FF3 /* PMFC_06_Piero_05-Ongni_dilecto.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Piero_05-Ongni_dilecto.xml"; sourceTree = "<group>"; };
+		BA33CBD71D6FD7A8001B7FF3 /* PMFC_06_Piero_07-Si_comal_canto.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Piero_07-Si_comal_canto.xml"; sourceTree = "<group>"; };
+		BA33CBD81D6FD7A8001B7FF3 /* PMFC_06_Piero_1-All_onbra_d_un_perlato.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Piero_1-All_onbra_d_un_perlato.xml"; sourceTree = "<group>"; };
+		BA33CBD91D6FD7A8001B7FF3 /* PMFC_06_Piero_2-Chavalcando.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_06_Piero_2-Chavalcando.xml"; sourceTree = "<group>"; };
+		BA33CBDA1D6FD7A8001B7FF3 /* PMFC_07_DdF_5-Faccia_Chi_De_Se_l_Po.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_07_DdF_5-Faccia_Chi_De_Se_l_Po.xml"; sourceTree = "<group>"; };
+		BA33CBDB1D6FD7A8001B7FF3 /* PMFC_07_GdF_15a_Tosto_Che_L_Alba.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PMFC_07_GdF_15a_Tosto_Che_L_Alba.xml; sourceTree = "<group>"; };
+		BA33CBDC1D6FD7A8001B7FF3 /* PMFC_07_GdF_9_La_Bella_E_La_Veccosa_Cavriola.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PMFC_07_GdF_9_La_Bella_E_La_Veccosa_Cavriola.xml; sourceTree = "<group>"; };
+		BA33CBDD1D6FD7A8001B7FF3 /* PMFC_07_LdF_1_A_Poste_Messe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PMFC_07_LdF_1_A_Poste_Messe.xml; sourceTree = "<group>"; };
+		BA33CBDE1D6FD7A8001B7FF3 /* PMFC_07_LdF_3_Da__Da__A_Chi_Avaregia.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PMFC_07_LdF_3_Da__Da__A_Chi_Avaregia.xml; sourceTree = "<group>"; };
+		BA33CBDF1D6FD7A8001B7FF3 /* PMFC_07_VdR_4_In_Forma_Quasi.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PMFC_07_VdR_4_In_Forma_Quasi.xml; sourceTree = "<group>"; };
+		BA33CBE01D6FD7A8001B7FF3 /* PMFC_07_VdR_6a_Nell_Acqua_Chiara.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PMFC_07_VdR_6a_Nell_Acqua_Chiara.xml; sourceTree = "<group>"; };
+		BA33CBE11D6FD7A8001B7FF3 /* PMFC_08_27-Nel_prato_pien_di_fiori.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_08_27-Nel_prato_pien_di_fiori.xml"; sourceTree = "<group>"; };
+		BA33CBE21D6FD7A8001B7FF3 /* PMFC_08_31-Or_qua_conpagni.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_08_31-Or_qua_conpagni.xml"; sourceTree = "<group>"; };
+		BA33CBE31D6FD7A8001B7FF3 /* PMFC_08_36-Quan_ye_voy_le_duc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_08_36-Quan_ye_voy_le_duc.xml"; sourceTree = "<group>"; };
+		BA33CBE41D6FD7A8001B7FF3 /* PMFC_08_38a-Seghugi_a_corta.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_08_38a-Seghugi_a_corta.xml"; sourceTree = "<group>"; };
+		BA33CBE51D6FD7A8001B7FF3 /* PMFC_08_38b-Segugi_a_corde.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_08_38b-Segugi_a_corde.xml"; sourceTree = "<group>"; };
+		BA33CBE61D6FD7A8001B7FF3 /* PMFC_08_Nicolo_20-La_fiera_testa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_08_Nicolo_20-La_fiera_testa.xml"; sourceTree = "<group>"; };
+		BA33CBE71D6FD7A8001B7FF3 /* PMFC_08_Nicolo_30-Passando_con_pensier.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_08_Nicolo_30-Passando_con_pensier.xml"; sourceTree = "<group>"; };
+		BA33CBE81D6FD7A8001B7FF3 /* PMFC_08_Nicolo_36-State_su_donne.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_08_Nicolo_36-State_su_donne.xml"; sourceTree = "<group>"; };
+		BA33CBE91D6FD7A8001B7FF3 /* PMFC_08_Nicolo_9-Dappoi_che_l_sole.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_08_Nicolo_9-Dappoi_che_l_sole.xml"; sourceTree = "<group>"; };
+		BA33CBEA1D6FD7A8001B7FF3 /* PMFC_10_Andrea_6-Dal_traditor.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_10_Andrea_6-Dal_traditor.xml"; sourceTree = "<group>"; };
+		BA33CBEB1D6FD7A8001B7FF3 /* PMFC_10_Zacherias_2-Cacciando_per_gustar_ai_cenci_ai_toppi.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "PMFC_10_Zacherias_2-Cacciando_per_gustar_ai_cenci_ai_toppi.xml"; sourceTree = "<group>"; };
+		BA33CBEC1D6FD7A8001B7FF3 /* Reggio_Emilia_Chiama_il_bel_papagallo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Reggio_Emilia_Chiama_il_bel_papagallo.xml; sourceTree = "<group>"; };
+		BA33CBED1D6FD7A8001B7FF3 /* Reggio_Emilia_Mirando_i_pessi.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Reggio_Emilia_Mirando_i_pessi.xml; sourceTree = "<group>"; };
+		BA33CBEE1D6FD7A8001B7FF3 /* Reggio_Emilia_Nella_Foresta.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Reggio_Emilia_Nella_Foresta.xml; sourceTree = "<group>"; };
+		BA33CBEF1D6FD7A8001B7FF3 /* San_Lorenzo_Caccia_82v_94r.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = San_Lorenzo_Caccia_82v_94r.xml; sourceTree = "<group>"; };
+		BA33CBF01D6FD7A8001B7FF3 /* Trent 1-Eslongies suy.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 1-Eslongies suy.xml"; sourceTree = "<group>"; };
+		BA33CBF11D6FD7A8001B7FF3 /* Trent 2-Casse moy.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 2-Casse moy.xml"; sourceTree = "<group>"; };
+		BA33CBF21D6FD7A8001B7FF3 /* Trent 3 Missa ad fugam_1_Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 3 Missa ad fugam_1_Kyrie.xml"; sourceTree = "<group>"; };
+		BA33CBF31D6FD7A8001B7FF3 /* Trent 3 Missa ad fugam_2_Gloria in excelsis Deo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 3 Missa ad fugam_2_Gloria in excelsis Deo.xml"; sourceTree = "<group>"; };
+		BA33CBF41D6FD7A8001B7FF3 /* Trent 3_Missa ad fugam_3_Credo in unum Deum.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 3_Missa ad fugam_3_Credo in unum Deum.xml"; sourceTree = "<group>"; };
+		BA33CBF51D6FD7A8001B7FF3 /* Trent 3_Missa ad fugam_4_Sanctus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 3_Missa ad fugam_4_Sanctus.xml"; sourceTree = "<group>"; };
+		BA33CBF61D6FD7A8001B7FF3 /* Trent 3_Missa ad fugam_5 Agnus Dei.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 3_Missa ad fugam_5 Agnus Dei.xml"; sourceTree = "<group>"; };
+		BA33CBF71D6FD7A8001B7FF3 /* Trent 4_Regis celorum genetrix.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 4_Regis celorum genetrix.xml"; sourceTree = "<group>"; };
+		BA33CBF81D6FD7A8001B7FF3 /* Trent 5_Gloria in excelsis Deo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 5_Gloria in excelsis Deo.xml"; sourceTree = "<group>"; };
+		BA33CBF91D6FD7A8001B7FF3 /* Trent 6_Las aymi_Quand je pense.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 6_Las aymi_Quand je pense.xml"; sourceTree = "<group>"; };
+		BA33CBFA1D6FD7A8001B7FF3 /* Trent 7_Chomos condrosi.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 7_Chomos condrosi.xml"; sourceTree = "<group>"; };
+		BA33CBFB1D6FD7A8001B7FF3 /* Trent 8_Quae est ista.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 8_Quae est ista.xml"; sourceTree = "<group>"; };
+		BA33CBFC1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam reservatam_2_Gloria.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 9_Missa ad fugam reservatam_2_Gloria.xml"; sourceTree = "<group>"; };
+		BA33CBFD1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam reservatam_3_Credo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 9_Missa ad fugam reservatam_3_Credo.xml"; sourceTree = "<group>"; };
+		BA33CBFE1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam_1_Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 9_Missa ad fugam_1_Kyrie.xml"; sourceTree = "<group>"; };
 		BA4207E11CE805BF007204AF /* Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie.xml; sourceTree = "<group>"; };
 		BA4207E31CEEAB49007204AF /* IMUSANT_t_repeated_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_repeated_substring.h; sourceTree = "<group>"; };
 		BA4207E41CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_t_repeated_substring.cpp; sourceTree = "<group>"; };
@@ -1313,6 +1386,7 @@
 				4970E0261B76DD870052496C /* SuffixTree */,
 				BA7E94371B2AA56500818128 /* Loki */,
 				96BC9F83133B09AF00A65384 /* External Frameworks and Libraries */,
+				BA33CBB41D6FD7A8001B7FF3 /* corpus */,
 				BA8068E41B27BC5700AEFB27 /* test_files */,
 			);
 			name = imusant;
@@ -2608,6 +2682,94 @@
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = SOURCE_ROOT;
+		};
+		BA33CBB41D6FD7A8001B7FF3 /* corpus */ = {
+			isa = PBXGroup;
+			children = (
+				BA33CBB51D6FD7A8001B7FF3 /* MusicXML */,
+			);
+			path = corpus;
+			sourceTree = "<group>";
+		};
+		BA33CBB51D6FD7A8001B7FF3 /* MusicXML */ = {
+			isa = PBXGroup;
+			children = (
+				BA33CBB61D6FD7A8001B7FF3 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */,
+				BA33CBB71D6FD7A8001B7FF3 /* Anon-Tres_dous_compains.xml */,
+				BA33CBB81D6FD7A8001B7FF3 /* Anon-Umblemens_vos_pri.xml */,
+				BA33CBB91D6FD7A8001B7FF3 /* Cordier-Tout_par_compas-standardised.xml */,
+				BA33CBBA1D6FD7A8001B7FF3 /* Denis_Le_Grant-Se_je_chant_F-Pic_67.xml */,
+				BA33CBBB1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_agnus_ed_Eakins.xml */,
+				BA33CBBC1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_credo_ed_Eakins.xml */,
+				BA33CBBD1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_gloria_ed_Eakins.xml */,
+				BA33CBBE1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_kyrie_ed_Eakins.xml */,
+				BA33CBBF1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_sanctus_ed_Eakins.xml */,
+				BA33CBC01D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_agnus_ed_Eakins.xml */,
+				BA33CBC11D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_credo_ed_Eakins.xml */,
+				BA33CBC21D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_gloria_ed_Eakins.xml */,
+				BA33CBC31D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_kyrie_ed_Eakins.xml */,
+				BA33CBC41D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_sanctus_ed_Eakins.xml */,
+				BA33CBC51D6FD7A8001B7FF3 /* Machaut-Ma_fin_est_mon_commencement.xml */,
+				BA33CBC61D6FD7A8001B7FF3 /* Missa Papae Marcelli Agnus Dei II no ficta.xml */,
+				BA33CBC71D6FD7A8001B7FF3 /* Missa Papae Marcelli Agnus Dei II with ficta.xml */,
+				BA33CBC81D6FD7A8001B7FF3 /* Ockeghem_Prenez_sur_moi_(Cop).xml */,
+				BA33CBC91D6FD7A8001B7FF3 /* PMFC_02-Machaut-Le_lai_de_confort.xml */,
+				BA33CBCA1D6FD7A8001B7FF3 /* PMFC_02_Machaut-Le_lai_de_la_fontaine.xml */,
+				BA33CBCB1D6FD7A8001B7FF3 /* PMFC_04_153-De_dinmi_tu.xml */,
+				BA33CBCC1D6FD7A8001B7FF3 /* PMFC_04_154-Chosi_pensoso.xml */,
+				BA33CBCD1D6FD7A8001B7FF3 /* PMFC_06_14-Per_larghi_prati.xml */,
+				BA33CBCE1D6FD7A8001B7FF3 /* PMFC_06_15-Per_ridd_andando.xml */,
+				BA33CBCF1D6FD7A8001B7FF3 /* PMFC_06_Giovanni-03-Chon_brachi_assai.xml */,
+				BA33CBD01D6FD7A8001B7FF3 /* PMFC_06_Giovanni_10-Nel_boscho_senca_folglie.xml */,
+				BA33CBD11D6FD7A8001B7FF3 /* PMFC_06_Jacopo_18-Ogelletto_Silvagio.xml */,
+				BA33CBD21D6FD7A8001B7FF3 /* PMFC_06_Jacopo_21a-Per_Sparverare.xml */,
+				BA33CBD31D6FD7A8001B7FF3 /* PMFC_06_Jacopo_6-Giungel_bel_tempo.xml */,
+				BA33CBD41D6FD7A8001B7FF3 /* PMFC_06_Piero_03_Con_bracci_assai.xml */,
+				BA33CBD51D6FD7A8001B7FF3 /* PMFC_06_Piero_04-Con_dolce_brama.xml */,
+				BA33CBD61D6FD7A8001B7FF3 /* PMFC_06_Piero_05-Ongni_dilecto.xml */,
+				BA33CBD71D6FD7A8001B7FF3 /* PMFC_06_Piero_07-Si_comal_canto.xml */,
+				BA33CBD81D6FD7A8001B7FF3 /* PMFC_06_Piero_1-All_onbra_d_un_perlato.xml */,
+				BA33CBD91D6FD7A8001B7FF3 /* PMFC_06_Piero_2-Chavalcando.xml */,
+				BA33CBDA1D6FD7A8001B7FF3 /* PMFC_07_DdF_5-Faccia_Chi_De_Se_l_Po.xml */,
+				BA33CBDB1D6FD7A8001B7FF3 /* PMFC_07_GdF_15a_Tosto_Che_L_Alba.xml */,
+				BA33CBDC1D6FD7A8001B7FF3 /* PMFC_07_GdF_9_La_Bella_E_La_Veccosa_Cavriola.xml */,
+				BA33CBDD1D6FD7A8001B7FF3 /* PMFC_07_LdF_1_A_Poste_Messe.xml */,
+				BA33CBDE1D6FD7A8001B7FF3 /* PMFC_07_LdF_3_Da__Da__A_Chi_Avaregia.xml */,
+				BA33CBDF1D6FD7A8001B7FF3 /* PMFC_07_VdR_4_In_Forma_Quasi.xml */,
+				BA33CBE01D6FD7A8001B7FF3 /* PMFC_07_VdR_6a_Nell_Acqua_Chiara.xml */,
+				BA33CBE11D6FD7A8001B7FF3 /* PMFC_08_27-Nel_prato_pien_di_fiori.xml */,
+				BA33CBE21D6FD7A8001B7FF3 /* PMFC_08_31-Or_qua_conpagni.xml */,
+				BA33CBE31D6FD7A8001B7FF3 /* PMFC_08_36-Quan_ye_voy_le_duc.xml */,
+				BA33CBE41D6FD7A8001B7FF3 /* PMFC_08_38a-Seghugi_a_corta.xml */,
+				BA33CBE51D6FD7A8001B7FF3 /* PMFC_08_38b-Segugi_a_corde.xml */,
+				BA33CBE61D6FD7A8001B7FF3 /* PMFC_08_Nicolo_20-La_fiera_testa.xml */,
+				BA33CBE71D6FD7A8001B7FF3 /* PMFC_08_Nicolo_30-Passando_con_pensier.xml */,
+				BA33CBE81D6FD7A8001B7FF3 /* PMFC_08_Nicolo_36-State_su_donne.xml */,
+				BA33CBE91D6FD7A8001B7FF3 /* PMFC_08_Nicolo_9-Dappoi_che_l_sole.xml */,
+				BA33CBEA1D6FD7A8001B7FF3 /* PMFC_10_Andrea_6-Dal_traditor.xml */,
+				BA33CBEB1D6FD7A8001B7FF3 /* PMFC_10_Zacherias_2-Cacciando_per_gustar_ai_cenci_ai_toppi.xml */,
+				BA33CBEC1D6FD7A8001B7FF3 /* Reggio_Emilia_Chiama_il_bel_papagallo.xml */,
+				BA33CBED1D6FD7A8001B7FF3 /* Reggio_Emilia_Mirando_i_pessi.xml */,
+				BA33CBEE1D6FD7A8001B7FF3 /* Reggio_Emilia_Nella_Foresta.xml */,
+				BA33CBEF1D6FD7A8001B7FF3 /* San_Lorenzo_Caccia_82v_94r.xml */,
+				BA33CBF01D6FD7A8001B7FF3 /* Trent 1-Eslongies suy.xml */,
+				BA33CBF11D6FD7A8001B7FF3 /* Trent 2-Casse moy.xml */,
+				BA33CBF21D6FD7A8001B7FF3 /* Trent 3 Missa ad fugam_1_Kyrie.xml */,
+				BA33CBF31D6FD7A8001B7FF3 /* Trent 3 Missa ad fugam_2_Gloria in excelsis Deo.xml */,
+				BA33CBF41D6FD7A8001B7FF3 /* Trent 3_Missa ad fugam_3_Credo in unum Deum.xml */,
+				BA33CBF51D6FD7A8001B7FF3 /* Trent 3_Missa ad fugam_4_Sanctus.xml */,
+				BA33CBF61D6FD7A8001B7FF3 /* Trent 3_Missa ad fugam_5 Agnus Dei.xml */,
+				BA33CBF71D6FD7A8001B7FF3 /* Trent 4_Regis celorum genetrix.xml */,
+				BA33CBF81D6FD7A8001B7FF3 /* Trent 5_Gloria in excelsis Deo.xml */,
+				BA33CBF91D6FD7A8001B7FF3 /* Trent 6_Las aymi_Quand je pense.xml */,
+				BA33CBFA1D6FD7A8001B7FF3 /* Trent 7_Chomos condrosi.xml */,
+				BA33CBFB1D6FD7A8001B7FF3 /* Trent 8_Quae est ista.xml */,
+				BA33CBFC1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam reservatam_2_Gloria.xml */,
+				BA33CBFD1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam reservatam_3_Credo.xml */,
+				BA33CBFE1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam_1_Kyrie.xml */,
+			);
+			path = MusicXML;
+			sourceTree = "<group>";
 		};
 		BA4A479509D8C5F2000B0808 /* libMusicXML-1.00-src */ = {
 			isa = PBXGroup;
