@@ -508,7 +508,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "292"
             endingLineNumber = "292"
-            landmarkName = "IMUSANT_interval_processor:: findAndPrintSuperMaximalIntervals(int min_length, int min_percent)"
+            landmarkName = "IMUSANT_interval_processor:: findAndPrintSupermaximalIntervals(int min_length, int min_percent)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

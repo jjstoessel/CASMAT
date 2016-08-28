@@ -31,6 +31,9 @@ namespace IMUSANT
 S_IMUSANT_pitch_vector new_IMUSANT_pitch_vector()
 { IMUSANT_pitch_vector* o = new IMUSANT_pitch_vector(); assert(o!=0); return o; }
     
+S_IMUSANT_rhythm_vector new_IMUSANT_rhythm_vector()
+{ IMUSANT_rhythm_vector* o = new IMUSANT_rhythm_vector(); assert(o!=0); return o; }
+    
 IMUSANT_collection_visitor::IMUSANT_collection_visitor()
 {
 	fInChord = false;
@@ -109,6 +112,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 				IMUSANT_contour_symbol symbol(fLastNote->pitch(), elt->pitch());
 				symbol.setLocation(fCurrentPartID,fLastNote->getMeasureNum(), fLastNote->getNoteIndex(), fCurrentPartID, elt->getMeasureNum(), elt->getNoteIndex());
                 fCurrentMelodicContour->push_back(symbol);
+                fCurrentRhythmVector->push_back(*elt->duration());
 			}
 		}
         
@@ -142,6 +146,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
     fCurrentIntervalVector->setMaximum(0x7fffffff);
     fCurrentMelodicContour = new_IMUSANT_contour();
     fCurrentPitchVector = new_IMUSANT_pitch_vector();
+    fCurrentRhythmVector = new_IMUSANT_rhythm_vector();
 	//call sub-elements
 	elt->measures().accept(*this);
     //stow partwise derived data vectors, but only if they contain elements
@@ -160,6 +165,10 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
         fCurrentPitchVector->push_back(IMUSANT_pitch::MakeUniquePitch());
         fPartwisePitchVectors.push_back(fCurrentPitchVector);
     }
+    if (!fCurrentRhythmVector->empty()) {
+        //fCurrentRhythmVector->push_back(IMUSANT_duration::MakeUniqueDuration());
+        fPartwiseRhythmVectors.push_back(fCurrentRhythmVector);
+    }
 }
 
 #pragma mark IMUSANT_partlist handler
@@ -172,7 +181,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_partlist& elt )
 void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 {
 	//initialise storage containers
-	fRhythmCollection = new_IMUSANT_rvec_collection();
+	//fRhythmCollection = new_IMUSANT_rvec_collection();
 	fMovementTitle = elt->getMovementTitle();
     fWorkTitle = elt->getWorkTitle();
 	

@@ -56,6 +56,7 @@ class IMUSANT_interval_vector : public smartable
 	
 };
 typedef IMUSANT_SMARTP<IMUSANT_interval_vector> S_IMUSANT_interval_vector;
+typedef vector<S_IMUSANT_interval_vector> SEGMENTS;
     
 S_IMUSANT_interval_vector new_IMUSANT_interval_vector();
 

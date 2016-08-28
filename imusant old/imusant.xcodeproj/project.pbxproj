@@ -216,8 +216,6 @@
 		496EF7001B22B06100FE715F /* IMUSANT_contour_symbol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */; };
 		496EF7011B22B06100FE715F /* IMUSANT_record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */; };
 		496EF7021B22B06100FE715F /* IMUSANT_interval_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */; };
-		496EF7031B22B06100FE715F /* IMUSANT_ivec_collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */; };
-		496EF7041B22B06100FE715F /* IMUSANT_rvec_collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */; };
 		496EF7051B22B06100FE715F /* IMUSANT_collectionvisitor.h in Sources */ = {isa = PBXBuildFile; fileRef = 965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */; };
 		496EF7061B22B06100FE715F /* IMUSANT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */; };
 		496EF70A1B22D2A000FE715F /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
@@ -1025,8 +1023,6 @@
 		9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_record.cpp; sourceTree = "<group>"; };
 		965209A40A4D1E8B006AFD81 /* IMUSANT_interval_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval_vector.h; sourceTree = "<group>"; };
 		965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_vector.cpp; sourceTree = "<group>"; };
-		965209A90A4D1F37006AFD81 /* IMUSANT_ivec_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_ivec_collection.h; sourceTree = "<group>"; };
-		965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_ivec_collection.cpp; sourceTree = "<group>"; };
 		9668DB911D0D7A8900C5AAA6 /* IMUSANT_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processor.h; path = IMUSANT/Analysis/src/IMUSANT_processor.h; sourceTree = SOURCE_ROOT; };
 		9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_interval_processor.cpp; path = IMUSANT/Analysis/src/IMUSANT_interval_processor.cpp; sourceTree = SOURCE_ROOT; };
 		9668DB951D0D803B00C5AAA6 /* IMUSANT_interval_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_interval_processor.h; path = IMUSANT/Analysis/src/IMUSANT_interval_processor.h; sourceTree = SOURCE_ROOT; };
@@ -1176,8 +1172,6 @@
 		BA4207E41CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_t_repeated_substring.cpp; sourceTree = "<group>"; };
 		BA4462670A9196520033DB86 /* IMUSANT_contour_symbol.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = IMUSANT_contour_symbol.h; sourceTree = "<group>"; };
 		BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_contour_symbol.cpp; sourceTree = "<group>"; };
-		BA4F18580A50C58900CB7438 /* IMUSANT_rvec_collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_rvec_collection.h; sourceTree = "<group>"; };
-		BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_rvec_collection.cpp; sourceTree = "<group>"; };
 		BA670D1F0A10049A0072CE20 /* IMUSANT_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_types.h; sourceTree = "<group>"; };
 		BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_types.cpp; sourceTree = "<group>"; };
 		BA697EFC0AA4FBD7002DC3B2 /* IMUSANT_pitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_pitch.h; sourceTree = "<group>"; };
@@ -1632,8 +1626,6 @@
 				965209890A4D1CBE006AFD81 /* IMUSANT_interval.h */,
 				BA4462670A9196520033DB86 /* IMUSANT_contour_symbol.h */,
 				965209A40A4D1E8B006AFD81 /* IMUSANT_interval_vector.h */,
-				965209A90A4D1F37006AFD81 /* IMUSANT_ivec_collection.h */,
-				BA4F18580A50C58900CB7438 /* IMUSANT_rvec_collection.h */,
 				BAAB1A2E09D0B26700673D3D /* IMUSANT_visitor.h */,
 				965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */,
 			);
@@ -1661,8 +1653,6 @@
 				BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */,
 				4970E00E1B7590820052496C /* IMUSANT_interval.cpp */,
 				965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */,
-				965209AA0A4D1F37006AFD81 /* IMUSANT_ivec_collection.cpp */,
-				BA4F18590A50C58900CB7438 /* IMUSANT_rvec_collection.cpp */,
 				965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */,
 			);
 			path = src;
@@ -3349,8 +3339,6 @@
 				496EF7001B22B06100FE715F /* IMUSANT_contour_symbol.cpp in Sources */,
 				496EF7011B22B06100FE715F /* IMUSANT_record.cpp in Sources */,
 				496EF7021B22B06100FE715F /* IMUSANT_interval_vector.cpp in Sources */,
-				496EF7031B22B06100FE715F /* IMUSANT_ivec_collection.cpp in Sources */,
-				496EF7041B22B06100FE715F /* IMUSANT_rvec_collection.cpp in Sources */,
 				496EF7051B22B06100FE715F /* IMUSANT_collectionvisitor.h in Sources */,
 				496EF7061B22B06100FE715F /* IMUSANT_processing.cpp in Sources */,
 				496EF6DE1B22B05500FE715F /* IMUSANT_types.cpp in Sources */,

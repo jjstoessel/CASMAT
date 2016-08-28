@@ -5,7 +5,7 @@
  *  Created by Jason Stoessel on 24/06/06.
  *  Copyright 2006 Jason Stoessel. All rights reserved.
  *
- *	This class visits an IMUSANT score and collection information that is 
+ *	This class visits an IMUSANT score and collects information that is 
  *	then ready to output (using another visitor class to be implemented).
  *	Data collected:
  *		- movement data, title, creators, originating data file
@@ -16,12 +16,11 @@
 #ifndef __IMUSANT_COLLECTION_VISITOR__
 #define __IMUSANT_COLLECTION_VISITOR__
 
-
-#include "IMUSANT_ivec_collection.h"
-#include "IMUSANT_rvec_collection.h"
+#include "IMUSANT_interval_vector.h"
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_visitor.h"
 #include "IMUSANT_pitch.h"
+#include "IMUSANT_duration.h"
 
 #define NEW
 //#define OLD
@@ -33,7 +32,7 @@ namespace IMUSANT
 
     class IMUSANT_pitch_vector : public smartable, public vector<IMUSANT_pitch>
     {
-        public:
+    public:
         
         friend IMUSANT_SMARTP<IMUSANT_pitch_vector> new_IMUSANT_pitch_vector();
         
@@ -41,9 +40,19 @@ namespace IMUSANT
         
     };
     typedef IMUSANT_SMARTP<IMUSANT_pitch_vector> S_IMUSANT_pitch_vector;
-
     S_IMUSANT_pitch_vector new_IMUSANT_pitch_vector();
+    
+    class IMUSANT_rhythm_vector : public smartable, public vector<IMUSANT_duration>
+    {
+    public:
+        friend IMUSANT_SMARTP<IMUSANT_rhythm_vector>  new_IMUSANT_rhythm_vector();
         
+        vector<IMUSANT_duration>& getDurations() { return *this; }
+        
+    };
+    typedef IMUSANT_SMARTP<IMUSANT_rhythm_vector> S_IMUSANT_rhythm_vector;
+    S_IMUSANT_rhythm_vector new_IMUSTANT_rhythm_vector();
+    
     class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
     {
         public:
@@ -65,8 +74,8 @@ namespace IMUSANT
             const vector<S_IMUSANT_interval_vector>&    getPartwiseIntervalVectors() const {return fPartwiseIntervalVectors; }
             const vector<S_IMUSANT_contour>&            getPartwiseContourVectors() const {return fPartwiseContourVectors; }
             const vector<S_IMUSANT_pitch_vector>&       getPartwisePitchVectors() const { return fPartwisePitchVectors; }
-        
-            const S_IMUSANT_rvec_collection& getRhythmVector() { return fRhythmCollection; } //reimpliment;
+            const vector<S_IMUSANT_rhythm_vector>&      getPartwiseRhythmVectors() const { return fPartwiseRhythmVectors; }
+    
             const string& getMovementTitle() const { return fMovementTitle; }
             const string& getWorkTitle() const { return fWorkTitle; }
         
@@ -76,18 +85,17 @@ namespace IMUSANT
         private:
             
             void processCollections();
-            
-            //collection of interval vectors
-            //S_IMUSANT_ivec_collection	fIntervalCollection;
-            //collection of rhythm vectors
-            S_IMUSANT_rvec_collection           fRhythmCollection;
-            //local storage of interval vectors
+        
+            //local storage of vectors
             S_IMUSANT_interval_vector           fCurrentIntervalVector;
             S_IMUSANT_contour                   fCurrentMelodicContour;
             S_IMUSANT_pitch_vector              fCurrentPitchVector;
+            S_IMUSANT_rhythm_vector             fCurrentRhythmVector;
+        
             vector<S_IMUSANT_interval_vector>   fPartwiseIntervalVectors;
             vector<S_IMUSANT_contour>           fPartwiseContourVectors;
             vector<S_IMUSANT_pitch_vector>      fPartwisePitchVectors;
+            vector<S_IMUSANT_rhythm_vector>     fPartwiseRhythmVectors;
         
             string			fWorkTitle;
             string			fMovementTitle;

@@ -15,8 +15,6 @@
 #define __CATSMAT_COLLECTION_VISITOR__
 
 #include "IMUSANT_collectionvisitor.h"
-#include "IMUSANT_ivec_collection.h"
-#include "IMUSANT_rvec_collection.h"
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_visitor.h"
 #include "IMUSANT_pitch.h"
