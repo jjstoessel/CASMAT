@@ -61,17 +61,11 @@ namespace IMUSANT
             void visit ( S_IMUSANT_part& elt );
             void visit ( S_IMUSANT_partlist& elt );
             void visit ( S_IMUSANT_score& elt );
-#ifdef OLD
-            const S_IMUSANT_interval_vector& getIntervalVector() const { return fIntervalVector; }
-            const S_IMUSANT_contour&         getMelodicContour() const { return fMelodicContour; }
-            const S_IMUSANT_pitch_vector& getPitchVector() { return fPitchVector; }
 
-#endif
-#ifdef NEW
             const vector<S_IMUSANT_interval_vector>&    getPartwiseIntervalVectors() const {return fPartwiseIntervalVectors; }
             const vector<S_IMUSANT_contour>&            getPartwiseContourVectors() const {return fPartwiseContourVectors; }
             const vector<S_IMUSANT_pitch_vector>&       getPartwisePitchVectors() const { return fPartwisePitchVectors; }
-#endif
+        
             const S_IMUSANT_rvec_collection& getRhythmVector() { return fRhythmCollection; } //reimpliment;
             const string& getMovementTitle() const { return fMovementTitle; }
             const string& getWorkTitle() const { return fWorkTitle; }

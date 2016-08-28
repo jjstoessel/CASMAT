@@ -91,7 +91,7 @@ namespace CATSMAT
     CATSMAT_cp_matrix::
     add(const IMUSANT_note& note)
     {
-        if (note.getStyle()==IMUSANT_NoteStyle::hidden) throw catsmat_runtime_error("hidden note encountered"); // ignore hidden notes
+        if (note.getStyle()==IMUSANT_NoteStyle::hidden) throw catsmat_runtime_error("hidden note encountered at note: " + string(note.pretty_print())); // ignore hidden notes
         
         fCumulativeMeasureDuration += *note.duration();
         
@@ -99,7 +99,7 @@ namespace CATSMAT
             if (fCurrentMeasureNumber==1)
                 fMeasureDuration = fCumulativeMeasureDuration; // a quick hack for the time being for pieces without time signatures
             else
-                throw catsmat_runtime_error("Total duration of measure exceeded");
+                throw catsmat_runtime_error("Total duration of measure exceeded with note: " + string(note.pretty_print()));
         }
         
         if (fCurrentPart==0) // there are no parts added yet
