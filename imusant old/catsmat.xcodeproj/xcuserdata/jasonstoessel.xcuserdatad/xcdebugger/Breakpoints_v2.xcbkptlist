@@ -1450,22 +1450,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "493622167.654903"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_cp_matrix.cpp"
             timestampString = "493792247.121563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

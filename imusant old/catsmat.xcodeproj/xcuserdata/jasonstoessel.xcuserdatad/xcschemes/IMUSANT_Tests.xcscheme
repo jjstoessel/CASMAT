@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
-               BuildableName = "imusantcat"
-               BlueprintName = "IMUSANT"
-               ReferencedContainer = "container:imusant.xcodeproj">
+               BlueprintIdentifier = "1E450E051B7580A000BDF9EF"
+               BuildableName = "IMUSANT_Tests"
+               BlueprintName = "IMUSANT_Tests"
+               ReferencedContainer = "container:catsmat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
-            BuildableName = "imusantcat"
-            BlueprintName = "IMUSANT"
-            ReferencedContainer = "container:imusant.xcodeproj">
+            BlueprintIdentifier = "1E450E051B7580A000BDF9EF"
+            BuildableName = "IMUSANT_Tests"
+            BlueprintName = "IMUSANT_Tests"
+            ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -43,8 +43,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
-      useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "$(PROJECT_DIR)/test_files/MusicXMLv1"
+      useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
@@ -53,10 +52,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
-            BuildableName = "imusantcat"
-            BlueprintName = "IMUSANT"
-            ReferencedContainer = "container:imusant.xcodeproj">
+            BlueprintIdentifier = "1E450E051B7580A000BDF9EF"
+            BuildableName = "IMUSANT_Tests"
+            BlueprintName = "IMUSANT_Tests"
+            ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -72,10 +71,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
-            BuildableName = "imusantcat"
-            BlueprintName = "IMUSANT"
-            ReferencedContainer = "container:imusant.xcodeproj">
+            BlueprintIdentifier = "1E450E051B7580A000BDF9EF"
+            BuildableName = "IMUSANT_Tests"
+            BlueprintName = "IMUSANT_Tests"
+            ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "496EF4D61B22A58A00FE715F"
-               BuildableName = "libMusicXML.dylib"
-               BlueprintName = "libMusicXML"
-               ReferencedContainer = "container:imusant.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "496EF4E01B22A58A00FE715F"
-               BuildableName = "libMusicXML_Tests.xctest"
-               BlueprintName = "libMusicXML_Tests"
-               ReferencedContainer = "container:imusant.xcodeproj">
+               BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
+               BuildableName = "imusantcat"
+               BlueprintName = "IMUSANT"
+               ReferencedContainer = "container:catsmat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "496EF4E01B22A58A00FE715F"
-               BuildableName = "libMusicXML_Tests.xctest"
-               BlueprintName = "libMusicXML_Tests"
-               ReferencedContainer = "container:imusant.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "496EF4D61B22A58A00FE715F"
-            BuildableName = "libMusicXML.dylib"
-            BlueprintName = "libMusicXML"
-            ReferencedContainer = "container:imusant.xcodeproj">
+            BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
+            BuildableName = "imusantcat"
+            BlueprintName = "IMUSANT"
+            ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -67,20 +43,22 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
-      useCustomWorkingDirectory = "NO"
+      useCustomWorkingDirectory = "YES"
+      customWorkingDirectory = "$(PROJECT_DIR)/test_files/MusicXMLv1"
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "496EF4D61B22A58A00FE715F"
-            BuildableName = "libMusicXML.dylib"
-            BlueprintName = "libMusicXML"
-            ReferencedContainer = "container:imusant.xcodeproj">
+            BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
+            BuildableName = "imusantcat"
+            BlueprintName = "IMUSANT"
+            ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,15 +68,16 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "496EF4D61B22A58A00FE715F"
-            BuildableName = "libMusicXML.dylib"
-            BlueprintName = "libMusicXML"
-            ReferencedContainer = "container:imusant.xcodeproj">
+            BlueprintIdentifier = "96A620CD0A458DE3005E4CBF"
+            BuildableName = "imusantcat"
+            BlueprintName = "IMUSANT"
+            ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

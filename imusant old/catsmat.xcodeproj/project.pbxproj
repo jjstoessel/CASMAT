@@ -3135,7 +3135,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "imusant" */;
+			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "catsmat" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -4189,7 +4189,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "imusant" */ = {
+		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "catsmat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB923608733DC60010E9CD /* Debug */,
