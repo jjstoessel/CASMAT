@@ -12,6 +12,8 @@
  */
 
 #include "IMUSANT_pitch.h"
+#include "IMUSANT_transposer.h"
+
 #include <stdlib.h>
 
 #define FLAGSPACE 0x2000
@@ -29,7 +31,12 @@ namespace IMUSANT
     //The line of fifths is a linearisation of the spiral of fifths, where F = -1, C = 0, G = 1, etc.
     //used to obtain the Tonal Pitch Class (TPC) of a note
     //TO IMPLEMENT: PC (or Non-specific Pitch Class)
-    int      IMUSANT_pitch::fLineOf5ths[35][3] =
+    const int NUM_FIFTHS = 35;
+    const int FIFTHS_NOTE_TYPE_FIELD = 0;
+    const int FIFTHS_NOTE_INFLECTION_FIELD = 1;
+    const int FIFTHS_NOTE_TPC_FIELD = 2;
+    
+    int      IMUSANT_pitch::fLineOf5ths[NUM_FIFTHS][3] =
     {
         {C, double_flat,    tpcCbb  },  //Cbb
         {C, flat,           tpcCb   },  //Cb
@@ -76,11 +83,11 @@ namespace IMUSANT
     {
         TPC tpc = tpcUndefined;
        
-        for (int i = 0; i <= 35; i+=5 ) {
+        for (int i = 0; i <= NUM_FIFTHS; i+=5 ) {
             if (fLineOf5ths[i][0]==name) {  //find pitch name
                 for (int j=0; j<5; j++) {
                     if (alt==fLineOf5ths[i+j][1]) { //find alteration
-                        tpc = static_cast<TPC>(fLineOf5ths[i+j][2]); //store TPC
+                        tpc = static_cast<TPC>(fLineOf5ths[i+j][FIFTHS_NOTE_TPC_FIELD]); //store TPC
                         break;
                     }
                 }
@@ -90,6 +97,46 @@ namespace IMUSANT
         
         return tpc;
     }
+    
+    
+    IMUSANT_pitch::type
+    IMUSANT_pitch::
+    GetNameFromTPC(IMUSANT_pitch::TPC tpc)
+    {
+        IMUSANT_pitch::type ret_val = undefined;
+        
+        for (int index = 0 ; index <= NUM_FIFTHS; index++)
+        {
+            if (fLineOf5ths[index][FIFTHS_NOTE_TPC_FIELD] == tpc)
+            {
+                ret_val = static_cast<IMUSANT_pitch::type>(fLineOf5ths[index][FIFTHS_NOTE_TYPE_FIELD]);
+                break;
+            }
+        }
+        
+        return ret_val;
+    }
+    
+    IMUSANT_pitch::inflection
+    IMUSANT_pitch::
+    GetInflectionFromTPC(IMUSANT_pitch::TPC tpc)
+    {
+        IMUSANT_pitch::inflection ret_val = natural;
+        
+        for (int index = 0 ; index <= NUM_FIFTHS; index++)
+        {
+            if (fLineOf5ths[index][FIFTHS_NOTE_TPC_FIELD] == tpc)
+            {
+                ret_val = static_cast<IMUSANT_pitch::inflection>(fLineOf5ths[index][FIFTHS_NOTE_INFLECTION_FIELD]);
+                break;
+            }
+        }
+        
+        return ret_val;
+        
+    }
+
+
     
     //______________________________________________________________________________
     
@@ -259,6 +306,8 @@ namespace IMUSANT
         return midinumber;
     }
     
+#define TPC_TRANSPOSE_IMPLEMENTATION
+    
     void
     IMUSANT_pitch::
     transpose(int diatonic, int chromatic, int octave_change, bool doubled)
@@ -268,15 +317,33 @@ namespace IMUSANT
         fTransposeOctaveChange = octave_change;
         fTransposeDoubled = doubled;
         
+#ifdef TPC_TRANSPOSE_IMPLEMENTATION
+        
+        S_IMUSANT_transposer transposer = new_IMUSANT_transposer();
+        IMUSANT_pitch::TPC transposed_note_TPC = transposer->transpose(getTPC(), diatonic, chromatic, octave_change);
+        
+        // REVISIT - We need to factor in the diatonic value.  The algorithm in transposer->transpose() uses the
+        // chromatic value to find an interval, but does not account for diatonic values. (e.g C to D# would
+        // be treated as a minor third instead of as an augmented second.
+        
+        fNameSounding = GetNameFromTPC(transposed_note_TPC);
+        fAlterationSounding = GetInflectionFromTPC(transposed_note_TPC);
+        
+#endif
+        
+#ifdef ENHARMONIC_TRANSPOSE_IMPLEMENTATION
+        
         EnharmonicsTable transposer;
         EnharmonicsTable::note transposed_note = transposer.transpose(fNameAsWritten, fAlterationAsWritten, diatonic, chromatic);
         
         fNameSounding = transposed_note.note_name;
         fAlterationSounding = transposed_note.alteration;
-        fOctaveSounding = fOctaveAsWritten + octave_change;
+#endif
         
+        fOctaveSounding = fOctaveAsWritten + octave_change;
         fMSNameSounding = fMSNameAsWritten;  // REVISIT
     }
+
     
     void
     IMUSANT_pitch::

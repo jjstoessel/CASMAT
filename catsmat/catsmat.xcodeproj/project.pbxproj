@@ -229,6 +229,7 @@
 		49714EF21C01793000C0A52C /* BeetAnGeSample.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 498D80C21B9A77F000A673F7 /* BeetAnGeSample.xml */; };
 		4973E9BA1C50DA8E0086AB4A /* MusicXML_ParserTest3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4973E9B91C50DA640086AB4A /* MusicXML_ParserTest3.xml */; };
 		497DF4F61C9D309100D18A04 /* IMUSANT_test_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497DF4F41C9D309100D18A04 /* IMUSANT_test_utilities.cpp */; };
+		498CFE551D7B0991006379F0 /* IMUSANT_transposer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 498CFE531D7B01D3006379F0 /* IMUSANT_transposer.cpp */; };
 		49B727B71C1418E400FCF494 /* CATSMAT_menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49B727B51C1418E400FCF494 /* CATSMAT_menu.cpp */; };
 		49C80D941BA4E71300DCA903 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D021BA4E5C900DCA903 /* factory.cpp */; };
 		49C80D951BA4E71300DCA903 /* unrolled_xml_tree_browser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D0D1BA4E5C900DCA903 /* unrolled_xml_tree_browser.cpp */; };
@@ -596,6 +597,8 @@
 		4973E9B91C50DA640086AB4A /* MusicXML_ParserTest3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest3.xml; sourceTree = "<group>"; };
 		497DF4F41C9D309100D18A04 /* IMUSANT_test_utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_test_utilities.cpp; path = IMUSANT_Tests/Utilities/IMUSANT_test_utilities.cpp; sourceTree = "<group>"; };
 		497DF4F51C9D309100D18A04 /* IMUSANT_test_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_test_utilities.h; path = IMUSANT_Tests/Utilities/IMUSANT_test_utilities.h; sourceTree = "<group>"; };
+		498CFE521D7B019C006379F0 /* IMUSANT_transposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_transposer.h; sourceTree = "<group>"; };
+		498CFE531D7B01D3006379F0 /* IMUSANT_transposer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_transposer.cpp; sourceTree = "<group>"; };
 		498D54511C32A72200439018 /* MusicXMLv3_Elements_Reqs.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = MusicXMLv3_Elements_Reqs.xlsx; sourceTree = "<group>"; };
 		498D80BB1B9A77F000A673F7 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		498D80BD1B9A77F000A673F7 /* ActorPreludeSample.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = ActorPreludeSample.mxl; sourceTree = "<group>"; };
@@ -1614,6 +1617,7 @@
 				BAFC77A00A22963B00A4FACD /* IMUSANT_comment.h */,
 				BA697F7C0AA500E4002DC3B2 /* IMUSANT_duration.h */,
 				BA697EFC0AA4FBD7002DC3B2 /* IMUSANT_pitch.h */,
+				498CFE521D7B019C006379F0 /* IMUSANT_transposer.h */,
 				BAFC77340A228FDB00A4FACD /* IMUSANT_note.h */,
 				BAFC777E0A22939500A4FACD /* IMUSANT_chord.h */,
 				96A61E880A45073A005E4CBF /* IMUSANT_barline.h */,
@@ -1641,6 +1645,7 @@
 				BAFC77A10A22963B00A4FACD /* IMUSANT_comment.cpp */,
 				BA697F7D0AA500E4002DC3B2 /* IMUSANT_duration.cpp */,
 				BA697EFD0AA4FBD7002DC3B2 /* IMUSANT_pitch.cpp */,
+				498CFE531D7B01D3006379F0 /* IMUSANT_transposer.cpp */,
 				BAFC77350A228FDB00A4FACD /* IMUSANT_note.cpp */,
 				BAFC777F0A22939500A4FACD /* IMUSANT_chord.cpp */,
 				96A61E890A45073A005E4CBF /* IMUSANT_barline.cpp */,
@@ -3343,6 +3348,7 @@
 				496EF7061B22B06100FE715F /* IMUSANT_processing.cpp in Sources */,
 				496EF6DE1B22B05500FE715F /* IMUSANT_types.cpp in Sources */,
 				496EF6DF1B22B05500FE715F /* IMUSANT_pitch.cpp in Sources */,
+				498CFE551D7B0991006379F0 /* IMUSANT_transposer.cpp in Sources */,
 				496EF6E01B22B05500FE715F /* IMUSANT_duration.cpp in Sources */,
 				496EF6E11B22B05500FE715F /* IMUSANT_key.cpp in Sources */,
 				496EF6E21B22B05500FE715F /* IMUSANT_element.cpp in Sources */,
