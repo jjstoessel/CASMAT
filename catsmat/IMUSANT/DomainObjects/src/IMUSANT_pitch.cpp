@@ -306,7 +306,8 @@ namespace IMUSANT
         return midinumber;
     }
     
-#define TPC_TRANSPOSE_IMPLEMENTATION
+   
+#define ENHARMONIC_TRANSPOSE_IMPLEMENTATION
     
     void
     IMUSANT_pitch::
@@ -339,8 +340,37 @@ namespace IMUSANT
         fNameSounding = transposed_note.note_name;
         fAlterationSounding = transposed_note.alteration;
 #endif
+
+        fOctaveSounding = fOctaveAsWritten;
         
-        fOctaveSounding = fOctaveAsWritten + octave_change;
+        if (chromatic > 0)   // Going up;
+        {
+            type counter = fNameAsWritten;
+            while (counter != fNameSounding)
+            {
+                counter = transposer.addPitchSteps(counter, 1);
+                if (counter == C)
+                {
+                    fOctaveSounding++;
+                }
+            }
+        }
+        else if (chromatic < 0)   // Going down;
+        {
+            type counter = fNameAsWritten;
+            while (counter != fNameSounding)
+            {
+                counter = transposer.addPitchSteps(counter, -1);
+                if (counter == B)
+                {
+                    fOctaveSounding--;
+                }
+            }
+        }
+        
+        // Handle any explicit octave change.
+        fOctaveSounding += octave_change;
+        
         fMSNameSounding = fMSNameAsWritten;  // REVISIT
     }
 
