@@ -83,7 +83,12 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_element& elt )
 #pragma mark IMUSANT_lyric handler
 void IMUSANT_collection_visitor::visit ( S_IMUSANT_lyric& elt )
 {
-	
+    int j = 0;
+    for (auto i = elt->getSyllables().begin(); i!=elt->getSyllables().end(); i++, j++) {
+        fLyrics[j] += *i;
+        if (elt->getSyllabic()==IMUSANT_syllabic::end || elt->getSyllabic()==IMUSANT_syllabic::single) fLyrics[j]+= " ";
+    }
+    
 }
 
 #pragma mark IMUSANT_measure handler
@@ -184,6 +189,14 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_score& elt )
 	//fRhythmCollection = new_IMUSANT_rvec_collection();
 	fMovementTitle = elt->getMovementTitle();
     fWorkTitle = elt->getWorkTitle();
+    fWorkNum = elt->getWorkNum();
+    fMovementNum = elt->getMovementNum();
+    fCreator = elt->getCreator();
+    fRights = elt->getRights();
+    fScoreComments = elt->getComments();
+    fSource = elt->getSource();
+    fEditor = elt->getEditor();
+    fDate = elt->getDate();
 	
 	if ((IMUSANT_partlist*)elt->partlist())
 		elt->partlist()->accept(*this);

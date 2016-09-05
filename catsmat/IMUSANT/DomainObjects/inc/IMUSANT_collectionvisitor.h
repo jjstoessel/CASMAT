@@ -16,11 +16,14 @@
 #ifndef __IMUSANT_COLLECTION_VISITOR__
 #define __IMUSANT_COLLECTION_VISITOR__
 
+#include <map>
+
 #include "IMUSANT_interval_vector.h"
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_visitor.h"
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_duration.h"
+#include "IMUSANT_common.h"
 
 #define NEW
 //#define OLD
@@ -80,6 +83,7 @@ namespace IMUSANT
             const string& getWorkTitle() const { return fWorkTitle; }
         
             void ignoreRepeatedPitches(bool ignore) { fIgnoreRepeatedPitches = ignore; }
+        
         protected:
             
         private:
@@ -92,14 +96,24 @@ namespace IMUSANT
             S_IMUSANT_pitch_vector              fCurrentPitchVector;
             S_IMUSANT_rhythm_vector             fCurrentRhythmVector;
         
+            //storage of vectors of elements in each part
             vector<S_IMUSANT_interval_vector>   fPartwiseIntervalVectors;
             vector<S_IMUSANT_contour>           fPartwiseContourVectors;
             vector<S_IMUSANT_pitch_vector>      fPartwisePitchVectors;
             vector<S_IMUSANT_rhythm_vector>     fPartwiseRhythmVectors;
         
-            string			fWorkTitle;
-            string			fMovementTitle;
-            vector<string>	fLyrics;
+            string              fWorkTitle;
+            string              fMovementTitle;
+            string              fWorkNum;
+            string              fMovementNum;
+            STRPAIRVECTOR		fCreator;
+            STRPAIRVECTOR		fRights;
+            string				fScoreComments;
+            string				fSource;
+            string				fEditor;
+            string				fDate;
+            map<int,string>         fLyrics;
+        
 
             // global flag to denote chords writing
             bool			fInChord;

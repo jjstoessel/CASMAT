@@ -1196,6 +1196,7 @@
 		BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_dyadtuple_sequences.cpp; path = catsmat/CATSMAT_dyadtuple_sequences.cpp; sourceTree = SOURCE_ROOT; };
 		BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_dyadtuple_sequences.hpp; path = catsmat/CATSMAT_dyadtuple_sequences.hpp; sourceTree = SOURCE_ROOT; };
 		BA8068E41B27BC5700AEFB27 /* test_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test_files; sourceTree = "<group>"; };
+		BA9637861D77ABB500AB5948 /* IMUSANT_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMUSANT_common.h; sourceTree = "<group>"; };
 		BAA257F61CFC156A0019B07F /* CATSMAT_chord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_chord.cpp; path = catsmat/CATSMAT_chord.cpp; sourceTree = SOURCE_ROOT; };
 		BAA257F71CFC156A0019B07F /* CATSMAT_chord.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_chord.hpp; path = catsmat/CATSMAT_chord.hpp; sourceTree = SOURCE_ROOT; };
 		BAA8D7CE1AA42BD80053ADE3 /* common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
@@ -1611,6 +1612,7 @@
 				49EBE74D1CF18E6A009B110D /* IMUSANT_conversions.h */,
 				BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */,
 				BA670D1F0A10049A0072CE20 /* IMUSANT_types.h */,
+				BA9637861D77ABB500AB5948 /* IMUSANT_common.h */,
 				BAFC77A00A22963B00A4FACD /* IMUSANT_comment.h */,
 				BA697F7C0AA500E4002DC3B2 /* IMUSANT_duration.h */,
 				BA697EFC0AA4FBD7002DC3B2 /* IMUSANT_pitch.h */,

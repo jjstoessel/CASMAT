@@ -19,6 +19,7 @@
 #define __IMUSANT_score__
 
 #include "IMUSANT_partlist.h"
+#include "IMUSANT_common.h"
 
 using namespace std;
 
@@ -27,9 +28,6 @@ namespace IMUSANT
 
 class IMUSANT_score;
 typedef IMUSANT_SMARTP<IMUSANT_score> 	S_IMUSANT_score;
-
-typedef pair<string,string>		STRPAIR;
-typedef vector<STRPAIR>			STRPAIRVECTOR;
 
 class VEXP IMUSANT_score : public smartable, public IMUSANT_visitable
 {
