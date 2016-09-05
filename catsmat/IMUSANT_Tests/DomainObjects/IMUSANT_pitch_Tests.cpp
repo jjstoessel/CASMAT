@@ -182,7 +182,7 @@ TEST_F(IMUSANT_pitch_Tests, TestTranspose_CtoEflat_Up)
 TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitonesDown)
 {
     S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-    pitch->transpose(-2, -3, -1, false);  // C to A.
+    pitch->transpose(-2, -3, 0, false);  // C to A.
     
     ASSERT_EQ(IMUSANT_pitch::type::A, pitch->name()) << "Unexpected Name after transposition.";
     ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch->getInflection()) << "Unexpected Inflection after transposition.";
@@ -194,13 +194,37 @@ TEST_F(IMUSANT_pitch_Tests, TestTransposeThreeSemitonesDown)
 TEST_F(IMUSANT_pitch_Tests, TestTransposeWrapEnharmonicsTable)
 {
     S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::D, 4, IMUSANT_pitch::natural);
-    pitch->transpose(-1, 10, 1, false);  // D to C + 1 octave.
+    pitch->transpose(-1, 10, 0, false);  // D to C + 1 octave.
     
     ASSERT_EQ(IMUSANT_pitch::type::C, pitch->name()) << "Unexpected Name after transposition.";
     ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch->getInflection()) << "Unexpected Inflection after transposition.";
     ASSERT_EQ(5, pitch->octave()) << "Unexpected Octave after transposition.";
     ASSERT_EQ(72, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
 }
+
+TEST_F(IMUSANT_pitch_Tests, TestTransposeImplicitOctaveChangeDown)
+{
+    S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::D, 4, IMUSANT_pitch::natural);
+    pitch->transpose(-4, -7, 0, false);  // Instrument in F.
+    
+    ASSERT_EQ(IMUSANT_pitch::type::G, pitch->name()) << "Unexpected Name after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch->getInflection()) << "Unexpected Inflection after transposition.";
+    ASSERT_EQ(3, pitch->octave()) << "Unexpected Octave after transposition.";
+    ASSERT_EQ(55, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+}
+
+TEST_F(IMUSANT_pitch_Tests, TestTransposeImplicitOctaveChangeUp)
+{
+    S_IMUSANT_pitch pitch = CreatePitch(IMUSANT_pitch::type::G, 4, IMUSANT_pitch::natural);
+    pitch->transpose(+5, +9, 0, false);
+    
+    ASSERT_EQ(IMUSANT_pitch::type::E, pitch->name()) << "Unexpected Name after transposition.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::natural, pitch->getInflection()) << "Unexpected Inflection after transposition.";
+    ASSERT_EQ(5, pitch->octave()) << "Unexpected Octave after transposition.";
+    ASSERT_EQ(76, pitch->getMidiKeyNumber()) << "Unexpected MidiKeyNumber after transposition.";
+}
+
+
 
 TEST_F(IMUSANT_pitch_Tests, TestEnharmonicsTable_AddPitchSteps)
 {

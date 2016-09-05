@@ -101,7 +101,7 @@ namespace IMUSANT
         const type		ms_name() const		{ return fMSNameSounding; }
         bool			in_chord() const	{ return fInChord; }
         unsigned short	voice() const       { return fVoice; }
-        int             getTPC()            { return CalcTonalPitchClass(fNameSounding, fAlterationSounding); }
+        enum IMUSANT_pitch::TPC getTPC()            { return CalcTonalPitchClass(fNameSounding, fAlterationSounding); }
         int             getPC() const       { return CalcPitchClass(); }         //returns pitch class
         int             getMidiKeyNumber() const { return CalcMidiKeyNumber(); }   //returns midi key number
         
@@ -160,6 +160,9 @@ namespace IMUSANT
         
         //alternative pitch representation calculators
         enum TPC        CalcTonalPitchClass(type name, inflection alt);
+        type            GetNameFromTPC(IMUSANT_pitch::TPC tpc);
+        inflection      GetInflectionFromTPC(IMUSANT_pitch::TPC tpc);
+        
         int             CalcPitchClass() const;
         int             CalcMidiKeyNumber() const;
         
@@ -278,7 +281,7 @@ namespace IMUSANT
             note(IMUSANT_pitch::A, IMUSANT_pitch::double_sharp, 12)
         };
 
-        IMUSANT_pitch::inflection addChromaticSteps(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, IMUSANT_pitch::type sounding_note_name, int chromatic_steps);
+        IMUSANT_pitch::inflection addChromaticSteps(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration,        IMUSANT_pitch::type sounding_note_name, int chromatic_steps);
         int findGroup(IMUSANT_pitch::type note_name, IMUSANT_pitch::inflection alteration);
         note findNote(int group, IMUSANT_pitch::type note_name);
         
