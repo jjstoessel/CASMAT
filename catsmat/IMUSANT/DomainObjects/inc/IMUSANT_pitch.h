@@ -22,6 +22,8 @@ namespace IMUSANT
 {
     
     class IMUSANT_pitch; //forward declaration
+    typedef IMUSANT_SMARTP<IMUSANT_pitch> S_IMUSANT_pitch;
+    VEXP IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
     
     VEXP ostream& operator<< (ostream& os, const IMUSANT_pitch& elt );
     /*!
@@ -127,8 +129,8 @@ namespace IMUSANT
         //
         // The asWritten() method returns a pitch with any transposition removed.  The getters will return the
         // written, rather than sounding pitch.
-        void            transpose(int diatonic, int chromatic, int octave_change, bool doubled = false);
-        IMUSANT_pitch   asWritten();
+        void                transpose(int diatonic, int chromatic, int octave_change, bool doubled = false);
+        S_IMUSANT_pitch    asWritten();
         
         
         IMUSANT_pitch& operator= (const IMUSANT_pitch& pitch)
@@ -192,9 +194,7 @@ namespace IMUSANT
         
     };
     
-    typedef IMUSANT_SMARTP<IMUSANT_pitch> S_IMUSANT_pitch;
-    
-    VEXP IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
+
     
     class EnharmonicsTable
     {

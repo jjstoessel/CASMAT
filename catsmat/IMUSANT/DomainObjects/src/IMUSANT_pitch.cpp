@@ -395,12 +395,13 @@ namespace IMUSANT
         }
     }
     
-    IMUSANT_pitch
+    S_IMUSANT_pitch
     IMUSANT_pitch::
     asWritten()
     {
-        // REVISIT - this doesn't work...
-        return MakeUniquePitch();
+        S_IMUSANT_pitch ret_val = new_IMUSANT_pitch();
+        ret_val->set(fNameAsWritten, fOctaveAsWritten, fVoice, ms_name(), fAlterationAsWritten, in_chord());
+        return ret_val;
     }
     
     // --------------------  ENHARMONICS TABLE ------------------------
