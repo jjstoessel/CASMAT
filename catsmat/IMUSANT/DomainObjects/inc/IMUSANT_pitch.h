@@ -210,6 +210,7 @@ namespace IMUSANT
             :
                 note_name(note_name),
                 alteration(alteration),
+                octave(0),
                 group(group)
             {};
             
@@ -217,16 +218,19 @@ namespace IMUSANT
             :
                 note_name(IMUSANT_pitch::undefined),
                 alteration(IMUSANT_pitch::natural),
+                octave(0),
                 group(-1)
             {};
             
             IMUSANT_pitch::type         note_name;
             IMUSANT_pitch::inflection   alteration;
+            unsigned short              octave;
             int                         group;
         };
         
-        note transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, int diatonic_steps, int chromatic_steps);
+        note transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, unsigned short written_octave, int diatonic_steps, int chromatic_steps);
         IMUSANT_pitch::type addPitchSteps(IMUSANT_pitch::type note_name, int num_pitch_steps);
+        
         
     private:
         
@@ -281,8 +285,15 @@ namespace IMUSANT
             note(IMUSANT_pitch::A, IMUSANT_pitch::double_sharp, 12)
         };
 
-        IMUSANT_pitch::inflection addChromaticSteps(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration,        IMUSANT_pitch::type sounding_note_name, int chromatic_steps);
+        IMUSANT_pitch::inflection addChromaticSteps(IMUSANT_pitch::type written_note_name,
+                                                    IMUSANT_pitch::inflection written_alteration,
+                                                    IMUSANT_pitch::type sounding_note_name,
+                                                    int chromatic_steps);
+        
+        int calcImplicitOctaveChange(int chromatic_steps, IMUSANT_pitch::type written_note_name, IMUSANT_pitch::type sounding_note_name);
+        
         int findGroup(IMUSANT_pitch::type note_name, IMUSANT_pitch::inflection alteration);
+        
         note findNote(int group, IMUSANT_pitch::type note_name);
         
     };

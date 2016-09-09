@@ -330,25 +330,15 @@ namespace IMUSANT
         fNameSounding = GetNameFromTPC(transposed_note_TPC);
         fAlterationSounding = GetInflectionFromTPC(transposed_note_TPC);
         
-#endif
-        
-#ifdef ENHARMONIC_TRANSPOSE_IMPLEMENTATION
-        
-        EnharmonicsTable transposer;
-        EnharmonicsTable::note transposed_note = transposer.transpose(fNameAsWritten, fAlterationAsWritten, diatonic, chromatic);
-        
-        fNameSounding = transposed_note.note_name;
-        fAlterationSounding = transposed_note.alteration;
-#endif
-
         fOctaveSounding = fOctaveAsWritten;
         
+        EnharmonicsTable etbl;
         if (chromatic > 0)   // Going up;
         {
             type counter = fNameAsWritten;
             while (counter != fNameSounding)
             {
-                counter = transposer.addPitchSteps(counter, 1);
+                counter = etbl.addPitchSteps(counter, 1);
                 if (counter == C)
                 {
                     fOctaveSounding++;
@@ -360,13 +350,25 @@ namespace IMUSANT
             type counter = fNameAsWritten;
             while (counter != fNameSounding)
             {
-                counter = transposer.addPitchSteps(counter, -1);
+                counter = etbl.addPitchSteps(counter, -1);
                 if (counter == B)
                 {
                     fOctaveSounding--;
                 }
             }
         }
+        
+#endif
+        
+#ifdef ENHARMONIC_TRANSPOSE_IMPLEMENTATION
+        
+        EnharmonicsTable transposer;
+        EnharmonicsTable::note transposed_note = transposer.transpose(fNameAsWritten, fAlterationAsWritten, fOctaveAsWritten, diatonic, chromatic);
+        
+        fNameSounding = transposed_note.note_name;
+        fAlterationSounding = transposed_note.alteration;
+        fOctaveSounding = transposed_note.octave;
+#endif
         
         // Handle any explicit octave change.
         fOctaveSounding += octave_change;
@@ -408,15 +410,54 @@ namespace IMUSANT
     
     EnharmonicsTable::note
     EnharmonicsTable::
-    transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, int diatonic_steps, int chromatic_steps)
+    transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, unsigned short written_octave, int diatonic_steps, int chromatic_steps)
     {
         note transposed_note;
         
         transposed_note.note_name = addPitchSteps(written_note_name, diatonic_steps);
         transposed_note.alteration = addChromaticSteps(written_note_name, written_alteration, transposed_note.note_name, chromatic_steps);
         
+        transposed_note.octave = written_octave;
+        transposed_note.octave += calcImplicitOctaveChange(chromatic_steps, written_note_name, transposed_note.note_name);
+        
         return transposed_note;
     }
+    
+    int
+    EnharmonicsTable::
+    calcImplicitOctaveChange(int chromatic_steps, IMUSANT_pitch::type written_note_name, IMUSANT_pitch::type sounding_note_name)
+    {
+        IMUSANT_pitch::type next_note_in_scale = written_note_name;
+        
+        int number_of_octaves = 0;
+        
+        if (chromatic_steps > 0)   // Going up;
+        {
+            while (next_note_in_scale != sounding_note_name)
+            {
+                next_note_in_scale = addPitchSteps(next_note_in_scale, 1);
+                if (next_note_in_scale == IMUSANT_pitch::C)
+                {
+                    number_of_octaves++;
+                }
+            }
+        }
+        else if (chromatic_steps < 0)   // Going down;
+        {
+            while (next_note_in_scale != sounding_note_name)
+            {
+                next_note_in_scale = addPitchSteps(next_note_in_scale, -1);
+                if (next_note_in_scale == IMUSANT_pitch::B)
+                {
+                    number_of_octaves--;
+                }
+            }
+        }
+        
+        return number_of_octaves;
+    }
+    
+    
     
     IMUSANT_pitch::inflection
     EnharmonicsTable::
