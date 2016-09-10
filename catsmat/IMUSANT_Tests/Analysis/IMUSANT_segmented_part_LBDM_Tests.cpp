@@ -13,6 +13,7 @@
 
 #include "IMUSANT_test_utilities.h"
 #include "IMUSANT_segmented_part_LBDM_Expected.h"
+#include "IMUSANT_segmented_profile_vectors.h"
 
 #include "libIMUSANT.h"
 #include <boost/filesystem.hpp>
@@ -281,7 +282,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_Y
     cout << seg_part->print(true, true) << endl;
 #endif
 
-    ASSERT_EQ(9, segment_boundaries.size()) << "Unexpected number of segment boundaries";
+    ASSERT_EQ(8, segment_boundaries.size()) << "Unexpected number of segment boundaries";
     
     ASSERT_EQ(0, segment_boundaries[0]);
     ASSERT_EQ(7, segment_boundaries[1]);
@@ -291,7 +292,6 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_Y
     ASSERT_EQ(41, segment_boundaries[5]);
     ASSERT_EQ(49, segment_boundaries[6]);
     ASSERT_EQ(53, segment_boundaries[7]);
-    ASSERT_EQ(55, segment_boundaries[8]);
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_TestScoreNumber3)
@@ -309,7 +309,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_T
     cout << seg_part->print(true, true) << endl;
 #endif
     
-    ASSERT_EQ(8, segment_boundaries.size()) << "Unexpected number of segment boundaries";
+    ASSERT_EQ(7, segment_boundaries.size()) << "Unexpected number of segment boundaries";
     
     ASSERT_EQ(0, segment_boundaries[0]);
     ASSERT_EQ(7, segment_boundaries[1]);
@@ -318,8 +318,6 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_T
     ASSERT_EQ(18, segment_boundaries[4]);
     ASSERT_EQ(23, segment_boundaries[5]);
     ASSERT_EQ(26, segment_boundaries[6]);
-    ASSERT_EQ(30, segment_boundaries[7]);
-
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_Kyrie)
@@ -337,7 +335,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_K
     cout << seg_part->print(true, true) << endl;
 #endif
     
-    ASSERT_EQ(22, segment_boundaries.size()) << "Unexpected number of segment boundaries";
+    ASSERT_EQ(21, segment_boundaries.size()) << "Unexpected number of segment boundaries";
     
     ASSERT_EQ(0, segment_boundaries[0]);
     ASSERT_EQ(5, segment_boundaries[1]);
@@ -419,6 +417,40 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegments_From_Score_YankeeDoodle)
     
     ASSERT_EQ(8, segments[5][1]->getMeasureNum());
     ASSERT_EQ(6, segments[5][1]->getNoteIndex());
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithProfileVectors_Test)
+{
+    S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
+    
+    seg_part->getOverallLocalBoundaryStrengthProfile();
+    seg_part->setSegmentBoundaryCalculationSpan(4);
+    IMUSANT_segmented_profile_vectors segments = seg_part->getSegmentsWithProfileVectors();
+    
+    ASSERT_EQ(4, segments.segments.size());
+    ASSERT_EQ(7, segments.segments[0].size());
+    ASSERT_EQ(8, segments.segments[1].size());
+    ASSERT_EQ(8, segments.segments[2].size());
+    ASSERT_EQ(8, segments.segments[3].size());
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Test)
+{
+    S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
+    
+    seg_part->getOverallLocalBoundaryStrengthProfile();
+    seg_part->setSegmentBoundaryCalculationSpan(4);
+    IMUSANT_weighted_strength_vectors segments = seg_part->getSegmentsWithWeightedAverages();
+    
+    ASSERT_EQ(4, segments.segments.size());
+    ASSERT_EQ(7, segments.segments[0].size());
+    ASSERT_EQ(8, segments.segments[1].size());
+    ASSERT_EQ(8, segments.segments[2].size());
+    ASSERT_EQ(8, segments.segments[3].size());
 }
 
 

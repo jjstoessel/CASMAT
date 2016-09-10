@@ -11,6 +11,9 @@
 
 #include <stdio.h>
 
+#include "IMUSANT_consolidated_interval_profile_LBDM_visitor.h"
+#include "IMUSANT_note.h"
+
 using namespace std;
 
 namespace IMUSANT
@@ -117,6 +120,11 @@ namespace IMUSANT
             return fIsBoundary;
         }
         
+        void accept(IMUSANT_consolidated_interval_profile_LBDM_visitor& visitor)
+        {
+            visitor.visit(this);
+        }
+        
         
     private:
         S_IMUSANT_note fStartNote;
@@ -130,7 +138,7 @@ namespace IMUSANT
     
     class IMUSANT_consolidated_interval_profile_vector_LBDM : public vector <IMUSANT_consolidated_interval_profile_LBDM>
     {
-       
+
     };
 }
 

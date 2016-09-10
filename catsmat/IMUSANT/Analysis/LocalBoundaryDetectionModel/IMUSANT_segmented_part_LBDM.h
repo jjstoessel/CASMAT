@@ -14,6 +14,8 @@
 #include "IMUSANT_part.h"
 #include "IMUSANT_interval_profile_LBDM.h"
 #include "IMUSANT_consolidated_interval_profile_LBDM.h"
+#include "IMUSANT_segmented_profile_vectors.h"
+#include "IMUSANT_weighted_strength_vectors.h"
 
 using namespace std;
 
@@ -34,6 +36,7 @@ namespace IMUSANT
         
         virtual ~IMUSANT_segmented_part_LBDM() {}
         
+               
         //
         // This method returns all the data you really need. Each row is a note-to-note interval
         // with the associated strengths, and an indication of whether the row represents a
@@ -53,6 +56,10 @@ namespace IMUSANT
         // This method returns you segments in the form of note vectors.
         //
         vector< IMUSANT_segment > getSegments();
+        
+        
+        IMUSANT_segmented_profile_vectors getSegmentsWithProfileVectors();
+        IMUSANT_weighted_strength_vectors getSegmentsWithWeightedAverages();
         
         //
         // The algorithm for calculating segments looks either side of each interval
@@ -135,6 +142,8 @@ namespace IMUSANT
         void buildIntervalProfiles();
         
         void calculateOverallLocalBoundaryStrengthVector();
+        
+        void getSegmentsUsingVisitor(IMUSANT_consolidated_interval_profile_LBDM_visitor &visitor);
         
         int             findNextSegmentBoundary(int start_index);
         bool            isThisASegmentBoundary(int strength_profile_index_position) const;

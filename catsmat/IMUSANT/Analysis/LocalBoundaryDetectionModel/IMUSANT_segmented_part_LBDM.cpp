@@ -118,6 +118,41 @@ namespace IMUSANT
         return ret_val;
     }
     
+    IMUSANT_segmented_profile_vectors
+    IMUSANT_segmented_part_LBDM::
+    getSegmentsWithProfileVectors()
+    {
+        IMUSANT_segmented_profile_vectors segments;
+        
+        getSegmentsUsingVisitor(segments);
+        
+        return segments;
+    }
+    
+    IMUSANT_weighted_strength_vectors
+    IMUSANT_segmented_part_LBDM::
+    getSegmentsWithWeightedAverages()
+    {
+        IMUSANT_weighted_strength_vectors segments;
+        
+        getSegmentsUsingVisitor(segments);
+        
+        return segments;
+    }
+    
+    void
+    IMUSANT_segmented_part_LBDM::
+    getSegmentsUsingVisitor(IMUSANT_consolidated_interval_profile_LBDM_visitor &visitor)
+    {
+        IMUSANT_consolidated_interval_profile_vector_LBDM consolidated_profiles = getConsolidatedProfiles();
+        
+        for (IMUSANT_consolidated_interval_profile_vector_LBDM::iterator data_iter = consolidated_profiles.begin();
+             data_iter != consolidated_profiles.end();
+             data_iter++)
+        {
+            data_iter->accept(visitor);
+        }
+    }
     
     //
     // For the calculation of segments we always use the EndNote element of each
@@ -166,8 +201,15 @@ namespace IMUSANT
         {
             int new_boundary_index = findNextSegmentBoundary(next_start_index);
             
-            ret_val.push_back(new_boundary_index);
-            next_start_index = new_boundary_index + 1;
+            if (new_boundary_index >= 0)
+            {
+                ret_val.push_back(new_boundary_index);
+                next_start_index = new_boundary_index + 1;
+            }
+            else
+            {
+                next_start_index = overall_local_boundary_strength_profile.size(); // Force termination - there are no more boundaries...
+            }
         }
         
         return ret_val;
@@ -194,13 +236,27 @@ namespace IMUSANT
                 boundary_index++;
             }
         }
-        return boundary_index;
+        
+        if (found)
+        {
+            return boundary_index;
+        }
+        else
+        {
+            return -1;
+        }
     }
     
     bool
     IMUSANT_segmented_part_LBDM::
     isThisASegmentBoundary(int strength_profile_index_position) const
     {
+        if (strength_profile_index_position == overall_local_boundary_strength_profile.size() -1)
+        {
+            // the last note is not a boundary.
+            return false;
+        }
+        
         int span = SEGMENT_BOUNDARY_CALCULATION_SPAN;
         
         int num_previous_positions_to_examine = getArrayPositionsWithoutOverflowingLowerBound(strength_profile_index_position, span);
