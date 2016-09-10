@@ -22,7 +22,7 @@ using namespace IMUSANT;
 
 using namespace boost;
 
-#define VERBOSE = 1;
+// #define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests :
@@ -544,8 +544,8 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, euclidianDistance_Test)
     << "1 - 3  : " << one_three << endl  << endl << endl << endl;
 #endif
     
-    ASSERT_EQ(0, one_two);
-    ASSERT_EQ(49.5694, one_three);
+    ASSERT_TRUE(equalWithinTollerance(0, one_two));
+    ASSERT_TRUE(equalWithinTollerance(49.5694, one_three));
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Similarity_Test)
