@@ -22,7 +22,7 @@ using namespace IMUSANT;
 
 using namespace boost;
 
-//#define VERBOSE = 1;
+#define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests :
@@ -87,11 +87,8 @@ protected:
         }
     };
     
-    double euclidianDistance(const vector<double> cv1, const vector<double> cv2)
+    double euclidianDistance(vector<double> v1, vector<double> v2)
     {
-        vector<double> v1 = cv1;
-        vector<double> v2 = cv2;
-        
         while (v1.size() > v2.size())
         {
             v2.push_back(0);
@@ -109,12 +106,18 @@ protected:
         
         double cumulative_distance = 0;
         
-        for (int index = 0; index <= v1.size(); index++)
+        for (int index = 0; index < v1.size(); index++)
         {
             double val1 = v1[index] - v2[index];
             double val2 = pow((val1), 2);
-            
             cumulative_distance += val2;
+            
+#ifdef VERBOSE
+            cout << "v1[" << index << "]: " << v1[index] << endl;
+            cout << "v2[" << index << "]: " << v2[index] << endl;
+            cout << "val1: " << val1 << endl;
+            cout << "val2: " << val2 << endl << endl;
+#endif
         }
         
         cumulative_distance =  sqrt(cumulative_distance);
@@ -493,6 +496,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, euclidianDistance_Test)
 {
     vector<double> v1;
     vector<double> v2;
+    vector<double> v3;
     
     v1.push_back(12.456);
     v1.push_back(14.54321);
@@ -503,18 +507,25 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, euclidianDistance_Test)
     v2.push_back(14.54321);
     v2.push_back(45.677899);
     v2.push_back(2);
-    v2.push_back(12.456);
-    v2.push_back(14.54321);
-    v2.push_back(45.677899);
-    v2.push_back(2);
     
+    v3.push_back(12.456);
+    v3.push_back(14.54321);
+    v3.push_back(45.677899);
+    v3.push_back(2);
+    v3.push_back(12.456);
+    v3.push_back(14.54321);
+    v3.push_back(45.677899);
+    v3.push_back(2);
     
     vector < vector <double> > segments;
     segments.push_back(v1);
     segments.push_back(v2);
+    segments.push_back(v3);
     
-    double zero_one = euclidianDistance(v1, v2);
+    double one_two = euclidianDistance(v1, v2);
+    double one_three = euclidianDistance(v1, v3);
     
+#ifdef VERBOSE
     cout << endl << "Segment Weighted Averages:" << endl;
     for (int segment_index = 0; segment_index <= 1; segment_index++)
     {   cout << segment_index << ":  ";
@@ -529,7 +540,12 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, euclidianDistance_Test)
     
     cout
     << "Segment Distances" << endl
-    << "0 - 1  : " << zero_one << endl  << endl << endl << endl;
+    << "1 - 2  : " << one_two << endl
+    << "1 - 3  : " << one_three << endl  << endl << endl << endl;
+#endif
+    
+    ASSERT_EQ(0, one_two);
+    ASSERT_EQ(49.5694, one_three);
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Similarity_Test)
@@ -556,12 +572,8 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
     double one_three  = euclidianDistance(segments.segments[1], segments.segments[3]);
     double two_three  = euclidianDistance(segments.segments[2], segments.segments[3]);
     
-    ASSERT_TRUE(equalWithinTollerance(138.795, zero_one));
-    ASSERT_TRUE(equalWithinTollerance(139.39, zero_two));
-//    ASSERT_TRUE(equalWithinTollerance(93.7083, segments.segments[2][7]));
-//    ASSERT_TRUE(equalWithinTollerance(106.667, segments.segments[3][0]));
-//    ASSERT_TRUE(equalWithinTollerance(153.663, segments.segments[3][7]));
     
+#ifdef VERBOSE
     cout << endl << "Segment Weighted Averages:" << endl;
     for (int segment_index = 0; segment_index <= 3; segment_index++)
     {   cout << segment_index << ":  ";
@@ -582,6 +594,15 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
     << "1 - 2  : " << one_two << endl
     << "1 - 3  : " << one_three << endl
     << "2 - 3  : " << two_three << endl << endl << endl;
+#endif
+    
+    ASSERT_TRUE(equalWithinTollerance(138.795, zero_one));
+    ASSERT_TRUE(equalWithinTollerance(139.39, zero_two));
+    ASSERT_TRUE(equalWithinTollerance(179.098, zero_three));
+    ASSERT_TRUE(equalWithinTollerance(0.839491, one_two));
+    ASSERT_TRUE(equalWithinTollerance(63.1178, one_three));
+    ASSERT_TRUE(equalWithinTollerance(62.3701, two_three));
+
 }
 
 
