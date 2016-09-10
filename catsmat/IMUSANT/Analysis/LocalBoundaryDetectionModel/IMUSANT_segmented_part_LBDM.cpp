@@ -24,7 +24,7 @@ namespace IMUSANT
     // IMUSANT_segmented_part_LBDM
     //
     
-    vector<float> &
+    vector<double> &
     IMUSANT_segmented_part_LBDM::
     getOverallLocalBoundaryStrengthProfile()
     {
@@ -67,7 +67,7 @@ namespace IMUSANT
     {
         overall_local_boundary_strength_profile.clear();
         
-        float weighted_avg_strength = 0;
+        double weighted_avg_strength = 0;
         for (int index = 0; index < ioi_interval_profile.strength_vector.size(); index++)
         {
             weighted_avg_strength =

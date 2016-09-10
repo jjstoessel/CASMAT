@@ -57,14 +57,14 @@ protected:
         fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("MusicXMLv3/Yankee_Doodle.xml");
     }
     
-    vector<float> getOverallStrengthVectorFromPart(S_IMUSANT_score score, string part_id)
+    vector<double> getOverallStrengthVectorFromPart(S_IMUSANT_score score, string part_id)
     {
         S_IMUSANT_part part;
         score->getPartById(part_id, part);
         
         IMUSANT_segmented_part_LBDM seg_part(part);
         
-        vector<float> lbsp = seg_part.getOverallLocalBoundaryStrengthProfile();
+        vector<double> lbsp = seg_part.getOverallLocalBoundaryStrengthProfile();
         
 #ifdef VERBOSE
         cout << seg_part;
@@ -72,7 +72,7 @@ protected:
         return lbsp;
     }
     
-    bool checkEqualWithinTolleranceField(float expected, float actual, int index_pos)
+    bool checkEqualWithinTolleranceField(double expected, double actual, int index_pos)
     {
         if (equalWithinTollerance(expected, actual))
             return true;
@@ -85,6 +85,42 @@ protected:
             
             return false;
         }
+    };
+    
+    double euclidianDistance(const vector<double> cv1, const vector<double> cv2)
+    {
+        vector<double> v1 = cv1;
+        vector<double> v2 = cv2;
+        
+        while (v1.size() > v2.size())
+        {
+            v2.push_back(0);
+        }
+        
+        while (v2.size() > v1.size())
+        {
+            v1.push_back(0);
+        }
+        
+        if (v1.size() != v2.size())
+        {
+            throw "Unexpected vector sizes after equalisation.";
+        }
+        
+        double cumulative_distance = 0;
+        
+        for (int index = 0; index <= v1.size(); index++)
+        {
+            double val1 = v1[index] - v2[index];
+            double val2 = pow((val1), 2);
+            
+            cumulative_distance += val2;
+        }
+        
+        cumulative_distance =  sqrt(cumulative_distance);
+        
+        return cumulative_distance;
+        
     };
     
     static IMUSANT_test_utilities * _test_utils;
@@ -119,7 +155,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P1)
 {
-    vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P1");
+    vector<double> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P1");
 
     for (int jdex = 0 ; jdex < P1_COUNT; jdex++)
     {
@@ -133,7 +169,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P2)
 {
-    vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P2");
+    vector<double> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P2");
 
     for (int jdex = 0 ; jdex < P2_COUNT; jdex++)
     {
@@ -147,7 +183,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P3)
 {
-    vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P3");
+    vector<double> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P3");
     
     for (int jdex = 0 ; jdex < P3_COUNT; jdex++)
     {
@@ -161,7 +197,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_YankeeDoodle)
 {
-    vector<float> lbsp = getOverallStrengthVectorFromPart(fScore_YankeeDoodle, "P1");
+    vector<double> lbsp = getOverallStrengthVectorFromPart(fScore_YankeeDoodle, "P1");
     
     for (int jdex = 0 ; jdex < YANKEEDOODLE_COUNT; jdex++)
     {
@@ -452,6 +488,103 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Test)
     ASSERT_EQ(8, segments.segments[2].size());
     ASSERT_EQ(8, segments.segments[3].size());
 }
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, euclidianDistance_Test)
+{
+    vector<double> v1;
+    vector<double> v2;
+    
+    v1.push_back(12.456);
+    v1.push_back(14.54321);
+    v1.push_back(45.677899);
+    v1.push_back(2);
+    
+    v2.push_back(12.456);
+    v2.push_back(14.54321);
+    v2.push_back(45.677899);
+    v2.push_back(2);
+    v2.push_back(12.456);
+    v2.push_back(14.54321);
+    v2.push_back(45.677899);
+    v2.push_back(2);
+    
+    
+    vector < vector <double> > segments;
+    segments.push_back(v1);
+    segments.push_back(v2);
+    
+    double zero_one = euclidianDistance(v1, v2);
+    
+    cout << endl << "Segment Weighted Averages:" << endl;
+    for (int segment_index = 0; segment_index <= 1; segment_index++)
+    {   cout << segment_index << ":  ";
+        for (int index = 0; index < segments[segment_index].size() ; index++)
+        {
+            cout << segments[segment_index][index] << ", ";
+        }
+        cout << endl;
+    }
+    
+    cout << endl << endl;
+    
+    cout
+    << "Segment Distances" << endl
+    << "0 - 1  : " << zero_one << endl  << endl << endl << endl;
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Similarity_Test)
+{
+    S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
+    
+    seg_part->getOverallLocalBoundaryStrengthProfile();
+    seg_part->setSegmentBoundaryCalculationSpan(4);
+    IMUSANT_weighted_strength_vectors segments = seg_part->getSegmentsWithWeightedAverages();
+    
+    ASSERT_TRUE(equalWithinTollerance(40.7482, segments.segments[0][0]));
+    ASSERT_TRUE(equalWithinTollerance(21.5194, segments.segments[1][3]));
+    ASSERT_TRUE(equalWithinTollerance(93.7083, segments.segments[2][7]));
+    ASSERT_TRUE(equalWithinTollerance(106.667, segments.segments[3][0]));
+    ASSERT_TRUE(equalWithinTollerance(153.663, segments.segments[3][7]));
+    
+    
+    double zero_one = euclidianDistance(segments.segments[0], segments.segments[1]);
+    double zero_two  = euclidianDistance(segments.segments[0], segments.segments[2]);
+    double zero_three  = euclidianDistance(segments.segments[0], segments.segments[3]);
+    double one_two  = euclidianDistance(segments.segments[1], segments.segments[2]);
+    double one_three  = euclidianDistance(segments.segments[1], segments.segments[3]);
+    double two_three  = euclidianDistance(segments.segments[2], segments.segments[3]);
+    
+    ASSERT_TRUE(equalWithinTollerance(138.795, zero_one));
+    ASSERT_TRUE(equalWithinTollerance(139.39, zero_two));
+//    ASSERT_TRUE(equalWithinTollerance(93.7083, segments.segments[2][7]));
+//    ASSERT_TRUE(equalWithinTollerance(106.667, segments.segments[3][0]));
+//    ASSERT_TRUE(equalWithinTollerance(153.663, segments.segments[3][7]));
+    
+    cout << endl << "Segment Weighted Averages:" << endl;
+    for (int segment_index = 0; segment_index <= 3; segment_index++)
+    {   cout << segment_index << ":  ";
+        for (int index = 0; index < segments.segments[segment_index].size() ; index++)
+        {
+            cout << segments.segments[segment_index][index] << ", ";
+        }
+        cout << endl;
+    }
+    
+    cout << endl << endl;
+    
+    cout
+    << "Segment Distances" << endl
+    << "0 - 1  : " << zero_one << endl
+    << "0 - 2  : " << zero_two << endl
+    << "0 - 3  : " << zero_three << endl
+    << "1 - 2  : " << one_two << endl
+    << "1 - 3  : " << one_three << endl
+    << "2 - 3  : " << two_three << endl << endl << endl;
+}
+
+
 
 
 

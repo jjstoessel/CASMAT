@@ -19,7 +19,7 @@ namespace IMUSANT {
     {
         if (target->isBoundary())
         {
-            vector<float> next_segment;
+            vector<double> next_segment;
             segments.push_back(next_segment);
             fCurrentSegmentIndex++;
         }

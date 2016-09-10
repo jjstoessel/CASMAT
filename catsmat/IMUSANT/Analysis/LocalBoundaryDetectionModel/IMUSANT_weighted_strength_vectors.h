@@ -28,7 +28,7 @@ namespace IMUSANT
         
         virtual void visit(IMUSANT_consolidated_interval_profile_LBDM *target);
         
-        vector< vector<float> > segments;
+        vector< vector<double> > segments;
         
     private:
         

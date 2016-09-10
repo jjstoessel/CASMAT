@@ -50,7 +50,7 @@ namespace IMUSANT
         //
         // You must call this function to initialise the class from the data in the Part.
         //
-        vector<float>& getOverallLocalBoundaryStrengthProfile();
+        vector<double>& getOverallLocalBoundaryStrengthProfile();
         
         //
         // This method returns you segments in the form of note vectors.
@@ -124,11 +124,11 @@ namespace IMUSANT
     private:
         
         S_IMUSANT_part fPart;
-        vector<float> overall_local_boundary_strength_profile;
+        vector<double> overall_local_boundary_strength_profile;
         
-        const float WEIGHT_INTERONSET_INTERVAL = 0.5;
-        const float WEIGHT_PITCH = 0.25;
-        const float WEIGHT_REST = 0.25;
+        const double WEIGHT_INTERONSET_INTERVAL = 0.5;
+        const double WEIGHT_PITCH = 0.25;
+        const double WEIGHT_REST = 0.25;
         
         int SEGMENT_BOUNDARY_CALCULATION_SPAN = 4;
         

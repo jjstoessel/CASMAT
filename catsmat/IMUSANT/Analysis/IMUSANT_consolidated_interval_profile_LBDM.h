@@ -35,10 +35,10 @@ namespace IMUSANT
         
         IMUSANT_consolidated_interval_profile_LBDM(S_IMUSANT_note start_note,
                                                    S_IMUSANT_note end_note,
-                                                   float pitch,
-                                                   float ioi,
-                                                   float rest,
-                                                   float weighted_avg_strength)
+                                                   double pitch,
+                                                   double ioi,
+                                                   double rest,
+                                                   double weighted_avg_strength)
         {
             fStartNote = start_note;
             fEndNote = end_note;
@@ -70,42 +70,42 @@ namespace IMUSANT
         }
         
         
-        void setPitch(float the_pitch)
+        void setPitch(double the_pitch)
         {
             fPitch = the_pitch;
         }
         
-        float getPitch()
+        double getPitch()
         {
             return fPitch;
         }
         
-        void setIOI(float the_IOI)
+        void setIOI(double the_IOI)
         {
             fIOI = the_IOI;
         }
         
-        float getIOI()
+        double getIOI()
         {
             return fIOI;
         }
         
-        void setRest(float the_rest)
+        void setRest(double the_rest)
         {
             fRest = the_rest;
         }
         
-        float getRest()
+        double getRest()
         {
             return fRest;
         }
         
-        void setWeightedAverage(float the_weighted_avg)
+        void setWeightedAverage(double the_weighted_avg)
         {
             fWeightedAvgStrength = the_weighted_avg;
         }
         
-        float getWeightedAverage()
+        double getWeightedAverage()
         {
             return fWeightedAvgStrength;
         }
@@ -129,10 +129,10 @@ namespace IMUSANT
     private:
         S_IMUSANT_note fStartNote;
         S_IMUSANT_note fEndNote;
-        float fPitch = 0;
-        float fIOI = 0;
-        float fRest = 0;
-        float fWeightedAvgStrength = 0;
+        double fPitch = 0;
+        double fIOI = 0;
+        double fRest = 0;
+        double fWeightedAvgStrength = 0;
         bool fIsBoundary = false;
     };
     
