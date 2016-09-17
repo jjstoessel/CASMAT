@@ -31,8 +31,8 @@ namespace IMUSANT {
             
             for(vector<S_IMUSANT_part>::iterator parts_iter = parts.begin(); parts_iter != parts.end(); parts_iter++)
             {
-                S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(*parts_iter);
-                seg_part->getOverallLocalBoundaryStrengthProfile();
+                S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
+                seg_part->initialise(*parts_iter);
                 segmented_parts.push_back(seg_part);
             }
         }

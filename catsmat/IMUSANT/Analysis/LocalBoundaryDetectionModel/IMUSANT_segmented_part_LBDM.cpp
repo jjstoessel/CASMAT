@@ -24,13 +24,13 @@ namespace IMUSANT
     // IMUSANT_segmented_part_LBDM
     //
     
-    vector<double> &
+    void
     IMUSANT_segmented_part_LBDM::
-    getOverallLocalBoundaryStrengthProfile()
+    initialise(S_IMUSANT_part the_part)
     {
+        fPart = the_part;
         buildIntervalProfiles();
         calculateOverallLocalBoundaryStrengthVector();
-        return overall_local_boundary_strength_profile;
     }
     
     
@@ -118,7 +118,7 @@ namespace IMUSANT
         return ret_val;
     }
     
-    IMUSANT_segmented_profile_vectors
+    vector<IMUSANT_consolidated_interval_profile_vector_LBDM>
     IMUSANT_segmented_part_LBDM::
     getSegmentsWithProfileVectors()
     {
@@ -126,10 +126,22 @@ namespace IMUSANT
         
         getSegmentsUsingVisitor(segments);
         
-        return segments;
+        return segments.segments;
     }
     
-    IMUSANT_weighted_strength_vectors
+    vector <IMUSANT_note_vector>
+    IMUSANT_segmented_part_LBDM::
+    getSegmentsAsNoteVectors()
+    {
+        IMUSANT_segmented_note_vectors segments;
+        
+        getSegmentsUsingVisitor(segments);
+        
+        return segments.segments;
+    }
+
+    
+    vector<IMUSANT_strength_vector>
     IMUSANT_segmented_part_LBDM::
     getSegmentsWithWeightedAverages()
     {
@@ -137,7 +149,7 @@ namespace IMUSANT
         
         getSegmentsUsingVisitor(segments);
         
-        return segments;
+        return segments.segments;
     }
     
     void
@@ -153,68 +165,7 @@ namespace IMUSANT
             data_iter->accept(visitor);
         }
     }
-    
-    //
-    // For the calculation of segments we always use the EndNote element of each
-    // IMUSANT_consolidated_interval_profile_LBDM.
-    //
-    vector< IMUSANT_segment >
-    IMUSANT_segmented_part_LBDM::
-    getSegments()
-    {
-        vector<IMUSANT_segment> ret_val;
-        
-        IMUSANT_consolidated_interval_profile_vector_LBDM profiles_with_boundaries = getConsolidatedProfiles();
-        
-        for (int index = 0; index < profiles_with_boundaries.size(); )
-        {
-            IMUSANT_segment next_segment;
-            bool segment_end=false;
             
-            while (! segment_end)
-            {
-                next_segment.push_back(profiles_with_boundaries[index].getEndNote());
-            
-                if (index == profiles_with_boundaries.size() - 1 ||  profiles_with_boundaries[index+1].isBoundary())
-                {
-                    ret_val.push_back(next_segment);
-                    segment_end = true;
-                }
-                
-                index++;
-            }
-        }
-        
-        return ret_val;
-    }
-    
-    vector< int >
-    IMUSANT_segmented_part_LBDM::
-    getSegmentBoundaries()
-    {
-        // REVISIT - assuming that calculateOverallLocalBoundaryStrengthVector() has already been called
-        
-        vector<int> ret_val;
-        int next_start_index = 0;
-        
-        while (next_start_index < overall_local_boundary_strength_profile.size())
-        {
-            int new_boundary_index = findNextSegmentBoundary(next_start_index);
-            
-            if (new_boundary_index >= 0)
-            {
-                ret_val.push_back(new_boundary_index);
-                next_start_index = new_boundary_index + 1;
-            }
-            else
-            {
-                next_start_index = overall_local_boundary_strength_profile.size(); // Force termination - there are no more boundaries...
-            }
-        }
-        
-        return ret_val;
-    }
-    
     int
     IMUSANT_segmented_part_LBDM::
     findNextSegmentBoundary(int start_index)
@@ -391,9 +342,9 @@ namespace IMUSANT
     }
     
     
-    S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part)
+    S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM()
     {
-        IMUSANT_segmented_part_LBDM* o = new IMUSANT_segmented_part_LBDM(the_part);
+        IMUSANT_segmented_part_LBDM* o = new IMUSANT_segmented_part_LBDM();
         assert (o!=0);
         return o;
     }

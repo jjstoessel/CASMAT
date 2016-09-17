@@ -19,6 +19,8 @@ using namespace std;
 
 namespace IMUSANT
 {
+    typedef vector<double> IMUSANT_strength_vector;
+    
     class IMUSANT_weighted_strength_vectors : public IMUSANT_consolidated_interval_profile_LBDM_visitor
     {
     public:
@@ -28,7 +30,7 @@ namespace IMUSANT
         
         virtual void visit(IMUSANT_consolidated_interval_profile_LBDM *target);
         
-        vector< vector<double> > segments;
+        vector<IMUSANT_strength_vector> segments;
         
     private:
         

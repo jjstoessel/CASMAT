@@ -57,14 +57,15 @@ protected:
         fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("MusicXMLv3/Yankee_Doodle.xml");
     }
     
-    vector<double> getOverallStrengthVectorFromPart(S_IMUSANT_score score, string part_id)
+    IMUSANT_strength_vector getOverallStrengthVectorFromPart(S_IMUSANT_score score, string part_id)
     {
         S_IMUSANT_part part;
         score->getPartById(part_id, part);
         
-        IMUSANT_segmented_part_LBDM seg_part(part);
+        IMUSANT_segmented_part_LBDM seg_part;
+        seg_part.initialise(part);
         
-        vector<double> lbsp = seg_part.getOverallLocalBoundaryStrengthProfile();
+        IMUSANT_strength_vector lbsp = seg_part.getWeightedAverageStrengthVector();
         
 #ifdef VERBOSE
         cout << seg_part;
@@ -148,7 +149,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)
 {
     S_IMUSANT_part part = new_IMUSANT_part();
     
-    IMUSANT_segmented_part_LBDM * segmented_part = new IMUSANT_segmented_part_LBDM(part);
+    IMUSANT_segmented_part_LBDM * segmented_part = new IMUSANT_segmented_part_LBDM();
     
     ASSERT_FALSE(segmented_part == NULL);
 
@@ -218,8 +219,8 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getConsolidatedProfiles_YankeeDoodle)
     S_IMUSANT_part part;
     fScore_YankeeDoodle->getPartById("P1", part);
     
-    IMUSANT_segmented_part_LBDM seg_part(part);
-    seg_part.getOverallLocalBoundaryStrengthProfile();
+    IMUSANT_segmented_part_LBDM seg_part;
+    seg_part.initialise(part);
     
     IMUSANT_consolidated_interval_profile_vector_LBDM consolidated_profiles = seg_part.getConsolidatedProfiles();
     
@@ -277,9 +278,9 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, LongOutputOperator)
     
     S_IMUSANT_part& soprano = fScore_LBDM_Test1->partlist()->getPart("P1");
     
-    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(soprano);
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
     
-    seg_part->getOverallLocalBoundaryStrengthProfile();
+    seg_part->initialise(soprano);
     
     stringstream soprano_long_actual;
     soprano_long_actual << *seg_part;
@@ -295,9 +296,9 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, ShortOutputOperator)
     
     S_IMUSANT_part& soprano = fScore_LBDM_Test1->partlist()->getPart("P1");
     
-    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(soprano);
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
     
-    seg_part->getOverallLocalBoundaryStrengthProfile();
+    seg_part->initialise(soprano);
     
     stringstream soprano_short_actual;
     soprano_short_actual << (*seg_part).printForTesting();
@@ -305,112 +306,17 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, ShortOutputOperator)
     
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_YankeeDoodle)
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_YankeeDoodle)
 {
     S_IMUSANT_part& the_part = fScore_YankeeDoodle->partlist()->getPart("P1");
     
-    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
+    seg_part->initialise(the_part);
     
-    seg_part->getOverallLocalBoundaryStrengthProfile();
-    
-    seg_part->setSegmentBoundaryCalculationSpan(2);
-    
-    vector<int> segment_boundaries = seg_part->getSegmentBoundaries();
-    
-#ifdef VERBOSE
-    cout << seg_part->print(true, true) << endl;
-#endif
-
-    ASSERT_EQ(8, segment_boundaries.size()) << "Unexpected number of segment boundaries";
-    
-    ASSERT_EQ(0, segment_boundaries[0]);
-    ASSERT_EQ(7, segment_boundaries[1]);
-    ASSERT_EQ(12, segment_boundaries[2]);
-    ASSERT_EQ(28, segment_boundaries[3]);
-    ASSERT_EQ(35, segment_boundaries[4]);
-    ASSERT_EQ(41, segment_boundaries[5]);
-    ASSERT_EQ(49, segment_boundaries[6]);
-    ASSERT_EQ(53, segment_boundaries[7]);
-}
-
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_TestScoreNumber3)
-{
-    S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
-    
-    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
-    
-    seg_part->getOverallLocalBoundaryStrengthProfile();
-    
-    seg_part->setSegmentBoundaryCalculationSpan(2);
-    vector<int> segment_boundaries = seg_part->getSegmentBoundaries();
-    
-#ifdef VERBOSE
-    cout << seg_part->print(true, true) << endl;
-#endif
-    
-    ASSERT_EQ(7, segment_boundaries.size()) << "Unexpected number of segment boundaries";
-    
-    ASSERT_EQ(0, segment_boundaries[0]);
-    ASSERT_EQ(7, segment_boundaries[1]);
-    ASSERT_EQ(10, segment_boundaries[2]);
-    ASSERT_EQ(15, segment_boundaries[3]);
-    ASSERT_EQ(18, segment_boundaries[4]);
-    ASSERT_EQ(23, segment_boundaries[5]);
-    ASSERT_EQ(26, segment_boundaries[6]);
-}
-
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentBoundaries_From_Score_LBDM_Kyrie)
-{
-    S_IMUSANT_part& the_part = fScore_Kyrie->partlist()->getPart("P1");
-    
-    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
-    
-    seg_part->getOverallLocalBoundaryStrengthProfile();
-    
-    seg_part->setSegmentBoundaryCalculationSpan(4);
-    vector<int> segment_boundaries = seg_part->getSegmentBoundaries();
-    
-#ifdef VERBOSE
-    cout << seg_part->print(true, true) << endl;
-#endif
-    
-    ASSERT_EQ(21, segment_boundaries.size()) << "Unexpected number of segment boundaries";
-    
-    ASSERT_EQ(0, segment_boundaries[0]);
-    ASSERT_EQ(5, segment_boundaries[1]);
-    ASSERT_EQ(11, segment_boundaries[2]);
-    ASSERT_EQ(19, segment_boundaries[3]);
-    ASSERT_EQ(28, segment_boundaries[4]);
-    ASSERT_EQ(38, segment_boundaries[5]);
-    ASSERT_EQ(44, segment_boundaries[6]);
-    ASSERT_EQ(54, segment_boundaries[7]);
-    ASSERT_EQ(62, segment_boundaries[8]);
-    ASSERT_EQ(68, segment_boundaries[9]);
-    ASSERT_EQ(76, segment_boundaries[10]);
-    ASSERT_EQ(86, segment_boundaries[11]);
-    ASSERT_EQ(93, segment_boundaries[12]);
-    ASSERT_EQ(103, segment_boundaries[13]);
-    ASSERT_EQ(111, segment_boundaries[14]);
-    ASSERT_EQ(122, segment_boundaries[15]);
-    ASSERT_EQ(128, segment_boundaries[16]);
-    ASSERT_EQ(134, segment_boundaries[17]);
-    ASSERT_EQ(147, segment_boundaries[18]);
-    ASSERT_EQ(159, segment_boundaries[19]);
-    ASSERT_EQ(170, segment_boundaries[20]);    
-}
-
-
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegments_From_Score_YankeeDoodle)
-{
-    S_IMUSANT_part& the_part = fScore_YankeeDoodle->partlist()->getPart("P1");
-    
-    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
-    
-    seg_part->getOverallLocalBoundaryStrengthProfile();
     seg_part->setSegmentBoundaryCalculationSpan(4);
     IMUSANT_consolidated_interval_profile_vector_LBDM data = seg_part->getConsolidatedProfiles();
     
-    vector<IMUSANT_segment> segments = seg_part->getSegments();
+    vector<IMUSANT_note_vector> segments = seg_part->getSegmentsAsNoteVectors();
     
     ASSERT_EQ(6, segments.size()) << "Unexpected number of segments";
     
@@ -462,34 +368,34 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithProfileVectors_Test)
 {
     S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
     
-    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
     
-    seg_part->getOverallLocalBoundaryStrengthProfile();
+    seg_part->initialise(the_part);
     seg_part->setSegmentBoundaryCalculationSpan(4);
-    IMUSANT_segmented_profile_vectors segments = seg_part->getSegmentsWithProfileVectors();
+    vector<IMUSANT_consolidated_interval_profile_vector_LBDM> segments = seg_part->getSegmentsWithProfileVectors();
     
-    ASSERT_EQ(4, segments.segments.size());
-    ASSERT_EQ(7, segments.segments[0].size());
-    ASSERT_EQ(8, segments.segments[1].size());
-    ASSERT_EQ(8, segments.segments[2].size());
-    ASSERT_EQ(8, segments.segments[3].size());
+    ASSERT_EQ(4, segments.size());
+    ASSERT_EQ(7, segments[0].size());
+    ASSERT_EQ(8, segments[1].size());
+    ASSERT_EQ(8, segments[2].size());
+    ASSERT_EQ(8, segments[3].size());
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Test)
 {
     S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
     
-    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
     
-    seg_part->getOverallLocalBoundaryStrengthProfile();
+    seg_part->initialise(the_part);
     seg_part->setSegmentBoundaryCalculationSpan(4);
-    IMUSANT_weighted_strength_vectors segments = seg_part->getSegmentsWithWeightedAverages();
+    vector<IMUSANT_strength_vector> segments = seg_part->getSegmentsWithWeightedAverages();
     
-    ASSERT_EQ(4, segments.segments.size());
-    ASSERT_EQ(7, segments.segments[0].size());
-    ASSERT_EQ(8, segments.segments[1].size());
-    ASSERT_EQ(8, segments.segments[2].size());
-    ASSERT_EQ(8, segments.segments[3].size());
+    ASSERT_EQ(4, segments.size());
+    ASSERT_EQ(7, segments[0].size());
+    ASSERT_EQ(8, segments[1].size());
+    ASSERT_EQ(8, segments[2].size());
+    ASSERT_EQ(8, segments[3].size());
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, euclidianDistance_Test)
@@ -552,25 +458,25 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
 {
     S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
     
-    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(the_part);
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
     
-    seg_part->getOverallLocalBoundaryStrengthProfile();
+    seg_part->initialise(the_part);
     seg_part->setSegmentBoundaryCalculationSpan(4);
-    IMUSANT_weighted_strength_vectors segments = seg_part->getSegmentsWithWeightedAverages();
+    vector<IMUSANT_strength_vector>  segments = seg_part->getSegmentsWithWeightedAverages();
     
-    ASSERT_TRUE(equalWithinTollerance(40.7482, segments.segments[0][0]));
-    ASSERT_TRUE(equalWithinTollerance(21.5194, segments.segments[1][3]));
-    ASSERT_TRUE(equalWithinTollerance(93.7083, segments.segments[2][7]));
-    ASSERT_TRUE(equalWithinTollerance(106.667, segments.segments[3][0]));
-    ASSERT_TRUE(equalWithinTollerance(153.663, segments.segments[3][7]));
+    ASSERT_TRUE(equalWithinTollerance(40.7482, segments[0][0]));
+    ASSERT_TRUE(equalWithinTollerance(21.5194, segments[1][3]));
+    ASSERT_TRUE(equalWithinTollerance(93.7083, segments[2][7]));
+    ASSERT_TRUE(equalWithinTollerance(106.667, segments[3][0]));
+    ASSERT_TRUE(equalWithinTollerance(153.663, segments[3][7]));
     
     
-    double zero_one = euclidianDistance(segments.segments[0], segments.segments[1]);
-    double zero_two  = euclidianDistance(segments.segments[0], segments.segments[2]);
-    double zero_three  = euclidianDistance(segments.segments[0], segments.segments[3]);
-    double one_two  = euclidianDistance(segments.segments[1], segments.segments[2]);
-    double one_three  = euclidianDistance(segments.segments[1], segments.segments[3]);
-    double two_three  = euclidianDistance(segments.segments[2], segments.segments[3]);
+    double zero_one = euclidianDistance(segments[0], segments[1]);
+    double zero_two  = euclidianDistance(segments[0], segments[2]);
+    double zero_three  = euclidianDistance(segments[0], segments[3]);
+    double one_two  = euclidianDistance(segments[1], segments[2]);
+    double one_three  = euclidianDistance(segments[1], segments[3]);
+    double two_three  = euclidianDistance(segments[2], segments[3]);
     
     
 #ifdef VERBOSE
@@ -605,6 +511,79 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
 
 }
 
+
+//TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsFromMultiplePartsWithWeightedAverages_Similarity_Test)
+//{
+//    
+//    IMUSANT_LBDM_segmenter segmenter;
+//    vector<S_IMUSANT_score> scores;
+//    scores.push_back(fScore_Kyrie);
+//    segmenter.findMelodicSegments_LBDM(scores);
+//    
+//    IMUSANT_LBDM_segmenter::PART_SEGS_VEC parts = segmenter.getSegmentedParts();
+//    
+//    vector < vector <double > > all_weighted_avg_segments;
+//    
+//    for (IMUSANT_LBDM_segmenter::PART_SEGS_VEC::iterator part_iter = parts.begin();
+//         part_iter != parts.end();
+//         part_iter++)
+//    {
+//        IMUSANT_weighted_strength_vectors segments = (*part_iter)->getSegmentsWithWeightedAverages();
+//        all_weighted_avg_segments.insert(all_weighted_avg_segments.end(), segments.segments.begin(), segments.segments.end());
+//    }
+//    
+//    
+////    ASSERT_TRUE(equalWithinTollerance(40.7482, segments.segments[0][0]));
+////    ASSERT_TRUE(equalWithinTollerance(21.5194, segments.segments[1][3]));
+////    ASSERT_TRUE(equalWithinTollerance(93.7083, segments.segments[2][7]));
+////    ASSERT_TRUE(equalWithinTollerance(106.667, segments.segments[3][0]));
+////    ASSERT_TRUE(equalWithinTollerance(153.663, segments.segments[3][7]));
+////    
+////    
+////    double zero_one = euclidianDistance(segments.segments[0], segments.segments[1]);
+////    double zero_two  = euclidianDistance(segments.segments[0], segments.segments[2]);
+////    double zero_three  = euclidianDistance(segments.segments[0], segments.segments[3]);
+////    double one_two  = euclidianDistance(segments.segments[1], segments.segments[2]);
+////    double one_three  = euclidianDistance(segments.segments[1], segments.segments[3]);
+////    double two_three  = euclidianDistance(segments.segments[2], segments.segments[3]);
+//    
+//    
+//#ifdef VERBOSE
+//    cout << endl << "Segment Weighted Averages:" << endl;
+//    int segment_index = 0;
+//    for (vector < vector <double > >::iterator seg_iter = all_weighted_avg_segments.begin();
+//         seg_iter != all_weighted_avg_segments.end();
+//         seg_iter++)
+//    {
+//       cout << segment_index++ << ":  ";
+//        for (int index = 0; index < segments.segments[segment_index].size() ; index++)
+//        {
+//            cout << segments.segments[segment_index][index] << ", ";
+//        }
+//        cout << endl;
+//    }
+//    
+//    cout << endl << endl;
+//    
+//    cout
+//    << "Segment Distances" << endl
+//    << "0 - 1  : " << zero_one << endl
+//    << "0 - 2  : " << zero_two << endl
+//    << "0 - 3  : " << zero_three << endl
+//    << "1 - 2  : " << one_two << endl
+//    << "1 - 3  : " << one_three << endl
+//    << "2 - 3  : " << two_three << endl << endl << endl;
+//#endif
+//    
+//    ASSERT_TRUE(equalWithinTollerance(138.795, zero_one));
+//    ASSERT_TRUE(equalWithinTollerance(139.39, zero_two));
+//    ASSERT_TRUE(equalWithinTollerance(179.098, zero_three));
+//    ASSERT_TRUE(equalWithinTollerance(0.839491, one_two));
+//    ASSERT_TRUE(equalWithinTollerance(63.1178, one_three));
+//    ASSERT_TRUE(equalWithinTollerance(62.3701, two_three));
+//    
+//}
+//
 
 
 

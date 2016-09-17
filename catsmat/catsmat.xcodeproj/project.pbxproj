@@ -35,6 +35,8 @@
 		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
 		1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
 		1EDE2F221B3E7CFA00DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
+		1EE08A4C1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EE08A4A1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.cpp */; };
+		1EE08A4D1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE08A4B1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.h */; };
 		49064B8B1D83D97300865892 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49064B881D83CE6F00865892 /* IMUSANT_segmented_profile_vectors.cpp */; };
 		49064B8E1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49064B8C1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.cpp */; };
 		49064B8F1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.h in Headers */ = {isa = PBXBuildFile; fileRef = 49064B8D1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.h */; };
@@ -552,6 +554,8 @@
 		1EDE2F1E1B3E763900DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures_WithQuaverPassingNotes.mscz; sourceTree = "<group>"; };
 		1EDE2F201B3E7CC900DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz; sourceTree = "<group>"; };
 		1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.xml; sourceTree = "<group>"; };
+		1EE08A4A1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_note_vectors.cpp; path = LocalBoundaryDetectionModel/IMUSANT_segmented_note_vectors.cpp; sourceTree = "<group>"; };
+		1EE08A4B1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_segmented_note_vectors.h; path = LocalBoundaryDetectionModel/IMUSANT_segmented_note_vectors.h; sourceTree = "<group>"; };
 		1EE7EAD11D44582C00F3D342 /* IMUSANT_mxmlv3_exceptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMUSANT_mxmlv3_exceptions.h; sourceTree = "<group>"; };
 		49064B861D83C6C200865892 /* IMUSANT_consolidated_interval_profile_LBDM_visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_consolidated_interval_profile_LBDM_visitor.h; path = LocalBoundaryDetectionModel/IMUSANT_consolidated_interval_profile_LBDM_visitor.h; sourceTree = "<group>"; };
 		49064B881D83CE6F00865892 /* IMUSANT_segmented_profile_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_profile_vectors.cpp; path = LocalBoundaryDetectionModel/IMUSANT_segmented_profile_vectors.cpp; sourceTree = "<group>"; };
@@ -1550,6 +1554,8 @@
 				49064B881D83CE6F00865892 /* IMUSANT_segmented_profile_vectors.cpp */,
 				49064B8D1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.h */,
 				49064B8C1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.cpp */,
+				1EE08A4B1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.h */,
+				1EE08A4A1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.cpp */,
 			);
 			name = LocalBoundaryDetectionModel;
 			sourceTree = "<group>";
@@ -2942,6 +2948,7 @@
 				4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */,
 				BA1E393E1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h in Headers */,
 				496EF6C11B22B01700FE715F /* libIMUSANTPriv.h in Headers */,
+				1EE08A4D1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.h in Headers */,
 				4959E1361CF13BE300FAC403 /* bimap.h in Headers */,
 				496BD4E21D3239630052F94E /* IMUSANT_consolidated_interval_profile_LBDM.h in Headers */,
 				1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */,
@@ -3356,6 +3363,7 @@
 				96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */,
 				4959E13B1CF13BE300FAC403 /* TRational.cpp in Sources */,
 				1E5218B81BAD0A1E00FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */,
+				1EE08A4C1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.cpp in Sources */,
 				4970E0101B7591470052496C /* IMUSANT_interval.cpp in Sources */,
 				496EF7001B22B06100FE715F /* IMUSANT_contour_symbol.cpp in Sources */,
 				496EF7011B22B06100FE715F /* IMUSANT_record.cpp in Sources */,
