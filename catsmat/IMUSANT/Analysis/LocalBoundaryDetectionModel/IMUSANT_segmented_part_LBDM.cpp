@@ -24,13 +24,13 @@ namespace IMUSANT
     // IMUSANT_segmented_part_LBDM
     //
     
-    vector<float> &
+    void
     IMUSANT_segmented_part_LBDM::
-    getOverallLocalBoundaryStrengthProfile()
+    initialise(S_IMUSANT_part the_part)
     {
+        fPart = the_part;
         buildIntervalProfiles();
         calculateOverallLocalBoundaryStrengthVector();
-        return overall_local_boundary_strength_profile;
     }
     
     
@@ -67,7 +67,7 @@ namespace IMUSANT
     {
         overall_local_boundary_strength_profile.clear();
         
-        float weighted_avg_strength = 0;
+        double weighted_avg_strength = 0;
         for (int index = 0; index < ioi_interval_profile.strength_vector.size(); index++)
         {
             weighted_avg_strength =
@@ -118,61 +118,54 @@ namespace IMUSANT
         return ret_val;
     }
     
-    
-    //
-    // For the calculation of segments we always use the EndNote element of each
-    // IMUSANT_consolidated_interval_profile_LBDM.
-    //
-    vector< IMUSANT_segment >
+    vector<IMUSANT_consolidated_interval_profile_vector_LBDM>
     IMUSANT_segmented_part_LBDM::
-    getSegments()
+    getSegmentsWithProfileVectors()
     {
-        vector<IMUSANT_segment> ret_val;
+        IMUSANT_segmented_profile_vectors segments;
         
-        IMUSANT_consolidated_interval_profile_vector_LBDM profiles_with_boundaries = getConsolidatedProfiles();
+        getSegmentsUsingVisitor(segments);
         
-        for (int index = 0; index < profiles_with_boundaries.size(); )
-        {
-            IMUSANT_segment next_segment;
-            bool segment_end=false;
-            
-            while (! segment_end)
-            {
-                next_segment.push_back(profiles_with_boundaries[index].getEndNote());
-            
-                if (index == profiles_with_boundaries.size() - 1 ||  profiles_with_boundaries[index+1].isBoundary())
-                {
-                    ret_val.push_back(next_segment);
-                    segment_end = true;
-                }
-                
-                index++;
-            }
-        }
-        
-        return ret_val;
+        return segments.segments;
     }
     
-    vector< int >
+    vector <IMUSANT_note_vector>
     IMUSANT_segmented_part_LBDM::
-    getSegmentBoundaries()
+    getSegmentsAsNoteVectors()
     {
-        // REVISIT - assuming that calculateOverallLocalBoundaryStrengthVector() has already been called
+        IMUSANT_segmented_note_vectors segments;
         
-        vector<int> ret_val;
-        int next_start_index = 0;
+        getSegmentsUsingVisitor(segments);
         
-        while (next_start_index < overall_local_boundary_strength_profile.size())
-        {
-            int new_boundary_index = findNextSegmentBoundary(next_start_index);
-            
-            ret_val.push_back(new_boundary_index);
-            next_start_index = new_boundary_index + 1;
-        }
+        return segments.segments;
+    }
+
+    
+    vector<IMUSANT_strength_vector>
+    IMUSANT_segmented_part_LBDM::
+    getSegmentsWithWeightedAverages()
+    {
+        IMUSANT_weighted_strength_vectors segments;
         
-        return ret_val;
+        getSegmentsUsingVisitor(segments);
+        
+        return segments.segments;
     }
     
+    void
+    IMUSANT_segmented_part_LBDM::
+    getSegmentsUsingVisitor(IMUSANT_consolidated_interval_profile_LBDM_visitor &visitor)
+    {
+        IMUSANT_consolidated_interval_profile_vector_LBDM consolidated_profiles = getConsolidatedProfiles();
+        
+        for (IMUSANT_consolidated_interval_profile_vector_LBDM::iterator data_iter = consolidated_profiles.begin();
+             data_iter != consolidated_profiles.end();
+             data_iter++)
+        {
+            data_iter->accept(visitor);
+        }
+    }
+            
     int
     IMUSANT_segmented_part_LBDM::
     findNextSegmentBoundary(int start_index)
@@ -194,13 +187,27 @@ namespace IMUSANT
                 boundary_index++;
             }
         }
-        return boundary_index;
+        
+        if (found)
+        {
+            return boundary_index;
+        }
+        else
+        {
+            return -1;
+        }
     }
     
     bool
     IMUSANT_segmented_part_LBDM::
     isThisASegmentBoundary(int strength_profile_index_position) const
     {
+        if (strength_profile_index_position == overall_local_boundary_strength_profile.size() -1)
+        {
+            // the last note is not a boundary.
+            return false;
+        }
+        
         int span = SEGMENT_BOUNDARY_CALCULATION_SPAN;
         
         int num_previous_positions_to_examine = getArrayPositionsWithoutOverflowingLowerBound(strength_profile_index_position, span);
@@ -335,9 +342,9 @@ namespace IMUSANT
     }
     
     
-    S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part)
+    S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM()
     {
-        IMUSANT_segmented_part_LBDM* o = new IMUSANT_segmented_part_LBDM(the_part);
+        IMUSANT_segmented_part_LBDM* o = new IMUSANT_segmented_part_LBDM();
         assert (o!=0);
         return o;
     }

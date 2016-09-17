@@ -258,11 +258,14 @@ TEST_F(IMUSANT_pitch_Tests, TestEnharmonicsTable_AddPitchSteps)
 
 TEST_F(IMUSANT_pitch_Tests, TestAsWritten)
 {
-    ASSERT_TRUE(false) << "TEST NOT IMPLEMENTED YET";
+    S_IMUSANT_pitch lC4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
+    lC4->transpose(4,7,0, false);
     
-//    S_IMUSANT_pitch lC4 = CreatePitch(IMUSANT_pitch::type::C, 4, IMUSANT_pitch::natural);
-//    lC4->transpose(4,7,0, false);
-//    
-//    S_IMUSANT_pitch lC4AsWritten = lC4->asWritten();
-//    ASSERT_EQ(60, lC4AsWritten->getMidiKeyNumber());
+    S_IMUSANT_pitch lC4AsWritten = lC4->asWritten();
+    ASSERT_EQ(60, lC4AsWritten->getMidiKeyNumber()) << "asWritten - Unexpected MidiKeyNumber.";
+    ASSERT_EQ(IMUSANT_pitch::type::C, lC4AsWritten->name()) << "asWritten - Unexpected Name.";
+    ASSERT_EQ(IMUSANT_pitch::inflection::natural, lC4AsWritten->getInflection()) << "asWritten - Unexpected Inflection.";
+    ASSERT_EQ(4, lC4AsWritten->octave()) << "asWritten - Unexpected Octave.";
+    ASSERT_EQ(IMUSANT_pitch::TPC::tpcC, lC4AsWritten->getTPC()) << "asWritten - Unexpected TPC.";
+    ASSERT_EQ(0, lC4AsWritten->getPC()) << "asWritten - Unexpected PC.";
 }

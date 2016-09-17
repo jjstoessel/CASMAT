@@ -22,6 +22,8 @@ namespace IMUSANT
 {
     
     class IMUSANT_pitch; //forward declaration
+    typedef IMUSANT_SMARTP<IMUSANT_pitch> S_IMUSANT_pitch;
+    VEXP IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
     
     VEXP ostream& operator<< (ostream& os, const IMUSANT_pitch& elt );
     /*!
@@ -127,8 +129,8 @@ namespace IMUSANT
         //
         // The asWritten() method returns a pitch with any transposition removed.  The getters will return the
         // written, rather than sounding pitch.
-        void            transpose(int diatonic, int chromatic, int octave_change, bool doubled = false);
-        IMUSANT_pitch   asWritten();
+        void                transpose(int diatonic, int chromatic, int octave_change, bool doubled = false);
+        S_IMUSANT_pitch    asWritten();
         
         
         IMUSANT_pitch& operator= (const IMUSANT_pitch& pitch)
@@ -192,9 +194,7 @@ namespace IMUSANT
         
     };
     
-    typedef IMUSANT_SMARTP<IMUSANT_pitch> S_IMUSANT_pitch;
-    
-    VEXP IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
+
     
     class EnharmonicsTable
     {
@@ -210,6 +210,7 @@ namespace IMUSANT
             :
                 note_name(note_name),
                 alteration(alteration),
+                octave(0),
                 group(group)
             {};
             
@@ -217,16 +218,19 @@ namespace IMUSANT
             :
                 note_name(IMUSANT_pitch::undefined),
                 alteration(IMUSANT_pitch::natural),
+                octave(0),
                 group(-1)
             {};
             
             IMUSANT_pitch::type         note_name;
             IMUSANT_pitch::inflection   alteration;
+            unsigned short              octave;
             int                         group;
         };
         
-        note transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, int diatonic_steps, int chromatic_steps);
+        note transpose(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, unsigned short written_octave, int diatonic_steps, int chromatic_steps);
         IMUSANT_pitch::type addPitchSteps(IMUSANT_pitch::type note_name, int num_pitch_steps);
+        
         
     private:
         
@@ -281,8 +285,15 @@ namespace IMUSANT
             note(IMUSANT_pitch::A, IMUSANT_pitch::double_sharp, 12)
         };
 
-        IMUSANT_pitch::inflection addChromaticSteps(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration,        IMUSANT_pitch::type sounding_note_name, int chromatic_steps);
+        IMUSANT_pitch::inflection addChromaticSteps(IMUSANT_pitch::type written_note_name,
+                                                    IMUSANT_pitch::inflection written_alteration,
+                                                    IMUSANT_pitch::type sounding_note_name,
+                                                    int chromatic_steps);
+        
+        int calcImplicitOctaveChange(int chromatic_steps, IMUSANT_pitch::type written_note_name, IMUSANT_pitch::type sounding_note_name);
+        
         int findGroup(IMUSANT_pitch::type note_name, IMUSANT_pitch::inflection alteration);
+        
         note findNote(int group, IMUSANT_pitch::type note_name);
         
     };

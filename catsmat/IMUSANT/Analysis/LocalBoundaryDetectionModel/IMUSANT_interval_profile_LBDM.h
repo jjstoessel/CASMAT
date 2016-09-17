@@ -21,9 +21,9 @@ namespace IMUSANT
     {
     public:
         void initialise(vector<float>::size_type number_of_elements);
-        vector<float> profile_vector;
-        vector<float> change_vector;
-        vector<float> strength_vector;
+        vector<double> profile_vector;
+        vector<double> change_vector;
+        vector<double> strength_vector;
         virtual void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes) {};
         void calculateChangeVector();
         void calculateStrengthVector();
@@ -31,9 +31,9 @@ namespace IMUSANT
         friend ostream& operator<< (ostream& os, const IMUSANT_interval_profile& profile);
         
     private:
-        ostream& printFloatVector(ostream& os, const vector<float>& the_vector) const;
-        float calculateDegreeOfChange(float value1, float value2);
-        float calculateBoundaryStrength(float interval_value, float preceding_change_value, float succeeding_change_value);
+        ostream& printFloatVector(ostream& os, const vector<double>& the_vector) const;
+        double calculateDegreeOfChange(double value1, double value2);
+        double calculateBoundaryStrength(double interval_value, double preceding_change_value, double succeeding_change_value);
         
     };
     

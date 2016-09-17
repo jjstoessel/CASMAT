@@ -30,9 +30,9 @@ namespace IMUSANT {
         
         void    Visit(const IMUSANT_processing&);
         const   PART_SEGS_VEC& getSegmentedParts() { return sp; }
+        PART_SEGS_VEC findMelodicSegments_LBDM(const vector<S_IMUSANT_score>& scores);
         
     private:
-        PART_SEGS_VEC findMelodicSegments_LBDM(const vector<S_IMUSANT_score>& scores);
         
         PART_SEGS_VEC sp;
         

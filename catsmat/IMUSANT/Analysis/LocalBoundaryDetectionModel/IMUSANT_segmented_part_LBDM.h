@@ -14,30 +14,51 @@
 #include "IMUSANT_part.h"
 #include "IMUSANT_interval_profile_LBDM.h"
 #include "IMUSANT_consolidated_interval_profile_LBDM.h"
+#include "IMUSANT_segmented_profile_vectors.h"
+#include "IMUSANT_segmented_note_vectors.h"
+#include "IMUSANT_weighted_strength_vectors.h"
 
 using namespace std;
 
 namespace IMUSANT
 {
-    typedef vector<S_IMUSANT_note> IMUSANT_segment;
-    
     class IMUSANT_segmented_part_LBDM : public smartable
     {
     public:
 
-        friend IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part);
+        friend IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM();
         
-        IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part)
+        IMUSANT_segmented_part_LBDM()
         {
-            fPart = the_part;
         }
         
         virtual ~IMUSANT_segmented_part_LBDM() {}
         
+        
+        //
+        // You must call this function to initialise the class from the data in the Part.
+        // This method calculates the profile vectors.
+        //
+        void initialise(S_IMUSANT_part the_part);
+        
+        //
+        // The algorithm for calculating segments looks either side of each interval
+        // to determine whether the strength of the interval represents a peak in
+        // strength.  This number determines how far either side of each interval
+        // the algorithm looks.  You don't have to call this - the default value
+        // for the class is 4.
+        //
+        void setSegmentBoundaryCalculationSpan(int segment_boundary_calculation_span)
+        {
+            SEGMENT_BOUNDARY_CALCULATION_SPAN = segment_boundary_calculation_span;
+        };
+        
+        
         //
         // This method returns all the data you really need. Each row is a note-to-note interval
         // with the associated strengths, and an indication of whether the row represents a
-        // boundary between segments.
+        // boundary between segments.  This data is not segmented - the return value contains
+        // all the change intervals for the part.
         //
         // For the calculation of segments we always use the EndNote element of each
         // IMUSANT_consolidated_interval_profile_LBDM.
@@ -45,29 +66,33 @@ namespace IMUSANT
         IMUSANT_consolidated_interval_profile_vector_LBDM  getConsolidatedProfiles();
         
         //
-        // You must call this function to initialise the class from the data in the Part.
+        // This method returns the weighted average change vector as a single (unsegmented) vector.
+        // This is the raw data to which the segmentation algorithm is applied.
         //
-        vector<float>& getOverallLocalBoundaryStrengthProfile();
-        
-        //
-        // This method returns you segments in the form of note vectors.
-        //
-        vector< IMUSANT_segment > getSegments();
-        
-        //
-        // The algorithm for calculating segments looks either side of each interval
-        // to determine whether the strength of the interval represents a peak in
-        // strength.  This number determines how far either side of each interval
-        // the algorithm looks.
-        //
-        void setSegmentBoundaryCalculationSpan(int segment_boundary_calculation_span)
+        IMUSANT_strength_vector getWeightedAverageStrengthVector()
         {
-            SEGMENT_BOUNDARY_CALCULATION_SPAN = segment_boundary_calculation_span;
+            return overall_local_boundary_strength_profile;
         };
         
-        // The integers are indexes into the profile arrays.
-        vector< int > getSegmentBoundaries();
+        //
+        // This method returns you segments in the form of note vectors.  Each element of the
+        // returned vector is a segment.
+        //
+        vector<IMUSANT_note_vector> getSegmentsAsNoteVectors();
         
+        //
+        // This method returns you segments including each of the profile
+        // vectors for each segment. Each element of the
+        // returned vector is a segment.
+        //
+        vector<IMUSANT_consolidated_interval_profile_vector_LBDM> getSegmentsWithProfileVectors();
+        
+        //
+        // This method returns you segments with the weighted averages isolated
+        // in the segments attribute of the return value. Each element of the
+        // returned vector is a segment.
+        //
+        vector<IMUSANT_strength_vector> getSegmentsWithWeightedAverages();
         
         // This output operator produces a table that lists the notes used for calculating
         // boundary strength, together with the strength vectors.  Output is as follows:
@@ -117,11 +142,11 @@ namespace IMUSANT
     private:
         
         S_IMUSANT_part fPart;
-        vector<float> overall_local_boundary_strength_profile;
+        IMUSANT_strength_vector overall_local_boundary_strength_profile;
         
-        const float WEIGHT_INTERONSET_INTERVAL = 0.5;
-        const float WEIGHT_PITCH = 0.25;
-        const float WEIGHT_REST = 0.25;
+        const double WEIGHT_INTERONSET_INTERVAL = 0.5;
+        const double WEIGHT_PITCH = 0.25;
+        const double WEIGHT_REST = 0.25;
         
         int SEGMENT_BOUNDARY_CALCULATION_SPAN = 4;
         
@@ -135,6 +160,8 @@ namespace IMUSANT
         void buildIntervalProfiles();
         
         void calculateOverallLocalBoundaryStrengthVector();
+
+        void getSegmentsUsingVisitor(IMUSANT_consolidated_interval_profile_LBDM_visitor &visitor);
         
         int             findNextSegmentBoundary(int start_index);
         bool            isThisASegmentBoundary(int strength_profile_index_position) const;
@@ -144,7 +171,7 @@ namespace IMUSANT
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;
-    IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(S_IMUSANT_part the_part);
+    IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM();
 }
 
 #endif /* defined(__imusant__IMUSANT_segmented_part_LBDM__) */

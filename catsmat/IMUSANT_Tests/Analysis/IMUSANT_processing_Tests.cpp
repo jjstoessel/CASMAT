@@ -234,7 +234,6 @@ findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files)
     }
     
     vector<S_IMUSANT_segmented_part_LBDM> segmented_parts_result;
-    //segmented_parts_result = the_processor->findMelodicSegments_LBDM();
     IMUSANT_LBDM_segmenter segmenter;
     segmenter.Visit(*the_processor);
     segmented_parts_result = segmenter.getSegmentedParts();
@@ -467,15 +466,25 @@ TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)
     ASSERT_EQ("Bass", t2_bass->getPartName());
     ASSERT_EQ("Piano", t3_piano->getPartName());
     
-    vector<float> t1_soprano_strengths = segmented_parts[0]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> t1_alto_strengths = segmented_parts[1]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> t1_tenor_strengths = segmented_parts[2]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> t1_bass_strengths = segmented_parts[3]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> t2_soprano_strengths = segmented_parts[4]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> t2_alto_strengths = segmented_parts[5]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> t2_tenor_strengths = segmented_parts[6]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> t2_bass_strengths = segmented_parts[7]->getOverallLocalBoundaryStrengthProfile();
-    vector<float> t3_piano_strengths = segmented_parts[8]->getOverallLocalBoundaryStrengthProfile();
+    segmented_parts[0]->initialise(t1_soprano);
+    segmented_parts[1]->initialise(t1_alto);
+    segmented_parts[2]->initialise(t1_tenor);
+    segmented_parts[3]->initialise(t1_bass);
+    segmented_parts[4]->initialise(t2_soprano);
+    segmented_parts[5]->initialise(t2_alto);
+    segmented_parts[6]->initialise(t2_tenor);
+    segmented_parts[7]->initialise(t2_bass);
+    segmented_parts[8]->initialise(t3_piano);
+    
+    IMUSANT_strength_vector t1_soprano_strengths = segmented_parts[0]->getWeightedAverageStrengthVector();
+    IMUSANT_strength_vector t1_alto_strengths = segmented_parts[1]->getWeightedAverageStrengthVector();
+    IMUSANT_strength_vector t1_tenor_strengths = segmented_parts[2]->getWeightedAverageStrengthVector();
+    IMUSANT_strength_vector t1_bass_strengths = segmented_parts[3]->getWeightedAverageStrengthVector();
+    IMUSANT_strength_vector t2_soprano_strengths = segmented_parts[4]->getWeightedAverageStrengthVector();
+    IMUSANT_strength_vector t2_alto_strengths = segmented_parts[5]->getWeightedAverageStrengthVector();
+    IMUSANT_strength_vector t2_tenor_strengths = segmented_parts[6]->getWeightedAverageStrengthVector();
+    IMUSANT_strength_vector t2_bass_strengths = segmented_parts[7]->getWeightedAverageStrengthVector();
+    IMUSANT_strength_vector t3_piano_strengths = segmented_parts[8]->getWeightedAverageStrengthVector();
     
     ASSERT_EQ(17, t1_soprano_strengths.size());
     ASSERT_EQ(12, t1_alto_strengths.size());
