@@ -84,11 +84,11 @@ namespace IMUSANT
         
             void ignoreRepeatedPitches(bool ignore) { fIgnoreRepeatedPitches = ignore; }
         
+            virtual void processCollections() = 0;
+        
         protected:
             
         private:
-            
-            void processCollections();
         
             //local storage of vectors
             S_IMUSANT_interval_vector           fCurrentIntervalVector;
@@ -112,7 +112,7 @@ namespace IMUSANT
             string				fSource;
             string				fEditor;
             string				fDate;
-            map<int,string>         fLyrics;
+            map<int,string>     fLyrics;
         
 
             // global flag to denote chords writing
