@@ -22,7 +22,7 @@ using namespace IMUSANT;
 
 using namespace boost;
 
-// #define VERBOSE = 1;
+//#define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_LBDM_Tests :
@@ -126,6 +126,7 @@ protected:
         return cumulative_distance;
         
     };
+    
     
     static IMUSANT_test_utilities * _test_utils;
     static S_IMUSANT_score fScore_LBDM_Test1;
@@ -483,9 +484,9 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
     cout << endl << "Segment Weighted Averages:" << endl;
     for (int segment_index = 0; segment_index <= 3; segment_index++)
     {   cout << segment_index << ":  ";
-        for (int index = 0; index < segments.segments[segment_index].size() ; index++)
+        for (int index = 0; index < segments[segment_index].size() ; index++)
         {
-            cout << segments.segments[segment_index][index] << ", ";
+            cout << segments[segment_index][index] << ", ";
         }
         cout << endl;
     }
@@ -512,78 +513,86 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
 }
 
 
-//TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsFromMultiplePartsWithWeightedAverages_Similarity_Test)
-//{
-//    
-//    IMUSANT_LBDM_segmenter segmenter;
-//    vector<S_IMUSANT_score> scores;
-//    scores.push_back(fScore_Kyrie);
-//    segmenter.findMelodicSegments_LBDM(scores);
-//    
-//    IMUSANT_LBDM_segmenter::PART_SEGS_VEC parts = segmenter.getSegmentedParts();
-//    
-//    vector < vector <double > > all_weighted_avg_segments;
-//    
-//    for (IMUSANT_LBDM_segmenter::PART_SEGS_VEC::iterator part_iter = parts.begin();
-//         part_iter != parts.end();
-//         part_iter++)
-//    {
-//        IMUSANT_weighted_strength_vectors segments = (*part_iter)->getSegmentsWithWeightedAverages();
-//        all_weighted_avg_segments.insert(all_weighted_avg_segments.end(), segments.segments.begin(), segments.segments.end());
-//    }
-//    
-//    
-////    ASSERT_TRUE(equalWithinTollerance(40.7482, segments.segments[0][0]));
-////    ASSERT_TRUE(equalWithinTollerance(21.5194, segments.segments[1][3]));
-////    ASSERT_TRUE(equalWithinTollerance(93.7083, segments.segments[2][7]));
-////    ASSERT_TRUE(equalWithinTollerance(106.667, segments.segments[3][0]));
-////    ASSERT_TRUE(equalWithinTollerance(153.663, segments.segments[3][7]));
-////    
-////    
-////    double zero_one = euclidianDistance(segments.segments[0], segments.segments[1]);
-////    double zero_two  = euclidianDistance(segments.segments[0], segments.segments[2]);
-////    double zero_three  = euclidianDistance(segments.segments[0], segments.segments[3]);
-////    double one_two  = euclidianDistance(segments.segments[1], segments.segments[2]);
-////    double one_three  = euclidianDistance(segments.segments[1], segments.segments[3]);
-////    double two_three  = euclidianDistance(segments.segments[2], segments.segments[3]);
-//    
-//    
-//#ifdef VERBOSE
-//    cout << endl << "Segment Weighted Averages:" << endl;
-//    int segment_index = 0;
-//    for (vector < vector <double > >::iterator seg_iter = all_weighted_avg_segments.begin();
-//         seg_iter != all_weighted_avg_segments.end();
-//         seg_iter++)
-//    {
-//       cout << segment_index++ << ":  ";
-//        for (int index = 0; index < segments.segments[segment_index].size() ; index++)
-//        {
-//            cout << segments.segments[segment_index][index] << ", ";
-//        }
-//        cout << endl;
-//    }
-//    
-//    cout << endl << endl;
-//    
-//    cout
-//    << "Segment Distances" << endl
-//    << "0 - 1  : " << zero_one << endl
-//    << "0 - 2  : " << zero_two << endl
-//    << "0 - 3  : " << zero_three << endl
-//    << "1 - 2  : " << one_two << endl
-//    << "1 - 3  : " << one_three << endl
-//    << "2 - 3  : " << two_three << endl << endl << endl;
-//#endif
-//    
-//    ASSERT_TRUE(equalWithinTollerance(138.795, zero_one));
-//    ASSERT_TRUE(equalWithinTollerance(139.39, zero_two));
-//    ASSERT_TRUE(equalWithinTollerance(179.098, zero_three));
-//    ASSERT_TRUE(equalWithinTollerance(0.839491, one_two));
-//    ASSERT_TRUE(equalWithinTollerance(63.1178, one_three));
-//    ASSERT_TRUE(equalWithinTollerance(62.3701, two_three));
-//    
-//}
-//
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsFromMultiplePartsWithWeightedAverages_Similarity_Test)
+{
+    
+    IMUSANT_LBDM_segmenter segmenter;
+    vector<S_IMUSANT_score> scores;
+    scores.push_back(fScore_Kyrie);
+    
+    IMUSANT_LBDM_segmenter::PART_SEGS_VEC parts = segmenter.findMelodicSegments_LBDM(scores);
+    
+    vector<IMUSANT_strength_vector> all_weighted_avg_segments;
+    vector<IMUSANT_note_vector> all_note_segments;
+    
+    for (IMUSANT_LBDM_segmenter::PART_SEGS_VEC::iterator part_iter = parts.begin();
+         part_iter != parts.end();
+         part_iter++)
+    {
+        vector<IMUSANT_note_vector> note_segments;
+        note_segments = (*part_iter)->getSegmentsAsNoteVectors();
+        all_note_segments.insert(all_note_segments.end(), note_segments.begin(), note_segments.end());
+        
+        vector<IMUSANT_strength_vector> weighted_avg_segments;
+        weighted_avg_segments = (*part_iter)->getSegmentsWithWeightedAverages();
+        all_weighted_avg_segments.insert(all_weighted_avg_segments.end(), weighted_avg_segments.begin(), weighted_avg_segments.end());
+    }
+    
+    vector<string> distances;
+    
+    for (unsigned long index = 0; index < all_weighted_avg_segments.size(); index++)
+    {
+        for (unsigned long jdex = index+1; jdex < all_weighted_avg_segments.size(); jdex++)
+        {
+            double distance = euclidianDistance(all_weighted_avg_segments[index], all_weighted_avg_segments[jdex]);
+            
+
+            string str_distance = "[" + to_string(index) + ", " + to_string(jdex) + ", " + to_string(distance) + "] ";
+            distances.push_back(str_distance);
+            
+            if (distance <= 0.2)
+            {
+#ifdef VERBOSE
+                cout << endl << "----------" << endl << "Distance = " << distance << endl;
+                
+                cout << "Segment One" << endl;
+                for (IMUSANT_note_vector::iterator iter = all_note_segments[index].begin();
+                     iter != all_note_segments[index].end();
+                     iter++)
+                {
+                    cout << (*iter)->pretty_print() << " ";
+                }
+                
+                cout << endl << endl << "Segment Two" << endl;
+                
+                for (IMUSANT_note_vector::iterator iter = all_note_segments[jdex].begin();
+                     iter != all_note_segments[jdex].end();
+                     iter++)
+                {
+                    cout << (*iter)->pretty_print() << " ";
+                }
+                
+                cout << endl;
+#endif
+            }
+        }
+    }
+    
+#ifdef VERBOSE
+    cout << endl << "Segment Weighted Averages:" << endl;
+    
+    for (vector<string>::iterator distances_iter = distances.begin();
+         distances_iter != distances.end();
+         distances_iter++)
+    {
+        cout << *distances_iter << endl;
+    }
+    
+    cout << endl << endl;
+#endif
+    
+}
+
 
 
 
