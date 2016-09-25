@@ -87,9 +87,15 @@ namespace CATSMAT
     {
         if (fCPMatrix==NULL)
         {
-            fCPMatrix = CATSMAT::new_CATSMAT_cp_matrix();
+            //fCPMatrix = CATSMAT::new_CATSMAT_cp_matrix();
+            fCPMatrix = new_CATSMAT_object<CATSMAT_cp_matrix>();
             IMUSANT_collection_visitor::visit(elt);
         }
+    }
+    
+    void CATSMAT_collection_visitor::processCollections()
+    {
+        
     }
 
 

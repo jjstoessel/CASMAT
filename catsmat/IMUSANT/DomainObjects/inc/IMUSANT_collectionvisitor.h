@@ -84,7 +84,7 @@ namespace IMUSANT
         
             void ignoreRepeatedPitches(bool ignore) { fIgnoreRepeatedPitches = ignore; }
         
-            virtual void processCollections() = 0;
+        virtual void processCollections() {};
         
         protected:
             

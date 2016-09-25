@@ -1,6 +1,6 @@
 //
 //  IMUSANT_processor.h
-//  Base class for processors of IMUSANT collections
+//  Base class for suffix-tree based processors of IMUSANT collections
 //
 //  Created by Jason Stoessel on 12/06/2016.
 //

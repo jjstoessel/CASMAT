@@ -5,6 +5,7 @@
  *  Created by Jason Stoessel on 26/07/06.
  *  Copyright 2006–2016. All rights reserved.
  *
+ *  Class for reading collection of files into IMUSANT memory structure(s) (IMUSANT_score)
  */
 
 #ifndef __IMUSANT_PROCESSING__

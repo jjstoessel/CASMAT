@@ -766,7 +766,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "390"
-            endingLineNumber = "390">
+            endingLineNumber = "390"
+            landmarkName = "TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mxml3)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1205,7 +1207,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "149"
             endingLineNumber = "149"
-            landmarkName = "TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P3)"
+            landmarkName = "TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1254,22 +1256,6 @@
             startingLineNumber = "57"
             endingLineNumber = "57"
             landmarkName = "IMUSANT_note:: IMUSANT_note(const IMUSANT_note&amp; note)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT/DomainObjects/src/IMUSANT_score.cpp"
-            timestampString = "492240266.401803"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "IMUSANT_score::accept(IMUSANT_visitor&amp; visitor)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
