@@ -7,6 +7,7 @@
 //
 
 #include "CATSMAT_scoredata.h"
+#include <numeric>
 
 namespace CATSMAT {
    
@@ -38,34 +39,40 @@ namespace CATSMAT {
         //cycle through each part collecting data about music notation
         for (auto part : score->partlist()->parts())
         {
-            findBasicDataFromPart(part);
+            fPartsData[part->getID()] = new_CATSMAT_object<CATSMAT_partdata>();
+            fPartsData[part->getID()]->findBasicDataFromPart(part);
         }
+        
+        PostProcess();
     }
     
-    //Collect all basic data from part
     void
-    CATSMAT_scoredata::findBasicDataFromPart(S_IMUSANT_part part)
+    CATSMAT_scoredata::
+    PostProcess()
     {
-        //we could use IMUSANT_vector<S_IMUSANT_note> notes() to get all notes in a part if not interested in other elements
-        for (S_IMUSANT_measure measure: part->measures() )
+        //cycle through parts gathering cumulative data
+        for (S_CATSMAT_partdata data : fPartsData )
         {
-            fNotesPerPart[part->getID()] = 0;
+            //accumulate note/rest counts
+            fTotalNoteCount += data->getNoteCount();
+            fTotalRestCount += data->getRestCount();
             
-            for (S_IMUSANT_note note : measure->notes() )
-            {
-                if (note->getType()==IMUSANT_NoteType::pitch && (!note->isTiedPrevious() || !note->isTiedBothSides()))
-                {
-                    fNotesPerPart[part->getID()]=fNotesPerPart[part->getID()]+1;
-                    fTotalNoteCount++;
-                }
-                else if (note->getType()==IMUSANT_NoteType::rest) {
-                    fTotalRestCount++;
-                }
-            }
+            //accumulate pitch data maps - check that accumulate is non-destructive
+            map<IMUSANT_pitch,int> pp = data->getPitchProfile();
+            
+            fPitchProfile = std::accumulate(pp.begin(),pp.end(),fPitchProfile,
+                                            [](std::map<IMUSANT_pitch,int> &m, const std::pair<const IMUSANT_pitch, int>)
+                                            {
+                                                return (m[p.first] +=p.second, m);
+                                            });
+            
+            //same for map<IMUSANT_duration,int>       fDurationProfile;
+            //same for map<IMUSANT_interval, int>      fIntervalProfile;
         }
+        
+        
     }
     
-     
     void
     CATSMAT_scoredata::
     findContrapuntalData(CATSMAT_dyad_sequences& dyads)

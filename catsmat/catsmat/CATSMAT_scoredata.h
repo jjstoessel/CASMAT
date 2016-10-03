@@ -17,6 +17,7 @@
 #include "IMUSANT_common.h"
 #include "CATSMAT_dyad_sequences.hpp"
 #include "CATSMAT_t_utilities.h"
+#include "CATSMAT_partdata.h"
 
 using namespace IMUSANT;
 using namespace std;
@@ -42,6 +43,7 @@ namespace CATSMAT {
     private:
         
         void    findBasicDataFromPart(S_IMUSANT_part part);
+        void    PostProcess();
         
         string          fWorkTitle;
         string          fWorkNum;
@@ -54,10 +56,12 @@ namespace CATSMAT {
         string          fEditor;
         string          fDate;
         
-        map<IMUSANT_interval, int>  fMelodicIntervalCount;
-        map<string,int>             fNotesPerPart;
-        int                         fTotalNoteCount = 0;
-        int                         fTotalRestCount = 0;
+        map<string,S_CATSMAT_partdata>  fPartsData;
+        int                             fTotalNoteCount = 0;
+        int                             fTotalRestCount = 0;
+        map<IMUSANT_pitch,int>          fPitchProfile;
+        map<IMUSANT_duration,int>       fDurationProfile;
+        map<IMUSANT_interval, int>      fIntervalProfile;
     };
     
     typedef IMUSANT_SMARTP<CATSMAT_scoredata> S_CATSMAT_scoredata;

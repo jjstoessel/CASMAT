@@ -17,15 +17,28 @@ namespace CATSMAT {
     class CATSMAT_partdata
     {
     public:
-        friend VEXP IMUSANT_SMARTP<CATSMAT_partdata> new_CATSMAT_object<CATSMAT_partdata>();
+        friend  VEXP IMUSANT_SMARTP<CATSMAT_partdata> new_CATSMAT_object<CATSMAT_partdata>();
+        
+        void    findBasicDataFromPart(S_IMUSANT_part part);
+        void    print(ostream& os);
+        
+        int     getNoteCount() { return fNoteCount; }
+        int     getRestCount() { return fRestCount; }
+        const map<IMUSANT_pitch,int>& getPitchProfile() { return fPitchProfile; }
         
     protected:
         CATSMAT_partdata() {}
         ~CATSMAT_partdata() {}
         
     private:
-        int fNoteCount;
-        map<IMUSANT_interval, int>  fMelodicIntervalCount;
+        int fNoteCount = 0;
+        int fRestCount = 0;
+        map<IMUSANT_pitch,int>      fPitchProfile;
+        map<IMUSANT_duration,int>   fDurationProfile;
+        map<IMUSANT_interval, int>  fIntervalProfile;
     };
+    
+    typedef IMUSANT_SMARTP<CATSMAT_partdata> S_CATSMAT_partdata;
+    
 }
 #endif /* defined(__catsmat__CATSMAT_partdata__) */
