@@ -1,5 +1,5 @@
 //
-//  CATMATS_exception.h
+//  CATSMAT_exception.h
 //  imusant
 //
 //  Created by Jason Stoesesl on 03/08/2016.

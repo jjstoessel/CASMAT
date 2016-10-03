@@ -23,6 +23,7 @@
 #include "CATSMAT_visitable.hpp"
 #include "CATSMAT_chord.hpp"
 #include "IMUSANT_barline.h"
+#include "CATSMAT_t_utilities.h"
 
 using namespace std;
 using namespace IMUSANT;
@@ -36,7 +37,9 @@ namespace CATSMAT {
         
         LOKI_DEFINE_CONST_VISITABLE()
         
-        friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_cp_matrix();
+        //friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_cp_matrix();
+        friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_object<CATSMAT_cp_matrix>();
+        
         friend  ostream& operator<< (ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
         
         void    addpart();

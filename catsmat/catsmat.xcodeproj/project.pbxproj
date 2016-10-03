@@ -331,6 +331,9 @@
 		961789941D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 961789931D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */; };
+		BA10A5CD1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */; };
+		BA10A5D01D93A40F000679C5 /* CATSMAT_scoredata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5CE1D93A40F000679C5 /* CATSMAT_scoredata.cpp */; };
+		BA10A5D31D979F06000679C5 /* CATSMAT_partdata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */; };
 		BA1E393D1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA1E393B1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp */; };
 		BA1E393E1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1E393C1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h */; };
 		BA4207E21CE806F6007204AF /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
@@ -1107,6 +1110,12 @@
 		96A71CB91A9160CB0021C86A /* TXML2GuidoVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXML2GuidoVisitor.h; sourceTree = "<group>"; };
 		96A71CBA1A9160CB0021C86A /* UTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTools.h; sourceTree = "<group>"; };
 		96A71CBB1A9160CB0021C86A /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
+		BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_scoredatacollector.cpp; path = catsmat/CATSMAT_scoredatacollector.cpp; sourceTree = SOURCE_ROOT; };
+		BA10A5CC1D93A153000679C5 /* CATSMAT_scoredatacollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_scoredatacollector.h; path = catsmat/CATSMAT_scoredatacollector.h; sourceTree = SOURCE_ROOT; };
+		BA10A5CE1D93A40F000679C5 /* CATSMAT_scoredata.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_scoredata.cpp; path = catsmat/CATSMAT_scoredata.cpp; sourceTree = SOURCE_ROOT; };
+		BA10A5CF1D93A40F000679C5 /* CATSMAT_scoredata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_scoredata.h; path = catsmat/CATSMAT_scoredata.h; sourceTree = SOURCE_ROOT; };
+		BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_partdata.cpp; path = catsmat/CATSMAT_partdata.cpp; sourceTree = SOURCE_ROOT; };
+		BA10A5D21D979F06000679C5 /* CATSMAT_partdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_partdata.h; path = catsmat/CATSMAT_partdata.h; sourceTree = SOURCE_ROOT; };
 		BA1E393B1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_LBDM_segmenter.cpp; path = src/IMUSANT_LBDM_segmenter.cpp; sourceTree = "<group>"; };
 		BA1E393C1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_LBDM_segmenter.h; path = src/IMUSANT_LBDM_segmenter.h; sourceTree = "<group>"; };
 		BA33CBB61D6FD7A8001B7FF3 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Talent_mest_pris_I-IV_115_52r-.xml"; sourceTree = "<group>"; };
@@ -2699,6 +2708,41 @@
 			name = "External Frameworks and Libraries";
 			sourceTree = SOURCE_ROOT;
 		};
+		BA10A5D41D979F33000679C5 /* Counterpoint Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				BAA8D9011AAC0F5A0053ADE3 /* CATSMAT_collectionvisitor.hpp */,
+				BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */,
+				BAA257F61CFC156A0019B07F /* CATSMAT_chord.cpp */,
+				BAA257F71CFC156A0019B07F /* CATSMAT_chord.hpp */,
+				969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */,
+				969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.hpp */,
+				BA7E94381B2CFAA700818128 /* CATSMAT_dyad_sequences_base.hpp */,
+				BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */,
+				BA7E941B1B2A859A00818128 /* CATSMAT_dyad_sequences.hpp */,
+				BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */,
+				BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */,
+				BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */,
+				BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */,
+			);
+			name = "Counterpoint Analysis";
+			sourceTree = "<group>";
+		};
+		BA10A5D51D979F5F000679C5 /* General Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				1E905DD51C1FE0230017850F /* CATSMAT_processing.hpp */,
+				1E905DD41C1FE0230017850F /* CATSMAT_processing.cpp */,
+				BA10A5CC1D93A153000679C5 /* CATSMAT_scoredatacollector.h */,
+				BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */,
+				BA10A5CF1D93A40F000679C5 /* CATSMAT_scoredata.h */,
+				BA10A5CE1D93A40F000679C5 /* CATSMAT_scoredata.cpp */,
+				BA10A5D21D979F06000679C5 /* CATSMAT_partdata.h */,
+				BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */,
+			);
+			name = "General Analysis";
+			sourceTree = "<group>";
+		};
 		BA33CBB41D6FD7A8001B7FF3 /* corpus */ = {
 			isa = PBXGroup;
 			children = (
@@ -2894,23 +2938,10 @@
 			isa = PBXGroup;
 			children = (
 				49B727B41C14184600FCF494 /* Application */,
-				1E905DD51C1FE0230017850F /* CATSMAT_processing.hpp */,
-				1E905DD41C1FE0230017850F /* CATSMAT_processing.cpp */,
 				49C80DE71BA520FB00DCA903 /* CATSMAT_visitable.hpp */,
-				BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */,
-				BAA8D9011AAC0F5A0053ADE3 /* CATSMAT_collectionvisitor.hpp */,
 				961789921D0A0DA000DFB98A /* CATSMAT_t_utilities.h */,
-				BAA257F61CFC156A0019B07F /* CATSMAT_chord.cpp */,
-				BAA257F71CFC156A0019B07F /* CATSMAT_chord.hpp */,
-				969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */,
-				969E27A81A79EFDA00B173DA /* CATSMAT_cp_matrix.hpp */,
-				BA7E94381B2CFAA700818128 /* CATSMAT_dyad_sequences_base.hpp */,
-				BA7E941A1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp */,
-				BA7E941B1B2A859A00818128 /* CATSMAT_dyad_sequences.hpp */,
-				BA7E94391B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp */,
-				BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */,
-				BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */,
-				BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */,
+				BA10A5D51D979F5F000679C5 /* General Analysis */,
+				BA10A5D41D979F33000679C5 /* Counterpoint Analysis */,
 			);
 			path = CATSMAT;
 			sourceTree = "<group>";
@@ -3436,6 +3467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA10A5D01D93A40F000679C5 /* CATSMAT_scoredata.cpp in Sources */,
 				965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3444,6 +3476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA10A5CD1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				1E905DD61C1FE0230017850F /* CATSMAT_processing.cpp in Sources */,
 				BAA8D8A01AABFC1A0053ADE3 /* CATSMAT_main.cpp in Sources */,
 				49B727B71C1418E400FCF494 /* CATSMAT_menu.cpp in Sources */,
@@ -3451,6 +3484,7 @@
 				BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */,
 				BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */,
 				BA7E943B1B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
+				BA10A5D31D979F06000679C5 /* CATSMAT_partdata.cpp in Sources */,
 				BAA257F81CFC156A0019B07F /* CATSMAT_chord.cpp in Sources */,
 				BAA8D8A41AABFCCA0053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */,
 			);

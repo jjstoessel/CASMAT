@@ -41,7 +41,7 @@ class VEXP CATSMAT_collection_visitor : public IMUSANT_collection_visitor
     //virtual bool is_a_canon() = 0; //virtual function until written!
     const S_CATSMAT_cp_matrix getCPMatrix() { return fCPMatrix; }
 
-    void processCollections() {};
+    void processCollections();
     
 	protected:
 		

@@ -31,10 +31,10 @@ namespace CATSMAT
         //increase VectorInterval colection according to the formula of unique pairs n(n-1)/2
         unsigned long partCount = matrix.partCount();
         
-        while (fVIntervalVector.size() < ( (partCount)*(partCount-1)/2 ) )
+        while (fVIntervalVectors.size() < ( (partCount)*(partCount-1)/2 ) )
         {
-            fVIntervalVector.push_back(new_IMUSANT_interval_vector());
-            fVIntervalVector.back()->setMaximum(1024);
+            fVIntervalVectors.push_back(new_IMUSANT_interval_vector());
+            fVIntervalVectors.back()->setMaximum(1024);
         }
         
         process(matrix.getCPmatrix());
@@ -84,7 +84,7 @@ namespace CATSMAT
                                 !((interval.getQuality()==IMUSANT_interval::dissonant) && (fIgnoreDissonances==true))
                                 )
                             {
-                                fVIntervalVector[dyad_pair]->add(interval);
+                                fVIntervalVectors[dyad_pair]->add(interval);
                             }
                         }
                         dyad_pair++; //complete iteration through one pair of voices
@@ -111,9 +111,9 @@ namespace CATSMAT
     void
     CATSMAT_dyad_sequences::find_repeated_in(int min)
     {
-        if (fVIntervalVector.size()>0)
+        if (fVIntervalVectors.size()>0)
         {
-            for (auto i = fVIntervalVector.begin(); i!=fVIntervalVector.end(); i++)
+            for (auto i = fVIntervalVectors.begin(); i!=fVIntervalVectors.end(); i++)
             {
                 interval_tree* tree = new interval_tree((*i)->getIntervals(),1); //change last parameter to id for whole work tree.
                 vector<pair<interval_tree::size_type, interval_tree::size_type> >* results = new vector<pair<interval_tree::size_type, interval_tree::size_type> >();
@@ -158,13 +158,13 @@ namespace CATSMAT
     void
     CATSMAT_dyad_sequences::find_repeated_across(int min)
     {
-        if (fVIntervalVector.size()>0)
+        if (fVIntervalVectors.size()>0)
         {
             interval_tree* tree = NULL; //change last parameter to id for whole work tree.
             vector<pair<interval_tree::size_type, interval_tree::size_type> >* results = new vector<pair<interval_tree::size_type, interval_tree::size_type> >();
             int j = 1;
             
-            for (auto i = fVIntervalVector.begin(); i!=fVIntervalVector.end(); i++, j++)
+            for (auto i = fVIntervalVectors.begin(); i!=fVIntervalVectors.end(); i++, j++)
             {
                 if (tree==NULL) {
                     tree = new interval_tree((*i)->getIntervals(),j);
@@ -241,8 +241,8 @@ namespace CATSMAT
     void
     CATSMAT_dyad_sequences::print(ostream& os) const
     {
-        for (vector<S_IMUSANT_interval_vector>::const_iterator iter = fVIntervalVector.begin();
-             iter != fVIntervalVector.end() && (*iter) != NULL;
+        for (vector<S_IMUSANT_interval_vector>::const_iterator iter = fVIntervalVectors.begin();
+             iter != fVIntervalVectors.end() && (*iter) != NULL;
              iter++)
         {
             os << "dyadic pair: " << *iter << endl;

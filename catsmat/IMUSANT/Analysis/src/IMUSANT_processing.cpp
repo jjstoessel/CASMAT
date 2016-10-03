@@ -128,18 +128,8 @@ namespace IMUSANT
     IMUSANT_processing::
     createCollectionVisitorForScore(const S_IMUSANT_score score)
     {
-        //ensure unique ID
-//        int i = 1;
-//        while (find(IDs.begin(),
-//                    IDs.end(),
-//                    i) != IDs.end())
-//        {
-//            i++;
-//        }
-        
         collection_visitors[score].ignoreRepeatedPitches(false);
         score->accept(collection_visitors[score]);
-        //IDs.push_back(i);
     }
     
     vector<string>
@@ -155,7 +145,6 @@ namespace IMUSANT
             string mvt_title;
             string work_and_mvt_title;
             
-            //for (vector<int>::iterator j = IDs.begin(); j!=IDs.end(); j++)
             for (auto j = scores.begin(); j != scores.end();  j++)
             {
                 mvt_title = (*j)->getMovementTitle().empty() ? "?" : (*j)->getMovementTitle()  ;

@@ -10,6 +10,7 @@
 #define imusant_CATSMAT_t_utilities_h
 
 #include <map>
+#include "CATSMAT_exception.h"
 
 namespace CATSMAT
 {
@@ -28,6 +29,15 @@ namespace CATSMAT
                        flip_pair<A,B>);
         return dst;
     }
+    
+    template<typename A>
+    VEXP IMUSANT_SMARTP<A> new_CATSMAT_object()
+    {
+        A* o = new A();
+        if (o==0) throw catsmat_runtime_error("Unable to allocate CATSMAT object");
+        return o;
+    }
+    
 
 }
 #endif

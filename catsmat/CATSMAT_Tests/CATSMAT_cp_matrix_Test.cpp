@@ -39,7 +39,8 @@ protected:
     virtual void SetUp() {
         // Code here will be called immediately after the constructor (right
         // before each test).
-        theMatrix = CATSMAT::new_CATSMAT_cp_matrix();
+        //theMatrix = CATSMAT::new_CATSMAT_cp_matrix();
+        theMatrix = new_CATSMAT_object<CATSMAT_cp_matrix>();
     }
     
     virtual void TearDown() {
@@ -61,7 +62,8 @@ TEST_F(CATSMAT_cp_matrix_Test, CanAddOneNote) {
     note.setMeasureNum(12);
     note.setNoteIndex(55);
     
-    CATSMAT::S_CATSMAT_cp_matrix theMatrix = CATSMAT::new_CATSMAT_cp_matrix();
+    //CATSMAT::S_CATSMAT_cp_matrix theMatrix = CATSMAT::new_CATSMAT_cp_matrix();
+    theMatrix = new_CATSMAT_object<CATSMAT_cp_matrix>();
     theMatrix->addpart();
     theMatrix->add(note);
     

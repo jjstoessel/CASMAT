@@ -16,13 +16,13 @@
 namespace CATSMAT
 {
     
-    S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix()
-    {
-        CATSMAT_cp_matrix* o = new CATSMAT_cp_matrix();
-        //assert(o!=0);
-        if (o==0) throw catsmat_runtime_error("Unable to allocate Contrapuntal Matrix");
-        return o;
-    }
+//    S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix()
+//    {
+//        CATSMAT_cp_matrix* o = new CATSMAT_cp_matrix();
+//        //assert(o!=0);
+//        if (o==0) throw catsmat_runtime_error("Unable to allocate Contrapuntal Matrix");
+//        return o;
+//    }
 
     /*!
      \brief CATSMAT_cp_matrix stream out operator
