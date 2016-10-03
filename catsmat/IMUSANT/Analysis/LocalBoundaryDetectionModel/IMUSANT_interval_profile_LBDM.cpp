@@ -9,6 +9,7 @@
 #include "IMUSANT_interval_profile_LBDM.h"
 #include "IMUSANT_note.h"
 
+#include <iomanip>
 #include <math.h>
 
 //
@@ -89,36 +90,36 @@ namespace IMUSANT
     ostream&
     operator<< (ostream& os, const IMUSANT_interval_profile& profile)
     {
-        os << "INTERVALS" << endl;
-        profile.printFloatVector(os, profile.profile_vector);
-        
-        os << endl << "CHANGE VECTOR" << endl;
-        profile.printFloatVector(os, profile.change_vector);
-        
-        os << endl << "STRENGTH VECTOR" << endl;
-        profile.printFloatVector(os, profile.strength_vector);
-        
+        profile.printVectors(os);
         return os;
     }
     
+    
+#define COL_WIDTH 28
+#define DATA_WIDTH 16
+#define SEPARATOR ' '
+#define FILL left << setw(COL_WIDTH) << setfill(SEPARATOR)
+
     ostream&
     IMUSANT_interval_profile::
-    printFloatVector(ostream& os, const vector<double>& the_vector) const
+    printVectors(ostream& os) const
     {
-        if (the_vector.size() == 0)
+    
+        if (profile_vector.size() == 0)
         {
-            os << "Empty Vector" << endl;
+            os << "IMUSANT_interval_profile::printVectors() - NO VALUES" << endl;
         }
         else
         {
-            os << the_vector[0];
-            for (int index = 1 ; index < the_vector.size(); index++)
+            os << FILL << "INDEX" << FILL << "PROFILE" << FILL << "CHANGE" << FILL << "STRENGTH" << endl;
+            for (int index = 0 ; index < profile_vector.size(); index++)
             {
-                os << ", " << the_vector[index];
+                os << FILL << index << FILL << profile_vector[index] << FILL << change_vector[index] << FILL << strength_vector[index] << endl;
             }
             os << endl;
         }
         return os;
+
     }
 
 

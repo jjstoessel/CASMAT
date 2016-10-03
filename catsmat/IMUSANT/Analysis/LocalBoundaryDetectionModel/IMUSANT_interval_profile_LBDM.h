@@ -31,7 +31,8 @@ namespace IMUSANT
         friend ostream& operator<< (ostream& os, const IMUSANT_interval_profile& profile);
         
     private:
-        ostream& printFloatVector(ostream& os, const vector<double>& the_vector) const;
+        ostream& printVectors(ostream& os) const;
+        
         double calculateDegreeOfChange(double value1, double value2);
         double calculateBoundaryStrength(double interval_value, double preceding_change_value, double succeeding_change_value);
         

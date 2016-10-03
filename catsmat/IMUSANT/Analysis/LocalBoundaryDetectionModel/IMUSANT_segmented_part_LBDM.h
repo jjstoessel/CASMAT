@@ -138,6 +138,10 @@ namespace IMUSANT
         {
             return fPart;
         }
+        
+        IMUSANT_pitch_interval_profile pitch_interval_profile;
+        IMUSANT_IOI_interval_profile ioi_interval_profile;
+        IMUSANT_rest_interval_profile rest_interval_profile;
  
     private:
         
@@ -150,9 +154,6 @@ namespace IMUSANT
         
         int SEGMENT_BOUNDARY_CALCULATION_SPAN = 4;
         
-        IMUSANT_pitch_interval_profile pitch_interval_profile;
-        IMUSANT_IOI_interval_profile ioi_interval_profile;
-        IMUSANT_rest_interval_profile rest_interval_profile;
         
         // IOI's calculated using Duration.asAbsoluteNumeric() on each Note.
         // Pitch is calculated using a numeric representation of Pitch (MIDI)

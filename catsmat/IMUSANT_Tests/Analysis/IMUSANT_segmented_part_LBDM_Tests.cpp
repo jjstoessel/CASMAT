@@ -365,6 +365,33 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Ya
     ASSERT_EQ(6, segments[5][1]->getNoteIndex());
 }
 
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Kyrie)
+{
+    S_IMUSANT_part& the_part = fScore_Kyrie->partlist()->getPart("P2");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
+    seg_part->initialise(the_part);
+    
+    seg_part->setSegmentBoundaryCalculationSpan(4);
+    IMUSANT_consolidated_interval_profile_vector_LBDM data = seg_part->getConsolidatedProfiles();
+    
+    vector<IMUSANT_note_vector> segments = seg_part->getSegmentsAsNoteVectors();
+    
+    cout << endl << endl << "IOI" << endl ;
+    cout << seg_part->ioi_interval_profile << endl;
+    
+    cout << endl << endl << "PITCH" << endl ;
+    cout << seg_part->pitch_interval_profile << endl;
+ 
+    cout << endl << endl << "REST" << endl ;
+    cout << seg_part->rest_interval_profile << endl;
+ 
+    // See Task TK-01264 - "Investigate anomaly with segment boundaries involving rests in first bars of Kyrie"
+    // I'm using this test case for debugging purposes.
+    ASSERT_EQ(20000, segments.size()) << "Deliberatly failing - See Task TK-01264 - Investigate anomaly with segment boundaries involving rests in first bars of Kyrie";
+    
+}
+
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithProfileVectors_Test)
 {
     S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
@@ -512,6 +539,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
 
 }
 
+// #define V_VERBOSE
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsFromMultiplePartsWithWeightedAverages_Similarity_Test)
 {
@@ -552,7 +580,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsFromMultiplePartsWithWeight
             
             if (distance <= 0.2)
             {
-#ifdef VERBOSE
+#ifdef V_VERBOSE
                 cout << endl << "----------" << endl << "Distance = " << distance << endl;
                 
                 cout << "Segment One" << endl;
@@ -578,7 +606,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsFromMultiplePartsWithWeight
         }
     }
     
-#ifdef VERBOSE
+#ifdef V_VERBOSE
     cout << endl << "Segment Weighted Averages:" << endl;
     
     for (vector<string>::iterator distances_iter = distances.begin();
