@@ -98,7 +98,8 @@ namespace IMUSANT
 #define COL_WIDTH 28
 #define DATA_WIDTH 16
 #define SEPARATOR ' '
-#define FILL left << setw(COL_WIDTH) << setfill(SEPARATOR)
+// #define FILL left << setw(COL_WIDTH) << setfill(SEPARATOR)
+#define FILL "\t"
 
     ostream&
     IMUSANT_interval_profile::
