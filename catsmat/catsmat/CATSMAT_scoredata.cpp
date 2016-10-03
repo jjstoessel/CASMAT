@@ -38,13 +38,37 @@ namespace CATSMAT {
         //cycle through each part collecting data about music notation
         for (auto part : score->partlist()->parts())
         {
-            
+            findBasicDataFromPart(part);
         }
     }
     
+    //Collect all basic data from part
+    void
+    CATSMAT_scoredata::findBasicDataFromPart(S_IMUSANT_part part)
+    {
+        //we could use IMUSANT_vector<S_IMUSANT_note> notes() to get all notes in a part if not interested in other elements
+        for (S_IMUSANT_measure measure: part->measures() )
+        {
+            fNotesPerPart[part->getID()] = 0;
+            
+            for (S_IMUSANT_note note : measure->notes() )
+            {
+                if (note->getType()==IMUSANT_NoteType::pitch && (!note->isTiedPrevious() || !note->isTiedBothSides()))
+                {
+                    fNotesPerPart[part->getID()]=fNotesPerPart[part->getID()]+1;
+                    fTotalNoteCount++;
+                }
+                else if (note->getType()==IMUSANT_NoteType::rest) {
+                    fTotalRestCount++;
+                }
+            }
+        }
+    }
+    
+     
     void
     CATSMAT_scoredata::
-    findCountrapuntalData(CATSMAT_dyad_sequences& dyads)
+    findContrapuntalData(CATSMAT_dyad_sequences& dyads)
     {
         
     }

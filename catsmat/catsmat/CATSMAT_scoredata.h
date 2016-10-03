@@ -19,6 +19,7 @@
 #include "CATSMAT_t_utilities.h"
 
 using namespace IMUSANT;
+using namespace std;
 
 namespace CATSMAT {
 
@@ -28,8 +29,10 @@ namespace CATSMAT {
         //friend  VEXP IMUSANT_SMARTP<CATSMAT_scoredata> new_CATSMAT_scoredata();
         friend  VEXP IMUSANT_SMARTP<CATSMAT_scoredata> new_CATSMAT_object<CATSMAT_scoredata>();
         
-        void findBasicDataFromScore(S_IMUSANT_score scores);
-        void findCountrapuntalData(CATSMAT_dyad_sequences& dyads);
+        void    findBasicDataFromScore(S_IMUSANT_score scores);
+        void    findContrapuntalData(CATSMAT_dyad_sequences& dyads);
+        
+        void    print(ostream& os);
         
     protected:
         
@@ -38,20 +41,23 @@ namespace CATSMAT {
         
     private:
         
-        string	fWorkTitle;
-        string  fWorkNum;
-        string  fMovementTitle;
-        string  fMovementNum;
+        void    findBasicDataFromPart(S_IMUSANT_part part);
+        
+        string          fWorkTitle;
+        string          fWorkNum;
+        string          fMovementTitle;
+        string          fMovementNum;
         STRPAIRVECTOR   fCreator;
         STRPAIRVECTOR   fRights;
-        string  fScoreComments;
-        string  fSource;
-        string  fEditor;
-        string  fDate;
+        string          fScoreComments;
+        string          fSource;
+        string          fEditor;
+        string          fDate;
         
         map<IMUSANT_interval, int>  fMelodicIntervalCount;
-        //map<string,int>             fNotesPerPart;
+        map<string,int>             fNotesPerPart;
         int                         fTotalNoteCount = 0;
+        int                         fTotalRestCount = 0;
     };
     
     typedef IMUSANT_SMARTP<CATSMAT_scoredata> S_CATSMAT_scoredata;
