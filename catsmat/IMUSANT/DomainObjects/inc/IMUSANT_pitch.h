@@ -136,6 +136,9 @@ namespace IMUSANT
         IMUSANT_pitch& operator= (const IMUSANT_pitch& pitch)
         {
             set(pitch.name(), pitch.octave(), pitch.voice(), pitch.ms_name(), pitch.getInflection(), pitch.in_chord());
+            
+            transpose(pitch.fTransposeDiatonic, pitch.fTransposeChromatic, pitch.fTransposeOctaveChange, pitch.fTransposeDoubled);
+
             return *this;
         }
         
