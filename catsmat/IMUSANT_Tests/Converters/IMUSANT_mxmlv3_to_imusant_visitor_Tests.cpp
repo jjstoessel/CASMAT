@@ -49,6 +49,7 @@ protected:
         fScore_ParserTest3 = _test_utils->initialiseScoreFromFile("MusicXMLv3/MusicXML_ParserTest3.xml");
         fScore_ParserTest4 = _test_utils->initialiseScoreFromFile("MusicXMLv3/MusicXML_ParserTest4.xml");
         fScore_ParserTest5 = _test_utils->initialiseScoreFromFile("MusicXMLv3/MusicXML_ParserTest5.xml");
+        fScore_ParserTest_Transpose1 = _test_utils->initialiseScoreFromFile("MusicXMLv3/MusicXML_ParserTest_Transpose1.xml");
         
         fScore_ParserTestBeetAnGeSample = _test_utils->initialiseScoreFromFile("MusicXMLv3.xmlsamples/BeetAnGeSample.xml");
     }
@@ -90,6 +91,7 @@ protected:
     static S_IMUSANT_score fScore_ParserTest3;
     static S_IMUSANT_score fScore_ParserTest4;
     static S_IMUSANT_score fScore_ParserTest5;
+    static S_IMUSANT_score fScore_ParserTest_Transpose1;
     static S_IMUSANT_score fScore_ParserTestBeetAnGeSample;
     
     const int NUM_MEASURES_PARSER_TEST_1 = 12;
@@ -105,6 +107,8 @@ S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest2 = NU
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest3 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest4 = NULL;
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest5 = NULL;
+S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTest_Transpose1 = NULL;
+
 S_IMUSANT_score IMUSANT_mxmlv3_to_imusant_visitor_Tests::fScore_ParserTestBeetAnGeSample = NULL;
 
 IMUSANT_test_utilities * IMUSANT_mxmlv3_to_imusant_visitor_Tests::_test_utils = NULL;
@@ -660,4 +664,48 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, ExpectingAnException_ScoreInstru
 
 }
 
+TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, TranspositionTest)
+{
+    S_IMUSANT_score score = fScore_ParserTest_Transpose1;
+    
+    S_IMUSANT_part p3;
+    S_IMUSANT_part p4;
+    
+    score->getPartById("P3", p3);  // "B♭ Clarinet"
+    score->getPartById("P4", p4);  // "Horn in F"
+    
+    IMUSANT_vector<S_IMUSANT_measure> p3_measures = p3->measures();
+    IMUSANT_vector<S_IMUSANT_measure> p4_measures = p4->measures();
+    
+    S_IMUSANT_measure p3_m1 = p3_measures[0];
+    S_IMUSANT_measure p3_m2 = p3_measures[1];
+    S_IMUSANT_measure p3_m3 = p3_measures[2];
+    S_IMUSANT_measure p3_m4 = p3_measures[3];
+    
+    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m1 = p3_m1->notes();
+    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m2 = p3_m2->notes();
+    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m3 = p3_m3->notes();
+    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m4 = p3_m4->notes();
+
+    ASSERT_EQ(IMUSANT_pitch::C, clarinet_notes_m1[0]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::D, clarinet_notes_m1[0]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::D, clarinet_notes_m1[1]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::E, clarinet_notes_m1[1]->pitch()->asWritten()->name());
+    
+   
+    S_IMUSANT_measure p4_m1 = p4_measures[0];
+    IMUSANT_vector<S_IMUSANT_note> horn_notes = p4_m1->notes();
+    
+    for (IMUSANT_vector<S_IMUSANT_note>::iterator next_note = horn_notes.begin(); next_note != horn_notes.end(); next_note++)
+    {
+        S_IMUSANT_pitch the_pitch = (*next_note)->pitch();
+        S_IMUSANT_pitch the_pitch_as_written = the_pitch->asWritten();
+        
+        
+        ASSERT_NE(the_pitch_as_written->name(), the_pitch->name());
+        
+    }
+
+    ASSERT_TRUE(false) << "******* Work in Progress *********";
+}
 
