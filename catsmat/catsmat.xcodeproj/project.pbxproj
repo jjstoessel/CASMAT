@@ -235,6 +235,7 @@
 		4973E9BA1C50DA8E0086AB4A /* MusicXML_ParserTest3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4973E9B91C50DA640086AB4A /* MusicXML_ParserTest3.xml */; };
 		497DF4F61C9D309100D18A04 /* IMUSANT_test_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497DF4F41C9D309100D18A04 /* IMUSANT_test_utilities.cpp */; };
 		498CFE551D7B0991006379F0 /* IMUSANT_transposer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 498CFE531D7B01D3006379F0 /* IMUSANT_transposer.cpp */; };
+		49A423381DB1F213003CA5DD /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49A423371DB1F1B6003CA5DD /* Sanctus.xml */; };
 		49B727B71C1418E400FCF494 /* CATSMAT_menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49B727B51C1418E400FCF494 /* CATSMAT_menu.cpp */; };
 		49C80D941BA4E71300DCA903 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D021BA4E5C900DCA903 /* factory.cpp */; };
 		49C80D951BA4E71300DCA903 /* unrolled_xml_tree_browser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D0D1BA4E5C900DCA903 /* unrolled_xml_tree_browser.cpp */; };
@@ -434,6 +435,7 @@
 			dstPath = IMUSANT_testdata/MusicXMLv3;
 			dstSubfolderSpec = 16;
 			files = (
+				49A423381DB1F213003CA5DD /* Sanctus.xml in CopyFiles */,
 				490E3BB91CFA5EB90091A44E /* Kyrie.xml in CopyFiles */,
 				49394E871CDD83E600EC7D84 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */,
 				49394E841CDD7EE400EC7D84 /* LBDM_Segmented_Part_Test_2.xml in CopyFiles */,
@@ -674,6 +676,7 @@
 		498D80F01B9A77F000A673F7 /* Telemann.mxl */ = {isa = PBXFileReference; lastKnownFileType = file; path = Telemann.mxl; sourceTree = "<group>"; };
 		498D80F11B9A77F000A673F7 /* Telemann.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Telemann.png; sourceTree = "<group>"; };
 		498D80F21B9A77F000A673F7 /* Telemann.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Telemann.xml; sourceTree = "<group>"; };
+		49A423371DB1F1B6003CA5DD /* Sanctus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sanctus.xml; sourceTree = "<group>"; };
 		49B727B51C1418E400FCF494 /* CATSMAT_menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_menu.cpp; path = catsmat/Application/CATSMAT_menu.cpp; sourceTree = SOURCE_ROOT; };
 		49B727B61C1418E400FCF494 /* CATSMAT_menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_menu.h; path = catsmat/Application/CATSMAT_menu.h; sourceTree = SOURCE_ROOT; };
 		49C80C001BA4E5C800DCA903 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -1810,6 +1813,7 @@
 		498D80BA1B9A77F000A673F7 /* MusicXMLv3 */ = {
 			isa = PBXGroup;
 			children = (
+				49A423371DB1F1B6003CA5DD /* Sanctus.xml */,
 				BA4207E11CE805BF007204AF /* Kyrie.xml */,
 				1E0D00DA1CBE4F7C0035CA98 /* Yankee_Doodle.xml */,
 				495A50231CA5A3A5006985E2 /* LBDM_Segmented_Part_Test_1.xml */,

@@ -54,6 +54,7 @@ protected:
         fScore_LBDM_Test1 = _test_utils->initialiseScoreFromFile("MusicXMLv3/LBDM_Segmented_Part_Test_1.xml");
         fScore_LBDM_Test3 = _test_utils->initialiseScoreFromFile("MusicXMLv3/LBDM_Segmented_Part_Test_3.xml");
         fScore_Kyrie = _test_utils->initialiseScoreFromFile("MusicXMLv3/Kyrie.xml");
+        fScore_Sanctus = _test_utils->initialiseScoreFromFile("MusicXMLv3/Sanctus.xml");
         fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("MusicXMLv3/Yankee_Doodle.xml");
     }
     
@@ -132,6 +133,7 @@ protected:
     static S_IMUSANT_score fScore_LBDM_Test1;
     static S_IMUSANT_score fScore_LBDM_Test3;
     static S_IMUSANT_score fScore_Kyrie;
+    static S_IMUSANT_score fScore_Sanctus;
     static S_IMUSANT_score fScore_YankeeDoodle;
 
     
@@ -141,6 +143,7 @@ IMUSANT_test_utilities * IMUSANT_segmented_part_LBDM_Tests::_test_utils = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_LBDM_Test1 = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_LBDM_Test3 = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_Kyrie = NULL;
+S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_Sanctus = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_YankeeDoodle = NULL;
 
 // ************* TEST CASES START HERE *********** //
@@ -377,6 +380,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Ky
     
     vector<IMUSANT_note_vector> segments = seg_part->getSegmentsAsNoteVectors();
     
+#ifdef VERBOSE
     cout << endl << endl << "IOI" << endl ;
     cout << seg_part->ioi_interval_profile << endl;
     
@@ -386,6 +390,39 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Ky
     cout << endl << endl << "REST" << endl ;
     cout << seg_part->rest_interval_profile << endl;
  
+#endif
+    
+    // See Task TK-01264 - "Investigate anomaly with segment boundaries involving rests in first bars of Kyrie"
+    // I'm using this test case for debugging purposes.
+    ASSERT_EQ(20000, segments.size()) << "Deliberatly failing - See Task TK-01264 - Investigate anomaly with segment boundaries involving rests in first bars of Kyrie";
+    
+}
+
+TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Sanctus)
+{
+    S_IMUSANT_part& the_part = fScore_Sanctus->partlist()->getPart("P2");
+    
+    S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
+    seg_part->initialise(the_part);
+    
+    seg_part->setSegmentBoundaryCalculationSpan(4);
+    IMUSANT_consolidated_interval_profile_vector_LBDM data = seg_part->getConsolidatedProfiles();
+    
+    vector<IMUSANT_note_vector> segments = seg_part->getSegmentsAsNoteVectors();
+    
+
+    cout << endl << endl << "IOI" << endl ;
+    cout << seg_part->ioi_interval_profile << endl;
+    
+    cout << endl << endl << "PITCH" << endl ;
+    cout << seg_part->pitch_interval_profile << endl;
+    
+    cout << endl << endl << "REST" << endl ;
+    cout << seg_part->rest_interval_profile << endl;
+    
+    cout << endl << endl << seg_part->print(true, true) << endl;
+
+    
     // See Task TK-01264 - "Investigate anomaly with segment boundaries involving rests in first bars of Kyrie"
     // I'm using this test case for debugging purposes.
     ASSERT_EQ(20000, segments.size()) << "Deliberatly failing - See Task TK-01264 - Investigate anomaly with segment boundaries involving rests in first bars of Kyrie";
