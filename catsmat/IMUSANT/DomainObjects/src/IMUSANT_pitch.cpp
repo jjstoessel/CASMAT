@@ -464,17 +464,60 @@ namespace IMUSANT
     addChromaticSteps(IMUSANT_pitch::type written_note_name, IMUSANT_pitch::inflection written_alteration, IMUSANT_pitch::type sounding_note_name, int chromatic_steps)
     {
         int group = findGroup(written_note_name, written_alteration);
-        int transpose_group = group + chromatic_steps;
+        
+        int transpose_group = addChromaticStepsToGroup(group, chromatic_steps);
         
         note found_note = findNote(transpose_group, sounding_note_name);
         return found_note.alteration;
+    }
+    
+    //
+    // This method handles wrapping the index around the EnharmionicsTable.
+    // For example, if group is 1 and the chromatic steps
+    // is -2 then we need to move backwards int the table
+    // until we reach the lowest group, and then wrap back
+    // to the highest group.
+    //
+    int
+    EnharmonicsTable::
+    addChromaticStepsToGroup(int group, int chromatic_steps)
+    {
+        int new_group = group;
+
+        while (chromatic_steps > 0)
+        {
+            int next_group = new_group + 1;
+            
+            if (next_group > HIGHEST_ENHARMONIC_GROUP)
+            {
+                next_group = LOWEST_ENHARMONIC_GROUP;
+            }
+            
+            new_group = next_group;
+            chromatic_steps--;
+        }
+        
+        while (chromatic_steps < 0)
+        {
+            int next_group = new_group - 1;
+            
+            if (next_group < LOWEST_ENHARMONIC_GROUP)
+            {
+                next_group = HIGHEST_ENHARMONIC_GROUP;
+            }
+            
+            new_group = next_group;
+            chromatic_steps++;
+        }
+        
+        return new_group;
     }
     
     int
     EnharmonicsTable::
     findGroup(IMUSANT_pitch::type note_name, IMUSANT_pitch::inflection alteration)
     {
-        for (int index=0 ; index < NUM_GROUPS; index++)
+        for (int index=0 ; index < NUM_PITCH_SPELLINGS; index++)
         {
             if (enharmonic_groups[index].note_name == note_name && enharmonic_groups[index].alteration == alteration)
             {
@@ -489,7 +532,7 @@ namespace IMUSANT
     EnharmonicsTable::
     findNote(int group, IMUSANT_pitch::type note_name)
     {
-        for (int index=0 ; index < NUM_GROUPS; index++)
+        for (int index=0 ; index < NUM_PITCH_SPELLINGS; index++)
         {
             if (enharmonic_groups[index].note_name == note_name && enharmonic_groups[index].group == group)
             {

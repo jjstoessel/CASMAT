@@ -237,12 +237,14 @@ namespace IMUSANT
         
     private:
         
-        static const int NUM_GROUPS = 35;
-        const note enharmonic_groups[NUM_GROUPS] =
+        static const int NUM_PITCH_SPELLINGS = 35;
+        static const int HIGHEST_ENHARMONIC_GROUP = 12;
+        static const int LOWEST_ENHARMONIC_GROUP = 1;
+        const note enharmonic_groups[NUM_PITCH_SPELLINGS] =
         {
-            note(IMUSANT_pitch::C, IMUSANT_pitch::natural, 1),
-            note(IMUSANT_pitch::B, IMUSANT_pitch::sharp, 1),
-            note(IMUSANT_pitch::D, IMUSANT_pitch::double_flat, 1),
+            note(IMUSANT_pitch::C, IMUSANT_pitch::natural, LOWEST_ENHARMONIC_GROUP),
+            note(IMUSANT_pitch::B, IMUSANT_pitch::sharp, LOWEST_ENHARMONIC_GROUP),
+            note(IMUSANT_pitch::D, IMUSANT_pitch::double_flat, LOWEST_ENHARMONIC_GROUP),
             
             note(IMUSANT_pitch::C, IMUSANT_pitch::sharp, 2),
             note(IMUSANT_pitch::D, IMUSANT_pitch::flat, 2),
@@ -292,6 +294,10 @@ namespace IMUSANT
                                                     IMUSANT_pitch::inflection written_alteration,
                                                     IMUSANT_pitch::type sounding_note_name,
                                                     int chromatic_steps);
+        
+        
+        
+        int addChromaticStepsToGroup(int group, int chromatic_steps);
         
         int calcImplicitOctaveChange(int chromatic_steps, IMUSANT_pitch::type written_note_name, IMUSANT_pitch::type sounding_note_name);
         
