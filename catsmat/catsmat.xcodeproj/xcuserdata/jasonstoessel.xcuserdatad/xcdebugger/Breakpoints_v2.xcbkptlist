@@ -1383,13 +1383,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IMUSANT/DomainObjects/src/IMUSANT_collectionvisitor.cpp"
-            timestampString = "494384918.828602"
+            filePath = "catsmat/CATSMAT_scoredata.cpp"
+            timestampString = "498025984.676832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "IMUSANT_collection_visitor::visit ( S_IMUSANT_lyric&amp; elt )"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "CATSMAT_scoredata:: print(ostream&amp; os)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_scoredatacollector_tests.cpp"
+            timestampString = "498271467.531147"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "TEST_F(CATSMAT_scoredatacollector_tests, TestScore_1_Measure)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_scoredata.cpp"
+            timestampString = "498271934.674384"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "CATSMAT_scoredata:: findBasicDataFromScore(S_IMUSANT_score score)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

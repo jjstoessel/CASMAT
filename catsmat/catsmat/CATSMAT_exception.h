@@ -9,6 +9,10 @@
 #ifndef catsmat_exception_h
 #define catsmat_exception_h
 
+#include <string>
+
+using namespace std;
+
 namespace IMUSANT
 {
     

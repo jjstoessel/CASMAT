@@ -51,17 +51,17 @@ namespace CATSMAT {
     PostProcess()
     {
         //cycle through parts gathering cumulative data
-        for (S_CATSMAT_partdata data : fPartsData )
+        for (auto data : fPartsData )
         {
             //accumulate note/rest counts
-            fTotalNoteCount += data->getNoteCount();
-            fTotalRestCount += data->getRestCount();
+            fTotalNoteCount += data.second->getNoteCount();
+            fTotalRestCount += data.second->getRestCount();
             
             //accumulate pitch data maps - check that accumulate is non-destructive
-            map<IMUSANT_pitch,int> pp = data->getPitchProfile();
+            map<IMUSANT_pitch,int> pp = data.second->getPitchProfile();
             
             fPitchProfile = std::accumulate(pp.begin(),pp.end(),fPitchProfile,
-                                            [](std::map<IMUSANT_pitch,int> &m, const std::pair<const IMUSANT_pitch, int>)
+                                            [](std::map<IMUSANT_pitch,int> &m, const std::pair<const IMUSANT_pitch, int> p)
                                             {
                                                 return (m[p.first] +=p.second, m);
                                             });
@@ -76,6 +76,13 @@ namespace CATSMAT {
     void
     CATSMAT_scoredata::
     findContrapuntalData(CATSMAT_dyad_sequences& dyads)
+    {
+        
+    }
+    
+    void
+    CATSMAT_scoredata::
+    print(ostream& os)
     {
         
     }

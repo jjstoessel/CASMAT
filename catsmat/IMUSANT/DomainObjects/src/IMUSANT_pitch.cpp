@@ -255,6 +255,12 @@ namespace IMUSANT
     }
     
     bool
+    IMUSANT_pitch::operator< (const IMUSANT_pitch& pitch) const
+    {
+        return pitch>*this;
+    }
+
+    bool
     IMUSANT_pitch::operator== (const IMUSANT_pitch& pitch) const
     {
         return

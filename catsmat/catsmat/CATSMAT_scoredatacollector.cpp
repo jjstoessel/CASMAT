@@ -7,7 +7,7 @@
 //
 
 #include "CATSMAT_scoredatacollector.h"
-#include "CATSMAT_collection_visitor.h"
+#include "CATSMAT_collectionvisitor.hpp"
 
 namespace CATSMAT {
     
@@ -28,14 +28,14 @@ namespace CATSMAT {
             score->accept(score_to_matrix_translator);
             score_to_matrix_translator.getCPMatrix()->Accept(dyads);
             
-            scoredata->findCountrapuntalData(dyads);
+            scoredata->findContrapuntalData(dyads);
             
-            scoresdata.push_back(scoresdata);
+            scoresdata.push_back(scoredata);
             
         }
     }
     
-    void CATSMAT_scoredatacollector::print(ostream& os)
+    void CATSMAT_scoredatacollector::print(ostream& os) const
     {
         for (auto scoredata : scoresdata)
         {
