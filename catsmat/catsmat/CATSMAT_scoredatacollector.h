@@ -15,6 +15,7 @@
 #include "CATSMAT_scoredata.h"
 
 namespace CATSMAT {
+    
     class CATSMAT_scoredatacollector :
     public Loki::BaseVisitor,
     public Loki::Visitor<CATSMAT_processing, void, true>
@@ -25,9 +26,9 @@ namespace CATSMAT {
         CATSMAT_scoredatacollector() {}
         ~CATSMAT_scoredatacollector() {}
         
-        void Visit(const CATSMAT_processing&);
+        void Visit(const CATSMAT_processing& processor);
         
-        void print(ostream& os);
+        void print(ostream& os) const;
         
     private:
         

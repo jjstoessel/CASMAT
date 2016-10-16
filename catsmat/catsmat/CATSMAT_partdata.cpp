@@ -7,6 +7,7 @@
 //
 
 #include "CATSMAT_partdata.h"
+#include "IMUSANT_note.h"
 
 namespace CATSMAT {
     
@@ -25,11 +26,14 @@ namespace CATSMAT {
                 if (note->getType()==IMUSANT_NoteType::pitch && (!note->isTiedPrevious() || !note->isTiedBothSides()))
                 {
                     fNoteCount++;
-                    fPitchProfile[note->pitch()] = fPitchProfile[note->pitch()] + 1;
+                    int currentCount = fPitchProfile[*note->pitch()];
+                    fPitchProfile[*note->pitch()] =  currentCount + 1;
                 }
                 else if (note->getType()==IMUSANT_NoteType::rest) {
                     fRestCount++;
                 }
+                
+                //fDurationProfile[note->duration()]
                 
             }
         }

@@ -150,6 +150,7 @@ namespace IMUSANT
         // "greater than" is interpreted to mean "of a higher pitch"
         //
         bool operator> (const IMUSANT_pitch& pitch) const;
+        bool operator< (const IMUSANT_pitch& pitch) const;
         
         friend ostream& operator<< (ostream& os, const IMUSANT_pitch& elt );
         

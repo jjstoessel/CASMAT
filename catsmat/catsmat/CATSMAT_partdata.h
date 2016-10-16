@@ -11,10 +11,18 @@
 
 #include <stdio.h>
 #include "CATSMAT_t_utilities.h"
+#include "IMUSANT_pitch.h"
+#include "IMUSANT_duration.h"
+#include "IMUSANT_interval.h"
+#include "IMUSANT_part.h"
+#include "smartpointer.h"
+
+using namespace IMUSANT;
+using namespace std;
 
 namespace CATSMAT {
     
-    class CATSMAT_partdata
+    class CATSMAT_partdata : public smartable
     {
     public:
         friend  VEXP IMUSANT_SMARTP<CATSMAT_partdata> new_CATSMAT_object<CATSMAT_partdata>();
@@ -35,7 +43,7 @@ namespace CATSMAT {
         int fRestCount = 0;
         map<IMUSANT_pitch,int>      fPitchProfile;
         map<IMUSANT_duration,int>   fDurationProfile;
-        map<IMUSANT_interval, int>  fIntervalProfile;
+        map<IMUSANT_interval, int>  fHIntervalProfile; //horizontal interval profile
     };
     
     typedef IMUSANT_SMARTP<CATSMAT_partdata> S_CATSMAT_partdata;

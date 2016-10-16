@@ -24,7 +24,7 @@ using namespace std;
 
 namespace CATSMAT {
 
-    class CATSMAT_scoredata
+    class CATSMAT_scoredata : public smartable
     {
     public:
         //friend  VEXP IMUSANT_SMARTP<CATSMAT_scoredata> new_CATSMAT_scoredata();

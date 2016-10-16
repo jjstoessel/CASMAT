@@ -11,6 +11,9 @@
 
 #include <map>
 #include "CATSMAT_exception.h"
+#include "smartpointer.h"
+
+using namespace IMUSANT;
 
 namespace CATSMAT
 {
