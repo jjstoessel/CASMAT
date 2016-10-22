@@ -19,7 +19,7 @@
 #include "IMUSANT_pitch_processor.h"
 #include "IMUSANT_LBDM_segmenter.h"
 
-//#define VERBOSE //toggle for verbose output
+// #define VERBOSE //toggle for verbose output
 
 using namespace IMUSANT;
 using namespace boost;
@@ -268,29 +268,6 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
 }
 
-TEST_F(IMUSANT_processing_Tests, findSupermaximalsIntervals_simple_test_1)
-{
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    //repeated_substrings_result = find_repeated_substrings_by_file("/MusicXMLv3.simple_test_data/RepeatedIntervalSubstrings_SimpleTest1.xml");
-    repeated_substrings_result = find_supermaximals_intervals_by_file("MusicXMLv3//RepeatedIntervalSubstrings_SimpleTest1.xml");
-  
-    // REVISIT - remove this output once we have resolved "D-01021" - "https://www52.v1host.com/Private63/defect.mvc/Summary?oidToken=Defect%3A2543"
-    stringstream actual_output;
-
-    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
-    {
-        actual_output << repeated_substrings_result[index];
-    }
-    actual_output << endl;
-    
-#ifdef VERBOSE
-    cout << IMUSANT_repeated_interval_substring::output_operator_help();
-    cout << actual_output.str();
-#endif
-    //ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
-    
-    ASSERT_FALSE(true) << "Deliberately failing this test. Needs implementation.";
-}
 
 TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
 {
