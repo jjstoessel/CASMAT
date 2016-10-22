@@ -60,11 +60,11 @@ namespace CATSMAT {
             //accumulate pitch data maps - check that accumulate is non-destructive
             map<IMUSANT_pitch,int> pp = data.second->getPitchProfile();
             
-            fPitchProfile = std::accumulate(pp.begin(),pp.end(),fPitchProfile,
-                                            [](std::map<IMUSANT_pitch,int> &m, const std::pair<const IMUSANT_pitch, int> p)
-                                            {
-                                                return (m[p.first] +=p.second, m);
-                                            });
+//            fPitchProfile = std::accumulate(pp.begin(),pp.end(),fPitchProfile,
+//                                            [](std::map<IMUSANT_pitch,int> &m, const std::pair<const IMUSANT_pitch, int> p)
+//                                            {
+//                                                return (m[p.first] +=p.second, m);
+//                                            });
             
             //same for map<IMUSANT_duration,int>       fDurationProfile;
             //same for map<IMUSANT_interval, int>      fIntervalProfile;
