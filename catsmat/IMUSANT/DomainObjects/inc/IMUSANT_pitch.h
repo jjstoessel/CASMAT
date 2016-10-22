@@ -130,17 +130,9 @@ namespace IMUSANT
         // The asWritten() method returns a pitch with any transposition removed.  The getters will return the
         // written, rather than sounding pitch.
         void                transpose(int diatonic, int chromatic, int octave_change, bool doubled = false);
-        S_IMUSANT_pitch    asWritten();
+        S_IMUSANT_pitch    asWritten() const;
         
-        
-        IMUSANT_pitch& operator= (const IMUSANT_pitch& pitch)
-        {
-            set(pitch.name(), pitch.octave(), pitch.voice(), pitch.ms_name(), pitch.getInflection(), pitch.in_chord());
-            
-            transpose(pitch.fTransposeDiatonic, pitch.fTransposeChromatic, pitch.fTransposeOctaveChange, pitch.fTransposeDoubled);
-
-            return *this;
-        }
+        IMUSANT_pitch& operator= (const IMUSANT_pitch& pitch);
         
         bool operator== (const IMUSANT_pitch& pitch) const;
         

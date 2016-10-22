@@ -223,6 +223,20 @@ namespace IMUSANT
         transpose();
     }
     
+    
+    IMUSANT_pitch&
+    IMUSANT_pitch::
+    operator= (const IMUSANT_pitch& pitch)
+    {
+        S_IMUSANT_pitch input_as_written = pitch.asWritten();
+        
+        set(input_as_written->name(), input_as_written->octave(), input_as_written->voice(), input_as_written->ms_name(), input_as_written->getInflection(), input_as_written->in_chord());
+        
+        transpose(pitch.fTransposeDiatonic, pitch.fTransposeChromatic, pitch.fTransposeOctaveChange, pitch.fTransposeDoubled);
+        
+        return *this;
+    }
+    
     bool
     IMUSANT_pitch::operator> (const IMUSANT_pitch& pitch) const
     {
@@ -267,8 +281,6 @@ namespace IMUSANT
             name() == pitch.name() &&
             getInflection() == pitch.getInflection() &&
             octave() == pitch.octave();
-        
-        //set other pitch representations
     }
     
     void IMUSANT_pitch::print (ostream& os) const
@@ -405,7 +417,7 @@ namespace IMUSANT
     
     S_IMUSANT_pitch
     IMUSANT_pitch::
-    asWritten()
+    asWritten() const
     {
         S_IMUSANT_pitch ret_val = new_IMUSANT_pitch();
         ret_val->set(fNameAsWritten, fOctaveAsWritten, fVoice, ms_name(), fAlterationAsWritten, in_chord());

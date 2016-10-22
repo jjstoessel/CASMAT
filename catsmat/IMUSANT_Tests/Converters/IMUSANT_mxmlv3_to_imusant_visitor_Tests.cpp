@@ -668,44 +668,127 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, TranspositionTest)
 {
     S_IMUSANT_score score = fScore_ParserTest_Transpose1;
     
-    S_IMUSANT_part p3;
-    S_IMUSANT_part p4;
+    S_IMUSANT_part clarinet_part;
+    score->getPartById("P3", clarinet_part);  // "B♭ Clarinet"
     
-    score->getPartById("P3", p3);  // "B♭ Clarinet"
-    score->getPartById("P4", p4);  // "Horn in F"
-    
-    IMUSANT_vector<S_IMUSANT_measure> p3_measures = p3->measures();
-    IMUSANT_vector<S_IMUSANT_measure> p4_measures = p4->measures();
-    
-    S_IMUSANT_measure p3_m1 = p3_measures[0];
-    S_IMUSANT_measure p3_m2 = p3_measures[1];
-    S_IMUSANT_measure p3_m3 = p3_measures[2];
-    S_IMUSANT_measure p3_m4 = p3_measures[3];
-    
-    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m1 = p3_m1->notes();
-    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m2 = p3_m2->notes();
-    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m3 = p3_m3->notes();
-    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m4 = p3_m4->notes();
+    IMUSANT_vector<S_IMUSANT_measure> clarinet_measures = clarinet_part->measures();
 
+    S_IMUSANT_measure clarinet_m1 = clarinet_measures[0];
+    S_IMUSANT_measure clarinet_m2 = clarinet_measures[1];
+    S_IMUSANT_measure clarinet_m3 = clarinet_measures[2];
+    S_IMUSANT_measure clarinet_m4 = clarinet_measures[3];
+    
+    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m1 = clarinet_m1->notes();
+    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m2 = clarinet_m2->notes();
+    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m3 = clarinet_m3->notes();
+    IMUSANT_vector<S_IMUSANT_note> clarinet_notes_m4 = clarinet_m4->notes();
+
+    // CLARINET - SOUNDING
     ASSERT_EQ(IMUSANT_pitch::C, clarinet_notes_m1[0]->pitch()->name());
-    ASSERT_EQ(IMUSANT_pitch::D, clarinet_notes_m1[0]->pitch()->asWritten()->name());
     ASSERT_EQ(IMUSANT_pitch::D, clarinet_notes_m1[1]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::E, clarinet_notes_m2[0]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::F, clarinet_notes_m2[1]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::G, clarinet_notes_m3[0]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::A, clarinet_notes_m3[1]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::B, clarinet_notes_m4[0]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::C, clarinet_notes_m4[1]->pitch()->name());
+    
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m1[0]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m1[1]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m2[0]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m2[1]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m3[0]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m3[1]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m4[0]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m4[1]->pitch()->getInflection());
+    
+    // CLARINET - WRITTEN
+    ASSERT_EQ(IMUSANT_pitch::D, clarinet_notes_m1[0]->pitch()->asWritten()->name());
     ASSERT_EQ(IMUSANT_pitch::E, clarinet_notes_m1[1]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::F, clarinet_notes_m2[0]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::G, clarinet_notes_m2[1]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::A, clarinet_notes_m3[0]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::B, clarinet_notes_m3[1]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::C, clarinet_notes_m4[0]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::D, clarinet_notes_m4[1]->pitch()->asWritten()->name());
     
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m1[0]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m1[1]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::sharp,   clarinet_notes_m2[0]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m2[1]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m3[0]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m3[1]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::sharp,   clarinet_notes_m4[0]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, clarinet_notes_m4[1]->pitch()->asWritten()->getInflection());
    
-    S_IMUSANT_measure p4_m1 = p4_measures[0];
-    IMUSANT_vector<S_IMUSANT_note> horn_notes = p4_m1->notes();
+    // HORN
+    S_IMUSANT_part horn_part;
+    score->getPartById("P4", horn_part);  // "Horn in F"
+    IMUSANT_vector<S_IMUSANT_measure> horn_measures = horn_part->measures();
     
-    for (IMUSANT_vector<S_IMUSANT_note>::iterator next_note = horn_notes.begin(); next_note != horn_notes.end(); next_note++)
-    {
-        S_IMUSANT_pitch the_pitch = (*next_note)->pitch();
-        S_IMUSANT_pitch the_pitch_as_written = the_pitch->asWritten();
-        
-        
-        ASSERT_NE(the_pitch_as_written->name(), the_pitch->name());
-        
-    }
+    S_IMUSANT_measure horn_m1 = horn_measures[0];
+    S_IMUSANT_measure horn_m2 = horn_measures[1];
+    S_IMUSANT_measure horn_m3 = horn_measures[2];
+    S_IMUSANT_measure horn_m4 = horn_measures[3];
+    
+    IMUSANT_vector<S_IMUSANT_note> horn_notes_m1 = horn_m1->notes();
+    IMUSANT_vector<S_IMUSANT_note> horn_notes_m2 = horn_m2->notes();
+    IMUSANT_vector<S_IMUSANT_note> horn_notes_m3 = horn_m3->notes();
+    IMUSANT_vector<S_IMUSANT_note> horn_notes_m4 = horn_m4->notes();
 
-    ASSERT_TRUE(false) << "******* Work in Progress *********";
+    
+    // HORN - SOUNDING
+    ASSERT_EQ(IMUSANT_pitch::C, horn_notes_m1[0]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::D, horn_notes_m1[1]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::E, horn_notes_m2[0]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::F, horn_notes_m2[1]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::G, horn_notes_m3[0]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::A, horn_notes_m3[1]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::B, horn_notes_m4[0]->pitch()->name());
+    ASSERT_EQ(IMUSANT_pitch::C, horn_notes_m4[1]->pitch()->name());
+    
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m1[0]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m1[1]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m2[0]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m2[1]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m3[0]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m3[1]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m4[0]->pitch()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m4[1]->pitch()->getInflection());
+    
+    // HORN - WRITTEN
+    ASSERT_EQ(IMUSANT_pitch::G, horn_notes_m1[0]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::A, horn_notes_m1[1]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::B, horn_notes_m2[0]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::C, horn_notes_m2[1]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::D, horn_notes_m3[0]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::E, horn_notes_m3[1]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::F, horn_notes_m4[0]->pitch()->asWritten()->name());
+    ASSERT_EQ(IMUSANT_pitch::G, horn_notes_m4[1]->pitch()->asWritten()->name());
+    
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m1[0]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m1[1]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m2[0]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m2[1]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m3[0]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m3[1]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::sharp,   horn_notes_m4[0]->pitch()->asWritten()->getInflection());
+    ASSERT_EQ(IMUSANT_pitch::natural, horn_notes_m4[1]->pitch()->asWritten()->getInflection());
+
+    // FLUTE
+    S_IMUSANT_part flute_part;
+    score->getPartById("P1", flute_part);  // "Flute in C"
+    IMUSANT_vector<S_IMUSANT_measure> flute_measures = flute_part->measures();
+    
+    // FLUTE SOUNDING == FLUTE WRITTEN
+    for (IMUSANT_vector<S_IMUSANT_measure>::iterator next_measure = flute_measures.begin(); next_measure != flute_measures.end(); next_measure++)
+    {
+        for (IMUSANT_vector<S_IMUSANT_note>::iterator next_note = (*next_measure)->notes().begin(); next_note != (*next_measure)->notes().end(); next_note++)
+        {
+            S_IMUSANT_pitch the_pitch = (*next_note)->pitch();
+            S_IMUSANT_pitch the_pitch_as_written = the_pitch->asWritten();
+            ASSERT_EQ(*the_pitch_as_written, *the_pitch);
+        }
+    }
 }
 
