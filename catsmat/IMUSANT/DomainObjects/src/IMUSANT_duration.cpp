@@ -114,6 +114,8 @@ namespace IMUSANT
         // When we account for tuples (triplets and the like), and dotted notes, this algorithm may return a
         // floating point number.
         //
+        // Note that this algorithm does not explicitly use the normal-type value as it is catered for within
+        // the values that are used.  See VersionOne TK-01209 -> "Account for normal-type in IMUSANT_duration::asAbsoluteNumeric()"
         
         // Calculate the simple numeric value by normalising to a scale where smallest rhythmic value = 1.
         long numerator = fDuration.getNumerator() * SMALLEST_POSSIBLE_NOTE_VALUE_MULTIPLIER;
@@ -136,9 +138,6 @@ namespace IMUSANT
             incremental_val = (incremental_val + (initial_numeric_with_time_mod / fraction_of_initial_value_to_add));
             fraction_of_initial_value_to_add = fraction_of_initial_value_to_add * 2;
         }
-        
-        // Account for normal-type
-        // REVISIT
         
         return incremental_val;
     }
