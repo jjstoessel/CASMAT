@@ -33,6 +33,19 @@ namespace CATSMAT {
                     fRestCount++;
                 }
                 
+                //get melodic intervals
+                //for first note of a part, need to store; operate only for n>=1
+                if (fPreviousNote==NULL) {
+                    fPreviousNote = note;
+                }
+                else if (note->getType()==IMUSANT_NoteType::pitch && (!note->isTiedPrevious() || !note->isTiedBothSides()))
+                {
+                    IMUSANT_interval interval(fPreviousNote->pitch(), note->pitch());
+                    int currentIntervalCount = fHIntervalProfile[interval];
+                    fHIntervalProfile[interval] = currentIntervalCount + 1;
+                    
+                }
+                
                 //fDurationProfile[note->duration()]
                 
             }
