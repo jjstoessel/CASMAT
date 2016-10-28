@@ -41,6 +41,7 @@ namespace CATSMAT {
     private:
         int fNoteCount = 0;
         int fRestCount = 0;
+        S_IMUSANT_note              fPreviousNote = NULL;
         map<IMUSANT_pitch,int>      fPitchProfile;
         map<IMUSANT_duration,int>   fDurationProfile;
         map<IMUSANT_interval, int>  fHIntervalProfile; //horizontal interval profile

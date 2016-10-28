@@ -544,5 +544,128 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_partdata.cpp"
+            timestampString = "498911663.853309"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "CATSMAT_partdata::findBasicDataFromPart(S_IMUSANT_part part)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::CATSMAT_partdata::findBasicDataFromPart(IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_part&gt;)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/catsmat/CATSMAT_partdata.cpp"
+                  timestampString = "498911451.935206"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1498">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::CATSMAT_partdata::findBasicDataFromPart(IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_part&gt;)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/catsmat/CATSMAT_partdata.cpp"
+                  timestampString = "498911451.935338"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1518">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::CATSMAT_partdata::findBasicDataFromPart(IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_part&gt;)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/catsmat/CATSMAT_partdata.cpp"
+                  timestampString = "498911451.935455"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1538">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::CATSMAT_partdata::findBasicDataFromPart(IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_part&gt;)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/catsmat/CATSMAT_partdata.cpp"
+                  timestampString = "498911451.935558"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1565">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::CATSMAT_partdata::findBasicDataFromPart(IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_part&gt;)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/catsmat/CATSMAT_partdata.cpp"
+                  timestampString = "498911451.935666"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2285">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::CATSMAT_partdata::findBasicDataFromPart(IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_part&gt;)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/catsmat/CATSMAT_partdata.cpp"
+                  timestampString = "498911451.935766"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2371">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::CATSMAT_partdata::findBasicDataFromPart(IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_part&gt;)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/catsmat/CATSMAT_partdata.cpp"
+                  timestampString = "498911451.935945"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2534">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
