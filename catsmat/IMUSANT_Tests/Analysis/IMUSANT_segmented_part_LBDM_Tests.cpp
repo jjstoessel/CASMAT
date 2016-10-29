@@ -152,10 +152,11 @@ S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_YankeeDoodle = NULL;
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)
 {
     S_IMUSANT_part part = new_IMUSANT_part();
-    
     IMUSANT_segmented_part_LBDM * segmented_part = new IMUSANT_segmented_part_LBDM();
-    
     ASSERT_FALSE(segmented_part == NULL);
+
+    S_IMUSANT_segmented_part_LBDM s_segmented_part = new_IMUSANT_segmented_part_LBDM();
+    ASSERT_FALSE(s_segmented_part == NULL);
 
     delete segmented_part;
 }

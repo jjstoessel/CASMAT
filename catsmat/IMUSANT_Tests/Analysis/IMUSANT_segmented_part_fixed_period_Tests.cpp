@@ -75,11 +75,13 @@ S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_YankeeDoodle =
 
 TEST_F(IMUSANT_segmented_part_fixed_period_Tests, Constructor)
 {
-    S_IMUSANT_part part = new_IMUSANT_part();
+    S_IMUSANT_score score = new_IMUSANT_score();
     
     IMUSANT_segmented_part_fixed_period * segmented_part = new IMUSANT_segmented_part_fixed_period();
+    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
     
     ASSERT_FALSE(segmented_part == NULL);
+    ASSERT_FALSE(s_segmented_part == NULL);
     
     delete segmented_part;
 }

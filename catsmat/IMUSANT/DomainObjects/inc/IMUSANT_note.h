@@ -28,6 +28,8 @@ namespace IMUSANT
 {
     ostream& operator<< (ostream& os, const S_IMUSANT_note& elt );
     
+    typedef vector<S_IMUSANT_note> IMUSANT_note_vector;
+    
     /*!
      \brief An IMUSANT note representation.
      
