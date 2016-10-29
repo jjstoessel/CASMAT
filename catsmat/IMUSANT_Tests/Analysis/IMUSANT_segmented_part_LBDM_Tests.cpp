@@ -76,7 +76,7 @@ protected:
     
     bool checkEqualWithinTolleranceField(double expected, double actual, int index_pos)
     {
-        if (equalWithinTollerance(expected, actual))
+        if (_test_utils->equalWithinTollerance(expected, actual))
             return true;
         else
         {
@@ -167,7 +167,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
 
     for (int jdex = 0 ; jdex < P1_COUNT; jdex++)
     {
-        ASSERT_TRUE(equalWithinTollerance(strength_P1_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED], lbsp[jdex]))
+        ASSERT_TRUE(_test_utils->equalWithinTollerance(strength_P1_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED], lbsp[jdex]))
             << "Failed with jdex = " << jdex
             << ". Expected " << strength_P1_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED]
             << ". Received " << lbsp[jdex]
@@ -181,7 +181,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
 
     for (int jdex = 0 ; jdex < P2_COUNT; jdex++)
     {
-        ASSERT_TRUE(equalWithinTollerance(strength_P2_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED], lbsp[jdex]))
+        ASSERT_TRUE(_test_utils->equalWithinTollerance(strength_P2_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED], lbsp[jdex]))
             << "Failed with jdex = " << jdex
             << ". Expected " << strength_P2_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED]
             << ". Received " << lbsp[jdex]
@@ -195,7 +195,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
     
     for (int jdex = 0 ; jdex < P3_COUNT; jdex++)
     {
-        ASSERT_TRUE(equalWithinTollerance(strength_P3_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED], lbsp[jdex]))
+        ASSERT_TRUE(_test_utils->equalWithinTollerance(strength_P3_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED], lbsp[jdex]))
         << "Failed with jdex = " << jdex
         << ". Expected " << strength_P3_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED]
         << ". Received " << lbsp[jdex]
@@ -209,7 +209,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
     
     for (int jdex = 0 ; jdex < YANKEEDOODLE_COUNT; jdex++)
     {
-        ASSERT_TRUE(equalWithinTollerance(strength_YD_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED], lbsp[jdex]))
+        ASSERT_TRUE(_test_utils->equalWithinTollerance(strength_YD_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED], lbsp[jdex]))
         << "Failed with jdex = " << jdex
         << ". Expected " << strength_YD_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED]
         << ". Received " << lbsp[jdex]
@@ -582,8 +582,8 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, euclidianDistance_Test)
     << "1 - 3  : " << one_three << endl  << endl << endl << endl;
 #endif
     
-    ASSERT_TRUE(equalWithinTollerance(0, one_two));
-    ASSERT_TRUE(equalWithinTollerance(49.5694, one_three));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(0, one_two));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(49.5694, one_three));
 }
 
 TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Similarity_Test)
@@ -596,11 +596,11 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
     seg_part->setSegmentBoundaryCalculationSpan(4);
     vector<IMUSANT_strength_vector>  segments = seg_part->getSegmentsWithWeightedAverages();
     
-    ASSERT_TRUE(equalWithinTollerance(40.7482, segments[0][0]));
-    ASSERT_TRUE(equalWithinTollerance(21.5194, segments[1][3]));
-    ASSERT_TRUE(equalWithinTollerance(93.7083, segments[2][7]));
-    ASSERT_TRUE(equalWithinTollerance(106.667, segments[3][0]));
-    ASSERT_TRUE(equalWithinTollerance(153.663, segments[3][7]));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(40.7482, segments[0][0]));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(21.5194, segments[1][3]));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(93.7083, segments[2][7]));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(106.667, segments[3][0]));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(153.663, segments[3][7]));
     
     
     double zero_one = euclidianDistance(segments[0], segments[1]);
@@ -634,12 +634,12 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
     << "2 - 3  : " << two_three << endl << endl << endl;
 #endif
     
-    ASSERT_TRUE(equalWithinTollerance(138.795, zero_one));
-    ASSERT_TRUE(equalWithinTollerance(139.39, zero_two));
-    ASSERT_TRUE(equalWithinTollerance(179.098, zero_three));
-    ASSERT_TRUE(equalWithinTollerance(0.839491, one_two));
-    ASSERT_TRUE(equalWithinTollerance(63.1178, one_three));
-    ASSERT_TRUE(equalWithinTollerance(62.3701, two_three));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(138.795, zero_one));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(139.39, zero_two));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(179.098, zero_three));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(0.839491, one_two));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(63.1178, one_three));
+    ASSERT_TRUE(_test_utils->equalWithinTollerance(62.3701, two_three));
 
 }
 

@@ -54,6 +54,11 @@ protected:
         fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("MusicXMLv3/Yankee_Doodle.xml");
     }
     
+    bool equalWithinTollerance(float f1, float f2)
+    {
+        return _test_utils->equalWithinTollerance(f1, f2);
+    }
+    
     static IMUSANT_test_utilities * _test_utils;
     static S_IMUSANT_score fScore_LBDM_Test1;
     static S_IMUSANT_score fScore_YankeeDoodle;

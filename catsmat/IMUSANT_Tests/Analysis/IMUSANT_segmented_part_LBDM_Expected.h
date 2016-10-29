@@ -14,12 +14,7 @@ class IMUSANT_segmented_part_LBDM_Expected
 {
 
 protected:
-    
-    bool equalWithinTollerance(float f1, float f2)
-    {
-        return (fabs(f1 - f2) < 0.001);
-    }
-    
+        
     // ************* EXPECTED OUTPUT TABLES *********** //
     
     static const int P1_COUNT = 17;

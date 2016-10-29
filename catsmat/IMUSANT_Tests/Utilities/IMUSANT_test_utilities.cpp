@@ -133,3 +133,27 @@ OutputDiffResult(string temp_output_file_path)
     cout << endl;
 }
 
+bool
+IMUSANT_test_utilities::
+equalWithinTollerance(float f1, float f2)
+{
+    return (fabs(f1 - f2) < 0.001);
+}
+
+bool
+IMUSANT_test_utilities::
+checkEqualWithinTolleranceField(double expected, double actual, int index_pos)
+{
+    if (equalWithinTollerance(expected, actual))
+        return true;
+    else
+    {
+        cout << "Failed with jdex = " << index_pos
+        << ". Expected " << expected
+        << ". Received " << actual
+        << endl;
+        
+        return false;
+    }
+};
+

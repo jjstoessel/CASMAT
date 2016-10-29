@@ -30,6 +30,10 @@ public:
 
     void DiffActualAndExpected(string actual, string expected);
     
+    bool equalWithinTollerance(float f1, float f2);
+    bool checkEqualWithinTolleranceField(double expected, double actual, int index_pos);
+    
+    
 private:
     string GetTempFilePath();
     void DiffFiles(string file1, string file2 );
