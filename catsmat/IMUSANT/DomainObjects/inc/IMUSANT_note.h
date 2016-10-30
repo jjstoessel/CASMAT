@@ -101,6 +101,8 @@ namespace IMUSANT
         bool operator== (const IMUSANT_note& note) const;
         bool operator< (const IMUSANT_note& note) const;
         
+        bool equals(const IMUSANT_note& n1) const;
+        
         static bool higher(const IMUSANT_note& note1, const IMUSANT_note& note2);
 
         

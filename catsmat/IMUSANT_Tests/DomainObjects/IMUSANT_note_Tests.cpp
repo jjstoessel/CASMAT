@@ -94,3 +94,94 @@ TEST_F(IMUSANT_note_Tests, BasicPrintTest)
     
 }
 
+TEST_F(IMUSANT_note_Tests, NoteEqualityOperatorTest_Equal)
+{
+    S_IMUSANT_note note1 = new_IMUSANT_note();
+    S_IMUSANT_note note2 = new_IMUSANT_note();
+    
+    S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
+    pitch1->set(IMUSANT_pitch::G, 3, 1, IMUSANT_pitch::sharp, false);
+    
+    S_IMUSANT_duration duration1 = new_IMUSANT_duration();
+    duration1->set(IMUSANT_duration::semibreve, 3, *new TRational(3,2), *new TRational(5,6), 2);
+    
+    note1->setPitch(*pitch1);
+    note2->setPitch(*pitch1);
+    
+    note1->setDuration(*duration1);
+    note2->setDuration(*duration1);
+    
+    ASSERT_TRUE(note1->equals(*note2));
+}
+
+TEST_F(IMUSANT_note_Tests, NoteEqualityOperatorTest_PitchDiffers)
+{
+    S_IMUSANT_note note1 = new_IMUSANT_note();
+    S_IMUSANT_note note2 = new_IMUSANT_note();
+    
+    S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
+    S_IMUSANT_pitch pitch2 = new_IMUSANT_pitch();
+    
+    pitch1->set(IMUSANT_pitch::G, 3, 1, IMUSANT_pitch::sharp, false);
+    pitch2->set(IMUSANT_pitch::A, 3, 1, IMUSANT_pitch::sharp, false);
+    
+    S_IMUSANT_duration duration1 = new_IMUSANT_duration();
+    duration1->set(IMUSANT_duration::semibreve, 3, *new TRational(3,2), *new TRational(5,6), 2);
+    
+    note1->setPitch(*pitch1);
+    note2->setPitch(*pitch2);
+    
+    note1->setDuration(*duration1);
+    note2->setDuration(*duration1);
+    
+    ASSERT_FALSE(note1->equals(*note2));
+}
+
+TEST_F(IMUSANT_note_Tests, NoteEqualityOperatorTest_DurationDiffers)
+{
+    S_IMUSANT_note note1 = new_IMUSANT_note();
+    S_IMUSANT_note note2 = new_IMUSANT_note();
+    
+    S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
+    pitch1->set(IMUSANT_pitch::G, 3, 1, IMUSANT_pitch::sharp, false);
+   
+    S_IMUSANT_duration duration1 = new_IMUSANT_duration();
+    S_IMUSANT_duration duration2 = new_IMUSANT_duration();
+
+    duration1->set(IMUSANT_duration::semibreve, 3, *new TRational(3,2), *new TRational(5,6), 2);
+    duration2->set(IMUSANT_duration::crochet, 3, *new TRational(3,2), *new TRational(5,6), 2);
+    
+    note1->setPitch(*pitch1);
+    note2->setPitch(*pitch1);
+    
+    note1->setDuration(*duration1);
+    note2->setDuration(*duration2);
+    
+    ASSERT_FALSE(note1->equals(*note2));
+}
+
+TEST_F(IMUSANT_note_Tests, NoteEqualityOperatorTest_TypeDiffers)
+{
+    S_IMUSANT_note note1 = new_IMUSANT_note();
+    S_IMUSANT_note note2 = new_IMUSANT_note();
+    
+    S_IMUSANT_pitch pitch1 = new_IMUSANT_pitch();
+    pitch1->set(IMUSANT_pitch::G, 3, 1, IMUSANT_pitch::sharp, false);
+    
+    S_IMUSANT_duration duration1 = new_IMUSANT_duration();
+    duration1->set(IMUSANT_duration::semibreve, 3, *new TRational(3,2), *new TRational(5,6), 2);
+    
+    note1->setPitch(*pitch1);
+    note2->setPitch(*pitch1);
+    
+    note1->setDuration(*duration1);
+    note2->setDuration(*duration1);
+    
+    note2->setType(IMUSANT_NoteType::rest);
+    
+    ASSERT_FALSE(note1->equals(*note2));
+}
+
+
+
+

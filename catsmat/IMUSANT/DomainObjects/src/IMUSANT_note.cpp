@@ -319,9 +319,23 @@ namespace IMUSANT
     IMUSANT_note::
     operator==(const IMUSANT_note& note) const
     {
-        return (fType==note.getType() &&
-                fPitch==note.pitch() &&
-                (fDuration==note.duration() || durationWithTies()==note.durationWithTies()));
+        return equals(note);
+    }
+    
+    bool
+    IMUSANT_note::
+    equals(const IMUSANT_note& n1) const
+    {
+        const IMUSANT_note& n2 = *this;
+        
+        bool type_match = n1.fType == n2.fType;
+        bool pitch_match = *(n1.pitch()) == *(n2.pitch());
+        bool duration_match = *(n1.duration()) == *(n2.duration()) ;
+        bool duration_with_ties_match = n1.durationWithTies() == n2.durationWithTies();
+        
+        return ( type_match &&
+                pitch_match &&
+                (duration_match || duration_with_ties_match));
     }
     
     
