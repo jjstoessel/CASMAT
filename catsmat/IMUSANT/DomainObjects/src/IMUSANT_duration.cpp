@@ -203,8 +203,16 @@ namespace IMUSANT
     IMUSANT_duration::
     operator== (const IMUSANT_duration& dur) const
     {
-        return ((fDuration==dur.fDuration) && (fDots!=dur.fDots) && (fTimeModification==dur.fTimeModification))
-        || (getSimplifiedDuration().fDuration==dur.getSimplifiedDuration().fDuration);
+        bool dur_match = fDuration == dur.fDuration;
+        bool dots_match = fDots == dur.fDots;
+        bool time_mod_match = fTimeModification == dur.fTimeModification;
+        bool simplified_duration_match = getSimplifiedDuration().fDuration == dur.getSimplifiedDuration().fDuration;
+        
+        return (dur_match &&
+                dots_match &&
+                time_mod_match)
+                ||
+                simplified_duration_match;
     }
     
     
