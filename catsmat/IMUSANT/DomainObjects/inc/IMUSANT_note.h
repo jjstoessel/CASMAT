@@ -78,7 +78,8 @@ namespace IMUSANT
         bool isTiedBothSides() const { return (isTiedPrevious() && isTiedNext()); }
         bool isNotNormal() const { return fStyle!=IMUSANT_NoteStyle::normal; }
         bool hasFermata() const { return fHasFermata; }
-        
+        bool isRest() const { return fType == IMUSANT_NoteType::rest ; }
+                
         void accept(IMUSANT_visitor& visitor);
         
         void print(ostream& os) const;
