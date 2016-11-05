@@ -101,3 +101,12 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(7, s_segmented_part->get_period_length());
 }
 
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Sanctus)
+{
+    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    int ret_val = s_segmented_part->initialise(fScore_Sanctus);
+    
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
+    ASSERT_EQ(5, s_segmented_part->get_period_length());
+}
+

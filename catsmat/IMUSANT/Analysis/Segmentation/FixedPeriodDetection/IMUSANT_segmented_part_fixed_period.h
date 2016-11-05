@@ -27,6 +27,7 @@ namespace IMUSANT
         static const int ERR_MORE_THAN_ONE_PART_AT_BEGINNING = 2;
         static const int ERR_PARTS_DONT_MATCH = 3;
         
+       
         friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
 
         
@@ -36,7 +37,7 @@ namespace IMUSANT
         
         virtual ~IMUSANT_segmented_part_fixed_period() {}
         
-        int initialise(S_IMUSANT_score the_score);
+        int initialise(S_IMUSANT_score the_score, double error_threshold = 0.1);
         
         //
         // This method returns you segments in the form of note vectors.  Each element of the
@@ -52,6 +53,7 @@ namespace IMUSANT
         S_IMUSANT_score fScore;
         
         int fPeriodLength = 0;
+        double fErrorThreshold = 0;
         
     };
     
