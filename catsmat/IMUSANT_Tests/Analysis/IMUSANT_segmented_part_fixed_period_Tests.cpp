@@ -73,10 +73,8 @@ S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_YankeeDoodle =
 // ************* TEST CASES START HERE *********** //
 
 
-TEST_F(IMUSANT_segmented_part_fixed_period_Tests, Constructor)
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Constructor)
 {
-    S_IMUSANT_score score = new_IMUSANT_score();
-    
     IMUSANT_segmented_part_fixed_period * segmented_part = new IMUSANT_segmented_part_fixed_period();
     S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
     
@@ -85,3 +83,21 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, Constructor)
     
     delete segmented_part;
 }
+
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_NotEnoughParts)
+{
+    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    int ret_val = s_segmented_part->initialise(fScore_YankeeDoodle);
+    
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::ERR_NOT_ENOUGH_PARTS, ret_val);
+}
+
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
+{
+    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    int ret_val = s_segmented_part->initialise(fScore_Kyrie);
+    
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
+    ASSERT_EQ(7, s_segmented_part->get_period_length());
+}
+
