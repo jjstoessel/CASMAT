@@ -36,7 +36,7 @@ class libIMUSANT
 #include "IMUSANT_mxmlv3_exceptions.h"
 //#include "IMUSANT_repeated_interval_substring.h"
 #include "IMUSANT_t_repeated_substring.h"
-#include "IMUSANT_segmented_part_LBDM.h"
+#include "IMUSANT_segment.h"
 #include "IMUSANT_segmented_part_fixed_period.h"
 
 #include "IMUSANT_LBDM_segmenter.h"
