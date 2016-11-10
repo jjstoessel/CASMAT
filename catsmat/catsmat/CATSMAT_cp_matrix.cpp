@@ -7,8 +7,8 @@
 //  Purpose: To build an in memory representation of a contrapuntal structure
 //
 //  History:
-//  – First fully functional on 10/3/2015
-//
+//  10 Mar 2015 - First fully functional on
+//  10 Nov 2016 - CPMatrix now copies the inserted note
 //
 #include "CATSMAT_cp_matrix.hpp"
 #include "CATSMAT_exception.h"
@@ -91,22 +91,32 @@ namespace CATSMAT
     CATSMAT_cp_matrix::
     add(const IMUSANT_note& note)
     {
+        //change added 10 Nov 2016 - note copied so it can be modified if out of dimensions of measure
+        S_IMUSANT_note copy_note = new IMUSANT_note(note);
+        
         if (note.getStyle()==IMUSANT_NoteStyle::hidden) throw catsmat_runtime_error("hidden note encountered at note: " + string(note.pretty_print())); // ignore hidden notes
         
-        fCumulativeMeasureDuration += *note.duration();
+        fCumulativeMeasureDuration += *copy_note->duration();
         
         if (fCumulativeMeasureDuration>fMeasureDuration) {
             if (fCurrentMeasureNumber==1)
                 fMeasureDuration = fCumulativeMeasureDuration; // a quick hack for the time being for pieces without time signatures
-            else
-                throw catsmat_runtime_error("Total duration of measure exceeded with note: " + string(note.pretty_print()));
+            else //this truncates any notes at end of the measure which exceed the length of a measure; requires testing; will not work if we decide to work with cross-bar/hidden notes
+            {
+                fCumulativeMeasureDuration -= *note.duration();
+                IMUSANT_duration new_dur = fMeasureDuration - fCumulativeMeasureDuration;
+                copy_note->setDuration(new_dur);
+                fCumulativeMeasureDuration += *copy_note->duration();
+            }
+            //else
+            //    throw catsmat_runtime_error("Total duration of measure exceeded with note: " + string(note.pretty_print()));
         }
         
         if (fCurrentPart==0) // there are no parts added yet
         {
             S_CATSMAT_chord chord = new_CATSMAT_chord();
-            S_IMUSANT_note copy_note = new_IMUSANT_note();
-            *copy_note = note;
+            //S_IMUSANT_note copy_note = new_IMUSANT_note();
+            //*copy_note = note;
             
             (*chord)[fCurrentPart]=copy_note;
             fCPMatrix.push_back(chord);
@@ -115,7 +125,7 @@ namespace CATSMAT
         }
         else if (fCurrentPart>0)//there is one or more parts already added
         {
-            insert(note);
+            insert(*copy_note);
         }
     }
 
