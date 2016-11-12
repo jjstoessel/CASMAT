@@ -13,6 +13,7 @@
 
 #include "IMUSANT_note.h"
 #include "IMUSANT_score.h"
+#include "IMUSANT_segment.h"
 
 using namespace std;
 
@@ -27,10 +28,6 @@ namespace IMUSANT
         static const int ERR_MORE_THAN_ONE_PART_AT_BEGINNING = 2;
         static const int ERR_PARTS_DONT_MATCH = 3;
         
-       
-        friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
-
-        
         IMUSANT_segmented_part_fixed_period()
         {
         }
@@ -40,17 +37,20 @@ namespace IMUSANT
         int initialise(S_IMUSANT_score the_score, double error_threshold = 0.1);
         
         //
-        // This method returns you segments in the form of note vectors.  Each element of the
-        // returned vector is a segment.
+        // This method returns you the segments.
         //
-        vector<IMUSANT_note_vector> getSegmentsAsNoteVectors();
-        
-        friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_fixed_period& segmented_part);
+        vector<S_IMUSANT_segment> get_segments();
         
         int get_period_length() { return fPeriodLength; };
         
+        friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_fixed_period& segmented_part);
+        friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
+       
+
     private:
         S_IMUSANT_score fScore;
+        
+        vector<S_IMUSANT_segment> fSegments;
         
         int fPeriodLength = 0;
         double fErrorThreshold = 0;

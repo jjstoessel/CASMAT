@@ -110,6 +110,10 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
     ASSERT_EQ(7, s_segmented_part->get_period_length());
+    
+    vector<S_IMUSANT_segment> segments = s_segmented_part->get_segments();
+    ASSERT_EQ(9, segments.size()) << "Unexpected number of segments...";
+    
 }
 
 TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Sanctus)
