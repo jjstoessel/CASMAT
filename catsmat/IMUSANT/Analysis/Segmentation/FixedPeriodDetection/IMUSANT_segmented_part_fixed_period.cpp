@@ -8,6 +8,10 @@
 
 #include "IMUSANT_segmented_part_fixed_period.h"
 
+// #define OUTPUT(s) cout << s;
+#define OUTPUT(s)
+
+
 namespace IMUSANT
 {
     
@@ -33,21 +37,9 @@ namespace IMUSANT
         // RULE 1 - One part enters at the beginning, the others have rests.
         int num_parts_sounding = 0;
         string first_sounding_part_id;
-        vector<string> non_sounding_parts;
+        vector<string> non_sounding_part_ids;
         
-        for (int part_index = 0; part_index < parts.size() ; part_index++ )
-        {
-            S_IMUSANT_note the_note = parts[part_index]->notes()[0];
-            if (the_note->isRest())
-            {
-                non_sounding_parts.push_back(parts[part_index]->getID());
-            }
-            else
-            {
-                num_parts_sounding++;
-                first_sounding_part_id = parts[part_index]->getID();
-            }
-        }
+        num_parts_sounding = separate_sounding_parts_from_non_sounding_parts(first_sounding_part_id, non_sounding_part_ids, parts);
         
         if (num_parts_sounding > 1)
         {
@@ -59,9 +51,9 @@ namespace IMUSANT
         int period_length = (int) parts[0]->measures().size();       // We are going to count down to find the earliest of the entries...
         string second_sounding_part_id;
         
-        for (int part_index = 0; part_index < non_sounding_parts.size(); part_index++)
+        for (int part_index = 0; part_index < non_sounding_part_ids.size(); part_index++)
         {
-            IMUSANT_vector<S_IMUSANT_note> notes = the_score->partlist()->getPart(non_sounding_parts[part_index])->notes();
+            IMUSANT_vector<S_IMUSANT_note> notes = the_score->partlist()->getPart(non_sounding_part_ids[part_index])->notes();
             
             bool found = false;
             for (int note_index = 0; note_index < notes.size() && !found; note_index++)
@@ -71,7 +63,7 @@ namespace IMUSANT
                     if (note_index < period_length)
                     {
                         period_length = note_index;
-                        second_sounding_part_id = non_sounding_parts[part_index];
+                        second_sounding_part_id = non_sounding_part_ids[part_index];
                     }
                     found = true;
                 }
@@ -97,17 +89,19 @@ namespace IMUSANT
                 fSegments.push_back(next_segment);
             }
             
-            cout << "Comparing " << n1->pretty_print() << " to " << n2->pretty_print();
+
+            OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
+
             
             if (! (*n1 == *n2))
             {
                 num_non_matching_notes++;
-                cout << " ---  DIFFERENT --- " ;
+                OUTPUT(" ---  DIFFERENT --- ");
             }
             
             next_segment->add_note(n2);
             
-            cout << endl;
+            OUTPUT(endl);
         }
         
         if (num_non_matching_notes > 0)
@@ -122,6 +116,28 @@ namespace IMUSANT
         
         return SUCCESS;
         
+    }
+    
+    int
+    IMUSANT_segmented_part_fixed_period::
+    separate_sounding_parts_from_non_sounding_parts(string &first_sounding_part_id, vector<string> &non_sounding_part_ids, IMUSANT_vector<S_IMUSANT_part>& parts)
+    {
+        int num_parts_sounding = 0;
+        for (int part_index = 0; part_index < parts.size() ; part_index++ )
+        {
+            S_IMUSANT_note the_note = parts[part_index]->notes()[0];
+            if (the_note->isRest())
+            {
+                non_sounding_part_ids.push_back(parts[part_index]->getID());
+            }
+            else
+            {
+                num_parts_sounding++;
+                first_sounding_part_id = parts[part_index]->getID();
+            }
+        }
+        
+        return num_parts_sounding;
     }
     
 

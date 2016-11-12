@@ -55,6 +55,11 @@ namespace IMUSANT
         int fPeriodLength = 0;
         double fErrorThreshold = 0;
         
+        int separate_sounding_parts_from_non_sounding_parts(string &first_sounding_part_id,
+                                                            vector<string> &non_sounding_part_ids,
+                                                            IMUSANT_vector<S_IMUSANT_part>& parts);
+
+        
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> S_IMUSANT_segmented_part_fixed_period;
