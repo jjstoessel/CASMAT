@@ -53,6 +53,7 @@ protected:
         fScore_Kyrie = _test_utils->initialiseScoreFromFile("MusicXMLv3/Kyrie.xml");
         fScore_Sanctus = _test_utils->initialiseScoreFromFile("MusicXMLv3/Sanctus.xml");
         fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("MusicXMLv3/Yankee_Doodle.xml");
+        fScore_Josquin_MAF_Christe = _test_utils->initialiseScoreFromFile("MusicXMLv3/Josquin_MAF_Christe.xml");
     }
     
     
@@ -60,6 +61,7 @@ protected:
     static S_IMUSANT_score fScore_Kyrie;
     static S_IMUSANT_score fScore_Sanctus;
     static S_IMUSANT_score fScore_YankeeDoodle;
+    static S_IMUSANT_score fScore_Josquin_MAF_Christe;
     
     
 };
@@ -69,14 +71,13 @@ IMUSANT_test_utilities * IMUSANT_segmented_part_fixed_period_Tests::_test_utils 
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Kyrie = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Sanctus = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_YankeeDoodle = NULL;
+S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Josquin_MAF_Christe = NULL;
 
 // ************* TEST CASES START HERE *********** //
 
 
-TEST_F(IMUSANT_segmented_part_fixed_period_Tests, Constructor)
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Constructor)
 {
-    S_IMUSANT_score score = new_IMUSANT_score();
-    
     IMUSANT_segmented_part_fixed_period * segmented_part = new IMUSANT_segmented_part_fixed_period();
     S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
     
@@ -85,3 +86,38 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, Constructor)
     
     delete segmented_part;
 }
+
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_NotEnoughParts)
+{
+    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    int ret_val = s_segmented_part->initialise(fScore_YankeeDoodle);
+    
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::ERR_NOT_ENOUGH_PARTS, ret_val);
+}
+
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_NotAPeriodicCannon)
+{
+    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    int ret_val = s_segmented_part->initialise(fScore_Josquin_MAF_Christe);
+    
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::ERR_MORE_THAN_ONE_PART_AT_BEGINNING, ret_val);
+}
+
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
+{
+    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    int ret_val = s_segmented_part->initialise(fScore_Kyrie);
+    
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
+    ASSERT_EQ(7, s_segmented_part->get_period_length());
+}
+
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Sanctus)
+{
+    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    int ret_val = s_segmented_part->initialise(fScore_Sanctus);
+    
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
+    ASSERT_EQ(5, s_segmented_part->get_period_length());
+}
+
