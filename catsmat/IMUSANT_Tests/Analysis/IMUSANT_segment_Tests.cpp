@@ -93,11 +93,14 @@ IMUSANT_test_utilities * IMUSANT_segment_Tests::_test_utils = NULL;
 
 TEST_F(IMUSANT_segment_Tests, Constructor)
 {
-    S_IMUSANT_segment p_segment = new_IMUSANT_segment();
+    S_IMUSANT_score score = new_IMUSANT_score();
+    S_IMUSANT_part part = new_IMUSANT_part();
+    
+    S_IMUSANT_segment p_segment = new_IMUSANT_segment(score, part);
+
     ASSERT_FALSE(p_segment == NULL);
     
-    IMUSANT_segment segment;
-    
+    IMUSANT_segment segment(score, part);
 }
 
 
