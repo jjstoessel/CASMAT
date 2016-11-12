@@ -58,6 +58,8 @@ namespace IMUSANT
         int separate_sounding_parts_from_non_sounding_parts(string &first_sounding_part_id,
                                                             vector<string> &non_sounding_part_ids,
                                                             IMUSANT_vector<S_IMUSANT_part>& parts);
+        
+        int calculate_period_length(string &second_sounding_part_id, vector<string>& non_sounding_part_ids, S_IMUSANT_score score);
 
         
     };

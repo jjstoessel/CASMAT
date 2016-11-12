@@ -46,29 +46,9 @@ namespace IMUSANT
             return ERR_MORE_THAN_ONE_PART_AT_BEGINNING;
         }
         
-        
         // RULE 2 - find the entry point of the second part to join in...
-        int period_length = (int) parts[0]->measures().size();       // We are going to count down to find the earliest of the entries...
         string second_sounding_part_id;
-        
-        for (int part_index = 0; part_index < non_sounding_part_ids.size(); part_index++)
-        {
-            IMUSANT_vector<S_IMUSANT_note> notes = the_score->partlist()->getPart(non_sounding_part_ids[part_index])->notes();
-            
-            bool found = false;
-            for (int note_index = 0; note_index < notes.size() && !found; note_index++)
-            {
-                if (! notes[note_index]->isRest())
-                {
-                    if (note_index < period_length)
-                    {
-                        period_length = note_index;
-                        second_sounding_part_id = non_sounding_part_ids[part_index];
-                    }
-                    found = true;
-                }
-            }
-        }
+        int period_length = calculate_period_length(second_sounding_part_id, non_sounding_part_ids, the_score);
         
         // RULE 3 - The notes up to the second_part_entry_point repeated from that point on.
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = the_score->partlist()->getPart(first_sounding_part_id)->notes();
@@ -140,6 +120,35 @@ namespace IMUSANT
         return num_parts_sounding;
     }
     
+    int
+    IMUSANT_segmented_part_fixed_period::
+    calculate_period_length(string &second_sounding_part_id, vector<string>& non_sounding_part_ids, S_IMUSANT_score score)
+    {
+        IMUSANT_vector<S_IMUSANT_part>& parts = score->partlist()->parts();
+        int period_length = (int) parts[0]->measures().size();       // We are going to count down to find the earliest of the entries...
+        
+        for (int part_index = 0; part_index < non_sounding_part_ids.size(); part_index++)
+        {
+            IMUSANT_vector<S_IMUSANT_note> notes = score->partlist()->getPart(non_sounding_part_ids[part_index])->notes();
+            
+            bool found = false;
+            for (int note_index = 0; note_index < notes.size() && !found; note_index++)
+            {
+                if (! notes[note_index]->isRest())
+                {
+                    if (note_index < period_length)
+                    {
+                        period_length = note_index;
+                        second_sounding_part_id = non_sounding_part_ids[part_index];
+                    }
+                    found = true;
+                }
+            }
+        }
+        
+        return period_length;
+    }
+
 
     vector<S_IMUSANT_segment>
     IMUSANT_segmented_part_fixed_period::
