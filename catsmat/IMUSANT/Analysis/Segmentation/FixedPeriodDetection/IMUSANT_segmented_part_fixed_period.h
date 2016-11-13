@@ -39,9 +39,9 @@ namespace IMUSANT
         //
         // This method returns you the segments.
         //
-        vector<S_IMUSANT_segment> get_segments();
+        vector<S_IMUSANT_segment> getSegments();
         
-        int get_period_duration() { return fPeriodDuration; };
+        int getPeriodDuration() { return fPeriodDuration; };
         
         friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_fixed_period& segmented_part);
         friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
@@ -55,14 +55,14 @@ namespace IMUSANT
         int fPeriodDuration = 0;
         double fErrorThreshold = 0;
         
-        int separate_sounding_parts_from_non_sounding_parts(string &first_sounding_part_id,
+        int separateSoundingPartsFromNonSoundingParts(string &first_sounding_part_id,
                                                             vector<string> &non_sounding_part_ids,
                                                             IMUSANT_vector<S_IMUSANT_part>& parts);
         
         // This method returns the index position of the second entry within the notes vector of the second sounding part.
-        int calculate_second_entry_note_index(string &second_sounding_part_id, vector<string>& non_sounding_part_ids, S_IMUSANT_score score);
+        int calculateSecondEntryNoteIndex(string &second_sounding_part_id, vector<string>& non_sounding_part_ids, S_IMUSANT_score score);
         
-        float calculate_period_duration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes, float second_sounding_note_index);
+        float calculatePeriodDuration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes, float second_sounding_note_index);
 
         
     };

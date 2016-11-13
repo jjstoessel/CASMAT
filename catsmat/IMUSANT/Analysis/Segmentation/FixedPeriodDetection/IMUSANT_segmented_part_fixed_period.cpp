@@ -39,7 +39,7 @@ namespace IMUSANT
         string first_sounding_part_id;
         vector<string> non_sounding_part_ids;
         
-        num_parts_sounding = separate_sounding_parts_from_non_sounding_parts(first_sounding_part_id, non_sounding_part_ids, parts);
+        num_parts_sounding = separateSoundingPartsFromNonSoundingParts(first_sounding_part_id, non_sounding_part_ids, parts);
         
         if (num_parts_sounding > 1)
         {
@@ -48,14 +48,14 @@ namespace IMUSANT
         
         // RULE 2 - find the entry point of the second part to join in...
         string second_sounding_part_id;
-        int second_sounding_note_index = calculate_second_entry_note_index(second_sounding_part_id, non_sounding_part_ids, the_score);
+        int second_sounding_note_index = calculateSecondEntryNoteIndex(second_sounding_part_id, non_sounding_part_ids, the_score);
         
         // RULE 3 - The notes up to the second_part_entry_point repeated from that point on.
         
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = the_score->partlist()->getPart(first_sounding_part_id)->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = the_score->partlist()->getPart(second_sounding_part_id)->notes();
         
-        float period_duration = calculate_period_duration(part_two_notes, second_sounding_note_index);
+        float period_duration = calculatePeriodDuration(part_two_notes, second_sounding_note_index);
         fPeriodDuration = period_duration;
         
         int first_sounding_note_index = 0;
@@ -107,7 +107,7 @@ namespace IMUSANT
     
     int
     IMUSANT_segmented_part_fixed_period::
-    separate_sounding_parts_from_non_sounding_parts(string &first_sounding_part_id, vector<string> &non_sounding_part_ids, IMUSANT_vector<S_IMUSANT_part>& parts)
+    separateSoundingPartsFromNonSoundingParts(string &first_sounding_part_id, vector<string> &non_sounding_part_ids, IMUSANT_vector<S_IMUSANT_part>& parts)
     {
         int num_parts_sounding = 0;
         for (int part_index = 0; part_index < parts.size() ; part_index++ )
@@ -129,7 +129,7 @@ namespace IMUSANT
     
     int
     IMUSANT_segmented_part_fixed_period::
-    calculate_second_entry_note_index(string &second_sounding_part_id, vector<string>& non_sounding_part_ids, S_IMUSANT_score score)
+    calculateSecondEntryNoteIndex(string &second_sounding_part_id, vector<string>& non_sounding_part_ids, S_IMUSANT_score score)
     {
         // REVISIT - this is a really dumb implementation - fix it...
         
@@ -161,7 +161,7 @@ namespace IMUSANT
     
     float
     IMUSANT_segmented_part_fixed_period::
-    calculate_period_duration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes , float second_sounding_note_index)
+    calculatePeriodDuration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes , float second_sounding_note_index)
     {
         float period_duration = 0; //  new_IMUSANT_duration();
        
@@ -176,7 +176,7 @@ namespace IMUSANT
 
     vector<S_IMUSANT_segment>
     IMUSANT_segmented_part_fixed_period::
-    get_segments()
+    getSegments()
     {
         return fSegments;
     }
