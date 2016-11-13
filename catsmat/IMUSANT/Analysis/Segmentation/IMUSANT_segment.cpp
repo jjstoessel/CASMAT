@@ -20,28 +20,28 @@ namespace IMUSANT
     
     S_IMUSANT_score
     IMUSANT_segment::
-    get_score()
+    getScore()
     {
         return fScore;
     }
     
     S_IMUSANT_part
     IMUSANT_segment::
-    get_part()
+    getPart()
     {
         return fPart;
     }
     
     void
     IMUSANT_segment::
-    set_score(S_IMUSANT_score score)
+    setScore(S_IMUSANT_score score)
     {
         fScore = score;
     }
     
     void
     IMUSANT_segment::
-    set_part(S_IMUSANT_part part)
+    setPart(S_IMUSANT_part part)
     {
         fPart = part;
     }
@@ -55,7 +55,7 @@ namespace IMUSANT
     
     void
     IMUSANT_segment::
-    add_note(S_IMUSANT_note note)
+    addNote(S_IMUSANT_note note)
     {
         fNotes.push_back(note);
     }

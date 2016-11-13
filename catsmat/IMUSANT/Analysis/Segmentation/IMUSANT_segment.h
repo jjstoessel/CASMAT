@@ -30,14 +30,14 @@ namespace IMUSANT
         
         virtual ~IMUSANT_segment() {}
         
-        S_IMUSANT_score get_score();
-        S_IMUSANT_part get_part();
+        S_IMUSANT_score getScore();
+        S_IMUSANT_part getPart();
         
-        void set_score(S_IMUSANT_score score);
-        void set_part(S_IMUSANT_part);
+        void setScore(S_IMUSANT_score score);
+        void setPart(S_IMUSANT_part);
         
         vector<S_IMUSANT_note> notes();
-        void add_note(S_IMUSANT_note note); 
+        void addNote(S_IMUSANT_note note);
         
         long confidence() { return fConfidence; };
         

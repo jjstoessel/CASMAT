@@ -79,7 +79,7 @@ namespace IMUSANT
                 OUTPUT(" ---  DIFFERENT --- ");
             }
             
-            next_segment->add_note(n2);
+            next_segment->addNote(n2);
             
             if (segment_duration == period_duration)
             {
