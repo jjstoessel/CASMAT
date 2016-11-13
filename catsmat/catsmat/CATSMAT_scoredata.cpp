@@ -58,15 +58,34 @@ namespace CATSMAT {
             fTotalRestCount += data.second->getRestCount();
             
             //accumulate pitch data maps - check that accumulate is non-destructive
+            //templatise this function
             map<IMUSANT_pitch,int> pp = data.second->getPitchProfile();
             
-            fPitchProfile = std::accumulate(pp.begin(),pp.end(),fPitchProfile,[](std::map<IMUSANT_pitch,int> &m, const std::pair<const IMUSANT_pitch, int> p)
-                                            {
-                                                return (m[p.first] +=p.second, m);
-                                            });
+            fPitchProfile = std::accumulate(pp.begin(),pp.end(),fPitchProfile,
+                                            [](std::map<IMUSANT_pitch,int> &m, const std::pair<const IMUSANT_pitch, int> p)
+                                                {
+                                                    return (m[p.first] +=p.second, m);
+                                                });
             
-            //same for map<IMUSANT_duration,int>       fDurationProfile;
-            //same for map<IMUSANT_interval, int>      fIntervalProfile;
+            //accumulate interval data maps - check
+            map<IMUSANT_interval, int> ip = data.second->getHIntervalProfile();
+            
+            fIntervalProfile = std::accumulate(ip.begin(), ip.end(), fIntervalProfile,
+                                               [](std::map<IMUSANT_interval,int> &m, const std::pair<const IMUSANT_interval,int> p)
+                                               {
+                                                   return (m[p.first] +=p.second, m);
+                                               }
+                                               );
+            
+            //accumulate duration data maps - check
+            map<IMUSANT_duration, int> dp = data.second->getDurationProfile();
+            
+            fDurationProfile = std::accumulate(dp.begin(), dp.end(), fDurationProfile,
+                                               [](std::map<IMUSANT_duration,int> &m, const std::pair<const IMUSANT_duration, int> p)
+                                               {
+                                                   return (m[p.first] +=p.second, m);
+                                               }
+                                               );
         }
         
         

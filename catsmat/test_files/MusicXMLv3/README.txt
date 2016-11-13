@@ -1,5 +1,5 @@
 *** XML Files In Root Directory ***
-The XML files in the root of this folder are a conversion of the MusicXML files in ../MsicXMLv1.   They were imported into Siblius 7 and then exported as XML 3. 
+The XML files in the root of this folder are a conversion of the MusicXML files in ../MsicXMLv1.   They were imported into Sibelius 7 and then exported as XML 3.
 
 *** xmlsamples ***
 The folder xmlsamples contains a set of MusicXML 3 files obtained from the following site on 5 September 2015:

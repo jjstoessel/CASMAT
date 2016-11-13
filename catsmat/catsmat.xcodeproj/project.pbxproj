@@ -1618,6 +1618,7 @@
 		496EF4C51B229D8100FE715F /* CATSMAT_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */,
 				1E2FA2C21B355A01002BB14F /* testdata */,
 				496EF4C61B229D8100FE715F /* main.cpp */,
 				496EF7141B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp */,
@@ -2791,7 +2792,6 @@
 				BA10A5CF1D93A40F000679C5 /* CATSMAT_scoredata.h */,
 				BA10A5CE1D93A40F000679C5 /* CATSMAT_scoredata.cpp */,
 				BA10A5D21D979F06000679C5 /* CATSMAT_partdata.h */,
-				BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */,
 			);
 			name = "General Analysis";
 			sourceTree = "<group>";

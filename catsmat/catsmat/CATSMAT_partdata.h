@@ -33,6 +33,8 @@ namespace CATSMAT {
         int     getNoteCount() { return fNoteCount; }
         int     getRestCount() { return fRestCount; }
         const map<IMUSANT_pitch,int>& getPitchProfile() { return fPitchProfile; }
+        const map<IMUSANT_duration,int>& getDurationProfile() { return fDurationProfile; }
+        const map<IMUSANT_interval,int>& getHIntervalProfile() { return fHIntervalProfile; }
         
     protected:
         CATSMAT_partdata() {}

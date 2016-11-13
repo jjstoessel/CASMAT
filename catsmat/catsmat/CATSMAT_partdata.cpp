@@ -45,8 +45,7 @@ namespace CATSMAT {
                     fHIntervalProfile[interval] = currentIntervalCount + 1;
                     
                 }
-                
-                //fDurationProfile[note->duration()]
+            
                 
             }
         }
