@@ -1549,8 +1549,8 @@
 			children = (
 				4932AB651DC43824006423CD /* FixedPeriodDetection */,
 				495A50281CA5B93F006985E2 /* LocalBoundaryDetectionModel */,
-				4926075A1DD11E24007C8A54 /* IMUSANT_segment.cpp */,
 				4926075B1DD11E24007C8A54 /* IMUSANT_segment.h */,
+				4926075A1DD11E24007C8A54 /* IMUSANT_segment.cpp */,
 			);
 			path = Segmentation;
 			sourceTree = "<group>";
