@@ -106,14 +106,20 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
 TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
 {
     S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
-    int ret_val = s_segmented_part->initialise(fScore_Kyrie);
+    int error_code = s_segmented_part->initialise(fScore_Kyrie);
     
-    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, error_code);
     ASSERT_EQ(10752, s_segmented_part->getPeriodDuration());
     
     vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
     ASSERT_EQ(9, segments.size()) << "Unexpected number of segments...";
     
+    for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
+    {
+        ASSERT_EQ(*fScore_Kyrie, *(segments[seg_index]->getScore()));
+    }
+    
+    // segments[0]->
 }
 
 TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Sanctus)
@@ -126,5 +132,10 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     
     vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
     ASSERT_EQ(23, segments.size()) << "Unexpected number of segments...";
+    
+    for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
+    {
+        ASSERT_EQ(*fScore_Sanctus, *(segments[seg_index]->getScore()));
+    }
 }
 

@@ -52,23 +52,25 @@ class VEXP IMUSANT_score : public smartable, public IMUSANT_visitable
 		void			setEditor(const string& editor) { fEditor = editor; }
 		void			setDate(const string& date) { fDate = date; }
 	
-		const string&	getWorkTitle()			{ return fWorkTitle; }
-        const string&	getWorkNum()			{ return fWorkNum; }
-        const string& 	getMovementTitle()		{ return fMovementTitle; }
-		const string& 	getMovementNum()		{ return fMovementNum; }
-		const STRPAIRVECTOR& getCreator()		{ return fCreator; }
-		const STRPAIRVECTOR& getRights()		{ return fRights; }
-		const string&	getComments()			{ return fScoreComments; }
-		const string&	getSource()				{ return fSource; }
-		const string&	getEditor()				{ return fEditor; }
-		const string&	getDate()				{ return fDate; }
+		const string&	getWorkTitle() const			{ return fWorkTitle; }
+        const string&	getWorkNum() const              { return fWorkNum; }
+        const string& 	getMovementTitle() const		{ return fMovementTitle; }
+		const string& 	getMovementNum() const          { return fMovementNum; }
+		const STRPAIRVECTOR& getCreator() const         { return fCreator; }
+		const STRPAIRVECTOR& getRights() const          { return fRights; }
+		const string&	getComments() const             { return fScoreComments; }
+		const string&	getSource() const               { return fSource; }
+		const string&	getEditor() const				{ return fEditor; }
+		const string&	getDate() const                 { return fDate; }
 		
         bool getPartById(string partId, S_IMUSANT_part& output_part);
-        S_IMUSANT_partlist& partlist()	{ return fPartList; }
+        S_IMUSANT_partlist& partlist() { return fPartList; }
 		
 		void			addPart(const S_IMUSANT_part& part) { fPartList->add(part); }
 		
 		void			print(ostream& os);
+    
+        bool operator== (const IMUSANT_score& score) const;
 		
 	protected:
 		
