@@ -246,6 +246,19 @@ TEST_F(IMUSANT_duration_Tests, Duration_equalityOperator)
     // ASSERT_FALSE(*lhs == *neq4);
 }
 
+TEST_F(IMUSANT_duration_Tests, Duration_equalityOperator_SameButDifferent)
+{
+    S_IMUSANT_duration n1 = new_IMUSANT_duration();
+    n1->set(IMUSANT_duration::crochet, 0);
+    
+    S_IMUSANT_duration n2 = new_IMUSANT_duration();
+    n2->set(IMUSANT_duration::quaver, 0);
+    n2->fDuration.setNumerator(2);
+    n2->fDuration.setDenominator(8);
+    
+    ASSERT_TRUE(*n1 == *n2);
+}
+
 
 // If we have two crotchets we should have 256 + 256 = 512 as the duration.
 // If we have a simple triplet, do we get the right answer?
