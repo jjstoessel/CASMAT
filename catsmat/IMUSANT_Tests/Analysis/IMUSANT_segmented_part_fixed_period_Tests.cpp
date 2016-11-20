@@ -1,4 +1,4 @@
-//
+////
 //  IMUSANT_segmented_part_fixed_period_Tests.cpp
 //  catsmat
 //
@@ -119,7 +119,37 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
         ASSERT_EQ(*fScore_Kyrie, *(segments[seg_index]->getScore()));
     }
     
-    // segments[0]->
+    ASSERT_EQ(14, segments[0]->notes().size());
+    ASSERT_EQ(14, segments[1]->notes().size());
+    ASSERT_EQ(16, segments[2]->notes().size());
+    ASSERT_EQ(18, segments[3]->notes().size());
+    ASSERT_EQ(14, segments[4]->notes().size());
+    ASSERT_EQ(14, segments[5]->notes().size());
+    ASSERT_EQ(32, segments[6]->notes().size());
+    ASSERT_EQ(25, segments[7]->notes().size());
+    ASSERT_EQ(01, segments[8]->notes().size());
+    
+    //
+    // Spot test some of the notes within the segments...
+    //
+    
+    ASSERT_EQ("Ca 2", segments[0]->getPart()->getPartName());
+    ASSERT_EQ(1, segments[0]->notes()[0]->getNoteIndex());
+    ASSERT_EQ(IMUSANT_pitch::G, segments[0]->notes()[0]->pitch()->name());
+    
+    ASSERT_EQ("Ca 2", segments[7]->getPart()->getPartName());
+    ASSERT_EQ(57, segments[7]->notes()[0]->getMeasureNum());
+    ASSERT_EQ(1, segments[7]->notes()[0]->getNoteIndex());
+    ASSERT_EQ(IMUSANT_pitch::D, segments[7]->notes()[0]->pitch()->name());
+    
+    ASSERT_EQ(63, segments[7]->notes()[24]->getMeasureNum());
+    ASSERT_EQ(3, segments[7]->notes()[24]->getNoteIndex());
+    ASSERT_EQ(IMUSANT_pitch::D, segments[7]->notes()[24]->pitch()->name());
+    
+    ASSERT_EQ("Ca 2", segments[8]->getPart()->getPartName());
+    ASSERT_EQ(63, segments[8]->notes()[0]->getMeasureNum());
+    ASSERT_EQ(4, segments[8]->notes()[0]->getNoteIndex());
+    ASSERT_EQ(IMUSANT_pitch::undefined, segments[8]->notes()[0]->pitch()->name());
 }
 
 TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Sanctus)
