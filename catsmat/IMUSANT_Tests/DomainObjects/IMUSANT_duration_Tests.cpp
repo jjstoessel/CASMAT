@@ -166,7 +166,7 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_WithDots)
     ASSERT_EQ(0, sum.fDots);
 }
 
-TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_WithTimeMod)
+TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_equalityOperator_WithTimeMod)
 {
     S_IMUSANT_duration crotchet_in_triplet_1 = new_IMUSANT_duration();
     crotchet_in_triplet_1->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 0);
@@ -193,6 +193,57 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_WithTimeMod)
     ASSERT_EQ(1, sum.fNormalDuration.getDenominator());
     ASSERT_EQ(0, sum.fNormalDots);
     ASSERT_EQ(0, sum.fDots);
+    
+    S_IMUSANT_duration comparison = new_IMUSANT_duration();
+    comparison->fDuration.setNumerator(1);
+    comparison->fDuration.setDenominator(1);
+    comparison->fTimeModification.setNumerator(1);
+    comparison->fTimeModification.setDenominator(1);
+    comparison->fNormalDuration.setNumerator(0);
+    comparison->fNormalDuration.setDenominator(0);
+    comparison->fNormalDots = 0;
+    comparison->fDots = 0;
+    
+    ASSERT_TRUE(sum == *comparison);
+}
+
+TEST_F(IMUSANT_duration_Tests, Duration_equalityOperator)
+{
+    S_IMUSANT_duration lhs = new_IMUSANT_duration();
+    lhs->set(IMUSANT_duration::crochet, 1, *new TRational(3,2), IMUSANT_duration::unmeasured, 256);
+    
+    S_IMUSANT_duration rhs = new_IMUSANT_duration();
+    rhs->set(IMUSANT_duration::crochet, 1, *new TRational(3,2), IMUSANT_duration::unmeasured, 256);
+    
+    S_IMUSANT_duration neq1 = new_IMUSANT_duration();
+    neq1->set(IMUSANT_duration::quaver, 1, *new TRational(3,2), IMUSANT_duration::unmeasured, 256);
+    
+    S_IMUSANT_duration neq2 = new_IMUSANT_duration();
+    neq2->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 256);
+    
+    S_IMUSANT_duration neq3 = new_IMUSANT_duration();
+    neq3->set(IMUSANT_duration::crochet, 1, *new TRational(2,2), IMUSANT_duration::unmeasured, 256);
+    
+    //
+    // We are not handling the MusicXML normal-type and normal-dots elements properly at the moment.
+    // See D-01024 - IMUSANT_duration does not handle dotted notes in tuplets (not handling XML normal-type attribute).
+    //
+    // S_IMUSANT_duration neq4 = new_IMUSANT_duration();
+    // neq4->set(IMUSANT_duration::crochet, 1, *new TRational(3,2), IMUSANT_duration::breve, 256);
+    //
+    
+    ASSERT_TRUE(*lhs == *rhs);
+    ASSERT_FALSE(*lhs != *rhs);
+    
+    ASSERT_FALSE(*lhs == *neq1);
+    ASSERT_FALSE(*lhs == *neq2);
+    ASSERT_FALSE(*lhs == *neq3);
+    
+    ASSERT_TRUE(*lhs != *neq1);
+    ASSERT_TRUE(*lhs != *neq2);
+    ASSERT_TRUE(*lhs != *neq3);
+    
+    // ASSERT_FALSE(*lhs == *neq4);
 }
 
 

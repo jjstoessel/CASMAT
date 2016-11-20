@@ -195,8 +195,7 @@ namespace IMUSANT
     IMUSANT_duration::
     operator!= (const IMUSANT_duration& dur) const
     {
-        return (fDuration!=dur.fDuration) || (fDots!=dur.fDots) || (fTimeModification!=dur.fTimeModification)
-        || (getSimplifiedDuration().fDuration!=dur.getSimplifiedDuration().fDuration);
+        return ! (*this == dur);
     }
     
     bool
@@ -206,11 +205,20 @@ namespace IMUSANT
         bool dur_match = fDuration == dur.fDuration;
         bool dots_match = fDots == dur.fDots;
         bool time_mod_match = fTimeModification == dur.fTimeModification;
+        
+        // We are not handling the MusicXML normal-type and normal-dots elements properly at the moment.
+        // See D-01024 - IMUSANT_duration does not handle dotted notes in tuplets (not handling XML normal-type attribute).
+        //
+        // bool normal_duration_match = fNormalDuration == dur.fNormalDuration;
+        //
+        
         bool simplified_duration_match = getSimplifiedDuration().fDuration == dur.getSimplifiedDuration().fDuration;
         
         return (dur_match &&
                 dots_match &&
-                time_mod_match)
+                time_mod_match
+                // && normal_duration_match   -- see comment above.
+                )
                 ||
                 simplified_duration_match;
     }
