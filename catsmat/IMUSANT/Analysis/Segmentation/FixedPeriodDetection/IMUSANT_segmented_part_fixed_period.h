@@ -62,7 +62,7 @@ namespace IMUSANT
         // This method returns the index position of the second entry within the notes vector of the second sounding part.
         int calculateSecondEntryNoteIndex(string &second_sounding_part_id, vector<string>& non_sounding_part_ids, S_IMUSANT_score score);
         
-        float calculatePeriodDuration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes, float second_sounding_note_index);
+        S_IMUSANT_duration calculatePeriodDuration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes, float second_sounding_note_index);
 
         
     };

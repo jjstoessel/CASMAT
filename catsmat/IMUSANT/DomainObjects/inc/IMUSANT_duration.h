@@ -53,7 +53,7 @@ namespace IMUSANT
         bool                operator!= (const IMUSANT_duration& dur) const;
         bool                operator== (const IMUSANT_duration& dur) const;
         IMUSANT_duration	operator+(const IMUSANT_duration& right);
-        void				operator+=(const IMUSANT_duration& rhs);
+        IMUSANT_duration&	operator+=(const IMUSANT_duration& rhs);
         IMUSANT_duration    operator-(const IMUSANT_duration& right);
         void				operator-=(const IMUSANT_duration& rhs);
         bool                operator >(const IMUSANT_duration &dur) const;

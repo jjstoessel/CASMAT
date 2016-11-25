@@ -55,12 +55,13 @@ namespace IMUSANT
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = the_score->partlist()->getPart(first_sounding_part_id)->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = the_score->partlist()->getPart(second_sounding_part_id)->notes();
         
-        float period_duration = calculatePeriodDuration(part_two_notes, second_sounding_note_index);
-        fPeriodDuration = period_duration;
+        S_IMUSANT_duration period_duration = calculatePeriodDuration(part_two_notes, second_sounding_note_index);
+
+        fPeriodDuration = period_duration->asAbsoluteNumeric();   // REVISIT
         
         int first_sounding_note_index = 0;
         int num_non_matching_notes = 0;
-        float segment_duration = 0;
+        S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
         S_IMUSANT_segment next_segment = new_IMUSANT_segment(fScore, the_score->partlist()->getPart(second_sounding_part_id));
         fSegments.push_back(next_segment);
         
@@ -69,7 +70,7 @@ namespace IMUSANT
             S_IMUSANT_note n1 = part_one_notes[p1_note_index];
             S_IMUSANT_note n2 = part_two_notes[p2_note_index];
             
-            segment_duration += n1->duration()->asAbsoluteNumeric();
+            *segment_duration += *n1->duration();
             
             OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
            
@@ -81,11 +82,11 @@ namespace IMUSANT
             
             next_segment->addNote(n2);
             
-            if (segment_duration == period_duration)
+            if (*segment_duration == *period_duration)
             {
                 next_segment = new_IMUSANT_segment(fScore, the_score->partlist()->getPart(second_sounding_part_id));
                 fSegments.push_back(next_segment);
-                segment_duration =0;
+                segment_duration = new_IMUSANT_duration();
             }
             
             OUTPUT(endl);
@@ -159,21 +160,22 @@ namespace IMUSANT
          return second_sounding_part_note_index;
     }
     
-    float
+
+    S_IMUSANT_duration
     IMUSANT_segmented_part_fixed_period::
     calculatePeriodDuration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes , float second_sounding_note_index)
     {
-        float period_duration = 0; //  new_IMUSANT_duration();
-       
+        S_IMUSANT_duration period_duration = new_IMUSANT_duration();
+        
         for (int note_index = 0 ; note_index < second_sounding_note_index; note_index++)
         {
-            period_duration += second_sounding_part_notes[note_index]->duration()->asAbsoluteNumeric();
+            *period_duration += *(second_sounding_part_notes[note_index]->duration());
         }
         
         return period_duration;
     }
-
-
+    
+    
     vector<S_IMUSANT_segment>
     IMUSANT_segmented_part_fixed_period::
     getSegments()

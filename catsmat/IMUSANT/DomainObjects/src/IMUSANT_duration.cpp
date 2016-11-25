@@ -241,9 +241,16 @@ namespace IMUSANT
     }
     
     
-    void	IMUSANT_duration::operator+=(const IMUSANT_duration& rhs)
+    IMUSANT_duration&
+    IMUSANT_duration::
+    operator+=(const IMUSANT_duration& rhs)
     {
-        *this = *this + rhs;
+        TRational r = getSimplifiedDuration().fDuration + rhs.getSimplifiedDuration().fDuration;
+        this->fDots = NormaliseDuration(r);
+        this->fDuration = r;
+        this->fTimeModification=1;
+        
+        return *this;
     }
     
     //--
