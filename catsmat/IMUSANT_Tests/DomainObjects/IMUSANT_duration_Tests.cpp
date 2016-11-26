@@ -260,19 +260,62 @@ TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_SevenOverEight)
     ASSERT_EQ(2, simplified_dur->fDots);
 }
 
+TEST_F(IMUSANT_duration_Tests, Duration_Set_SixOnFour_OneDot)
+{
+    //
+    // The logic is as follows:
+    //
+    // dur = 6/4 with one dot
+    //     = 6/4 + 3/4
+    //     = 9/4
+    //
+    // BUT
+    //
+    // set() is giving me
+    //     (6/4) with one dot
+    //   = (4/4 with 1 dot) with one dot
+    //   = 4/4 with two dots
+    //   = 4/4 + 2/4 + 1/4
+    //   = 7/4
+    //
+    // THIS IS WRONG because 7/4 != 9/4
+    //
+    
+    S_IMUSANT_duration dur = new_IMUSANT_duration();
+    dur->set(TRational(6,4), 1);
+   
+    ASSERT_EQ(9, dur->fDuration.getNumerator()) << "IMUSANT_duration::set() is WRONG in the simplification of dots...";
+    ASSERT_EQ(4, dur->fDuration.getDenominator());
+    ASSERT_EQ(0, dur->fDots);
+}
+
 TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_WithTimeMod)
 {
+    // The logic is as follows:
+    
+    // dur = 6/4 with one dot
+    //     = 6/4 + 3/4
+    //     = 9/4
+    //
+    // timemod = 3/2
+    //
+    // simplified_dur = dur / timemod
+    //                = 9/4 / 3/2
+    //                = 9/4 * 2/3
+    //                = 18/12
+    //                = 1 1/2
+    // which is semibreve with one dot.
+    
     S_IMUSANT_duration dur = new_IMUSANT_duration();
     S_IMUSANT_duration simplified_dur = new_IMUSANT_duration();
     
-    dur->fDuration = TRational(6, 4);
-    dur->fTimeModification = TRational(3/2);
+    dur->set(TRational(6,4), 1, TRational(3,2), IMUSANT_duration::unmeasured, 0);
     
-    // dur->set(IMUSANT_duration::crochet, 2);
     *simplified_dur = dur->getSimplifiedDuration();
     
-    ASSERT_EQ(1, simplified_dur->fDuration.getNumerator());
+    ASSERT_EQ(1, simplified_dur->fDuration.getNumerator()) << "IMUSANT_duration::set() is WRONG in the simplification of dots...";
     ASSERT_EQ(1, simplified_dur->fDuration.getDenominator());
+    ASSERT_TRUE(IMUSANT_duration::semibreve == simplified_dur->fDuration);
     ASSERT_EQ(1, simplified_dur->fDots);
 }
 
