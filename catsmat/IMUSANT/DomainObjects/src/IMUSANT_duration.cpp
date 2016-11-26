@@ -326,8 +326,9 @@ namespace IMUSANT
         return (getSimplifiedDuration().fDuration < dur.getSimplifiedDuration().fDuration);
     }
     
-    //--
-    //Simplifies durations with dots and/or time proportions to simple float in fDuration w/o dots & time mods
+    //
+    // Simplifies durations with dots and/or time proportions to simple float in fDuration w/o dots & time mods
+    //
     IMUSANT_duration
     IMUSANT_duration::
     getSimplifiedDuration() const

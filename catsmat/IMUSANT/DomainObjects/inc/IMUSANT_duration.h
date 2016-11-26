@@ -98,7 +98,10 @@ namespace IMUSANT
         // If dur is a ratio that represents a dotted note, then this function reduces dur to the fraction
         // without the dots and retrurns the number of dots required.
         //
-        // For example 3/4 represents a dotted crotchet (1/2 + 1/4), and so this function changes 3/4 to 1/2 and returns 1.
+        // Examples:
+        // * 3/4 represents a dotted crotchet (1/2 + 1/4), and so this function changes 3/4 to 1/2 and returns 1.
+        // * 6/4 represents a dotted breive (1/1 + 1/2), and so this function changes 6/4 to 1/1 and returns 1.
+        //
         static long	NormaliseDuration(TRational& dur);
         
         
