@@ -95,7 +95,10 @@ namespace IMUSANT
         IMUSANT_duration	getSimplifiedDuration() const;
         float               asAbsoluteNumeric() const;
         
-        //checks that TRational type is actually dotted note, return dots and changes dur
+        // If dur is a ratio that represents a dotted note, then this function reduces dur to the fraction
+        // without the dots and retrurns the number of dots required.
+        //
+        // For example 3/4 represents a dotted crotchet (1/2 + 1/4), and so this function changes 3/4 to 1/2 and returns 1.
         static long	NormaliseDuration(TRational& dur);
         
         

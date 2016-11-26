@@ -33,7 +33,9 @@ namespace IMUSANT
     //ctor functions
     S_IMUSANT_duration new_IMUSANT_duration()
     {
-        IMUSANT_duration* o = new IMUSANT_duration(); assert (o!=0); return o;
+        IMUSANT_duration* o = new IMUSANT_duration();
+        assert (o!=0);
+        return o;
     }
     
     TRational
@@ -84,8 +86,19 @@ namespace IMUSANT
         return fDuration2Stringv1[d];
     }
     
-    TRational	IMUSANT_duration::xmlv1(const string str) { return fDuration2Stringv1[str]; }
-    TRational	IMUSANT_duration::xmlv3(const string str) { return fDuration2Stringv3[str]; }
+    TRational
+    IMUSANT_duration::
+    xmlv1(const string str)
+    {
+        return fDuration2Stringv1[str];
+    }
+    
+    TRational
+    IMUSANT_duration::
+    xmlv3(const string str)
+    {
+        return fDuration2Stringv3[str];
+    }
     
     ostream& operator<< (ostream& os, const IMUSANT_duration& elt )
     {
@@ -150,8 +163,10 @@ namespace IMUSANT
         NormaliseDuration(fDuration);
         return *this;
     }
-    //--
-    //  takes durations and reduces them to simplest form
+    
+    //
+    //  Takes durations represented as a single fraction, and converts this to a form of fraction and dots.
+    //
     //  Dotted notes are a geometric series where the sum value of (S) of a duration with n dots is
     //      Sn = a (2 - pow(0.5, n))
     //
