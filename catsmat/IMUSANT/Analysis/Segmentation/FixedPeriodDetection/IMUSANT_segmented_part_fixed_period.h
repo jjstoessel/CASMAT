@@ -13,6 +13,7 @@
 
 #include "IMUSANT_note.h"
 #include "IMUSANT_score.h"
+#include "IMUSANT_segment.h"
 
 using namespace std;
 
@@ -27,10 +28,6 @@ namespace IMUSANT
         static const int ERR_MORE_THAN_ONE_PART_AT_BEGINNING = 2;
         static const int ERR_PARTS_DONT_MATCH = 3;
         
-       
-        friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
-
-        
         IMUSANT_segmented_part_fixed_period()
         {
         }
@@ -40,20 +37,33 @@ namespace IMUSANT
         int initialise(S_IMUSANT_score the_score, double error_threshold = 0.1);
         
         //
-        // This method returns you segments in the form of note vectors.  Each element of the
-        // returned vector is a segment.
+        // This method returns you the segments.
         //
-        vector<IMUSANT_note_vector> getSegmentsAsNoteVectors();
+        vector<S_IMUSANT_segment> getSegments();
+        
+        int getPeriodDuration() { return fPeriodDuration; };
         
         friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_fixed_period& segmented_part);
-        
-        int get_period_length() { return fPeriodLength; };
-        
+        friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
+       
+
     private:
         S_IMUSANT_score fScore;
         
-        int fPeriodLength = 0;
+        vector<S_IMUSANT_segment> fSegments;
+        
+        int fPeriodDuration = 0;
         double fErrorThreshold = 0;
+        
+        int separateSoundingPartsFromNonSoundingParts(string &first_sounding_part_id,
+                                                            vector<string> &non_sounding_part_ids,
+                                                            IMUSANT_vector<S_IMUSANT_part>& parts);
+        
+        // This method returns the index position of the second entry within the notes vector of the second sounding part.
+        int calculateSecondEntryNoteIndex(string &second_sounding_part_id, vector<string>& non_sounding_part_ids, S_IMUSANT_score score);
+        
+        S_IMUSANT_duration calculatePeriodDuration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes, float second_sounding_note_index);
+
         
     };
     

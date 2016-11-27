@@ -33,7 +33,9 @@ namespace IMUSANT
     //ctor functions
     S_IMUSANT_duration new_IMUSANT_duration()
     {
-        IMUSANT_duration* o = new IMUSANT_duration(); assert (o!=0); return o;
+        IMUSANT_duration* o = new IMUSANT_duration();
+        assert (o!=0);
+        return o;
     }
     
     TRational
@@ -84,8 +86,19 @@ namespace IMUSANT
         return fDuration2Stringv1[d];
     }
     
-    TRational	IMUSANT_duration::xmlv1(const string str) { return fDuration2Stringv1[str]; }
-    TRational	IMUSANT_duration::xmlv3(const string str) { return fDuration2Stringv3[str]; }
+    TRational
+    IMUSANT_duration::
+    xmlv1(const string str)
+    {
+        return fDuration2Stringv1[str];
+    }
+    
+    TRational
+    IMUSANT_duration::
+    xmlv3(const string str)
+    {
+        return fDuration2Stringv3[str];
+    }
     
     ostream& operator<< (ostream& os, const IMUSANT_duration& elt )
     {
@@ -150,8 +163,10 @@ namespace IMUSANT
         NormaliseDuration(fDuration);
         return *this;
     }
-    //--
-    //  takes durations and reduces them to simplest form
+    
+    //
+    //  Takes durations represented as a single fraction, and converts this to a form of fraction and dots.
+    //
     //  Dotted notes are a geometric series where the sum value of (S) of a duration with n dots is
     //      Sn = a (2 - pow(0.5, n))
     //
@@ -195,8 +210,7 @@ namespace IMUSANT
     IMUSANT_duration::
     operator!= (const IMUSANT_duration& dur) const
     {
-        return (fDuration!=dur.fDuration) || (fDots!=dur.fDots) || (fTimeModification!=dur.fTimeModification)
-        || (getSimplifiedDuration().fDuration!=dur.getSimplifiedDuration().fDuration);
+        return ! (*this == dur);
     }
     
     bool
@@ -206,11 +220,20 @@ namespace IMUSANT
         bool dur_match = fDuration == dur.fDuration;
         bool dots_match = fDots == dur.fDots;
         bool time_mod_match = fTimeModification == dur.fTimeModification;
+        
+        // We are not handling the MusicXML normal-type and normal-dots elements properly at the moment.
+        // See D-01024 - IMUSANT_duration does not handle dotted notes in tuplets (not handling XML normal-type attribute).
+        //
+        // bool normal_duration_match = fNormalDuration == dur.fNormalDuration;
+        //
+        
         bool simplified_duration_match = getSimplifiedDuration().fDuration == dur.getSimplifiedDuration().fDuration;
         
         return (dur_match &&
                 dots_match &&
-                time_mod_match)
+                time_mod_match
+                // && normal_duration_match   -- see comment above.
+                )
                 ||
                 simplified_duration_match;
     }
@@ -224,19 +247,25 @@ namespace IMUSANT
     {
         IMUSANT_duration out;
         
-        //TRational r = TRational(IMUSANT_duration::xmlv1(getSimplifiedDuration().fDuration)) \
-        //+ TRational(IMUSANT_duration::xmlv1(right.getSimplifiedDuration().fDuration));
         TRational r = getSimplifiedDuration().fDuration + right.getSimplifiedDuration().fDuration;
         out.fDots = NormaliseDuration(r);
-        out.fDuration = r; //IMUSANT_duration::xmlv1(r.toString());
+        out.fDuration = r;
         out.fTimeModification=1;
         
         return out;
     }
     
-    void	IMUSANT_duration::operator+=(const IMUSANT_duration& rhs)
+    
+    IMUSANT_duration&
+    IMUSANT_duration::
+    operator+=(const IMUSANT_duration& rhs)
     {
-        *this = *this + rhs;
+        TRational r = getSimplifiedDuration().fDuration + rhs.getSimplifiedDuration().fDuration;
+        this->fDots = NormaliseDuration(r);
+        this->fDuration = r;
+        this->fTimeModification=1;
+        
+        return *this;
     }
     
     //--
@@ -297,8 +326,9 @@ namespace IMUSANT
         return (getSimplifiedDuration().fDuration < dur.getSimplifiedDuration().fDuration);
     }
     
-    //--
-    //Simplifies durations with dots and/or time proportions to simple float in fDuration w/o dots & time mods
+    //
+    // Simplifies durations with dots and/or time proportions to simple float in fDuration w/o dots & time mods
+    //
     IMUSANT_duration
     IMUSANT_duration::
     getSimplifiedDuration() const

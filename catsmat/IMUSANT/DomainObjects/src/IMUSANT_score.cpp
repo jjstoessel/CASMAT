@@ -28,7 +28,9 @@ namespace IMUSANT
         fPartList = new_IMUSANT_partlist();
     }
 
-    void IMUSANT_score::accept(IMUSANT_visitor& visitor)
+    void
+    IMUSANT_score::
+    accept(IMUSANT_visitor& visitor)
     {
         S_IMUSANT_score sptr(this);
         visitor.visit(sptr);
@@ -51,7 +53,9 @@ namespace IMUSANT
         return found;
     }
 
-    void	IMUSANT_score::print(ostream& os)
+    void
+    IMUSANT_score::
+    print(ostream& os)
     {
         os << "<IMUSANT 1.0>" << endl;
         os << "Work title: " << fWorkTitle << endl;
@@ -72,6 +76,47 @@ namespace IMUSANT
         
         os << "<\\IMUSANT 1.0>" << endl;
         
+    }
+    
+    
+    bool
+    IMUSANT_score::
+    operator==(const IMUSANT_score& score) const
+    {
+        bool equals = true;
+        
+        if (getWorkTitle() != score.getWorkTitle())
+            equals = false;
+
+        if (getWorkNum() != score.getWorkNum())
+            equals = false;
+        
+        if (getMovementTitle() != score.getMovementTitle())
+            equals = false;
+        
+        if (getMovementNum() != score.getMovementNum())
+            equals = false;
+        
+        if (getCreator() != score.getCreator())
+            equals = false;
+        
+        if (getRights() != score.getRights())
+            equals = false;
+        
+        if (getComments() != score.getComments())
+            equals = false;
+        
+        if (getSource() != score.getSource())
+            equals = false;
+        
+        if (getEditor() != score.getEditor())
+            equals = false;
+        
+        if (getDate() != score.getDate())
+            equals = false;
+               
+        return equals;
+    
     }
 
 } //namespace IMUSANT

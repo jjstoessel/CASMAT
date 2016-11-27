@@ -53,7 +53,7 @@ namespace IMUSANT
         bool                operator!= (const IMUSANT_duration& dur) const;
         bool                operator== (const IMUSANT_duration& dur) const;
         IMUSANT_duration	operator+(const IMUSANT_duration& right);
-        void				operator+=(const IMUSANT_duration& rhs);
+        IMUSANT_duration&	operator+=(const IMUSANT_duration& rhs);
         IMUSANT_duration    operator-(const IMUSANT_duration& right);
         void				operator-=(const IMUSANT_duration& rhs);
         bool                operator >(const IMUSANT_duration &dur) const;
@@ -95,7 +95,13 @@ namespace IMUSANT
         IMUSANT_duration	getSimplifiedDuration() const;
         float               asAbsoluteNumeric() const;
         
-        //checks that TRational type is actually dotted note, return dots and changes dur
+        // If dur is a ratio that represents a dotted note, then this function reduces dur to the fraction
+        // without the dots and retrurns the number of dots required.
+        //
+        // Examples:
+        // * 3/4 represents a dotted crotchet (1/2 + 1/4), and so this function changes 3/4 to 1/2 and returns 1.
+        // * 6/4 represents a dotted breive (1/1 + 1/2), and so this function changes 6/4 to 1/1 and returns 1.
+        //
         static long	NormaliseDuration(TRational& dur);
         
         
