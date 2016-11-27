@@ -15,6 +15,7 @@
 
 #include "IMUSANT_interval.h"
 #include "IMUSANT_contour_symbol.h"
+#include "IMUSANT_generalised_interval.h"
 
 using namespace std;
 
@@ -161,6 +162,22 @@ namespace IMUSANT
             return ret_val;
         }
     };
+    
+    class IMUSANT_repeated_generalised_interval_substring : public IMUSANT_t_repeated_substring<IMUSANT_generalised_interval>
+    {
+    public:
+        static string  output_operator_help()
+        {
+            string ret_val =
+            "The output shows the discovered pattern in the following format \n" \
+            "interval up/down (measure, index, part) \n" \
+            "Followed by a list of occurrences in the format \n" \
+            "(movement, voice, measure, index) \n";
+            
+            return ret_val;
+        }
+    };
+
     
     class IMUSANT_repeated_contour_substring: public IMUSANT_t_repeated_substring<IMUSANT_contour_symbol>
     {

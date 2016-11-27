@@ -11,6 +11,11 @@
 
 namespace CATSMAT {
     
+    
+    CATSMAT_partdata::CATSMAT_partdata()
+    {
+        fLastPitch = new_IMUSANT_pitch();
+    }
     //Collect all basic data from part
     //map<IMUSANT_pitch,int>      fPitchProfile;
     //map<IMUSANT_duration,int>   fDurationProfile;
@@ -25,27 +30,27 @@ namespace CATSMAT {
             {
                 if (note->getType()==IMUSANT_NoteType::pitch && (!note->isTiedPrevious() || !note->isTiedBothSides()))
                 {
-                    fNoteCount++;
+                    fNoteCount++; //probably pointless since the result can be summed from the pitch profile
                     int currentCount = fPitchProfile[*note->pitch()];
                     fPitchProfile[*note->pitch()] =  currentCount + 1;
+                    //see there is a last pitch stored and create melodic interval
+                    if (*fLastPitch==IMUSANT_pitch())
+                    {
+                        *fLastPitch = *note->pitch();
+                    }
+                    else
+                    {
+                        IMUSANT_interval interval(fLastPitch, note->pitch());
+                        int currentIntervalCount = fHIntervalProfile[interval];
+                        fHIntervalProfile[interval] = currentIntervalCount + 1;
+                    }
                 }
-                else if (note->getType()==IMUSANT_NoteType::rest) {
-                    fRestCount++;
-                }
-                
-                //get melodic intervals
-                //for first note of a part, need to store; operate only for n>=1
-                if (fPreviousNote==NULL) {
-                    fPreviousNote = note;
-                }
-                else if (note->getType()==IMUSANT_NoteType::pitch && (!note->isTiedPrevious() || !note->isTiedBothSides()))
+                else if (note->getType()==IMUSANT_NoteType::rest)
                 {
-                    IMUSANT_interval interval(fPreviousNote->pitch(), note->pitch());
-                    int currentIntervalCount = fHIntervalProfile[interval];
-                    fHIntervalProfile[interval] = currentIntervalCount + 1;
-                    
+                    fRestCount++;
+                    *fLastPitch = IMUSANT_pitch(); //set to an undefined pitch event
+                    //could collect rest profiles here
                 }
-            
                 
             }
         }

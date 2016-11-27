@@ -78,7 +78,8 @@ namespace IMUSANT
         //enum quality { none = 0, perfect = 1, imperfect = -1, diminished = -2, augmented = 2, dissonant = (1<<2) };
         enum quality { none = 0, perfect = 1, imperfect = (perfect<<1), dissonant = (perfect<<2), diminished = dissonant, augmented = dissonant, double_diminished = dissonant, double_augmented = dissonant  };
         enum direction { descending=-1, unison=0, ascending = 1 };
-        
+        // basic interval types
+        enum basic { second=2, third, fourth, fifth, sixth, seventh };
         
         friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval();
         friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
@@ -99,7 +100,7 @@ namespace IMUSANT
         {}
         
         IMUSANT_interval(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second);
-        IMUSANT_interval(interval_type iv) : fInterval(iv) {}
+        IMUSANT_interval(interval_type iv);
         IMUSANT_interval(signed short iv)
         {
             fInterval = int2intervaltype(iv);

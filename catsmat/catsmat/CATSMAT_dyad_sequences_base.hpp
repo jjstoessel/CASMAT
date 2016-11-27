@@ -30,6 +30,7 @@ public:
     virtual void    Visit(const CATSMAT_cp_matrix& matrix) = 0;
     
     virtual void    print(ostream& os) const = 0;
+
     
 };
 

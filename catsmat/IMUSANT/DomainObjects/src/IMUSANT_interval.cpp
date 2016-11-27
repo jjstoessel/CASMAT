@@ -195,6 +195,11 @@ namespace IMUSANT
         return out;
     }
 
+    IMUSANT_interval::IMUSANT_interval(interval_type iv) : fInterval(iv), fOctaves(0), fDirection(ascending)
+    {
+        fQuality = calcQuality();
+    }
+    
     //public ctor member
     IMUSANT_interval::IMUSANT_interval(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second)
     {
@@ -280,41 +285,41 @@ namespace IMUSANT
             case dim1:
             case per1:
             case aug1:
-                ret = 1;
+                ret = unison;
                 break;
             case dim2:
             case min2:
             case maj2:
             case aug2:
-                ret = 2;
+                ret = second;
                 break;
             case dim3:
             case min3:
             case maj3:
             case aug3:
-                ret = 3;
+                ret = third;
                 break;
             case dim4:
             case per4:
             case aug4:
-                ret = 4;
+                ret = fourth;
                 break;
             case dim5:
             case per5:
             case aug5:
-                ret = 5;
+                ret = fifth;
                 break;
             case dim6:
             case min6:
             case maj6:
             case aug6:
-                ret = 6;
+                ret = sixth;
                 break;
             case dim7:
             case min7:
             case maj7:
             case aug7:
-                ret = 7;
+                ret = seventh;
                 break;
             //case octave:
             //    ret = 8;

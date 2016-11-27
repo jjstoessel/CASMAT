@@ -19,7 +19,7 @@ namespace CATSMAT {
 //        if (o==0) throw catsmat_runtime_error("Unable to allocate CATSMAT_scoredata");
 //        return o;
 //    }
-    
+
     void
     CATSMAT_scoredata::
     findBasicDataFromScore(S_IMUSANT_score score)
@@ -65,16 +65,14 @@ namespace CATSMAT {
                                             [](std::map<IMUSANT_pitch,int> &m, const std::pair<const IMUSANT_pitch, int> p)
                                                 {
                                                     return (m[p.first] +=p.second, m);
-                                                });
+                                                }
+                                            );
             
             //accumulate interval data maps - check
             map<IMUSANT_interval, int> ip = data.second->getHIntervalProfile();
             
             fIntervalProfile = std::accumulate(ip.begin(), ip.end(), fIntervalProfile,
-                                               [](std::map<IMUSANT_interval,int> &m, const std::pair<const IMUSANT_interval,int> p)
-                                               {
-                                                   return (m[p.first] +=p.second, m);
-                                               }
+                                               [](std::map<IMUSANT_interval,int> &m, const std::pair<const IMUSANT_interval,int> p){ return (m[p.first] +=p.second, m); }
                                                );
             
             //accumulate duration data maps - check
