@@ -102,6 +102,12 @@ namespace CATSMAT {
     CATSMAT_scoredata::
     print(ostream& os)
     {
+        os << "General data for " << fWorkTitle << " " << fMovementTitle << std::endl;
         
+        for (auto data : fPartsData )
+        {
+            os << "Part: " << data.first << std::endl;
+            data.second->print(os);
+        }
     }
 }

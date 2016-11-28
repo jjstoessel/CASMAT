@@ -59,6 +59,6 @@ TEST_F(CATSMAT_scoredatacollector_tests, TestScore_1_Measure) {
     
     scoredatacollection.Visit(*the_processor);
 
-
+    cout << scoredatacollection;
     //ASSERT_EQ(TestScore_1_Measure_Expected, the_sequences_as_string);
 }

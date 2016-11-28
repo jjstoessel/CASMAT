@@ -26,11 +26,13 @@ namespace IMUSANT {
         {
             r = getNumber();
             
-            //inverted negative intervals
+            //inverted negative "intervals"
             if (r<0) r+=7;
         }
         
         r+=7*fOctaves; //convert to a compound interval
+        
+        if(fDirection!=unison || fDirection!=vertical_bottomtotop) r*=fDirection;
         
         return r;
     }

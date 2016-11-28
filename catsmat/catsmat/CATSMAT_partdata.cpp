@@ -55,5 +55,20 @@ namespace CATSMAT {
             }
         }
     }
+    
+    void
+    CATSMAT_partdata::print(ostream& os)
+    {
+        ostringstream intervals;
+        ostringstream interval_counts;
+        
+        for (auto i: fHIntervalProfile )
+        {
+            intervals << i.first << "\t";
+            interval_counts << i.second << "\t";
+        }
+        os << intervals.str() << std::endl;
+        os << interval_counts.str() << std::endl;
+    }
 
 }

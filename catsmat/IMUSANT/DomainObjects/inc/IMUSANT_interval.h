@@ -77,7 +77,7 @@ namespace IMUSANT
         
         //enum quality { none = 0, perfect = 1, imperfect = -1, diminished = -2, augmented = 2, dissonant = (1<<2) };
         enum quality { none = 0, perfect = 1, imperfect = (perfect<<1), dissonant = (perfect<<2), diminished = dissonant, augmented = dissonant, double_diminished = dissonant, double_augmented = dissonant  };
-        enum direction { descending=-1, unison=0, ascending = 1 };
+        enum direction { descending=-1, unison=0, ascending = 1, vertical_bottomtotop };
         // basic interval types
         enum basic { second=2, third, fourth, fifth, sixth, seventh };
         

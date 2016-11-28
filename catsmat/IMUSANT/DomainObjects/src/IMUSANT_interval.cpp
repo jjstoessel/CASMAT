@@ -54,7 +54,10 @@ namespace IMUSANT
         if (i.fOctaves < IMUSANT_interval::undefined-FLAGSPACE) //don't try to print terminator elements.
         {
             os << ((i.fInterval==IMUSANT_interval::per1 && i.fOctaves>0)? "8ve" : IMUSANT_interval::xmlinterval(i.fInterval)) << " ";
-            os << (((i.fDirection==IMUSANT_interval::descending)?("\\"):((i.fDirection==IMUSANT_interval::descending)?("\\"):("/")))) << " ";
+            if (i.fDirection!=IMUSANT_interval::vertical_bottomtotop)
+            {
+                os << (((i.fDirection==IMUSANT_interval::descending)?("\\"):((i.fDirection==IMUSANT_interval::descending)?("\\"):("/")))) << " ";
+            }
         }
         else
             os << "undefined ";
@@ -566,6 +569,9 @@ namespace IMUSANT
         
         r+=12*fOctaves; //convert to a compound interval
         
+        //added 28/11/2016 - sign the interval according to melodic direction
+        if(fDirection!=unison || fDirection!=vertical_bottomtotop) r*=fDirection;
+            
         return r;
     }
 #elif defined _USE_GENERIC_INTERVAL_   //test only - correct function is above

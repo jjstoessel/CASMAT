@@ -1153,6 +1153,23 @@
 		96CC66C91DEAF5B400E2F7FB /* CATSMAT_NGram_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_NGram_Test.cpp; path = CATSMAT_Tests/CATSMAT_NGram_Test.cpp; sourceTree = SOURCE_ROOT; };
 		96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_generalised_interval_processor.cpp; path = IMUSANT/Analysis/src/IMUSANT_generalised_interval_processor.cpp; sourceTree = SOURCE_ROOT; };
 		96CC66CC1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_generalised_interval_processor.h; path = IMUSANT/Analysis/src/IMUSANT_generalised_interval_processor.h; sourceTree = SOURCE_ROOT; };
+		96CC66CF1DEBB57F00E2F7FB /* Anon-Blijfs mi doch (no Solus T).xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Anon-Blijfs mi doch (no Solus T).xml"; sourceTree = "<group>"; };
+		96CC66D01DEBB5A200E2F7FB /* J_de_Climens-Fuga_trium_temporum.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "J_de_Climens-Fuga_trium_temporum.xml"; sourceTree = "<group>"; };
+		96CC66D11DEBB5CE00E2F7FB /* Josquin-Missa_De_beata_virgine-Agnus.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_De_beata_virgine-Agnus.xml"; sourceTree = "<group>"; };
+		96CC66D21DEBB5CE00E2F7FB /* Josquin-Missa_De_beata_virgine-Credo.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_De_beata_virgine-Credo.xml"; sourceTree = "<group>"; };
+		96CC66D31DEBB5CE00E2F7FB /* Josquin-Missa_De_beata_virgine-Sanctus.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_De_beata_virgine-Sanctus.xml"; sourceTree = "<group>"; };
+		96CC66D41DEBB5CE00E2F7FB /* Josquin-Missa_Lhomme_arme_sexti_toni-Agnus.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_Lhomme_arme_sexti_toni-Agnus.xml"; sourceTree = "<group>"; };
+		96CC66D51DEBB5CE00E2F7FB /* Josquin-Missa_Lhomme_arme_sexti_toni-Credo.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_Lhomme_arme_sexti_toni-Credo.xml"; sourceTree = "<group>"; };
+		96CC66D61DEBB5CE00E2F7FB /* Josquin-Missa_Lhomme_arme_sexti_toni-Sanctus.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_Lhomme_arme_sexti_toni-Sanctus.xml"; sourceTree = "<group>"; };
+		96CC66D71DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Agnus.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ockeghem-Missa_Prolationum-Agnus.xml"; sourceTree = "<group>"; };
+		96CC66D81DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Credo.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ockeghem-Missa_Prolationum-Credo.xml"; sourceTree = "<group>"; };
+		96CC66D91DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Gloria.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ockeghem-Missa_Prolationum-Gloria.xml"; sourceTree = "<group>"; };
+		96CC66DA1DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Kyrie.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ockeghem-Missa_Prolationum-Kyrie.xml"; sourceTree = "<group>"; };
+		96CC66DB1DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Sanctus.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ockeghem-Missa_Prolationum-Sanctus.xml"; sourceTree = "<group>"; };
+		96CC66DC1DEBB60300E2F7FB /* Trent 13_Benet-Kyrie Deus creator.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Trent 13_Benet-Kyrie Deus creator.xml"; sourceTree = "<group>"; };
+		96CC66DD1DEBB63000E2F7FB /* Du_Fay-Bien_veignes_vous.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Bien_veignes_vous.xml"; sourceTree = "<group>"; };
+		96CC66DE1DEBB66500E2F7FB /* Pamphilus-Cucu cucu ognon canti cucu (Jeppsen).xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Pamphilus-Cucu cucu ognon canti cucu (Jeppsen).xml"; sourceTree = "<group>"; };
+		96CC66DF1DEBB68700E2F7FB /* Mod A 003-Et in terra.cmme.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mod A 003-Et in terra.cmme.xml"; sourceTree = "<group>"; };
 		BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_scoredatacollector.cpp; path = catsmat/CATSMAT_scoredatacollector.cpp; sourceTree = SOURCE_ROOT; };
 		BA10A5CC1D93A153000679C5 /* CATSMAT_scoredatacollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_scoredatacollector.h; path = catsmat/CATSMAT_scoredatacollector.h; sourceTree = SOURCE_ROOT; };
 		BA10A5CE1D93A40F000679C5 /* CATSMAT_scoredata.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_scoredata.cpp; path = catsmat/CATSMAT_scoredata.cpp; sourceTree = SOURCE_ROOT; };
@@ -2835,11 +2852,13 @@
 		BA33CBB51D6FD7A8001B7FF3 /* MusicXML */ = {
 			isa = PBXGroup;
 			children = (
+				96CC66CF1DEBB57F00E2F7FB /* Anon-Blijfs mi doch (no Solus T).xml */,
 				BA33CBB61D6FD7A8001B7FF3 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */,
 				BA33CBB71D6FD7A8001B7FF3 /* Anon-Tres_dous_compains.xml */,
 				BA33CBB81D6FD7A8001B7FF3 /* Anon-Umblemens_vos_pri.xml */,
 				BA33CBB91D6FD7A8001B7FF3 /* Cordier-Tout_par_compas-standardised.xml */,
 				BA33CBBA1D6FD7A8001B7FF3 /* Denis_Le_Grant-Se_je_chant_F-Pic_67.xml */,
+				96CC66DD1DEBB63000E2F7FB /* Du_Fay-Bien_veignes_vous.xml */,
 				BA33CBBB1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_agnus_ed_Eakins.xml */,
 				BA33CBBC1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_credo_ed_Eakins.xml */,
 				BA33CBBD1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_gloria_ed_Eakins.xml */,
@@ -2850,10 +2869,24 @@
 				BA33CBC21D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_gloria_ed_Eakins.xml */,
 				BA33CBC31D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_kyrie_ed_Eakins.xml */,
 				BA33CBC41D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_II_sanctus_ed_Eakins.xml */,
+				96CC66D11DEBB5CE00E2F7FB /* Josquin-Missa_De_beata_virgine-Agnus.xml */,
+				96CC66D21DEBB5CE00E2F7FB /* Josquin-Missa_De_beata_virgine-Credo.xml */,
+				96CC66D31DEBB5CE00E2F7FB /* Josquin-Missa_De_beata_virgine-Sanctus.xml */,
+				96CC66D41DEBB5CE00E2F7FB /* Josquin-Missa_Lhomme_arme_sexti_toni-Agnus.xml */,
+				96CC66D51DEBB5CE00E2F7FB /* Josquin-Missa_Lhomme_arme_sexti_toni-Credo.xml */,
+				96CC66D61DEBB5CE00E2F7FB /* Josquin-Missa_Lhomme_arme_sexti_toni-Sanctus.xml */,
+				96CC66D01DEBB5A200E2F7FB /* J_de_Climens-Fuga_trium_temporum.xml */,
 				BA33CBC51D6FD7A8001B7FF3 /* Machaut-Ma_fin_est_mon_commencement.xml */,
 				BA33CBC61D6FD7A8001B7FF3 /* Missa Papae Marcelli Agnus Dei II no ficta.xml */,
 				BA33CBC71D6FD7A8001B7FF3 /* Missa Papae Marcelli Agnus Dei II with ficta.xml */,
+				96CC66DF1DEBB68700E2F7FB /* Mod A 003-Et in terra.cmme.xml */,
 				BA33CBC81D6FD7A8001B7FF3 /* Ockeghem_Prenez_sur_moi_(Cop).xml */,
+				96CC66D71DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Agnus.xml */,
+				96CC66D81DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Credo.xml */,
+				96CC66D91DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Gloria.xml */,
+				96CC66DA1DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Kyrie.xml */,
+				96CC66DB1DEBB5E400E2F7FB /* Ockeghem-Missa_Prolationum-Sanctus.xml */,
+				96CC66DE1DEBB66500E2F7FB /* Pamphilus-Cucu cucu ognon canti cucu (Jeppsen).xml */,
 				BA33CBC91D6FD7A8001B7FF3 /* PMFC_02-Machaut-Le_lai_de_confort.xml */,
 				BA33CBCA1D6FD7A8001B7FF3 /* PMFC_02_Machaut-Le_lai_de_la_fontaine.xml */,
 				BA33CBCB1D6FD7A8001B7FF3 /* PMFC_04_153-De_dinmi_tu.xml */,
@@ -2908,6 +2941,7 @@
 				BA33CBFC1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam reservatam_2_Gloria.xml */,
 				BA33CBFD1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam reservatam_3_Credo.xml */,
 				BA33CBFE1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam_1_Kyrie.xml */,
+				96CC66DC1DEBB60300E2F7FB /* Trent 13_Benet-Kyrie Deus creator.xml */,
 			);
 			path = MusicXML;
 			sourceTree = "<group>";
