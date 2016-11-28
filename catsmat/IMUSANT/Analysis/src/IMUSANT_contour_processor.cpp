@@ -159,29 +159,51 @@ namespace IMUSANT {
         
         return ret_val;
     }
-        //        if (IDs.size()>0)
-        //        {
-        //            contour_tree cont_tree(*(collection_visitors[*IDs.begin()].getMelodicContour()),*IDs.begin());
-        //
-        //            for (vector<int>::iterator j = IDs.begin()+1; j!=IDs.end(); j++)
-        //            {
-        //                cont_tree.add_sentence(*(collection_visitors[*j].getMelodicContour()),*j);
-        //            }
-        //
-        //            repeats<vector<IMUSANT_contour_symbol> > rep(&cont_tree);
-        //            list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
-        //            list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*>::const_iterator q=supermaxs.begin();
-        //            for (; q!=supermaxs.end(); q++)
-        //            {
-        //                for (repeats<vector<IMUSANT_contour_symbol> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
-        //                {
-        //                    cout << *t;
-        //                }
-        //                cout << " ";
-        //                cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
-        //            }
-        //        }
-
     
+    IMUSANT_contour_processor::CONTOUR_TABLE
+    IMUSANT_contour_processor::entabulateMelodicDirectionPairs()
+    {
+        CONTOUR_TABLE table;
+        
+        for (auto cvm = mID_vec_map.begin(); cvm != mID_vec_map.end(); cvm++)
+        {
+            vector<IMUSANT_contour_symbol> contours = cvm->second;
+            map<pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int> row;
+            auto cnt1 = contours.begin(), cnt2 = cnt1+1;
+            do
+            {
+                pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol> cnt_pair = std::make_pair(*cnt1, *cnt2);
+                int count = row[cnt_pair];
+                row[cnt_pair] = ++count;
+                cnt1++;
+                cnt2++;
+            } while (cnt2!=contours.end());
+            table[cvm->first] = row;
+        }
+        
+        return table;
+    }
+    
+    string
+    IMUSANT_contour_processor::entabulateAndPrintMelodicDirectionPairs()
+    {
+        CONTOUR_TABLE table = entabulateMelodicDirectionPairs();
+        ostringstream out;
 
-} // namespace IMUSTAN
+        for (auto row : table)
+        {
+            ostringstream s,c;
+            for (auto c_pair: row.second)
+            {
+                pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol> cnt_pair = c_pair.first;
+                s << "\"" << cnt_pair.first << "—" << cnt_pair.second << "\"" << "\t";
+                c << c_pair.second << "\t";
+            }
+            out << s.str() << std::endl;
+            out << c.str() << std::endl;
+        }
+        
+        return out.str();
+    }
+    
+} // namespace IMUSANT

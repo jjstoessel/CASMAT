@@ -13,13 +13,16 @@
 #include "IMUSANT_processor.h"
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_t_repeated_substring.h"
+#include <vector>
+#include <map>
 
 namespace IMUSANT {
     
     class IMUSANT_contour_processor : public IMUSANT_processor<IMUSANT_contour_symbol>
     {
     public:
-        typedef vector<IMUSANT_repeated_contour_substring> SUBSTR_VECTOR;
+        typedef std::vector<IMUSANT_repeated_contour_substring> SUBSTR_VECTOR;
+        typedef std::map<int, map<pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int> > CONTOUR_TABLE;
         
         IMUSANT_contour_processor() {}
         
@@ -29,7 +32,8 @@ namespace IMUSANT {
         SUBSTR_VECTOR   findRepeatedContourSubstrings(int min_length=5);
         string          findAndPrintSupermaximalContours(int min_length, int min_percent);
         SUBSTR_VECTOR   findSupermaximalsContours(int min_length, int min_percent);
-        
+        CONTOUR_TABLE   entabulateMelodicDirectionPairs();
+        string          entabulateAndPrintMelodicDirectionPairs();
     private:
         
         _tree*  buildContourSuffixTree(IMUSANT_processing::COLLECTIONMAP&);

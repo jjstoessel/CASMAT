@@ -65,7 +65,8 @@ S_IMUSANT_contour_symbol new_IMUSANT_contour_symbol(const S_IMUSANT_pitch first,
 //lookups
 int	IMUSANT_contour_symbol::fSymbolTbl[] = {	dont_care_down, leap_down, step_down, unison, step_up, leap_up, 
 												dont_care_up };
-string	IMUSANT_contour_symbol::fSymbolStrings[] = { "#", "-l", "-s", "u", "s", "l", "*" };
+//string	IMUSANT_contour_symbol::fSymbolStrings[] = { "#", "-l", "-s", "u", "s", "l", "*" };
+string	IMUSANT_contour_symbol::fSymbolStrings[] = { "#", "leapdown", "stepdown", "repeat", "stepup", "leapup", "*" };
 bimap<string, int>	IMUSANT_contour_symbol::fSymbol2String( fSymbolStrings, fSymbolTbl, count );
 
 //! convert a numeric value to string

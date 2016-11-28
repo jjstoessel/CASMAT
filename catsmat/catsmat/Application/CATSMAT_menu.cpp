@@ -274,7 +274,13 @@ runToolsMenu(CATSMAT_processing* processor)
                     cout << pp.findAndPrintLcsPairsPitches(false);
                     cout << ip.findAndPrintLcsPairsIntervals(false, true);
                     break;
-                
+                case 'r':
+                case 'R':
+                {
+                    cp.Visit(*processor);
+                    cout << cp.entabulateAndPrintMelodicDirectionPairs();
+                    break;
+                }
                 //CATSMAT Analysis tools
                 //Find repeated dyad sequences
                 case 'J':
