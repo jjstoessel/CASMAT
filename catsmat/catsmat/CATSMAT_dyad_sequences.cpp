@@ -115,31 +115,35 @@ namespace CATSMAT
         {
             for (auto i = fVIntervalVectors.begin(); i!=fVIntervalVectors.end(); i++)
             {
-                interval_tree* tree = new interval_tree((*i)->getIntervals(),1); //change last parameter to id for whole work tree.
-                vector<pair<interval_tree::size_type, interval_tree::size_type> >* results = new vector<pair<interval_tree::size_type, interval_tree::size_type> >();
-                find_repeated_substrings(*results, tree->root_node(), min);
-                
-                map<int, interval_tree::value_type > m = tree->get_sentences();
-                interval_tree::value_type int_v = m[1];
-                
-                cout << "duet: " << int_v[0].getLocation().first.partID << "-" << int_v[0].getLocation().last.partID << endl;
-                
-                for (auto j=results->begin(); j!=results->end(); j++)
+                if ((*i)->getIntervals().size()) //ignore empty vectors
                 {
-                    cout << "Sequence: (";
-                    
-                    cout << int_v[j->first].getLocation().first.measure;
-                    cout << ", " << int_v[j->first].getLocation().first.note_index << ") ";
-                    
-                    for (auto k = j->first; k<j->second+j->first; k++)
-                    {
-                        cout << int_v[k];
-                    }
-                    cout << endl;
-                }
                 
-                delete results;
-                delete tree;
+                    interval_tree* tree = new interval_tree((*i)->getIntervals(),1); //change last parameter to id for whole work tree.
+                    vector<pair<interval_tree::size_type, interval_tree::size_type> >* results = new vector<pair<interval_tree::size_type, interval_tree::size_type> >();
+                    find_repeated_substrings(*results, tree->root_node(), min);
+                    
+                    map<int, interval_tree::value_type > m = tree->get_sentences();
+                    interval_tree::value_type int_v = m[1];
+                    
+                    cout << "duet: " << int_v[0].getLocation().first.partID << "-" << int_v[0].getLocation().last.partID << endl;
+                    
+                    for (auto j=results->begin(); j!=results->end(); j++)
+                    {
+                        cout << "Sequence: (";
+                        
+                        cout << int_v[j->first].getLocation().first.measure;
+                        cout << ", " << int_v[j->first].getLocation().first.note_index << ") ";
+                        
+                        for (auto k = j->first; k<j->second+j->first; k++)
+                        {
+                            cout << int_v[k];
+                        }
+                        cout << endl;
+                    }
+                    
+                    delete results;
+                    delete tree;
+                }
             }
         }
     }

@@ -33,7 +33,7 @@ namespace CATSMAT
         void    Visit(const CATSMAT_cp_matrix& matrix);
     private:
         void    process(const list<S_CATSMAT_chord>& matrix); //overrides base class
-        vector<string>    sentences;
+        //vector<string>    sentences;
     };
 }
 

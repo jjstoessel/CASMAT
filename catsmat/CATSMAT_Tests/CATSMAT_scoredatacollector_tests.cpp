@@ -54,11 +54,60 @@ TEST_F(CATSMAT_scoredatacollector_tests, TestScore_1_Measure) {
     
     CATSMAT_processing *the_processor = new CATSMAT_processing();
     CATSMAT_scoredatacollector scoredatacollection;
-    filesystem::path testdata = testUtil.MakePathToTestData("Kyrie.xml");
+    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_1_Measure.xml");
     the_processor->addFile(testdata);
     
     scoredatacollection.Visit(*the_processor);
 
-    cout << scoredatacollection;
-    //ASSERT_EQ(TestScore_1_Measure_Expected, the_sequences_as_string);
+    ostringstream the_score_data_as_string;
+    the_score_data_as_string << scoredatacollection;
+    ASSERT_EQ(TestScore_1_Measure_Expected, the_score_data_as_string.str());
 }
+
+TEST_F(CATSMAT_scoredatacollector_tests, TestScore_4_Measures) {
+    
+    CATSMAT_processing *the_processor = new CATSMAT_processing();
+    CATSMAT_scoredatacollector scoredatacollection;
+    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_4_Measures.xml");
+    
+    the_processor->addFile(testdata);
+    
+    scoredatacollection.Visit(*the_processor);
+    
+    ostringstream the_score_data_as_string;
+    the_score_data_as_string << scoredatacollection;
+    ASSERT_EQ(TestScore_4_Measures_Expected, the_score_data_as_string.str());
+}
+
+TEST_F(CATSMAT_scoredatacollector_tests, TestScore_4_Measures_WithQuaverPassingNotes) {
+    
+    CATSMAT_processing *the_processor = new CATSMAT_processing();
+    CATSMAT_scoredatacollector scoredatacollection;
+    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_4_Measures_WithQuaverPassingNotes.xml");
+    
+    the_processor->addFile(testdata);
+    
+    scoredatacollection.Visit(*the_processor);
+    
+    ostringstream the_score_data_as_string;
+    the_score_data_as_string << scoredatacollection;
+    ASSERT_EQ(TestScore_4_Measures_WithQuaverPassingNotes_Expected, the_score_data_as_string.str());
+    
+}
+
+TEST_F(CATSMAT_scoredatacollector_tests, TestScore_4_Measures_WithSemiQuaverPassingNotes) {
+    
+    CATSMAT_processing *the_processor = new CATSMAT_processing();
+    CATSMAT_scoredatacollector scoredatacollection;
+    filesystem::path testdata = testUtil.MakePathToTestData("TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
+    
+    the_processor->addFile(testdata);
+    
+    scoredatacollection.Visit(*the_processor);
+    
+    ostringstream the_score_data_as_string;
+    the_score_data_as_string << scoredatacollection;
+    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, the_score_data_as_string.str());
+    
+}
+

@@ -16,6 +16,7 @@
 #include "IMUSANT_pitch_processor.h"
 #include "IMUSANT_contour_processor.h"
 #include "IMUSANT_LBDM_segmenter.h"
+#include "CATSMAT_scoredatacollector.h"
 
 using namespace std;
 using namespace CATSMAT;
@@ -147,6 +148,8 @@ outputToolsMenu(ostream &out)
     out << "F.  Find longest common intervallic subsequence in all pairs (reverse method)" << endl;
     out << "G.  Find longest common pitch subsequence in all pairs" << endl;
     out << "H.  Find melodic segments using LBDM" << endl;
+    out << "R.  Entabulate melodic direction duples" << endl;
+    out << "S.  Show general data" << endl;
     out << "I.  Run all IMUSANT tools" << endl;
     out << endl;
     out << "CATSMAT ANALYSIS TOOLS" << endl;
@@ -274,12 +277,21 @@ runToolsMenu(CATSMAT_processing* processor)
                     cout << pp.findAndPrintLcsPairsPitches(false);
                     cout << ip.findAndPrintLcsPairsIntervals(false, true);
                     break;
+                //meldir
                 case 'r':
                 case 'R':
                 {
                     cp.Visit(*processor);
                     cout << cp.entabulateAndPrintMelodicDirectionPairs();
                     break;
+                }
+                //melint
+                case 's':
+                case 'S':
+                {
+                    CATSMAT_scoredatacollector scoredatacollection;
+                    scoredatacollection.Visit(*processor);
+                    cout << scoredatacollection;
                 }
                 //CATSMAT Analysis tools
                 //Find repeated dyad sequences

@@ -29,7 +29,9 @@ namespace CATSMAT {
         
         void    findBasicDataFromPart(S_IMUSANT_part part);
         void    print(ostream& os);
-        
+        void    print_interval_profile(ostream& os);
+        void    print_duration_profile(ostream& os);
+        void    print_pitch_profile(ostream& os);
         int     getNoteCount() { return fNoteCount; }
         int     getRestCount() { return fRestCount; }
         const map<IMUSANT_pitch,int>& getPitchProfile() { return fPitchProfile; }

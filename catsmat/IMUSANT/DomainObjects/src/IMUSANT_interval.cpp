@@ -570,7 +570,7 @@ namespace IMUSANT
         r+=12*fOctaves; //convert to a compound interval
         
         //added 28/11/2016 - sign the interval according to melodic direction
-        if(fDirection!=unison || fDirection!=vertical_bottomtotop) r*=fDirection;
+        //if(fDirection!=unison || fDirection!=vertical_bottomtotop) r*=fDirection;
             
         return r;
     }

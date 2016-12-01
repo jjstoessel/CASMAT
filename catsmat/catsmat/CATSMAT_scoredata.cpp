@@ -102,7 +102,20 @@ namespace CATSMAT {
     CATSMAT_scoredata::
     print(ostream& os)
     {
-        os << "General data for " << fWorkTitle << " " << fMovementTitle << std::endl;
+        string title = "unknown";
+        
+        if (!fWorkTitle.empty() ) {
+            title = fWorkTitle;
+            if (!fMovementTitle.empty())
+            {
+                title += (": " + fMovementTitle);
+            }
+        } else if (!fMovementTitle.empty())
+        {
+            title = fMovementTitle;
+        }
+        
+        os << "General data for " << title << std::endl;
         
         for (auto data : fPartsData )
         {

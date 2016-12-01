@@ -43,6 +43,7 @@ namespace CATSMAT {
                         IMUSANT_interval interval(fLastPitch, note->pitch());
                         int currentIntervalCount = fHIntervalProfile[interval];
                         fHIntervalProfile[interval] = currentIntervalCount + 1;
+                        *fLastPitch=*note->pitch();
                     }
                 }
                 else if (note->getType()==IMUSANT_NoteType::rest)
@@ -59,16 +60,36 @@ namespace CATSMAT {
     void
     CATSMAT_partdata::print(ostream& os)
     {
+        print_interval_profile(os);
+        print_duration_profile(os);
+        print_pitch_profile(os);
+    }
+    
+    void
+    CATSMAT_partdata::print_interval_profile(ostream& os)
+    {
         ostringstream intervals;
         ostringstream interval_counts;
         
         for (auto i: fHIntervalProfile )
         {
-            intervals << i.first << "\t";
-            interval_counts << i.second << "\t";
+            intervals << i.first << "\t"; //interval names
+            interval_counts << i.second << "\t"; //melodic interval count
         }
         os << intervals.str() << std::endl;
         os << interval_counts.str() << std::endl;
+    }
+    
+    void
+    CATSMAT_partdata::print_duration_profile(ostream& os)
+    {
+        
+    }
+    
+    void
+    CATSMAT_partdata::print_pitch_profile(ostream& os)
+    {
+        
     }
 
 }
