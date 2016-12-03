@@ -166,6 +166,28 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_WithDots)
     ASSERT_EQ(0, sum.fDots);
 }
 
+TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_WithTimeMod)
+{
+    S_IMUSANT_duration crochet1 = new_IMUSANT_duration();
+    S_IMUSANT_duration crochet2 = new_IMUSANT_duration();
+    S_IMUSANT_duration crochet3 = new_IMUSANT_duration();
+    
+    crochet1->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crochet2->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crochet3->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::unmeasured, 0);
+
+    IMUSANT_duration sum = *crochet1 + *crochet1 + *crochet1;
+    
+    ASSERT_EQ(1, sum.fDuration.getNumerator());
+    ASSERT_EQ(2, sum.fDuration.getDenominator());
+    ASSERT_EQ(1, sum.fTimeModification.getNumerator());
+    ASSERT_EQ(1, sum.fTimeModification.getDenominator());
+    ASSERT_EQ(0, sum.fNormalDuration.getNumerator());
+    ASSERT_EQ(1, sum.fNormalDuration.getDenominator());
+    ASSERT_EQ(0, sum.fNormalDots);
+    ASSERT_EQ(0, sum.fDots);
+}
+
 TEST_F(IMUSANT_duration_Tests, Duration_CompoundAssignmentOperator)
 {
     S_IMUSANT_duration crotchet1 = new_IMUSANT_duration();
