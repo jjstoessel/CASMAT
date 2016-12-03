@@ -340,7 +340,7 @@
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		9695B5321DE08575000586D0 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		9695B5331DE08577000586D0 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
-		96A912EF1DE08D8700EF40F3 /* IMUSANT_generic_interval_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A912ED1DE08C2D00EF40F3 /* IMUSANT_generic_interval_Test.cpp */; };
+		96A912EF1DE08D8700EF40F3 /* IMUSANT_generalised_interval_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A912ED1DE08C2D00EF40F3 /* IMUSANT_generalised_interval_Tests.cpp */; };
 		96A912F01DE102C900EF40F3 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		96A912F11DE102CB00EF40F3 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		96CC66C61DE7E61900E2F7FB /* CATSMAT_Ngram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C41DE7E61900E2F7FB /* CATSMAT_Ngram.cpp */; };
@@ -1146,7 +1146,7 @@
 		96A71CB91A9160CB0021C86A /* TXML2GuidoVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXML2GuidoVisitor.h; sourceTree = "<group>"; };
 		96A71CBA1A9160CB0021C86A /* UTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTools.h; sourceTree = "<group>"; };
 		96A71CBB1A9160CB0021C86A /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
-		96A912ED1DE08C2D00EF40F3 /* IMUSANT_generic_interval_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generic_interval_Test.cpp; sourceTree = "<group>"; };
+		96A912ED1DE08C2D00EF40F3 /* IMUSANT_generalised_interval_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generalised_interval_Tests.cpp; sourceTree = "<group>"; };
 		96CC66C41DE7E61900E2F7FB /* CATSMAT_Ngram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_Ngram.cpp; path = catsmat/CATSMAT_Ngram.cpp; sourceTree = SOURCE_ROOT; };
 		96CC66C51DE7E61900E2F7FB /* CATSMAT_Ngram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_Ngram.h; path = catsmat/CATSMAT_Ngram.h; sourceTree = SOURCE_ROOT; };
 		96CC66C81DEAF5B400E2F7FB /* CATSMAT_NGram_Test_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_NGram_Test_Expected.h; path = CATSMAT_Tests/CATSMAT_NGram_Test_Expected.h; sourceTree = SOURCE_ROOT; };
@@ -1823,7 +1823,7 @@
 			isa = PBXGroup;
 			children = (
 				4970E00C1B7589700052496C /* IMUSANT_key_Tests.cpp */,
-				96A912ED1DE08C2D00EF40F3 /* IMUSANT_generic_interval_Test.cpp */,
+				96A912ED1DE08C2D00EF40F3 /* IMUSANT_generalised_interval_Tests.cpp */,
 				1E450E2A1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp */,
 				1E6C38D21BB75C2A0025BA7E /* IMUSANT_score_Tests.cpp */,
 				1E3E47B81BF5E71200F2C037 /* IMUSANT_note_Tests.cpp */,
@@ -3348,7 +3348,7 @@
 				491DA4451C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp in Sources */,
 				1E450E2B1B75818900BDF9EF /* IMUSANT_pitch_Tests.cpp in Sources */,
 				1E905DD91C21C01F0017850F /* IMUSANT_interval_Tests.cpp in Sources */,
-				96A912EF1DE08D8700EF40F3 /* IMUSANT_generic_interval_Test.cpp in Sources */,
+				96A912EF1DE08D8700EF40F3 /* IMUSANT_generalised_interval_Tests.cpp in Sources */,
 				1E6C38D51BB766020025BA7E /* IMUSANT_score_Tests.cpp in Sources */,
 				4932AB6B1DC4A053006423CD /* IMUSANT_segmented_part_fixed_period_Tests.cpp in Sources */,
 				49394E891CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp in Sources */,
