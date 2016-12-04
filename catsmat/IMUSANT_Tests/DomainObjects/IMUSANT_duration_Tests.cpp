@@ -188,6 +188,27 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_WithTimeMod)
     ASSERT_EQ(0, sum.fDots);
 }
 
+TEST_F(IMUSANT_duration_Tests, Duration_AssignmentOperator)
+{
+    S_IMUSANT_duration dur1 = new_IMUSANT_duration();
+    dur1->set(IMUSANT_duration::crochet, 2);
+    
+    S_IMUSANT_duration dur2 = new_IMUSANT_duration();
+    dur2->set(IMUSANT_duration::quaver, 1, TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    
+    *dur1 = *dur2;
+    
+    ASSERT_EQ(1, dur1->fDuration.getNumerator());
+    ASSERT_EQ(8, dur1->fDuration.getDenominator());
+    ASSERT_EQ(3, dur1->fTimeModification.getNumerator());
+    ASSERT_EQ(2, dur1->fTimeModification.getDenominator());
+    ASSERT_EQ(0, dur1->fNormalDots);
+    ASSERT_EQ(1, dur1->fDots);
+    
+    ASSERT_TRUE(*dur1 == *dur2);
+}
+
+
 TEST_F(IMUSANT_duration_Tests, Duration_CompoundAssignmentOperator)
 {
     S_IMUSANT_duration crotchet1 = new_IMUSANT_duration();
@@ -202,8 +223,7 @@ TEST_F(IMUSANT_duration_Tests, Duration_CompoundAssignmentOperator)
     ASSERT_EQ(2, crotchet1->fDuration.getDenominator());
     ASSERT_EQ(1, crotchet1->fTimeModification.getNumerator());
     ASSERT_EQ(1, crotchet1->fTimeModification.getDenominator());
-    ASSERT_EQ(1, crotchet1->fNormalDuration.getNumerator());   // << FAILING HERE...
-    ASSERT_EQ(2, crotchet1->fNormalDuration.getDenominator());
+    ASSERT_TRUE(IMUSANT_duration::unmeasured == crotchet1->fNormalDuration);
     ASSERT_EQ(0, crotchet1->fNormalDots);
     ASSERT_EQ(0, crotchet1->fDots);
     

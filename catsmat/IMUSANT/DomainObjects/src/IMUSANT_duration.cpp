@@ -252,6 +252,7 @@ namespace IMUSANT
         out.fDots = NormaliseDuration(r);
         out.fDuration = r;
         out.fTimeModification=1;
+        out.fNormalDuration=IMUSANT_duration::unmeasured;
         
         return out;
     }
@@ -265,6 +266,7 @@ namespace IMUSANT
         this->fDots = NormaliseDuration(r);
         this->fDuration = r;
         this->fTimeModification=1;
+        this->fNormalDuration = IMUSANT_duration::unmeasured;
         
         return *this;
     }
@@ -353,6 +355,7 @@ namespace IMUSANT
         out.fDuration = (fDuration * dotsmultiplier)/fTimeModification;
         out.fDots = 0;
         out.fTimeModification=1;
+        out.fNormalDuration = IMUSANT_duration::unmeasured;
         
         return out;
     }
