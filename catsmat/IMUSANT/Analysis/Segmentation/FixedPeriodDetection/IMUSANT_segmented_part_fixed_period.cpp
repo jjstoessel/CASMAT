@@ -57,7 +57,7 @@ namespace IMUSANT
         
         S_IMUSANT_duration period_duration = calculatePeriodDuration(part_two_notes, second_sounding_note_index);
 
-        fPeriodDuration = period_duration->asAbsoluteNumeric();   // REVISIT
+        fPeriodDuration = period_duration;
         
         int first_sounding_note_index = 0;
         int num_non_matching_notes = 0;
