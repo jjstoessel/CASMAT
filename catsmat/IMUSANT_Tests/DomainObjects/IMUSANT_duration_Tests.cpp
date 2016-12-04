@@ -282,63 +282,113 @@ TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_SevenOverEight)
     ASSERT_EQ(2, simplified_dur->fDots);
 }
 
-TEST_F(IMUSANT_duration_Tests, Duration_Set_SixOnFour_OneDot)
-{
-    //
-    // The logic is as follows:
-    //
-    // dur = 6/4 with one dot
-    //     = 6/4 + 3/4
-    //     = 9/4
-    //
-    // BUT
-    //
-    // set() is giving me
-    //     (6/4) with one dot
-    //   = (4/4 with 1 dot) with one dot
-    //   = 4/4 with two dots
-    //   = 4/4 + 2/4 + 1/4
-    //   = 7/4
-    //
-    // THIS IS WRONG because 7/4 != 9/4
-    //
-    
-    S_IMUSANT_duration dur = new_IMUSANT_duration();
-    dur->set(TRational(6,4), 1);
-   
-    ASSERT_EQ(9, dur->fDuration.getNumerator()) << "IMUSANT_duration::set() is WRONG in the simplification of dots...";
-    ASSERT_EQ(4, dur->fDuration.getDenominator());
-    ASSERT_EQ(0, dur->fDots);
-}
-
 TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_WithTimeMod)
 {
+    // We are in a time signature of 4/4.
+    // We have a triplet over a minim.
+    //
+    // There are mixed note values within the triplet.  The first note is a quaver.
+    //
+    // The logic is as follows:
+    //
+    // Duration of the full triplet = 1/2 (a half note)
+    // Six quavers can be notated within the triplet so each one is worth (1/2 / 6) or 1/12.
+    //
+
+    S_IMUSANT_duration dur = new_IMUSANT_duration();
+    S_IMUSANT_duration simplified_dur = new_IMUSANT_duration();
+    
+    // D-01024.  The normal-dur parameter below is ignored.  You can set it to whatever you like and
+    // the calculation will still be correct.
+    dur->set(TRational(1,8), 0, TRational(3,2), IMUSANT_duration::crochet, 0);
+    
+    *simplified_dur = dur->getSimplifiedDuration();
+    
+    ASSERT_EQ(1, simplified_dur->fDuration.getNumerator());
+    ASSERT_EQ(12, simplified_dur->fDuration.getDenominator());
+    ASSERT_EQ(0, simplified_dur->fDots);
+    ASSERT_EQ(1, simplified_dur->fTimeModification.getNumerator());
+    ASSERT_EQ(1, simplified_dur->fTimeModification.getDenominator());
+    ASSERT_EQ(0, simplified_dur->fNormalDuration.getNumerator());
+    ASSERT_EQ(1, simplified_dur->fNormalDuration.getDenominator());
+    ASSERT_EQ(0, simplified_dur->fNormalDots);
+}
+
+TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_WithTimeModAndNormalNote)
+{
     // The logic is as follows:
     
-    // dur = 6/4 with one dot
-    //     = 6/4 + 3/4
-    //     = 9/4
+    // We have a triplet of eigth notes taking place over the duration of a quarter note
+    // (this is just a bog standard three quavers over a crochet). BUT, the first two quavers
+    // in the triplet are combined into a crochet.  So we have a crochet plus a quaver taking
+    // place over a crochet.
     //
-    // timemod = 3/2
+    // So we have:
+    //     duration = 1/4
+    //     duration of each note in the triplet
+    //       = (duration / 3)
+    //       = (1/4 / 3)
+    //       = 1/12
+    //     first crotchet in the triplet is therefore 2 * 1/12 = 1/6
     //
-    // simplified_dur = dur / timemod
-    //                = 9/4 / 3/2
-    //                = 9/4 * 2/3
-    //                = 18/12
-    //                = 1 1/2
-    // which is semibreve with one dot.
+    // We are expecting simplifiedDuration() to give us 1/6.
+    //
     
     S_IMUSANT_duration dur = new_IMUSANT_duration();
     S_IMUSANT_duration simplified_dur = new_IMUSANT_duration();
     
-    dur->set(TRational(6,4), 1, TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    // D-01024.  The normal-dur parameter below is ignored.  You can set it to whatever you like and
+    // the calculation will still be correct.
+    dur->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::quaver, 0);
     
     *simplified_dur = dur->getSimplifiedDuration();
     
-    ASSERT_EQ(1, simplified_dur->fDuration.getNumerator()) << "IMUSANT_duration::set() is WRONG in the simplification of dots...";
-    ASSERT_EQ(1, simplified_dur->fDuration.getDenominator());
-    ASSERT_TRUE(IMUSANT_duration::semibreve == simplified_dur->fDuration);
-    ASSERT_EQ(1, simplified_dur->fDots);
+    ASSERT_EQ(1, simplified_dur->fDuration.getNumerator());
+    ASSERT_EQ(6, simplified_dur->fDuration.getDenominator());
+    ASSERT_EQ(0, simplified_dur->fDots);
+    ASSERT_EQ(1, simplified_dur->fTimeModification.getNumerator());
+    ASSERT_EQ(1, simplified_dur->fTimeModification.getDenominator());
+    ASSERT_EQ(0, simplified_dur->fNormalDuration.getNumerator());
+    ASSERT_EQ(1, simplified_dur->fNormalDuration.getDenominator());
+    ASSERT_EQ(0, simplified_dur->fNormalDots);
+}
+
+TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_WithTimeModAndDots)
+{
+    // The logic is as follows:
+    
+    // We have a triplet of eigth notes taking place over the duration of a quarter note
+    // (this is just a bog standard three quavers over a crochet).  One of the notes in the
+    // triplet is a quaver, another is a semiquaver, and the other is a dotted quaver.
+    //
+    // So we have:
+    //     duration = 1/4
+    //     duration of each note in the triplet
+    //       = (duration / 3)
+    //       = (1/4 / 3)
+    //       = 1/12
+    //     duration of dotted quaver = 1/12 + 1/24 = 3/24 = 1/8
+    //
+    // We are expecting simplifiedDuration() to give us 1/8.
+    //
+    
+    S_IMUSANT_duration dur = new_IMUSANT_duration();
+    S_IMUSANT_duration simplified_dur = new_IMUSANT_duration();
+    
+    // D-01024.  The normal-dur parameter below is ignored.  You can set it to whatever you like and
+    // the calculation will still be correct.
+    dur->set(IMUSANT_duration::quaver, 1, TRational(3,2), IMUSANT_duration::quaver, 0);
+    
+    *simplified_dur = dur->getSimplifiedDuration();
+    
+    ASSERT_EQ(1, simplified_dur->fDuration.getNumerator());
+    ASSERT_EQ(8, simplified_dur->fDuration.getDenominator());
+    ASSERT_EQ(0, simplified_dur->fDots);
+    ASSERT_EQ(1, simplified_dur->fTimeModification.getNumerator());
+    ASSERT_EQ(1, simplified_dur->fTimeModification.getDenominator());
+    ASSERT_EQ(0, simplified_dur->fNormalDuration.getNumerator());
+    ASSERT_EQ(1, simplified_dur->fNormalDuration.getDenominator());
+    ASSERT_EQ(0, simplified_dur->fNormalDots);
 }
 
 TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_equalityOperator_WithTimeMod)

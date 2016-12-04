@@ -114,6 +114,7 @@ namespace IMUSANT
             << "<RHYTHM_TYPE>" << xmlv1(fDuration) << "<\\RHYTHM_TYPE>"
             << "<DOTS>" << to_string(fDots) << "<\\DOTS>"
             << "<TIME_MOD>" << fTimeModification.toString() << "<\\TIME_MOD>";
+      //   << "<TIME_MOD>" << fTimeModification.toString() << " normal-type " << fNormalDuration.toString() << " normal-dots " << fNormalDots << "<\\TIME_MOD>";
     }
     
     float
