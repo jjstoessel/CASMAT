@@ -109,7 +109,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     int error_code = s_segmented_part->initialise(fScore_Kyrie);
     
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, error_code);
-    ASSERT_EQ(10752, s_segmented_part->getPeriodDuration());
+    ASSERT_EQ(10752, s_segmented_part->getPeriodDuration()->asAbsoluteNumeric());
     
     vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
     ASSERT_EQ(9, segments.size()) << "Unexpected number of segments...";
@@ -158,7 +158,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     int ret_val = s_segmented_part->initialise(fScore_Sanctus);
     
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
-    ASSERT_EQ(7680, s_segmented_part->getPeriodDuration());
+    ASSERT_EQ(7680, s_segmented_part->getPeriodDuration()->asAbsoluteNumeric() );
     
     vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
     ASSERT_EQ(23, segments.size()) << "Unexpected number of segments...";

@@ -114,6 +114,7 @@ namespace IMUSANT
             << "<RHYTHM_TYPE>" << xmlv1(fDuration) << "<\\RHYTHM_TYPE>"
             << "<DOTS>" << to_string(fDots) << "<\\DOTS>"
             << "<TIME_MOD>" << fTimeModification.toString() << "<\\TIME_MOD>";
+      //   << "<TIME_MOD>" << fTimeModification.toString() << " normal-type " << fNormalDuration.toString() << " normal-dots " << fNormalDots << "<\\TIME_MOD>";
     }
     
     float
@@ -251,6 +252,7 @@ namespace IMUSANT
         out.fDots = NormaliseDuration(r);
         out.fDuration = r;
         out.fTimeModification=1;
+        out.fNormalDuration=IMUSANT_duration::unmeasured;
         
         return out;
     }
@@ -264,6 +266,7 @@ namespace IMUSANT
         this->fDots = NormaliseDuration(r);
         this->fDuration = r;
         this->fTimeModification=1;
+        this->fNormalDuration = IMUSANT_duration::unmeasured;
         
         return *this;
     }
@@ -352,6 +355,7 @@ namespace IMUSANT
         out.fDuration = (fDuration * dotsmultiplier)/fTimeModification;
         out.fDots = 0;
         out.fTimeModification=1;
+        out.fNormalDuration = IMUSANT_duration::unmeasured;
         
         return out;
     }

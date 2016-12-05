@@ -14,6 +14,7 @@
 #include "IMUSANT_note.h"
 #include "IMUSANT_score.h"
 #include "IMUSANT_segment.h"
+#include "IMUSANT_duration.h"
 
 using namespace std;
 
@@ -41,7 +42,7 @@ namespace IMUSANT
         //
         vector<S_IMUSANT_segment> getSegments();
         
-        int getPeriodDuration() { return fPeriodDuration; };
+        S_IMUSANT_duration getPeriodDuration() { return fPeriodDuration; };
         
         friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_fixed_period& segmented_part);
         friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
@@ -52,7 +53,7 @@ namespace IMUSANT
         
         vector<S_IMUSANT_segment> fSegments;
         
-        int fPeriodDuration = 0;
+        S_IMUSANT_duration fPeriodDuration;
         double fErrorThreshold = 0;
         
         int separateSoundingPartsFromNonSoundingParts(string &first_sounding_part_id,

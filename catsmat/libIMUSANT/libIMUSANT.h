@@ -24,7 +24,7 @@ class libIMUSANT
 #include "IMUSANT_duration.h"
 #include "IMUSANT_key.h"
 #include "IMUSANT_element.h"
-#include "IMUSANT_generic_interval.h"
+#include "IMUSANT_generalised_interval.h"
 #include "IMUSANT_note.h"
 #include "IMUSANT_chord.h"
 #include "IMUSANT_comment.h"

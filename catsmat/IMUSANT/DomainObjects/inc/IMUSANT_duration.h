@@ -80,6 +80,8 @@ namespace IMUSANT
         // Use this when there is a time modification.
         // See the MusicXML v3 documentation for the time-modification element to understand the last three parameters.
         // If there is no need to use normal_dur then set it to IMUSANT_duration::unmeasured.
+        // D-01024.  The normal-dur and normal-dots parameters are ignored.  You can set them to whatever you like and
+        // the class will still behave correctly.
         void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots)
         {
             fDuration=dur;
