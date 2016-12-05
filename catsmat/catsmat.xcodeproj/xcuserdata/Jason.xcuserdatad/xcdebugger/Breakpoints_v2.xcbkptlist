@@ -580,7 +580,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "CATSMAT::CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
+            landmarkName = "CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
             landmarkType = "5">
             <Locations>
                <Location
@@ -628,7 +628,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
-            landmarkName = "CATSMAT::CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
+            landmarkName = "CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

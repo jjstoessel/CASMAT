@@ -10,15 +10,6 @@
 #include <numeric>
 
 namespace CATSMAT {
-   
-//    VEXP
-//    IMUSANT_SMARTP<CATSMAT_scoredata>
-//    new_CATSMAT_scoredata()
-//    {
-//        IMUSANT_score* o = new CATSMAT_scoredata();
-//        if (o==0) throw catsmat_runtime_error("Unable to allocate CATSMAT_scoredata");
-//        return o;
-//    }
 
     void
     CATSMAT_scoredata::
