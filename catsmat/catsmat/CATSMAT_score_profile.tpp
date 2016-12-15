@@ -1,10 +1,15 @@
-//
-//  CATSMAT_score_profile.tpp
-//  catsmat
-//
-//  Created by Jason Stoessel on 15/12/16.
-//
-//
+/**
+    \class      CATSMAT_score_profile
+    \file       CATSMAT_score_profile.tpp
+    \namespace  catsmat
+    \author     Jason Stoessel
+    \date       Created by Jason Stoessel on 15/12/16.
+
+    Template function for CATSMAT_score_profile, with explicit instantiations for:
+        IMUSANT_pitch
+        IMUSANT_duration
+        IMUSANT_interval
+ */
 
 #include <numeric>
 #include <iostream>
@@ -54,20 +59,20 @@ namespace CATSMAT
     CATSMAT_score_profile<T>::print(ostream& os) const
     {
         ostringstream header,lines,total;
-        header << fType << "\t";
-        total << "Total" << "\t";
+        header << fType << fDelimiter;
+        total << "Total" << fDelimiter;
         
         for (auto data : fProfile)
         {
             //add pitch name to header
-            header << data.first << "\t";
-            total << data.second << "\t";
+            header << data.first << fDelimiter;
+            total << data.second << fDelimiter;
         }
         
         for (auto s : fPartNames)
         {
             ostringstream line;
-            line << s.c_str() << "\t";
+            line << s.c_str() << fDelimiter;
             
             for (auto data : fProfile)
             {
@@ -78,9 +83,9 @@ namespace CATSMAT
                                            return s == get<0>(item) && t == get<1>(item);
                                        }); //returns iterator
                 if (it!=fTable.end())
-                    line << get<2>(*it) << "\t";
+                    line << get<2>(*it) << fDelimiter;
                 else //not found
-                    line << "0" << "\t";
+                    line << "0" << fDelimiter;
                 
             }
             
