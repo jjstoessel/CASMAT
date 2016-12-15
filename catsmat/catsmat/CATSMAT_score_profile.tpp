@@ -14,4 +14,92 @@
 namespace CATSMAT
 {
     
+    //-----------
+    
+    template <typename T>
+    void
+    CATSMAT_score_profile<T>::Accumulate(const string& partname, const PROFILE& pp)
+    {
+        
+        //store local ref to part names
+        fPartNames.push_back(partname);
+        //accumulate T data maps - check that accumulate is non-destructive
+        
+        fProfile = std::accumulate(pp.begin(),pp.end(),fProfile,
+                                   [](std::map<T,int> &m, const std::pair<const T, int> p)
+                                   {
+                                       return (m[p.first] +=p.second, m);
+                                   });
+        //tabulate T occurrence for each part
+        for (auto p : pp)
+        {
+            fTable.push_back(std::make_tuple(partname,p.first,p.second));
+        }
+    }
+    
+    template <typename T>
+    void
+    CATSMAT_score_profile<T>::Sort()
+    {
+        std::sort(fTable.begin(),
+                  fTable.end(),
+                  [](TABLE_TUPLE const &tuple1, TABLE_TUPLE const &tuple2)
+                  {
+                      return get<0>(tuple1) > get<0>(tuple2) && get<1>(tuple1) > get<1>(tuple2);
+                  });
+    }
+    
+    template <typename T>
+    void
+    CATSMAT_score_profile<T>::print(ostream& os) const
+    {
+        ostringstream header,lines,total;
+        header << fType << "\t";
+        total << "Total" << "\t";
+        
+        for (auto data : fProfile)
+        {
+            //add pitch name to header
+            header << data.first << "\t";
+            total << data.second << "\t";
+        }
+        
+        for (auto s : fPartNames)
+        {
+            ostringstream line;
+            line << s.c_str() << "\t";
+            
+            for (auto data : fProfile)
+            {
+                T t = data.first; //pitch type
+                //search table for occurrences of pitch in part
+                auto it = std::find_if(fTable.begin(), fTable.end(), [&s,&t](const tuple<string,T,int>& item)
+                                       {
+                                           return s == get<0>(item) && t == get<1>(item);
+                                       }); //returns iterator
+                if (it!=fTable.end())
+                    line << get<2>(*it) << "\t";
+                else //not found
+                    line << "0" << "\t";
+                
+            }
+            
+            lines << line.str() << endl;
+        }
+        
+        header << endl;
+        
+        os << header.str();
+        os << lines.str();
+        os << total.str() << endl;
+        
+    }
+    
+    
+    //explicit instantiations of templated classes
+    template class CATSMAT_score_profile<IMUSANT_pitch>;
+    template class CATSMAT_score_profile<IMUSANT_interval>;
+    template class CATSMAT_score_profile<IMUSANT_duration>;
+    
 }
+

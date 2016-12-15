@@ -133,9 +133,9 @@ namespace CATSMAT {
             fTotalNoteCount += data.second->getNoteCount();
             fTotalRestCount += data.second->getRestCount();
             
-            fScorePitchProfile.Gather(data.first, data.second->getPitchProfile());
-            fScoreDurationProfile.Gather(data.first, data.second->getDurationProfile());
-            fScoreIntervalProfile.Gather(data.first, data.second->getHIntervalProfile());
+            fScorePitchProfile.Accumulate(data.first, data.second->getPitchProfile());
+            fScoreDurationProfile.Accumulate(data.first, data.second->getDurationProfile());
+            fScoreIntervalProfile.Accumulate(data.first, data.second->getHIntervalProfile());
             
         }
         
@@ -173,9 +173,9 @@ namespace CATSMAT {
         os << "General data for " << title << endl;
         
         
-        fScorePitchProfile.PrintTable(os);
-        fScoreDurationProfile.PrintTable(os);
-        fScoreIntervalProfile.PrintTable(os);
+        os << fScorePitchProfile;
+        os << fScoreDurationProfile;
+        os << fScoreIntervalProfile;
         
     }
     
