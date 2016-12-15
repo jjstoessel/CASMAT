@@ -349,6 +349,8 @@
 		96CC66CD1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp */; };
 		96CC66CE1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp */; };
 		96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */; };
+		BA09CB971E025253005E9B29 /* CATSMAT_score_profile.tpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09CB951E025253005E9B29 /* CATSMAT_score_profile.tpp */; };
+		BA09CB981E025253005E9B29 /* CATSMAT_score_profile.tpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09CB951E025253005E9B29 /* CATSMAT_score_profile.tpp */; };
 		BA10A5CD1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */; };
 		BA10A5D31D979F06000679C5 /* CATSMAT_partdata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */; };
 		BA10A5D81DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5D61DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp */; };
@@ -1171,6 +1173,8 @@
 		96CC66DE1DEBB66500E2F7FB /* Pamphilus-Cucu cucu ognon canti cucu (Jeppsen).xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Pamphilus-Cucu cucu ognon canti cucu (Jeppsen).xml"; sourceTree = "<group>"; };
 		96CC66DF1DEBB68700E2F7FB /* Mod A 003-Et in terra.cmme.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mod A 003-Et in terra.cmme.xml"; sourceTree = "<group>"; };
 		96CC66E01DEBE7EC00E2F7FB /* Ciconia-Le ray au soleyl.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ciconia-Le ray au soleyl.xml"; sourceTree = "<group>"; };
+		BA09CB951E025253005E9B29 /* CATSMAT_score_profile.tpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CATSMAT_score_profile.tpp; path = catsmat/CATSMAT_score_profile.tpp; sourceTree = SOURCE_ROOT; };
+		BA09CB961E025253005E9B29 /* CATSMAT_score_profile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_score_profile.hpp; path = catsmat/CATSMAT_score_profile.hpp; sourceTree = SOURCE_ROOT; };
 		BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_scoredatacollector.cpp; path = catsmat/CATSMAT_scoredatacollector.cpp; sourceTree = SOURCE_ROOT; };
 		BA10A5CC1D93A153000679C5 /* CATSMAT_scoredatacollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_scoredatacollector.h; path = catsmat/CATSMAT_scoredatacollector.h; sourceTree = SOURCE_ROOT; };
 		BA10A5CE1D93A40F000679C5 /* CATSMAT_scoredata.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_scoredata.cpp; path = catsmat/CATSMAT_scoredata.cpp; sourceTree = SOURCE_ROOT; };
@@ -2836,6 +2840,8 @@
 				BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */,
 				BA10A5CF1D93A40F000679C5 /* CATSMAT_scoredata.h */,
 				BA10A5CE1D93A40F000679C5 /* CATSMAT_scoredata.cpp */,
+				BA09CB961E025253005E9B29 /* CATSMAT_score_profile.hpp */,
+				BA09CB951E025253005E9B29 /* CATSMAT_score_profile.tpp */,
 				BA10A5D21D979F06000679C5 /* CATSMAT_partdata.h */,
 				BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */,
 			);
@@ -3381,6 +3387,7 @@
 				BA10A5D91DA7503E000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				BA10A5D81DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp in Sources */,
 				1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */,
+				BA09CB981E025253005E9B29 /* CATSMAT_score_profile.tpp in Sources */,
 				496EF7161B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp in Sources */,
 				9695B5331DE08577000586D0 /* IMUSANT_generalised_interval.cpp in Sources */,
 				BAA257F91CFEBFD50019B07F /* CATSMAT_chord.cpp in Sources */,
@@ -3610,6 +3617,7 @@
 			files = (
 				BA10A5DA1DA75133000679C5 /* CATSMAT_scoredata.cpp in Sources */,
 				BA10A5CD1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */,
+				BA09CB971E025253005E9B29 /* CATSMAT_score_profile.tpp in Sources */,
 				1E905DD61C1FE0230017850F /* CATSMAT_processing.cpp in Sources */,
 				BAA8D8A01AABFC1A0053ADE3 /* CATSMAT_main.cpp in Sources */,
 				49B727B71C1418E400FCF494 /* CATSMAT_menu.cpp in Sources */,
