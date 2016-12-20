@@ -36,4 +36,10 @@ namespace IMUSANT {
         
         return r;
     }
+    
+    int
+    IMUSANT_generalised_interval::compare(const IMUSANT_generalised_interval& i) const
+    {
+        return (int)*this-(int)i;
+    }
 }

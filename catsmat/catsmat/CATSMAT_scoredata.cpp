@@ -51,12 +51,19 @@ namespace CATSMAT {
             fScorePitchProfile.Accumulate(data.first, data.second->getPitchProfile());
             fScoreDurationProfile.Accumulate(data.first, data.second->getDurationProfile());
             fScoreIntervalProfile.Accumulate(data.first, data.second->getHIntervalProfile());
+            map<IMUSANT_generalised_interval,int> temp_map;
+            for ( auto i : data.second->getHIntervalProfile())
+            {
+                temp_map[i.first] = i.second;
+            }
+            fScoreGeneralisedIntervalProfile.Accumulate(data.first, temp_map);
             
         }
         
         fScorePitchProfile.Sort();
         fScoreDurationProfile.Sort();
         fScoreIntervalProfile.Sort();
+        fScoreGeneralisedIntervalProfile.Sort();
     }
 
     
@@ -91,6 +98,8 @@ namespace CATSMAT {
         os << fScorePitchProfile;
         os << fScoreDurationProfile;
         os << fScoreIntervalProfile;
+        os << fScoreGeneralisedIntervalProfile;
+        os << endl;
         
     }
     

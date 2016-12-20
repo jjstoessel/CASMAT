@@ -16,7 +16,7 @@
 //#include "boost/tuple/tuple.hpp"
 
 #include "IMUSANT_score.h"
-#include "IMUSANT_interval.h"
+#include "IMUSANT_generalised_interval.h"
 #include "IMUSANT_common.h"
 #include "CATSMAT_dyad_sequences.hpp"
 #include "CATSMAT_t_utilities.h"
@@ -41,7 +41,7 @@ namespace CATSMAT {
         
     protected:
         
-        CATSMAT_scoredata() : fScorePitchProfile("Pitch"), fScoreDurationProfile("Duration"), fScoreIntervalProfile("Interval"){}
+        CATSMAT_scoredata() : fScorePitchProfile("Pitch"), fScoreDurationProfile("Duration"), fScoreIntervalProfile("Interval"), fScoreGeneralisedIntervalProfile("General Interval"){}
         ~CATSMAT_scoredata() {}
         
     private:
@@ -67,6 +67,7 @@ namespace CATSMAT {
         CATSMAT_score_profile<IMUSANT_pitch>    fScorePitchProfile;
         CATSMAT_score_profile<IMUSANT_duration> fScoreDurationProfile;
         CATSMAT_score_profile<IMUSANT_interval> fScoreIntervalProfile;
+        CATSMAT_score_profile<IMUSANT_generalised_interval> fScoreGeneralisedIntervalProfile;
         
     };
     

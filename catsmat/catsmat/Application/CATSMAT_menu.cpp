@@ -292,6 +292,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     CATSMAT_scoredatacollector scoredatacollection;
                     scoredatacollection.Visit(*processor);
                     cout << scoredatacollection;
+                    break;
                 }
                 //CATSMAT Analysis tools
                 //Find repeated dyad sequences
