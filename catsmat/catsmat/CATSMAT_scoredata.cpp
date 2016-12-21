@@ -98,7 +98,7 @@ namespace CATSMAT {
         os << fScorePitchProfile;
         os << fScoreDurationProfile;
         os << fScoreIntervalProfile;
-        os << fScoreGeneralisedIntervalProfile;
+        //os << fScoreGeneralisedIntervalProfile;
         os << endl;
         
     }

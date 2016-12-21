@@ -1396,11 +1396,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CATSMAT_Tests/CATSMAT_scoredatacollector_tests.cpp"
-            timestampString = "503446165.227034"
+            timestampString = "503979829.256538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "TEST_F(CATSMAT_scoredatacollector_tests, TestScore_4_Measures_WithSemiQuaverPassingNotes)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1412,11 +1412,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CATSMAT_Tests/CATSMAT_scoredatacollector_tests.cpp"
-            timestampString = "503446291.495533"
+            timestampString = "503979829.256538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "TEST_F(CATSMAT_scoredatacollector_tests, TestScore_4_Measures_WithSemiQuaverPassingNotes)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1432,7 +1432,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
-            endingLineNumber = "50">
+            endingLineNumber = "50"
+            landmarkName = "class CATSMAT_score_profile"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
