@@ -1138,13 +1138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_duration.cpp"
-            timestampString = "493615806.566463"
+            timestampString = "504077761.043025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
-            landmarkName = "IMUSANT_duration:: operator-(const IMUSANT_duration&amp; right)"
-            landmarkType = "5">
+            startingLineNumber = "267"
+            endingLineNumber = "267">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1154,13 +1152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_duration.cpp"
-            timestampString = "493615806.566463"
+            timestampString = "504077761.043025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "IMUSANT_duration:: operator-=(const IMUSANT_duration&amp; rhs)"
-            landmarkType = "5">
+            startingLineNumber = "300"
+            endingLineNumber = "300">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1170,13 +1166,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_duration.cpp"
-            timestampString = "490851640.756225"
+            timestampString = "504077761.043025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "IMUSANT_duration:: operator= (const IMUSANT_duration&amp; dur)"
-            landmarkType = "5">
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "IMUSANT_duration:: asAbsoluteNumeric()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1222,22 +1218,6 @@
             startingLineNumber = "81"
             endingLineNumber = "81"
             landmarkName = "CATSMAT_dyad_sequences::process(const list&lt;S_CATSMAT_chord&gt;&amp; matrix)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_dyad_sequences.cpp"
-            timestampString = "491902080.658788"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "CATSMAT_dyad_sequences::find_repeated_across(int min)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1336,13 +1316,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/DomainObjects/src/IMUSANT_duration.cpp"
-            timestampString = "493615806.566463"
+            timestampString = "504077761.043025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "IMUSANT_duration:: NormaliseDuration(TRational&amp; dur)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1482,6 +1462,22 @@
                   offsetFromSymbolStart = "39">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_interval_processor.cpp"
+            timestampString = "504077761.043025"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "IMUSANT_interval_processor:: findSupermaximalIntervals(int min_length, int min_percent)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

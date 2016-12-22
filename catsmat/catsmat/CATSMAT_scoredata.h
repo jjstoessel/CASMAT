@@ -1,11 +1,12 @@
-//
-//  CATSMAT_scoredata.h
-//  catsmat
-//
-//  Created by Jason Stoessel on 22/09/2016.
-//
-//  A class for holding and returning basic data from a score, eg. number of parts, number of notes, melodic intervals
-//
+/**
+    \class      CATSMAT_scoredata
+    \file       CATSMAT_scoredata.h
+    \namespace  catsmat
+    \date       Created by Jason Stoessel on 15/12/16.
+    \author     Jason Stoessel
+    \copyright  [add licence name]
+    \brief      A class for holding and returning basic data from a score, eg. number of parts, number of notes, melodic intervals
+*/
 
 #ifndef __catsmat__CATSMAT_scoredata__
 #define __catsmat__CATSMAT_scoredata__

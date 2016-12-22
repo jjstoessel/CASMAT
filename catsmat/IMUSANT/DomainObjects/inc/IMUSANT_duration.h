@@ -1,9 +1,12 @@
-/*
- *  IMUSANT_duration.h
- *  imusant
- *
- *  Created by Jason Stoessel on 30/08/06.
- *  Copyright 2006 __MyCompanyName__. All rights reserved.
+/**
+ *  \class      IMUSANT_duration
+ *  \file       IMUSANT_duration.h
+ *  \namespace  imusant
+ *  \date       Created by Jason Stoessel on 30/08/06.
+ *  \author     Jason Stoessel
+ *  \author     Derrick Hill
+ *  \copyright  [add licence name]
+ *  \breif      An internal representation of a note duration with comparison operators
  *
  *  Changes:
  *  24 Mar 2016 Added handlers for time modification and normal duration and normal dots as "variables" of time modification
@@ -61,37 +64,32 @@ namespace IMUSANT
         bool                operator <(const IMUSANT_duration &dur) const;
         bool                operator <=(const IMUSANT_duration &dur) const 	{return !(*this > dur);}
         
-        friend ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
-        void	print (ostream& os) const;
+        friend ostream&     operator<< (ostream& os, const IMUSANT_duration& elt );
+        void                print (ostream& os) const;
         
         
-        // Simple version for no time modification.
-        void set(TRational dur, long dots = 0)
-        {
-            fDuration = dur;
-            fDots = dots;
-            fTimeModification = TRational(1,1);
-            fNormalDuration = dur;
-            fNormalDots = 0;
-            
-            fDots += NormaliseDuration(fDuration);
-        }
+        /**
+            \fn     Set
+            \breif  Simple set function for no time modification.
+            \param  dur - a rational fraction indicating the duration relative to the semibreve
+            \param  dots - number of dots on note represented by this duration
+         */
+        void set(TRational dur, long dots = 0);
         
-        // Use this when there is a time modification.
-        // See the MusicXML v3 documentation for the time-modification element to understand the last three parameters.
-        // If there is no need to use normal_dur then set it to IMUSANT_duration::unmeasured.
-        // D-01024.  The normal-dur and normal-dots parameters are ignored.  You can set them to whatever you like and
-        // the class will still behave correctly.
-        void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots)
-        {
-            fDuration=dur;
-            fDots=dots;
-            fTimeModification=timemod;
-            fNormalDuration = normal_dur;
-            fNormalDots = normal_dots;
-            
-            fDots += NormaliseDuration(fDuration);
-        }
+        /**
+            \fn     Set
+            \brief  Use this set function when there is a time modification.
+            \param  dur - a rational fraction indicating the duration relative to the semibreve
+            \param  dots - number of dots on note represented by this duration
+            \param  timemod - a ratio showing the number of dur sounding in the normal_dur
+            \param  normal_dur  - the normal duration before time_mod is applied
+            \param  normal_dots - the normal_dots before time_mod is applied
+            See the MusicXML v3 documentation for the time-modification element to understand the last three parameters.
+            If there is no need to use normal_dur then set it to IMUSANT_duration::unmeasured.
+            D-01024.  The normal-dur and normal-dots parameters are ignored.  You can set them to whatever you like and
+            the class will still behave correctly
+         */
+        void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots);
 
         
         IMUSANT_duration	getSimplifiedDuration() const;
@@ -144,9 +142,9 @@ namespace IMUSANT
         static bimap<string, TRational>	fDuration2Stringv1;
         static bimap<string, TRational>	fDuration2Stringv3;
         
-        static TRational				fDurationTblv1[];       // values for MusicXML Version 1
+        static TRational				fDurationTblv1[];       // values for MusicXML Version 1 - deprecated
         static TRational				fDurationTblv3[];       // values for MusicXML Version 3
-        static string					fDurationStringsv1[];   // values for MusicXML Version 1
+        static string					fDurationStringsv1[];   // values for MusicXML Version 1 - deprecated
         static string					fDurationStringsv3[];   // values for MusicXML Version 3
     };
     

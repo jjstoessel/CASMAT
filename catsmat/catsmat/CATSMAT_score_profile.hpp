@@ -46,7 +46,7 @@ namespace CATSMAT {
         CATSMAT_score_profile(const string& profile_type) : fDelimiter('\t') { fType = profile_type; }
         ~CATSMAT_score_profile() {}
         
-        /// Accumulate(const string&, const PROFILE&)
+        /// Accumulate
         /**
             Use Accumulate to profiles of type map<element, count> from each part using, for example, an external call to loop through parts or duets, etc. Accumulate builds a profile for the score and a table of frequencies for each part.
             \param  partname    string containing name of part or string of element from score
@@ -58,7 +58,7 @@ namespace CATSMAT {
             Call Sort after accumulating all profiles.
          */
         void Sort();
-        /// print(ostream&)
+        /// print
         /**
             Prints table with summative profile in delimited format, i.e.
             Type    E1, E2, …
