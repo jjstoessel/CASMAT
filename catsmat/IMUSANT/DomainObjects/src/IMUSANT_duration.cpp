@@ -117,6 +117,30 @@ namespace IMUSANT
       //   << "<TIME_MOD>" << fTimeModification.toString() << " normal-type " << fNormalDuration.toString() << " normal-dots " << fNormalDots << "<\\TIME_MOD>";
     }
     
+    void
+    IMUSANT_duration::set(TRational dur, long dots)
+    {
+        fDuration = dur;
+        fDots = dots;
+        fTimeModification = TRational(1,1);
+        fNormalDuration = dur;
+        fNormalDots = 0;
+        
+        fDots += NormaliseDuration(fDuration);
+    }
+    
+    void
+    IMUSANT_duration::set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots)
+    {
+        fDuration=dur;
+        fDots=dots;
+        fTimeModification=timemod;
+        fNormalDuration = normal_dur;
+        fNormalDots = normal_dots;
+        
+        fDots += NormaliseDuration(fDuration);
+    }
+    
     float
     IMUSANT_duration::
     asAbsoluteNumeric() const

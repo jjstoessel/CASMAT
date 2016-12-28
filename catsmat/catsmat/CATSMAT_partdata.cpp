@@ -31,8 +31,10 @@ namespace CATSMAT {
                 if (note->getType()==IMUSANT_NoteType::pitch && (!note->isTiedPrevious() || !note->isTiedBothSides()))
                 {
                     fNoteCount++; //probably pointless since the result can be summed from the pitch profile
-                    int currentCount = fPitchProfile[*note->pitch()];
-                    fPitchProfile[*note->pitch()] =  currentCount + 1;
+                    int currentPCount = fPitchProfile[*note->pitch()];
+                    fPitchProfile[*note->pitch()] =  ++currentPCount;
+                    int currentDCount = fDurationProfile[*note->duration()];
+                    fDurationProfile[*note->duration()] = ++currentDCount;
                     //see there is a last pitch stored and create melodic interval
                     if (*fLastPitch==IMUSANT_pitch())
                     {

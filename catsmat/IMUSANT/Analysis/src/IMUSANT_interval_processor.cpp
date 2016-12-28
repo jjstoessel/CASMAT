@@ -1,17 +1,19 @@
-
-//
-//  IMUSANT_interval_processor.cpp
-//
-//  Created by Jason Stoessel on 12/06/2016.
-//
-//  IMUSANT_interval_processor is visitable by IMUSANT_processing. Visit builds a tree contain all
-//  interval strings contained in collections held by IMUSANT_processing. This tree is stored in
-//  memory and interogated by function calls:
-//      • findAndPrintRepeatedIntervalSubstrings - calls the following, but returns string rather than vector of vectors
-//      • findRepeatedIntervalSubstrings - returns from mTreePtr a vector of vector of intervals of repeated "strings" of
-//          intervals.
-//      • findSupermaximalsIntervals - find maximal repeats that are not substrings of any other maximal repeats
-//  mTreePtr belongs to the base class, and is destroyed in this classes destructor.
+/**
+    \class      IMUSANT_interval_processor
+    \file       IMUSANT_interval_processor.cpp
+    \namespace  imusant
+    \date       Created by Jason Stoessel on 12/06/2016.
+    \author     Jason Stoessel
+    \copyright  [add licence name]
+    \brief      A class for processing IMUSANT_scores into a suffix tree
+    
+    IMUSANT_interval_processor is visitable by IMUSANT_processing. Visit builds a tree contain all interval strings contained in collections held by IMUSANT_processing. This tree is stored in memory and interogated by function calls:
+      • findAndPrintRepeatedIntervalSubstrings - calls the following, but returns string rather than vector of vectors
+      • findRepeatedIntervalSubstrings - returns from mTreePtr a vector of vector of intervals of repeated "strings" of
+          intervals.
+      • findSupermaximalsIntervals - find maximal repeats that are not substrings of any other maximal repeats
+    mTreePtr belongs to the base class, and is destroyed in this classes destructor.
+*/
 
 #include <utility>
 #include "boost/multi_array.hpp"

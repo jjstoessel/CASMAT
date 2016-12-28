@@ -10,16 +10,7 @@
 #include <numeric>
 
 namespace CATSMAT {
-   
-//    VEXP
-//    IMUSANT_SMARTP<CATSMAT_scoredata>
-//    new_CATSMAT_scoredata()
-//    {
-//        IMUSANT_score* o = new CATSMAT_scoredata();
-//        if (o==0) throw catsmat_runtime_error("Unable to allocate CATSMAT_scoredata");
-//        return o;
-//    }
-
+    
     void
     CATSMAT_scoredata::
     findBasicDataFromScore(S_IMUSANT_score score)
@@ -57,38 +48,24 @@ namespace CATSMAT {
             fTotalNoteCount += data.second->getNoteCount();
             fTotalRestCount += data.second->getRestCount();
             
-            //accumulate pitch data maps - check that accumulate is non-destructive
-            //templatise this function
-            map<IMUSANT_pitch,int> pp = data.second->getPitchProfile();
+            fScorePitchProfile.Accumulate(data.first, data.second->getPitchProfile());
+            fScoreDurationProfile.Accumulate(data.first, data.second->getDurationProfile());
+            fScoreIntervalProfile.Accumulate(data.first, data.second->getHIntervalProfile());
+            map<IMUSANT_generalised_interval,int> temp_map;
+            for ( auto i : data.second->getHIntervalProfile())
+            {
+                temp_map[i.first] = i.second;
+            }
+            fScoreGeneralisedIntervalProfile.Accumulate(data.first, temp_map);
             
-            fPitchProfile = std::accumulate(pp.begin(),pp.end(),fPitchProfile,
-                                            [](std::map<IMUSANT_pitch,int> &m, const std::pair<const IMUSANT_pitch, int> p)
-                                                {
-                                                    return (m[p.first] +=p.second, m);
-                                                }
-                                            );
-            
-            //accumulate interval data maps - check
-            map<IMUSANT_interval, int> ip = data.second->getHIntervalProfile();
-            
-            fIntervalProfile = std::accumulate(ip.begin(), ip.end(), fIntervalProfile,
-                                               [](std::map<IMUSANT_interval,int> &m, const std::pair<const IMUSANT_interval,int> p){ return (m[p.first] +=p.second, m); }
-                                               );
-            
-            //accumulate duration data maps - check
-            map<IMUSANT_duration, int> dp = data.second->getDurationProfile();
-            
-            fDurationProfile = std::accumulate(dp.begin(), dp.end(), fDurationProfile,
-                                               [](std::map<IMUSANT_duration,int> &m, const std::pair<const IMUSANT_duration, int> p)
-                                               {
-                                                   return (m[p.first] +=p.second, m);
-                                               }
-                                               );
         }
         
-        
+        fScorePitchProfile.Sort();
+        fScoreDurationProfile.Sort();
+        fScoreIntervalProfile.Sort();
+        fScoreGeneralisedIntervalProfile.Sort();
     }
-    
+
     
     
     void
@@ -115,12 +92,15 @@ namespace CATSMAT {
             title = fMovementTitle;
         }
         
-        os << "General data for " << title << std::endl;
+        os << "General data for " << title << endl;
         
-        for (auto data : fPartsData )
-        {
-            os << "Part: " << data.first << std::endl;
-            data.second->print(os);
-        }
+        
+        os << fScorePitchProfile;
+        os << fScoreDurationProfile;
+        os << fScoreIntervalProfile;
+        //os << fScoreGeneralisedIntervalProfile;
+        os << endl;
+        
     }
-}
+    
+   }

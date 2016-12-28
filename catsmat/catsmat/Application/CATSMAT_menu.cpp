@@ -292,6 +292,19 @@ runToolsMenu(CATSMAT_processing* processor)
                     CATSMAT_scoredatacollector scoredatacollection;
                     scoredatacollection.Visit(*processor);
                     cout << scoredatacollection;
+                    //quick output mechanism for now. Need to get file name and dir from user in future.
+                    cout << "Save to file? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'y' || yn == 'Y')
+                    {
+                        ofstream out("out.txt");
+                        if (out.is_open())
+                        {
+                            out << scoredatacollection;
+                            out.close();
+                        }
+                    }
+                    break;
                 }
                 //CATSMAT Analysis tools
                 //Find repeated dyad sequences

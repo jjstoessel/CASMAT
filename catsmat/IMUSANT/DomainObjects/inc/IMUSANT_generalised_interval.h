@@ -19,13 +19,13 @@ namespace IMUSANT {
         
         IMUSANT_generalised_interval() : IMUSANT_interval() {}
         IMUSANT_generalised_interval(const IMUSANT_generalised_interval& iv) : IMUSANT_interval(iv){}
+        IMUSANT_generalised_interval(const IMUSANT_interval& iv) : IMUSANT_interval(iv) {}
         IMUSANT_generalised_interval(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second) : IMUSANT_interval(first,second) {}
         IMUSANT_generalised_interval(interval_type iv) : IMUSANT_interval(iv) {}
-        //IMUSANT_generalised_interval(IMUSANT_interval& iv) : IMUSANT_interval(iv) {}
-        
         
         operator int() const;
         interval_type getInterval(); //overrides base class function
+        int           compare(const IMUSANT_generalised_interval& i) const;
     private:
         
     };

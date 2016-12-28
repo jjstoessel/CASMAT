@@ -9,6 +9,7 @@
 #include "CATSMAT_scoredatacollector_tests.h"
 
 #include <stdio.h>
+#include <fstream>
 
 #include "CATSMAT_scoredatacollector.h"
 
@@ -74,6 +75,15 @@ TEST_F(CATSMAT_scoredatacollector_tests, TestScore_4_Measures) {
     
     scoredatacollection.Visit(*the_processor);
     
+    //temporary
+    ofstream out("TestScore_4_Measures.txt");
+    if (out.is_open())
+    {
+        out << scoredatacollection;
+        out.close();
+    }
+    //
+    
     ostringstream the_score_data_as_string;
     the_score_data_as_string << scoredatacollection;
     ASSERT_EQ(TestScore_4_Measures_Expected, the_score_data_as_string.str());
@@ -88,6 +98,15 @@ TEST_F(CATSMAT_scoredatacollector_tests, TestScore_4_Measures_WithQuaverPassingN
     the_processor->addFile(testdata);
     
     scoredatacollection.Visit(*the_processor);
+    
+    //temporary
+    ofstream out("TestScore_4_Measures_WithQuaverPassingNotes.txt");
+    if (out.is_open())
+    {
+        out << scoredatacollection;
+        out.close();
+    }
+    //
     
     ostringstream the_score_data_as_string;
     the_score_data_as_string << scoredatacollection;
@@ -105,9 +124,20 @@ TEST_F(CATSMAT_scoredatacollector_tests, TestScore_4_Measures_WithSemiQuaverPass
     
     scoredatacollection.Visit(*the_processor);
     
+    //temporary
+    ofstream out("TestScore_4_Measures_WithSemiQuaverPassingNotes.txt");
+    if (out.is_open())
+    {
+        out << scoredatacollection;
+        out.close();
+    }
+    //
+    
     ostringstream the_score_data_as_string;
     the_score_data_as_string << scoredatacollection;
     ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, the_score_data_as_string.str());
+    
+   
     
 }
 
