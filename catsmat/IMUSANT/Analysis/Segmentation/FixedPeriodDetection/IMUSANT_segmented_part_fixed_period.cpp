@@ -107,13 +107,6 @@ namespace IMUSANT
         
     }
     
-    vector<S_IMUSANT_part>
-    IMUSANT_segmented_part_fixed_period::
-    sortPartsByEntryOrder(IMUSANT_vector<S_IMUSANT_part>& parts)
-    {
-        return parts;
-    }
-    
     S_IMUSANT_segment
     IMUSANT_segmented_part_fixed_period::
     makeNewSegment(S_IMUSANT_part part)

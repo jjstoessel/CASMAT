@@ -61,9 +61,6 @@ namespace IMUSANT
         S_IMUSANT_duration fPeriodDuration;
         double fErrorThreshold = 0;
         
-        vector<S_IMUSANT_part> sortPartsByEntryOrder(IMUSANT_vector<S_IMUSANT_part>& parts);
-
-        
         int separateSoundingPartsFromNonSoundingParts(string &first_sounding_part_id,
                                                       vector<string> &non_sounding_part_ids,
                                                       IMUSANT_vector<S_IMUSANT_part>& parts);
