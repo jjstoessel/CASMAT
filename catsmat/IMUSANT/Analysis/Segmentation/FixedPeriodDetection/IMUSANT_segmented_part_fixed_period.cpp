@@ -52,8 +52,8 @@ namespace IMUSANT
             int n1_index = parts_in_entry_order[part_index - 1].EntryVectorIndexPosition;
             int n2_index = parts_in_entry_order[part_index].EntryVectorIndexPosition;
             
-            S_IMUSANT_note n1 = part_one_notes[n1_index];
-            S_IMUSANT_note n2 = part_two_notes[n2_index];
+            S_IMUSANT_note n1;
+            S_IMUSANT_note n2;
             
             S_IMUSANT_segment next_segment = makeNewSegment(parts_in_entry_order[part_index].Part);
             
@@ -67,6 +67,9 @@ namespace IMUSANT
                   &&
                   n2_index < part_two_notes.size())
             {
+                n1 = part_one_notes[n1_index++];
+                n2 = part_two_notes[n2_index++];
+                
                 *segment_duration += *n1->duration();
                 
                 OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
@@ -86,12 +89,6 @@ namespace IMUSANT
                 }
                 
                 OUTPUT(endl);
-                
-                n1_index++;
-                n2_index++;
-                n1 = part_one_notes[n1_index];
-                n2 = part_two_notes[n2_index];
-
             }
             
             if (num_non_matching_notes > 0)

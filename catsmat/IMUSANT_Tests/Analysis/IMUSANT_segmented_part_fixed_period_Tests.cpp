@@ -51,6 +51,7 @@ protected:
         _test_utils = new IMUSANT_test_utilities("IMUSANT_testdata");
         
         fScore_Kyrie = _test_utils->initialiseScoreFromFile("MusicXMLv3/Kyrie.xml");
+        fScore_Kyrie_TwoPartsOnly = _test_utils->initialiseScoreFromFile("MusicXMLv3/Kyrie_TwoPartsOnly.xml");
         fScore_Sanctus = _test_utils->initialiseScoreFromFile("MusicXMLv3/Sanctus.xml");
         fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("MusicXMLv3/Yankee_Doodle.xml");
         fScore_Josquin_MAF_Christe = _test_utils->initialiseScoreFromFile("MusicXMLv3/Josquin_MAF_Christe.xml");
@@ -59,6 +60,7 @@ protected:
     
     static IMUSANT_test_utilities * _test_utils;
     static S_IMUSANT_score fScore_Kyrie;
+    static S_IMUSANT_score fScore_Kyrie_TwoPartsOnly;
     static S_IMUSANT_score fScore_Sanctus;
     static S_IMUSANT_score fScore_YankeeDoodle;
     static S_IMUSANT_score fScore_Josquin_MAF_Christe;
@@ -69,6 +71,7 @@ protected:
 IMUSANT_test_utilities * IMUSANT_segmented_part_fixed_period_Tests::_test_utils = NULL;
 
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Kyrie = NULL;
+S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Kyrie_TwoPartsOnly = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Sanctus = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_YankeeDoodle = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Josquin_MAF_Christe = NULL;
@@ -102,6 +105,56 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::ERR_MORE_THAN_ONE_PART_AT_BEGINNING, ret_val);
 }
+
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly)
+{
+    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    int error_code = s_segmented_part->initialise(fScore_Kyrie_TwoPartsOnly);
+    
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, error_code);
+    //   ASSERT_EQ(10752, s_segmented_part->getPeriodDuration()->asAbsoluteNumeric());   // REVISIT
+    
+    vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
+    ASSERT_EQ(9, segments.size()) << "Unexpected number of segments...";
+    
+    for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
+    {
+        ASSERT_EQ(*fScore_Kyrie_TwoPartsOnly, *(segments[seg_index]->getScore()));
+    }
+    
+    ASSERT_EQ(14, segments[0]->notes().size());
+    ASSERT_EQ(14, segments[1]->notes().size());
+    ASSERT_EQ(16, segments[2]->notes().size());
+    ASSERT_EQ(18, segments[3]->notes().size());
+    ASSERT_EQ(14, segments[4]->notes().size());
+    ASSERT_EQ(14, segments[5]->notes().size());
+    ASSERT_EQ(32, segments[6]->notes().size());
+    ASSERT_EQ(25, segments[7]->notes().size());
+    ASSERT_EQ(01, segments[8]->notes().size());
+    
+    //
+    // Spot test some of the notes within the segments...
+    //
+    
+    ASSERT_EQ("Ca 2", segments[0]->getPart()->getPartName());
+    ASSERT_EQ(1, segments[0]->notes()[0]->getNoteIndex());
+    ASSERT_EQ(IMUSANT_pitch::G, segments[0]->notes()[0]->pitch()->name());
+    
+    ASSERT_EQ("Ca 2", segments[7]->getPart()->getPartName());
+    ASSERT_EQ(57, segments[7]->notes()[0]->getMeasureNum());
+    ASSERT_EQ(1, segments[7]->notes()[0]->getNoteIndex());
+    ASSERT_EQ(IMUSANT_pitch::D, segments[7]->notes()[0]->pitch()->name());
+    
+    ASSERT_EQ(63, segments[7]->notes()[24]->getMeasureNum());
+    ASSERT_EQ(3, segments[7]->notes()[24]->getNoteIndex());
+    ASSERT_EQ(IMUSANT_pitch::D, segments[7]->notes()[24]->pitch()->name());
+    
+    ASSERT_EQ("Ca 2", segments[8]->getPart()->getPartName());
+    ASSERT_EQ(63, segments[8]->notes()[0]->getMeasureNum());
+    ASSERT_EQ(4, segments[8]->notes()[0]->getNoteIndex());
+    ASSERT_EQ(IMUSANT_pitch::undefined, segments[8]->notes()[0]->pitch()->name());
+}
+
 
 TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
 {
