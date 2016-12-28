@@ -8,6 +8,7 @@
 
 #include "IMUSANT_segmented_part_fixed_period.h"
 
+
 // #define OUTPUT(s) cout << s;
 #define OUTPUT(s)
 
@@ -19,7 +20,7 @@ namespace IMUSANT
     const int IMUSANT_segmented_part_fixed_period::ERR_NOT_ENOUGH_PARTS;
     const int IMUSANT_segmented_part_fixed_period::ERR_MORE_THAN_ONE_PART_AT_BEGINNING;
     const int IMUSANT_segmented_part_fixed_period::ERR_PARTS_DONT_MATCH;
-    
+        
     int
     IMUSANT_segmented_part_fixed_period::
     initialise(S_IMUSANT_score the_score, double error_threshold)
@@ -33,39 +34,29 @@ namespace IMUSANT
         {
             return ERR_NOT_ENOUGH_PARTS;
         }
-
-        // RULE 1 - One part enters at the beginning, the others have rests.
-        int num_parts_sounding = 0;
-        string first_sounding_part_id;
-        vector<string> non_sounding_part_ids;
         
-        num_parts_sounding = separateSoundingPartsFromNonSoundingParts(first_sounding_part_id, non_sounding_part_ids, parts);
+        // Sort the parts in the order in which they enter...
+        IMUSANT_partlist_ordered_by_part_entry part_sorter;
+        vector<IMUSANT_PartEntry> parts_in_entry_order = part_sorter.getPartsInOrder(the_score);
         
-        if (num_parts_sounding > 1)
-        {
-            return ERR_MORE_THAN_ONE_PART_AT_BEGINNING;
-        }
-        
-        // RULE 2 - find the entry point of the second part to join in...
-        string second_sounding_part_id;
-        int second_sounding_note_index = calculateSecondEntryNoteIndex(second_sounding_part_id, non_sounding_part_ids, the_score);
-        
-        // RULE 3 - The notes up to the second_part_entry_point repeated from that point on.
-        
-        IMUSANT_vector<S_IMUSANT_note> part_one_notes = the_score->partlist()->getPart(first_sounding_part_id)->notes();
-        IMUSANT_vector<S_IMUSANT_note> part_two_notes = the_score->partlist()->getPart(second_sounding_part_id)->notes();
-        
-        S_IMUSANT_duration period_duration = calculatePeriodDuration(part_two_notes, second_sounding_note_index);
-
+        S_IMUSANT_duration period_duration = calculatePeriodDuration(parts_in_entry_order);
         fPeriodDuration = period_duration;
         
-        int first_sounding_note_index = 0;
-        int num_non_matching_notes = 0;
-        S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
-        S_IMUSANT_segment next_segment = new_IMUSANT_segment(fScore, the_score->partlist()->getPart(second_sounding_part_id));
-        fSegments.push_back(next_segment);
+        int part_index = 1;
         
-        for (int p1_note_index = first_sounding_note_index, p2_note_index = second_sounding_note_index; p2_note_index < part_two_notes.size(); p1_note_index++, p2_note_index++)
+        IMUSANT_vector<S_IMUSANT_note> part_one_notes = parts_in_entry_order[part_index - 1].Part->notes();
+        IMUSANT_vector<S_IMUSANT_note> part_two_notes = parts_in_entry_order[part_index].Part->notes();
+        
+        
+        int p1_note_index, first_sounding_note_index = 0;
+        int p2_note_index, second_sounding_note_index = 0; // REVISIT - this is wrong
+        int num_non_matching_notes = 0;
+        
+        S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
+        
+        S_IMUSANT_segment next_segment = makeNewSegment(parts_in_entry_order[part_index].Part);
+        
+        for (first_sounding_note_index = p1_note_index ; p2_note_index < part_two_notes.size(); p1_note_index++, p2_note_index++)
         {
             S_IMUSANT_note n1 = part_one_notes[p1_note_index];
             S_IMUSANT_note n2 = part_two_notes[p2_note_index];
@@ -73,7 +64,7 @@ namespace IMUSANT
             *segment_duration += *n1->duration();
             
             OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
-           
+            
             if (! (*n1 == *n2))
             {
                 num_non_matching_notes++;
@@ -84,8 +75,7 @@ namespace IMUSANT
             
             if (*segment_duration == *period_duration)
             {
-                next_segment = new_IMUSANT_segment(fScore, the_score->partlist()->getPart(second_sounding_part_id));
-                fSegments.push_back(next_segment);
+                next_segment = makeNewSegment(parts_in_entry_order[part_index].Part);
                 segment_duration = new_IMUSANT_duration();
             }
             
@@ -105,6 +95,22 @@ namespace IMUSANT
         return SUCCESS;
         
     }
+    
+    vector<S_IMUSANT_part>
+    IMUSANT_segmented_part_fixed_period::
+    sortPartsByEntryOrder(IMUSANT_vector<S_IMUSANT_part>& parts)
+    {
+        return parts;
+    }
+    
+    S_IMUSANT_segment
+    IMUSANT_segmented_part_fixed_period::
+    makeNewSegment(S_IMUSANT_part part)
+    {
+        S_IMUSANT_segment next_segment = new_IMUSANT_segment(fScore, part, this->SEGMENTATION_ALGORITHM);
+        fSegments.push_back(next_segment);
+        return next_segment;
+    };
     
     int
     IMUSANT_segmented_part_fixed_period::
@@ -127,6 +133,27 @@ namespace IMUSANT
         
         return num_parts_sounding;
     }
+    
+    
+    void separateSoundingPartsFromNonSoundingParts(IMUSANT_vector<S_IMUSANT_part> &all_parts,
+                                                   int at_note_index,
+                                                   vector<S_IMUSANT_part> &sounding_parts,
+                                                   vector<S_IMUSANT_part> &non_sounding_parts)
+    {
+        for (int part_index = 0; part_index < all_parts.size() ; part_index++ )
+        {
+            S_IMUSANT_note the_note = all_parts[part_index]->notes()[at_note_index];
+            if (the_note->isRest())
+            {
+                non_sounding_parts.push_back(all_parts[part_index]);
+            }
+            else
+            {
+                sounding_parts.push_back(all_parts[part_index]);
+            }
+        }
+    }
+    
     
     int
     IMUSANT_segmented_part_fixed_period::
@@ -163,6 +190,23 @@ namespace IMUSANT
 
     S_IMUSANT_duration
     IMUSANT_segmented_part_fixed_period::
+    calculatePeriodDuration(IMUSANT_PartEntry_Vector parts_in_entry_order)
+    {
+        S_IMUSANT_duration period_duration = new_IMUSANT_duration();
+        IMUSANT_vector<S_IMUSANT_note> notes_in_second_part = parts_in_entry_order[1].Part->notes();
+        
+        for (int note_index = 0 ; notes_in_second_part[note_index]->isRest(); note_index++)
+        {
+            *period_duration += *(notes_in_second_part[note_index]->duration());
+        }
+        
+        return period_duration;
+    
+    }
+    
+    
+    S_IMUSANT_duration
+    IMUSANT_segmented_part_fixed_period::
     calculatePeriodDuration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes , float second_sounding_note_index)
     {
         S_IMUSANT_duration period_duration = new_IMUSANT_duration();
@@ -182,6 +226,7 @@ namespace IMUSANT
     {
         return fSegments;
     }
+    
     
     S_IMUSANT_segmented_part_fixed_period new_IMUSANT_segmented_part_fixed_period()
     {

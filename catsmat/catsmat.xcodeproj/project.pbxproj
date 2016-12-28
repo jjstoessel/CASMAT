@@ -43,6 +43,9 @@
 		490E3BB91CFA5EB90091A44E /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
 		490E3BBB1D0CFBE70091A44E /* IMUSANT_t_repeated_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4207E41CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp */; };
 		491DA4451C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */; };
+		4920C1651E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4920C1631E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.cpp */; };
+		4920C1661E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4920C1641E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.h */; };
+		4920C1681E13447900577FC6 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4920C1671E13447900577FC6 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp */; };
 		4926075D1DD11E24007C8A54 /* IMUSANT_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4926075A1DD11E24007C8A54 /* IMUSANT_segment.cpp */; };
 		4926075E1DD11E24007C8A54 /* IMUSANT_segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4926075B1DD11E24007C8A54 /* IMUSANT_segment.h */; };
 		492607601DD11F8C007C8A54 /* IMUSANT_segment_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4926075F1DD11F8C007C8A54 /* IMUSANT_segment_Tests.cpp */; };
@@ -591,6 +594,9 @@
 		49064B8C1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_weighted_strength_vectors.cpp; sourceTree = "<group>"; };
 		49064B8D1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_weighted_strength_vectors.h; sourceTree = "<group>"; };
 		491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_part_LBDM_Tests.cpp; path = IMUSANT_Tests/Analysis/IMUSANT_segmented_part_LBDM_Tests.cpp; sourceTree = "<group>"; };
+		4920C1631E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_partlist_ordered_by_part_entry.cpp; sourceTree = "<group>"; };
+		4920C1641E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_partlist_ordered_by_part_entry.h; sourceTree = "<group>"; };
+		4920C1671E13447900577FC6 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_partlist_ordered_by_part_entry_Tests.cpp; path = IMUSANT_Tests/Analysis/IMUSANT_partlist_ordered_by_part_entry_Tests.cpp; sourceTree = "<group>"; };
 		4926075A1DD11E24007C8A54 /* IMUSANT_segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segment.cpp; sourceTree = "<group>"; };
 		4926075B1DD11E24007C8A54 /* IMUSANT_segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segment.h; sourceTree = "<group>"; };
 		4926075F1DD11F8C007C8A54 /* IMUSANT_segment_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segment_Tests.cpp; path = IMUSANT_Tests/Analysis/IMUSANT_segment_Tests.cpp; sourceTree = "<group>"; };
@@ -1597,6 +1603,8 @@
 			children = (
 				4932AB671DC4A018006423CD /* IMUSANT_segmented_part_fixed_period.h */,
 				4932AB661DC4A018006423CD /* IMUSANT_segmented_part_fixed_period.cpp */,
+				4920C1641E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.h */,
+				4920C1631E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.cpp */,
 			);
 			path = FixedPeriodDetection;
 			sourceTree = "<group>";
@@ -1846,6 +1854,7 @@
 				491DA4441C97163A008C7524 /* IMUSANT_segmented_part_LBDM_Tests.cpp */,
 				49394E8A1CDD90C800EC7D84 /* IMUSANT_segmented_part_LBDM_Expected.h */,
 				4932AB6A1DC4A053006423CD /* IMUSANT_segmented_part_fixed_period_Tests.cpp */,
+				4920C1671E13447900577FC6 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp */,
 			);
 			name = Analysis;
 			sourceTree = "<group>";
@@ -3096,6 +3105,7 @@
 				4959E1371CF13BE300FAC403 /* exports.h in Headers */,
 				4959E1361CF13BE300FAC403 /* bimap.h in Headers */,
 				BA1E393E1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h in Headers */,
+				4920C1661E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.h in Headers */,
 				49064B8F1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.h in Headers */,
 				1EE08A4D1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.h in Headers */,
 				496BD4E21D3239630052F94E /* IMUSANT_consolidated_interval_profile_LBDM.h in Headers */,
@@ -3355,6 +3365,7 @@
 				49F1FFF71C9E4B8A00910F07 /* IMUSANT_duration_Tests.cpp in Sources */,
 				1E3E47B91BF5E71200F2C037 /* IMUSANT_note_Tests.cpp in Sources */,
 				96A912F01DE102C900EF40F3 /* IMUSANT_generalised_interval.cpp in Sources */,
+				4920C1681E13447900577FC6 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp in Sources */,
 				49F1FFF51C9D5A8F00910F07 /* IMUSANT_part_Tests.cpp in Sources */,
 				4970E00D1B7589700052496C /* IMUSANT_key_Tests.cpp in Sources */,
 				1E3E47D91BF7FE8500F2C037 /* IMUSANT_mxmlv3_to_imusant_visitor_Tests.cpp in Sources */,
@@ -3533,6 +3544,7 @@
 				496EF6DE1B22B05500FE715F /* IMUSANT_types.cpp in Sources */,
 				496EF6DF1B22B05500FE715F /* IMUSANT_pitch.cpp in Sources */,
 				498CFE551D7B0991006379F0 /* IMUSANT_transposer.cpp in Sources */,
+				4920C1651E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */,
 				496EF6E01B22B05500FE715F /* IMUSANT_duration.cpp in Sources */,
 				496EF6E11B22B05500FE715F /* IMUSANT_key.cpp in Sources */,
 				496EF6E21B22B05500FE715F /* IMUSANT_element.cpp in Sources */,

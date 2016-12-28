@@ -16,6 +16,9 @@
 #include "IMUSANT_segment.h"
 #include "IMUSANT_duration.h"
 
+#include "IMUSANT_partlist_ordered_by_part_entry.h"
+
+
 using namespace std;
 
 namespace IMUSANT
@@ -23,6 +26,8 @@ namespace IMUSANT
     class IMUSANT_segmented_part_fixed_period : public smartable
     {
     public:
+        
+        string SEGMENTATION_ALGORITHM = "IMUSANT_segmented_part_fixed_period";
         
         static const int SUCCESS = 0;
         static const int ERR_NOT_ENOUGH_PARTS = 1;
@@ -56,20 +61,32 @@ namespace IMUSANT
         S_IMUSANT_duration fPeriodDuration;
         double fErrorThreshold = 0;
         
+        vector<S_IMUSANT_part> sortPartsByEntryOrder(IMUSANT_vector<S_IMUSANT_part>& parts);
+
+        
         int separateSoundingPartsFromNonSoundingParts(string &first_sounding_part_id,
-                                                            vector<string> &non_sounding_part_ids,
-                                                            IMUSANT_vector<S_IMUSANT_part>& parts);
+                                                      vector<string> &non_sounding_part_ids,
+                                                      IMUSANT_vector<S_IMUSANT_part>& parts);
+        
+        void separateSoundingPartsFromNonSoundingParts(IMUSANT_vector<S_IMUSANT_part> &all_parts,
+                                                       int at_note_index,
+                                                       vector<S_IMUSANT_part> &sounding_parts,
+                                                       vector<S_IMUSANT_part> &non_sounding_parts);
         
         // This method returns the index position of the second entry within the notes vector of the second sounding part.
         int calculateSecondEntryNoteIndex(string &second_sounding_part_id, vector<string>& non_sounding_part_ids, S_IMUSANT_score score);
         
         S_IMUSANT_duration calculatePeriodDuration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes, float second_sounding_note_index);
-
         
+        S_IMUSANT_duration calculatePeriodDuration(IMUSANT_PartEntry_Vector parts_in_entry_order);
+        
+        S_IMUSANT_segment makeNewSegment(const S_IMUSANT_part part);
+    
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> S_IMUSANT_segmented_part_fixed_period;
     IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
+
 }
 
 

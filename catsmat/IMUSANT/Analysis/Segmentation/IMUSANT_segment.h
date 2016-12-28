@@ -22,12 +22,13 @@ namespace IMUSANT
     {
     public:
        
-        friend IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment();
+        friend IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm);
         
-        IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part)
+        IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm)
         {
             fScore = score;
             fPart = part;
+            fSegmentationAlgorithm = segmentation_algorithm;
         }
         
         virtual ~IMUSANT_segment() {}
@@ -44,15 +45,18 @@ namespace IMUSANT
         long getConfidence() { return fConfidence; };
         void setConfidence(long confidence_level) { fConfidence = confidence_level; };
         
+        string &getAlgorithm();
+        
     private:
         S_IMUSANT_score fScore;
         S_IMUSANT_part fPart;
         vector<S_IMUSANT_note> fNotes;
         long fConfidence;
+        string fSegmentationAlgorithm;
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segment> S_IMUSANT_segment;
-    IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part);
+    IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm);
 }
 
 #endif /* IMUSANT_segment_hpp */

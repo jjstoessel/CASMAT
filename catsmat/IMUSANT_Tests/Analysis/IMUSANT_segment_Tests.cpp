@@ -95,12 +95,16 @@ TEST_F(IMUSANT_segment_Tests, Constructor)
 {
     S_IMUSANT_score score = new_IMUSANT_score();
     S_IMUSANT_part part = new_IMUSANT_part();
+    string algorithm_id = "test algorithm";
     
-    S_IMUSANT_segment p_segment = new_IMUSANT_segment(score, part);
+    S_IMUSANT_segment p_segment = new_IMUSANT_segment(score, part, algorithm_id);
 
     ASSERT_FALSE(p_segment == NULL);
     
-    IMUSANT_segment segment(score, part);
+    ASSERT_EQ(algorithm_id, p_segment->getAlgorithm());
+    
+    IMUSANT_segment segment(score, part, algorithm_id);
+    ASSERT_EQ(algorithm_id, segment.getAlgorithm());
 }
 
 

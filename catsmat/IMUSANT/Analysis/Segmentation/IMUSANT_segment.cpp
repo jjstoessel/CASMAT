@@ -11,9 +11,9 @@
 namespace IMUSANT
 {
     
-    S_IMUSANT_segment new_IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part)
+    S_IMUSANT_segment new_IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm)
     {
-        IMUSANT_segment* o = new IMUSANT_segment(score, part);
+        IMUSANT_segment* o = new IMUSANT_segment(score, part, segmentation_algorithm);
         assert (o!=0);
         return o;
     }
@@ -58,6 +58,13 @@ namespace IMUSANT
     addNote(S_IMUSANT_note note)
     {
         fNotes.push_back(note);
+    }
+    
+    string &
+    IMUSANT_segment::
+    getAlgorithm()
+    {
+        return fSegmentationAlgorithm;
     }
     
 }
