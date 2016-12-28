@@ -165,6 +165,10 @@ TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_
     ASSERT_EQ(1, ordered_partlist[0].EntryMeasureNum);
     ASSERT_EQ(8, ordered_partlist[1].EntryMeasureNum);
     ASSERT_EQ(15, ordered_partlist[2].EntryMeasureNum);
+    
+    ASSERT_EQ(0, ordered_partlist[0].EntryVectorIndexPosition);
+    ASSERT_EQ(7, ordered_partlist[1].EntryVectorIndexPosition);
+    ASSERT_EQ(14, ordered_partlist[2].EntryVectorIndexPosition);
 }
 
 TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_Sanctus)
@@ -176,6 +180,21 @@ TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_
     ASSERT_FALSE(s_ordered_partlist == NULL);
     ASSERT_EQ(3, ordered_partlist.size());
     
+    ASSERT_EQ("P1", ordered_partlist[0].Part->getID());
+    ASSERT_EQ("P2", ordered_partlist[1].Part->getID());
+    ASSERT_EQ("P3", ordered_partlist[2].Part->getID());
+    
+    ASSERT_EQ(1, ordered_partlist[0].EntryNoteIndex);
+    ASSERT_EQ(1, ordered_partlist[1].EntryNoteIndex);
+    ASSERT_EQ(1, ordered_partlist[2].EntryNoteIndex);
+    
+    ASSERT_EQ(1, ordered_partlist[0].EntryMeasureNum);
+    ASSERT_EQ(6, ordered_partlist[1].EntryMeasureNum);
+    ASSERT_EQ(11, ordered_partlist[2].EntryMeasureNum);
+    
+    ASSERT_EQ(0, ordered_partlist[0].EntryVectorIndexPosition);
+    ASSERT_EQ(5, ordered_partlist[1].EntryVectorIndexPosition);
+    ASSERT_EQ(10, ordered_partlist[2].EntryVectorIndexPosition);
 }
 
 TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_Josquin_MAF_Christe)
@@ -186,5 +205,20 @@ TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_
     
     ASSERT_FALSE(s_ordered_partlist == NULL);
     ASSERT_EQ(4, ordered_partlist.size());
+    
+    ASSERT_EQ(1, ordered_partlist[0].EntryNoteIndex);
+    ASSERT_EQ(1, ordered_partlist[1].EntryNoteIndex);
+    ASSERT_EQ(1, ordered_partlist[2].EntryNoteIndex);
+    ASSERT_EQ(1, ordered_partlist[3].EntryNoteIndex);
+    
+    ASSERT_EQ(1, ordered_partlist[0].EntryMeasureNum);
+    ASSERT_EQ(1, ordered_partlist[1].EntryMeasureNum);
+    ASSERT_EQ(1, ordered_partlist[2].EntryMeasureNum);
+    ASSERT_EQ(4, ordered_partlist[3].EntryMeasureNum);
+    
+    ASSERT_EQ(0, ordered_partlist[0].EntryVectorIndexPosition);
+    ASSERT_EQ(0, ordered_partlist[1].EntryVectorIndexPosition);
+    ASSERT_EQ(0, ordered_partlist[2].EntryVectorIndexPosition);
+    ASSERT_EQ(3, ordered_partlist[3].EntryVectorIndexPosition);
     
 }
