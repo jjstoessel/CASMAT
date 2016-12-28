@@ -61,6 +61,7 @@ namespace IMUSANT
             {
                 entry_point.EntryMeasureNum = next_note->getMeasureNum();
                 entry_point.EntryNoteIndex = next_note->getNoteIndex();
+                entry_point.EntryVectorIndexPosition = index;
                 break;
             }
         }

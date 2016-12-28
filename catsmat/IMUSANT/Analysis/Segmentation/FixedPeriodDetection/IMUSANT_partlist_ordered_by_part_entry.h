@@ -46,7 +46,9 @@ namespace IMUSANT
         S_IMUSANT_part Part;
         long EntryNoteIndex;
         long EntryMeasureNum;
+        int EntryVectorIndexPosition;   // The vector index of the first non-rest note in the part.
         S_IMUSANT_duration EntryDurationOffset;
+        
         
         bool operator <(const IMUSANT_PartEntry &rhs) const;  // Required for std::sort() which is used for sorting vectors of these things.
     };

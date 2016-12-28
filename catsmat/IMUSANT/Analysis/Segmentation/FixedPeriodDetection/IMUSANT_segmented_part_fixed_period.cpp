@@ -39,56 +39,70 @@ namespace IMUSANT
         IMUSANT_partlist_ordered_by_part_entry part_sorter;
         vector<IMUSANT_PartEntry> parts_in_entry_order = part_sorter.getPartsInOrder(the_score);
         
-        S_IMUSANT_duration period_duration = calculatePeriodDuration(parts_in_entry_order);
-        fPeriodDuration = period_duration;
-        
-        int part_index = 1;
-        
-        IMUSANT_vector<S_IMUSANT_note> part_one_notes = parts_in_entry_order[part_index - 1].Part->notes();
-        IMUSANT_vector<S_IMUSANT_note> part_two_notes = parts_in_entry_order[part_index].Part->notes();
+//        S_IMUSANT_duration period_duration = calculatePeriodDuration(parts_in_entry_order);
+//        fPeriodDuration = period_duration;
         
         
-        int p1_note_index, first_sounding_note_index = 0;
-        int p2_note_index, second_sounding_note_index = 0; // REVISIT - this is wrong
-        int num_non_matching_notes = 0;
-        
-        S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
-        
-        S_IMUSANT_segment next_segment = makeNewSegment(parts_in_entry_order[part_index].Part);
-        
-        for (first_sounding_note_index = p1_note_index ; p2_note_index < part_two_notes.size(); p1_note_index++, p2_note_index++)
+        // We compare all parts against the corresponding previous part (for the moment).
+        for (int part_index = 1 ; part_index < parts_in_entry_order.size(); part_index++)
         {
-            S_IMUSANT_note n1 = part_one_notes[p1_note_index];
-            S_IMUSANT_note n2 = part_two_notes[p2_note_index];
+            IMUSANT_vector<S_IMUSANT_note> part_one_notes = parts_in_entry_order[part_index - 1].Part->notes();
+            IMUSANT_vector<S_IMUSANT_note> part_two_notes = parts_in_entry_order[part_index].Part->notes();
             
-            *segment_duration += *n1->duration();
+            int n1_index = parts_in_entry_order[part_index - 1].EntryVectorIndexPosition;
+            int n2_index = parts_in_entry_order[part_index].EntryVectorIndexPosition;
             
-            OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
+            S_IMUSANT_note n1 = part_one_notes[n1_index];
+            S_IMUSANT_note n2 = part_two_notes[n2_index];
             
-            if (! (*n1 == *n2))
+            S_IMUSANT_segment next_segment = makeNewSegment(parts_in_entry_order[part_index].Part);
+            
+            int num_non_matching_notes = 0;
+            
+            IMUSANT_duration period_duration = *(parts_in_entry_order[part_index].EntryDurationOffset) - *(parts_in_entry_order[part_index - 1].EntryDurationOffset);
+            S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
+            // fPeriodDuration = &period_duration; // REVISIT - does period duration make sense???
+        
+            while(n1_index < part_one_notes.size()
+                  &&
+                  n2_index < part_two_notes.size())
             {
-                num_non_matching_notes++;
-                OUTPUT(" ---  DIFFERENT --- ");
+                *segment_duration += *n1->duration();
+                
+                OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
+                
+                if (! (*n1 == *n2))
+                {
+                    num_non_matching_notes++;
+                    OUTPUT(" ---  DIFFERENT --- ");
+                }
+                
+                next_segment->addNote(n2);
+                
+                if (*segment_duration == period_duration)
+                {
+                    next_segment = makeNewSegment(parts_in_entry_order[part_index].Part);
+                    segment_duration = new_IMUSANT_duration();
+                }
+                
+                OUTPUT(endl);
+                
+                n1_index++;
+                n2_index++;
+                n1 = part_one_notes[n1_index];
+                n2 = part_two_notes[n2_index];
+
             }
             
-            next_segment->addNote(n2);
-            
-            if (*segment_duration == *period_duration)
+            if (num_non_matching_notes > 0)
             {
-                next_segment = makeNewSegment(parts_in_entry_order[part_index].Part);
-                segment_duration = new_IMUSANT_duration();
+                if (num_non_matching_notes / part_one_notes.size() > fErrorThreshold )
+                {
+                    return ERR_PARTS_DONT_MATCH;
+                }
             }
-            
-            OUTPUT(endl);
         }
         
-        if (num_non_matching_notes > 0)
-        {
-            if (num_non_matching_notes / part_one_notes.size() > fErrorThreshold )
-            {
-                return ERR_PARTS_DONT_MATCH;
-            }
-        }
         
         // fPeriodLength = period_length;
         
