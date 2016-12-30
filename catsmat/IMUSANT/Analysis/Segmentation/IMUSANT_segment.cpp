@@ -60,6 +60,20 @@ namespace IMUSANT
         fNotes.push_back(note);
     }
     
+    long
+    IMUSANT_segment::
+    size()
+    {
+        return fNotes.size();
+    }
+    
+    void
+    IMUSANT_segment::
+    clear()
+    {
+        fNotes.clear();
+    }
+    
     string &
     IMUSANT_segment::
     getAlgorithm()

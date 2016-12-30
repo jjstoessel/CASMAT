@@ -78,6 +78,8 @@ namespace IMUSANT
         S_IMUSANT_duration calculatePeriodDuration(IMUSANT_PartEntry_Vector& parts_in_entry_order, int first_part_index, int second_part_index);
         
         S_IMUSANT_segment makeNewSegment(const S_IMUSANT_part part);
+        
+        bool errorRateIsAcceptable(double error_threshold, int num_non_matching_notes, long number_of_notes);
     
     };
     

@@ -169,7 +169,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
  //   ASSERT_EQ(10752, s_segmented_part->getPeriodDuration()->asAbsoluteNumeric());   // REVISIT
     
     vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
-    ASSERT_EQ(9, segments.size()) << "Unexpected number of segments...";
+    ASSERT_EQ(21, segments.size()) << "Unexpected number of segments...";
     
     for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
     {

@@ -42,6 +42,9 @@ namespace IMUSANT
         vector<S_IMUSANT_note> notes();
         void addNote(S_IMUSANT_note note);
         
+        long size();
+        void clear();
+        
         long getConfidence() { return fConfidence; };
         void setConfidence(long confidence_level) { fConfidence = confidence_level; };
         
