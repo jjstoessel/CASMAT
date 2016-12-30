@@ -62,6 +62,23 @@ TEST_F(IMUSANT_duration_Tests, Duration_Initialisation)
     ASSERT_EQ(2, duration->fNormalDots);
 }
 
+TEST_F(IMUSANT_duration_Tests, Duration_ConstructionFromTRational)
+{
+    IMUSANT_duration durationA(IMUSANT_duration::breve);
+    S_IMUSANT_duration durationB = new_IMUSANT_duration(IMUSANT_duration::breve);
+    
+    ASSERT_TRUE(durationA == IMUSANT_duration::breve);
+    ASSERT_TRUE(*durationB == IMUSANT_duration::breve);
+    ASSERT_TRUE(durationA == *durationB);
+    
+    IMUSANT_duration duration2(TRational(3,16));    // Hardcoded initialisation to dotted quaver with implicit dot...
+    IMUSANT_duration duration3;
+    duration3.set(TRational(1,8), 1);               // Initialisation to dotted quaver, with explicit dot
+    
+    ASSERT_EQ(duration2, duration3);                // implicit and explicit versions are the same...
+                               
+}
+
 TEST_F(IMUSANT_duration_Tests, Duration_asAbsoluteNumeric)
 {
     S_IMUSANT_duration duration = new_IMUSANT_duration();

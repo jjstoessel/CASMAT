@@ -38,6 +38,14 @@ namespace IMUSANT
         return o;
     }
     
+    //ctor functions
+    S_IMUSANT_duration new_IMUSANT_duration(const TRational duration)
+    {
+        IMUSANT_duration* o = new IMUSANT_duration(duration);
+        assert (o!=0);
+        return o;
+    }
+    
     TRational
     IMUSANT_duration::
     fDurationTblv1[] =

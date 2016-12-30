@@ -33,6 +33,7 @@ namespace IMUSANT
     public:
         
         friend IMUSANT_SMARTP<IMUSANT_duration> new_IMUSANT_duration();
+        friend IMUSANT_SMARTP<IMUSANT_duration> new_IMUSANT_duration(const TRational duration);
         
         IMUSANT_duration() :
             fDuration(IMUSANT_duration::unmeasured),
@@ -47,6 +48,12 @@ namespace IMUSANT
         IMUSANT_duration(const IMUSANT_duration& duration)
         {
             *this = duration;
+        }
+        
+        // Allows straightforward construction using any of the statics provided below.
+        IMUSANT_duration(const TRational duration)
+        {
+            set(duration);
         }
         
         virtual ~IMUSANT_duration() {}
@@ -96,7 +103,7 @@ namespace IMUSANT
         float               asAbsoluteNumeric() const;
         
         // If dur is a ratio that represents a dotted note, then this function reduces dur to the fraction
-        // without the dots and retrurns the number of dots required.
+        // without the dots and returns the number of dots required.
         //
         // Examples:
         // * 3/4 represents a dotted crotchet (1/2 + 1/4), and so this function changes 3/4 to 1/2 and returns 1.
@@ -151,6 +158,7 @@ namespace IMUSANT
     typedef IMUSANT_SMARTP<IMUSANT_duration> S_IMUSANT_duration;
     
     IMUSANT_SMARTP<IMUSANT_duration> new_IMUSANT_duration();
+    IMUSANT_SMARTP<IMUSANT_duration> new_IMUSANT_duration(const TRational duration);
     
 }
 #endif //namespace IMUSANT
