@@ -75,7 +75,7 @@ namespace IMUSANT
         
         S_IMUSANT_duration calculatePeriodDuration(IMUSANT_vector<S_IMUSANT_note>& second_sounding_part_notes, float second_sounding_note_index);
         
-        S_IMUSANT_duration calculatePeriodDuration(IMUSANT_PartEntry_Vector parts_in_entry_order);
+        S_IMUSANT_duration calculatePeriodDuration(IMUSANT_PartEntry_Vector& parts_in_entry_order, int first_part_index, int second_part_index);
         
         S_IMUSANT_segment makeNewSegment(const S_IMUSANT_part part);
     

@@ -45,12 +45,10 @@ namespace IMUSANT
         // We really should test each part against each other part.  (e.g. a nested loop - part 1 against parts 2,3,4 : part 2 against 3,4, : part 3 against 4 )
         for (int part_index = 1 ; part_index < parts_in_entry_order.size(); part_index++)
         {
-            IMUSANT_duration part_one_duration_offset = *(parts_in_entry_order[part_index].EntryDurationOffset);
-            IMUSANT_duration part_two_duration_offset = *(parts_in_entry_order[part_index - 1].EntryDurationOffset);
-            IMUSANT_duration period_duration =  part_two_duration_offset - part_one_duration_offset;
+            S_IMUSANT_duration period_duration = calculatePeriodDuration(parts_in_entry_order, part_index - 1, part_index);
             
-            IMUSANT_duration no_duration(IMUSANT_duration::unmeasured);
-            if (period_duration == no_duration)
+            S_IMUSANT_duration no_duration = new_IMUSANT_duration(IMUSANT_duration::unmeasured);
+            if (*period_duration == *no_duration)
             {
                 break; // The two parts are starting at the same time, so for the moment we are assuming that they are not in cannon.
             }
@@ -91,7 +89,7 @@ namespace IMUSANT
                 
                 next_segment->addNote(n2);
                 
-                if (*segment_duration >= period_duration)
+                if (*segment_duration >= *period_duration)
                 {
                     next_segment = makeNewSegment(parts_in_entry_order[part_index].Part);
                     segment_duration = new_IMUSANT_duration();
@@ -204,15 +202,13 @@ namespace IMUSANT
 
     S_IMUSANT_duration
     IMUSANT_segmented_part_fixed_period::
-    calculatePeriodDuration(IMUSANT_PartEntry_Vector parts_in_entry_order)
+    calculatePeriodDuration(IMUSANT_PartEntry_Vector& parts_in_entry_order, int first_part_index, int second_part_index)
     {
-        S_IMUSANT_duration period_duration = new_IMUSANT_duration();
-        IMUSANT_vector<S_IMUSANT_note> notes_in_second_part = parts_in_entry_order[1].Part->notes();
+        IMUSANT_duration part_one_duration_offset = *(parts_in_entry_order[first_part_index].EntryDurationOffset);
+        IMUSANT_duration part_two_duration_offset = *(parts_in_entry_order[second_part_index].EntryDurationOffset);
         
-        for (int note_index = 0 ; notes_in_second_part[note_index]->isRest(); note_index++)
-        {
-            *period_duration += *(notes_in_second_part[note_index]->duration());
-        }
+        S_IMUSANT_duration period_duration = new_IMUSANT_duration();
+        *period_duration = part_two_duration_offset - part_one_duration_offset;
         
         return period_duration;
     
