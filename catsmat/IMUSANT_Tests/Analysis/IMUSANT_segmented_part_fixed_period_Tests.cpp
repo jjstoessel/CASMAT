@@ -98,12 +98,16 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::ERR_NOT_ENOUGH_PARTS, ret_val);
 }
 
-TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_NotAPeriodicCannon)
+TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise__Josquin_MAF_Christe_NotAPeriodicCannon)
 {
+    // The algorithm cannot recognise this as a cannon at the moment.
+    // There seems to be a periodic cannon between Superious and Tenor parts, but it's difficult.
     S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
     int ret_val = s_segmented_part->initialise(fScore_Josquin_MAF_Christe);
     
-    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::ERR_MORE_THAN_ONE_PART_AT_BEGINNING, ret_val);
+    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
+    vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
+    ASSERT_EQ(0, segments.size()) << "Unexpected number of segments...";
 }
 
 TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly)

@@ -35,17 +35,26 @@ namespace IMUSANT
             return ERR_NOT_ENOUGH_PARTS;
         }
         
+        fSegments.clear();   // We have no segments to start with.
+        
         // Sort the parts in the order in which they enter...
         IMUSANT_partlist_ordered_by_part_entry part_sorter;
         vector<IMUSANT_PartEntry> parts_in_entry_order = part_sorter.getPartsInOrder(the_score);
         
-//        S_IMUSANT_duration period_duration = calculatePeriodDuration(parts_in_entry_order);
-//        fPeriodDuration = period_duration;
-        
-        
-        // We compare all parts against the corresponding previous part (for the moment).
+        // We compare each part against the corresponding previous part(s) (for the moment).
+        // We really should test each part against each other part.  (e.g. a nested loop - part 1 against parts 2,3,4 : part 2 against 3,4, : part 3 against 4 )
         for (int part_index = 1 ; part_index < parts_in_entry_order.size(); part_index++)
         {
+            IMUSANT_duration part_one_duration_offset = *(parts_in_entry_order[part_index].EntryDurationOffset);
+            IMUSANT_duration part_two_duration_offset = *(parts_in_entry_order[part_index - 1].EntryDurationOffset);
+            IMUSANT_duration period_duration =  part_two_duration_offset - part_one_duration_offset;
+            
+            IMUSANT_duration no_duration(IMUSANT_duration::unmeasured);
+            if (period_duration == no_duration)
+            {
+                break; // The two parts are starting at the same time, so for the moment we are assuming that they are not in cannon.
+            }
+            
             IMUSANT_vector<S_IMUSANT_note> part_one_notes = parts_in_entry_order[part_index - 1].Part->notes();
             IMUSANT_vector<S_IMUSANT_note> part_two_notes = parts_in_entry_order[part_index].Part->notes();
             
@@ -59,8 +68,8 @@ namespace IMUSANT
             
             int num_non_matching_notes = 0;
             
-            IMUSANT_duration period_duration = *(parts_in_entry_order[part_index].EntryDurationOffset) - *(parts_in_entry_order[part_index - 1].EntryDurationOffset);
             S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
+            
             // fPeriodDuration = &period_duration; // REVISIT - does period duration make sense???
         
             while(n1_index < part_one_notes.size()
@@ -82,10 +91,11 @@ namespace IMUSANT
                 
                 next_segment->addNote(n2);
                 
-                if (*segment_duration == period_duration)
+                if (*segment_duration >= period_duration)
                 {
                     next_segment = makeNewSegment(parts_in_entry_order[part_index].Part);
                     segment_duration = new_IMUSANT_duration();
+                    OUTPUT("---  STARTING NEW SEGMENT ---");
                 }
                 
                 OUTPUT(endl);
