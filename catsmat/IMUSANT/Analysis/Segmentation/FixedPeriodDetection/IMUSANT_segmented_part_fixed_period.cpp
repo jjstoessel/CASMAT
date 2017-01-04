@@ -39,7 +39,7 @@ namespace IMUSANT
         IMUSANT_partlist_ordered_by_part_entry part_sorter;
         vector<IMUSANT_PartEntry> parts_in_entry_order = part_sorter.getPartsInOrder(the_score);
         
-        // This loop compares each part against each other part (e.g. for 4 parts 1 against 2, 1 against 3, 1 against 4, 2 against 3, 2 against 4, 3 against 4.
+        // This loop compares each part against each other part (e.g. for 4 parts -  1 against 2, 1 against 3, 1 against 4, 2 against 3, 2 against 4, 3 against 4.
         // REVISIT - This algorithm fails to extract the segments in the last part.
         // REVISIT - this algorithm adds a lot of duplicate segments (e.g. part 3 segments are added both for comparison with Part 1 and Part 2).
         for (int first_part_index = 0 ; first_part_index < parts_in_entry_order.size() - 1; first_part_index++)
@@ -67,13 +67,22 @@ namespace IMUSANT
                " +++++\n") ;
         
         S_IMUSANT_duration period_duration = calculatePeriodDuration(first_part, second_part);
-        S_IMUSANT_duration no_duration = new_IMUSANT_duration(IMUSANT_duration::unmeasured);
-        
-        if (*period_duration == *no_duration)
-            return;
-        
-        // The two parts are not starting at the same time, so they could be in cannon - keep going.
-        
+ 
+        if (partsEnterTogether(period_duration))
+        {
+            return;  // The parts start at the same time so we are assuming that they are not in periodic cannon.
+        }
+        else
+        {
+            // The two parts are not starting at the same time, so they could be in cannon - keep going.
+            extractPeriodicSegmentsFromParts(first_part, second_part, error_threshold, period_duration);
+        }
+    }
+    
+    void
+    IMUSANT_segmented_part_fixed_period::
+    extractPeriodicSegmentsFromParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold, S_IMUSANT_duration period_duration)
+    {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
         
@@ -131,6 +140,15 @@ namespace IMUSANT
             
             OUTPUT(endl);
         }
+        
+    }
+    
+    bool
+    IMUSANT_segmented_part_fixed_period::
+    partsEnterTogether(S_IMUSANT_duration period_duration)
+    {
+        S_IMUSANT_duration no_duration = new_IMUSANT_duration(IMUSANT_duration::unmeasured);
+        return (*period_duration == *no_duration);
     }
     
     
