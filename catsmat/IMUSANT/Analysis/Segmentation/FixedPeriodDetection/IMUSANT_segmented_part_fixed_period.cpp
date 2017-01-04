@@ -46,10 +46,9 @@ namespace IMUSANT
         {
             for (int second_part_index = first_part_index + 1; second_part_index < parts_in_entry_order.size() ; second_part_index++)
             {
-                comparePartsForPeriodicSegments(parts_in_entry_order, first_part_index, second_part_index, error_threshold);
+                comparePartsForPeriodicSegments(parts_in_entry_order[first_part_index], parts_in_entry_order[second_part_index], error_threshold);
             }
         }
-        
         
         // fPeriodLength = period_length;
         
@@ -59,7 +58,7 @@ namespace IMUSANT
     
     void
     IMUSANT_segmented_part_fixed_period::
-    comparePartsForPeriodicSegments(IMUSANT_PartEntry_Vector& parts_in_entry_order, int first_part_index, int second_part_index, double error_threshold)
+    comparePartsForPeriodicSegments(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
         OUTPUT("+++++  Comparing Part " +
                parts_in_entry_order[first_part_index].Part->getPartName() +
@@ -67,23 +66,23 @@ namespace IMUSANT
                parts_in_entry_order[second_part_index].Part->getPartName() +
                " +++++\n") ;
         
-        S_IMUSANT_duration period_duration = calculatePeriodDuration(parts_in_entry_order, first_part_index, second_part_index);
+        S_IMUSANT_duration period_duration = calculatePeriodDuration(first_part, second_part);
         
         S_IMUSANT_duration no_duration = new_IMUSANT_duration(IMUSANT_duration::unmeasured);
         if (*period_duration != *no_duration)
         {
             // The two parts are not starting at the same time, so they could be in cannon - keep going.
             
-            IMUSANT_vector<S_IMUSANT_note> part_one_notes = parts_in_entry_order[first_part_index].Part->notes();
-            IMUSANT_vector<S_IMUSANT_note> part_two_notes = parts_in_entry_order[second_part_index].Part->notes();
+            IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
+            IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
             
-            int n1_index = parts_in_entry_order[first_part_index].EntryVectorIndexPosition;
-            int n2_index = parts_in_entry_order[second_part_index].EntryVectorIndexPosition;
+            int n1_index = first_part.EntryVectorIndexPosition;
+            int n2_index = second_part.EntryVectorIndexPosition;
             
             S_IMUSANT_note n1;
             S_IMUSANT_note n2;
             
-            S_IMUSANT_segment next_segment = makeNewSegment(parts_in_entry_order[second_part_index].Part);
+            S_IMUSANT_segment next_segment = makeNewSegment(second_part.Part);
             
             int num_non_matching_notes = 0;
             
@@ -118,7 +117,7 @@ namespace IMUSANT
                     if (errorRateIsAcceptable(error_threshold, num_non_matching_notes, next_segment->size()))
                     {
                         fSegments.push_back(next_segment);
-                        next_segment = makeNewSegment(parts_in_entry_order[second_part_index].Part);
+                        next_segment = makeNewSegment(second_part.Part);
                     }
                     else
                     {
@@ -156,10 +155,10 @@ namespace IMUSANT
 
     S_IMUSANT_duration
     IMUSANT_segmented_part_fixed_period::
-    calculatePeriodDuration(IMUSANT_PartEntry_Vector& parts_in_entry_order, int first_part_index, int second_part_index)
+    calculatePeriodDuration(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part)
     {
-        IMUSANT_duration part_one_duration_offset = *(parts_in_entry_order[first_part_index].EntryDurationOffset);
-        IMUSANT_duration part_two_duration_offset = *(parts_in_entry_order[second_part_index].EntryDurationOffset);
+        IMUSANT_duration part_one_duration_offset = *(first_part.EntryDurationOffset);
+        IMUSANT_duration part_two_duration_offset = *(second_part.EntryDurationOffset);
         
         S_IMUSANT_duration period_duration = new_IMUSANT_duration();
         *period_duration = part_two_duration_offset - part_one_duration_offset;

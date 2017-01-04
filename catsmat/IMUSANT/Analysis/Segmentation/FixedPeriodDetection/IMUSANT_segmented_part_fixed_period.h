@@ -59,9 +59,9 @@ namespace IMUSANT
         S_IMUSANT_duration fPeriodDuration;
         double fErrorThreshold = 0;
         
-        void comparePartsForPeriodicSegments(IMUSANT_PartEntry_Vector& parts_in_entry_order, int first_part_index, int second_part_index,  double error_threshold);
+        void comparePartsForPeriodicSegments(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
         
-        S_IMUSANT_duration calculatePeriodDuration(IMUSANT_PartEntry_Vector& parts_in_entry_order, int first_part_index, int second_part_index);
+        S_IMUSANT_duration calculatePeriodDuration(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
         
         S_IMUSANT_segment makeNewSegment(const S_IMUSANT_part part);
         
