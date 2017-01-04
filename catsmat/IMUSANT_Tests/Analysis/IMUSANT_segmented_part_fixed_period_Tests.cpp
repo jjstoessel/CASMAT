@@ -119,7 +119,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     //   ASSERT_EQ(10752, s_segmented_part->getPeriodDuration()->asAbsoluteNumeric());   // REVISIT
     
     vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
-    ASSERT_EQ(9, segments.size()) << "Unexpected number of segments...";
+    ASSERT_EQ(8, segments.size()) << "Unexpected number of segments...";
     
     for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
     {
@@ -134,7 +134,6 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(14, segments[5]->notes().size());
     ASSERT_EQ(32, segments[6]->notes().size());
     ASSERT_EQ(25, segments[7]->notes().size());
-    ASSERT_EQ(01, segments[8]->notes().size());
     
     //
     // Spot test some of the notes within the segments...
@@ -152,11 +151,6 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(63, segments[7]->notes()[24]->getMeasureNum());
     ASSERT_EQ(3, segments[7]->notes()[24]->getNoteIndex());
     ASSERT_EQ(IMUSANT_pitch::D, segments[7]->notes()[24]->pitch()->name());
-    
-    ASSERT_EQ("Ca 2", segments[8]->getPart()->getPartName());
-    ASSERT_EQ(63, segments[8]->notes()[0]->getMeasureNum());
-    ASSERT_EQ(4, segments[8]->notes()[0]->getNoteIndex());
-    ASSERT_EQ(IMUSANT_pitch::undefined, segments[8]->notes()[0]->pitch()->name());
 }
 
 
