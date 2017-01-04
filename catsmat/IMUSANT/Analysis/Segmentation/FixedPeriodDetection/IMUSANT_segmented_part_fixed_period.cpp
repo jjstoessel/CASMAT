@@ -64,7 +64,10 @@ namespace IMUSANT
                first_part.Part->getPartName() +
                " to Part " +
                second_part.Part->getPartName() +
-               " +++++\n") ;
+               " +++++\n" +
+               "Error Threshold = " +
+               std::to_string(error_threshold) +
+               "\n") ;
         
         S_IMUSANT_duration period_duration = calculatePeriodDuration(first_part, second_part);
  
@@ -136,6 +139,7 @@ namespace IMUSANT
                 }
                 
                 OUTPUT("\n---  STARTING NEW SEGMENT ---");
+                num_non_matching_notes = 0;
             }
             
             OUTPUT(endl);
@@ -182,7 +186,6 @@ namespace IMUSANT
         *period_duration = part_two_duration_offset - part_one_duration_offset;
         
         return period_duration;
-    
     }
     
     
