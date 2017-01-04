@@ -9,8 +9,8 @@
 #include "IMUSANT_segmented_part_fixed_period.h"
 
 
-// #define OUTPUT(s) cout << s;
-#define OUTPUT(s)
+#define OUTPUT(s) cout << s;
+// #define OUTPUT(s)
 
 
 namespace IMUSANT
@@ -61,76 +61,76 @@ namespace IMUSANT
     comparePartsForPeriodicSegments(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
         OUTPUT("+++++  Comparing Part " +
-               parts_in_entry_order[first_part_index].Part->getPartName() +
+               first_part.Part->getPartName() +
                " to Part " +
-               parts_in_entry_order[second_part_index].Part->getPartName() +
+               second_part.Part->getPartName() +
                " +++++\n") ;
         
         S_IMUSANT_duration period_duration = calculatePeriodDuration(first_part, second_part);
-        
         S_IMUSANT_duration no_duration = new_IMUSANT_duration(IMUSANT_duration::unmeasured);
-        if (*period_duration != *no_duration)
+        
+        if (*period_duration == *no_duration)
+            return;
+        
+        // The two parts are not starting at the same time, so they could be in cannon - keep going.
+        
+        IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
+        IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
+        
+        int n1_index = first_part.EntryVectorIndexPosition;
+        int n2_index = second_part.EntryVectorIndexPosition;
+        
+        S_IMUSANT_note n1;
+        S_IMUSANT_note n2;
+        
+        S_IMUSANT_segment next_segment = makeNewSegment(second_part.Part);
+        
+        int num_non_matching_notes = 0;
+        
+        S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
+        
+        // fPeriodDuration = &period_duration; // REVISIT - does period duration make sense globally???
+        
+        while(n1_index < part_one_notes.size()
+              &&
+              n2_index < part_two_notes.size())
         {
-            // The two parts are not starting at the same time, so they could be in cannon - keep going.
+            n1 = part_one_notes[n1_index++];
+            n2 = part_two_notes[n2_index++];
             
-            IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
-            IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
+            next_segment->addNote(n2);
             
-            int n1_index = first_part.EntryVectorIndexPosition;
-            int n2_index = second_part.EntryVectorIndexPosition;
+            OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
             
-            S_IMUSANT_note n1;
-            S_IMUSANT_note n2;
-            
-            S_IMUSANT_segment next_segment = makeNewSegment(second_part.Part);
-            
-            int num_non_matching_notes = 0;
-            
-            S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
-            
-            // fPeriodDuration = &period_duration; // REVISIT - does period duration make sense globally???
-            
-            while(n1_index < part_one_notes.size()
-                  &&
-                  n2_index < part_two_notes.size())
+            if (! (*n1 == *n2))
             {
-                n1 = part_one_notes[n1_index++];
-                n2 = part_two_notes[n2_index++];
-                
-                next_segment->addNote(n2);
-                
-                OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
-                
-                if (! (*n1 == *n2))
-                {
-                    num_non_matching_notes++;
-                    OUTPUT(" ---  DIFFERENT --- ");
-                }
-                
-                *segment_duration += *n2->duration();
-                
-                if (*segment_duration >= *period_duration)
-                {
-                    // We have reached the end of the segment as defined by the oeriod_duration.
-                    segment_duration = new_IMUSANT_duration();
-                    
-                    if (errorRateIsAcceptable(error_threshold, num_non_matching_notes, next_segment->size()))
-                    {
-                        fSegments.push_back(next_segment);
-                        next_segment = makeNewSegment(second_part.Part);
-                    }
-                    else
-                    {
-                        OUTPUT("\n Too many differences.  Ignoring this segment.");
-                        next_segment->clear();
-                    }
-                    
-                    OUTPUT("\n---  STARTING NEW SEGMENT ---");
-                }
-                
-                OUTPUT(endl);
+                num_non_matching_notes++;
+                OUTPUT(" ---  DIFFERENT --- ");
             }
-        }  // if (*period_duration != *no_duration)
+            
+            *segment_duration += *n2->duration();
+            
+            if (*segment_duration >= *period_duration)
+            {
+                // We have reached the end of the segment as defined by the period_duration.
+                segment_duration = new_IMUSANT_duration();
+                
+                if (errorRateIsAcceptable(error_threshold, num_non_matching_notes, next_segment->size()))
+                {
+                    fSegments.push_back(next_segment);
+                    next_segment = makeNewSegment(second_part.Part);
+                }
+                else
+                {
+                    OUTPUT("\n Too many differences.  Ignoring this segment.");
+                    next_segment->clear();
+                }
+                
+                OUTPUT("\n---  STARTING NEW SEGMENT ---");
+            }
+            
+            OUTPUT(endl);
+        }
     }
     
     
