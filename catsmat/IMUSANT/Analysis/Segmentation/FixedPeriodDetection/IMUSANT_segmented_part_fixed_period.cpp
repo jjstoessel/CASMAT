@@ -39,13 +39,6 @@ namespace IMUSANT
         IMUSANT_partlist_ordered_by_part_entry part_sorter;
         vector<IMUSANT_PartEntry> parts_in_entry_order = part_sorter.getPartsInOrder(the_score);
         
-        // Find the period duration to use based on the different entry points of the parts.
-        // REVISIT - this is a gross simplification. We really don't know the period until we have seen the
-        // first canonic material and determined the period from that.  The algorithm we are using here just
-        // finds the first part to enter, the first part that enters later than it, and then uses this difference
-        // as the period.
-        // // // // // setPeriodDurationForThisScore(calculatePeriodDurationForThisScore(parts_in_entry_order));
-        
         // This loop compares each part against each other part (e.g. for 4 parts -  1 against 2, 1 against 3, 1 against 4, 2 against 3, 2 against 4, 3 against 4.
         // REVISIT - This algorithm fails to extract the segments in the last part.
         // REVISIT - this algorithm adds a lot of duplicate segments (e.g. part 3 segments are added both for comparison with Part 1 and Part 2).
