@@ -44,7 +44,7 @@ namespace IMUSANT
         // first canonic material and determined the period from that.  The algorithm we are using here just
         // finds the first part to enter, the first part that enters later than it, and then uses this difference
         // as the period.
-        setPeriodDurationForThisScore(calculatePeriodDurationForThisScore(parts_in_entry_order));
+        // // // // // setPeriodDurationForThisScore(calculatePeriodDurationForThisScore(parts_in_entry_order));
         
         // This loop compares each part against each other part (e.g. for 4 parts -  1 against 2, 1 against 3, 1 against 4, 2 against 3, 2 against 4, 3 against 4.
         // REVISIT - This algorithm fails to extract the segments in the last part.
@@ -97,14 +97,16 @@ namespace IMUSANT
             OUTPUT("\n---  STARTING NEW SEGMENT ---\n");
             
             S_IMUSANT_segment next_segment = makeNewSegment(second_part.Part);
-
-            int num_non_matching_notes = populateNextSegment(next_segment, first_part, second_part, first_part_index, second_part_index);
+            
+            S_IMUSANT_duration period_duration = getPeriodDurationForPartComparison(first_part, second_part);
+            
+            int num_non_matching_notes = populateNextSegment(next_segment, first_part, second_part, first_part_index, second_part_index, period_duration);
             
             if (errorRateIsAcceptable(error_threshold, num_non_matching_notes, next_segment->size()))
             {
                 fSegments.push_back(next_segment);
                 
-                // REVISIT - this is where we need to set the period duration the first time we see a successful segment.
+                setPeriodDurationForThisScore(period_duration);   // REVISIT - this is where we need to set the period duration the first time we see a successful segment.
             }
             else
             {
@@ -116,7 +118,7 @@ namespace IMUSANT
         
     int
     IMUSANT_segmented_part_fixed_period::
-    populateNextSegment(S_IMUSANT_segment next_segment, IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, int& first_part_index, int& second_part_index)
+    populateNextSegment(S_IMUSANT_segment next_segment, IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, int& first_part_index, int& second_part_index, S_IMUSANT_duration period_duration)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
@@ -128,7 +130,7 @@ namespace IMUSANT
         
         S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
         
-        while (*segment_duration < *getPeriodDurationForThisScore()
+        while (*segment_duration < *period_duration
                &&
                first_part_index < part_one_notes.size()
                &&
@@ -205,6 +207,21 @@ namespace IMUSANT
     getPeriodDurationForThisScore()
     {
         return fPeriodDuration;
+    }
+    
+    S_IMUSANT_duration
+    IMUSANT_segmented_part_fixed_period::
+    getPeriodDurationForPartComparison(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part)
+    {
+        if (! fPeriodDuration)
+        {
+            S_IMUSANT_duration candidate_period_duration = calculateEntryOffsetBetweenParts(first_part, second_part);
+            return candidate_period_duration;
+        }
+        else
+        {
+            return fPeriodDuration;
+        }
     }
 
     S_IMUSANT_duration

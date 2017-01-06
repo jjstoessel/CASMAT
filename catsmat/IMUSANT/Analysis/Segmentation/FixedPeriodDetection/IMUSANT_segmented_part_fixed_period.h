@@ -60,11 +60,12 @@ namespace IMUSANT
         
         void comparePartsForPeriodicSegments(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
         void extractPeriodicSegmentsFromParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
-        int populateNextSegment(S_IMUSANT_segment next_segment, IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, int& first_part_index, int& second_part_index);
+        int populateNextSegment(S_IMUSANT_segment next_segment, IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, int& first_part_index, int& second_part_index, S_IMUSANT_duration period_duration);
         S_IMUSANT_segment makeNewSegment(const S_IMUSANT_part part);
         
         void setPeriodDurationForThisScore(S_IMUSANT_duration period_duration);
         void clearPeriodDurationForThisScore();
+        S_IMUSANT_duration getPeriodDurationForPartComparison(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
         S_IMUSANT_duration calculatePeriodDurationForThisScore(IMUSANT_PartEntry_Vector& parts_in_entry_order);
         S_IMUSANT_duration calculateEntryOffsetBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
         
