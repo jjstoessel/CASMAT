@@ -45,7 +45,7 @@ namespace IMUSANT
         //
         vector<S_IMUSANT_segment> getSegments();
         
-        S_IMUSANT_duration getPeriodDuration() { return fPeriodDuration; };
+        S_IMUSANT_duration getPeriodDurationForThisScore();
         
         friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_fixed_period& segmented_part);
         friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
@@ -53,23 +53,23 @@ namespace IMUSANT
 
     private:
         S_IMUSANT_score fScore;
-        
-        vector<S_IMUSANT_segment> fSegments;
-        
-        S_IMUSANT_duration fPeriodDuration;
         double fErrorThreshold = 0;
         
+        S_IMUSANT_duration fPeriodDuration;
+        vector<S_IMUSANT_segment> fSegments;
+        
         void comparePartsForPeriodicSegments(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
-        void extractPeriodicSegmentsFromParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold, S_IMUSANT_duration period_duration);
-        int populateNextSegment(S_IMUSANT_segment next_segment, IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, int& first_part_index, int& second_part_index, S_IMUSANT_duration period_duration);
-        
-        S_IMUSANT_duration calculatePeriodDuration(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
-        
-        bool partsEnterTogether(S_IMUSANT_duration period_duration);
-        
+        void extractPeriodicSegmentsFromParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
+        int populateNextSegment(S_IMUSANT_segment next_segment, IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, int& first_part_index, int& second_part_index);
         S_IMUSANT_segment makeNewSegment(const S_IMUSANT_part part);
         
+        void setPeriodDurationForThisScore(S_IMUSANT_duration period_duration);
+        void clearPeriodDurationForThisScore();
+        S_IMUSANT_duration calculatePeriodDurationForThisScore(IMUSANT_PartEntry_Vector& parts_in_entry_order);
+        S_IMUSANT_duration calculateEntryOffsetBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
+        
         bool errorRateIsAcceptable(double error_threshold, int num_non_matching_notes, long number_of_notes);
+        bool partsEnterTogether(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> S_IMUSANT_segmented_part_fixed_period;
