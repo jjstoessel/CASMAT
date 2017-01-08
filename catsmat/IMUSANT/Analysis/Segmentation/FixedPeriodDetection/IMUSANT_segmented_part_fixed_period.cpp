@@ -174,11 +174,21 @@ namespace IMUSANT
     IMUSANT_segmented_part_fixed_period::
     errorRateIsAcceptable(double error_threshold, int num_non_matching_notes, long number_of_notes)
     {
+        bool ret_val = false;
+        double error_rate = 0;
+    
         if (num_non_matching_notes == 0)
-            return true;
+        {
+            ret_val = true;
+        }
+        else {
+            error_rate = num_non_matching_notes / (double) number_of_notes;
+            ret_val = error_rate < error_threshold;
+        }
+      
+        OUTPUT("Error Rate: = " + to_string(error_rate) + "\n");
         
-        double error_rate = num_non_matching_notes / (double) number_of_notes;
-        return (error_rate < error_threshold);
+        return ret_val;
     }
     
     void
