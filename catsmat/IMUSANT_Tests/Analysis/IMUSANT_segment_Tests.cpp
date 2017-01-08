@@ -8,8 +8,6 @@
 
 #include <stdio.h>
 
-//#include "IMUSANT_segment.h"
-
 #include "gtest/gtest.h"
 
 #include "IMUSANT_test_utilities.h"
@@ -47,46 +45,13 @@ protected:
     
     static void SetUpTestCase() {
         _test_utils = new IMUSANT_test_utilities("IMUSANT_testdata");
-        
-//        fScore_LBDM_Test1 = _test_utils->initialiseScoreFromFile("MusicXMLv3/LBDM_Segmented_Part_Test_1.xml");
-//        fScore_LBDM_Test3 = _test_utils->initialiseScoreFromFile("MusicXMLv3/LBDM_Segmented_Part_Test_3.xml");
-//        fScore_Kyrie = _test_utils->initialiseScoreFromFile("MusicXMLv3/Kyrie.xml");
-//        fScore_Sanctus = _test_utils->initialiseScoreFromFile("MusicXMLv3/Sanctus.xml");
-//        fScore_YankeeDoodle = _test_utils->initialiseScoreFromFile("MusicXMLv3/Yankee_Doodle.xml");
     }
     
-//    bool checkEqualWithinTolleranceField(double expected, double actual, int index_pos)
-//    {
-//        if (_test_utils->equalWithinTollerance(expected, actual))
-//            return true;
-//        else
-//        {
-//            cout << "Failed with jdex = " << index_pos
-//            << ". Expected " << expected
-//            << ". Received " << actual
-//            << endl;
-//            
-//            return false;
-//        }
-//    };
-    
-    
     static IMUSANT_test_utilities * _test_utils;
-//    static S_IMUSANT_score fScore_LBDM_Test1;
-//    static S_IMUSANT_score fScore_LBDM_Test3;
-//    static S_IMUSANT_score fScore_Kyrie;
-//    static S_IMUSANT_score fScore_Sanctus;
-//    static S_IMUSANT_score fScore_YankeeDoodle;
-    
-    
 };
 
 IMUSANT_test_utilities * IMUSANT_segment_Tests::_test_utils = NULL;
-//S_IMUSANT_score IMUSANT_segment_Tests::fScore_LBDM_Test1 = NULL;
-//S_IMUSANT_score IMUSANT_segment_Tests::fScore_LBDM_Test3 = NULL;
-//S_IMUSANT_score IMUSANT_segment_Tests::fScore_Kyrie = NULL;
-//S_IMUSANT_score IMUSANT_segment_Tests::fScore_Sanctus = NULL;
-//S_IMUSANT_score IMUSANT_segment_Tests::fScore_YankeeDoodle = NULL;
+
 
 // ************* TEST CASES START HERE *********** //
 
@@ -105,6 +70,33 @@ TEST_F(IMUSANT_segment_Tests, Constructor)
     
     IMUSANT_segment segment(score, part, algorithm_id);
     ASSERT_EQ(algorithm_id, segment.getAlgorithm());
+}
+
+TEST_F(IMUSANT_segment_Tests, CollectionMethods)
+{
+    S_IMUSANT_score score = new_IMUSANT_score();
+    S_IMUSANT_part part = new_IMUSANT_part();
+    string algorithm_id = "test algorithm";
+    
+    S_IMUSANT_segment p_segment = new_IMUSANT_segment(score, part, algorithm_id);
+    
+    S_IMUSANT_note n1 = new_IMUSANT_note();
+    S_IMUSANT_note n2 = new_IMUSANT_note();
+    S_IMUSANT_note n3 = new_IMUSANT_note();
+    S_IMUSANT_note n4 = new_IMUSANT_note();
+    S_IMUSANT_note n5 = new_IMUSANT_note();
+    
+    p_segment->addNote(n1);
+    p_segment->addNote(n2);
+    p_segment->addNote(n3);
+    p_segment->addNote(n4);
+    p_segment->addNote(n5);
+    
+    ASSERT_EQ(5, p_segment->size());
+    
+    p_segment->clear();
+    
+    ASSERT_EQ(0, p_segment->size());
 }
 
 
