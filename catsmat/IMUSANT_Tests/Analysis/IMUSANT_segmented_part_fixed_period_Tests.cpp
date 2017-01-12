@@ -119,11 +119,21 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(10752, s_segmented_part->getPeriodDurationForThisScore()->asAbsoluteNumeric());
     
     vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
-    ASSERT_EQ(8, segments.size()) << "Unexpected number of segments...";
+    SetOfSegments segments_set = s_segmented_part->getSegmentsSet();
+    
+    ASSERT_EQ(8, segments.size()) << "Unexpected number of segments in vector...";
+    ASSERT_EQ(8, segments_set.size()) << "Unexpected number of segments in set...";
     
     for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
     {
         ASSERT_EQ(*fScore_Kyrie_TwoPartsOnly, *(segments[seg_index]->getScore()));
+    }
+    
+    for (SetOfSegments::iterator it = segments_set.begin() ;
+         it != segments_set.end();
+         it++)
+    {
+        ASSERT_EQ(*fScore_Kyrie_TwoPartsOnly, *it->getScore());
     }
     
     ASSERT_EQ(14, segments[0]->notes().size());
@@ -156,6 +166,15 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
 
 TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
 {
+    // Q: How many segments are there in Kyrie?
+    //
+    // A: By part:
+    //   Ca1 has 9     (63 bars / 7 bar segments)
+    //   Ca2 has 8     (Ca1 - 1 because Ca2 starts one segment later)
+    //   T   has 7     (Ca1 - 2 because TY starts 2 segments later)
+    //   -----------
+    //   TOTAL  24
+    
     S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
     int error_code = s_segmented_part->initialise(fScore_Kyrie);
     
@@ -163,7 +182,10 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(10752, s_segmented_part->getPeriodDurationForThisScore()->asAbsoluteNumeric());
     
     vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
-    ASSERT_EQ(21, segments.size()) << "Unexpected number of segments...";
+  //  ASSERT_EQ(21, segments.size()) << "Unexpected number of segments in vector...";
+    
+    SetOfSegments segmentset = s_segmented_part->getSegmentsSet();
+    ASSERT_EQ(24, segmentset.size()) << "Unexpected number of segments in set...";
     
     for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
     {

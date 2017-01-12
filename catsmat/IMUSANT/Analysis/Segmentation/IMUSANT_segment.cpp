@@ -20,14 +20,14 @@ namespace IMUSANT
     
     S_IMUSANT_score
     IMUSANT_segment::
-    getScore()
+    getScore() const
     {
         return fScore;
     }
     
     S_IMUSANT_part
     IMUSANT_segment::
-    getPart()
+    getPart() const
     {
         return fPart;
     }
@@ -46,9 +46,9 @@ namespace IMUSANT
         fPart = part;
     }
     
-    vector<S_IMUSANT_note>
+    const vector<S_IMUSANT_note>
     IMUSANT_segment::
-    notes()
+    notes() const
     {
         return fNotes;
     }
@@ -60,9 +60,25 @@ namespace IMUSANT
         fNotes.push_back(note);
     }
     
+    S_IMUSANT_note
+    IMUSANT_segment::
+    getFirstNote() const
+    {
+//      if (! fNotes.empty())
+            return fNotes.front();
+    }
+    
+    S_IMUSANT_note
+    IMUSANT_segment::
+    getLastNote() const
+    {
+        //      if (! fNotes.empty())
+        return fNotes.back();
+    }
+    
     long
     IMUSANT_segment::
-    size()
+    size() const
     {
         return fNotes.size();
     }
@@ -74,11 +90,37 @@ namespace IMUSANT
         fNotes.clear();
     }
     
-    string &
+    const string &
     IMUSANT_segment::
-    getAlgorithm()
+    getAlgorithm() const
     {
         return fSegmentationAlgorithm;
+    }
+    
+    bool
+    IMUSANT_segment::
+    operator== (const IMUSANT_segment& rhs) const
+    {
+        return
+        (
+         *(getScore()) == *(rhs.getScore())
+         &&
+         *(getPart()) == *(rhs.getPart())
+         &&
+         size() == rhs.size()
+         &&
+         getConfidence() == rhs.getConfidence()
+         &&
+         getAlgorithm() == rhs.getAlgorithm()
+         &&
+         getFirstNote()->getNoteIndex() == rhs.getFirstNote()->getNoteIndex()
+         &&
+         getFirstNote()->getMeasureNum() == rhs.getFirstNote()->getMeasureNum()
+         &&
+         getLastNote()->getNoteIndex() == rhs.getLastNote()->getNoteIndex()
+         &&
+         getLastNote()->getMeasureNum() == rhs.getLastNote()->getMeasureNum()
+         );
     }
     
 }

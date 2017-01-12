@@ -13,17 +13,14 @@ namespace IMUSANT
 {
     
     S_IMUSANT_part new_IMUSANT_part()
-    { IMUSANT_part* o = new IMUSANT_part(); assert (o!=0); return o; }
-    
-    //______________________________________________________________________________
-    IMUSANT_part::IMUSANT_part()
     {
+        IMUSANT_part* o = new IMUSANT_part(); assert (o!=0); return o;
     }
     
-    //------------------------------------------------------------------------------
-    // Acceptor function
-    //------------------------------------------------------------------------------
-    void IMUSANT_part::accept(IMUSANT_visitor& visitor)
+    
+    void
+    IMUSANT_part::
+    accept(IMUSANT_visitor& visitor)
     {
         S_IMUSANT_part sptr(this);
         visitor.visit(sptr);
@@ -58,5 +55,36 @@ namespace IMUSANT
         
         os << "<\\PART>" << endl;
     }
+    
+    bool
+    IMUSANT_part::
+    operator==(const IMUSANT_part& rhs) const
+    {
+        bool ret_val = true;
+        
+        if (getNumMeasures() != rhs.getNumMeasures())
+            ret_val = false;
+        
+        if (getPartName() != rhs.getPartName())
+            ret_val = false;
+        
+        if (getID() != rhs.getID())
+            ret_val = false;
+        
+        if (getDivisions() != rhs.getDivisions())
+            ret_val = false;
+        
+        if (fDivisions != rhs.fDivisions)
+            ret_val = false;
+        
+        if (fVoiceCount != rhs.fVoiceCount)
+            ret_val = false;
+            
+        return ret_val;
+    }
+    
+    
+    
+    
     
 } //namespace IMUSANT

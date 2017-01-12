@@ -9,8 +9,8 @@
 #include "IMUSANT_segmented_part_fixed_period.h"
 
 
-#define OUTPUT(s) cout << s;
-// #define OUTPUT(s)
+ #define OUTPUT(s) cout << s;
+//#define OUTPUT(s)
 
 
 namespace IMUSANT
@@ -25,7 +25,7 @@ namespace IMUSANT
     {
         fScore = the_score;
         fErrorThreshold = error_threshold;
-        fSegments.clear();   // We have no segments to start with.
+        clearSegments();   // We have no segments to start with.
         clearPeriodDurationForThisScore();
         
         IMUSANT_vector<S_IMUSANT_part>& parts = the_score->partlist()->parts();
@@ -89,29 +89,34 @@ namespace IMUSANT
         {
             OUTPUT("\n---  STARTING NEW SEGMENT ---\n");
             
-            S_IMUSANT_segment next_segment = makeNewSegment(second_part.Part);
+            S_IMUSANT_segment first_part_segment = makeNewSegment(first_part.Part);
+            S_IMUSANT_segment second_part_segment = makeNewSegment(second_part.Part);
             
             S_IMUSANT_duration period_duration = getPeriodDurationForPartComparison(first_part, second_part);
             
-            int num_non_matching_notes = populateNextSegment(next_segment, first_part, second_part, first_part_index, second_part_index, period_duration);
+            int num_non_matching_notes = populateNextSegments(first_part_segment, second_part_segment, first_part, second_part, first_part_index, second_part_index, period_duration);
             
-            if (errorRateIsAcceptable(error_threshold, num_non_matching_notes, next_segment->size()))
+            if (errorRateIsAcceptable(error_threshold, num_non_matching_notes, first_part_segment->size()))
             {
-                fSegments.push_back(next_segment);
-                
-                setPeriodDurationForThisScore(period_duration);   // REVISIT - this is where we need to set the period duration the first time we see a successful segment.
+                addSegment(first_part_segment);
+                addSegment(second_part_segment);
+                setPeriodDurationForThisScore(period_duration);
             }
             else
             {
                 OUTPUT(" *** Too many differences.  Ignoring this segment.\n");
-                next_segment->clear();
             }
         }
     }
         
     int
     IMUSANT_segmented_part_fixed_period::
-    populateNextSegment(S_IMUSANT_segment next_segment, IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, int& first_part_index, int& second_part_index, S_IMUSANT_duration period_duration)
+    populateNextSegment(S_IMUSANT_segment next_segment,
+                        IMUSANT_PartEntry& first_part,
+                        IMUSANT_PartEntry& second_part,
+                        int& first_part_index,
+                        int& second_part_index,
+                        S_IMUSANT_duration period_duration)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
@@ -150,6 +155,53 @@ namespace IMUSANT
         return num_non_matching_notes;
     }
     
+    int
+    IMUSANT_segmented_part_fixed_period::
+    populateNextSegments(S_IMUSANT_segment first_part_segment,
+                         S_IMUSANT_segment second_part_segment,
+                         IMUSANT_PartEntry& first_part,
+                         IMUSANT_PartEntry& second_part,
+                         int& first_part_index,
+                         int& second_part_index,
+                         S_IMUSANT_duration period_duration)
+    {
+        IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
+        IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
+        
+        S_IMUSANT_note n1;
+        S_IMUSANT_note n2;
+        
+        int num_non_matching_notes = 0;
+        
+        S_IMUSANT_duration segment_duration = new_IMUSANT_duration();
+        
+        while (*segment_duration < *period_duration
+               &&
+               first_part_index < part_one_notes.size()
+               &&
+               second_part_index < part_two_notes.size())
+        {
+            n1 = part_one_notes[first_part_index++];
+            n2 = part_two_notes[second_part_index++];
+            
+            first_part_segment->addNote(n1);
+            second_part_segment->addNote(n2);
+            
+            OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
+            
+            if (! (*n1 == *n2))
+            {
+                num_non_matching_notes++;
+                OUTPUT(" ---  DIFFERENT --- ");
+            }
+            
+            *segment_duration += *n2->duration();
+            OUTPUT(endl);
+            
+        }
+        
+        return num_non_matching_notes;
+    }
     
     bool
     IMUSANT_segmented_part_fixed_period::
@@ -161,6 +213,13 @@ namespace IMUSANT
         return (*part_entry_difference == *no_duration);
     }
     
+    void
+    IMUSANT_segmented_part_fixed_period::
+    addSegment(S_IMUSANT_segment segment)
+    {
+        fSegments.push_back(segment);
+        fSegmentsSet.insert(*segment);
+    }
     
     S_IMUSANT_segment
     IMUSANT_segmented_part_fixed_period::
@@ -257,11 +316,26 @@ namespace IMUSANT
         return period_duration;
     }
     
+    void
+    IMUSANT_segmented_part_fixed_period::
+    clearSegments()
+    {
+        fSegments.clear();
+        fSegmentsSet.clear();
+    }
+    
     vector<S_IMUSANT_segment>
     IMUSANT_segmented_part_fixed_period::
     getSegments()
     {
         return fSegments;
+    }
+    
+    SetOfSegments
+    IMUSANT_segmented_part_fixed_period::
+    getSegmentsSet()
+    {
+        return fSegmentsSet;
     }
     
     
