@@ -123,4 +123,28 @@ namespace IMUSANT
          );
     }
     
+    
+    ostream& operator<< (ostream& os, const IMUSANT_segment& segment )
+    {
+        os
+//        << "Score: " << segment.getScore()->getMovementTitle() << endl
+//        << "Part: " << segment.getPart()->getPartName() << endl
+//        << "First note: " << "Measure: " << segment.getFirstNote()->getMeasureNum() << ", Note Index: " << segment.getFirstNote()->getNoteIndex() << endl
+//        << "Last note: " << "Measure: " << segment.getLastNote()->getMeasureNum() << ", Note Index: " << segment.getLastNote()->getNoteIndex() << endl
+//        << "Size: " << segment.size() << "\t"
+//        << "Confidence: " << segment.getConfidence() << "\t"
+//        << "Algorithm: " << segment.getAlgorithm() << endl;
+        << segment.getScore()->getMovementTitle() << ":"
+        << segment.getPart()->getPartName() << ":"
+        << segment.getFirstNote()->getMeasureNum() << ":" << segment.getFirstNote()->getNoteIndex() << ":"
+        << segment.getLastNote()->getMeasureNum() << ":" << segment.getLastNote()->getNoteIndex() << ":"
+        << segment.size() << ":"
+        << segment.getConfidence() << ":"
+        << segment.getAlgorithm();
+        
+        return os;
+    }
+    
+    
+    
 }

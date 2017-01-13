@@ -23,6 +23,7 @@ namespace IMUSANT
     public:
        
         friend IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm);
+        friend ostream& operator<< (ostream& os, const IMUSANT_segment& segment);
         
         IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm)
         {
@@ -59,7 +60,7 @@ namespace IMUSANT
         S_IMUSANT_score fScore;
         S_IMUSANT_part fPart;
         vector<S_IMUSANT_note> fNotes;
-        long fConfidence;
+        long fConfidence = 0;
         string fSegmentationAlgorithm;
     };
     

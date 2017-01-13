@@ -175,6 +175,32 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     //   -----------
     //   TOTAL  24
     
+// RESULTS as at 13 Jan 2016...
+//    Kyrie ele√òson	Ca 1	1	1	7	2	14	0
+//    Kyrie ele√òson	Ca 1	8	1	14	2	14	0
+//    Kyrie ele√òson	Ca 1	15	1	21	3	16	0
+//    Kyrie ele√òson	Ca 1	22	1	28	2	18	0
+//    Kyrie ele√òson	Ca 1	29	1	35	2	14	0
+//    Kyrie ele√òson	Ca 1	36	1	42	3	14	0
+//    Kyrie ele√òson	Ca 1	43	1	49	2	32	0
+//    Kyrie ele√òson	Ca 1	50	1	56	3	25	0
+    // --   MISSING THE LAST SEGMENT IN THE FIRST PART.
+//    Kyrie ele√òson	Ca 2	8	1	14	2	14	0
+//    Kyrie ele√òson	Ca 2	15	1	21	2	14	0
+//    Kyrie ele√òson	Ca 2	22	1	28	3	16	0
+//    Kyrie ele√òson	Ca 2	29	1	35	2	18	0
+//    Kyrie ele√òson	Ca 2	36	1	42	2	14	0
+//    Kyrie ele√òson	Ca 2	43	1	49	3	14	0
+//    Kyrie ele√òson	Ca 2	50	1	56	2	32	0
+//    Kyrie ele√òson	Ca 2	57	1	63	3	25	0
+//    Kyrie ele√òson	T	15	1	21	2	14	0
+//    Kyrie ele√òson	T	22	1	28	2	14	0
+//    Kyrie ele√òson	T	29	1	35	3	16	0
+//    Kyrie ele√òson	T	36	1	42	2	18	0
+//    Kyrie ele√òson	T	43	1	49	2	14	0
+//    Kyrie ele√òson	T	50	1	56	3	14	0
+//    Kyrie ele√òson	T	57	1	63	2	32	0
+    
     S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
     int error_code = s_segmented_part->initialise(fScore_Kyrie);
     
@@ -185,6 +211,13 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
   //  ASSERT_EQ(21, segments.size()) << "Unexpected number of segments in vector...";
     
     SetOfSegments segmentset = s_segmented_part->getSegmentsSet();
+    
+    cout << endl << "----- SEGMENTS -----" << endl;
+    for (SetOfSegments::iterator it = segmentset.begin(); it != segmentset.end(); it++ )
+    {
+        cout << *it << endl;
+    }
+    
     ASSERT_EQ(24, segmentset.size()) << "Unexpected number of segments in set...";
     
     for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
