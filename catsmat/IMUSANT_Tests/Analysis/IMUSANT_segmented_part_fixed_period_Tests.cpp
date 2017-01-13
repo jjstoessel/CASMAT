@@ -266,12 +266,27 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
     ASSERT_EQ(7680, s_segmented_part->getPeriodDurationForThisScore()->asAbsoluteNumeric() );
     
-    vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
-    ASSERT_EQ(23, segments.size()) << "Unexpected number of segments...";
+//    vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
+//    ASSERT_EQ(23, segments.size()) << "Unexpected number of segments...";
     
-    for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
+    SetOfSegments segmentset = s_segmented_part->getSegmentsSet();
+    
+    cout << endl << "----- SEGMENTS -----" << endl;
+    for (SetOfSegments::iterator it = segmentset.begin(); it != segmentset.end(); it++ )
     {
-        ASSERT_EQ(*fScore_Sanctus, *(segments[seg_index]->getScore()));
+        cout << *it << endl;
     }
+    
+    for (SetOfSegments::iterator it = segmentset.begin() ;
+         it != segmentset.end();
+         it++)
+    {
+        ASSERT_EQ(*fScore_Kyrie_TwoPartsOnly, *it->getScore());
+    }
+    
+//    for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
+//    {
+//        ASSERT_EQ(*fScore_Sanctus, *(segments[seg_index]->getScore()));
+//    }
 }
 
