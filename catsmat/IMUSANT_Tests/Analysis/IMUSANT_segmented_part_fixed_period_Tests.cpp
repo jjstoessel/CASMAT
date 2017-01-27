@@ -22,7 +22,7 @@ using namespace IMUSANT;
 
 using namespace boost;
 
-//#define VERBOSE = 1;
+#define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_fixed_period_Tests :
@@ -121,20 +121,37 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
     SetOfSegments segments_set = s_segmented_part->getSegmentsSet();
     
-    ASSERT_EQ(8, segments.size()) << "Unexpected number of segments in vector...";
-    ASSERT_EQ(8, segments_set.size()) << "Unexpected number of segments in set...";
+    ASSERT_EQ(16, segments.size()) << "Unexpected number of segments in vector...";
+    ASSERT_EQ(16, segments_set.size()) << "Unexpected number of segments in set...";
     
     for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
     {
         ASSERT_EQ(*fScore_Kyrie_TwoPartsOnly, *(segments[seg_index]->getScore()));
     }
     
+
+#ifdef VERBOSE
+    cout << endl << "----- SEGMENTS -----" << endl;
+#endif
     for (SetOfSegments::iterator it = segments_set.begin() ;
          it != segments_set.end();
          it++)
     {
         ASSERT_EQ(*fScore_Kyrie_TwoPartsOnly, *it->getScore());
+        
+#ifdef VERBOSE
+          cout << *it << endl;
+#endif
     }
+
+    // REVISIT - no way of easilly extracting specific segments from the set at the moment...
+//    S_IMUSANT_part part_ca2;
+//    fScore_Kyrie_TwoPartsOnly->getPartById("Ca 2", part_ca2);
+//    S_IMUSANT_segment seg_1 = new_IMUSANT_segment(fScore_Kyrie_TwoPartsOnly,
+//                                                  part_ca2,
+//                                                  s_segmented_part->SEGMENTATION_ALGORITHM);
+//    
+//    segments_set.find(seg_1);
     
     ASSERT_EQ(14, segments[0]->notes().size());
     ASSERT_EQ(14, segments[1]->notes().size());
