@@ -217,7 +217,6 @@ namespace IMUSANT
     IMUSANT_segmented_part_fixed_period::
     addSegment(S_IMUSANT_segment segment)
     {
-        fSegments.push_back(segment);
         fSegmentsSet.insert(*segment);
     }
     
@@ -320,15 +319,7 @@ namespace IMUSANT
     IMUSANT_segmented_part_fixed_period::
     clearSegments()
     {
-        fSegments.clear();
         fSegmentsSet.clear();
-    }
-    
-    vector<S_IMUSANT_segment>
-    IMUSANT_segmented_part_fixed_period::
-    getSegments()
-    {
-        return fSegments;
     }
     
     IMUSANT_set_of_segment

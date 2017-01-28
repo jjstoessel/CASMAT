@@ -141,7 +141,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     int ret_val = s_segmented_part->initialise(fScore_Josquin_MAF_Christe);
     
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
-    vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
+    IMUSANT_set_of_segment segments = s_segmented_part->getSegmentsSet();
     ASSERT_EQ(0, segments.size()) << "Unexpected number of segments...";
 }
 

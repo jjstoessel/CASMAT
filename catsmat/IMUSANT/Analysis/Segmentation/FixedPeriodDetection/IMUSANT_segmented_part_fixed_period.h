@@ -43,11 +43,9 @@ namespace IMUSANT
         int initialise(S_IMUSANT_score the_score, double error_threshold = 0.1);
         
         //
-        // This method returns you the segments, as a set or as a vector.
-        // REVISIT The number of segments in each will be different because the vector contains duplicates..
+        // This method returns you the segments, as a set (no duplicates).
         //
         IMUSANT_set_of_segment getSegmentsSet();
-        vector<S_IMUSANT_segment> getSegments();
         
         S_IMUSANT_duration getPeriodDurationForThisScore();
         
@@ -60,8 +58,8 @@ namespace IMUSANT
         double fErrorThreshold = 0;
         
         S_IMUSANT_duration fPeriodDuration;
-        vector<S_IMUSANT_segment> fSegments;
-        IMUSANT_set_of_segment fSegmentsSet;   //********* HERE *********
+        
+        IMUSANT_set_of_segment fSegmentsSet;
         
         void comparePartsForPeriodicSegments(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
         void extractPeriodicSegmentsFromParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
