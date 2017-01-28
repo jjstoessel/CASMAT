@@ -9,8 +9,8 @@
 #include "IMUSANT_segmented_part_fixed_period.h"
 
 
- #define OUTPUT(s) cout << s;
-//#define OUTPUT(s)
+// #define OUTPUT(s) cout << s;
+#define OUTPUT(s)
 
 
 namespace IMUSANT

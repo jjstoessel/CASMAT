@@ -22,7 +22,7 @@ using namespace IMUSANT;
 
 using namespace boost;
 
-#define VERBOSE = 1;
+// #define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
 class IMUSANT_segmented_part_fixed_period_Tests :
@@ -156,11 +156,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     IMUSANT_set_of_segment segments_set = s_segmented_part->getSegmentsSet();
     
 #ifdef VERBOSE
-    cout << endl << "----- SEGMENTS -----" << endl;
-    for (IMUSANT_set_of_segment::iterator it = segments_set.begin(); it != segments_set.end(); it++ )
-    {
-        cout << *it << endl;
-    }
+    cout << segments_set << endl;
 #endif
     
     ASSERT_EQ(16, segments_set.size()) << "Unexpected number of segments in set...";
@@ -218,11 +214,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     IMUSANT_set_of_segment segmentset = s_segmented_part->getSegmentsSet();
 
 #ifdef VERBOSE
-    cout << endl << "----- SEGMENTS -----" << endl;
-    for (IMUSANT_set_of_segment::iterator it = segmentset.begin(); it != segmentset.end(); it++ )
-    {
-        cout << *it << endl;
-    }
+    cout << segmentset << endl;
 #endif
     
     ASSERT_EQ(23, segmentset.size()) << "Unexpected number of segments in set...";
@@ -258,11 +250,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     IMUSANT_set_of_segment segmentset = s_segmented_part->getSegmentsSet();
     
 #ifdef VERBOSE
-    cout << endl << "----- SEGMENTS -----" << endl;
-    for (IMUSANT_set_of_segment::iterator it = segmentset.begin(); it != segmentset.end(); it++ )
-    {
-        cout << *it << endl;
-    }
+    cout << segmentset << endl;
 #endif
     
     ASSERT_EQ(65, segmentset.size()) << "Unexpected number of segments in set...";
