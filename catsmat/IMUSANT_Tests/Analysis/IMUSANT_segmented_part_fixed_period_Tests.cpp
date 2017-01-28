@@ -65,7 +65,7 @@ protected:
     static S_IMUSANT_score fScore_YankeeDoodle;
     static S_IMUSANT_score fScore_Josquin_MAF_Christe;
     
-    
+    string getActualSegmentsAsString(SetOfSegments segment_set);
 };
 
 IMUSANT_test_utilities * IMUSANT_segmented_part_fixed_period_Tests::_test_utils = NULL;
@@ -75,6 +75,49 @@ S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Kyrie_TwoParts
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Sanctus = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_YankeeDoodle = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Josquin_MAF_Christe = NULL;
+
+
+// ************* UTILITY FUNCTIONS START HERE *********** //
+
+string
+IMUSANT_segmented_part_fixed_period_Tests::
+getActualSegmentsAsString(SetOfSegments segments_set)
+{
+    
+    // The code below gurantees that the output is in a deterministic order (we use unordered_set, so I'm just making sure...).
+#ifdef VERBOSE
+    cout << endl << "----- SEGMENTS -----" << endl;
+#endif
+    
+    vector<string> segment_strings;
+    
+    for (SetOfSegments::iterator it = segments_set.begin() ;
+         it != segments_set.end();
+         it++)
+    {
+        stringstream buffer;
+        buffer << *it;
+        segment_strings.push_back(buffer.str());
+        
+#ifdef VERBOSE
+        cout << *it << endl;
+#endif
+    }
+    
+    // Sort the segments....
+    std::sort(segment_strings.begin(), segment_strings.end());
+    
+    // and write them back into a stringstream for comparison against expected...
+    stringstream actual_output;
+    for(int index = 0 ; index < segment_strings.size(); index++)
+    {
+        actual_output << segment_strings[index] << endl;
+    }
+    actual_output << endl;
+    
+    return actual_output.str();
+}
+
 
 // ************* TEST CASES START HERE *********** //
 
@@ -118,68 +161,16 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, error_code);
     ASSERT_EQ(10752, s_segmented_part->getPeriodDurationForThisScore()->asAbsoluteNumeric());
     
-    vector<S_IMUSANT_segment> segments = s_segmented_part->getSegments();
     SetOfSegments segments_set = s_segmented_part->getSegmentsSet();
     
-    ASSERT_EQ(16, segments.size()) << "Unexpected number of segments in vector...";
     ASSERT_EQ(16, segments_set.size()) << "Unexpected number of segments in set...";
     
-    for (int seg_index = 0 ; seg_index < segments.size(); seg_index++)
-    {
-        ASSERT_EQ(*fScore_Kyrie_TwoPartsOnly, *(segments[seg_index]->getScore()));
-    }
+    string FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly_Expected = "Kyrie ele\xC3\x98son:Ca 1:15:1:21:3:16:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 1:1:1:7:2:14:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 1:22:1:28:2:18:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 1:29:1:35:2:14:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 1:36:1:42:3:14:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 1:43:1:49:2:32:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 1:50:1:56:3:25:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 1:8:1:14:2:14:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 2:15:1:21:2:14:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 2:22:1:28:3:16:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 2:29:1:35:2:18:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 2:36:1:42:2:14:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 2:43:1:49:3:14:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 2:50:1:56:2:32:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 2:57:1:63:3:25:0:IMUSANT_segmented_part_fixed_period\nKyrie ele\xC3\x98son:Ca 2:8:1:14:2:14:0:IMUSANT_segmented_part_fixed_period\n\n";
     
-
-#ifdef VERBOSE
-    cout << endl << "----- SEGMENTS -----" << endl;
-#endif
-    for (SetOfSegments::iterator it = segments_set.begin() ;
-         it != segments_set.end();
-         it++)
-    {
-        ASSERT_EQ(*fScore_Kyrie_TwoPartsOnly, *it->getScore());
-        
-#ifdef VERBOSE
-          cout << *it << endl;
-#endif
-    }
-
-    // REVISIT - no way of easilly extracting specific segments from the set at the moment...
-//    S_IMUSANT_part part_ca2;
-//    fScore_Kyrie_TwoPartsOnly->getPartById("Ca 2", part_ca2);
-//    S_IMUSANT_segment seg_1 = new_IMUSANT_segment(fScore_Kyrie_TwoPartsOnly,
-//                                                  part_ca2,
-//                                                  s_segmented_part->SEGMENTATION_ALGORITHM);
-//    
-//    segments_set.find(seg_1);
-    
-    ASSERT_EQ(14, segments[0]->notes().size());
-    ASSERT_EQ(14, segments[1]->notes().size());
-    ASSERT_EQ(16, segments[2]->notes().size());
-    ASSERT_EQ(18, segments[3]->notes().size());
-    ASSERT_EQ(14, segments[4]->notes().size());
-    ASSERT_EQ(14, segments[5]->notes().size());
-    ASSERT_EQ(32, segments[6]->notes().size());
-    ASSERT_EQ(25, segments[7]->notes().size());
-    
-    //
-    // Spot test some of the notes within the segments...
-    //
-    
-    ASSERT_EQ("Ca 2", segments[0]->getPart()->getPartName());
-    ASSERT_EQ(1, segments[0]->notes()[0]->getNoteIndex());
-    ASSERT_EQ(IMUSANT_pitch::G, segments[0]->notes()[0]->pitch()->name());
-    
-    ASSERT_EQ("Ca 2", segments[7]->getPart()->getPartName());
-    ASSERT_EQ(57, segments[7]->notes()[0]->getMeasureNum());
-    ASSERT_EQ(1, segments[7]->notes()[0]->getNoteIndex());
-    ASSERT_EQ(IMUSANT_pitch::D, segments[7]->notes()[0]->pitch()->name());
-    
-    ASSERT_EQ(63, segments[7]->notes()[24]->getMeasureNum());
-    ASSERT_EQ(3, segments[7]->notes()[24]->getNoteIndex());
-    ASSERT_EQ(IMUSANT_pitch::D, segments[7]->notes()[24]->pitch()->name());
+    string actual_output = getActualSegmentsAsString(segments_set);
+   
+    ASSERT_EQ(FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly_Expected, actual_output);
 }
-
 
 TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
 {
