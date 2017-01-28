@@ -22,5 +22,27 @@ namespace IMUSANT
         return os;
     }
     
+    string
+    IMUSANT_set_of_segment::
+    printProperties(bool include_header_row)
+    {
+        stringstream buffer;
+        
+        bool first_time_round = true;
+ 
+        for (IMUSANT_set_of_segment::iterator it = this->begin(); it != this->end(); it++ )
+        {
+            if (first_time_round && include_header_row)
+            {
+                buffer << it->printPropertiesHeaderRow();
+                first_time_round = false;
+            }
+            
+            buffer << it->printProperties();
+        }
+        
+        return buffer.str();
+    }
+    
 
 }

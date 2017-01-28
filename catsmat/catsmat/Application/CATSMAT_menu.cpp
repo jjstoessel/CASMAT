@@ -274,9 +274,21 @@ runToolsMenu(CATSMAT_processing* processor)
                          segment_set_iter != segments.end() ;
                          segment_set_iter++)
                     {
-                       //  cout << ((*seg_part_iter)->print(true,true)) << endl;
                         cout << *segment_set_iter << endl;
+                        cout << endl << endl;
                     }
+                    
+                    cout << "Format for using this data with R:" << endl;
+                    bool first_time_round = true;
+                    for (IMUSANT::IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+                         segment_set_iter != segments.end() ;
+                         segment_set_iter++)
+                    {
+                        cout << segment_set_iter->printProperties(first_time_round);
+                        first_time_round = false;
+                    }
+                    
+                    
                 }
                 break;
                

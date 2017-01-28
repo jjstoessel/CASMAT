@@ -145,6 +145,51 @@ namespace IMUSANT
         return os;
     }
     
+    string
+    IMUSANT_segment::
+    printPropertiesHeaderRow() const
+    {
+        std::stringstream buffer;
+        char delimiter = ':';
+        
+        buffer << "Segment" << delimiter << "Num notes" << delimiter << "Num measures" << delimiter << "First duration" << delimiter << "First pitch" << delimiter << "Last duration" << delimiter << "Last pitch" << endl;
+        
+        return buffer.str();
+    }
+    
+    string
+    IMUSANT_segment::
+    printProperties() const
+    {
+        std::stringstream buffer;
+        char delimiter = ':';
+        
+        float first_duration = getFirstNote()->duration()->asAbsoluteNumeric();
+        int first_pitch = getFirstNote()->pitch()->getMidiKeyNumber();
+        long first_measure = getFirstNote()->getMeasureNum();
+        long first_note_index = getFirstNote()->getNoteIndex();
+        long last_measure = getLastNote()->getMeasureNum();
+        long last_note_index = getLastNote()->getNoteIndex();
+        
+        float last_duration = getLastNote()->duration()->asAbsoluteNumeric();
+        int last_pitch = getLastNote()->pitch()->getMidiKeyNumber();
+        long number_of_measures = getLastNote()->getMeasureNum() - getFirstNote()->getMeasureNum();
+        
+       buffer   // Segment identifier...
+                << getScore()->getMovementTitle() << "." << getPart()->getPartName() << "." << first_measure << "." << first_note_index << "." << last_measure << "." << last_note_index <<  delimiter
+                // Data...
+                << size() << delimiter
+                << to_string(number_of_measures) << delimiter
+                << to_string(first_duration) << delimiter
+                << to_string(first_pitch) << delimiter
+                << to_string(last_duration) << delimiter
+                << to_string(last_pitch)
+                << endl;
+        
+        return buffer.str();
+    }
+    
+    
     
     
 }

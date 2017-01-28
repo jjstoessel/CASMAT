@@ -23,6 +23,8 @@ namespace IMUSANT
     public:
         virtual ~IMUSANT_set_of_segment() {}
         
+        string printProperties(bool include_header_row);
+        
     };
 }
 

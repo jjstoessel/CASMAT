@@ -56,6 +56,9 @@ namespace IMUSANT
         
         bool operator== (const IMUSANT_segment& rhs) const;
         
+        string printPropertiesHeaderRow() const;
+        string printProperties() const;
+        
     private:
         S_IMUSANT_score fScore;
         S_IMUSANT_part fPart;
