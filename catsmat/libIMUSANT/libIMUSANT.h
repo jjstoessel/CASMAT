@@ -38,10 +38,12 @@ class libIMUSANT
 //#include "IMUSANT_repeated_interval_substring.h"
 #include "IMUSANT_t_repeated_substring.h"
 #include "IMUSANT_segment.h"
+#include "IMUSANT_set_of_segment.h"
 #include "IMUSANT_segmented_part_fixed_period.h"
 #include "IMUSANT_partlist_ordered_by_part_entry.h"
 
 #include "IMUSANT_LBDM_segmenter.h"
+#include "IMUSANT_fixed_period_segmenter.h"
 
 #pragma GCC visibility pop
 #endif

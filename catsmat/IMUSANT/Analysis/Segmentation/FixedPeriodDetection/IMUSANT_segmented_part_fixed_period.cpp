@@ -331,7 +331,7 @@ namespace IMUSANT
         return fSegments;
     }
     
-    SetOfSegments
+    IMUSANT_set_of_segment
     IMUSANT_segmented_part_fixed_period::
     getSegmentsSet()
     {

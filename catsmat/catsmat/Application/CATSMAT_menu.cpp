@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <exception>
 
+#include "libIMUSANT.h"
 #include "IMUSANT_interval_processor.h"
 #include "IMUSANT_pitch_processor.h"
 #include "IMUSANT_contour_processor.h"
@@ -148,6 +149,7 @@ outputToolsMenu(ostream &out)
     out << "F.  Find longest common intervallic subsequence in all pairs (reverse method)" << endl;
     out << "G.  Find longest common pitch subsequence in all pairs" << endl;
     out << "H.  Find melodic segments using LBDM" << endl;
+    out << "T.  Find melodic segments using Periodic Segmentation" << endl;
     out << "R.  Entabulate melodic direction duples" << endl;
     out << "S.  Show general data" << endl;
     out << "I.  Run all IMUSANT tools" << endl;
@@ -261,6 +263,22 @@ runToolsMenu(CATSMAT_processing* processor)
                     }
                     break;
                     
+                    //Find melodic segments using Periodic Segmentation
+                case 'T':
+                case 't':
+                {
+                    IMUSANT_fixed_period_segmenter segmenter;
+                    segmenter.Visit(*processor);
+                    IMUSANT::IMUSANT_fixed_period_segmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
+                    for (IMUSANT::IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+                         segment_set_iter != segments.end() ;
+                         segment_set_iter++)
+                    {
+                       //  cout << ((*seg_part_iter)->print(true,true)) << endl;
+                        cout << *segment_set_iter << endl;
+                    }
+                }
+                break;
                
                 //Run all IMUSANT tools
                 case 'I':

@@ -65,7 +65,7 @@ protected:
     static S_IMUSANT_score fScore_YankeeDoodle;
     static S_IMUSANT_score fScore_Josquin_MAF_Christe;
     
-    string getActualSegmentsAsString(SetOfSegments segment_set);
+    string getActualSegmentsAsString(IMUSANT_set_of_segment segment_set);
 };
 
 IMUSANT_test_utilities * IMUSANT_segmented_part_fixed_period_Tests::_test_utils = NULL;
@@ -81,13 +81,13 @@ S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Josquin_MAF_Ch
 
 string
 IMUSANT_segmented_part_fixed_period_Tests::
-getActualSegmentsAsString(SetOfSegments segments_set)
+getActualSegmentsAsString(IMUSANT_set_of_segment segments_set)
 {
     
     // The code below gurantees that the output is in a deterministic order (we use unordered_set, so I'm just making sure...).
     vector<string> segment_strings;
     
-    for (SetOfSegments::iterator it = segments_set.begin() ;
+    for (IMUSANT_set_of_segment::iterator it = segments_set.begin() ;
          it != segments_set.end();
          it++)
     {
@@ -153,11 +153,11 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, error_code);
     ASSERT_EQ(10752, s_segmented_part->getPeriodDurationForThisScore()->asAbsoluteNumeric());
     
-    SetOfSegments segments_set = s_segmented_part->getSegmentsSet();
+    IMUSANT_set_of_segment segments_set = s_segmented_part->getSegmentsSet();
     
 #ifdef VERBOSE
     cout << endl << "----- SEGMENTS -----" << endl;
-    for (SetOfSegments::iterator it = segments_set.begin(); it != segments_set.end(); it++ )
+    for (IMUSANT_set_of_segment::iterator it = segments_set.begin(); it != segments_set.end(); it++ )
     {
         cout << *it << endl;
     }
@@ -215,11 +215,11 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, error_code);
     ASSERT_EQ(10752, s_segmented_part->getPeriodDurationForThisScore()->asAbsoluteNumeric());
     
-    SetOfSegments segmentset = s_segmented_part->getSegmentsSet();
+    IMUSANT_set_of_segment segmentset = s_segmented_part->getSegmentsSet();
 
 #ifdef VERBOSE
     cout << endl << "----- SEGMENTS -----" << endl;
-    for (SetOfSegments::iterator it = segmentset.begin(); it != segmentset.end(); it++ )
+    for (IMUSANT_set_of_segment::iterator it = segmentset.begin(); it != segmentset.end(); it++ )
     {
         cout << *it << endl;
     }
@@ -255,11 +255,11 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
     ASSERT_EQ(7680, s_segmented_part->getPeriodDurationForThisScore()->asAbsoluteNumeric() );
     
-    SetOfSegments segmentset = s_segmented_part->getSegmentsSet();
+    IMUSANT_set_of_segment segmentset = s_segmented_part->getSegmentsSet();
     
 #ifdef VERBOSE
     cout << endl << "----- SEGMENTS -----" << endl;
-    for (SetOfSegments::iterator it = segmentset.begin(); it != segmentset.end(); it++ )
+    for (IMUSANT_set_of_segment::iterator it = segmentset.begin(); it != segmentset.end(); it++ )
     {
         cout << *it << endl;
     }

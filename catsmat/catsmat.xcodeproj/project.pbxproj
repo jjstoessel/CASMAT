@@ -329,6 +329,10 @@
 		49C80DEA1BA5231600DCA903 /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
 		49C80DEB1BA5231D00DCA903 /* liblibMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */; };
 		49C80DEC1BA5231D00DCA903 /* libMusicXML.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF4D71B22A58A00FE715F /* libMusicXML.dylib */; };
+		49CE2CE41E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49CE2CE21E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.cpp */; };
+		49CE2CE51E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CE2CE31E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.h */; };
+		49CE2CE81E3C39CD00D13F22 /* IMUSANT_set_of_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49CE2CE61E3C39CD00D13F22 /* IMUSANT_set_of_segment.cpp */; };
+		49CE2CE91E3C39CD00D13F22 /* IMUSANT_set_of_segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CE2CE71E3C39CD00D13F22 /* IMUSANT_set_of_segment.h */; };
 		49D6903C1C8BC96B00EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49D6903B1C8BC91900EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml */; };
 		49DA50041DCE87F300AC1975 /* Josquin_MAF_Christe.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49DA50031DCE87AB00AC1975 /* Josquin_MAF_Christe.xml */; };
 		49F1FFF51C9D5A8F00910F07 /* IMUSANT_part_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49F1FFF41C9D5A8F00910F07 /* IMUSANT_part_Tests.cpp */; };
@@ -1068,6 +1072,10 @@
 		49C80D8B1BA4E5C900DCA903 /* xmlread.vcproj */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = xmlread.vcproj; sourceTree = "<group>"; };
 		49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = liblibMusicXML3.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C80DE71BA520FB00DCA903 /* CATSMAT_visitable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_visitable.hpp; path = catsmat/CATSMAT_visitable.hpp; sourceTree = SOURCE_ROOT; };
+		49CE2CE21E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_fixed_period_segmenter.cpp; sourceTree = "<group>"; };
+		49CE2CE31E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_fixed_period_segmenter.h; sourceTree = "<group>"; };
+		49CE2CE61E3C39CD00D13F22 /* IMUSANT_set_of_segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_set_of_segment.cpp; sourceTree = "<group>"; };
+		49CE2CE71E3C39CD00D13F22 /* IMUSANT_set_of_segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_set_of_segment.h; sourceTree = "<group>"; };
 		49D6903B1C8BC91900EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RepeatedIntervalSubstrings_SimpleTest1.xml; sourceTree = "<group>"; };
 		49DA50031DCE87AB00AC1975 /* Josquin_MAF_Christe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Josquin_MAF_Christe.xml; sourceTree = "<group>"; };
 		49EBE74D1CF18E6A009B110D /* IMUSANT_conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_conversions.h; sourceTree = "<group>"; };
@@ -1601,6 +1609,8 @@
 				495A50281CA5B93F006985E2 /* LocalBoundaryDetectionModel */,
 				4926075B1DD11E24007C8A54 /* IMUSANT_segment.h */,
 				4926075A1DD11E24007C8A54 /* IMUSANT_segment.cpp */,
+				49CE2CE71E3C39CD00D13F22 /* IMUSANT_set_of_segment.h */,
+				49CE2CE61E3C39CD00D13F22 /* IMUSANT_set_of_segment.cpp */,
 			);
 			path = Segmentation;
 			sourceTree = "<group>";
@@ -1612,6 +1622,8 @@
 				4932AB661DC4A018006423CD /* IMUSANT_segmented_part_fixed_period.cpp */,
 				4920C1641E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.h */,
 				4920C1631E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.cpp */,
+				49CE2CE31E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.h */,
+				49CE2CE21E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.cpp */,
 			);
 			path = FixedPeriodDetection;
 			sourceTree = "<group>";
@@ -3107,7 +3119,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CE2CE51E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.h in Headers */,
 				496EF6BF1B22B01700FE715F /* libIMUSANT.h in Headers */,
+				49CE2CE91E3C39CD00D13F22 /* IMUSANT_set_of_segment.h in Headers */,
 				496EF6C11B22B01700FE715F /* libIMUSANTPriv.h in Headers */,
 				4959E1391CF13BE300FAC403 /* TRational.h in Headers */,
 				4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */,
@@ -3542,6 +3556,7 @@
 			files = (
 				BACF15C21D113FE2001C3991 /* IMUSANT_contour_processor.cpp in Sources */,
 				490E3BBB1D0CFBE70091A44E /* IMUSANT_t_repeated_substring.cpp in Sources */,
+				49CE2CE41E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.cpp in Sources */,
 				4959E13A1CF13BE300FAC403 /* smartpointer.cpp in Sources */,
 				96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */,
 				4959E13B1CF13BE300FAC403 /* TRational.cpp in Sources */,
@@ -3552,6 +3567,7 @@
 				496EF7021B22B06100FE715F /* IMUSANT_interval_vector.cpp in Sources */,
 				496EF7051B22B06100FE715F /* IMUSANT_collectionvisitor.h in Sources */,
 				496EF7061B22B06100FE715F /* IMUSANT_processing.cpp in Sources */,
+				49CE2CE81E3C39CD00D13F22 /* IMUSANT_set_of_segment.cpp in Sources */,
 				496EF6DE1B22B05500FE715F /* IMUSANT_types.cpp in Sources */,
 				496EF6DF1B22B05500FE715F /* IMUSANT_pitch.cpp in Sources */,
 				498CFE551D7B0991006379F0 /* IMUSANT_transposer.cpp in Sources */,

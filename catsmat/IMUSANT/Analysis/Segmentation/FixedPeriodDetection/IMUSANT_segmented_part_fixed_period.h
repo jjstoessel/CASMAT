@@ -10,11 +10,12 @@
 #define __catsmat__IMUSANT_segmented_part_fixed_period__
 
 #include <stdio.h>
-#include <unordered_set>
+// #include <unordered_set>
 
 #include "IMUSANT_note.h"
 #include "IMUSANT_score.h"
 #include "IMUSANT_segment.h"
+#include "IMUSANT_set_of_segment.h"
 #include "IMUSANT_duration.h"
 
 #include "IMUSANT_partlist_ordered_by_part_entry.h"
@@ -24,9 +25,6 @@ using namespace std;
 
 namespace IMUSANT
 {
-    typedef unordered_set<IMUSANT_segment, SegmentHash, SegmentComparator> SetOfSegments;
-
-    
     class IMUSANT_segmented_part_fixed_period : public smartable
     {
     public:
@@ -48,7 +46,7 @@ namespace IMUSANT
         // This method returns you the segments, as a set or as a vector.
         // REVISIT The number of segments in each will be different because the vector contains duplicates..
         //
-        SetOfSegments getSegmentsSet();
+        IMUSANT_set_of_segment getSegmentsSet();
         vector<S_IMUSANT_segment> getSegments();
         
         S_IMUSANT_duration getPeriodDurationForThisScore();
@@ -63,7 +61,7 @@ namespace IMUSANT
         
         S_IMUSANT_duration fPeriodDuration;
         vector<S_IMUSANT_segment> fSegments;
-        SetOfSegments fSegmentsSet;   //********* HERE *********
+        IMUSANT_set_of_segment fSegmentsSet;   //********* HERE *********
         
         void comparePartsForPeriodicSegments(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
         void extractPeriodicSegmentsFromParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
