@@ -28,9 +28,9 @@ namespace CATSMAT
     public:
         typedef std::array<int,3>   word; //a word is the two vertical intervals and the step in the lower voice
         typedef std::vector<word>   sentence; // a sentence is a sequence of words for a voice pair
-        enum wordmembers { dyad1, dyad2, lowMelInterval };
+        enum    wordmembers { dyad1, dyad2, lowMelInterval };
         
-        friend ostream& operator<<(ostream& os, const CATSMAT_NGram_sequences& ngrams);
+        friend  ostream& operator<<(ostream& os, const CATSMAT_NGram_sequences& ngrams);
         
         void    Visit(const CATSMAT_cp_matrix& matrix);
         void    print(ostream& os) const;

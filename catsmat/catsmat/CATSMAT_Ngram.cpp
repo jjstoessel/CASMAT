@@ -24,6 +24,7 @@
 
 #include "CATSMAT_Ngram.h"
 #include "IMUSANT_generalised_interval.h"
+#include "CATSMAT_exception.h"
 
 using namespace CATSMAT;
 
@@ -37,15 +38,6 @@ ostream& operator<<(ostream& os, const CATSMAT_NGram_sequences& ngrams)
 void
 CATSMAT_NGram_sequences::Visit(const CATSMAT_cp_matrix& matrix)
 {
-    //increase VectorInterval colection according to the formula of unique pairs n(n-1)/2
-//    unsigned long partCount = matrix.partCount();
-//    
-//    while (fVIntervalVectors.size() < ( (partCount)*(partCount-1)/2 ) )
-//    {
-//        fVIntervalVectors.push_back(new_IMUSANT_interval_vector());
-//        fVIntervalVectors.back()->setMaximum(1024);
-//    }
-    
     process(matrix.getCPmatrix());
 }
 
@@ -55,7 +47,7 @@ void CATSMAT_NGram_sequences::process(const list<S_CATSMAT_chord> &matrix)
     if (!matrix.empty())
     {
         //iterate through all chords
-        for (auto chord = matrix.begin(), nextchord = chord; chord!=matrix.end(), ++nextchord!=matrix.end(); chord++)
+        for (auto chord = matrix.begin(), nextchord = chord; ++nextchord!=matrix.end(); chord++)
         {
             map<int, S_IMUSANT_note>::size_type chord_size = (**chord).size();
             if (sentences.size()!=chord_size) sentences.resize((chord_size)*(chord_size-1)/2);
@@ -63,10 +55,11 @@ void CATSMAT_NGram_sequences::process(const list<S_CATSMAT_chord> &matrix)
             //deref chord notes
             map<int, S_IMUSANT_note> chord_notes = **chord;
             map<int, S_IMUSANT_note> nextchord_notes = **nextchord;
-            int k = 0;
+            vector<sentence>::iterator sentences_iter = sentences.begin();
             
             for (int i = 0; i<chord_size; i++)
             {
+                
                 for (int j=i; ++j<chord_size; /*nothing here*/)
                 {
                    
@@ -84,10 +77,19 @@ void CATSMAT_NGram_sequences::process(const list<S_CATSMAT_chord> &matrix)
                         
                     }
                     
-                    sentences[k].push_back(triple);
-                    k++;
+                    sentences_iter->push_back(triple);
+                    sentences_iter++;
                 }
             }
+        }
+        
+        //error checking - rows of tuples should be the same length
+        vector<sentence>::iterator sentences_iter=sentences.begin();
+        vector<sentence>::size_type size = sentences_iter->size();
+        
+        for ( ;sentences_iter!=sentences.end();sentences_iter++ )
+        {
+            if (size!=sentences_iter->size()) throw catsmat_runtime_error("Bad size count in CPMatrix");
         }
     }
 

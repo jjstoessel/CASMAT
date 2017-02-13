@@ -37,7 +37,6 @@ namespace CATSMAT {
         
         LOKI_DEFINE_CONST_VISITABLE()
         
-        //friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_cp_matrix();
         friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_object<CATSMAT_cp_matrix>();
         
         friend  ostream& operator<< (ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
@@ -46,9 +45,9 @@ namespace CATSMAT {
         void	add(const IMUSANT_note& note);
         void    set(const IMUSANT_time& time);
         void	clear() { fCPMatrix.clear(); }
+        void    reindex();
         
         const   list< S_CATSMAT_chord >& getCPmatrix() const { return fCPMatrix; }
-        const   vector<S_IMUSANT_interval_vector> getVerticalIntervals() const { return fVIntervalVector; }
         
         void    print(ostream& os);
         unsigned long partCount() const { return fCurrentPart + 1; }
@@ -69,7 +68,6 @@ namespace CATSMAT {
 
         
         list< S_CATSMAT_chord >             fCPMatrix; //a vector of vectors, each column of which represents a chord
-        vector<S_IMUSANT_interval_vector>   fVIntervalVector;
         
         int                                 fCurrentPart;
         list<S_CATSMAT_chord>::iterator     fCurrentChord;
