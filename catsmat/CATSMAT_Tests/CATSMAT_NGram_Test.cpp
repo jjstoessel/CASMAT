@@ -88,3 +88,14 @@ TEST_F(CATSMAT_NGram_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes) {
     
     ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, the_sequences_as_string);
 }
+
+
+TEST_F(CATSMAT_NGram_Test, TestScore_Josquin_MAF_Kyrie) {
+    
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Josquin_MAF_Kyrie.xml");
+    theSequences.Visit(*the_matrix);
+    
+    string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
+    
+    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, the_sequences_as_string);
+}

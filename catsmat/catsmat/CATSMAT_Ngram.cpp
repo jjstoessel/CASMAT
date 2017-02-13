@@ -54,64 +54,40 @@ void CATSMAT_NGram_sequences::process(const list<S_CATSMAT_chord> &matrix)
 {
     if (!matrix.empty())
     {
-        
+        //iterate through all chords
         for (auto chord = matrix.begin(), nextchord = chord; chord!=matrix.end(), ++nextchord!=matrix.end(); chord++)
         {
             map<int, S_IMUSANT_note>::size_type chord_size = (**chord).size();
+            if (sentences.size()!=chord_size) sentences.resize((chord_size)*(chord_size-1)/2);
+            //get triple for each voice pair in chord
+            //deref chord notes
+            map<int, S_IMUSANT_note> chord_notes = **chord;
+            map<int, S_IMUSANT_note> nextchord_notes = **nextchord;
+            int k = 0;
             
-            for (int i = 0, j = 1 ; j<chord_size; i++, j++)
+            for (int i = 0; i<chord_size; i++)
             {
-                sentence triples;
-                //deref chord notes
-                map<int, S_IMUSANT_note> chord_notes = **chord;
-                map<int, S_IMUSANT_note> nextchord_notes = **nextchord;
-                
-                //only proceed if there are two intervals between voices
-                if (chord_notes[i]->getType()!=IMUSANT_NoteType::rest &&
-                    chord_notes[j]->getType()!=IMUSANT_NoteType::rest &&
-                    nextchord_notes[i]->getType()!=IMUSANT_NoteType::rest &&
-                    nextchord_notes[j]->getType()!=IMUSANT_NoteType::rest)
+                for (int j=i; ++j<chord_size; /*nothing here*/)
                 {
-                    IMUSANT_generalised_interval v1(chord_notes[j]->pitch(), chord_notes[i]->pitch());
-                    IMUSANT_generalised_interval v2(nextchord_notes[j]->pitch(), nextchord_notes[i]->pitch());
-                    IMUSANT_generalised_interval h(chord_notes[j]->pitch(), nextchord_notes[j]->pitch());
-                    CATSMAT_NGram_sequences::word triple = { v1.getNumber(),v2.getNumber(),h.getNumber() };
-                    triples.push_back(triple);
+                   
+                    CATSMAT_NGram_sequences::word triple = { 0, 0, 0 }; //default null triple - another value?
+                    //only proceed if there are two intervals between voices
+                    if (chord_notes[i]->getType()!=IMUSANT_NoteType::rest &&
+                        chord_notes[j]->getType()!=IMUSANT_NoteType::rest &&
+                        nextchord_notes[i]->getType()!=IMUSANT_NoteType::rest &&
+                        nextchord_notes[j]->getType()!=IMUSANT_NoteType::rest)
+                    {
+                        IMUSANT_generalised_interval v1(chord_notes[j]->pitch(), chord_notes[i]->pitch());
+                        IMUSANT_generalised_interval v2(nextchord_notes[j]->pitch(), nextchord_notes[i]->pitch());
+                        IMUSANT_generalised_interval h(chord_notes[j]->pitch(), nextchord_notes[j]->pitch());
+                        triple = { v1.getNumber(),v2.getNumber(),h.getNumber() };
+                        
+                    }
+                    
+                    sentences[k].push_back(triple);
+                    k++;
                 }
-                
-                sentences.push_back(triples);
             }
-//            map<int, S_IMUSANT_note>::size_type chord_size = (*(*chord)).size();
-//
-//            int dyad_pair = 0;
-//            
-//            for (int i = 0; i<chord_size; i++)
-//            {
-//                for (int j=i; ++j<chord_size; /*nothing here*/)
-//                {
-//                    map<int, S_IMUSANT_note> chord_notes = *(*chord);
-//                    
-//                    //only insert if there is a dyad present
-//                    if (chord_notes[i]->getType()!=IMUSANT_NoteType::rest && chord_notes[j]->getType()!=IMUSANT_NoteType::rest)
-//                    {
-//                        IMUSANT_interval interval(chord_notes[j]->pitch(), chord_notes[i]->pitch());
-//                        
-//                        
-//                        //only insert interval if not a repeated interval
-//                        if (
-//                            !(chord_notes[i]->isTiedPrevious() && chord_notes[j]->isTiedPrevious()) &&
-//                            !((interval.getQuality()==IMUSANT_interval::dissonant) && (fIgnoreDissonances==true))
-//                            )
-//                        {
-//                            fVIntervalVectors[dyad_pair]->add(interval);
-//                        }
-//                    }
-//                    dyad_pair++; //complete iteration through one pair of voices
-//                }
-//                
-//            }
-//            
-//            fSaveI = dyad_pair;
         }
     }
 
