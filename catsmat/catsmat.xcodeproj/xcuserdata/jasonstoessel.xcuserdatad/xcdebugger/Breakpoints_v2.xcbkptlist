@@ -1090,11 +1090,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "508715320.159691"
+            timestampString = "508735098.337605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "CATSMAT_cp_matrix:: distribute(const IMUSANT_note&amp; note, const S_IMUSANT_note previous_note)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1106,11 +1106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "508715320.159691"
+            timestampString = "508735098.337605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "CATSMAT_cp_matrix:: split(const IMUSANT_note&amp; note)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1122,11 +1122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "508715320.159691"
+            timestampString = "508735098.337605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "CATSMAT_cp_matrix:: split(const IMUSANT_note&amp; note)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1286,11 +1286,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.hpp"
-            timestampString = "508715320.159691"
+            timestampString = "508735098.337605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74">
+            startingLineNumber = "75"
+            endingLineNumber = "75">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1332,11 +1332,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "508715320.159691"
+            timestampString = "508735098.337605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236">
+            startingLineNumber = "233"
+            endingLineNumber = "233">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1503,90 +1503,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_Ngram.cpp"
-            timestampString = "508716302.615085"
+            timestampString = "508738083.975349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
             landmarkName = "CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CATSMAT::CATSMAT_NGram_sequences::process(std::__1::list&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt;, std::__1::allocator&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt; &gt; &gt; const&amp;)"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_Ngram.cpp"
-                  timestampString = "508716304.040089"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "5429">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CATSMAT::CATSMAT_NGram_sequences::process(std::__1::list&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt;, std::__1::allocator&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt; &gt; &gt; const&amp;)"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_Ngram.cpp"
-                  timestampString = "508716304.041742"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "5480">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CATSMAT::CATSMAT_NGram_sequences::process(std::__1::list&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt;, std::__1::allocator&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt; &gt; &gt; const&amp;)"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_Ngram.cpp"
-                  timestampString = "508716304.043387"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "5500">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CATSMAT::CATSMAT_NGram_sequences::process(std::__1::list&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt;, std::__1::allocator&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt; &gt; &gt; const&amp;)"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_Ngram.cpp"
-                  timestampString = "508716304.04503"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "7355">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "CATSMAT::CATSMAT_NGram_sequences::process(std::__1::list&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt;, std::__1::allocator&lt;IMUSANT::IMUSANT_SMARTP&lt;CATSMAT::CATSMAT_chord&gt; &gt; &gt; const&amp;)"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_Ngram.cpp"
-                  timestampString = "508716304.046689"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "7531">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1608,32 +1531,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_Ngram.cpp"
-            timestampString = "508716317.440054"
+            filePath = "catsmat/CATSMAT_cp_matrix.cpp"
+            timestampString = "508735219.273703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
+            landmarkName = "CATSMAT_cp_matrix:: reindex()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "508717858.13053"
+            filePath = "catsmat/CATSMAT_Ngram.cpp"
+            timestampString = "508740708.024108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "CATSMAT_cp_matrix:: reindex()"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "CATSMAT_NGram_sequences::triple2token(const word&amp; triple)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

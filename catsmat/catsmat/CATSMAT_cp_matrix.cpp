@@ -300,11 +300,12 @@ namespace CATSMAT
     CATSMAT_cp_matrix::
     reindex()
     {
+        long measure_number = 0;
+        long note_index = 0;
+        
         for (list< S_CATSMAT_chord >::iterator chord = fCPMatrix.begin(); chord!=fCPMatrix.end(); chord++)
         {
             map<int, S_IMUSANT_note> chord_notes = *(*chord);
-            long measure_number = 0;
-            long note_index = 0;
             
             for (auto chord_note = chord_notes.begin(); chord_note!=chord_notes.end(); chord_note++)
             {
@@ -318,6 +319,7 @@ namespace CATSMAT
             for (auto chord_note = chord_notes.begin(); chord_note!=chord_notes.end(); chord_note++)
             {
                 chord_note->second->setMeasureNum(measure_number);
+                chord_note->second->setNoteIndex(note_index);
             }
             note_index++;
         }

@@ -91,6 +91,8 @@ namespace CATSMAT
             fCPMatrix = new_CATSMAT_object<CATSMAT_cp_matrix>();
             IMUSANT_collection_visitor::visit(elt);
         }
+        //ensure CP Matrix is indexed correctly
+        fCPMatrix->reindex();
     }
     
     void CATSMAT_collection_visitor::processCollections()

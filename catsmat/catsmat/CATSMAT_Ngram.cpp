@@ -91,8 +91,60 @@ void CATSMAT_NGram_sequences::process(const list<S_CATSMAT_chord> &matrix)
         {
             if (size!=sentences_iter->size()) throw catsmat_runtime_error("Bad size count in CPMatrix");
         }
+        
+        convertsentences2tokens();
     }
 
+}
+
+void
+CATSMAT_NGram_sequences::
+convertsentences2tokens()
+{
+    tokens.resize(sentences.size());
+    
+    auto j = tokens.begin();
+    
+    for (auto i = sentences.begin(); i!=sentences.end(); i++, j++)
+    {
+        j->resize(i->size());
+        for ( auto m = i->begin(); m!=i->end(); m++)
+        {
+            unsigned long token = triple2token(*m);
+            j->push_back(token);
+        }
+    }
+}
+
+/*
+    \brief function to convert at triple to a token
+ 
+    bits 1-8 contain the first vertical interval
+    bits 8-16 contain the second vertical interval
+    bits 16-24 contains the lower melodic interval
+    bits 25-32 are reserved (possibly for location data, but will need to be masked for comparison operators
+*/
+unsigned long
+CATSMAT_NGram_sequences::triple2token(const word& triple)
+{
+    long token = triple[dyad1] | triple[dyad2]<<8 | triple[lowMelInterval]<<16;
+    
+    //word test = token2triple(token); //testing only - remove
+    
+    return token;
+}
+
+CATSMAT_NGram_sequences::word
+CATSMAT_NGram_sequences::
+token2triple(const unsigned long token)
+{
+    word triple = {0, 0, 0};
+    
+    triple[dyad1] = token & 0x000000ff;
+    triple[dyad2] = (token & 0x0000ff00) >> 8;
+    triple[lowMelInterval] = (token & 0x00ff0000) >> 16;
+    
+    return triple;
 }
 
 void
