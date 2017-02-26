@@ -16,7 +16,7 @@
 
 namespace IMUSANT {
     
-    class IMUSANT_interval_processor : public IMUSANT_processor<IMUSANT_interval>
+    class IMUSANT_interval_processor : public IMUSANT_processor<IMUSANT_interval,IMUSANT_processing>
     {
     public:
         typedef vector<IMUSANT_repeated_interval_substring> SUBSTR_VECTOR;
@@ -34,8 +34,8 @@ namespace IMUSANT {
         void            Visit(const IMUSANT_processing&);
         
     private:
-        
-        _tree*  buildIntervalSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
+        void            buildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
+        //_tree*  buildIntervalSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
     };
 }
 #endif /* defined(____IMUSANT_interval_processor__) */

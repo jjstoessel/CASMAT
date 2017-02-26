@@ -15,15 +15,16 @@ namespace IMUSANT {
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
-        mTreePtr = buildPitchSuffixTree(collections);
+        buildVectorMap(collections);
+        
+       // mTreePtr = buildSuffixTree(mID_vec_map);
     }
     
-    IMUSANT_pitch_processor::_tree*
+    void
     IMUSANT_pitch_processor::
-    buildPitchSuffixTree(IMUSANT_processing::COLLECTIONMAP& collections)
+    buildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file
-        _tree* tree = NULL;
         int ID = 0;
         
         for (auto i = collections.begin(); i!=collections.end(); i++)
@@ -35,10 +36,6 @@ namespace IMUSANT {
                 mID_vec_map[ID] = (*j)->getPitches();
             }
         }
-        
-        //tree = buildSuffixTree(mID_vec_map);
-        
-        return tree;
     }
 
     string

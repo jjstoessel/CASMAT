@@ -35,16 +35,17 @@ namespace IMUSANT {
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
-        mTreePtr = buildIntervalSuffixTree(collections);
+        buildVectorMap(collections);
+        
+        mTreePtr = buildSuffixTree(mID_vec_map);
     }
     
     //Prepare list of interval strings and feed to template class to create actual tree
-    IMUSANT_interval_processor::_tree*
+    void
     IMUSANT_interval_processor::
-    buildIntervalSuffixTree(IMUSANT_processing::COLLECTIONMAP& collections)
+    buildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file
-        _tree* tree = NULL;
         int ID = 0;
         
         for (auto i = collections.begin(); i!=collections.end(); i++)
@@ -54,14 +55,8 @@ namespace IMUSANT {
             {
                 ++ID;
                 mID_vec_map[ID] = (*j)->getIntervals();
-                //mID_vec_map.insert(make_pair<int,vector<IMUSANT_interval> >(ID, (*j)->getIntervals()));
-                
             }
         }
-        
-        tree = buildSuffixTree(mID_vec_map); //call templated base class build function
-        
-        return tree;
     }
     
     string

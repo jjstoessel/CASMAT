@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E08059C1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E08059B1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp */; };
 		1E0D00DB1CBE4F9A0035CA98 /* Yankee_Doodle.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E0D00DA1CBE4F7C0035CA98 /* Yankee_Doodle.xml */; };
 		1E0D00DF1CC048A50035CA98 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D00DC1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp */; };
-		1E1836291B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E1836281B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp */; };
 		1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E18362A1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp */; };
 		1E2FA2C61B35A517002BB14F /* Josquin_MAF_Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */; };
 		1E2FA2C71B35A517002BB14F /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C41B355A01002BB14F /* Kyrie.xml */; };
@@ -344,7 +342,6 @@
 		49FB9BD11C7879CB0008B46D /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		49FB9BD21C7879D80008B46D /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */; };
-		961789941D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 961789931D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		9695B5321DE08575000586D0 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		9695B5331DE08577000586D0 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
@@ -3420,9 +3417,6 @@
 				496EF7161B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp in Sources */,
 				9695B5331DE08577000586D0 /* IMUSANT_generalised_interval.cpp in Sources */,
 				BAA257F91CFEBFD50019B07F /* CATSMAT_chord.cpp in Sources */,
-				961789941D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp in Sources */,
-				1E08059C1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp in Sources */,
-				1E1836291B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

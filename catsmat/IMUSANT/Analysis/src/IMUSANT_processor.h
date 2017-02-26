@@ -4,6 +4,10 @@
 //
 //  Created by Jason Stoessel on 12/06/2016.
 //
+//  Changes:
+//  26 Feb 2017     templatised visitor class for additional flexibility;
+//
+//  To do: refactor to class name IMUSANT_suffix_tree_builder to be
 //
 
 #ifndef ____IMUSANT_processor__
@@ -22,22 +26,24 @@ using namespace ns_suffixtree;
 
 namespace IMUSANT
 {
-    template <typename T>
+    template <typename T, class C>
     class IMUSANT_processor :
         public Loki::BaseVisitor,
-        public Loki::Visitor<IMUSANT_processing, void, true>
+        public Loki::Visitor<C, void, true>
     {
     public:
         
         IMUSANT_processor() : mTreePtr(NULL) {}
         ~IMUSANT_processor() { if (mTreePtr!=NULL) delete mTreePtr; }
 
-        virtual void    Visit(const IMUSANT_processing&) = 0;
+        virtual void    Visit(const C&) = 0;
         
         typedef suffixtree< vector<T> >  _tree;
         typedef map<int, vector<T> > ID_vec_map;
         
     protected:
+        virtual void  buildVectorMap(map<S_IMUSANT_score,IMUSANT_collection_visitor>&) = 0;
+        
         suffixtree< vector<T> >* buildSuffixTree(const map<int, vector<T> >& id_vec_map);
         
         _tree*       mTreePtr;
@@ -46,8 +52,12 @@ namespace IMUSANT
     
     typedef boost::multi_array<int, 2> int_2d_array_t;
     
-    template<typename T> suffixtree< vector<T> >*
-    IMUSANT_processor<T>::
+    /*!
+       \brief builds suffix tree from a map of vectors with unique ID
+     
+     */
+    template<typename T, class C> suffixtree< vector<T> >*
+    IMUSANT_processor<T,C>::
     buildSuffixTree(const map<int, vector<T> >& id_vec_map)
     {
         //get first part from first file

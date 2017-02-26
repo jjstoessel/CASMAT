@@ -24,6 +24,7 @@
 #include "CATSMAT_chord.hpp"
 #include "IMUSANT_barline.h"
 #include "CATSMAT_t_utilities.h"
+#include "IMUSANT_score.h"
 
 using namespace std;
 using namespace IMUSANT;
@@ -44,6 +45,7 @@ namespace CATSMAT {
         void    addpart();
         void	add(const IMUSANT_note& note);
         void    set(const IMUSANT_time& time);
+        void    set(const S_IMUSANT_score& score);
         void	clear() { fCPMatrix.clear(); }
         void    reindex();
         
@@ -54,6 +56,8 @@ namespace CATSMAT {
         
         void    setMeasureNumber(long currentMeasure);
         void    setCurrentLeftBarline(IMUSANT_barline::type barline) { fLeftBarline = barline; }
+        
+        S_IMUSANT_score getScore() const;
         
     protected:
         //ctors
@@ -67,8 +71,10 @@ namespace CATSMAT {
         IMUSANT_note    distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note = NULL);
 
         
-        list< S_CATSMAT_chord >             fCPMatrix; //a vector of vectors, each column of which represents a chord
+        list< S_CATSMAT_chord >             fCPMatrix;            //the contrapuntal matrix; a vector of vectors, each column of which represents a chord;
+        S_IMUSANT_score                     fSourceScore = NULL;  //lookback pointer to source score; do not access if null
         
+        //internal strictly private class variables
         int                                 fCurrentPart;
         list<S_CATSMAT_chord>::iterator     fCurrentChord;
         IMUSANT_time                        fCurrentTime;

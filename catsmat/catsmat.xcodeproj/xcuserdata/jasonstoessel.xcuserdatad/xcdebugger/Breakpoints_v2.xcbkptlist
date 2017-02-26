@@ -596,7 +596,7 @@
             startingLineNumber = "220"
             endingLineNumber = "220"
             landmarkName = "IMUSANT_processing_Tests:: findSegmentedPartsByFile(vector&lt;string&gt; relative_paths_to_test_data_files)"
-            landmarkType = "5">
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -767,8 +767,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "390"
             endingLineNumber = "390"
-            landmarkName = "TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mxml3)"
-            landmarkType = "7">
+            landmarkName = "TEST_F(IMUSANT_processing_Tests, findRepeatedContourSubstrings_simple_test_1)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1187,8 +1187,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "274"
             endingLineNumber = "274"
-            landmarkName = "TEST_F(IMUSANT_processing_Tests, findSupermaximalsIntervals_simple_test_1)"
-            landmarkType = "7">
+            landmarkName = "TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1286,11 +1286,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.hpp"
-            timestampString = "508735098.337605"
+            timestampString = "509760286.925173"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75">
+            startingLineNumber = "81"
+            endingLineNumber = "81">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1471,44 +1471,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT/Analysis/src/IMUSANT_interval_processor.cpp"
-            timestampString = "504077761.043025"
+            timestampString = "509767744.703871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "IMUSANT_interval_processor:: findSupermaximalIntervals(int min_length, int min_percent)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_Ngram.cpp"
-            timestampString = "508716302.615085"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_Ngram.cpp"
-            timestampString = "508738083.975349"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1547,16 +1515,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_Ngram.cpp"
-            timestampString = "508740708.024108"
+            timestampString = "509760501.612029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "CATSMAT_NGram_sequences::triple2token(const word&amp; triple)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

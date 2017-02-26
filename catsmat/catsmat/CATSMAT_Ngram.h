@@ -23,11 +23,14 @@ using namespace std;
 
 namespace CATSMAT
 {
+    
     class CATSMAT_NGram_sequences : public CATSMAT_dyad_sequences
     {
     public:
         typedef std::array<int,3>   word; //a word is the two vertical intervals and the step in the lower voice
         typedef std::vector<word>   sentence; // a sentence is a sequence of words for a voice pair
+        typedef std::vector<vector<unsigned long> > token_vectors;
+        
         enum    wordmembers { dyad1, dyad2, lowMelInterval };
         
         void    convertsentences2tokens();
@@ -36,12 +39,18 @@ namespace CATSMAT
         
         void    Visit(const CATSMAT_cp_matrix& matrix);
         void    print(ostream& os) const;
+        
+        token_vectors   getTokenVectors() const { return tokens; }
+        
     private:
         vector<sentence>    sentences;
-        vector<vector<unsigned long> > tokens;
-        void    process(const list<S_CATSMAT_chord>& matrix); //overrides base class
-        unsigned long    triple2token( const word& triple);
-        word             token2triple(const unsigned long token);
+        token_vectors       tokens;
+        
+        void                process(const list<S_CATSMAT_chord>& matrix); //overrides base class
+        unsigned long       triple2token(const word& triple);
+        word                token2triple(const unsigned long token);
+        
+        S_CATSMAT_cp_matrix fMatrix = NULL;
     };
 }
 

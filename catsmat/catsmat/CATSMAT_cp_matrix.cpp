@@ -326,6 +326,32 @@ namespace CATSMAT
     }
     
     /*!
+     \brief CATSMAT_cp_matrix::set(S_IMUSANT_score&)
+     
+     Set lookback to score that is source of CP Matrix
+     
+     */
+    void
+    CATSMAT_cp_matrix::
+    set(const S_IMUSANT_score& score)
+    {
+        fSourceScore = score;
+    }
+    
+    /*!
+     \brief CATSMAT_cp_matrix::set(S_IMUSANT_score&)
+     
+     Get lookback to score that is source of CP Matrix
+     May return NULL if not set
+     */
+    S_IMUSANT_score
+    CATSMAT_cp_matrix::
+    getScore() const
+    {
+        return fSourceScore;
+    }
+    
+    /*!
      \brief CATSMAT_cp_matrix::print
      
         Print function for viewing contents of CP matrix in XML

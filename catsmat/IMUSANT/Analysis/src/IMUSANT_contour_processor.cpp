@@ -16,7 +16,9 @@ namespace IMUSANT {
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
-        mTreePtr = buildContourSuffixTree(collections);
+        buildVectorMap(collections);
+        
+        mTreePtr = buildSuffixTree(mID_vec_map);
     }
     
     string
@@ -85,12 +87,11 @@ namespace IMUSANT {
         return ret_val;
     }
     
-    IMUSANT_contour_processor::_tree*
+    void
     IMUSANT_contour_processor::
-    buildContourSuffixTree(IMUSANT_processing::COLLECTIONMAP& collections)
+    buildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file
-        _tree* tree = NULL;
         int ID = 0;
         
         for (auto i = collections.begin(); i!=collections.end(); i++)
@@ -102,10 +103,6 @@ namespace IMUSANT {
                 mID_vec_map[ID] = (*j)->getContours();
             }
         }
-        
-        tree = buildSuffixTree(mID_vec_map);
-        
-        return tree;
     }
     
     string

@@ -38,6 +38,7 @@ ostream& operator<<(ostream& os, const CATSMAT_NGram_sequences& ngrams)
 void
 CATSMAT_NGram_sequences::Visit(const CATSMAT_cp_matrix& matrix)
 {
+    fMatrix = &matrix;
     process(matrix.getCPmatrix());
 }
 
@@ -59,7 +60,6 @@ void CATSMAT_NGram_sequences::process(const list<S_CATSMAT_chord> &matrix)
             
             for (int i = 0; i<chord_size; i++)
             {
-                
                 for (int j=i; ++j<chord_size; /*nothing here*/)
                 {
                    
@@ -87,9 +87,12 @@ void CATSMAT_NGram_sequences::process(const list<S_CATSMAT_chord> &matrix)
         vector<sentence>::iterator sentences_iter=sentences.begin();
         vector<sentence>::size_type size = sentences_iter->size();
         
+        //the index of sentence will always correspond to the index of CPMatrix
+        //the index of sentences will always correspond to one pair of voices
         for ( ;sentences_iter!=sentences.end();sentences_iter++ )
         {
-            if (size!=sentences_iter->size()) throw catsmat_runtime_error("Bad size count in CPMatrix");
+            if (size!=sentences_iter->size()) throw catsmat_runtime_error("Bad size count in NGram_sequences::process");
+            if (size!=matrix.size()-1) throw catsmat_runtime_error("Bad size count in NGram_sequences::process");
         }
         
         convertsentences2tokens();
@@ -128,8 +131,6 @@ unsigned long
 CATSMAT_NGram_sequences::triple2token(const word& triple)
 {
     long token = triple[dyad1] | triple[dyad2]<<8 | triple[lowMelInterval]<<16;
-    
-    //word test = token2triple(token); //testing only - remove
     
     return token;
 }

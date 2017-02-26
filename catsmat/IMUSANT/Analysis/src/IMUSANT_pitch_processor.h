@@ -16,7 +16,7 @@
 
 namespace IMUSANT {
     
-    class IMUSANT_pitch_processor : public IMUSANT_processor<IMUSANT_pitch>
+    class IMUSANT_pitch_processor : public IMUSANT_processor<IMUSANT_pitch,IMUSANT_processing>
     {
     public:
         typedef vector<IMUSANT_repeated_pitch_substring> SUBSTR_VECTOR;
@@ -29,7 +29,8 @@ namespace IMUSANT {
         
     private:
         
-        _tree*  buildPitchSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
+        void    buildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
+        //_tree*  buildPitchSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
     };
 }
 

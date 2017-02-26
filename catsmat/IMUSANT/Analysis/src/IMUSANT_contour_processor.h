@@ -18,7 +18,7 @@
 
 namespace IMUSANT {
     
-    class IMUSANT_contour_processor : public IMUSANT_processor<IMUSANT_contour_symbol>
+    class IMUSANT_contour_processor : public IMUSANT_processor<IMUSANT_contour_symbol,IMUSANT_processing>
     {
     public:
         typedef std::vector<IMUSANT_repeated_contour_substring> SUBSTR_VECTOR;
@@ -36,7 +36,8 @@ namespace IMUSANT {
         string          entabulateAndPrintMelodicDirectionPairs();
     private:
         
-        _tree*  buildContourSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
+        void            buildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
+        //_tree*  buildContourSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
     };
 }
 
