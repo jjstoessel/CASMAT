@@ -100,7 +100,7 @@ namespace CATSMAT
             j->resize(i->size());
             for ( auto m = i->begin(); m!=i->end(); m++)
             {
-                unsigned long token = Triple2Token(*m);
+                unsigned int token = Triple2Token(*m);
                 j->push_back(token);
             }
         }
@@ -112,12 +112,19 @@ namespace CATSMAT
         bits 1-8 contain the first vertical interval
         bits 8-16 contain the second vertical interval
         bits 16-24 contains the lower melodic interval
-        bits 25-32 are reserved (possibly for location data, but will need to be masked for comparison operators
+        bits 25-32 are reserved (possibly for location data, but will need to be masked for comparison operators - currently zeroed)
     */
-    unsigned long
+    unsigned int
     CATSMAT_NGramSequences::Triple2Token(const Word& triple)
     {
-        long token = triple[dyad1] | triple[dyad2]<<8 | triple[lowMelInterval]<<16;
+        //implicit assumption: signed ints use two's complement and there is no interval > 255/-256
+        unsigned int token = (triple[dyad1]&0x000000ff) | (triple[dyad2]&0x000000ff)<<8 | (triple[lowMelInterval]&0x000000ff)<<16;
+        
+        token &= 0x00ffffff;
+#ifdef DEBUG
+        Word test_triple = Token2Triple(token);
+        if (test_triple!=triple) throw catsmat_logic_error("error in NGram::Triple2Token");
+#endif
         
         return token;
     }
@@ -127,11 +134,14 @@ namespace CATSMAT
     Token2Triple(const unsigned long token)
     {
         Word triple = {0, 0, 0};
-        
-        triple[dyad1] = token & 0x000000ff;
-        triple[dyad2] = (token & 0x0000ff00) >> 8;
-        triple[lowMelInterval] = (token & 0x00ff0000) >> 16;
-        
+        signed char s_dyad1, s_dyad2, s_mel_interval;
+        s_dyad1 = token & 0x000000ff;
+        s_dyad2 = (token & 0x0000ff00) >> 8;
+        s_mel_interval = (token & 0x00ff0000) >> 16;
+        //implicit type conversion retains sign (as two's complement)
+        triple[dyad1] = s_dyad1;
+        triple[dyad2] = s_dyad2;
+        triple[lowMelInterval] = s_mel_interval;
         return triple;
     }
 

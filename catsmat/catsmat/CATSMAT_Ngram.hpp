@@ -29,15 +29,15 @@ using namespace std;
 
 namespace CATSMAT
 {
-    using Word = std::array<int,3>;
+    using Word = std::array<signed int,3>;
     using Sentence = std::vector<Word>;
     
     class CATSMAT_NGramSequences : public CATSMAT_dyad_sequences_base<Sentence>
     {
     public:
-        typedef std::array<int,3>   Word; //a word is the two vertical intervals and the step in the lower voice
+        typedef std::array<signed int,3>   Word; //a word is the two vertical intervals and the step in the lower voice
         typedef std::vector<Word>   Sentence; // a sentence is a sequence of words for a voice pair
-        typedef std::vector<vector<unsigned long> > TokenVectors;
+        typedef std::vector<vector<unsigned int> > TokenVectors;
         enum    WordMembers { dyad1, dyad2, lowMelInterval };
         
         friend  ostream& operator<<(ostream& os, const CATSMAT_NGramSequences& sequences);
@@ -58,7 +58,7 @@ namespace CATSMAT
         
         void                Process(const list<S_CATSMAT_chord>& matrix); //overrides base class
         void                ConvertSentences2Tokens();
-        unsigned long       Triple2Token(const Word& triple);
+        unsigned int        Triple2Token(const Word& triple);
         Word                Token2Triple(const unsigned long token);
     };
     

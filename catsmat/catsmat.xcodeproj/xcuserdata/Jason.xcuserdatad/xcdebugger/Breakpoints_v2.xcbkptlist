@@ -76,9 +76,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "CATSMAT_cp_matrix::~CATSMAT_cp_matrix()"
-            landmarkType = "5">
+            endingLineNumber = "50">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -124,7 +122,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
-            endingLineNumber = "137">
+            endingLineNumber = "137"
+            landmarkName = "CATSMAT_cp_matrix:: distribute(const IMUSANT_note&amp; note, const S_IMUSANT_note previous_note)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -155,8 +155,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
             endingLineNumber = "77"
-            landmarkName = "CATSMAT_cp_matrix:: addpart()"
-            landmarkType = "5">
+            landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,9 +170,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
-            landmarkType = "5">
+            endingLineNumber = "126">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -234,8 +232,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "CATSMAT_cp_matrix:: addpart()"
-            landmarkType = "5">
+            landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -299,7 +297,7 @@
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "sonority::operator=(const sonority&amp; r)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -315,7 +313,7 @@
             startingLineNumber = "83"
             endingLineNumber = "83"
             landmarkName = "CATSMAT_sonority_sequences::Visit(const CATSMAT_cp_matrix&amp; matrix)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -453,9 +451,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "IMUSANT_pitch_processor:: findLcsPairsPitches(bool consecutive)"
-            landmarkType = "5">
+            endingLineNumber = "131">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -503,7 +499,7 @@
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "CATSMAT_dyad_sequences::process(const list&lt;S_CATSMAT_chord&gt;&amp; matrix)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -519,7 +515,7 @@
             startingLineNumber = "106"
             endingLineNumber = "106"
             landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -566,8 +562,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
-            landmarkName = "CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
-            landmarkType = "5">
+            landmarkName = "CATSMAT_NGramSequences::Process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -614,8 +610,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
             endingLineNumber = "75"
-            landmarkName = "CATSMAT_NGram_sequences::process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
-            landmarkType = "5">
+            landmarkName = "CATSMAT_NGramSequences::Process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -845,33 +841,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_scoredata.cpp"
-            timestampString = "503710502.542612"
+            filePath = "catsmat/CATSMAT_Ngram.cpp"
+            timestampString = "510188854.400351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "CATSMAT_scoredata:: PostProcess()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_scoredata.cpp"
-            timestampString = "503710606.267523"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "CATSMAT_scoredata:: print(ostream&amp; os)"
-            landmarkType = "5">
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "CATSMAT_NGramSequences::Triple2Token(const Word&amp; triple)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
