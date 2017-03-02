@@ -1164,7 +1164,7 @@
 		96A71CBB1A9160CB0021C86A /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
 		96A912ED1DE08C2D00EF40F3 /* IMUSANT_generalised_interval_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generalised_interval_Tests.cpp; sourceTree = "<group>"; };
 		96CC66C41DE7E61900E2F7FB /* CATSMAT_Ngram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_Ngram.cpp; path = catsmat/CATSMAT_Ngram.cpp; sourceTree = SOURCE_ROOT; };
-		96CC66C51DE7E61900E2F7FB /* CATSMAT_Ngram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_Ngram.h; path = catsmat/CATSMAT_Ngram.h; sourceTree = SOURCE_ROOT; };
+		96CC66C51DE7E61900E2F7FB /* CATSMAT_Ngram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_Ngram.hpp; path = catsmat/CATSMAT_Ngram.hpp; sourceTree = SOURCE_ROOT; };
 		96CC66C81DEAF5B400E2F7FB /* CATSMAT_NGram_Test_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_NGram_Test_Expected.h; path = CATSMAT_Tests/CATSMAT_NGram_Test_Expected.h; sourceTree = SOURCE_ROOT; };
 		96CC66C91DEAF5B400E2F7FB /* CATSMAT_NGram_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_NGram_Test.cpp; path = CATSMAT_Tests/CATSMAT_NGram_Test.cpp; sourceTree = SOURCE_ROOT; };
 		96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_generalised_interval_processor.cpp; path = IMUSANT/Analysis/src/IMUSANT_generalised_interval_processor.cpp; sourceTree = SOURCE_ROOT; };
@@ -2848,7 +2848,7 @@
 				BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */,
 				BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */,
 				96CC66C41DE7E61900E2F7FB /* CATSMAT_Ngram.cpp */,
-				96CC66C51DE7E61900E2F7FB /* CATSMAT_Ngram.h */,
+				96CC66C51DE7E61900E2F7FB /* CATSMAT_Ngram.hpp */,
 			);
 			name = "Counterpoint Analysis";
 			sourceTree = "<group>";

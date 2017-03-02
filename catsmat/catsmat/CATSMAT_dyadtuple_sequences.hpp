@@ -28,14 +28,17 @@ namespace CATSMAT
     };
     typedef vector<quadruple_int>           quadruple_int_vector;
     
-    class CATSMAT_dyadtuple_sequences : public CATSMAT_dyad_sequences_base
+    class CATSMAT_dyadtuple_sequences : public CATSMAT_dyad_sequences_base<quadruple_int_vector>
     {
     public:
+        
+        friend  ostream& operator<<(ostream& os, const CATSMAT_dyadtuple_sequences& sequences);
+        
         CATSMAT_dyadtuple_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_dyad_sequences_base() {}
         
         void Visit(const CATSMAT_cp_matrix& matrix);
         
-        void print(ostream& os) const;
+        void Print(ostream& os) const;
         
         void find_repeated_tuplet_sequences(int min);
         
@@ -43,7 +46,6 @@ namespace CATSMAT
         
     private:
         
-        vector<quadruple_int_vector>        fTupleVector;
         vector<vector<int> >                fSimpleVIntervalVector;
         long                                fSaveI = 0;
     };

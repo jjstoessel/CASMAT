@@ -52,16 +52,18 @@ namespace CATSMAT
         long mMeasure, mIndex;
     };
 
-    class CATSMAT_sonority_sequences : public CATSMAT_dyad_sequences_base
+    class CATSMAT_sonority_sequences : public CATSMAT_dyad_sequences_base<sonority>
     {
     public:
         typedef suffixtree< vector<sonority> > int_tree;
         
-        CATSMAT_sonority_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_dyad_sequences_base() {}
+        CATSMAT_sonority_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_dyad_sequences_base<sonority>() {}
+        
+        friend  ostream& operator<<(ostream& os, const CATSMAT_sonority_sequences& sequences);
         
         void Visit(const CATSMAT_cp_matrix& matrix);
         
-        void print(ostream& os) const;
+        void Print(ostream& os) const;
         
         void find_repeated(int min);
     

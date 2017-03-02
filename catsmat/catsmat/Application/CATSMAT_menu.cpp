@@ -348,7 +348,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     if (yn == 'n') ignoreRepeatedDyads = false;
                     cout << "Enter minimum length: ";
                     cin >> length;
-                    processor->find_repeated_dyad_sequences(length, ignoreDissonances, ignoreRepeatedDyads, false);
+                    processor->FindRepeatedDyadSequences(length, ignoreDissonances, ignoreRepeatedDyads, false);
                     break;
                 case 'K':
                 case 'k':
@@ -360,7 +360,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     if (yn == 'n') ignoreRepeatedDyads = false;
                     cout << "Enter minimum length: ";
                     cin >> length;
-                    processor->find_repeated_dyad_sequences(length, ignoreDissonances, ignoreRepeatedDyads);
+                    processor->FindRepeatedDyadSequences(length, ignoreDissonances, ignoreRepeatedDyads);
                     break;
                 //Find repeated dyadtuple sequences
                 case 'L':
@@ -372,7 +372,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'm':
                     cout << "Enter minimum length: ";
                     cin >> length;
-                    processor->find_repeated_sonority_sequences(length);
+                    processor->FindRepeatedSonoritySequences(length);
                     break;
                 //Run all CATSMAT tools
                 case 'N':

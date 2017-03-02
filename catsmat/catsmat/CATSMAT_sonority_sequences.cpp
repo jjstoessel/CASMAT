@@ -39,6 +39,13 @@ namespace CATSMAT
         return os;
     }
 
+    ostream& operator<<(ostream& os, const CATSMAT_sonority_sequences& sequences)
+    {
+        sequences.Print(os);
+        
+        return os;
+    }
+    
     void CATSMAT_sonority_sequences::Visit(const CATSMAT_cp_matrix& matrix)
     {
         if (!matrix.getCPmatrix().empty())
@@ -92,7 +99,7 @@ namespace CATSMAT
 
     }
 
-    void CATSMAT_sonority_sequences::print(ostream& os) const
+    void CATSMAT_sonority_sequences::Print(ostream& os) const
     {
         os << "sonority types: ";
         

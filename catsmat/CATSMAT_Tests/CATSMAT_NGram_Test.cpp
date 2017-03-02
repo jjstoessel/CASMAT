@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 
-#include "CATSMAT_Ngram.h"
+#include "CATSMAT_Ngram.hpp"
 
 #include "CATSMAT_test_utility.h"
 
@@ -45,7 +45,7 @@ protected:
     
     // Objects declared here can be used by all tests in the test case for CATSMAT_cp_matrix_Test.
     CATSMAT_test_utility testUtil;
-    CATSMAT::CATSMAT_NGram_sequences theSequences;
+    CATSMAT::CATSMAT_NGramSequences theSequences;
     
 };
 
@@ -54,7 +54,7 @@ TEST_F(CATSMAT_NGram_Test, TestScore_1_Measure) {
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_1_Measure.xml");
     theSequences.Visit(*the_matrix);
     
-    string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
+    string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
     ASSERT_EQ(TestScore_1_Measure_Expected, the_sequences_as_string);
 }
@@ -64,7 +64,7 @@ TEST_F(CATSMAT_NGram_Test, TestScore_4_Measures) {
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures.xml");
     theSequences.Visit(*the_matrix);
 
-    string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
+    string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
     ASSERT_EQ(TestScore_4_Measures_Expected, the_sequences_as_string);
 }
@@ -74,7 +74,7 @@ TEST_F(CATSMAT_NGram_Test, TestScore_4_Measures_WithQuaverPassingNotes) {
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures_WithQuaverPassingNotes.xml");
     theSequences.Visit(*the_matrix);
     
-    string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
+    string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
     ASSERT_EQ(TestScore_4_Measures_WithQuaverPassingNotes_Expected, the_sequences_as_string);
 }
@@ -84,7 +84,7 @@ TEST_F(CATSMAT_NGram_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes) {
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
     theSequences.Visit(*the_matrix);
     
-    string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
+    string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
     ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, the_sequences_as_string);
 }
@@ -95,7 +95,7 @@ TEST_F(CATSMAT_NGram_Test, TestScore_Josquin_MAF_Kyrie) {
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Josquin_MAF_Kyrie.xml");
     theSequences.Visit(*the_matrix);
     
-    string the_sequences_as_string = testUtil.ConvertDyadSequencesToString(theSequences);
+    string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
     ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, the_sequences_as_string);
 }
