@@ -1,29 +1,28 @@
 //
-//  IMUSANT_generalised_interval_processor.h
+//  IMUSANT_interval_processor.h
 //  
 //
-//  Created by Jason Stoessel on 28/11/2016.
+//  Created by Jason Stoessel on 12/06/2016.
 //
 //
 
-#ifndef ____IMUSANT_generalised_interval_processor__
-#define ____IMUSANT_generalised_interval_processor__
+#ifndef ____IMUSANT_IntervalSuffixTreeBuilder__
+#define ____IMUSANT_IntervalSuffixTreeBuilder__
 
 #include <stdio.h>
-#include "IMUSANT_processor.h"
-#include "IMUSANT_generalised_interval.h"
+#include "IMUSANT_SuffixTreeBuilder.h"
+#include "IMUSANT_interval.h"
 #include "IMUSANT_t_repeated_substring.h"
 
 namespace IMUSANT {
     
-    class IMUSANT_generalised_interval_processor : public IMUSANT_processor<IMUSANT_generalised_interval,IMUSANT_processing>
+    class IMUSANT_IntervalSuffixTreeBuilder : public IMUSANT_SuffixTreeBuilder<IMUSANT_interval,IMUSANT_processing>
     {
     public:
-        typedef vector<IMUSANT_repeated_generalised_interval_substring> SUBSTR_VECTOR;
         
-        IMUSANT_generalised_interval_processor();
-        ~IMUSANT_generalised_interval_processor() {} 
-        //consider common base class for processors for generalised interval and interval
+        IMUSANT_IntervalSuffixTreeBuilder();
+        ~IMUSANT_IntervalSuffixTreeBuilder() {} 
+        
         string          findAndPrintRepeatedIntervalSubstrings(int min_length=4);
         SUBSTR_VECTOR   findRepeatedIntervalSubstrings(int min_length=4);
         string          findAndPrintSupermaximalIntervals(int min_length=4, int min_percent=100);
@@ -34,9 +33,8 @@ namespace IMUSANT {
         void            Visit(const IMUSANT_processing&);
         
     private:
-        
-        void            buildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
+        void            BuildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
         //_tree*  buildIntervalSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
     };
 }
-#endif /* defined(____IMUSANT_generalised_interval_processor__) */
+#endif /* defined(____IMUSANT_IntervalSuffixTreeBuilder__) */

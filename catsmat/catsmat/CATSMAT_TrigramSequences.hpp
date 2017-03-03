@@ -29,21 +29,22 @@ using namespace std;
 
 namespace CATSMAT
 {
-    using Word = std::array<signed int,3>;
-    using Sentence = std::vector<Word>;
+    using Trigram = std::array<signed int,3>;
+    using Sentence = std::vector<Trigram>;
     
-    class CATSMAT_NGramSequences : public CATSMAT_dyad_sequences_base<Sentence>
+    class CATSMAT_TrigramSequences : public CATSMAT_dyad_sequences_base<Sentence>
     {
     public:
-        typedef std::array<signed int,3>   Word; //a word is the two vertical intervals and the step in the lower voice
-        typedef std::vector<Word>   Sentence; // a sentence is a sequence of words for a voice pair
-        typedef std::vector<vector<unsigned int> > TokenVectors;
-        enum    WordMembers { dyad1, dyad2, lowMelInterval };
+        typedef std::array<signed int,3>    Trigram; //a word is the two vertical intervals and the step in the lower voice
+        typedef std::vector<Trigram>        Sentence; // a sentence is a sequence of words for a voice pair
+        typedef unsigned int                Token;
+        typedef std::vector<vector<Token> > TokenVectors;
+        enum    TrigramMembers { dyad1, dyad2, lowMelInterval };
         
-        friend  ostream& operator<<(ostream& os, const CATSMAT_NGramSequences& sequences);
+        friend  ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences& sequences);
         
-        CATSMAT_NGramSequences() : CATSMAT_dyad_sequences_base<Sentence>() {};
-        ~CATSMAT_NGramSequences() {};
+        CATSMAT_TrigramSequences() : CATSMAT_dyad_sequences_base<Sentence>() {};
+        ~CATSMAT_TrigramSequences() {};
         
         void    Visit(const CATSMAT_cp_matrix& matrix);
         void    Print(ostream& os) const;
@@ -53,13 +54,12 @@ namespace CATSMAT
         void           FindRepeated(int min);
         
     private:
-        //vector<Sentence>    sentences_;
         TokenVectors        tokens_;
         
         void                Process(const list<S_CATSMAT_chord>& matrix); //overrides base class
         void                ConvertSentences2Tokens();
-        unsigned int        Triple2Token(const Word& triple);
-        Word                Token2Triple(const unsigned long token);
+        unsigned int        Triple2Token(const Trigram& triple);
+        Trigram             Token2Triple(const unsigned long token);
     };
     
 }

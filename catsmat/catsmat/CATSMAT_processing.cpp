@@ -16,7 +16,7 @@
 #include "CATSMAT_dyad_sequences.hpp"
 // #include "CATSMAT_dyadtuple_sequences.hpp"
 #include "CATSMAT_sonority_sequences.hpp"
-#include "CATSMAT_NGram.hpp"
+#include "CATSMAT_TrigramSequences.hpp"
 
 using namespace std;
 using namespace boost;
@@ -87,7 +87,7 @@ namespace CATSMAT
         for (auto score : this->getScores())
         {
             CATSMAT_collection_visitor      score_to_matrix_translator;
-            CATSMAT_NGramSequences          trigram_sequences;
+            CATSMAT_TrigramSequences          trigram_sequences;
             
             if (score!=NULL)
             {

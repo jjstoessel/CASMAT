@@ -215,7 +215,7 @@ CATSMAT_test_utility::ConvertSonoritySequencesToString(CATSMAT_sonority_sequence
 }
 
 string
-CATSMAT_test_utility::ConvertNGramSequencesToString(CATSMAT_NGramSequences the_dyad_sequences) const
+CATSMAT_test_utility::ConvertNGramSequencesToString(CATSMAT_TrigramSequences the_dyad_sequences) const
 {
     std::stringstream the_dyads_as_stringstream;
     the_dyads_as_stringstream << the_dyad_sequences;

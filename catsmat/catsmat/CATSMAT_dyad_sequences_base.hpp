@@ -25,15 +25,15 @@ class CATSMAT_dyad_sequences_base: public BaseVisitor, public Visitor<CATSMAT_cp
 public:
     friend  ostream& operator<< (ostream& os, const CATSMAT_dyad_sequences_base& elt );
     
-    CATSMAT_dyad_sequences_base() {}
-    virtual ~CATSMAT_dyad_sequences_base() {}
+                    CATSMAT_dyad_sequences_base() {}
+    virtual         ~CATSMAT_dyad_sequences_base() {}
     
     virtual void    Visit(const CATSMAT_cp_matrix& matrix) = 0;
     
     virtual void    Print(ostream& os) const = 0;
 
-    void    set_ignore_repeated(bool ignore) { ignore_repeated_ = ignore; }
-    void    set_ignore_dissonances(bool ignore) { ignore_dissonances_ = ignore; }
+    void            set_ignore_repeated(bool ignore) { ignore_repeated_ = ignore; }
+    void            set_ignore_dissonances(bool ignore) { ignore_dissonances_ = ignore; }
 protected:
     vector<T>           vectors_;
     S_CATSMAT_cp_matrix matrix_ = NULL;

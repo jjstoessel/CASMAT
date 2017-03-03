@@ -16,6 +16,7 @@
 #include "IMUSANT_interval.h"
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_generalised_interval.h"
+#include "CATSMAT_TrigramSequences.hpp"
 
 using namespace std;
 
@@ -62,6 +63,7 @@ namespace IMUSANT
         vector<occurrence> occurrences;
         void add_occurrence(occurrence the_occurrence);
         void add_occurrence(long movement, long voice, long measure, long note_index);
+        //IMUSANT_t_repeated_substring& operator=(const IMUSANT_t_repeated_substring &rhs) const;
         
         typename vector<occurrence>::size_type num_occurrences() const;
         
@@ -129,6 +131,19 @@ namespace IMUSANT
         add_occurrence(occ);
     }
     
+//    template <typename T>
+//    const IMUSANT_t_repeated_substring<T>&
+//    IMUSANT_t_repeated_substring<T>::operator=(const IMUSANT_t_repeated_substring<T> &rhs)
+//    {
+//        if (this == &rhs)
+//            return *this;
+//        sequence = rhs.sequence;
+//        occurrences = rhs.occurrences;
+//        
+//        return *this;
+//    }
+
+    
     template <typename T>
     typename vector<typename IMUSANT_t_repeated_substring<T>::occurrence>::size_type
     IMUSANT_t_repeated_substring<T>::
@@ -148,6 +163,8 @@ namespace IMUSANT
         return ret_val;
     }
 
+    //explicit instantiations
+    
     class IMUSANT_repeated_interval_substring : public IMUSANT_t_repeated_substring<IMUSANT_interval>
     {
     public:
@@ -196,6 +213,22 @@ namespace IMUSANT
     };
     
     class IMUSANT_repeated_pitch_substring: public IMUSANT_t_repeated_substring<IMUSANT_pitch>
+    {
+    public:
+        static string  output_operator_help()
+        {
+            string ret_val =
+            "The output shows the discovered pattern in the following format \n" \
+            "pitch name,alteration, octave (measure, index, part) \n" \
+            "Followed by a list of occurrences in the format \n" \
+            "(movement, voice, measure, index) \n";
+            
+            return ret_val;
+        }
+        
+    };
+    
+    class IMUSANT_repeated_trigram_token_substring : public IMUSANT_t_repeated_substring<unsigned int>
     {
     public:
         static string  output_operator_help()

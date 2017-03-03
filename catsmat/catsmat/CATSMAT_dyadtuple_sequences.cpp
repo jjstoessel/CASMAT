@@ -41,7 +41,7 @@ namespace CATSMAT
             
             for (int i = 0; i<(partCount)*(partCount-1)/2; i++)
             {
-                vectors_.push_back(quadruple_int_vector());//fTupleVector.push_back(quadruple_int_vector());
+                vectors_.push_back(quadruple_int_vector());
             }
             
             for (auto chord = matrix.getCPmatrix().begin(), next_chord = std::next(chord);
@@ -83,7 +83,7 @@ namespace CATSMAT
                                 bottomhint = bottomStep.getNumber();
 
                                 quadruple_int dyad_tuple(vint1, vint2, tophint, bottomhint);
-                                vectors_[i].push_back(dyad_tuple); //fTupleVector[i].push_back(dyad_tuple);
+                                vectors_[i].push_back(dyad_tuple);
 
                             }
                             
@@ -143,7 +143,7 @@ namespace CATSMAT
             vector<int> ids;
             ids.push_back(id);
             
-            suffixtree<quadruple_int_vector> tuple_tree(*vectors_.begin(),id); //suffixtree<quadruple_int_vector> tuple_tree(*fTupleVector.begin(),id);
+            suffixtree<quadruple_int_vector> tuple_tree(*vectors_.begin(),id);
             
             cout << tuple_tree;
         }

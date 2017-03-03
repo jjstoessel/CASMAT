@@ -70,7 +70,7 @@ namespace CATSMAT
     private:
         void find_repeated_substrings(vector< pair<int_tree::size_type, int_tree::size_type> >& results, const int_tree::node& n, int min_length);
         
-        std::vector<sonority> fQualityVector;
+        //std::vector<sonority> fQualityVector;
     };
     
 } //namespace

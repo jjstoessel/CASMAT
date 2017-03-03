@@ -6,23 +6,23 @@
 //
 //
 
-#include "IMUSANT_contour_processor.h"
+#include "IMUSANT_ContourSuffixTreeBuilder.h"
 #include "repeats.h"
 
 namespace IMUSANT {
     
     void
-    IMUSANT_contour_processor::Visit(const IMUSANT_processing& processing)
+    IMUSANT_ContourSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
-        buildVectorMap(collections);
+        BuildVectorMap(collections);
         
         mTreePtr = buildSuffixTree(mID_vec_map);
     }
     
     string
-    IMUSANT_contour_processor::
+    IMUSANT_ContourSuffixTreeBuilder::
     findAndPrintRepeatedContourSubstrings(int min_length)
     {
         SUBSTR_VECTOR the_result;
@@ -39,8 +39,8 @@ namespace IMUSANT {
         return the_result_as_stringstream.str();
     }
     
-    IMUSANT_contour_processor::SUBSTR_VECTOR
-    IMUSANT_contour_processor::
+    IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR
+    IMUSANT_ContourSuffixTreeBuilder::
     findRepeatedContourSubstrings(int min_length)
     {
         SUBSTR_VECTOR ret_val;
@@ -88,8 +88,8 @@ namespace IMUSANT {
     }
     
     void
-    IMUSANT_contour_processor::
-    buildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
+    IMUSANT_ContourSuffixTreeBuilder::
+    BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file
         int ID = 0;
@@ -106,7 +106,7 @@ namespace IMUSANT {
     }
     
     string
-    IMUSANT_contour_processor::
+    IMUSANT_ContourSuffixTreeBuilder::
     findAndPrintSupermaximalContours(int min_length, int min_percent)
     {
         SUBSTR_VECTOR the_result;
@@ -124,8 +124,8 @@ namespace IMUSANT {
     }
 
     
-    IMUSANT_contour_processor::SUBSTR_VECTOR
-    IMUSANT_contour_processor::
+    IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR
+    IMUSANT_ContourSuffixTreeBuilder::
     findSupermaximalsContours(int min_length, int min_percent)
     {
         SUBSTR_VECTOR ret_val;
@@ -157,8 +157,8 @@ namespace IMUSANT {
         return ret_val;
     }
     
-    IMUSANT_contour_processor::CONTOUR_TABLE
-    IMUSANT_contour_processor::entabulateMelodicDirectionPairs()
+    IMUSANT_ContourSuffixTreeBuilder::CONTOUR_TABLE
+    IMUSANT_ContourSuffixTreeBuilder::entabulateMelodicDirectionPairs()
     {
         CONTOUR_TABLE table;
         
@@ -182,7 +182,7 @@ namespace IMUSANT {
     }
     
     string
-    IMUSANT_contour_processor::entabulateAndPrintMelodicDirectionPairs()
+    IMUSANT_ContourSuffixTreeBuilder::entabulateAndPrintMelodicDirectionPairs()
     {
         CONTOUR_TABLE table = entabulateMelodicDirectionPairs();
         ostringstream out;

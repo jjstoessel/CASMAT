@@ -1,28 +1,28 @@
 //
-//  IMUSANT_pitch_processor.cpp
+//  IMUSANT_PitchSuffixTreeBuilder.cpp
 //  
 //
 //  Created by Jason Stoessel on 13/06/2016.
 //
 //
 
-#include "IMUSANT_pitch_processor.h"
+#include "IMUSANT_PitchSuffixTreeBuilder.h"
 
 namespace IMUSANT {
     
     void
-    IMUSANT_pitch_processor::Visit(const IMUSANT_processing& processing)
+    IMUSANT_PitchSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
-        buildVectorMap(collections);
+        BuildVectorMap(collections);
         
        // mTreePtr = buildSuffixTree(mID_vec_map);
     }
     
     void
-    IMUSANT_pitch_processor::
-    buildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
+    IMUSANT_PitchSuffixTreeBuilder::
+    BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file
         int ID = 0;
@@ -39,7 +39,7 @@ namespace IMUSANT {
     }
 
     string
-    IMUSANT_pitch_processor::
+    IMUSANT_PitchSuffixTreeBuilder::
     findAndPrintLcsPairsPitches(bool consecutive)
     {
         SUBSTR_VECTOR the_result;
@@ -57,8 +57,8 @@ namespace IMUSANT {
     }
 
     //Find longest common subsequence of pitches for pairs of file/works
-    IMUSANT_pitch_processor::SUBSTR_VECTOR
-    IMUSANT_pitch_processor::
+    IMUSANT_PitchSuffixTreeBuilder::SUBSTR_VECTOR
+    IMUSANT_PitchSuffixTreeBuilder::
     findLcsPairsPitches(bool consecutive)
     {
         SUBSTR_VECTOR ret_val;

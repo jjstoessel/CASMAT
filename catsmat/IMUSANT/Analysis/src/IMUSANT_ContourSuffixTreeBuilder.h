@@ -6,11 +6,11 @@
 //
 //
 
-#ifndef ____IMUSANT_contour_processor__
-#define ____IMUSANT_contour_processor__
+#ifndef ____IMUSANT_ContourSuffixTreeBuilder__
+#define ____IMUSANT_ContourSuffixTreeBuilder__
 
 #include <stdio.h>
-#include "IMUSANT_processor.h"
+#include "IMUSANT_SuffixTreeBuilder.h"
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_t_repeated_substring.h"
 #include <vector>
@@ -18,13 +18,12 @@
 
 namespace IMUSANT {
     
-    class IMUSANT_contour_processor : public IMUSANT_processor<IMUSANT_contour_symbol,IMUSANT_processing>
+    class IMUSANT_ContourSuffixTreeBuilder : public IMUSANT_SuffixTreeBuilder<IMUSANT_contour_symbol,IMUSANT_processing>
     {
     public:
-        typedef std::vector<IMUSANT_repeated_contour_substring> SUBSTR_VECTOR;
         typedef std::map<int, map<pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int> > CONTOUR_TABLE;
         
-        IMUSANT_contour_processor() {}
+        IMUSANT_ContourSuffixTreeBuilder() {}
         
         void            Visit(const IMUSANT_processing&);
         
@@ -36,7 +35,7 @@ namespace IMUSANT {
         string          entabulateAndPrintMelodicDirectionPairs();
     private:
         
-        void            buildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
+        void            BuildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
         //_tree*  buildContourSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
     };
 }

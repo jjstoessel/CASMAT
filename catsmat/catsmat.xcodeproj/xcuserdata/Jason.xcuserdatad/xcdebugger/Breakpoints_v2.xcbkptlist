@@ -281,7 +281,7 @@
             startingLineNumber = "213"
             endingLineNumber = "213"
             landmarkName = "CATSMAT_test_utility::ConvertSonoritySequencesToString(CATSMAT_sonority_sequences the_sonority_sequences )"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -376,8 +376,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
-            landmarkName = "IMUSANT_interval_processor:: findRepeatedIntervalSubstrings(int min_length)"
-            landmarkType = "5">
+            landmarkName = "IMUSANT_IntervalSuffixTreeBuilder:: findRepeatedIntervalSubstrings(int min_length)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -436,8 +436,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
             endingLineNumber = "114"
-            landmarkName = "IMUSANT_interval_processor:: findRepeatedIntervalSubstrings(int min_length)"
-            landmarkType = "5">
+            landmarkName = "IMUSANT_IntervalSuffixTreeBuilder:: findRepeatedIntervalSubstrings(int min_length)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -467,7 +467,7 @@
             startingLineNumber = "198"
             endingLineNumber = "198"
             landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -482,8 +482,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "292"
             endingLineNumber = "292"
-            landmarkName = "IMUSANT_interval_processor:: findAndPrintSupermaximalIntervals(int min_length, int min_percent)"
-            landmarkType = "5">
+            landmarkName = "IMUSANT_IntervalSuffixTreeBuilder:: findAndPrintSupermaximalIntervals(int min_length, int min_percent)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -531,7 +531,7 @@
             startingLineNumber = "43"
             endingLineNumber = "43"
             landmarkName = "CATSMAT_partdata::findBasicDataFromPart(S_IMUSANT_part part)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -547,7 +547,7 @@
             startingLineNumber = "55"
             endingLineNumber = "55"
             landmarkName = "TEST_F(CATSMAT_NGram_Test, TestScore_1_Measure)"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -643,7 +643,7 @@
             startingLineNumber = "62"
             endingLineNumber = "62"
             landmarkName = "TEST_F(CATSMAT_scoredatacollector_tests, TestScore_1_Measure)"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -658,8 +658,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
             endingLineNumber = "47"
-            landmarkName = "IMUSANT_generalised_interval_processor:: buildIntervalSuffixTree(IMUSANT_processing::COLLECTIONMAP&amp; collections)"
-            landmarkType = "5">
+            landmarkName = "IMUSANT_generalised_interval_processor:: buildVectorMap(IMUSANT_processing::COLLECTIONMAP&amp; collections)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -675,7 +675,7 @@
             startingLineNumber = "284"
             endingLineNumber = "284"
             landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -691,7 +691,7 @@
             startingLineNumber = "181"
             endingLineNumber = "181"
             landmarkName = "IMUSANT_contour_processor::entabulateMelodicDirectionPairs()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -706,8 +706,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
-            landmarkName = "IMUSANT_contour_processor:: buildContourSuffixTree(IMUSANT_processing::COLLECTIONMAP&amp; collections)"
-            landmarkType = "5">
+            landmarkName = "IMUSANT_contour_processor:: buildVectorMap(IMUSANT_processing::COLLECTIONMAP&amp; collections)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -723,7 +723,7 @@
             startingLineNumber = "31"
             endingLineNumber = "31"
             landmarkName = "CATSMAT_partdata::findBasicDataFromPart(S_IMUSANT_part part)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -739,7 +739,7 @@
             startingLineNumber = "39"
             endingLineNumber = "39"
             landmarkName = "CATSMAT_partdata::findBasicDataFromPart(S_IMUSANT_part part)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -755,7 +755,7 @@
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "CATSMAT_partdata::print_interval_profile(ostream&amp; os)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -771,7 +771,7 @@
             startingLineNumber = "76"
             endingLineNumber = "76"
             landmarkName = "CATSMAT_partdata::print_interval_profile(ostream&amp; os)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -852,6 +852,98 @@
             endingLineNumber = "124"
             landmarkName = "CATSMAT_NGramSequences::Triple2Token(const Word&amp; triple)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_contour_processor.h"
+            timestampString = "510197750.258317"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_IntervalSuffixTreeBuilder.cpp"
+            timestampString = "510202790.94441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_TrigramSequences_Test.cpp"
+            timestampString = "510213635.309739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_repeats)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
+            timestampString = "510214601.470964"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "FindRepeatedIntervalSubstrings(int min_length)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
+            timestampString = "510214601.470964"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "FindRepeatedIntervalSubstrings(int min_length)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
+            timestampString = "510214601.470964"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "FindRepeatedIntervalSubstrings(int min_length)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

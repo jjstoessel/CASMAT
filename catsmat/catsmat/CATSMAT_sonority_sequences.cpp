@@ -91,7 +91,7 @@ namespace CATSMAT
                     //only add sonority if it has a quality
                     //NB. chord_quality.quality < 4 are consonant
                     if (s->getQuality()!=0 && s->getQuality() < 4) {
-                        fQualityVector.push_back(*s);
+                        vectors_.push_back(*s);
                     }
                 }
             }
@@ -103,7 +103,7 @@ namespace CATSMAT
     {
         os << "sonority types: ";
         
-        for (auto iter1 = fQualityVector.begin(); iter1 != fQualityVector.end(); iter1++)
+        for (auto iter1 = vectors_.begin(); iter1 != vectors_.end(); iter1++)
         {
            os << *iter1; //uses tuple print member function
         }
@@ -112,9 +112,9 @@ namespace CATSMAT
 
     void CATSMAT_sonority_sequences::find_repeated(int min)
     {
-        if (fQualityVector.size()>0)
+        if (vectors_.size()>0)
         {
-            int_tree* tree = new int_tree(fQualityVector,1); //change last parameter to id for whole work tree.
+            int_tree* tree = new int_tree(vectors_,1); //change last parameter to id for whole work tree.
             vector<pair<int_tree::size_type, int_tree::size_type> >* results = new vector<pair<int_tree::size_type, int_tree::size_type> >();
             
             find_repeated_substrings(*results, tree->root_node(), min);

@@ -1,13 +1,13 @@
 /**
-    \class      IMUSANT_interval_processor
-    \file       IMUSANT_interval_processor.cpp
+    \class      IMUSANT_IntervalSuffixTreeBuilder
+    \file       IMUSANT_IntervalSuffixTreeBuilder.cpp
     \namespace  imusant
     \date       Created by Jason Stoessel on 12/06/2016.
     \author     Jason Stoessel
     \copyright  [add licence name]
     \brief      A class for processing IMUSANT_scores into a suffix tree
     
-    IMUSANT_interval_processor is visitable by IMUSANT_processing. Visit builds a tree contain all interval strings contained in collections held by IMUSANT_processing. This tree is stored in memory and interogated by function calls:
+    IMUSANT_IntervalSuffixTreeBuilder is visitable by IMUSANT_processing. Visit builds a tree contain all interval strings contained in collections held by IMUSANT_processing. This tree is stored in memory and interogated by function calls:
       • findAndPrintRepeatedIntervalSubstrings - calls the following, but returns string rather than vector of vectors
       • findRepeatedIntervalSubstrings - returns from mTreePtr a vector of vector of intervals of repeated "strings" of
           intervals.
@@ -17,7 +17,7 @@
 
 #include <utility>
 #include "boost/multi_array.hpp"
-#include "IMUSANT_interval_processor.h"
+#include "IMUSANT_IntervalSuffixTreeBuilder.h"
 #include "repeats.h"
 
 
@@ -26,24 +26,24 @@ using namespace std;
 
 namespace IMUSANT {
 
-    IMUSANT_interval_processor::IMUSANT_interval_processor()
+    IMUSANT_IntervalSuffixTreeBuilder::IMUSANT_IntervalSuffixTreeBuilder()
     {
     }
     
     void
-    IMUSANT_interval_processor::Visit(const IMUSANT_processing& processing)
+    IMUSANT_IntervalSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
-        buildVectorMap(collections);
+        BuildVectorMap(collections);
         
         mTreePtr = buildSuffixTree(mID_vec_map);
     }
     
     //Prepare list of interval strings and feed to template class to create actual tree
     void
-    IMUSANT_interval_processor::
-    buildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
+    IMUSANT_IntervalSuffixTreeBuilder::
+    BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file
         int ID = 0;
@@ -60,7 +60,7 @@ namespace IMUSANT {
     }
     
     string
-    IMUSANT_interval_processor::
+    IMUSANT_IntervalSuffixTreeBuilder::
     findAndPrintRepeatedIntervalSubstrings(int min_length)
     {
         SUBSTR_VECTOR the_result;
@@ -77,8 +77,8 @@ namespace IMUSANT {
         return the_result_as_stringstream.str();
     }
     
-    IMUSANT_interval_processor::SUBSTR_VECTOR
-    IMUSANT_interval_processor::
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR
+    IMUSANT_IntervalSuffixTreeBuilder::
     findRepeatedIntervalSubstrings(int min_length)
     {
         SUBSTR_VECTOR ret_val;
@@ -108,7 +108,7 @@ namespace IMUSANT {
              common_substrings_iter != common_substrings.end();
              common_substrings_iter++)
         {
-            IMUSANT_repeated_interval_substring repeated_interval_substring;
+            IMUSANT_repeated_interval_substring repeated_interval_substring; //IMUSANT_t_repeated_substring<T>
             
             vector< _tree::number >::const_iterator substring_iter;
             bool int_sequence_added_to_ret_value = false;
@@ -118,7 +118,7 @@ namespace IMUSANT {
                  substring_iter != common_substrings_iter->first.end();
                  substring_iter++)
             {
-                vector<IMUSANT_interval> intervals = mID_vec_map[substring_iter->first];
+                vector<IMUSANT_interval> intervals = mID_vec_map[substring_iter->first]; //vector<T>
                 
                 if (! int_sequence_added_to_ret_value)
                 {
@@ -152,7 +152,7 @@ namespace IMUSANT {
     
     
     string
-    IMUSANT_interval_processor::findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
+    IMUSANT_IntervalSuffixTreeBuilder::findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR the_result;
         the_result = findLcsPairsIntervals(consecutive,reverse_search,retrograde);
@@ -172,8 +172,8 @@ namespace IMUSANT {
     // This example of dynamic programming is adapted from Crochemore and Lecroq,
     // Pattern MAtching and text compression algorithms, available from:
     // http://www-igm.univ-mlv.fr/~mac/REC/DOC/03-CRC.ps
-    IMUSANT_interval_processor::SUBSTR_VECTOR
-    IMUSANT_interval_processor::
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR
+    IMUSANT_IntervalSuffixTreeBuilder::
     findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR ret_val;
@@ -286,7 +286,7 @@ namespace IMUSANT {
     }
     
     string
-    IMUSANT_interval_processor::
+    IMUSANT_IntervalSuffixTreeBuilder::
     findAndPrintSupermaximalIntervals(int min_length, int min_percent)
     {
         SUBSTR_VECTOR the_result;
@@ -303,11 +303,11 @@ namespace IMUSANT {
         return the_result_as_stringstream.str();
     }
     
-    IMUSANT_interval_processor::SUBSTR_VECTOR
-    IMUSANT_interval_processor::
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR
+    IMUSANT_IntervalSuffixTreeBuilder::
     findSupermaximalIntervals(int min_length, int min_percent)
     {
-        vector<IMUSANT_repeated_interval_substring> ret_val;
+        SUBSTR_VECTOR ret_val;
 
         if (mTreePtr!=NULL)
         {

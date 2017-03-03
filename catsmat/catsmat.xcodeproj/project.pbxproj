@@ -343,16 +343,18 @@
 		49FB9BD21C7879D80008B46D /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
+		9667B8AA1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
+		9667B8AB1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
 		9695B5321DE08575000586D0 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		9695B5331DE08577000586D0 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		96A912EF1DE08D8700EF40F3 /* IMUSANT_generalised_interval_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A912ED1DE08C2D00EF40F3 /* IMUSANT_generalised_interval_Tests.cpp */; };
 		96A912F01DE102C900EF40F3 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		96A912F11DE102CB00EF40F3 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
-		96CC66C61DE7E61900E2F7FB /* CATSMAT_Ngram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C41DE7E61900E2F7FB /* CATSMAT_Ngram.cpp */; };
-		96CC66C71DE7E61900E2F7FB /* CATSMAT_Ngram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C41DE7E61900E2F7FB /* CATSMAT_Ngram.cpp */; };
-		96CC66CA1DEAF5B400E2F7FB /* CATSMAT_NGram_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C91DEAF5B400E2F7FB /* CATSMAT_NGram_Test.cpp */; };
-		96CC66CD1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp */; };
-		96CC66CE1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp */; };
+		96CC66C61DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C41DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp */; };
+		96CC66C71DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C41DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp */; };
+		96CC66CA1DEAF5B400E2F7FB /* CATSMAT_TrigramSequences_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C91DEAF5B400E2F7FB /* CATSMAT_TrigramSequences_Test.cpp */; };
+		96CC66CD1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66CB1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp */; };
+		96CC66CE1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66CB1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp */; };
 		96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */; };
 		BA09CB971E025253005E9B29 /* CATSMAT_score_profile.tpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09CB951E025253005E9B29 /* CATSMAT_score_profile.tpp */; };
 		BA09CB981E025253005E9B29 /* CATSMAT_score_profile.tpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09CB951E025253005E9B29 /* CATSMAT_score_profile.tpp */; };
@@ -381,9 +383,9 @@
 		BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */; };
 		BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
 		BAB505881B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
-		BACF15C11D113FDA001C3991 /* IMUSANT_interval_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */; };
-		BACF15C21D113FE2001C3991 /* IMUSANT_contour_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp */; };
-		BACF15C31D113FE6001C3991 /* IMUSANT_pitch_processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp */; };
+		BACF15C11D113FDA001C3991 /* IMUSANT_IntervalSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB941D0D803B00C5AAA6 /* IMUSANT_IntervalSuffixTreeBuilder.cpp */; };
+		BACF15C21D113FE2001C3991 /* IMUSANT_ContourSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_ContourSuffixTreeBuilder.cpp */; };
+		BACF15C31D113FE6001C3991 /* IMUSANT_PitchSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9F1D0ED53700C5AAA6 /* IMUSANT_PitchSuffixTreeBuilder.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1091,13 +1093,15 @@
 		9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_record.cpp; sourceTree = "<group>"; };
 		965209A40A4D1E8B006AFD81 /* IMUSANT_interval_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval_vector.h; sourceTree = "<group>"; };
 		965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_vector.cpp; sourceTree = "<group>"; };
-		9668DB911D0D7A8900C5AAA6 /* IMUSANT_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processor.h; path = IMUSANT/Analysis/src/IMUSANT_processor.h; sourceTree = SOURCE_ROOT; };
-		9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_interval_processor.cpp; path = IMUSANT/Analysis/src/IMUSANT_interval_processor.cpp; sourceTree = SOURCE_ROOT; };
-		9668DB951D0D803B00C5AAA6 /* IMUSANT_interval_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_interval_processor.h; path = IMUSANT/Analysis/src/IMUSANT_interval_processor.h; sourceTree = SOURCE_ROOT; };
-		9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_contour_processor.cpp; sourceTree = "<group>"; };
-		9668DB9C1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_contour_processor.h; path = ../src/IMUSANT_contour_processor.h; sourceTree = "<group>"; };
-		9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_pitch_processor.cpp; sourceTree = "<group>"; };
-		9668DBA01D0ED53700C5AAA6 /* IMUSANT_pitch_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_pitch_processor.h; path = ../src/IMUSANT_pitch_processor.h; sourceTree = "<group>"; };
+		9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_TrigramSuffixTreeBuilder.cpp; path = catsmat/CATSMAT_TrigramSuffixTreeBuilder.cpp; sourceTree = SOURCE_ROOT; };
+		9667B8A91E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_TrigramSuffixTreeBuilder.hpp; path = catsmat/CATSMAT_TrigramSuffixTreeBuilder.hpp; sourceTree = SOURCE_ROOT; };
+		9668DB911D0D7A8900C5AAA6 /* IMUSANT_SuffixTreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_SuffixTreeBuilder.h; path = IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h; sourceTree = SOURCE_ROOT; };
+		9668DB941D0D803B00C5AAA6 /* IMUSANT_IntervalSuffixTreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_IntervalSuffixTreeBuilder.cpp; path = IMUSANT/Analysis/src/IMUSANT_IntervalSuffixTreeBuilder.cpp; sourceTree = SOURCE_ROOT; };
+		9668DB951D0D803B00C5AAA6 /* IMUSANT_IntervalSuffixTreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_IntervalSuffixTreeBuilder.h; path = IMUSANT/Analysis/src/IMUSANT_IntervalSuffixTreeBuilder.h; sourceTree = SOURCE_ROOT; };
+		9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_ContourSuffixTreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_ContourSuffixTreeBuilder.cpp; sourceTree = "<group>"; };
+		9668DB9C1D0ECD8D00C5AAA6 /* IMUSANT_ContourSuffixTreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_ContourSuffixTreeBuilder.h; path = ../src/IMUSANT_ContourSuffixTreeBuilder.h; sourceTree = "<group>"; };
+		9668DB9F1D0ED53700C5AAA6 /* IMUSANT_PitchSuffixTreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_PitchSuffixTreeBuilder.cpp; sourceTree = "<group>"; };
+		9668DBA01D0ED53700C5AAA6 /* IMUSANT_PitchSuffixTreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_PitchSuffixTreeBuilder.h; path = ../src/IMUSANT_PitchSuffixTreeBuilder.h; sourceTree = "<group>"; };
 		9695B52F1DE082BE000586D0 /* IMUSANT_generalised_interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_generalised_interval.h; sourceTree = "<group>"; };
 		9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generalised_interval.cpp; sourceTree = "<group>"; };
 		969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_cp_matrix.cpp; path = ../catsmat/CATSMAT_cp_matrix.cpp; sourceTree = "<group>"; };
@@ -1163,12 +1167,12 @@
 		96A71CBA1A9160CB0021C86A /* UTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTools.h; sourceTree = "<group>"; };
 		96A71CBB1A9160CB0021C86A /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
 		96A912ED1DE08C2D00EF40F3 /* IMUSANT_generalised_interval_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generalised_interval_Tests.cpp; sourceTree = "<group>"; };
-		96CC66C41DE7E61900E2F7FB /* CATSMAT_Ngram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_Ngram.cpp; path = catsmat/CATSMAT_Ngram.cpp; sourceTree = SOURCE_ROOT; };
-		96CC66C51DE7E61900E2F7FB /* CATSMAT_Ngram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_Ngram.hpp; path = catsmat/CATSMAT_Ngram.hpp; sourceTree = SOURCE_ROOT; };
-		96CC66C81DEAF5B400E2F7FB /* CATSMAT_NGram_Test_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_NGram_Test_Expected.h; path = CATSMAT_Tests/CATSMAT_NGram_Test_Expected.h; sourceTree = SOURCE_ROOT; };
-		96CC66C91DEAF5B400E2F7FB /* CATSMAT_NGram_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_NGram_Test.cpp; path = CATSMAT_Tests/CATSMAT_NGram_Test.cpp; sourceTree = SOURCE_ROOT; };
-		96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_generalised_interval_processor.cpp; path = IMUSANT/Analysis/src/IMUSANT_generalised_interval_processor.cpp; sourceTree = SOURCE_ROOT; };
-		96CC66CC1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_generalised_interval_processor.h; path = IMUSANT/Analysis/src/IMUSANT_generalised_interval_processor.h; sourceTree = SOURCE_ROOT; };
+		96CC66C41DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_TrigramSequences.cpp; path = catsmat/CATSMAT_TrigramSequences.cpp; sourceTree = SOURCE_ROOT; };
+		96CC66C51DE7E61900E2F7FB /* CATSMAT_TrigramSequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_TrigramSequences.hpp; path = catsmat/CATSMAT_TrigramSequences.hpp; sourceTree = SOURCE_ROOT; };
+		96CC66C81DEAF5B400E2F7FB /* CATSMAT_TrigramSequences_Test_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_TrigramSequences_Test_Expected.h; path = CATSMAT_Tests/CATSMAT_TrigramSequences_Test_Expected.h; sourceTree = SOURCE_ROOT; };
+		96CC66C91DEAF5B400E2F7FB /* CATSMAT_TrigramSequences_Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_TrigramSequences_Test.cpp; path = CATSMAT_Tests/CATSMAT_TrigramSequences_Test.cpp; sourceTree = SOURCE_ROOT; };
+		96CC66CB1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp; path = IMUSANT/Analysis/src/IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp; sourceTree = SOURCE_ROOT; };
+		96CC66CC1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_GeneralisedIntervalSuffixTreeBuilder.h; path = IMUSANT/Analysis/src/IMUSANT_GeneralisedIntervalSuffixTreeBuilder.h; sourceTree = SOURCE_ROOT; };
 		96CC66CF1DEBB57F00E2F7FB /* Anon-Blijfs mi doch (no Solus T).xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Anon-Blijfs mi doch (no Solus T).xml"; sourceTree = "<group>"; };
 		96CC66D01DEBB5A200E2F7FB /* J_de_Climens-Fuga_trium_temporum.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "J_de_Climens-Fuga_trium_temporum.xml"; sourceTree = "<group>"; };
 		96CC66D11DEBB5CE00E2F7FB /* Josquin-Missa_De_beata_virgine-Agnus.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_De_beata_virgine-Agnus.xml"; sourceTree = "<group>"; };
@@ -1696,8 +1700,8 @@
 				961789951D0BF67B00DFB98A /* CATSMAT_sonority_sequences_Expected.h */,
 				BA10A5D71DA74217000679C5 /* CATSMAT_scoredatacollector_tests.h */,
 				BA10A5D61DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp */,
-				96CC66C81DEAF5B400E2F7FB /* CATSMAT_NGram_Test_Expected.h */,
-				96CC66C91DEAF5B400E2F7FB /* CATSMAT_NGram_Test.cpp */,
+				96CC66C81DEAF5B400E2F7FB /* CATSMAT_TrigramSequences_Test_Expected.h */,
+				96CC66C91DEAF5B400E2F7FB /* CATSMAT_TrigramSequences_Test.cpp */,
 			);
 			path = CATSMAT_Tests;
 			sourceTree = "<group>";
@@ -1820,11 +1824,11 @@
 			isa = PBXGroup;
 			children = (
 				BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */,
-				9668DB911D0D7A8900C5AAA6 /* IMUSANT_processor.h */,
-				9668DB951D0D803B00C5AAA6 /* IMUSANT_interval_processor.h */,
-				96CC66CC1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.h */,
-				9668DB9C1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.h */,
-				9668DBA01D0ED53700C5AAA6 /* IMUSANT_pitch_processor.h */,
+				9668DB911D0D7A8900C5AAA6 /* IMUSANT_SuffixTreeBuilder.h */,
+				9668DB951D0D803B00C5AAA6 /* IMUSANT_IntervalSuffixTreeBuilder.h */,
+				96CC66CC1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.h */,
+				9668DB9C1D0ECD8D00C5AAA6 /* IMUSANT_ContourSuffixTreeBuilder.h */,
+				9668DBA01D0ED53700C5AAA6 /* IMUSANT_PitchSuffixTreeBuilder.h */,
 				BA4207E31CEEAB49007204AF /* IMUSANT_t_repeated_substring.h */,
 			);
 			path = inc;
@@ -1834,10 +1838,10 @@
 			isa = PBXGroup;
 			children = (
 				BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */,
-				9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_processor.cpp */,
-				96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp */,
-				9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_contour_processor.cpp */,
-				9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_processor.cpp */,
+				9668DB941D0D803B00C5AAA6 /* IMUSANT_IntervalSuffixTreeBuilder.cpp */,
+				96CC66CB1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp */,
+				9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_ContourSuffixTreeBuilder.cpp */,
+				9668DB9F1D0ED53700C5AAA6 /* IMUSANT_PitchSuffixTreeBuilder.cpp */,
 				BA4207E41CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp */,
 			);
 			path = src;
@@ -2847,8 +2851,10 @@
 				BA7E943A1B2D050400818128 /* CATSMAT_dyadtuple_sequences.hpp */,
 				BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */,
 				BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */,
-				96CC66C41DE7E61900E2F7FB /* CATSMAT_Ngram.cpp */,
-				96CC66C51DE7E61900E2F7FB /* CATSMAT_Ngram.hpp */,
+				96CC66C41DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp */,
+				96CC66C51DE7E61900E2F7FB /* CATSMAT_TrigramSequences.hpp */,
+				9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */,
+				9667B8A91E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.hpp */,
 			);
 			name = "Counterpoint Analysis";
 			sourceTree = "<group>";
@@ -3401,14 +3407,15 @@
 			files = (
 				BA7E943C1B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
 				BA7E941D1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */,
-				96CC66CA1DEAF5B400E2F7FB /* CATSMAT_NGram_Test.cpp in Sources */,
+				96CC66CA1DEAF5B400E2F7FB /* CATSMAT_TrigramSequences_Test.cpp in Sources */,
+				9667B8AB1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
 				BA10A5DC1DA75138000679C5 /* CATSMAT_partdata.cpp in Sources */,
-				96CC66C71DE7E61900E2F7FB /* CATSMAT_Ngram.cpp in Sources */,
+				96CC66C71DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp in Sources */,
 				496EF4CE1B229DA500FE715F /* CATSMAT_collectionvisitor.cpp in Sources */,
 				496EF4D01B229DA500FE715F /* CATSMAT_cp_matrix.cpp in Sources */,
 				BAB505881B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */,
 				496EF4C71B229D8100FE715F /* main.cpp in Sources */,
-				96CC66CE1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp in Sources */,
+				96CC66CE1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp in Sources */,
 				BA10A5DB1DA75134000679C5 /* CATSMAT_scoredata.cpp in Sources */,
 				BA10A5D91DA7503E000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				BA10A5D81DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp in Sources */,
@@ -3548,7 +3555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BACF15C21D113FE2001C3991 /* IMUSANT_contour_processor.cpp in Sources */,
+				BACF15C21D113FE2001C3991 /* IMUSANT_ContourSuffixTreeBuilder.cpp in Sources */,
 				490E3BBB1D0CFBE70091A44E /* IMUSANT_t_repeated_substring.cpp in Sources */,
 				49CE2CE41E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.cpp in Sources */,
 				4959E13A1CF13BE300FAC403 /* smartpointer.cpp in Sources */,
@@ -3569,8 +3576,8 @@
 				496EF6E01B22B05500FE715F /* IMUSANT_duration.cpp in Sources */,
 				496EF6E11B22B05500FE715F /* IMUSANT_key.cpp in Sources */,
 				496EF6E21B22B05500FE715F /* IMUSANT_element.cpp in Sources */,
-				BACF15C11D113FDA001C3991 /* IMUSANT_interval_processor.cpp in Sources */,
-				BACF15C31D113FE6001C3991 /* IMUSANT_pitch_processor.cpp in Sources */,
+				BACF15C11D113FDA001C3991 /* IMUSANT_IntervalSuffixTreeBuilder.cpp in Sources */,
+				BACF15C31D113FE6001C3991 /* IMUSANT_PitchSuffixTreeBuilder.cpp in Sources */,
 				496EF6E31B22B05500FE715F /* IMUSANT_note.cpp in Sources */,
 				496EF6E41B22B05500FE715F /* IMUSANT_barline.cpp in Sources */,
 				496EF6E51B22B05500FE715F /* IMUSANT_chord.cpp in Sources */,
@@ -3647,14 +3654,15 @@
 				1E905DD61C1FE0230017850F /* CATSMAT_processing.cpp in Sources */,
 				BAA8D8A01AABFC1A0053ADE3 /* CATSMAT_main.cpp in Sources */,
 				49B727B71C1418E400FCF494 /* CATSMAT_menu.cpp in Sources */,
-				96CC66C61DE7E61900E2F7FB /* CATSMAT_Ngram.cpp in Sources */,
+				96CC66C61DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp in Sources */,
 				BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */,
 				9695B5321DE08575000586D0 /* IMUSANT_generalised_interval.cpp in Sources */,
 				BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */,
-				96CC66CD1DEB60F800E2F7FB /* IMUSANT_generalised_interval_processor.cpp in Sources */,
+				96CC66CD1DEB60F800E2F7FB /* IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp in Sources */,
 				BA7E941C1B2A859A00818128 /* CATSMAT_dyad_sequences.cpp in Sources */,
 				BA7E943B1B2D050400818128 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
 				BA10A5D31D979F06000679C5 /* CATSMAT_partdata.cpp in Sources */,
+				9667B8AA1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
 				BAA257F81CFC156A0019B07F /* CATSMAT_chord.cpp in Sources */,
 				BAA8D8A41AABFCCA0053ADE3 /* CATSMAT_cp_matrix.cpp in Sources */,
 			);

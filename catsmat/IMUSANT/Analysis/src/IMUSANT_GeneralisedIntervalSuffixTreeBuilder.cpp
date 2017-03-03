@@ -1,6 +1,6 @@
 
 //
-//  IMUSANT_generalised_interval_processor.cpp
+//  IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp
 //
 //  Created by Jason Stoessel on 28/11/2016.
 //
@@ -8,7 +8,7 @@
 
 #include <utility>
 #include "boost/multi_array.hpp"
-#include "IMUSANT_generalised_interval_processor.h"
+#include "IMUSANT_GeneralisedIntervalSuffixTreeBuilder.h"
 #include "repeats.h"
 
 
@@ -17,24 +17,24 @@ using namespace std;
 
 namespace IMUSANT {
 
-    IMUSANT_generalised_interval_processor::IMUSANT_generalised_interval_processor()
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::IMUSANT_GeneralisedIntervalSuffixTreeBuilder()
     {
     }
     
     void
-    IMUSANT_generalised_interval_processor::Visit(const IMUSANT_processing& processing)
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
-        buildVectorMap(collections);
+        BuildVectorMap(collections);
         
         mTreePtr = buildSuffixTree(mID_vec_map); //= buildIntervalSuffixTree(collections);
     }
     
     //Prepare list of interval strings and feed to template class to create actual tree
     void
-    IMUSANT_generalised_interval_processor::
-    buildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
+    BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         int ID = 0;
         
@@ -52,7 +52,7 @@ namespace IMUSANT {
     
     
     string
-    IMUSANT_generalised_interval_processor::
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
     findAndPrintRepeatedIntervalSubstrings(int min_length)
     {
         SUBSTR_VECTOR the_result;
@@ -69,8 +69,8 @@ namespace IMUSANT {
         return the_result_as_stringstream.str();
     }
     
-    IMUSANT_generalised_interval_processor::SUBSTR_VECTOR
-    IMUSANT_generalised_interval_processor::
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::SUBSTR_VECTOR
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
     findRepeatedIntervalSubstrings(int min_length)
     {
         SUBSTR_VECTOR ret_val;
@@ -144,7 +144,7 @@ namespace IMUSANT {
     
     
     string
-    IMUSANT_generalised_interval_processor::findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR the_result;
         the_result = findLcsPairsIntervals(consecutive,reverse_search,retrograde);
@@ -164,8 +164,8 @@ namespace IMUSANT {
     // This example of dynamic programming is adapted from Crochemore and Lecroq,
     // Pattern MAtching and text compression algorithms, available from:
     // http://www-igm.univ-mlv.fr/~mac/REC/DOC/03-CRC.ps
-    IMUSANT_generalised_interval_processor::SUBSTR_VECTOR
-    IMUSANT_generalised_interval_processor::
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::SUBSTR_VECTOR
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
     findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR ret_val;
@@ -278,7 +278,7 @@ namespace IMUSANT {
     }
     
     string
-    IMUSANT_generalised_interval_processor::
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
     findAndPrintSupermaximalIntervals(int min_length, int min_percent)
     {
         SUBSTR_VECTOR the_result;
@@ -295,11 +295,11 @@ namespace IMUSANT {
         return the_result_as_stringstream.str();
     }
     
-    IMUSANT_generalised_interval_processor::SUBSTR_VECTOR
-    IMUSANT_generalised_interval_processor::
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::SUBSTR_VECTOR
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
     findSupermaximalIntervals(int min_length, int min_percent)
     {
-        vector<IMUSANT_repeated_generalised_interval_substring> ret_val;
+        SUBSTR_VECTOR ret_val;
 
         if (mTreePtr!=NULL)
         {

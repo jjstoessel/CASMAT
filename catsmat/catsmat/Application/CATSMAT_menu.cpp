@@ -13,9 +13,9 @@
 #include <exception>
 
 #include "libIMUSANT.h"
-#include "IMUSANT_interval_processor.h"
-#include "IMUSANT_pitch_processor.h"
-#include "IMUSANT_contour_processor.h"
+#include "IMUSANT_IntervalSuffixTreeBuilder.h"
+#include "IMUSANT_PitchSuffixTreeBuilder.h"
+#include "IMUSANT_ContourSuffixTreeBuilder.h"
 #include "IMUSANT_LBDM_segmenter.h"
 #include "CATSMAT_scoredatacollector.h"
 
@@ -174,9 +174,9 @@ CATSMAT_menu::
 runToolsMenu(CATSMAT_processing* processor)
 {
     bool moreTools = true;
-    IMUSANT_interval_processor  ip;
-    IMUSANT_pitch_processor     pp;
-    IMUSANT_contour_processor   cp;
+    IMUSANT_IntervalSuffixTreeBuilder  ip;
+    IMUSANT_PitchSuffixTreeBuilder     pp;
+    IMUSANT_ContourSuffixTreeBuilder   cp;
     do
     {
         outputToolsMenu(cout);
@@ -327,7 +327,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     cin >> yn;
                     if (yn == 'y' || yn == 'Y')
                     {
-                        ofstream out("out.txt");
+                        std::ofstream out("out.txt");
                         if (out.is_open())
                         {
                             out << scoredatacollection;
