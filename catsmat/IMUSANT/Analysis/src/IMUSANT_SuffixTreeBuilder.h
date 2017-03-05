@@ -24,7 +24,7 @@ using namespace std;
 using namespace ns_suffixtree;
 
 #define MAX(X,Y) ( (X>Y)? (X) : (Y) ) //move to general macros header
-#define VERBOSE
+//#define VERBOSE
 
 namespace IMUSANT
 {
@@ -138,6 +138,7 @@ namespace IMUSANT
                 //IMUSANT_interval interval = intervals[substring_iter->second];
                 //IMUSANT_range range = interval.getLocation();
                 //repeated_substring.add_occurrence(substring_iter->first, range.first.partID, range.first.measure, range.first.note_index );
+                repeated_substring.add_occurrence(substring_iter->first, 0, 0, 0 );
                 
             }
             

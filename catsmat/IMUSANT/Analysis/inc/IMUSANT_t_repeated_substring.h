@@ -19,7 +19,7 @@
 #include "CATSMAT_TrigramSequences.hpp"
 
 using namespace std;
-
+using namespace CATSMAT;
 
 namespace IMUSANT
 {
@@ -219,7 +219,7 @@ namespace IMUSANT
         {
             string ret_val =
             "The output shows the discovered pattern in the following format \n" \
-            "pitch name,alteration, octave (measure, index, part) \n" \
+            "pitch name,alteration, octave (measure, i&ndex, part) \n" \
             "Followed by a list of occurrences in the format \n" \
             "(movement, voice, measure, index) \n";
             
@@ -228,7 +228,7 @@ namespace IMUSANT
         
     };
     
-    class IMUSANT_repeated_trigram_token_substring : public IMUSANT_t_repeated_substring<unsigned int>
+    class IMUSANT_repeated_trigram_token_substring : public IMUSANT_t_repeated_substring<CATSMAT_TrigramSequences::Token>
     {
     public:
         static string  output_operator_help()
@@ -240,6 +240,32 @@ namespace IMUSANT
             "(movement, voice, measure, index) \n";
             
             return ret_val;
+        }
+        friend  ostream& operator<<(ostream& os, const std::array<signed int,3>& trigram);
+        
+        friend ostream& operator<<(ostream& os, const IMUSANT_t_repeated_substring<CATSMAT_TrigramSequences::Token>& substring)
+        {
+            for (auto ii : substring.sequence)
+            {
+                CATSMAT_TrigramSequences::Trigram t = CATSMAT_TrigramSequences::Token2Triple(ii);
+                //unable to invoke operator<<(os&, Trigam&) at present
+                os << " " << "[" << t[CATSMAT_TrigramSequences::dyad1] << ", " << t[CATSMAT_TrigramSequences::dyad2] << ", " << t[CATSMAT_TrigramSequences::lowMelInterval] << "]";
+            }
+            
+            for (int index = 0; index < substring.occurrences.size(); index++)
+            {
+                IMUSANT_repeated_trigram_token_substring::occurrence occ;
+                occ = substring.occurrences[index];
+                os << "("
+                << "MVT: " << occ.movement << ", "
+                << "VCE: " << occ.voice << ", "
+                << "MES: " << occ.measure << ", "
+                << "IDX: " << occ.note_index << ") ";
+            }
+            
+            os << endl << endl;
+            
+            return os;
         }
         
     };

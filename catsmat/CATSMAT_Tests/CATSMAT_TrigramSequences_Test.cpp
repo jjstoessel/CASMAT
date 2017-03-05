@@ -99,10 +99,10 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie) {
     
     string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
-    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, the_sequences_as_string);
+    ASSERT_EQ(TestScore_Josquin_MAF_Kyrie, the_sequences_as_string);
 }
 
-TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_repeats) {
+TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_Repeats) {
     
     CATSMAT_TrigramSuffixTreeBuilder::SUBSTR_VECTOR repeats;
     CATSMAT_TrigramSuffixTreeBuilder trigram_tree;
@@ -112,9 +112,36 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_repeats) {
     theSequences.Visit(*the_matrix);
     trigram_tree.Visit(theSequences);
     
+    repeats = trigram_tree.FindRepeatedIntervalSubstrings(3);
+    
+    std::stringstream the_dyads_as_stringstream;
+    for ( auto repeat : repeats)
+    {
+        the_dyads_as_stringstream << repeat;
+    }
+    string the_sequences_as_string = the_dyads_as_stringstream.str();
+    
+    ASSERT_EQ(TestScore_Josquin_MAF_Kyrie_Repeats_Expected, the_sequences_as_string);
+}
+
+TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Talent_mest_pris_repeats) {
+    
+    CATSMAT_TrigramSuffixTreeBuilder::SUBSTR_VECTOR repeats;
+    CATSMAT_TrigramSuffixTreeBuilder trigram_tree;
+    
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Anon-Talent_mest_pris_I-IV_115.xml");
+    
+    theSequences.Visit(*the_matrix);
+    trigram_tree.Visit(theSequences);
+    
     repeats = trigram_tree.FindRepeatedIntervalSubstrings(4);
     
-    string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
+    std::stringstream the_dyads_as_stringstream;
+    for ( auto repeat : repeats)
+    {
+        the_dyads_as_stringstream << repeat;
+    }
+    string the_sequences_as_string = the_dyads_as_stringstream.str();
     
-    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected, the_sequences_as_string);
+    ASSERT_EQ(TestScore_Talent_mest_pris_repeats_Expected, the_sequences_as_string);
 }

@@ -1,9 +1,9 @@
 /*!
-    CATSMAT_Ngram
+    CATSMAT_TrigramSequences
     =============
-    \file       CATSMAT_Ngram.h
+    \file       CATSMAT_TrigramSequences.h
     \brief      Class to calculate N-grams for dyad sequences
-    \details    The CATSMAT N-gram class is an adaption of the N-gram contrapuntal word method proposed by
+    \details    The CATSMAT_TrigramSequences class is an adaption of the N-gram contrapuntal word method proposed by
                 Schubert, Peter, and Julie Cumming. "Another Lesson from Lassus: Using Computers to Analyse Counterpoint." Early Music 43, no. 4 (November 1, 2015 2015): 577-86.
                 It relies upon CATSMAT_CPmatrix and IMUSANT_generalised_interval
                 Class takes CP_Matrix and convert to a series of trigrams for each voice pair. The number of trigrams for each pair will be equal to the number of columns in CP Matrix
@@ -29,8 +29,8 @@ using namespace std;
 
 namespace CATSMAT
 {
-    using Trigram = std::array<signed int,3>;
-    using Sentence = std::vector<Trigram>;
+    
+    using Sentence = std::vector<std::array<signed int,3> >;
     
     class CATSMAT_TrigramSequences : public CATSMAT_dyad_sequences_base<Sentence>
     {
@@ -42,6 +42,11 @@ namespace CATSMAT
         enum    TrigramMembers { dyad1, dyad2, lowMelInterval };
         
         friend  ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences& sequences);
+        friend  ostream& operator<<(ostream& os, const std::array<signed int,3>& trigram);
+        friend  ostream& operator<<(ostream& os, std::array<signed int,3>& trigram);
+        
+        static  Trigram             Token2Triple(unsigned long token);
+        static  unsigned int        Triple2Token(const Trigram& triple);
         
         CATSMAT_TrigramSequences() : CATSMAT_dyad_sequences_base<Sentence>() {};
         ~CATSMAT_TrigramSequences() {};
@@ -59,8 +64,9 @@ namespace CATSMAT
         void                Process(const list<S_CATSMAT_chord>& matrix); //overrides base class
         void                ConvertSentences2Tokens();
         void                PostprocessTokens();
-        unsigned int        Triple2Token(const Trigram& triple);
-        Trigram             Token2Triple(const unsigned long token);
+        static bool         IsRepeatedIntervalToken(const Token token);
+        static bool         IsZero(Token token1, Token token2);
+        
     };
     
 }
