@@ -58,6 +58,7 @@ namespace CATSMAT
         
         void                Process(const list<S_CATSMAT_chord>& matrix); //overrides base class
         void                ConvertSentences2Tokens();
+        void                PostprocessTokens();
         unsigned int        Triple2Token(const Trigram& triple);
         Trigram             Token2Triple(const unsigned long token);
     };

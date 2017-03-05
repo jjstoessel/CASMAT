@@ -15,9 +15,10 @@ namespace CATSMAT {
     Visit(const CATSMAT_TrigramSequences& trigrams)
     {
         if (!trigrams.get_tokens().empty())
+        {
             BuildVectorMap(trigrams.get_tokens());
-        
-        mTreePtr = buildSuffixTree(mID_vec_map);
+            mTreePtr = buildSuffixTree(mID_vec_map);
+        }
     }
     
     void
@@ -26,10 +27,12 @@ namespace CATSMAT {
     {
         int ID = 0;
         
-        for (auto i = tokens.begin(); i!=tokens.end(); i++)
+        for (std::vector<vector<CATSMAT_TrigramSequences::Token> >::const_iterator i = tokens.begin(); i!=tokens.end(); i++)
         {
             ++ID;
             mID_vec_map[ID] = *i;
+            mID_vec_map[ID].push_back(ID<<24); //ad a unique value terminator
+            
         }
     }
 }

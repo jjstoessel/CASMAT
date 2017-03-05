@@ -24,6 +24,7 @@ using namespace std;
 using namespace ns_suffixtree;
 
 #define MAX(X,Y) ( (X>Y)? (X) : (Y) ) //move to general macros header
+#define VERBOSE
 
 namespace IMUSANT
 {
@@ -49,7 +50,7 @@ namespace IMUSANT
         
         suffixtree< vector<T> >* buildSuffixTree(const map<int, vector<T> >& id_vec_map);
         
-        _tree*       mTreePtr;
+        _tree*       mTreePtr = NULL;
         ID_vec_map   mID_vec_map;
     };
     

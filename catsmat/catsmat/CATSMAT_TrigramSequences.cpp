@@ -90,7 +90,7 @@ namespace CATSMAT
     CATSMAT_TrigramSequences::
     ConvertSentences2Tokens()
     {
-        tokens_.resize(vectors_.size());//tokens_.resize(sentences_.size());
+        tokens_.resize(vectors_.size());
         
         auto j = tokens_.begin();
         
@@ -103,8 +103,30 @@ namespace CATSMAT
                 j->push_back(token);
             }
         }
+        PostprocessTokens();
     }
 
+    void
+    CATSMAT_TrigramSequences::
+    PostprocessTokens()
+    {
+        if (ignore_repeated_) //remove repeated trigrams (often caused by split in CPMatrix)
+        {
+            //for (auto tokens : tokens_)
+            for ( vector<vector<Token> >::iterator tokens = tokens_.begin(); tokens != tokens_.end(); tokens++)
+            {
+                //remove consecutive repates and resize a copy
+                std::vector<Token>::iterator it;
+                it = std::unique(tokens->begin(), tokens->end());
+                tokens->resize( std::distance(tokens->begin(),it) );
+            }
+        }
+        
+        if (ignore_dissonances_)
+        {
+            //simplest way is to look at token as triple and exclude and token that contains a vertical dissonance. Yet, this will require the removal of at least two token and replacement by a single one
+        }
+    }
     /*
         \brief function to convert at triple to a token
      
