@@ -1,5 +1,5 @@
 //
-//  IMUSANT_SuffixTreeBuilder.h
+//  IMUSANT_T_SuffixTreeBuilder.h
 //  Base class for suffix-tree based processors of IMUSANT collections
 //
 //  Created by Jason Stoessel on 12/06/2016.
@@ -10,8 +10,8 @@
 //  To do: refactor to class name IMUSANT_suffix_tree_builder to be
 //
 
-#ifndef ____IMUSANT_SuffixTreeBuilder__
-#define ____IMUSANT_SuffixTreeBuilder__
+#ifndef ____IMUSANT_T_SuffixTreeBuilder__
+#define ____IMUSANT_T_SuffixTreeBuilder__
 
 #include <stdio.h>
 #include "boost/multi_array.hpp"
@@ -19,44 +19,43 @@
 #include "suffixtree.h"
 #include "IMUSANT_processing.h"
 #include "IMUSANT_T_RepeatedSubstring.h"
+#include "IMUSANT_T_VectorMap.hpp"
 #include "repeats.h"
 
 using namespace std;
 using namespace ns_suffixtree;
 
-#define MAX(X,Y) ( (X>Y)? (X) : (Y) ) //move to general macros header
 //#define VERBOSE
 
 namespace IMUSANT
 {
     template <typename T, class C> //T is type for tree; C is the visited class that provides vectors of T
-    class IMUSANT_SuffixTreeBuilder :
-        public Loki::BaseVisitor,
-        public Loki::Visitor<C, void, true>
+    class IMUSANT_T_SuffixTreeBuilder :
+        public IMUSANT_T_VectorMap<T,C>//is visitable
     {
     public:
         typedef typename IMUSANT_T_RepeatedSubstring<T>::SUBSTR_VECTOR SUBSTR_VECTOR;
-        typedef suffixtree< vector<T> >  _tree;
-        typedef typename _tree::number number;
-        typedef map<int, vector<T> > ID_vec_map;
+        typedef suffixtree< vector<T> >     stree;
+        typedef typename stree::number      number;
         
-        IMUSANT_SuffixTreeBuilder() : tree_ptr_(NULL) {}
-        ~IMUSANT_SuffixTreeBuilder() { if (tree_ptr_!=NULL) delete tree_ptr_; }
+        IMUSANT_T_SuffixTreeBuilder() : tree_ptr_(NULL) {}
+        ~IMUSANT_T_SuffixTreeBuilder() { if (tree_ptr_!=NULL) delete tree_ptr_; }
 
         virtual void    Visit(const C&) = 0;
+        string          FindAndPrintRepeatedSubstrings(int min_length=4);
+        string          FindAndPrintSupermaximals(int min_length=4, int min_percent=25);
         SUBSTR_VECTOR   FindRepeatedSubstrings(int min_length=4) const;
         SUBSTR_VECTOR   FindSupermaximals(int min_length=4, int min_percent=25);
     protected:
         virtual void    BuildVectorMap(map<S_IMUSANT_score,IMUSANT_collection_visitor>&) = 0;
-        virtual IMUSANT_range CalcRange(T&) const = 0; //called in FindRepeatedIntervalSubstrings
+        virtual IMUSANT_range CalcRange(T&) const = 0; //called in FindRepeatedSubstrings
         
         suffixtree< vector<T> >* buildSuffixTree(const map<int, vector<T> >& id_vec_map);
         
-        _tree*          tree_ptr_ = NULL;
-        ID_vec_map      id_vec_map_;
+        stree*          tree_ptr_ = NULL;
     };
     
-    typedef boost::multi_array<int, 2> int_2d_array_t;
+    //typedef boost::multi_array<int, 2> int_2d_array_t;
     
     /*!
        \brief builds suffix tree from a map of vectors with unique ID
@@ -64,7 +63,7 @@ namespace IMUSANT
      */
     template<typename T, class C>
     suffixtree< vector<T> >*
-    IMUSANT_SuffixTreeBuilder<T,C>::
+    IMUSANT_T_SuffixTreeBuilder<T,C>::
     buildSuffixTree(const map<int, vector<T> >& id_vec_map)
     {
         //get first part from first file
@@ -84,14 +83,53 @@ namespace IMUSANT
     }
     
     template<typename T, class C>
-    typename IMUSANT_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
-    IMUSANT_SuffixTreeBuilder<T,C>::
+    string
+    IMUSANT_T_SuffixTreeBuilder<T,C>::
+    FindAndPrintRepeatedSubstrings(int min_length)
+    {
+        SUBSTR_VECTOR the_result;
+        the_result = FindRepeatedSubstrings(min_length);
+        
+        stringstream the_result_as_stringstream;
+        for(int index = 0 ; index < the_result.size(); index++)
+        {
+            the_result_as_stringstream << the_result[index];
+        }
+        
+        the_result_as_stringstream << endl;
+        
+        return the_result_as_stringstream.str();
+    }
+    
+    template<typename T, class C>
+    string
+    IMUSANT_T_SuffixTreeBuilder<T,C>::
+    FindAndPrintSupermaximals(int min_length, int min_percent)
+    {
+        SUBSTR_VECTOR the_result;
+        the_result = FindSupermaximals(min_length, min_percent);
+        
+        stringstream the_result_as_stringstream;
+        for(int index = 0 ; index < the_result.size(); index++)
+        {
+            the_result_as_stringstream << the_result[index];
+        }
+        
+        the_result_as_stringstream << endl;
+        
+        return the_result_as_stringstream.str();
+    }
+
+
+    template<typename T, class C>
+    typename IMUSANT_T_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
+    IMUSANT_T_SuffixTreeBuilder<T,C>::
     FindRepeatedSubstrings(int min_length) const
     {
         SUBSTR_VECTOR ret_val;
         
         //tree and ID_map must be built beforehand in a visit event
-        if (tree_ptr_==NULL || id_vec_map_.size()==0)  // No files have been added...
+        if (tree_ptr_==NULL )  // No files have been added...
         {
             return ret_val;
         }
@@ -99,11 +137,11 @@ namespace IMUSANT
 #ifdef VERBOSE
         tree_ptr_->print(cout);
 #endif
-        vector< pair<vector<typename _tree::number>, int> > common_substrings_indexes;
+        vector< pair<vector<typename stree::number>, int> > common_substrings_indexes;
         
         //get IDS from map of sentences
         vector<int> ids;
-        map< int,typename _tree::value_type> sentences = tree_ptr_->get_sentences(); //rather than call id_vec_map_;
+        map< int,typename stree::value_type> sentences = tree_ptr_->get_sentences(); //rather than call id_vec_map_;
         for (auto ivm = sentences.begin(); ivm != sentences.end(); ivm++) {
                         ids.push_back(ivm->first);
         }
@@ -127,7 +165,7 @@ namespace IMUSANT
                 if (! sequence_added)
                 {
                     // Add the interval sequence into the return value.
-                    for ( typename _tree::size_type t = csii->second;
+                    for ( typename stree::size_type t = csii->second;
                          t < csii->second + csi->second;
                          t++)
                     {
@@ -152,8 +190,8 @@ namespace IMUSANT
 
     
     template<typename T, class C>
-    typename IMUSANT_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
-    IMUSANT_SuffixTreeBuilder<T,C>::
+    typename IMUSANT_T_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
+    IMUSANT_T_SuffixTreeBuilder<T,C>::
     FindSupermaximals(int min_length, int min_percent)
     {
         SUBSTR_VECTOR ret_val;
@@ -187,4 +225,4 @@ namespace IMUSANT
         return ret_val;
     }
 }
-#endif /* defined(____IMUSANT_SuffixTreeBuilder__) */
+#endif /* defined(____IMUSANT_T_SuffixTreeBuilder__) */

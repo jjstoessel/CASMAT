@@ -21,23 +21,6 @@ namespace IMUSANT {
         tree_ptr_ = buildSuffixTree(id_vec_map_);
     }
     
-    string
-    IMUSANT_ContourSuffixTreeBuilder::
-    findAndPrintRepeatedContourSubstrings(int min_length)
-    {
-        SUBSTR_VECTOR the_result;
-        the_result = FindRepeatedSubstrings(min_length);
-        
-        stringstream the_result_as_stringstream;
-        for(int index = 0 ; index < the_result.size(); index++)
-        {
-            the_result_as_stringstream << the_result[index];
-        }
-        
-        the_result_as_stringstream << endl;
-        
-        return the_result_as_stringstream.str();
-    }
     
     IMUSANT_range
     IMUSANT_ContourSuffixTreeBuilder::
@@ -63,59 +46,7 @@ namespace IMUSANT {
             }
         }
     }
-    
-    string
-    IMUSANT_ContourSuffixTreeBuilder::
-    findAndPrintSupermaximalContours(int min_length, int min_percent)
-    {
-        SUBSTR_VECTOR the_result;
-        the_result = FindSupermaximals(min_length, min_percent);
         
-        stringstream the_result_as_stringstream;
-        for(int index = 0 ; index < the_result.size(); index++)
-        {
-            the_result_as_stringstream << the_result[index];
-        }
-        
-        the_result_as_stringstream << endl;
-        
-        return the_result_as_stringstream.str();
-    }
-
-    
-    /*IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR
-    IMUSANT_ContourSuffixTreeBuilder::
-    findSupermaximalsContours(int min_length, int min_percent)
-    {
-        SUBSTR_VECTOR ret_val;
-        
-        if (tree_ptr_==NULL || id_vec_map_.empty())
-        {
-            return ret_val;
-        }
-        
-        repeats<vector<IMUSANT_contour_symbol> > rep(tree_ptr_);
-        list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
-        //MEMO auto = list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*>::const_iterator
-        for (auto q = supermaxs.begin(); q!=supermaxs.end(); q++)
-        {
-            IMUSANT_repeated_contour_substring repeated_substr;
-            
-            for (repeats<vector<IMUSANT_contour_symbol> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
-            {
-                repeated_substr.sequence.push_back(*t);
-            }
-            
-            repeated_substr.add_occurrence( 0,
-                                           (*q)->num_witness,
-                                           (*q)->num_leaves,
-                                           (*q)->percent );
-            ret_val.push_back(repeated_substr);
-        }
-        
-        return ret_val;
-    }*/
-    
     IMUSANT_ContourSuffixTreeBuilder::CONTOUR_TABLE
     IMUSANT_ContourSuffixTreeBuilder::entabulateMelodicDirectionPairs()
     {

@@ -12,13 +12,13 @@
 #include <stdio.h>
 #include <vector>
 #include <map>
-#include "IMUSANT_SuffixTreeBuilder.h"
+#include "IMUSANT_T_SuffixTreeBuilder.h"
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_T_RepeatedSubstring.h"
 
 namespace IMUSANT {
     
-    class IMUSANT_ContourSuffixTreeBuilder : public IMUSANT_SuffixTreeBuilder<IMUSANT_contour_symbol,IMUSANT_processing>
+    class IMUSANT_ContourSuffixTreeBuilder : public IMUSANT_T_SuffixTreeBuilder<IMUSANT_contour_symbol,IMUSANT_processing>
     {
     public:
         typedef std::map<int, map<pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int> > CONTOUR_TABLE;
@@ -27,8 +27,6 @@ namespace IMUSANT {
         
         void            Visit(const IMUSANT_processing&);
         
-        string          findAndPrintRepeatedContourSubstrings(int min_length=5);
-        string          findAndPrintSupermaximalContours(int min_length, int min_percent);
         CONTOUR_TABLE   entabulateMelodicDirectionPairs();
         string          entabulateAndPrintMelodicDirectionPairs();
     private:

@@ -26,12 +26,14 @@ using namespace std;
 
 namespace IMUSANT {
 
-    IMUSANT_IntervalSuffixTreeBuilder::IMUSANT_IntervalSuffixTreeBuilder()
+    IMUSANT_IntervalSuffixTreeBuilder::
+    IMUSANT_IntervalSuffixTreeBuilder()
     {
     }
     
     void
-    IMUSANT_IntervalSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
+    IMUSANT_IntervalSuffixTreeBuilder::
+    Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
@@ -59,32 +61,15 @@ namespace IMUSANT {
         }
     }
     
-    string
-    IMUSANT_IntervalSuffixTreeBuilder::
-    findAndPrintRepeatedIntervalSubstrings(int min_length)
-    {
-        SUBSTR_VECTOR the_result;
-        the_result = FindRepeatedSubstrings(min_length);
-        
-        stringstream the_result_as_stringstream;
-        for(int index = 0 ; index < the_result.size(); index++)
-        {
-            the_result_as_stringstream << the_result[index];
-        }
-        
-        the_result_as_stringstream << endl;
-        
-        return the_result_as_stringstream.str();
-    }
-    
     
     IMUSANT_range
-    IMUSANT_IntervalSuffixTreeBuilder::CalcRange(IMUSANT_interval& interval) const
+    IMUSANT_IntervalSuffixTreeBuilder::
+    CalcRange(IMUSANT_interval& interval) const
     {
         return interval.getLocation();
     }
     
-    string
+    /*string
     IMUSANT_IntervalSuffixTreeBuilder::
     findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
@@ -100,139 +85,6 @@ namespace IMUSANT {
         the_result_as_stringstream << endl;
         
         return the_result_as_stringstream.str();
-    }
-    
-    // Find longest common subsequence of intervals for pairs of file/works
-    // This example of dynamic programming is adapted from Crochemore and Lecroq,
-    // Pattern MAtching and text compression algorithms, available from:
-    // http://www-igm.univ-mlv.fr/~mac/REC/DOC/03-CRC.ps
-    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR
-    IMUSANT_IntervalSuffixTreeBuilder::
-    findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
-    {
-        SUBSTR_VECTOR ret_val;
-        
-        for (auto i = id_vec_map_.begin(); i!=id_vec_map_.end(); i++)
-        {
-            vector<IMUSANT_interval> x = i->second;
-            if (reverse_search) {
-                x.pop_back();
-                reverse(x.begin(),x.end());
-                retrograde = true; //switch for double reverse search
-            }
-            vector<IMUSANT_interval>::size_type m = x.size();
-            auto j = i;
-            for ( j++ ; j!=id_vec_map_.end(); j++) //will bail if only one element
-            {
-                
-                vector<IMUSANT_interval> y = j->second;
-                if (retrograde) {
-                    y.pop_back();
-                    reverse(y.begin(), y.end());
-                }
-                int a = 0, b = 0;
-                vector<IMUSANT_interval>::size_type n = y.size();
-                int_2d_array_t lcs(boost::extents[m][n]); //ints auto zeroed
-                
-                
-                for (; a < m-1; a++)
-                {
-                    for (b=0; b<n-1; b++)
-                    {
-                        if (x[a]==y[b])
-                        {
-                            lcs[a+1][b+1]=lcs[a][b]+1;
-                        }
-                        else
-                        {
-                            lcs[a+1][b+1]=MAX(lcs[a+1][b],lcs[a][b+1]);
-                        }
-                    }
-                }
-                
-                //now trace back to find lcs
-                int limit_a = 0, limit_b = 0;
-                if (reverse_search) limit_a = 1;
-                if (retrograde) limit_b = 1;
-                
-                deque<pair<IMUSANT_interval,IMUSANT_interval> > z;
-                while (a > limit_a && b > limit_b )
-                {
-                    if(lcs[a][b]==lcs[a-1][b-1]+1 && x[a-1]==y[b-1])
-                    {
-                        pair<IMUSANT_interval,IMUSANT_interval> p(x[a-1],y[b-1]);
-                        z.push_front(p);
-                        a--; b--;
-                    }
-                    else if (lcs[a-1][b] > lcs[a][b-1]) a--;
-                    else b--;
-                }
-                
-                IMUSANT_repeated_interval_substring repeated_interval_substring;
-                bool first_loc_set = false;
-                //cout << "Common subsequence: " << endl;
-                for (deque<pair<IMUSANT_interval,IMUSANT_interval> >::iterator iv=z.begin(); iv!=z.end(); iv++)
-                {
-                    IMUSANT_range loc1 = iv->first.getLocation();
-                    IMUSANT_range loc2 = iv->second.getLocation();
-                    if (consecutive)
-                    {
-                        if (iv+1!=z.end())
-                        {
-                            repeated_interval_substring.sequence.push_back(iv->first);
-                            if (!first_loc_set)
-                            {
-                                repeated_interval_substring.add_occurrence(i->first,
-                                                                           loc1.first.partID,
-                                                                           loc1.first.measure,
-                                                                           loc1.first.note_index );
-                                repeated_interval_substring.add_occurrence(j->first,
-                                                                           loc2.first.partID,
-                                                                           loc2.first.measure,
-                                                                           loc2.first.note_index );
-                                first_loc_set = true;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        repeated_interval_substring.sequence.push_back(iv->first);
-                        if (!first_loc_set)
-                        {
-                            repeated_interval_substring.add_occurrence(i->first,
-                                                                       loc1.first.partID,
-                                                                       loc1.first.measure,
-                                                                       loc1.first.note_index );
-                            repeated_interval_substring.add_occurrence(j->first,
-                                                                       loc2.first.partID,
-                                                                       loc2.first.measure,
-                                                                       loc2.first.note_index );
-                            first_loc_set = true;
-                        }
-                    }
-                }
-                ret_val.push_back(repeated_interval_substring);
-            }
-        }
-        return ret_val;
-    }
-    
-    string
-    IMUSANT_IntervalSuffixTreeBuilder::
-    findAndPrintSupermaximalIntervals(int min_length, int min_percent)
-    {
-        SUBSTR_VECTOR the_result;
-        the_result = FindSupermaximals(min_length, min_percent);
-        
-        stringstream the_result_as_stringstream;
-        for(int index = 0 ; index < the_result.size(); index++)
-        {
-            the_result_as_stringstream << the_result[index];
-        }
-        
-        the_result_as_stringstream << endl;
-        
-        return the_result_as_stringstream.str();
-    }
+    }*/
     
 }

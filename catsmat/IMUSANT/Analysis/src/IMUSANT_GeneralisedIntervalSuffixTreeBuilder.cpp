@@ -17,12 +17,14 @@ using namespace std;
 
 namespace IMUSANT {
 
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::IMUSANT_GeneralisedIntervalSuffixTreeBuilder()
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder
+    ::IMUSANT_GeneralisedIntervalSuffixTreeBuilder()
     {
     }
     
     void
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
+    IMUSANT_GeneralisedIntervalSuffixTreeBuilder
+    ::Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
@@ -51,26 +53,7 @@ namespace IMUSANT {
     }
     
     
-    string
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
-    findAndPrintRepeatedIntervalSubstrings(int min_length)
-    {
-        SUBSTR_VECTOR the_result;
-        the_result = FindRepeatedSubstrings(min_length);
-        
-        stringstream the_result_as_stringstream;
-        for(int index = 0 ; index < the_result.size(); index++)
-        {
-            the_result_as_stringstream << the_result[index];
-        }
-        
-        the_result_as_stringstream << endl;
-        
-        return the_result_as_stringstream.str();
-    }
-        
-    
-    string
+    /*string
     IMUSANT_GeneralisedIntervalSuffixTreeBuilder::findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR the_result;
@@ -202,25 +185,7 @@ namespace IMUSANT {
             }
         }
         return ret_val;
-    }
-    
-    string
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
-    findAndPrintSupermaximalIntervals(int min_length, int min_percent)
-    {
-        SUBSTR_VECTOR the_result;
-        the_result = FindSupermaximals(min_length, min_percent);
-        
-        stringstream the_result_as_stringstream;
-        for(int index = 0 ; index < the_result.size(); index++)
-        {
-            the_result_as_stringstream << the_result[index];
-        }
-        
-        the_result_as_stringstream << endl;
-        
-        return the_result_as_stringstream.str();
-    }
+    }*/
     
     IMUSANT_range
     IMUSANT_GeneralisedIntervalSuffixTreeBuilder::

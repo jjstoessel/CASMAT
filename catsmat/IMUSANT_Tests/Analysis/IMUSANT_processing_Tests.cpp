@@ -18,6 +18,7 @@
 #include "IMUSANT_ContourSuffixTreeBuilder.h"
 #include "IMUSANT_PitchSuffixTreeBuilder.h"
 #include "IMUSANT_LBDM_segmenter.h"
+#include "IMUSANT_VectorMapAnalysisTypes.hpp"
 
 // #define VERBOSE //toggle for verbose output
 
@@ -44,7 +45,7 @@ protected:
     IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR  find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file);
     
     IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR find_supermaximals_intervals_by_file(string relative_path_to_test_data_file);
-    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search=false, bool retrograde=false);
+    IMUSANT_IntervalVectorMapAnalysis::SUBSTR_VECTOR find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search=false, bool retrograde=false);
     
     vector<S_IMUSANT_segmented_part_LBDM>       findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files);
     //vector<IMUSANT_repeated_pitch_substring>    find_lcs_pairs_pitches_by_file(string relative_path_to_test_data_file);
@@ -146,16 +147,16 @@ find_supermaximals_intervals_by_file(string relative_path_to_test_data_file)
     return repeated_substrings_result;
 }
 
-IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR
+IMUSANT_IntervalVectorMapAnalysis::SUBSTR_VECTOR
 IMUSANT_processing_Tests::
 find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search, bool retrograde)
 {
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
-    IMUSANT_IntervalSuffixTreeBuilder interval_processor;
+    IMUSANT_IntervalVectorMapAnalysis interval_processor;
     interval_processor.Visit(*the_processor);
     
-    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
-    repeated_substrings_result = interval_processor.findLcsPairsIntervals(true,reverse_search,retrograde);
+    IMUSANT_IntervalVectorMapAnalysis::SUBSTR_VECTOR repeated_substrings_result;
+    repeated_substrings_result = interval_processor.FindLCSPairs();
     
     return repeated_substrings_result;
 }
@@ -165,9 +166,9 @@ IMUSANT_processing_Tests::
 find_lcs_pairs_pitches_by_file(string relative_path_to_test_data_file)
 {
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
-    IMUSANT_PitchSuffixTreeBuilder pitch_processor;
+    IMUSANT_PitchVectorMapAnalysis pitch_processor;
     pitch_processor.Visit(*the_processor);
-    string s = pitch_processor.findAndPrintLcsPairsPitches(true);
+    string s = pitch_processor.FindAndPrintLCSPairs();
     
     return s;
 }

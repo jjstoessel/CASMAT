@@ -10,7 +10,7 @@
 #define CATSMAT_TrigramSuffixTreeBuilder_hpp
 
 #include <stdio.h>
-#include "IMUSANT_SuffixTreeBuilder.h"
+#include "IMUSANT_T_SuffixTreeBuilder.h"
 #include "CATSMAT_TrigramSequences.hpp"
 
 using namespace std;
@@ -18,7 +18,7 @@ using namespace std;
 namespace CATSMAT
 {
     //implementation to take TrigramSequences, i.e. one score
-    class CATSMAT_TrigramSuffixTreeBuilder : public IMUSANT_SuffixTreeBuilder<CATSMAT_TrigramSequences::Token, CATSMAT_TrigramSequences>
+    class CATSMAT_TrigramSuffixTreeBuilder : public IMUSANT_T_SuffixTreeBuilder<CATSMAT_TrigramSequences::Token, CATSMAT_TrigramSequences>
     {
     public:
         CATSMAT_TrigramSuffixTreeBuilder() {}

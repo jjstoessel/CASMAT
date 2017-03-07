@@ -38,7 +38,7 @@ namespace IMUSANT {
         }
     }
 
-    string
+    /*string
     IMUSANT_PitchSuffixTreeBuilder::
     findAndPrintLcsPairsPitches(bool consecutive)
     {
@@ -54,10 +54,10 @@ namespace IMUSANT {
         the_result_as_stringstream << endl;
         
         return the_result_as_stringstream.str();
-    }
+    }*/
 
     //Find longest common subsequence of pitches for pairs of file/works
-    IMUSANT_PitchSuffixTreeBuilder::SUBSTR_VECTOR
+    /*IMUSANT_PitchSuffixTreeBuilder::SUBSTR_VECTOR
     IMUSANT_PitchSuffixTreeBuilder::
     findLcsPairsPitches(bool consecutive)
     {
@@ -127,7 +127,7 @@ namespace IMUSANT {
         
          return ret_val;
         
-    }
+    }*/
     
     IMUSANT_range
     IMUSANT_PitchSuffixTreeBuilder::

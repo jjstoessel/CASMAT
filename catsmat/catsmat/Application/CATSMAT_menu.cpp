@@ -18,6 +18,7 @@
 #include "IMUSANT_ContourSuffixTreeBuilder.h"
 #include "IMUSANT_LBDM_segmenter.h"
 #include "CATSMAT_scoredatacollector.h"
+#include "IMUSANT_VectorMapAnalysisTypes.hpp"
 
 using namespace std;
 using namespace CATSMAT;
@@ -177,6 +178,9 @@ runToolsMenu(CATSMAT_processing* processor)
     IMUSANT_IntervalSuffixTreeBuilder  ip;
     IMUSANT_PitchSuffixTreeBuilder     pp;
     IMUSANT_ContourSuffixTreeBuilder   cp;
+    IMUSANT_IntervalVectorMapAnalysis  iv;
+    IMUSANT_PitchVectorMapAnalysis     pv;
+    
     do
     {
         outputToolsMenu(cout);
@@ -196,7 +200,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     ip.Visit(*processor);
                     cout << "Enter minimum length: ";
                     cin >> length;
-                    cout << ip.findAndPrintRepeatedIntervalSubstrings(length);
+                    cout << ip.FindAndPrintRepeatedSubstrings(length);
                     break;
                 //Find and print repeated contours substrings
                 case 'B':
@@ -204,19 +208,19 @@ runToolsMenu(CATSMAT_processing* processor)
                     cout << "Enter minimum length: ";
                     cin >> length;
                     cp.Visit(*processor);
-                    cout << cp.findAndPrintRepeatedContourSubstrings(length);
+                    cout << cp.FindAndPrintRepeatedSubstrings(length);
                     break;
                 //Find interval supermaximals
                 case 'C':
                 case 'c':
                     ip.Visit(*processor);
-                    cout << ip.findAndPrintSupermaximalIntervals(4,100); //length and percent need to be inputs
+                    cout << ip.FindAndPrintSupermaximals(4,100); //length and percent need to be inputs
                     break;
                 //Find contour supermaximals
                 case 'D':
                 case 'd':
                     cp.Visit(*processor);
-                    cout << cp.findAndPrintSupermaximalContours(4,100);
+                    cout << cp.FindAndPrintSupermaximals(4,100);
                     break;
                 //Find longest common intervallic subsequence in all pairs
                 case 'E':
@@ -224,8 +228,8 @@ runToolsMenu(CATSMAT_processing* processor)
                     cout << "Only find continguous segments? (y/n) ";
                     cin >> yn;
                     if (yn == 'y') continguous = true;
-                    ip.Visit(*processor);
-                    cout << ip.findAndPrintLcsPairsIntervals(continguous);
+                    iv.Visit(*processor);
+                    cout << iv.FindAndPrintLCSPairs(continguous);
                     break;
                 //Find longest common intervallic subsequence in all pairs (reverse method)
                 case 'F':
@@ -233,8 +237,8 @@ runToolsMenu(CATSMAT_processing* processor)
                     cout << "Only find continguous segments? (y/n) ";
                     cin >> yn;
                     if (yn == 'y') continguous = true;
-                    ip.Visit(*processor);
-                    cout << ip.findAndPrintLcsPairsIntervals(continguous,true);
+                    iv.Visit(*processor);
+                    cout << iv.FindAndPrintLCSPairs(continguous,true);
                     break;
                 //Find longest common pitch subsequence in all pairs
                 case 'G':
@@ -242,8 +246,8 @@ runToolsMenu(CATSMAT_processing* processor)
                     cout << "Only find continguous segments? (y/n) ";
                     cin >> yn;
                     if (yn == 'y') continguous = true;
-                    pp.Visit(*processor);
-                    cout << pp.findAndPrintLcsPairsPitches(continguous);
+                    pv.Visit(*processor);
+                    cout << pv.FindAndPrintLCSPairs(continguous);
                     break;
                 //Find melodic segments using LBDM
                 case 'H':
@@ -298,14 +302,16 @@ runToolsMenu(CATSMAT_processing* processor)
                     ip.Visit(*processor);
                     cp.Visit(*processor);
                     pp.Visit(*processor);
-
-                    cout << ip.findAndPrintRepeatedIntervalSubstrings();
-                    cout << cp.findAndPrintRepeatedContourSubstrings();
-                    cout << ip.findAndPrintSupermaximalIntervals(4,100);
-                    cout << cp.findAndPrintSupermaximalContours(4,100);
-                    cout << ip.findAndPrintLcsPairsIntervals(false);
-                    cout << pp.findAndPrintLcsPairsPitches(false);
-                    cout << ip.findAndPrintLcsPairsIntervals(false, true);
+                    iv.Visit(*processor);
+                    pv.Visit(*processor);
+                    
+                    cout << ip.FindAndPrintRepeatedSubstrings();
+                    cout << cp.FindAndPrintRepeatedSubstrings();
+                    cout << ip.FindAndPrintSupermaximals(4,100);
+                    cout << cp.FindAndPrintSupermaximals(4,100);
+                    cout << iv.FindAndPrintLCSPairs(false);
+                    cout << pv.FindAndPrintLCSPairs(false);
+                    cout << iv.FindAndPrintLCSPairs(false, true);
                     break;
                 //meldir
                 case 'r':

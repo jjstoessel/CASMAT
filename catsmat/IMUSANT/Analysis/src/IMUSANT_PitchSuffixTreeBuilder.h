@@ -10,21 +10,19 @@
 #define ____IMUSANT_PitchSuffixTreeBuilder__
 
 #include <stdio.h>
-#include "IMUSANT_SuffixTreeBuilder.h"
+#include "IMUSANT_T_SuffixTreeBuilder.h"
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_T_RepeatedSubstring.h"
 
 namespace IMUSANT {
     
-    class IMUSANT_PitchSuffixTreeBuilder : public IMUSANT_SuffixTreeBuilder<IMUSANT_pitch,IMUSANT_processing>
+    class IMUSANT_PitchSuffixTreeBuilder : public IMUSANT_T_SuffixTreeBuilder<IMUSANT_pitch,IMUSANT_processing>
     {
     public:
                 
         IMUSANT_PitchSuffixTreeBuilder() {}
         
         void    Visit(const IMUSANT_processing&);
-        string  findAndPrintLcsPairsPitches(bool consecutive=true);
-        SUBSTR_VECTOR	findLcsPairsPitches(bool consecutive=true);
         
     private:
         

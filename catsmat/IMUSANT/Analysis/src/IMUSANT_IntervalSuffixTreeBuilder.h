@@ -10,23 +10,21 @@
 #define ____IMUSANT_IntervalSuffixTreeBuilder__
 
 #include <stdio.h>
-#include "IMUSANT_SuffixTreeBuilder.h"
+#include "IMUSANT_T_SuffixTreeBuilder.h"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_T_RepeatedSubstring.h"
 
 namespace IMUSANT {
     
-    class IMUSANT_IntervalSuffixTreeBuilder : public IMUSANT_SuffixTreeBuilder<IMUSANT_interval,IMUSANT_processing>
+    class IMUSANT_IntervalSuffixTreeBuilder : public IMUSANT_T_SuffixTreeBuilder<IMUSANT_interval,IMUSANT_processing>
     {
     public:
         
         IMUSANT_IntervalSuffixTreeBuilder();
         ~IMUSANT_IntervalSuffixTreeBuilder() {} 
         
-        string          findAndPrintRepeatedIntervalSubstrings(int min_length=4);
-        string          findAndPrintSupermaximalIntervals(int min_length=4, int min_percent=100);
-        string          findAndPrintLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
-        SUBSTR_VECTOR   findLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
+        //string          findAndPrintLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
+        //SUBSTR_VECTOR   findLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
         
         void            Visit(const IMUSANT_processing&);
         
