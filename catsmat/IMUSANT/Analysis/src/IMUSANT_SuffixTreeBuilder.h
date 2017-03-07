@@ -39,19 +39,20 @@ namespace IMUSANT
         typedef typename _tree::number number;
         typedef map<int, vector<T> > ID_vec_map;
         
-        IMUSANT_SuffixTreeBuilder() : mTreePtr(NULL) {}
-        ~IMUSANT_SuffixTreeBuilder() { if (mTreePtr!=NULL) delete mTreePtr; }
+        IMUSANT_SuffixTreeBuilder() : tree_ptr_(NULL) {}
+        ~IMUSANT_SuffixTreeBuilder() { if (tree_ptr_!=NULL) delete tree_ptr_; }
 
         virtual void    Visit(const C&) = 0;
-        SUBSTR_VECTOR   FindRepeatedIntervalSubstrings(int min_length) const;
+        SUBSTR_VECTOR   FindRepeatedSubstrings(int min_length=4) const;
         
     protected:
-        virtual void  BuildVectorMap(map<S_IMUSANT_score,IMUSANT_collection_visitor>&) = 0;
+        virtual void    BuildVectorMap(map<S_IMUSANT_score,IMUSANT_collection_visitor>&) = 0;
+        virtual IMUSANT_range CalcRange(T&) const = 0; //called in FindRepeatedIntervalSubstrings
         
         suffixtree< vector<T> >* buildSuffixTree(const map<int, vector<T> >& id_vec_map);
         
-        _tree*       mTreePtr = NULL;
-        ID_vec_map   mID_vec_map;
+        _tree*          tree_ptr_ = NULL;
+        ID_vec_map      id_vec_map_;
     };
     
     typedef boost::multi_array<int, 2> int_2d_array_t;
@@ -84,65 +85,64 @@ namespace IMUSANT
     template<typename T, class C>
     typename IMUSANT_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
     IMUSANT_SuffixTreeBuilder<T,C>::
-    FindRepeatedIntervalSubstrings(int min_length) const
+    FindRepeatedSubstrings(int min_length) const
     {
         SUBSTR_VECTOR ret_val;
         
         //tree and ID_map must be built beforehand in a visit event
-        if (mTreePtr==NULL || mID_vec_map.size()==0)  // No files have been added...
+        if (tree_ptr_==NULL || id_vec_map_.size()==0)  // No files have been added...
         {
             return ret_val;
         }
         
 #ifdef VERBOSE
-        mTreePtr->print(cout);
+        tree_ptr_->print(cout);
 #endif
-        vector< pair<vector<typename _tree::number>, int> > common_substrings;
+        vector< pair<vector<typename _tree::number>, int> > common_substrings_indexes;
         
-        //get IDS from map of ID to each interval_vector
-        vector<int> local_ids;
-        for (auto ivm = mID_vec_map.begin(); ivm != mID_vec_map.end(); ivm++) {
-            local_ids.push_back(ivm->first);
+        //get IDS from map of sentences
+        vector<int> ids;
+        map< int,typename _tree::value_type> sentences = tree_ptr_->get_sentences(); //rather than call id_vec_map_;
+        for (auto ivm = sentences.begin(); ivm != sentences.end(); ivm++) {
+                        ids.push_back(ivm->first);
         }
-        //iterate tree for each ID
-        common_substrings = mTreePtr->find_common_subsequences(local_ids, min_length);
+        
+        //find all repeats for each ID
+        common_substrings_indexes = tree_ptr_->find_common_subsequences(ids, min_length);
     
-        //iterate through substring results
-        for (auto common_substrings_iter = common_substrings.begin();
-             common_substrings_iter != common_substrings.end();
-             common_substrings_iter++)
+        //iterate through substring indices results
+        for (auto csi = common_substrings_indexes.begin();
+             csi != common_substrings_indexes.end();
+             csi++)
         {
-            IMUSANT_t_repeated_substring<T> repeated_substring;
-            bool int_sequence_added_to_ret_value = false;
+            IMUSANT_t_repeated_substring<T> repeat;
+            bool sequence_added = false;
             
-            //iterate through substring
-            for (auto substring_iter = common_substrings_iter->first.begin();
-                 substring_iter != common_substrings_iter->first.end();
-                 substring_iter++)
+            //iterate through substring using indices
+            for (auto csii = csi->first.begin(); csii != csi->first.end(); csii++)
             {
-                vector<T> tt = mID_vec_map.at(substring_iter->first); //rather than: vector<T> tt = mID_vec_map[substring_iter->first];
-                if (! int_sequence_added_to_ret_value)
+                vector<T> tt = sentences[csii->first]; // rather than id_vec_map_.at(csii->first);
+                
+                if (! sequence_added)
                 {
                     // Add the interval sequence into the return value.
-                    for ( typename _tree::size_type t = substring_iter->second;
-                         t < substring_iter->second + common_substrings_iter->second;
+                    for ( typename _tree::size_type t = csii->second;
+                         t < csii->second + csi->second;
                          t++)
                     {
-                        repeated_substring.sequence.push_back(tt[t]);
+                        repeat.sequence.push_back(tt[t]);
                     }
                     
-                    int_sequence_added_to_ret_value = true;
+                    sequence_added = true;
                 }
                 
                 // Add the loction of this repetition of the interval sequence into the return value.
-                //IMUSANT_interval interval = intervals[substring_iter->second];
-                //IMUSANT_range range = interval.getLocation();
-                //repeated_substring.add_occurrence(substring_iter->first, range.first.partID, range.first.measure, range.first.note_index );
-                repeated_substring.add_occurrence(substring_iter->first, 0, 0, 0 );
+                IMUSANT_range range = CalcRange(tt[csii->second]);
+                repeat.add_occurrence(csii->first, range.first.partID, range.first.measure, range.first.note_index );
                 
             }
             
-            ret_val.push_back(repeated_substring);
+            ret_val.push_back(repeat);
         }
         
         return ret_val;

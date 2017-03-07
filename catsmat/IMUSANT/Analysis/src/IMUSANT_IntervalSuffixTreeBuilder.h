@@ -24,7 +24,6 @@ namespace IMUSANT {
         ~IMUSANT_IntervalSuffixTreeBuilder() {} 
         
         string          findAndPrintRepeatedIntervalSubstrings(int min_length=4);
-        SUBSTR_VECTOR   findRepeatedIntervalSubstrings(int min_length=4);
         string          findAndPrintSupermaximalIntervals(int min_length=4, int min_percent=100);
         SUBSTR_VECTOR   findSupermaximalIntervals(int min_length=4, int min_percent=100);
         string          findAndPrintLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
@@ -34,7 +33,7 @@ namespace IMUSANT {
         
     private:
         void            BuildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
-        //_tree*  buildIntervalSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
+        IMUSANT_range   CalcRange(IMUSANT_interval&) const;
     };
 }
 #endif /* defined(____IMUSANT_IntervalSuffixTreeBuilder__) */

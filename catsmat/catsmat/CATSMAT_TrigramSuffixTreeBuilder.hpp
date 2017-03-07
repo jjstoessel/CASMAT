@@ -25,9 +25,10 @@ namespace CATSMAT
         
         void    Visit(const CATSMAT_TrigramSequences&);
     private:
-        
         void    BuildVectorMap(map<S_IMUSANT_score,IMUSANT_collection_visitor>&) {};
         void    BuildVectorMap(const CATSMAT_TrigramSequences::TokenVectors&);
+        
+        IMUSANT_range CalcRange(CATSMAT_TrigramSequences::Token&) const;
     };
 }
 #endif /* CATSMAT_TrigramSuffixTreeBuilder_hpp */

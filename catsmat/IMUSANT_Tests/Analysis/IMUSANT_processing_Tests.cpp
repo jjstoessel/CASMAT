@@ -14,9 +14,9 @@
 
 #include "libIMUSANT.h"
 #include <boost/filesystem.hpp>
-#include "IMUSANT_interval_processor.h"
-#include "IMUSANT_contour_processor.h"
-#include "IMUSANT_pitch_processor.h"
+#include "IMUSANT_IntervalSuffixTreeBuilder.h"
+#include "IMUSANT_ContourSuffixTreeBuilder.h"
+#include "IMUSANT_PitchSuffixTreeBuilder.h"
 #include "IMUSANT_LBDM_segmenter.h"
 
 // #define VERBOSE //toggle for verbose output
@@ -39,12 +39,12 @@ protected:
         // You can do clean-up work that doesn't throw exceptions here.
     }
     
-    vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_file(string path_to_test_data_file);
-    vector<IMUSANT_repeated_interval_substring> find_repeated_substrings_by_directory(string path_to_test_data_directory);
-    vector<IMUSANT_repeated_contour_substring>  find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file);
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR find_repeated_substrings_by_file(string path_to_test_data_file);
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR find_repeated_substrings_by_directory(string path_to_test_data_directory);
+    IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR  find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file);
     
-    vector<IMUSANT_repeated_interval_substring> find_supermaximals_intervals_by_file(string relative_path_to_test_data_file);
-    vector<IMUSANT_repeated_interval_substring> find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search=false, bool retrograde=false);
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR find_supermaximals_intervals_by_file(string relative_path_to_test_data_file);
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search=false, bool retrograde=false);
     
     vector<S_IMUSANT_segmented_part_LBDM>       findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files);
     //vector<IMUSANT_repeated_pitch_substring>    find_lcs_pairs_pitches_by_file(string relative_path_to_test_data_file);
@@ -102,59 +102,59 @@ file_to_processor(string relative_path_to_test_data_file)
     return the_processor;
 }
 
-vector<IMUSANT_repeated_interval_substring>
+IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR
 IMUSANT_processing_Tests::
 find_repeated_substrings_by_file(string relative_path_to_test_data_file)
 {
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
     
-    IMUSANT_interval_processor interval_processor;
+    IMUSANT_IntervalSuffixTreeBuilder interval_processor;
     interval_processor.Visit(*the_processor);
     
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = interval_processor.findRepeatedIntervalSubstrings();
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
+    repeated_substrings_result = interval_processor.FindRepeatedSubstrings();
     
     return repeated_substrings_result;
 }
 
-vector<IMUSANT_repeated_contour_substring>
+IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR
 IMUSANT_processing_Tests::
 find_repeated_contour_substrings_by_file(string relative_path_to_test_data_file)
 {
     
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
-    IMUSANT_contour_processor contour_processor;
+    IMUSANT_ContourSuffixTreeBuilder contour_processor;
     contour_processor.Visit(*the_processor);
-    vector<IMUSANT_repeated_contour_substring> repeated_substrings_result;
-    repeated_substrings_result = contour_processor.findRepeatedContourSubstrings();
+    IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
+    repeated_substrings_result = contour_processor.FindRepeatedSubstrings();
     
     return repeated_substrings_result;
     
 }
 
-vector<IMUSANT_repeated_interval_substring>
+IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR
 IMUSANT_processing_Tests::
 find_supermaximals_intervals_by_file(string relative_path_to_test_data_file)
 {
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
-    IMUSANT_interval_processor interval_processor;
+    IMUSANT_IntervalSuffixTreeBuilder interval_processor;
     interval_processor.Visit(*the_processor);
     
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
     repeated_substrings_result = interval_processor.findSupermaximalIntervals(4, 100); //parameterise
     
     return repeated_substrings_result;
 }
 
-vector<IMUSANT_repeated_interval_substring>
+IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR
 IMUSANT_processing_Tests::
 find_lcs_pairs_intervals_by_file(string relative_path_to_test_data_file, bool reverse_search, bool retrograde)
 {
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
-    IMUSANT_interval_processor interval_processor;
+    IMUSANT_IntervalSuffixTreeBuilder interval_processor;
     interval_processor.Visit(*the_processor);
     
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
     repeated_substrings_result = interval_processor.findLcsPairsIntervals(true,reverse_search,retrograde);
     
     return repeated_substrings_result;
@@ -165,7 +165,7 @@ IMUSANT_processing_Tests::
 find_lcs_pairs_pitches_by_file(string relative_path_to_test_data_file)
 {
     IMUSANT_processing *the_processor = file_to_processor(relative_path_to_test_data_file);
-    IMUSANT_pitch_processor pitch_processor;
+    IMUSANT_PitchSuffixTreeBuilder pitch_processor;
     pitch_processor.Visit(*the_processor);
     string s = pitch_processor.findAndPrintLcsPairsPitches(true);
     
@@ -173,7 +173,7 @@ find_lcs_pairs_pitches_by_file(string relative_path_to_test_data_file)
 }
 
 
-vector<IMUSANT_repeated_interval_substring>
+IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR
 IMUSANT_processing_Tests::
 find_repeated_substrings_by_directory(string relative_path_to_test_data_directory)
 {
@@ -197,11 +197,11 @@ find_repeated_substrings_by_directory(string relative_path_to_test_data_director
     IMUSANT_processing *the_processor = new IMUSANT_processing();
     
     the_processor->processDirectoryFiles(testdata);
-    IMUSANT_interval_processor interval_processor;
+    IMUSANT_IntervalSuffixTreeBuilder interval_processor;
     interval_processor.Visit(*the_processor);
     
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
-    repeated_substrings_result = interval_processor.findRepeatedIntervalSubstrings();
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
+    repeated_substrings_result = interval_processor.FindRepeatedSubstrings();
     
     return repeated_substrings_result;
 }
@@ -247,7 +247,7 @@ findSegmentedPartsByFile(vector<string> relative_paths_to_test_data_files)
 
 TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1)
 {
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
     repeated_substrings_result = find_repeated_substrings_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
 
     ASSERT_EQ(3, repeated_substrings_result.size()) << "Unexpected number of substrings";
@@ -271,7 +271,7 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
 
 TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
 {
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
     repeated_substrings_result = find_lcs_pairs_intervals_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
     
     //find_lcs_pairs_intervals_by_file("/RepeatedIntervalSubstrings_SimpleTest1.xml", false, true); // REMOVE TO SEPARATE TEST
@@ -329,7 +329,7 @@ TEST_F(IMUSANT_processing_Tests, exception_when_adding_music_xml_v1_file)
     
     try
     {
-        vector<IMUSANT_repeated_interval_substring> v1_repeated_substrings_result;
+        IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR v1_repeated_substrings_result;
         v1_repeated_substrings_result = find_repeated_substrings_by_file("test_files/MusicXMLv1/Josquin_MSN_Kyrie.xml");
     }
     catch (MusicXML1FormatException ex)
@@ -349,7 +349,7 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mx
     // here just to make sure that the parser covers it.
     
     string relative_path = "MusicXMLv3/Kyrie.xml";
-    vector<IMUSANT_repeated_interval_substring> repeated_substrings_result;
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
     repeated_substrings_result = find_repeated_substrings_by_file(relative_path);
 
 #ifdef VERBOSE
@@ -372,7 +372,7 @@ TEST_F(IMUSANT_processing_Tests, FindRepeatedIntervalSubstrings_Tournai_kyrie_mx
 
 TEST_F(IMUSANT_processing_Tests, findRepeatedContourSubstrings_simple_test_1)
 {
-    vector<IMUSANT_repeated_contour_substring> repeated_substrings_result;
+    IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
     
     repeated_substrings_result = find_repeated_contour_substrings_by_file("MusicXMLv3/RepeatedIntervalSubstrings_SimpleTest1.xml");
     

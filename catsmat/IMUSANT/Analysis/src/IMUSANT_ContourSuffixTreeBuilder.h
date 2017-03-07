@@ -28,7 +28,6 @@ namespace IMUSANT {
         void            Visit(const IMUSANT_processing&);
         
         string          findAndPrintRepeatedContourSubstrings(int min_length=5);
-        SUBSTR_VECTOR   findRepeatedContourSubstrings(int min_length=5);
         string          findAndPrintSupermaximalContours(int min_length, int min_percent);
         SUBSTR_VECTOR   findSupermaximalsContours(int min_length, int min_percent);
         CONTOUR_TABLE   entabulateMelodicDirectionPairs();
@@ -36,7 +35,7 @@ namespace IMUSANT {
     private:
         
         void            BuildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
-        //_tree*  buildContourSuffixTree(IMUSANT_processing::COLLECTIONMAP&);
+        IMUSANT_range   CalcRange(IMUSANT_contour_symbol&) const;
     };
 }
 

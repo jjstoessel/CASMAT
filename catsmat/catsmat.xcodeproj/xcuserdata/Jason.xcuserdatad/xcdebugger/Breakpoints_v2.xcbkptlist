@@ -249,7 +249,7 @@
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "IMUSANT_processing_Tests:: check_file(string relative_path_to_test_data_file)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -265,7 +265,7 @@
             startingLineNumber = "420"
             endingLineNumber = "420"
             landmarkName = "TEST_F(IMUSANT_processing_Tests, FindMelodicSegments_LBDM_Test1)"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -329,23 +329,7 @@
             startingLineNumber = "407"
             endingLineNumber = "407"
             landmarkName = "IMUSANT_interval::calcQuality()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval.cpp"
-            timestampString = "501976688.248153"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
-            landmarkName = "IMUSANT_interval::calcQuality()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -361,7 +345,7 @@
             startingLineNumber = "268"
             endingLineNumber = "268"
             landmarkName = "TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1)"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -393,7 +377,7 @@
             startingLineNumber = "274"
             endingLineNumber = "274"
             landmarkName = "IMUSANT_interval::calculate(const S_IMUSANT_pitch&amp; first, const S_IMUSANT_pitch&amp; second)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -407,7 +391,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "496"
-            endingLineNumber = "496">
+            endingLineNumber = "496"
+            landmarkName = "IMUSANT_interval::check(int calculated_interval)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -421,7 +407,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "529"
-            endingLineNumber = "529">
+            endingLineNumber = "529"
+            landmarkName = "IMUSANT_interval::check()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -627,7 +615,7 @@
             startingLineNumber = "209"
             endingLineNumber = "209"
             landmarkName = "IMUSANT_interval::IMUSANT_interval(const S_IMUSANT_pitch first, const S_IMUSANT_pitch second)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -874,27 +862,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/src/IMUSANT_IntervalSuffixTreeBuilder.cpp"
-            timestampString = "510202790.94441"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CATSMAT_Tests/CATSMAT_TrigramSequences_Test.cpp"
             timestampString = "510213635.309739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_repeats)"
+            landmarkName = "TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_Repeats)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -904,374 +878,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
-            timestampString = "510271916.026801"
+            filePath = "IMUSANT/Analysis/src/IMUSANT_IntervalSuffixTreeBuilder.cpp"
+            timestampString = "510539382.041894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "FindRepeatedIntervalSubstrings(int min_length)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IMUSANT::IMUSANT_SuffixTreeBuilder&lt;unsigned int, CATSMAT::CATSMAT_TrigramSequences&gt;::FindRepeatedIntervalSubstrings(int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
-                  timestampString = "510366004.437897"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "2174">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IMUSANT::IMUSANT_SuffixTreeBuilder&lt;unsigned int, CATSMAT::CATSMAT_TrigramSequences&gt;::FindRepeatedIntervalSubstrings(int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
-                  timestampString = "510366004.441612"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "2194">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IMUSANT::IMUSANT_SuffixTreeBuilder&lt;unsigned int, CATSMAT::CATSMAT_TrigramSequences&gt;::FindRepeatedIntervalSubstrings(int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
-                  timestampString = "510366004.443855"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "3934">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IMUSANT::IMUSANT_SuffixTreeBuilder&lt;unsigned int, CATSMAT::CATSMAT_TrigramSequences&gt;::FindRepeatedIntervalSubstrings(int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
-                  timestampString = "510366004.445885"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "3961">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
-            timestampString = "510271916.026801"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "FindRepeatedIntervalSubstrings(int min_length)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
-            timestampString = "510271916.026801"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "FindRepeatedIntervalSubstrings(int min_length)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
-            timestampString = "510271979.447722"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "FindRepeatedIntervalSubstrings(int min_length)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/src/IMUSANT_SuffixTreeBuilder.h"
-            timestampString = "510271996.952981"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "FindRepeatedIntervalSubstrings(int min_length)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SuffixTree/suffixtree_impl.h"
-            timestampString = "510274444.516759"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "767"
-            endingLineNumber = "767"
-            landmarkName = "find_common_subsequences(const vector&lt;int&gt; IDs, int length)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;unsigned int, std::__1::allocator&lt;unsigned int&gt; &gt; &gt;::find_common_subsequences(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.470271"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "767"
-                  endingLineNumber = "767"
-                  offsetFromSymbolStart = "1505">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_generalised_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_generalised_interval&gt; &gt; &gt;::find_common_subsequences(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.472662"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "767"
-                  endingLineNumber = "767"
-                  offsetFromSymbolStart = "1505">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::find_common_subsequences(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.475123"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "767"
-                  endingLineNumber = "767"
-                  offsetFromSymbolStart = "1835">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::find_common_subsequences(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.477448"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "767"
-                  endingLineNumber = "767"
-                  offsetFromSymbolStart = "1835">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SuffixTree/suffixtree_impl.h"
-            timestampString = "510274862.898572"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "765"
-            endingLineNumber = "765"
-            landmarkName = "find_common_subsequences(const vector&lt;int&gt; IDs, int length)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;unsigned int, std::__1::allocator&lt;unsigned int&gt; &gt; &gt;::find_common_subsequences(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.484215"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "765"
-                  endingLineNumber = "765"
-                  offsetFromSymbolStart = "1425">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_generalised_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_generalised_interval&gt; &gt; &gt;::find_common_subsequences(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.486538"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "765"
-                  endingLineNumber = "765"
-                  offsetFromSymbolStart = "1425">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::find_common_subsequences(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.489513"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "765"
-                  endingLineNumber = "765"
-                  offsetFromSymbolStart = "1750">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::find_common_subsequences(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.491916"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "765"
-                  endingLineNumber = "765"
-                  offsetFromSymbolStart = "1750">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SuffixTree/suffixtree_impl.h"
-            timestampString = "510275171.562198"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "487"
-            endingLineNumber = "487"
-            landmarkName = "node::find_shared_nodes(vector&lt; pair&lt;vector&lt;number&gt;, int&gt; &gt; &amp;results, const vector&lt;int&gt; IDs, int length)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "IMUSANT_IntervalSuffixTreeBuilder:: findAndPrintRepeatedIntervalSubstrings(int min_length)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;unsigned int, std::__1::allocator&lt;unsigned int&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.499036"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "2243">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_generalised_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_generalised_interval&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.501274"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "2243">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.50362"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "2520">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.505951"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "2520">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1280,154 +894,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SuffixTree/suffixtree_impl.h"
-            timestampString = "510312994.88347"
+            filePath = "IMUSANT_Tests/Analysis/IMUSANT_processing_Tests.cpp"
+            timestampString = "510545771.52022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "490"
-            endingLineNumber = "490"
-            landmarkName = "node::find_shared_nodes(vector&lt; pair&lt;vector&lt;number&gt;, int&gt; &gt; &amp;results, const vector&lt;int&gt; IDs, int length)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;unsigned int, std::__1::allocator&lt;unsigned int&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.514468"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "490"
-                  endingLineNumber = "490"
-                  offsetFromSymbolStart = "2762">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_generalised_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_generalised_interval&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.517065"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "490"
-                  endingLineNumber = "490"
-                  offsetFromSymbolStart = "2762">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.52006"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "490"
-                  endingLineNumber = "490"
-                  offsetFromSymbolStart = "2886">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.522314"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "490"
-                  endingLineNumber = "490"
-                  offsetFromSymbolStart = "2886">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SuffixTree/suffixtree_impl.h"
-            timestampString = "510313147.907053"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "480"
-            endingLineNumber = "480"
-            landmarkName = "node::find_shared_nodes(vector&lt; pair&lt;vector&lt;number&gt;, int&gt; &gt; &amp;results, const vector&lt;int&gt; IDs, int length)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;unsigned int, std::__1::allocator&lt;unsigned int&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.528768"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "480"
-                  endingLineNumber = "480"
-                  offsetFromSymbolStart = "1858">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_generalised_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_generalised_interval&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "CATSMAT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.53038"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "480"
-                  endingLineNumber = "480"
-                  offsetFromSymbolStart = "1858">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.532581"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "480"
-                  endingLineNumber = "480"
-                  offsetFromSymbolStart = "1834">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::node::find_shared_nodes(std::__1::vector&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt;, std::__1::allocator&lt;std::__1::pair&lt;std::__1::vector&lt;std::__1::pair&lt;int, unsigned long&gt;, std::__1::allocator&lt;std::__1::pair&lt;int, unsigned long&gt; &gt; &gt;, int&gt; &gt; &gt;&amp;, std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;, int) const"
-                  moduleName = "libIMUSANT.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/suffixtree_impl.h"
-                  timestampString = "510366004.535471"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "480"
-                  endingLineNumber = "480"
-                  offsetFromSymbolStart = "1834">
-               </Location>
-            </Locations>
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

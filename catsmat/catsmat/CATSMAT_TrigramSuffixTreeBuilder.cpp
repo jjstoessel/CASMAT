@@ -17,7 +17,7 @@ namespace CATSMAT {
         if (!trigrams.get_tokens().empty())
         {
             BuildVectorMap(trigrams.get_tokens());
-            mTreePtr = buildSuffixTree(mID_vec_map);
+            tree_ptr_ = buildSuffixTree(id_vec_map_);
         }
     }
     
@@ -30,9 +30,17 @@ namespace CATSMAT {
         for (std::vector<vector<CATSMAT_TrigramSequences::Token> >::const_iterator i = tokens.begin(); i!=tokens.end(); i++)
         {
             ++ID;
-            mID_vec_map[ID] = *i;
-            mID_vec_map[ID].push_back(ID<<24); //ad a unique value terminator
+            id_vec_map_[ID] = *i;
+            id_vec_map_[ID].push_back(ID<<24); //ad a unique value terminator
             
         }
+    }
+    
+    //overrides virtual methond in base class
+    IMUSANT_range
+    CATSMAT_TrigramSuffixTreeBuilder::
+    CalcRange(CATSMAT_TrigramSequences::Token& token) const
+    {
+        return IMUSANT_range(); //do nothing for now
     }
 }

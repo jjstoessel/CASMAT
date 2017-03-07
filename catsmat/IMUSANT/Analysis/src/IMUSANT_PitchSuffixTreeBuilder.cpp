@@ -33,7 +33,7 @@ namespace IMUSANT {
             for (auto j = collection.getPartwisePitchVectors().begin(); j!=collection.getPartwisePitchVectors().end(); j++)
             {
                 ++ID;
-                mID_vec_map[ID] = (*j)->getPitches();
+                id_vec_map_[ID] = (*j)->getPitches();
             }
         }
     }
@@ -63,14 +63,14 @@ namespace IMUSANT {
     {
         SUBSTR_VECTOR ret_val;
         
-        for (auto i = mID_vec_map.begin(); i!=mID_vec_map.end(); i++)
+        for (auto i = id_vec_map_.begin(); i!=id_vec_map_.end(); i++)
         {
             vector<IMUSANT_pitch> x = i->second;
             vector<IMUSANT_pitch>::size_type m = x.size();
             
             auto j = i;
             
-            for (++j; j!=mID_vec_map.end(); j++)
+            for (++j; j!=id_vec_map_.end(); j++)
             {
                 vector<IMUSANT_pitch> y = j->second;
                 int a = 0, b = 0;
@@ -129,6 +129,12 @@ namespace IMUSANT {
         
     }
     
+    IMUSANT_range
+    IMUSANT_PitchSuffixTreeBuilder::
+    CalcRange(IMUSANT_pitch& pitch) const
+    {
+        return IMUSANT_range(); //nothing for now
+    }
    
 
 }

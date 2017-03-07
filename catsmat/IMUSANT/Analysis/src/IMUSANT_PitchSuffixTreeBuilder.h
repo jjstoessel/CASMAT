@@ -29,6 +29,7 @@ namespace IMUSANT {
     private:
         
         void    BuildVectorMap(IMUSANT_processing::COLLECTIONMAP&);
+        IMUSANT_range   CalcRange(IMUSANT_pitch&) const;
     };
 }
 

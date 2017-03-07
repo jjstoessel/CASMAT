@@ -31,7 +31,7 @@ const std::string FindLCSPairsIntervals_simple_test_1_Expected =
 
 const std::string FindLCSPairsPitches_simple_test_1_Expected = "[ C0@5 B0@4 A0@4 G0@4 A0@4 B0@4 C0@5 ] \n\n[ C0@5 B0@4 A0@4 G0@4 A0@4 B0@4 C0@5 ] \n\n[ C0@5 B0@4 A0@4 G0@4 A0@4 B0@4 C0@5 ] \n\n\n";
 
-const std::string FindRepeatedContourSubstrings_simple_test_1_Expected = "[ leapdown leapdown leapup leapup stepup ] (MVT: 3, VCE: 3, MES: 5, IDX: 2) (MVT: 2, VCE: 2, MES: 3, IDX: 2) (MVT: 1, VCE: 1, MES: 1, IDX: 2) \n\n[ stepdown leapdown leapdown leapup leapup stepup ] (MVT: 3, VCE: 3, MES: 5, IDX: 1) (MVT: 2, VCE: 2, MES: 3, IDX: 1) (MVT: 1, VCE: 1, MES: 1, IDX: 1) \n\n\n";
+const std::string FindRepeatedContourSubstrings_simple_test_1_Expected = "[ leapdown leapdown leapup leapup stepup ] (MVT: 3, VCE: 3, MES: 5, IDX: 2) (MVT: 2, VCE: 2, MES: 3, IDX: 2) (MVT: 1, VCE: 1, MES: 1, IDX: 2) \n\n[ leapdown leapup leapup stepup ] (MVT: 3, VCE: 3, MES: 5, IDX: 3) (MVT: 2, VCE: 2, MES: 3, IDX: 3) (MVT: 1, VCE: 1, MES: 1, IDX: 3) \n\n[ stepdown leapdown leapdown leapup leapup stepup ] (MVT: 3, VCE: 3, MES: 5, IDX: 1) (MVT: 2, VCE: 2, MES: 3, IDX: 1) (MVT: 1, VCE: 1, MES: 1, IDX: 1) \n\n\n";
 
 
 #endif

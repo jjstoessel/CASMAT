@@ -18,7 +18,7 @@ namespace IMUSANT {
         
         BuildVectorMap(collections);
         
-        mTreePtr = buildSuffixTree(mID_vec_map);
+        tree_ptr_ = buildSuffixTree(id_vec_map_);
     }
     
     string
@@ -26,7 +26,7 @@ namespace IMUSANT {
     findAndPrintRepeatedContourSubstrings(int min_length)
     {
         SUBSTR_VECTOR the_result;
-        the_result = findRepeatedContourSubstrings(min_length);
+        the_result = FindRepeatedSubstrings(min_length);
         
         stringstream the_result_as_stringstream;
         for(int index = 0 ; index < the_result.size(); index++)
@@ -39,52 +39,59 @@ namespace IMUSANT {
         return the_result_as_stringstream.str();
     }
     
-    IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR
+//    IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR
+//    IMUSANT_ContourSuffixTreeBuilder::
+//    findRepeatedContourSubstrings(int min_length)
+//    {
+//        SUBSTR_VECTOR ret_val;
+//        
+//        if (tree_ptr_==NULL) {
+//            return ret_val;
+//        }
+//        
+//        vector<int> local_ids;
+//        for (auto cvm = id_vec_map_.begin(); cvm != id_vec_map_.end(); cvm++) {
+//            local_ids.push_back(cvm->first);
+//        }
+//        vector< pair<vector<_tree::number>, int> > mc_results;
+//        mc_results = tree_ptr_->find_common_subsequences(local_ids, min_length);
+//        
+//        for (auto iter_mc=mc_results.begin();iter_mc!=mc_results.end(); iter_mc++)
+//        {
+//            IMUSANT_repeated_contour_substring repeated_contour_substring;
+//            vector< _tree::number >::const_iterator mc_c=iter_mc->first.begin();
+//            bool first_time = true;
+//            for (;mc_c!=iter_mc->first.end(); mc_c++)
+//            {
+//                if (first_time)
+//                {
+//                    for (_tree::size_type t = mc_c->second; t < mc_c->second+iter_mc->second; t++)
+//                    {
+//                        repeated_contour_substring.sequence.push_back(id_vec_map_[mc_c->first][t]);
+//                    }
+//                    
+//                    first_time=false;
+//                }
+//                
+//                IMUSANT_contour_symbol symbol = id_vec_map_[mc_c->first][mc_c->second];
+//                IMUSANT_range range=symbol.getLocation();
+//                repeated_contour_substring.add_occurrence( mc_c->first,
+//                                                          range.first.partID,
+//                                                          range.first.measure,
+//                                                          range.first.note_index );
+//                
+//            }
+//            ret_val.push_back(repeated_contour_substring);
+//        }
+//        
+//        return ret_val;
+//    }
+    
+    IMUSANT_range
     IMUSANT_ContourSuffixTreeBuilder::
-    findRepeatedContourSubstrings(int min_length)
+    CalcRange(IMUSANT_contour_symbol& symbol) const
     {
-        SUBSTR_VECTOR ret_val;
-        
-        if (mTreePtr==NULL) {
-            return ret_val;
-        }
-        
-        vector<int> local_ids;
-        for (auto cvm = mID_vec_map.begin(); cvm != mID_vec_map.end(); cvm++) {
-            local_ids.push_back(cvm->first);
-        }
-        vector< pair<vector<_tree::number>, int> > mc_results;
-        mc_results = mTreePtr->find_common_subsequences(local_ids, min_length);
-        
-        for (auto iter_mc=mc_results.begin();iter_mc!=mc_results.end(); iter_mc++)
-        {
-            IMUSANT_repeated_contour_substring repeated_contour_substring;
-            vector< _tree::number >::const_iterator mc_c=iter_mc->first.begin();
-            bool first_time = true;
-            for (;mc_c!=iter_mc->first.end(); mc_c++)
-            {
-                if (first_time)
-                {
-                    for (_tree::size_type t = mc_c->second; t < mc_c->second+iter_mc->second; t++)
-                    {
-                        repeated_contour_substring.sequence.push_back(mID_vec_map[mc_c->first][t]);
-                    }
-                    
-                    first_time=false;
-                }
-                
-                IMUSANT_contour_symbol symbol = mID_vec_map[mc_c->first][mc_c->second];
-                IMUSANT_range range=symbol.getLocation();
-                repeated_contour_substring.add_occurrence( mc_c->first,
-                                                          range.first.partID,
-                                                          range.first.measure,
-                                                          range.first.note_index );
-                
-            }
-            ret_val.push_back(repeated_contour_substring);
-        }
-        
-        return ret_val;
+        return symbol.getLocation();
     }
     
     void
@@ -100,7 +107,7 @@ namespace IMUSANT {
             for (auto j = collection.getPartwiseContourVectors().begin(); j!=collection.getPartwiseContourVectors().end(); j++)
             {
                 ++ID;
-                mID_vec_map[ID] = (*j)->getContours();
+                id_vec_map_[ID] = (*j)->getContours();
             }
         }
     }
@@ -130,12 +137,12 @@ namespace IMUSANT {
     {
         SUBSTR_VECTOR ret_val;
         
-        if (mTreePtr==NULL || mID_vec_map.empty())
+        if (tree_ptr_==NULL || id_vec_map_.empty())
         {
             return ret_val;
         }
         
-        repeats<vector<IMUSANT_contour_symbol> > rep(mTreePtr);
+        repeats<vector<IMUSANT_contour_symbol> > rep(tree_ptr_);
         list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
         //MEMO auto = list<repeats<vector<IMUSANT_contour_symbol> >::supermax_node*>::const_iterator
         for (auto q = supermaxs.begin(); q!=supermaxs.end(); q++)
@@ -162,7 +169,7 @@ namespace IMUSANT {
     {
         CONTOUR_TABLE table;
         
-        for (auto cvm = mID_vec_map.begin(); cvm != mID_vec_map.end(); cvm++)
+        for (auto cvm = id_vec_map_.begin(); cvm != id_vec_map_.end(); cvm++)
         {
             vector<IMUSANT_contour_symbol> contours = cvm->second;
             map<pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int> row;
