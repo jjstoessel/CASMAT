@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "IMUSANT_SuffixTreeBuilder.h"
 #include "IMUSANT_generalised_interval.h"
-#include "IMUSANT_t_repeated_substring.h"
+#include "IMUSANT_T_RepeatedSubstring.h"
 
 namespace IMUSANT {
     
@@ -26,7 +26,6 @@ namespace IMUSANT {
         string          findAndPrintRepeatedIntervalSubstrings(int min_length=4);
         string          findAndPrintSupermaximalIntervals(int min_length=4, int min_percent=100);
         //consider common base class for processors for generalised interval and interval
-        SUBSTR_VECTOR   findSupermaximalIntervals(int min_length=4, int min_percent=100);
         string          findAndPrintLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
         SUBSTR_VECTOR   findLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
         

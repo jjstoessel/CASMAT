@@ -17,7 +17,7 @@ namespace IMUSANT {
         
         BuildVectorMap(collections);
         
-       // mTreePtr = buildSuffixTree(mID_vec_map);
+        //tree_ptr_ = buildSuffixTree(id_vec_map_); //Undefined symbols for architecture x86_64: IMUSANT_pitch::operator!=(IMUSANT::IMUSANT_pitch const&) const
     }
     
     void

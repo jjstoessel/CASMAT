@@ -39,54 +39,6 @@ namespace IMUSANT {
         return the_result_as_stringstream.str();
     }
     
-//    IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR
-//    IMUSANT_ContourSuffixTreeBuilder::
-//    findRepeatedContourSubstrings(int min_length)
-//    {
-//        SUBSTR_VECTOR ret_val;
-//        
-//        if (tree_ptr_==NULL) {
-//            return ret_val;
-//        }
-//        
-//        vector<int> local_ids;
-//        for (auto cvm = id_vec_map_.begin(); cvm != id_vec_map_.end(); cvm++) {
-//            local_ids.push_back(cvm->first);
-//        }
-//        vector< pair<vector<_tree::number>, int> > mc_results;
-//        mc_results = tree_ptr_->find_common_subsequences(local_ids, min_length);
-//        
-//        for (auto iter_mc=mc_results.begin();iter_mc!=mc_results.end(); iter_mc++)
-//        {
-//            IMUSANT_repeated_contour_substring repeated_contour_substring;
-//            vector< _tree::number >::const_iterator mc_c=iter_mc->first.begin();
-//            bool first_time = true;
-//            for (;mc_c!=iter_mc->first.end(); mc_c++)
-//            {
-//                if (first_time)
-//                {
-//                    for (_tree::size_type t = mc_c->second; t < mc_c->second+iter_mc->second; t++)
-//                    {
-//                        repeated_contour_substring.sequence.push_back(id_vec_map_[mc_c->first][t]);
-//                    }
-//                    
-//                    first_time=false;
-//                }
-//                
-//                IMUSANT_contour_symbol symbol = id_vec_map_[mc_c->first][mc_c->second];
-//                IMUSANT_range range=symbol.getLocation();
-//                repeated_contour_substring.add_occurrence( mc_c->first,
-//                                                          range.first.partID,
-//                                                          range.first.measure,
-//                                                          range.first.note_index );
-//                
-//            }
-//            ret_val.push_back(repeated_contour_substring);
-//        }
-//        
-//        return ret_val;
-//    }
-    
     IMUSANT_range
     IMUSANT_ContourSuffixTreeBuilder::
     CalcRange(IMUSANT_contour_symbol& symbol) const
@@ -117,7 +69,7 @@ namespace IMUSANT {
     findAndPrintSupermaximalContours(int min_length, int min_percent)
     {
         SUBSTR_VECTOR the_result;
-        the_result = findSupermaximalsContours(min_length, min_percent);
+        the_result = FindSupermaximals(min_length, min_percent);
         
         stringstream the_result_as_stringstream;
         for(int index = 0 ; index < the_result.size(); index++)
@@ -131,7 +83,7 @@ namespace IMUSANT {
     }
 
     
-    IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR
+    /*IMUSANT_ContourSuffixTreeBuilder::SUBSTR_VECTOR
     IMUSANT_ContourSuffixTreeBuilder::
     findSupermaximalsContours(int min_length, int min_percent)
     {
@@ -162,7 +114,7 @@ namespace IMUSANT {
         }
         
         return ret_val;
-    }
+    }*/
     
     IMUSANT_ContourSuffixTreeBuilder::CONTOUR_TABLE
     IMUSANT_ContourSuffixTreeBuilder::entabulateMelodicDirectionPairs()

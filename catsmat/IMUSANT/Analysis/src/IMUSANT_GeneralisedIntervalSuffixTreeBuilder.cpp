@@ -68,80 +68,7 @@ namespace IMUSANT {
         
         return the_result_as_stringstream.str();
     }
-    
-//    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::SUBSTR_VECTOR
-//    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
-//    findRepeatedIntervalSubstrings(int min_length)
-//    {
-//        SUBSTR_VECTOR ret_val;
-//        
-//        //tree and ID_map must be built beforehand in a visit event
-//        if (tree_ptr_==NULL || id_vec_map_.size()==0)  // No files have been added...
-//        {
-//            return ret_val;
-//        }
-//        
-//#ifdef VERBOSE
-//        mTreePtr->print(cout);
-//#endif
-//        vector< pair<vector<_tree::number>, int> > common_substrings;
-//        
-//        //get IDS from map of ID to each interval_vector
-//        vector<int> local_ids;
-//        for (auto ivm = id_vec_map_.begin(); ivm != id_vec_map_.end(); ivm++) {
-//            local_ids.push_back(ivm->first);
-//        }
-//        //iterate tree for each ID
-//        common_substrings = tree_ptr_->find_common_subsequences(local_ids, min_length);
-//        
-//        //iterate through substring results
-//        vector< pair<vector<_tree::number>, int> >::iterator common_substrings_iter;
-//        for (common_substrings_iter = common_substrings.begin();
-//             common_substrings_iter != common_substrings.end();
-//             common_substrings_iter++)
-//        {
-//            IMUSANT_repeated_generalised_interval_substring repeated_interval_substring;
-//            
-//            vector< _tree::number >::const_iterator substring_iter;
-//            bool int_sequence_added_to_ret_value = false;
-//            
-//            //iterate through substring
-//            for (substring_iter = common_substrings_iter->first.begin();
-//                 substring_iter != common_substrings_iter->first.end();
-//                 substring_iter++)
-//            {
-//                vector<IMUSANT_generalised_interval> intervals = id_vec_map_[substring_iter->first];
-//                
-//                if (! int_sequence_added_to_ret_value)
-//                {
-//                    // Add the interval sequence into the return value.
-//                    for (_tree::size_type t = substring_iter->second;
-//                         t < substring_iter->second + common_substrings_iter->second;
-//                         t++)
-//                    {
-//                        repeated_interval_substring.sequence.push_back(intervals[t]);
-//                    }
-//                    
-//                    int_sequence_added_to_ret_value = true;
-//                }
-//                
-//                // Add the loction of this repetition of the interval sequence into the return value.
-//                IMUSANT_interval interval = intervals[substring_iter->second];
-//                IMUSANT_range range = interval.getLocation();
-//                repeated_interval_substring.add_occurrence(substring_iter->first,
-//                                                           range.first.partID,
-//                                                           range.first.measure,
-//                                                           range.first.note_index );
-//                
-//            }
-//            
-//            ret_val.push_back(repeated_interval_substring);
-//            
-//        }
-//        
-//        return ret_val;
-//    }
-    
+        
     
     string
     IMUSANT_GeneralisedIntervalSuffixTreeBuilder::findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
@@ -282,7 +209,7 @@ namespace IMUSANT {
     findAndPrintSupermaximalIntervals(int min_length, int min_percent)
     {
         SUBSTR_VECTOR the_result;
-        the_result = findSupermaximalIntervals(min_length, min_percent);
+        the_result = FindSupermaximals(min_length, min_percent);
         
         stringstream the_result_as_stringstream;
         for(int index = 0 ; index < the_result.size(); index++)
@@ -293,42 +220,6 @@ namespace IMUSANT {
         the_result_as_stringstream << endl;
         
         return the_result_as_stringstream.str();
-    }
-    
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::SUBSTR_VECTOR
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
-    findSupermaximalIntervals(int min_length, int min_percent)
-    {
-        SUBSTR_VECTOR ret_val;
-
-        if (tree_ptr_!=NULL)
-        {
-            repeats<vector<IMUSANT_generalised_interval> > rep(tree_ptr_);
-
-            list<repeats<vector<IMUSANT_generalised_interval> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
-            list<repeats<vector<IMUSANT_generalised_interval> >::supermax_node*>::const_iterator q=supermaxs.begin();
-            for (; q!=supermaxs.end(); q++)
-            {
-                IMUSANT_repeated_generalised_interval_substring repeated_substring;
-
-                for (repeats<vector<IMUSANT_generalised_interval> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
-                {
-                    repeated_substring.sequence.push_back(*t);
-                }
-
-                //cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
-
-                //this is a dumb interim solution by JS at the moment.
-                repeated_substring.add_occurrence( 0,
-                                                   (*q)->num_witness,
-                                                   (*q)->num_leaves,
-                                                   (*q)->percent );
-
-                ret_val.push_back(repeated_substring);
-            }
-        }
-        
-        return ret_val;
     }
     
     IMUSANT_range

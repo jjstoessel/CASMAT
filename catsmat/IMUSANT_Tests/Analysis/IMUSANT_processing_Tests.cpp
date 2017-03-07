@@ -141,7 +141,7 @@ find_supermaximals_intervals_by_file(string relative_path_to_test_data_file)
     interval_processor.Visit(*the_processor);
     
     IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
-    repeated_substrings_result = interval_processor.findSupermaximalIntervals(4, 100); //parameterise
+    repeated_substrings_result = interval_processor.FindSupermaximals(2, 25); //parameterise
     
     return repeated_substrings_result;
 }
@@ -268,6 +268,20 @@ TEST_F(IMUSANT_processing_Tests, find_repeated_interval_substrings_simple_test_1
    ASSERT_EQ(FindRepeatedIntervalSubstrings_simple_test_1_Expected, actual_output.str());
 }
 
+TEST_F(IMUSANT_processing_Tests, find_supermaximals_simple_test_1)
+{
+    IMUSANT_IntervalSuffixTreeBuilder::SUBSTR_VECTOR repeated_substrings_result;
+    repeated_substrings_result = find_supermaximals_intervals_by_file("MusicXMLv3/Kyrie.xml");
+    
+    stringstream actual_output;
+    
+    for(int index = 0 ; index < repeated_substrings_result.size(); index++)
+    {
+        actual_output << repeated_substrings_result[index];
+    }
+    
+    ASSERT_EQ(FindSupermaximalsIntervals_simple_test_1_Expected, actual_output.str());
+}
 
 TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)
 {

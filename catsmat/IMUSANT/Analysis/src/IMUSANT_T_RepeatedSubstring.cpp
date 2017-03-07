@@ -7,7 +7,7 @@
 //
 //
 
-#include "IMUSANT_t_repeated_substring.h"
+#include "IMUSANT_T_RepeatedSubstring.h"
 
 namespace IMUSANT
 {

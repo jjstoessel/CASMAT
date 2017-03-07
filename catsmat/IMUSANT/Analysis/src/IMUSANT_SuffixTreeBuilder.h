@@ -18,7 +18,8 @@
 #include "Loki/Visitor.h"
 #include "suffixtree.h"
 #include "IMUSANT_processing.h"
-#include "IMUSANT_t_repeated_substring.h"
+#include "IMUSANT_T_RepeatedSubstring.h"
+#include "repeats.h"
 
 using namespace std;
 using namespace ns_suffixtree;
@@ -34,7 +35,7 @@ namespace IMUSANT
         public Loki::Visitor<C, void, true>
     {
     public:
-        typedef vector<IMUSANT_t_repeated_substring<T> > SUBSTR_VECTOR;
+        typedef typename IMUSANT_T_RepeatedSubstring<T>::SUBSTR_VECTOR SUBSTR_VECTOR;
         typedef suffixtree< vector<T> >  _tree;
         typedef typename _tree::number number;
         typedef map<int, vector<T> > ID_vec_map;
@@ -44,7 +45,7 @@ namespace IMUSANT
 
         virtual void    Visit(const C&) = 0;
         SUBSTR_VECTOR   FindRepeatedSubstrings(int min_length=4) const;
-        
+        SUBSTR_VECTOR   FindSupermaximals(int min_length=4, int min_percent=25);
     protected:
         virtual void    BuildVectorMap(map<S_IMUSANT_score,IMUSANT_collection_visitor>&) = 0;
         virtual IMUSANT_range CalcRange(T&) const = 0; //called in FindRepeatedIntervalSubstrings
@@ -115,7 +116,7 @@ namespace IMUSANT
              csi != common_substrings_indexes.end();
              csi++)
         {
-            IMUSANT_t_repeated_substring<T> repeat;
+            IMUSANT_T_RepeatedSubstring<T> repeat;
             bool sequence_added = false;
             
             //iterate through substring using indices
@@ -143,6 +144,44 @@ namespace IMUSANT
             }
             
             ret_val.push_back(repeat);
+        }
+        
+        return ret_val;
+    }
+
+
+    
+    template<typename T, class C>
+    typename IMUSANT_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
+    IMUSANT_SuffixTreeBuilder<T,C>::
+    FindSupermaximals(int min_length, int min_percent)
+    {
+        SUBSTR_VECTOR ret_val;
+            
+        if (tree_ptr_!=NULL)
+        {
+            repeats<vector<T> > rep(tree_ptr_);
+            
+            list<typename repeats<vector<T> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
+            
+            //list<typename repeats<vector<T> >::supermax_node*>::const_iterator
+            for (auto q=supermaxs.begin(); q!=supermaxs.end(); q++)
+            {
+                IMUSANT_T_RepeatedSubstring<T> maxy;
+                
+                for (typename repeats<vector<T> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
+                {
+                    maxy.sequence.push_back(*t);
+                }
+                
+                //cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
+                //IMUSANT_range range = CalcRange((*q)->begin_i);
+                //this is a dumb interim solution by JS at the moment.
+                maxy.add_occurrence( 0, (*q)->num_witness, (*q)->num_leaves, (*q)->percent );
+                //maxy.add_occurrence(0, range.first.partID, range.first.measure, range.first.note_index );
+                
+                ret_val.push_back(maxy);
+            }
         }
         
         return ret_val;

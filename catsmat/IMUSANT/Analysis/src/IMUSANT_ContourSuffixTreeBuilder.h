@@ -10,11 +10,11 @@
 #define ____IMUSANT_ContourSuffixTreeBuilder__
 
 #include <stdio.h>
-#include "IMUSANT_SuffixTreeBuilder.h"
-#include "IMUSANT_contour_symbol.h"
-#include "IMUSANT_t_repeated_substring.h"
 #include <vector>
 #include <map>
+#include "IMUSANT_SuffixTreeBuilder.h"
+#include "IMUSANT_contour_symbol.h"
+#include "IMUSANT_T_RepeatedSubstring.h"
 
 namespace IMUSANT {
     
@@ -29,7 +29,6 @@ namespace IMUSANT {
         
         string          findAndPrintRepeatedContourSubstrings(int min_length=5);
         string          findAndPrintSupermaximalContours(int min_length, int min_percent);
-        SUBSTR_VECTOR   findSupermaximalsContours(int min_length, int min_percent);
         CONTOUR_TABLE   entabulateMelodicDirectionPairs();
         string          entabulateAndPrintMelodicDirectionPairs();
     private:

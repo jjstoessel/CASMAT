@@ -10,7 +10,7 @@
 
 #include "CATSMAT_TrigramSequences.hpp"
 #include "CATSMAT_TrigramSuffixTreeBuilder.hpp"
-#include "IMUSANT_t_repeated_substring.h"
+#include "IMUSANT_T_RepeatedSubstring.h"
 
 #include "CATSMAT_test_utility.h"
 
@@ -112,7 +112,7 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_Repeats) {
     theSequences.Visit(*the_matrix);
     trigram_tree.Visit(theSequences);
     
-    repeats = trigram_tree.FindRepeatedIntervalSubstrings(3);
+    repeats = trigram_tree.FindRepeatedSubstrings(3);
     
     std::stringstream the_dyads_as_stringstream;
     for ( auto repeat : repeats)
@@ -134,7 +134,7 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Talent_mest_pris_repeats) {
     theSequences.Visit(*the_matrix);
     trigram_tree.Visit(theSequences);
     
-    repeats = trigram_tree.FindRepeatedIntervalSubstrings(4);
+    repeats = trigram_tree.FindRepeatedSubstrings(4);
     
     std::stringstream the_dyads_as_stringstream;
     for ( auto repeat : repeats)
