@@ -1202,7 +1202,7 @@
 		96CC66DE1DEBB66500E2F7FB /* Pamphilus-Cucu cucu ognon canti cucu (Jeppsen).xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Pamphilus-Cucu cucu ognon canti cucu (Jeppsen).xml"; sourceTree = "<group>"; };
 		96CC66DF1DEBB68700E2F7FB /* Mod A 003-Et in terra.cmme.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mod A 003-Et in terra.cmme.xml"; sourceTree = "<group>"; };
 		96CC66E01DEBE7EC00E2F7FB /* Ciconia-Le ray au soleyl.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ciconia-Le ray au soleyl.xml"; sourceTree = "<group>"; };
-		96FE22E91E6E986000B4A87F /* IMUSANT_tt_vectormap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_tt_vectormap.hpp; sourceTree = "<group>"; };
+		96FE22E91E6E986000B4A87F /* IMUSANT_t_vectormap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap.hpp; sourceTree = "<group>"; };
 		96FE22EF1E6EB8E000B4A87F /* IMUSANT_t_vectormap_analysis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap_analysis.hpp; sourceTree = "<group>"; };
 		96FE22F41E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_VectorMapAnalysisTypes.cpp; sourceTree = "<group>"; };
 		96FE22F51E6EC6A900B4A87F /* IMUSANT_vectormap_analysis_types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = IMUSANT_vectormap_analysis_types.hpp; path = ../src/IMUSANT_vectormap_analysis_types.hpp; sourceTree = "<group>"; };
@@ -1843,7 +1843,7 @@
 			children = (
 				BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */,
 				BA4207E31CEEAB49007204AF /* IMUSANT_t_repeated_substring.h */,
-				96FE22E91E6E986000B4A87F /* IMUSANT_tt_vectormap.hpp */,
+				96FE22E91E6E986000B4A87F /* IMUSANT_t_vectormap.hpp */,
 				9668DB911D0D7A8900C5AAA6 /* IMUSANT_t_suffixtree_builder.h */,
 				96FE22EF1E6EB8E000B4A87F /* IMUSANT_t_vectormap_analysis.hpp */,
 				9668DB951D0D803B00C5AAA6 /* IMUSANT_interval_suffixtree_builder.h */,
