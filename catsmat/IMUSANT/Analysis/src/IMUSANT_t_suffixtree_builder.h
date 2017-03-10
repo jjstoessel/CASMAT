@@ -10,16 +10,16 @@
 //  To do: refactor to class name IMUSANT_suffix_tree_builder to be
 //
 
-#ifndef ____IMUSANT_T_SuffixTreeBuilder__
-#define ____IMUSANT_T_SuffixTreeBuilder__
+#ifndef ____IMUSANT_t_suffixtree_builder__
+#define ____IMUSANT_t_suffixtree_builder__
 
 #include <stdio.h>
 #include "boost/multi_array.hpp"
 #include "Loki/Visitor.h"
 #include "suffixtree.h"
 #include "IMUSANT_processing.h"
-#include "IMUSANT_T_RepeatedSubstring.h"
-#include "IMUSANT_T_VectorMap.hpp"
+#include "IMUSANT_t_repeated_substring.h"
+#include "IMUSANT_t_vectormap.hpp"
 #include "repeats.h"
 
 using namespace std;
@@ -225,4 +225,4 @@ namespace IMUSANT
         return ret_val;
     }
 }
-#endif /* defined(____IMUSANT_T_SuffixTreeBuilder__) */
+#endif /* defined(____IMUSANT_t_suffixtree_builder__) */

@@ -6,8 +6,8 @@
 //  Adapted from non-template interval implementation by Derrick Hill
 //
 
-#ifndef __imusant__IMUSANT_T_RepeatedSubstring__
-#define __imusant__IMUSANT_T_RepeatedSubstring__
+#ifndef __imusant__IMUSANT_t_repeated_substring__
+#define __imusant__IMUSANT_t_repeated_substring__
 
 #include <stdio.h>
 #include <iostream>
@@ -274,5 +274,5 @@ namespace IMUSANT
     
 }
 
-#endif /* defined(__imusant__IMUSANT_t_repeated_substring__) */
+#endif /* defined(__imusant__IIMUSANT_t_repeated_substring__) */
 

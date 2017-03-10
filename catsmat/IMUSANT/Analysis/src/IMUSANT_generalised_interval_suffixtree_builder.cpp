@@ -8,7 +8,7 @@
 
 #include <utility>
 #include "boost/multi_array.hpp"
-#include "IMUSANT_GeneralisedIntervalSuffixTreeBuilder.h"
+#include "IMUSANT_generalised_interval_suffixtree_builder.h"
 #include "repeats.h"
 
 

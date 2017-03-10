@@ -6,7 +6,7 @@
 //
 //
 
-#include "IMUSANT_ContourSuffixTreeBuilder.h"
+#include "IMUSANT_contour_suffixtree_builder.h"
 #include "repeats.h"
 
 namespace IMUSANT {

@@ -13,12 +13,12 @@
 #include <exception>
 
 #include "libIMUSANT.h"
-#include "IMUSANT_IntervalSuffixTreeBuilder.h"
-#include "IMUSANT_PitchSuffixTreeBuilder.h"
-#include "IMUSANT_ContourSuffixTreeBuilder.h"
+#include "IMUSANT_interval_suffixtree_builder.h"
+#include "IMUSANT_pitch_suffixtree_builder.h"
+#include "IMUSANT_contour_suffixtree_builder.h"
 #include "IMUSANT_LBDM_segmenter.h"
 #include "CATSMAT_scoredatacollector.h"
-#include "IMUSANT_VectorMapAnalysisTypes.hpp"
+#include "IMUSANT_vectormap_analysis_types.hpp"
 
 using namespace std;
 using namespace CATSMAT;

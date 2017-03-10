@@ -6,16 +6,16 @@
 //
 //
 
-#ifndef IMUSANT_T_VectorMapAnalysis_hpp
-#define IMUSANT_T_VectorMapAnalysis_hpp
+#ifndef IMUSANT_t_vectormap_analysis_hpp
+#define IMUSANT_t_vectormap_analysis_hpp
 
 #include <stdio.h>
 #include <utility>
 
 #include "boost/multi_array.hpp"
 
-#include "IMUSANT_T_VectorMap.hpp"
-#include "IMUSANT_T_RepeatedSubstring.h"
+#include "IMUSANT_t_vectormap.hpp"
+#include "IMUSANT_t_repeated_substring.h"
 
 namespace IMUSANT
 {
@@ -152,4 +152,4 @@ namespace IMUSANT
     
 }
 
-#endif /* IMUSANT_T_VectorMapAnalysis_hpp */
+#endif /* IMUSANT_t_vectormap_analysis_hpp */

@@ -73,9 +73,7 @@ namespace IMUSANT
         }; //undefined is internal variable
         
         typedef int interval_type;
-        
-        
-        //enum quality { none = 0, perfect = 1, imperfect = -1, diminished = -2, augmented = 2, dissonant = (1<<2) };
+
         enum quality { none = 0, perfect = 1, imperfect = (perfect<<1), dissonant = (perfect<<2), diminished = dissonant, augmented = dissonant, double_diminished = dissonant, double_augmented = dissonant  };
         enum direction { descending=-1, unison=0, ascending = 1, vertical_bottomtotop };
         // basic interval types

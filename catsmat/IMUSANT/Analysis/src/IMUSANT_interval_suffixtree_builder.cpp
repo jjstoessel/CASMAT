@@ -17,7 +17,7 @@
 
 #include <utility>
 #include "boost/multi_array.hpp"
-#include "IMUSANT_IntervalSuffixTreeBuilder.h"
+#include "IMUSANT_interval_suffixtree_builder.h"
 #include "repeats.h"
 
 

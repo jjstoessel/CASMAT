@@ -35,7 +35,7 @@ class libIMUSANT
 #include "IMUSANT_score.h"
 #include "IMUSANT_processing.h"
 #include "IMUSANT_mxmlv3_exceptions.h"
-#include "IMUSANT_T_RepeatedSubstring.h"
+#include "IMUSANT_t_repeated_substring.h"
 #include "IMUSANT_segment.h"
 #include "IMUSANT_set_of_segment.h"
 #include "IMUSANT_segmented_part_fixed_period.h"

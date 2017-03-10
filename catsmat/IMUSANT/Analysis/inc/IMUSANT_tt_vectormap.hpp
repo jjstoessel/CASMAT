@@ -6,12 +6,12 @@
 //
 //
 
-#ifndef IMUSANT_VectorMap_hpp
-#define IMUSANT_VectorMap_hpp
+#ifndef IMUSANT_vectormap_hpp
+#define IMUSANT_vectormap_hpp
 
 #include <stdio.h>
 #include "Loki/Visitor.h"
-#include "IMUSANT_T_RepeatedSubstring.h"
+#include "IMUSANT_t_repeated_substring.h"
 
 namespace IMUSANT
 {
@@ -39,4 +39,4 @@ namespace IMUSANT
 
 }
 
-#endif /* IMUSANT_VectorMap_hpp */
+#endif /* IMUSANT_vectormap_hpp */

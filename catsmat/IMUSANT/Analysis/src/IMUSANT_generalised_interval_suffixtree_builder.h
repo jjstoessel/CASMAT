@@ -10,9 +10,9 @@
 #define ____IMUSANT_GeneralisedIntervalSuffixTreeBuilder__
 
 #include <stdio.h>
-#include "IMUSANT_T_SuffixTreeBuilder.h"
+#include "IMUSANT_t_suffixtree_builder.h"
 #include "IMUSANT_generalised_interval.h"
-#include "IMUSANT_T_RepeatedSubstring.h"
+#include "IMUSANT_t_repeated_substring.h"
 
 namespace IMUSANT {
     
@@ -22,10 +22,6 @@ namespace IMUSANT {
         
         IMUSANT_GeneralisedIntervalSuffixTreeBuilder();
         ~IMUSANT_GeneralisedIntervalSuffixTreeBuilder() {} 
-        
-        //consider common base class for processors for generalised interval and interval
-        //string          findAndPrintLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
-        //SUBSTR_VECTOR   findLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
         
         void            Visit(const IMUSANT_processing&);
         

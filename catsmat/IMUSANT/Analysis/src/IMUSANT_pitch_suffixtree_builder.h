@@ -10,9 +10,9 @@
 #define ____IMUSANT_PitchSuffixTreeBuilder__
 
 #include <stdio.h>
-#include "IMUSANT_T_SuffixTreeBuilder.h"
+#include "IMUSANT_t_suffixtree_builder.h"
 #include "IMUSANT_pitch.h"
-#include "IMUSANT_T_RepeatedSubstring.h"
+#include "IMUSANT_t_repeated_substring.h"
 
 namespace IMUSANT {
     

@@ -6,7 +6,7 @@
 //
 //
 
-#include "IMUSANT_VectorMapAnalysisTypes.hpp"
+#include "IMUSANT_vectormap_analysis_types.hpp"
 
 namespace IMUSANT
 {

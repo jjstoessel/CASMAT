@@ -10,11 +10,11 @@
 
 #include "CATSMAT_TrigramSequences.hpp"
 #include "CATSMAT_TrigramSuffixTreeBuilder.hpp"
-#include "IMUSANT_T_RepeatedSubstring.h"
+#include "IMUSANT_t_repeated_substring.h"
 
 #include "CATSMAT_test_utility.h"
 
-#include "CATSMAT_TrigramSequences_Test_Expected.h"
+#include "CATSMAT_trigramsequences_expected.h"
 
 #include "gtest/gtest.h"
 #include <boost/filesystem.hpp>
