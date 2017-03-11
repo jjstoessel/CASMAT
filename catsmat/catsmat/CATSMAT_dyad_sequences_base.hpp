@@ -18,26 +18,33 @@ using namespace Loki;
 namespace CATSMAT
 {
 
+template <typename T> //T is a vector
 class CATSMAT_dyad_sequences_base: public BaseVisitor, public Visitor<CATSMAT_cp_matrix, void, true>
 {
 
 public:
     friend  ostream& operator<< (ostream& os, const CATSMAT_dyad_sequences_base& elt );
     
-    CATSMAT_dyad_sequences_base() {}
-    virtual ~CATSMAT_dyad_sequences_base() {}
+                    CATSMAT_dyad_sequences_base() {}
+    virtual         ~CATSMAT_dyad_sequences_base() {}
     
     virtual void    Visit(const CATSMAT_cp_matrix& matrix) = 0;
     
-    virtual void    print(ostream& os) const = 0;
+    virtual void    Print(ostream& os) const = 0;
 
-    
+    void            set_ignore_repeated(bool ignore) { ignore_repeated_ = ignore; }
+    void            set_ignore_dissonances(bool ignore) { ignore_dissonances_ = ignore; }
+protected:
+    vector<T>           vectors_;
+    S_CATSMAT_cp_matrix matrix_ = NULL;
+    bool                ignore_repeated_ = true;
+    bool                ignore_dissonances_ = true;
 };
 
 
-inline ostream& operator<< (ostream& os, const CATSMAT_dyad_sequences_base& elt )
+template <typename T> inline ostream& operator<< (ostream& os, const CATSMAT_dyad_sequences_base<T>& elt )
 {
-    elt.print(os);
+    elt.Print(os);
     
     return os;
 }

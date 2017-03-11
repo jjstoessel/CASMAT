@@ -335,6 +335,8 @@ namespace IMUSANT
         if (this->fDirection==descending)
             ret *= -1;
         
+        if (fOctaves>0 & ret==0)
+            ret+=8;//ret+=7*fOctaves + 1; //convert to a compound interval
         return ret;
     }
 

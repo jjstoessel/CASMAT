@@ -8,6 +8,7 @@
  */
 
 #include "IMUSANT_interval_vector.h"
+#include "IMUSANT_note.h"
 
 namespace IMUSANT
 {
@@ -38,6 +39,23 @@ namespace IMUSANT
         }
         //If reached here, then vector is maxed out.
         return false;
+    }
+    
+    bool
+    IMUSANT_interval_vector::
+    add(const IMUSANT_vector<S_IMUSANT_note>& note_vector)
+    {
+        auto i = note_vector.begin();
+        for ( auto j = i + 1; j!=note_vector.end(); i++, j++)
+        {
+            if( *(*i)->pitch() != IMUSANT_pitch() && *(*j)->pitch() != IMUSANT_pitch())
+            {
+                IMUSANT_interval interval((*i)->pitch(),(*j)->pitch());
+                fIntervals.push_back(interval);
+            }
+        }
+        
+        return true;
     }
     
 #ifdef ORIGINAL

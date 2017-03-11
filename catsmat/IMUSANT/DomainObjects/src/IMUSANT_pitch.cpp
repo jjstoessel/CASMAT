@@ -283,6 +283,15 @@ namespace IMUSANT
             octave() == pitch.octave();
     }
     
+    bool
+    IMUSANT_pitch::operator!= (const IMUSANT_pitch& pitch) const
+    {
+        return name() != pitch.name() &&
+        getInflection() != pitch.getInflection() &&
+        octave() != pitch.octave();
+    }
+    
+    
     void IMUSANT_pitch::print (ostream& os) const
     {
         os << IMUSANT_pitch::xml(fNameSounding) << fAlterationSounding << "@" << fOctaveSounding /*<< std::endl*/;

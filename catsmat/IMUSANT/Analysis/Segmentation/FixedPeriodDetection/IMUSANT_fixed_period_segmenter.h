@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-#include "IMUSANT_processor.h"
+#include "IMUSANT_t_suffixtree_builder.h"
 #include "Loki/Visitor.h"
 #include "IMUSANT_segmented_part_fixed_period.h"
 

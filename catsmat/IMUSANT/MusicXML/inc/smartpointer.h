@@ -26,6 +26,7 @@
 #define __smartpointer__
 
 #include <cassert>
+#include <cstddef>
 #include "exports.h"
 
 /*!
@@ -74,7 +75,7 @@ namespace IMUSANT
         
     public:
         //! an empty constructor - points to null
-        IMUSANT_SMARTP()	: fSmartPtr(0) {}
+        IMUSANT_SMARTP()	: fSmartPtr(nullptr) {}
         //! build a smart pointer from a class pointer
         IMUSANT_SMARTP(T* rawptr) : fSmartPtr(rawptr)              { if (fSmartPtr) fSmartPtr->addReference(); }
         //! build a smart pointer from an convertible class reference
@@ -92,14 +93,14 @@ namespace IMUSANT
         //! '*' operator to access the actual class pointer
         T& operator*() const {
             // checks for null dereference
-            assert (fSmartPtr != 0);
+            assert (fSmartPtr != nullptr);
             return *fSmartPtr;
         }
         
         //! operator -> overloading to access the actual class pointer
         T* operator->() const	{
             // checks for null dereference
-            assert (fSmartPtr != NULL);
+            assert (fSmartPtr != nullptr);
             return fSmartPtr;
         }
         
@@ -113,9 +114,9 @@ namespace IMUSANT
             // check first that pointers differ
             if (fSmartPtr != p_) {
                 // increments the ref count of the new pointer if not null
-                if (p_ != 0) p_->addReference();
+                if (p_ != nullptr) p_->addReference();
                 // decrements the ref count of the old pointer if not null
-                if (fSmartPtr != 0) fSmartPtr->removeReference();
+                if (fSmartPtr != nullptr) fSmartPtr->removeReference();
                 // and finally stores the new actual pointer
                 fSmartPtr = p_;
             }

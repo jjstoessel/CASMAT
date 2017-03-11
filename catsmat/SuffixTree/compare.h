@@ -42,7 +42,7 @@ namespace cmp {
 class out_of_memory : public std::exception
 {
   protected:
-    operator=(const out_of_memory&);
+    void operator=(const out_of_memory&);
 
   public:
     // default ctor
@@ -117,7 +117,7 @@ class data_source
     // will not get copied correctly
     data_source();
     data_source(const data_source &);
-    operator=(const data_source &);
+    void operator=(const data_source &);
 
   public:
     // define a single ctor taking a pointer to the data and the size of the data
@@ -136,7 +136,7 @@ class data_source
 
 // ctor
 template<typename T>
-inline data_source<T>::data_source<T>(const T * const data, size_t size)
+inline data_source<T>::data_source(const T * const data, size_t size)
   : m_data(0),
     m_source(data),
     m_size(size)
@@ -145,7 +145,7 @@ inline data_source<T>::data_source<T>(const T * const data, size_t size)
 
 // dtor
 template<typename T>
-inline data_source<T>::~data_source<T>()
+inline data_source<T>::~data_source()
 {
 }
 
@@ -176,7 +176,7 @@ class result_type
   private:
     size_t              m_rec_num;  // record number
     record_type         m_type;     // record type (see enum above)
-    const T::data_type &m_data;     // record data
+    const typename T::data_type &m_data;     // record data
 
   protected:
     // if these methods are not defined, then the compiler
@@ -188,11 +188,11 @@ class result_type
     // will not get copied correctly
     result_type();
     result_type(const result_type&);
-    operator=(const result_type&);
+    void operator=(const result_type&);
 
   public:
     // ctor just stores the data
-    result_type(size_t rec_num, record_type type, const T::data_type &data)
+    result_type(size_t rec_num, record_type type, const typename T::data_type &data)
       : m_rec_num(rec_num),
         m_type(type),
         m_data(data)
@@ -205,7 +205,7 @@ class result_type
     // public accessors
     size_t              rec_num(void) const  { return m_rec_num; }
     record_type         type(void)    const  { return m_type; }
-    const T::data_type &data(void)    const  { return m_data; }
+    const typename T::data_type &data(void)    const  { return m_data; }
 };
 
 
@@ -234,7 +234,7 @@ class compare
     // will not get copied correctly
     compare();
     compare(const compare &);
-    operator=(const compare &);
+    void operator=(const compare &);
 
   protected:
     short get_result(int col, int row)                 const  { return m_array[(row*m_source->get_size())+col]; }
@@ -250,7 +250,7 @@ class compare
 
 // ctor will just store the data pointers
 template<typename T>
-compare<T>::compare<T>(T *source, T *dest)
+compare<T>::compare(T *source, T *dest)
   : m_array(NULL),
     m_source(source),
     m_dest(dest)
@@ -259,7 +259,7 @@ compare<T>::compare<T>(T *source, T *dest)
 
 // dtor to free allocated memory
 template<typename T>
-compare<T>::~compare<T>()
+compare<T>::~compare()
 {
     if (m_array != NULL)
     {
@@ -330,7 +330,7 @@ int compare<T>::process(compare<T>::result_set *pseq)
         {
             for (row=m_dest->get_size(); row>=0; --row)
             {
-                const T::data_type *data1, *data2;
+                const typename T::data_type *data1, *data2;
 
                 // get the data at the current col,row for each data source
                 if (m_source->get_at(col, &data1)  &&  m_dest->get_at(row, &data2))

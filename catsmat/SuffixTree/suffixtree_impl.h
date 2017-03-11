@@ -294,7 +294,7 @@ suffixtree_impl<V>::node::path_label_length() const
 	const node* current = this;
 	size_type length = 0;
 	
-	while (current!=0)
+	while (current!=NULL)
 	{
 		length += current->end() - current->begin();
 		current=current->up;
@@ -343,7 +343,7 @@ suffixtree_impl<V>::node::print_node(ostream& os, size_type
 		typename V::const_iterator iter=this->begin();
 		for (  ; iter!=this->end(); iter++)
 		{
-			os << (*iter);
+			os << (*iter) << ",";
 		}
 		//end replacement
 		if (children.size()==0) { // if it is a leaf, print it's start index

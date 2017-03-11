@@ -15,14 +15,6 @@
 
 namespace CATSMAT
 {
-    
-//    S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix()
-//    {
-//        CATSMAT_cp_matrix* o = new CATSMAT_cp_matrix();
-//        //assert(o!=0);
-//        if (o==0) throw catsmat_runtime_error("Unable to allocate Contrapuntal Matrix");
-//        return o;
-//    }
 
     /*!
      \brief CATSMAT_cp_matrix stream out operator
@@ -67,16 +59,6 @@ namespace CATSMAT
         //In the case of the first part, the matrix grows by pushing a one-dimensional vector<IMUSANT_note>
         //onto the stack. Zero based
         fCurrentPart++;
-        
-        //increase VectorInterval colection according to the formula of unique pairs n(n-1)/2
-        while (fVIntervalVector.size() < ( (fCurrentPart+1)*fCurrentPart/2 ) )
-        {
-            S_IMUSANT_interval_vector newIV = new_IMUSANT_interval_vector();
-            newIV->setMaximum(1024);
-            
-            fVIntervalVector.push_back(newIV);
-        }
-        
         fCurrentChord = fCPMatrix.begin();
         fCumulativeMeasureDuration.set(TRational(0,1));
     }
@@ -115,9 +97,6 @@ namespace CATSMAT
         if (fCurrentPart==0) // there are no parts added yet
         {
             S_CATSMAT_chord chord = new_CATSMAT_chord();
-            //S_IMUSANT_note copy_note = new_IMUSANT_note();
-            //*copy_note = note;
-            
             (*chord)[fCurrentPart]=copy_note;
             fCPMatrix.push_back(chord);
             fCurrentChord = --fCPMatrix.end();
@@ -135,7 +114,8 @@ namespace CATSMAT
         Inserts a note into the next chord (and following ones)
      
      */
-    void    CATSMAT_cp_matrix::insert(const IMUSANT_note& note)
+    void    CATSMAT_cp_matrix::
+    insert(const IMUSANT_note& note)
     {
         //call to distribute note and return remainder; if note duration less than current chord duration
         //note is returned as remainder to spilt chord into two parts.
@@ -311,12 +291,74 @@ namespace CATSMAT
     }
     
     /*!
+     \brief CATSMAT_cp_matrix::reindex
+     
+     Finishing function to reindex all notes in a matrix according to chord order
+     
+     */
+    void
+    CATSMAT_cp_matrix::
+    reindex()
+    {
+        long measure_number = 0;
+        long note_index = 0;
+        
+        for (list< S_CATSMAT_chord >::iterator chord = fCPMatrix.begin(); chord!=fCPMatrix.end(); chord++)
+        {
+            map<int, S_IMUSANT_note> chord_notes = *(*chord);
+            
+            for (auto chord_note = chord_notes.begin(); chord_note!=chord_notes.end(); chord_note++)
+            {
+                if (chord_note->second->getMeasureNum()>measure_number)
+                {
+                    measure_number = chord_note->second->getMeasureNum();
+                    note_index = 1;
+                }
+            }
+            
+            for (auto chord_note = chord_notes.begin(); chord_note!=chord_notes.end(); chord_note++)
+            {
+                chord_note->second->setMeasureNum(measure_number);
+                chord_note->second->setNoteIndex(note_index);
+            }
+            note_index++;
+        }
+    }
+    
+    /*!
+     \brief CATSMAT_cp_matrix::set(S_IMUSANT_score&)
+     
+     Set lookback to score that is source of CP Matrix
+     
+     */
+    void
+    CATSMAT_cp_matrix::
+    set(const S_IMUSANT_score& score)
+    {
+        fSourceScore = score;
+    }
+    
+    /*!
+     \brief CATSMAT_cp_matrix::set(S_IMUSANT_score&)
+     
+     Get lookback to score that is source of CP Matrix
+     May return NULL if not set
+     */
+    S_IMUSANT_score
+    CATSMAT_cp_matrix::
+    getScore() const
+    {
+        return fSourceScore;
+    }
+    
+    /*!
      \brief CATSMAT_cp_matrix::print
      
         Print function for viewing contents of CP matrix in XML
      
      */
-    void CATSMAT_cp_matrix::print(ostream& os)
+    void CATSMAT_cp_matrix::
+    print(ostream& os)
     {
         for (auto i = fCPMatrix.begin(); i!=fCPMatrix.end(); i++) {
             (*i)->print(os);

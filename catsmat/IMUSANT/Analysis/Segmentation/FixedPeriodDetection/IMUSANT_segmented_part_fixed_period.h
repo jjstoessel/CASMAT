@@ -52,7 +52,12 @@ namespace IMUSANT
         friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_fixed_period& segmented_part);
         friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
        
-
+        //these are not class dependent member functions of broader utility
+        static S_IMUSANT_duration calculateEntryOffsetBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part); //i.e. Interonset interval
+        
+        static bool errorRateIsAcceptable(double error_threshold, int num_non_matching_notes, long number_of_notes);
+        static bool partsEnterTogether(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
+        
     private:
         S_IMUSANT_score fScore;
         double fErrorThreshold = 0;
@@ -87,10 +92,7 @@ namespace IMUSANT
         void clearPeriodDurationForThisScore();
         S_IMUSANT_duration getPeriodDurationForPartComparison(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
         S_IMUSANT_duration calculatePeriodDurationForThisScore(IMUSANT_PartEntry_Vector& parts_in_entry_order);
-        S_IMUSANT_duration calculateEntryOffsetBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
         
-        bool errorRateIsAcceptable(double error_threshold, int num_non_matching_notes, long number_of_notes);
-        bool partsEnterTogether(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> S_IMUSANT_segmented_part_fixed_period;

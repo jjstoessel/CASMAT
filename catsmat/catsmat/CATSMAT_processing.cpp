@@ -16,6 +16,7 @@
 #include "CATSMAT_dyad_sequences.hpp"
 // #include "CATSMAT_dyadtuple_sequences.hpp"
 #include "CATSMAT_sonority_sequences.hpp"
+#include "CATSMAT_TrigramSequences.hpp"
 
 using namespace std;
 using namespace boost;
@@ -25,7 +26,7 @@ namespace CATSMAT
     
     void
     CATSMAT_processing::
-    find_repeated_dyad_sequences(int min, bool ignoreDissonances, bool ignoreRepeatedDyads, bool across)
+    FindRepeatedDyadSequences(int min, bool ignoreDissonances, bool ignoreRepeatedDyads, bool across)
     {
         for (auto score : this->getScores())
         {
@@ -33,8 +34,8 @@ namespace CATSMAT
             CATSMAT_dyad_sequences      dyads;
             
             //set internal parameters called within search functions
-            dyads.ignoreDissonances(ignoreDissonances);
-            dyads.ignoreRepeatedDyads(ignoreRepeatedDyads);
+            dyads.set_ignore_dissonances(ignoreDissonances);
+            dyads.set_ignore_repeated(ignoreRepeatedDyads);
             
             if (score!=NULL)
             {
@@ -43,9 +44,9 @@ namespace CATSMAT
                 
                 cout << "Repeated dyad sequences for each voice pair in " << (*score).getMovementTitle() << endl;
                 if (across)
-                    dyads.find_repeated_across(min);
+                    dyads.FindRepeatedAcross(min);
                 else
-                    dyads.find_repeated_in(min);
+                    dyads.FindRepeatedIn(min);
             }
             
         }
@@ -53,14 +54,14 @@ namespace CATSMAT
     
     void
     CATSMAT_processing::
-    find_repeated_dyadtuple_sequences(int min)
+    FindRepeatedDyadtupleSequences(int min)
     {
         
     }
     
     void
     CATSMAT_processing::
-    find_repeated_sonority_sequences(int min)
+    FindRepeatedSonoritySequences(int min)
     {
         for (auto score : this->getScores())
         {
@@ -80,4 +81,24 @@ namespace CATSMAT
 
     }
     
+    void
+    CATSMAT_processing::FindRepeatedTrigramSequences(int min)
+    {
+        for (auto score : this->getScores())
+        {
+            CATSMAT_collection_visitor      score_to_matrix_translator;
+            CATSMAT_TrigramSequences          trigram_sequences;
+            
+            if (score!=NULL)
+            {
+                (*score).accept(score_to_matrix_translator);
+                score_to_matrix_translator.getCPMatrix()->Accept(trigram_sequences);
+                
+                cout << "Repeated dyad sequences in " << (*score).getMovementTitle() << endl;
+                trigram_sequences.FindRepeated(min);
+            }
+            
+        }
+    }
+
 } //namespace CATSMAT

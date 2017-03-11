@@ -18,6 +18,12 @@ using namespace ns_suffixtree;
 
 namespace CATSMAT
 {
+    ostream& operator<<(ostream& os, const CATSMAT_dyadtuple_sequences& sequences)
+    {
+        sequences.Print(os);
+        
+        return os;
+    }
     /*!
      \brief CATSMAT_dyadtuple_sequences::Visit
      
@@ -35,7 +41,7 @@ namespace CATSMAT
             
             for (int i = 0; i<(partCount)*(partCount-1)/2; i++)
             {
-                fTupleVector.push_back(quadruple_int_vector());
+                vectors_.push_back(quadruple_int_vector());
             }
             
             for (auto chord = matrix.getCPmatrix().begin(), next_chord = std::next(chord);
@@ -77,7 +83,7 @@ namespace CATSMAT
                                 bottomhint = bottomStep.getNumber();
 
                                 quadruple_int dyad_tuple(vint1, vint2, tophint, bottomhint);
-                                fTupleVector[i].push_back(dyad_tuple);                            
+                                vectors_[i].push_back(dyad_tuple);
 
                             }
                             
@@ -131,13 +137,13 @@ namespace CATSMAT
     void
     CATSMAT_dyadtuple_sequences::find_repeated_tuplet_sequences(int min)
     {
-        if (fTupleVector.size()>0)
+        if (vectors_.size()>0)//if (fTupleVector.size()>0)
         {
             int id = 0;
             vector<int> ids;
             ids.push_back(id);
             
-            suffixtree<quadruple_int_vector> tuple_tree(*fTupleVector.begin(),id);
+            suffixtree<quadruple_int_vector> tuple_tree(*vectors_.begin(),id);
             
             cout << tuple_tree;
         }
@@ -145,9 +151,9 @@ namespace CATSMAT
     }
     
     void
-    CATSMAT_dyadtuple_sequences::print(ostream& os) const
+    CATSMAT_dyadtuple_sequences::Print(ostream& os) const
     {
-        for (auto iter1 = fTupleVector.begin(); iter1 != fTupleVector.end(); iter1++)
+        for (auto iter1 = vectors_.begin(); iter1 != vectors_.end(); iter1++)//for (auto iter1 = fTupleVector.begin(); iter1 != fTupleVector.end(); iter1++)
         {
             os << "dyad tuple pair: ";
             

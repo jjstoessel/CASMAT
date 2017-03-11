@@ -21,23 +21,22 @@ using namespace ns_suffixtree;
 
 namespace CATSMAT
 {
-    class CATSMAT_dyad_sequences: public CATSMAT_dyad_sequences_base
+    class CATSMAT_dyad_sequences: public CATSMAT_dyad_sequences_base<S_IMUSANT_interval_vector>
     {
         
     public:
         typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
+        
+        friend  ostream& operator<<(ostream& os, const CATSMAT_dyad_sequences& sequences);
         
         CATSMAT_dyad_sequences();
         ~CATSMAT_dyad_sequences();
         
         void    Visit(const CATSMAT_cp_matrix& matrix);
         
-        void    find_repeated_in(int min=3);
-        void    find_repeated_across(int min=3);
-        void    print(ostream& os) const;
-        
-        void    ignoreRepeatedDyads(bool ignore) { fIgnoreRepeatedDyads = ignore; }
-        void    ignoreDissonances(bool ignore) { fIgnoreDissonances = ignore; }
+        void    FindRepeatedIn(int min=3);
+        void    FindRepeatedAcross(int min=3);
+        void    Print(ostream& os) const;
         
     private:
         
@@ -46,10 +45,10 @@ namespace CATSMAT
                                          const interval_tree::node& n,
                                          int min_length=2);
         
-        vector<S_IMUSANT_interval_vector>   fVIntervalVectors; //needs to be tied to part/location
+        //vector<S_IMUSANT_interval_vector>   fVIntervalVectors; //needs to be tied to part/location
+        
         long                                fSaveI = 0;
-        bool                                fIgnoreRepeatedDyads = true;
-        bool                                fIgnoreDissonances = true;
+        
     };
     
 } //namespace CATSMAT

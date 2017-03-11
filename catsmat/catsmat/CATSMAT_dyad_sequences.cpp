@@ -14,9 +14,15 @@ using namespace ns_suffixtree;
 
 namespace CATSMAT
 {
+    ostream& operator<<(ostream& os, const CATSMAT_dyad_sequences& sequences)
+    {
+        sequences.Print(os);
+        
+        return os;
+    }
     
     CATSMAT_dyad_sequences::CATSMAT_dyad_sequences()
-        : CATSMAT_dyad_sequences_base()
+        : CATSMAT_dyad_sequences_base<S_IMUSANT_interval_vector>()
     {
     }
     
@@ -31,10 +37,10 @@ namespace CATSMAT
         //increase VectorInterval colection according to the formula of unique pairs n(n-1)/2
         unsigned long partCount = matrix.partCount();
         
-        while (fVIntervalVectors.size() < ( (partCount)*(partCount-1)/2 ) )
+        while (vectors_.size() < ( (partCount)*(partCount-1)/2 ) )
         {
-            fVIntervalVectors.push_back(new_IMUSANT_interval_vector());
-            fVIntervalVectors.back()->setMaximum(1024);
+            vectors_.push_back(new_IMUSANT_interval_vector());
+            vectors_.back()->setMaximum(1024);
         }
         
         process(matrix.getCPmatrix());
@@ -81,10 +87,10 @@ namespace CATSMAT
                             //only insert interval if not a repeated interval
                             if (
                                 !(chord_notes[i]->isTiedPrevious() && chord_notes[j]->isTiedPrevious()) &&
-                                !((interval.getQuality()==IMUSANT_interval::dissonant) && (fIgnoreDissonances==true))
+                                !((interval.getQuality()==IMUSANT_interval::dissonant) && (ignore_dissonances_==true))
                                 )
                             {
-                                fVIntervalVectors[dyad_pair]->add(interval);
+                                vectors_[dyad_pair]->add(interval);
                             }
                         }
                         dyad_pair++; //complete iteration through one pair of voices
@@ -109,11 +115,11 @@ namespace CATSMAT
      
      */
     void
-    CATSMAT_dyad_sequences::find_repeated_in(int min)
+    CATSMAT_dyad_sequences::FindRepeatedIn(int min)
     {
-        if (fVIntervalVectors.size()>0)
+        if (vectors_.size()>0)
         {
-            for (auto i = fVIntervalVectors.begin(); i!=fVIntervalVectors.end(); i++)
+            for (auto i = vectors_.begin(); i!=vectors_.end(); i++)
             {
                 if ((*i)->getIntervals().size()) //ignore empty vectors
                 {
@@ -160,15 +166,15 @@ namespace CATSMAT
      
      */
     void
-    CATSMAT_dyad_sequences::find_repeated_across(int min)
+    CATSMAT_dyad_sequences::FindRepeatedAcross(int min)
     {
-        if (fVIntervalVectors.size()>0)
+        if (vectors_.size()>0)
         {
             interval_tree* tree = NULL; //change last parameter to id for whole work tree.
             vector<pair<interval_tree::size_type, interval_tree::size_type> >* results = new vector<pair<interval_tree::size_type, interval_tree::size_type> >();
             int j = 1;
             
-            for (auto i = fVIntervalVectors.begin(); i!=fVIntervalVectors.end(); i++, j++)
+            for (auto i = vectors_.begin(); i!=vectors_.end(); i++, j++)
             {
                 if (tree==NULL) {
                     tree = new interval_tree((*i)->getIntervals(),j);
@@ -243,10 +249,10 @@ namespace CATSMAT
     }
     
     void
-    CATSMAT_dyad_sequences::print(ostream& os) const
+    CATSMAT_dyad_sequences::Print(ostream& os) const
     {
-        for (vector<S_IMUSANT_interval_vector>::const_iterator iter = fVIntervalVectors.begin();
-             iter != fVIntervalVectors.end() && (*iter) != NULL;
+        for (vector<S_IMUSANT_interval_vector>::const_iterator iter = vectors_.begin();
+             iter != vectors_.end() && (*iter) != NULL;
              iter++)
         {
             os << "dyadic pair: " << *iter << endl;
