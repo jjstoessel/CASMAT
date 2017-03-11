@@ -24,8 +24,9 @@ namespace CATSMAT
     struct CATSMAT_Canon_Type
     {
         bool    retrograde_inversion() { return retrograde_ && contrary_motion_; }
-            
-        int                         number_of_voices_ = 2; //assume 2 in 1, but change for 3 in 1, etc
+        
+        //data members
+        unsigned long               number_of_voices_ = 2; //assume 2 in 1, but change for 3 in 1, etc
         vector<IMUSANT_duration>    ioi_; //there are >2 vv. canons with different iois
         IMUSANT_duration            ioi_unit_; //set to measurement unit of ioi
         vector<IMUSANT_interval>    interval_; //thre are 2 vv. canon with different intervals, eg. 5th and octave
@@ -39,7 +40,7 @@ namespace CATSMAT
         TRational                   proportion_ = TRational();
         IMUSANT_time::symbol        mensur_1_ = IMUSANT_time::symbol::undefined;
         IMUSANT_time::symbol        mensur_2_ = IMUSANT_time::symbol::undefined;
-        vector<string>              part_names_;
+        vector<S_IMUSANT_part>      parts_;
     };
     
     class CATSMAT_CanonicTools : public smartable

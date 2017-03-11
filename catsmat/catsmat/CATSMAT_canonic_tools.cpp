@@ -38,7 +38,7 @@ namespace CATSMAT
         
         for (vector<IMUSANT_PartEntry>::iterator first_part_index = parts_in_entry_order.begin(); first_part_index!=parts_in_entry_order.end() ; first_part_index++ )
         {
-            for (auto second_part_index = first_part_index; second_part_index != parts_in_entry_order.end() ; second_part_index++)
+            for (auto second_part_index = first_part_index + 1; second_part_index != parts_in_entry_order.end() ; second_part_index++)
             {
                 canon_found = Detect_Canon_Type(*first_part_index, *second_part_index, error_threshold);
             }
@@ -68,9 +68,11 @@ namespace CATSMAT
         //exit if there is/are no melodic transformation(s) present so if cannot be canonic
         if (!(canon_type.imitative_ | canon_type.retrograde_ | canon_type.contrary_motion_)) return false;
         
-        //part name is unreliable as an unique identifier
-        canon_type.part_names_.push_back(first_part.Part->getPartName());
-        canon_type.part_names_.push_back(second_part.Part->getPartName());
+        //add pointers to parts in score - potentially dangerous if score removed from memory
+        canon_type.parts_.push_back(first_part.Part);
+        canon_type.parts_.push_back(second_part.Part);
+        
+        //NB. IMUSANT_PartEntry::Part->getPartName() is unreliable for obtaining a unique identifier
         
         canon_type.strict_ = canon_type.imitative_ && IsRhythmicallyExact(first_part, second_part, error_threshold);
         
@@ -122,52 +124,78 @@ namespace CATSMAT
     CATSMAT_CanonicTools::
     Insert(CATSMAT_Canon_Type insert_canon_type)
     {
-        bool insert = true;
-        
         for ( vector<CATSMAT_Canon_Type>::iterator known_canon_type = canon_types_.begin();
                                                    known_canon_type!= canon_types_.end();
                                                    known_canon_type++)
         {
-            
-            for ( vector<string>::iterator insert_part_name = insert_canon_type.part_names_.begin();
-                 insert_part_name!= insert_canon_type.part_names_.end();
-                 insert_part_name++)
-            
+            for (vector<S_IMUSANT_part>::const_iterator insert_part = insert_canon_type.parts_.begin();
+                 insert_part != insert_canon_type.parts_.end();
+                 insert_part++)
             {
-                for ( vector<string>::iterator known_part_name = known_canon_type->part_names_.begin();
-                     known_part_name!= known_canon_type->part_names_.end();
-                     known_part_name++)
+                //find if part ptr already stored
+                const auto found_part = std::find(known_canon_type->parts_.begin(), known_canon_type->parts_.end(), *insert_part);
+                
+                if (found_part!=known_canon_type->parts_.end()) //found
                 {
-                    if (*insert_part_name == *known_part_name)
+                    //pointer to part already stored
+                    //add another part pointer - use merge, unique method. NB. source vectors must be sorted
+                    vector<S_IMUSANT_part> results;
+                    results.resize(known_canon_type->parts_.size()+insert_canon_type.parts_.size());
+                    std::sort(known_canon_type->parts_.begin(), known_canon_type->parts_.end());
+                    std::sort(insert_canon_type.parts_.begin(), insert_canon_type.parts_.end());
+                    std::merge(known_canon_type->parts_.begin(), known_canon_type->parts_.end(),
+                               insert_canon_type.parts_.begin(), insert_canon_type.parts_.end(),
+                               results.begin());
+                    auto it = std::unique(results.begin(), results.end(), [](S_IMUSANT_part l, S_IMUSANT_part r) { return l==r; });
+                    results.resize(std::distance(results.begin(),it));
+                    known_canon_type->parts_.clear();
+                    known_canon_type->parts_.assign(results.begin(),results.end());
+                    known_canon_type->number_of_voices_ = results.size();
+                    
+                    //add a different interval to canon_type if required
+                    for (IMUSANT_interval val : insert_canon_type.interval_)
                     {
-                        //then the other insert_part_name is also in canon with known_part_names
-                        insert = false;
-                        std::sort(known_canon_type->part_names_.begin(), known_canon_type->part_names_.end());
-                        std::sort(insert_canon_type.part_names_.begin(), insert_canon_type.part_names_.end());
-                        vector<string> result;
-                        result.resize(known_canon_type->part_names_.size()+insert_canon_type.part_names_.size()-1);
-                        std::merge(known_canon_type->part_names_.begin(),
-                                   known_canon_type->part_names_.end(),
-                                   insert_part_name, //insert_canon_type.part_names_.begin(),
-                                   insert_canon_type.part_names_.end(),
-                                   result.begin());
-                        known_canon_type->number_of_voices_++;
-                        vector<IMUSANT_interval>::iterator first, second, val, it;
-                        first = known_canon_type->interval_.begin();
-                        second = known_canon_type->interval_.end();
-                        val = insert_canon_type.interval_.begin();
-                        it = std::find(first, second, *val);
-                        if ( it==known_canon_type->interval_.end())
+                        auto it = std::find(known_canon_type->interval_.begin(), known_canon_type->interval_.end(), val);
+                        
+                        //is it a stacked canon - assume ordered ascend/descending entry
+                        for (IMUSANT_interval known_int : known_canon_type->interval_)
+                        {
+                            if (known_int == IMUSANT_interval(IMUSANT::IMUSANT_interval::unison)) break; // unison canons x>2 in 1 are technically stacked!
+                            
+                            for (int i = 1; i < known_canon_type->number_of_voices_-1; i++)
+                            {
+                                known_int += known_int; //effectively multiply
+                                auto insert_result = std::find(insert_canon_type.interval_.begin(), insert_canon_type.interval_.end(), known_int);
+                                if (insert_result!=insert_canon_type.interval_.end()) {
+                                    known_canon_type->stacked_ = true;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        //insert interval if not already known
+                        if ( it==known_canon_type->interval_.end() && !known_canon_type->stacked_)
                         {
                             IMUSANT_interval in = *insert_canon_type.interval_.begin();
-                            insert_canon_type.interval_.push_back(*val);
+                            known_canon_type->interval_.push_back(val);
                         }
                     }
+                    
+                    //add a different ioi if required - but only if different to no of vv. * ioi_
+                    for (IMUSANT_duration insert_ioi : insert_canon_type.ioi_)
+                    {
+                        TRational r = insert_ioi.fDuration * TRational(1,known_canon_type->number_of_voices_-2);
+                        IMUSANT_duration expected_ioi(r);
+                        auto found_ioi = std::find(known_canon_type->ioi_.begin(), known_canon_type->ioi_.end(), expected_ioi);
+                        if (found_ioi!=known_canon_type->ioi_.end())
+                            known_canon_type->ioi_.push_back(insert_ioi);
+                    }
+                    return;
                 }
             }
         }
-        if (insert == true)
-            canon_types_.push_back(insert_canon_type);
+        //if we get to here then insert needed
+        canon_types_.push_back(insert_canon_type);
     }
 
     bool
