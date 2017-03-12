@@ -1086,6 +1086,10 @@
 		49CE2CE71E3C39CD00D13F22 /* IMUSANT_set_of_segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_set_of_segment.h; sourceTree = "<group>"; };
 		49D6903B1C8BC91900EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RepeatedIntervalSubstrings_SimpleTest1.xml; sourceTree = "<group>"; };
 		49DA50031DCE87AB00AC1975 /* Josquin_MAF_Christe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Josquin_MAF_Christe.xml; sourceTree = "<group>"; };
+		49DA5F081E74C127003E8263 /* Kyrie.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kyrie.mscz; sourceTree = "<group>"; };
+		49DA5F091E74C127003E8263 /* PeriodicSegmentationResults_20170215.pptx */ = {isa = PBXFileReference; lastKnownFileType = file; path = PeriodicSegmentationResults_20170215.pptx; sourceTree = "<group>"; };
+		49DA5F0A1E74C127003E8263 /* S-01223_analysis.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-01223_analysis.docx"; sourceTree = "<group>"; };
+		49DA5F0B1E74C127003E8263 /* Sanctus.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sanctus.mscz; sourceTree = "<group>"; };
 		49EBE74D1CF18E6A009B110D /* IMUSANT_conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_conversions.h; sourceTree = "<group>"; };
 		49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_conversions.cpp; sourceTree = "<group>"; };
 		49F1FFF41C9D5A8F00910F07 /* IMUSANT_part_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_part_Tests.cpp; sourceTree = "<group>"; };
@@ -1637,12 +1641,12 @@
 		4932AB651DC43824006423CD /* FixedPeriodDetection */ = {
 			isa = PBXGroup;
 			children = (
+				49CE2CE31E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.h */,
+				49CE2CE21E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.cpp */,
 				4932AB671DC4A018006423CD /* IMUSANT_segmented_part_fixed_period.h */,
 				4932AB661DC4A018006423CD /* IMUSANT_segmented_part_fixed_period.cpp */,
 				4920C1641E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.h */,
 				4920C1631E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.cpp */,
-				49CE2CE31E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.h */,
-				49CE2CE21E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.cpp */,
 			);
 			path = FixedPeriodDetection;
 			sourceTree = "<group>";
@@ -1680,12 +1684,12 @@
 		495A50281CA5B93F006985E2 /* LocalBoundaryDetectionModel */ = {
 			isa = PBXGroup;
 			children = (
+				BA1E393C1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h */,
+				BA1E393B1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp */,
 				495A502A1CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.h */,
 				495A50291CA5B957006985E2 /* IMUSANT_segmented_part_LBDM.cpp */,
 				1E0D00DD1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.h */,
 				1E0D00DC1CBF9A9C0035CA98 /* IMUSANT_interval_profile_LBDM.cpp */,
-				BA1E393C1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h */,
-				BA1E393B1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.cpp */,
 				496BD4E01D3239630052F94E /* IMUSANT_consolidated_interval_profile_LBDM.h */,
 				49064B861D83C6C200865892 /* IMUSANT_consolidated_interval_profile_LBDM_visitor.h */,
 				49064B891D83CE6F00865892 /* IMUSANT_segmented_profile_vectors.h */,
@@ -2783,6 +2787,17 @@
 			path = xmlread;
 			sourceTree = "<group>";
 		};
+		49DA5F031E74C041003E8263 /* PeriodicSegmentationResults_20170217 */ = {
+			isa = PBXGroup;
+			children = (
+				49DA5F081E74C127003E8263 /* Kyrie.mscz */,
+				49DA5F091E74C127003E8263 /* PeriodicSegmentationResults_20170215.pptx */,
+				49DA5F0A1E74C127003E8263 /* S-01223_analysis.docx */,
+				49DA5F0B1E74C127003E8263 /* Sanctus.mscz */,
+			);
+			path = PeriodicSegmentationResults_20170217;
+			sourceTree = "<group>";
+		};
 		96A71C821A9160CB0021C86A /* include */ = {
 			isa = PBXGroup;
 			children = (
@@ -3127,6 +3142,7 @@
 		C6859E8C029090F304C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				49DA5F031E74C041003E8263 /* PeriodicSegmentationResults_20170217 */,
 				498D54511C32A72200439018 /* MusicXMLv3_Elements_Reqs.xlsx */,
 				496EF7211B24013600FE715F /* DevelopmentEnvironmentConfiguration.docx */,
 				C6859E8B029090EE04C91782 /* imusant.1 */,
