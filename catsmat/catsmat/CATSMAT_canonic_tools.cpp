@@ -14,8 +14,7 @@
 
 namespace CATSMAT
 {
-    //IMUSANT_SMARTP<CATSMAT_CanonicTools> new_CATSMAT_object();
-    
+
     bool
     CATSMAT_CanonicTools::
     Initialise(S_IMUSANT_score the_score, double error_threshold)
@@ -85,17 +84,33 @@ namespace CATSMAT
             if (!IMUSANT_segmented_part_fixed_period::partsEnterTogether(first_part, second_part))
             {
                 IMUSANT_duration ioi = *IMUSANT_segmented_part_fixed_period::calculateEntryOffsetBetweenParts(first_part, second_part);
-                canon_type.ioi_.push_back(ioi);
+                canon_type.ioi_.push_back(ioi); //long duration IOI
+                
+                //calculate ioi_unit and ioi_unit_count
+                IMUSANT_duration ioi_unit;
+                int ioi_unit_count;
+                //<-- find ioi_unit here
+                ioi_unit = CalculateIOIUnit(first_part, second_part);
+                
+                if(ioi_unit!= IMUSANT_duration()) //only insert if ioi_unit was calculated
+                {
+                    ioi_unit_count = ioi.asAbsoluteNumeric()/ioi_unit.asAbsoluteNumeric();
+                
+                    CATSMAT_Canon_Type::CATSMAT_IOI_pair ioi_pair = std::make_pair(ioi_unit, ioi_unit_count);
+                    canon_type.ioi_unit_count.push_back(ioi_pair);
+                }
             }
             
             if (!canon_type.strict_)
             {
-                if (IsProportionalCanon(first_part, second_part, error_threshold))
+                TRational proportion;
+                
+                if (IsProportionalCanon(first_part, second_part, proportion, error_threshold))
                 {
                     //Can be either a simultaneous mensuration, proportion, inversion, retrograde or retrograde inversion canon OR not a canon at all
                     //canon_type.ioi_ defaults to zero
                     canon_type.proportional_ = true;
-                    canon_type.proportion_ = TRational(); //needs to get relation between notes.
+                    canon_type.proportions_.push_back(proportion); //needs to get relation between notes.
                 }
                 else if (IsMensurationCanon(first_part, second_part, error_threshold))
                 {
@@ -189,6 +204,9 @@ namespace CATSMAT
                         auto found_ioi = std::find(known_canon_type->ioi_.begin(), known_canon_type->ioi_.end(), expected_ioi);
                         if (found_ioi!=known_canon_type->ioi_.end())
                             known_canon_type->ioi_.push_back(insert_ioi);
+                        
+                        //ioi_count
+                        
                     }
                     return;
                 }
@@ -346,8 +364,10 @@ namespace CATSMAT
     
     bool
     CATSMAT_CanonicTools::
-    IsProportionalCanon(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
+    IsProportionalCanon(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, TRational& result, double error_threshold)
     {
+        result.set(1,1);
+        
         return false; // does nothing for now
     }
     
@@ -364,5 +384,57 @@ namespace CATSMAT
     {
         return false; // does nothing for now
     }
+    
+    IMUSANT_duration
+    CATSMAT_CanonicTools::
+    CalculateIOIUnit(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part)
+    {
+        IMUSANT_duration ioi_unit;
+        IMUSANT_duration p1_measure_duration, p2_measure_duration;
+        
+        first_part.Part->measures()[first_part.EntryMeasureNum-1]->notes()[first_part.EntryNoteIndex-1];
+        
+        return ioi_unit;
+    }
+    
+    //output stream operator for CATSMAT_Canon_Type
+    ostream& operator<< (ostream& os, const CATSMAT_Canon_Type& type )
+    {
+        os
+        << "=== Canonic type ===" << endl
+        << "Number of voices: " << type.number_of_voices_ << endl;
+        for (IMUSANT_duration ioi : type.ioi_)
+        {
+            os << "Interonset: " << ioi << endl;
+        }
+        for (CATSMAT_Canon_Type::CATSMAT_IOI_pair unit_count : type.ioi_unit_count)
+        {
+            os << "IOI count" << unit_count.first << "(unit: " << unit_count.second << ")" << endl;
+        }
+        //os
+        //<< "IOI unit: " << type.ioi_unit_ << endl;
+        for (IMUSANT_interval interval : type.interval_)
+        {
+            os << "Interval: " << interval << endl;
+        }
+        os
+        << "Melodically imitative: " << ( type.imitative_ ? "yes" : "no" ) << endl
+        << "Strict: " << ( type.strict_ ? "yes" : "no" ) << endl
+        << "Retrograde: " << ( type.retrograde_ ? "yes" : "no" ) << endl
+        << "Contrary motion: " << ( type.contrary_motion_ ? "yes" : "no" ) << endl
+        << "Proportional: " << ( type.proportional_ ? "yes" : "no" ) << endl;
+        for (TRational proportion : type.proportions_)
+        {
+            os << "Proportion: " << proportion.toString().c_str() << endl;
+        }
+        os
+        << "Stacked: " << ( type.stacked_ ? "yes" : "no" ) << endl;
+        for (S_IMUSANT_part part : type.parts_ )
+        {
+            os << "Part: " << part->getPartName() << ", Part ID: " << part->getID() << endl;
+        }
+        return os;
+    }
+
 
 }

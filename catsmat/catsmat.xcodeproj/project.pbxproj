@@ -344,6 +344,7 @@
 		49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
 		9665C50E1E724F0A00947C15 /* CATSMAT_canonic_tools_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9665C50C1E724F0A00947C15 /* CATSMAT_canonic_tools_tests.cpp */; };
+		9665C50F1E74B8B000947C15 /* Ockeghem_Prenez_sur_moi_(Cop).xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA33CBC81D6FD7A8001B7FF3 /* Ockeghem_Prenez_sur_moi_(Cop).xml */; };
 		9667B8AA1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
 		9667B8AB1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
 		9695B5321DE08575000586D0 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
@@ -514,6 +515,7 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				9665C50F1E74B8B000947C15 /* Ockeghem_Prenez_sur_moi_(Cop).xml in CopyFiles */,
 				BA4207E21CE806F6007204AF /* Kyrie.xml in CopyFiles */,
 				1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */,
 				1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */,

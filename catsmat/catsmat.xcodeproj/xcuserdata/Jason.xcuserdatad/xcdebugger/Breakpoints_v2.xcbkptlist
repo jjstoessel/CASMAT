@@ -1031,11 +1031,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "510900179.999001"
+            timestampString = "510968265.001209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "CATSMAT_CanonicTools:: IsIntervallicallyExact(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1047,11 +1047,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "510891327.360124"
+            timestampString = "510968265.001209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "CATSMAT_CanonicTools:: Detect_Canon_Type(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1063,11 +1063,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "510891327.360124"
+            timestampString = "510968265.001209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "CATSMAT_CanonicTools:: Detect_Canon_Type(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_canonic_tools.cpp"
+            timestampString = "510969220.330331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "CATSMAT_CanonicTools:: Detect_Canon_Type(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1078,29 +1094,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "510895873.536482"
+            filePath = "catsmat/CATSMAT_canonic_tools.hpp"
+            timestampString = "510970546.163061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "CATSMAT_CanonicTools:: Insert(CATSMAT_Canon_Type insert_canon_type)"
-            landmarkType = "7">
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "CATSMAT_Canon_Type"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "510901900.92765"
+            timestampString = "510972944.645799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "CATSMAT_CanonicTools:: Insert(CATSMAT_Canon_Type insert_canon_type)"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "CATSMAT_CanonicTools:: CalculateIOIUnit(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

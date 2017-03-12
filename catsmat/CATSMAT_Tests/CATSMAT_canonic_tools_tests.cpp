@@ -2,7 +2,7 @@
 //  CATSMAT_canonic_tools_tests.cpp
 //  catsmat
 //
-//  Created by Jason James Stoessel on 10/03/2017.
+//  Created by Jason Stoessel on 10/03/2017.
 //
 //
 
@@ -52,6 +52,29 @@ TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Talent_mest_pris) {
     S_CATSMAT_Canonic_Tools tools = new_CATSMAT_object<CATSMAT_CanonicTools>();
     tools->Initialise(imusant_score);
     
+    std::stringstream the_type_as_stringstream;
+    for ( auto type : tools->GetCanonTypes())
+    {
+        the_type_as_stringstream << type;
+    }
+    string the_types_as_string = the_type_as_stringstream.str();
     
-    //ASSERT_EQ(TestScore_Talent_mest_pris_repeats_Expected, the_sequences_as_string);
+    ASSERT_EQ(TestScore_Talent_mest_pris_canontype_Expected, the_types_as_string);
+}
+
+TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Ockeghem_Prenez_sur_moi) {
+    
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Ockeghem_Prenez_sur_moi_(Cop).xml");
+    
+    S_CATSMAT_Canonic_Tools tools = new_CATSMAT_object<CATSMAT_CanonicTools>();
+    tools->Initialise(imusant_score);
+    
+    std::stringstream the_type_as_stringstream;
+    for ( auto type : tools->GetCanonTypes())
+    {
+        the_type_as_stringstream << type;
+    }
+    string the_types_as_string = the_type_as_stringstream.str();
+    
+    ASSERT_EQ(TestScore_Ockeghem_Prenez_sur_moi_canontype_Expected, the_types_as_string);
 }
