@@ -226,7 +226,7 @@ namespace IMUSANT
         fCurrentClef.setTransposition(octave_change);
 #ifdef SHOULDNT_THIS_BE_HERE
         fTransposing = true;
-        fTransposeOctaveChange = -1;
+        fTransposeOctaveChange = octave_change;
 #endif
     }
     

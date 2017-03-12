@@ -1297,7 +1297,6 @@
 		BA33CBFC1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam reservatam_2_Gloria.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 9_Missa ad fugam reservatam_2_Gloria.xml"; sourceTree = "<group>"; };
 		BA33CBFD1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam reservatam_3_Credo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 9_Missa ad fugam reservatam_3_Credo.xml"; sourceTree = "<group>"; };
 		BA33CBFE1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam_1_Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Trent 9_Missa ad fugam_1_Kyrie.xml"; sourceTree = "<group>"; };
-		BA3AFB701E6BB2B600BAD6D9 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Anon-Talent_mest_pris_I-IV_115_52r-.xml"; path = "MusicXML/Anon-Talent_mest_pris_I-IV_115_52r-.xml"; sourceTree = "<group>"; };
 		BA4207E11CE805BF007204AF /* Kyrie.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie.xml; sourceTree = "<group>"; };
 		BA4207E31CEEAB49007204AF /* IMUSANT_t_repeated_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_repeated_substring.h; sourceTree = "<group>"; };
 		BA4207E41CEEAB6B007204AF /* IMUSANT_t_repeated_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_t_repeated_substring.cpp; sourceTree = "<group>"; };
@@ -2920,7 +2919,6 @@
 		BA33CBB41D6FD7A8001B7FF3 /* corpus */ = {
 			isa = PBXGroup;
 			children = (
-				BA3AFB701E6BB2B600BAD6D9 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */,
 				BA33CBB51D6FD7A8001B7FF3 /* MusicXML */,
 			);
 			path = corpus;
