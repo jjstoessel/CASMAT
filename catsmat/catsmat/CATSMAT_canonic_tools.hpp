@@ -31,10 +31,8 @@ namespace CATSMAT
         //data members
         vector<S_IMUSANT_part>      parts_;
         unsigned long               number_of_voices_ = 2; //assume 2 in 1, but change for 3 in 1, etc
-        vector<IMUSANT_duration>    ioi_; //there are >2 vv. canons with different iois
-        //IMUSANT_duration            ioi_unit_; //set to measurement unit of ioi
-        vector<CATSMAT_IOI_pair>    ioi_unit_count;
-        vector<IMUSANT_interval>    interval_; //thre are 2 vv. canon with different intervals, eg. 5th and octave
+        vector<CATSMAT_IOI_pair>    ioi_pairs_; //there are >2 vv. canons with different iois
+        vector<IMUSANT_interval>    intervals_; //thre are 2 vv. canon with different intervals, eg. 5th and octave
         bool                        imitative_ = false; //exact melodic relationship
         bool                        strict_ = false;    //string exact rhythmic relation
         bool                        retrograde_ = false; //crab canon
@@ -60,7 +58,7 @@ namespace CATSMAT
         CATSMAT_CanonicTools() {}
         ~CATSMAT_CanonicTools() {}
     private:
-        bool    Detect_Canon_Type(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
+        void    Detect_Canon_Type(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
         void    Insert(CATSMAT_Canon_Type canon_type);
         bool    IsMelodicallyExact(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
         bool    IsIntervallicallyExact(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);

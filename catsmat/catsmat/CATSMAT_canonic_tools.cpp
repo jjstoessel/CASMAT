@@ -33,21 +33,19 @@ namespace CATSMAT
         // Sort the parts in the order in which they enter...
         IMUSANT_partlist_ordered_by_part_entry part_sorter;
         vector<IMUSANT_PartEntry> parts_in_entry_order = part_sorter.getPartsInOrder(the_score);
-    
-        bool canon_found = false;
         
         for (vector<IMUSANT_PartEntry>::iterator first_part_index = parts_in_entry_order.begin(); first_part_index!=parts_in_entry_order.end() ; first_part_index++ )
         {
             for (auto second_part_index = first_part_index + 1; second_part_index != parts_in_entry_order.end() ; second_part_index++)
             {
-                canon_found = Detect_Canon_Type(*first_part_index, *second_part_index, error_threshold);
+                Detect_Canon_Type(*first_part_index, *second_part_index, error_threshold);
             }
         }
         
         return true;
     }
     
-    bool
+    void
     CATSMAT_CanonicTools::
     Detect_Canon_Type(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
@@ -66,7 +64,7 @@ namespace CATSMAT
         canon_type.contrary_motion_ = IsInversion(first_part, second_part, error_threshold);
         
         //exit if there is/are no melodic transformation(s) present so if cannot be canonic
-        if (!(canon_type.imitative_ | canon_type.retrograde_ | canon_type.contrary_motion_)) return false;
+        if (!(canon_type.imitative_ | canon_type.retrograde_ | canon_type.contrary_motion_)) return;
         
         //add pointers to parts in score - potentially dangerous if score removed from memory
         canon_type.parts_.push_back(first_part.Part);
@@ -80,25 +78,22 @@ namespace CATSMAT
         {
             //find the interval of imitation and IOI
             IMUSANT_interval interval = GetIntervalBetweenParts(first_part, second_part);
-            canon_type.interval_.push_back(interval);
+            canon_type.intervals_.push_back(interval);
             
             if (!IMUSANT_segmented_part_fixed_period::partsEnterTogether(first_part, second_part))
             {
-                IMUSANT_duration ioi = *IMUSANT_segmented_part_fixed_period::calculateEntryOffsetBetweenParts(first_part, second_part);
-                canon_type.ioi_.push_back(ioi); //long duration IOI
-                
                 //calculate ioi_unit and ioi_unit_count
+                IMUSANT_duration ioi = *IMUSANT_segmented_part_fixed_period::calculateEntryOffsetBetweenParts(first_part, second_part);
                 IMUSANT_duration ioi_unit;
-                int ioi_unit_count;
-                //<-- find ioi_unit here
+                
                 ioi_unit = CalculateIOIUnit(first_part, second_part);
                 
                 if(ioi_unit!= IMUSANT_duration()) //only insert if ioi_unit was calculated
                 {
-                    ioi_unit_count = ioi.asAbsoluteNumeric()/ioi_unit.asAbsoluteNumeric();
+                    int ioi_unit_count = ioi.asAbsoluteNumeric()/ioi_unit.asAbsoluteNumeric();
                 
                     CATSMAT_Canon_Type::CATSMAT_IOI_pair ioi_pair = std::make_pair(ioi_unit, ioi_unit_count);
-                    canon_type.ioi_unit_count.push_back(ioi_pair);
+                    canon_type.ioi_pairs_.push_back(ioi_pair);
                 }
             }
             
@@ -121,7 +116,7 @@ namespace CATSMAT
             }
             
             Insert(canon_type);
-            return true;
+            return;
         }
         
         if (canon_type.retrograde_)
@@ -133,32 +128,38 @@ namespace CATSMAT
             
         }
         Insert(canon_type);
-        return true;
     }
 
     void
     CATSMAT_CanonicTools::
     Insert(CATSMAT_Canon_Type insert_canon_type)
     {
+        bool complementary_found = false;
+        
         for ( vector<CATSMAT_Canon_Type>::iterator known_canon_type = canon_types_.begin();
                                                    known_canon_type!= canon_types_.end();
                                                    known_canon_type++)
         {
-            for (vector<S_IMUSANT_part>::const_iterator insert_part = insert_canon_type.parts_.begin();
-                 insert_part != insert_canon_type.parts_.end();
-                 insert_part++)
+            std::sort(known_canon_type->parts_.begin(), known_canon_type->parts_.end());
+            std::sort(insert_canon_type.parts_.begin(), insert_canon_type.parts_.end());
+            if (std::includes(known_canon_type->parts_.begin(), known_canon_type->parts_.end(), insert_canon_type.parts_.begin(),insert_canon_type.parts_.end())) return; //all canonic relations already known between part
+            
+            vector<S_IMUSANT_part> different_parts;
+            std::set_difference(known_canon_type->parts_.begin(), known_canon_type->parts_.end(), insert_canon_type.parts_.begin(), insert_canon_type.parts_.end(), std::inserter(different_parts,different_parts.begin()));
+            
+            if (!different_parts.empty())
             {
-                //find if part ptr already stored
-                const auto found_part = std::find(known_canon_type->parts_.begin(), known_canon_type->parts_.end(), *insert_part);
-                
-                if (found_part!=known_canon_type->parts_.end()) //found
+                complementary_found = true; //the insert canon type has something in common with a known canon type
+                //at least one part of the insertable canonic pair is already canonic with another part in a known pair
+                for (vector<S_IMUSANT_part>::const_iterator insert_part = different_parts.begin();
+                     insert_part != different_parts.end();
+                     insert_part++)
                 {
+                    
                     //pointer to part already stored
                     //add another part pointer - use merge, unique method. NB. source vectors must be sorted
                     vector<S_IMUSANT_part> results;
                     results.resize(known_canon_type->parts_.size()+insert_canon_type.parts_.size());
-                    std::sort(known_canon_type->parts_.begin(), known_canon_type->parts_.end());
-                    std::sort(insert_canon_type.parts_.begin(), insert_canon_type.parts_.end());
                     std::merge(known_canon_type->parts_.begin(), known_canon_type->parts_.end(),
                                insert_canon_type.parts_.begin(), insert_canon_type.parts_.end(),
                                results.begin());
@@ -169,20 +170,20 @@ namespace CATSMAT
                     known_canon_type->number_of_voices_ = results.size();
                     
                     //add a different interval to canon_type if required
-                    for (IMUSANT_interval val : insert_canon_type.interval_)
+                    for (IMUSANT_interval val : insert_canon_type.intervals_)
                     {
-                        auto it = std::find(known_canon_type->interval_.begin(), known_canon_type->interval_.end(), val);
+                        auto it = std::find(known_canon_type->intervals_.begin(), known_canon_type->intervals_.end(), val);
                         
                         //is it a stacked canon - assume ordered ascend/descending entry
-                        for (IMUSANT_interval known_int : known_canon_type->interval_)
+                        for (IMUSANT_interval known_int : known_canon_type->intervals_)
                         {
                             if (known_int == IMUSANT_interval(IMUSANT::IMUSANT_interval::unison)) break; // unison canons x>2 in 1 are technically stacked!
                             
                             for (int i = 1; i < known_canon_type->number_of_voices_-1; i++)
                             {
-                                known_int += known_int; //effectively multiply
-                                auto insert_result = std::find(insert_canon_type.interval_.begin(), insert_canon_type.interval_.end(), known_int);
-                                if (insert_result!=insert_canon_type.interval_.end()) {
+                                known_int += known_int; //effectively multiply interval by i
+                                auto insert_result = std::find(insert_canon_type.intervals_.begin(), insert_canon_type.intervals_.end(), known_int);
+                                if (insert_result!=insert_canon_type.intervals_.end()) {
                                     known_canon_type->stacked_ = true;
                                     break;
                                 }
@@ -190,31 +191,27 @@ namespace CATSMAT
                         }
                         
                         //insert interval if not already known
-                        if ( it==known_canon_type->interval_.end() && !known_canon_type->stacked_)
+                        if ( it==known_canon_type->intervals_.end() && !known_canon_type->stacked_)
                         {
-                            IMUSANT_interval in = *insert_canon_type.interval_.begin();
-                            known_canon_type->interval_.push_back(val);
+                            IMUSANT_interval in = *insert_canon_type.intervals_.begin();
+                            known_canon_type->intervals_.push_back(val);
                         }
                     }
                     
                     //add a different ioi if required - but only if different to no of vv. * ioi_
-                    for (IMUSANT_duration insert_ioi : insert_canon_type.ioi_)
+                    for (CATSMAT_Canon_Type::CATSMAT_IOI_pair insert_ioi_pair : insert_canon_type.ioi_pairs_)
                     {
-                        TRational r = insert_ioi.fDuration * TRational(1,known_canon_type->number_of_voices_-2);
-                        IMUSANT_duration expected_ioi(r);
-                        auto found_ioi = std::find(known_canon_type->ioi_.begin(), known_canon_type->ioi_.end(), expected_ioi);
-                        if (found_ioi!=known_canon_type->ioi_.end())
-                            known_canon_type->ioi_.push_back(insert_ioi);
-                        
-                        //ioi_count
-                        
+                        int expected_ioi_count = insert_ioi_pair.second/(known_canon_type->number_of_voices_-1);
+                        CATSMAT_Canon_Type::CATSMAT_IOI_pair expected_ioi_pair = std::make_pair(insert_ioi_pair.first, expected_ioi_count);
+                        auto found_ioi_pair = std::find(known_canon_type->ioi_pairs_.begin(), known_canon_type->ioi_pairs_.end(), expected_ioi_pair);
+                        if (found_ioi_pair==known_canon_type->ioi_pairs_.end())
+                            known_canon_type->ioi_pairs_.push_back(insert_ioi_pair);
                     }
-                    return;
                 }
             }
         }
-        //if we get to here then insert needed
-        canon_types_.push_back(insert_canon_type);
+        
+        if (!complementary_found) canon_types_.push_back(insert_canon_type);//if we get to here insert needed
     }
 
     bool
@@ -301,8 +298,8 @@ namespace CATSMAT
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
         
-        IMUSANT_interval_vector* first_part_intervals = new_IMUSANT_interval_vector();
-        IMUSANT_interval_vector* second_part_intervals = new_IMUSANT_interval_vector();
+        S_IMUSANT_interval_vector first_part_intervals = new_IMUSANT_interval_vector();
+        S_IMUSANT_interval_vector second_part_intervals = new_IMUSANT_interval_vector();
         
         //this conversion does not enter rests, so compare directly
         first_part_intervals->add(part_one_notes);
@@ -392,8 +389,37 @@ namespace CATSMAT
     {
         IMUSANT_duration ioi_unit;
         IMUSANT_duration p1_measure_duration, p2_measure_duration;
+        IMUSANT_time     time;
+        //test first for ioi at measure length
+        for (unsigned long i = first_part.EntryMeasureNum-1; i<second_part.EntryMeasureNum; i++)
+        {
+            IMUSANT_duration measure_dur;
+            
+            time = first_part.Part->measures()[i]->getTime(); //get time if there
+            
+            for (S_IMUSANT_note note_ptr : first_part.Part->measures()[i]->notes())
+            {
+                measure_dur += *note_ptr->duration();
+            }
+            if (p1_measure_duration!= measure_dur)
+                p1_measure_duration = measure_dur;
+        }
         
-        first_part.Part->measures()[first_part.EntryMeasureNum-1]->notes()[first_part.EntryNoteIndex-1];
+        IMUSANT_duration ioi = *IMUSANT_segmented_part_fixed_period::calculateEntryOffsetBetweenParts(first_part, second_part);
+        float ioi_units_float = ioi.asAbsoluteNumeric()/p1_measure_duration.asAbsoluteNumeric();
+        int ioi_units = ioi_units_float;
+        if ( ioi_units_float > (float)ioi_units || ioi_units_float < (float)ioi_units )
+        {
+            //ioi unit is smaller than a measure
+            IMUSANT_duration submeasure_dur;
+            for (unsigned long j = 0; j < second_part.EntryNoteIndex; j++)
+            {
+                submeasure_dur += *second_part.Part->measures()[second_part.EntryNoteIndex]->notes()[j]->duration();
+            }
+            ioi_unit = submeasure_dur; //REVISIT
+        }
+        else
+            ioi_unit = p1_measure_duration;
         
         return ioi_unit;
     }
@@ -404,17 +430,13 @@ namespace CATSMAT
         os
         << "=== Canonic type ===" << endl
         << "Number of voices: " << type.number_of_voices_ << endl;
-        for (IMUSANT_duration ioi : type.ioi_)
+        for (CATSMAT_Canon_Type::CATSMAT_IOI_pair unit_count : type.ioi_pairs_)
         {
-            os << "Interonset: " << ioi << endl;
-        }
-        for (CATSMAT_Canon_Type::CATSMAT_IOI_pair unit_count : type.ioi_unit_count)
-        {
-            os << "IOI count" << unit_count.first << "(unit: " << unit_count.second << ")" << endl;
+            os << "IOI count: " << unit_count.second  << " (unit: " << unit_count.first << ")" << endl;
         }
         //os
         //<< "IOI unit: " << type.ioi_unit_ << endl;
-        for (IMUSANT_interval interval : type.interval_)
+        for (IMUSANT_interval interval : type.intervals_)
         {
             os << "Interval: " << interval << endl;
         }

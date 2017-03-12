@@ -123,7 +123,7 @@ namespace IMUSANT
             return *this;
         }
         //! operator = to support inherited class reference
-        IMUSANT_SMARTP& operator=(const IMUSANT_SMARTP<T>& p_)                { return operator=((T *) p_); }
+        IMUSANT_SMARTP& operator=(const IMUSANT_SMARTP<T>& p_)                { return operator=((T *)p_); }
         //! dynamic cast support
         template<class T2> IMUSANT_SMARTP& cast(T2* p_)               { return operator=(dynamic_cast<T*>(p_)); }
         //! dynamic cast support

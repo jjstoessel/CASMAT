@@ -78,3 +78,21 @@ TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Ockeghem_Prenez_sur_moi) {
     
     ASSERT_EQ(TestScore_Ockeghem_Prenez_sur_moi_canontype_Expected, the_types_as_string);
 }
+
+TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Josquin_MAF_Kyrie) {
+    
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Josquin_MAF_Kyrie.xml");
+    
+    S_CATSMAT_Canonic_Tools tools = new_CATSMAT_object<CATSMAT_CanonicTools>();
+    tools->Initialise(imusant_score);
+    
+    std::stringstream the_type_as_stringstream;
+    for ( auto type : tools->GetCanonTypes())
+    {
+        the_type_as_stringstream << type;
+    }
+    string the_types_as_string = the_type_as_stringstream.str();
+    
+    ASSERT_EQ(TestScore_Josquin_MAF_Kyrie_canontype_Expected, the_types_as_string);
+}
+
