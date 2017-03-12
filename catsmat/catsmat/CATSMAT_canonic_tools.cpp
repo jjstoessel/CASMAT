@@ -11,6 +11,7 @@
 #include "IMUSANT_interval_vector.h"
 // #define OUTPUT(s) cout << s;
 #define OUTPUT(s)
+#define YES_NO(s) ( s ? "yes" : "no" )
 
 namespace CATSMAT
 {
@@ -419,16 +420,16 @@ namespace CATSMAT
         }
         os
         << "Melodically imitative: " << ( type.imitative_ ? "yes" : "no" ) << endl
-        << "Strict: " << ( type.strict_ ? "yes" : "no" ) << endl
-        << "Retrograde: " << ( type.retrograde_ ? "yes" : "no" ) << endl
-        << "Contrary motion: " << ( type.contrary_motion_ ? "yes" : "no" ) << endl
-        << "Proportional: " << ( type.proportional_ ? "yes" : "no" ) << endl;
+        << "Strict: " << YES_NO(type.strict_) << endl
+        << "Retrograde: " << YES_NO(type.retrograde_) << endl
+        << "Contrary motion: " << YES_NO(type.contrary_motion_) << endl
+        << "Proportional: " << YES_NO(type.proportional_) << endl;
         for (TRational proportion : type.proportions_)
         {
             os << "Proportion: " << proportion.toString().c_str() << endl;
         }
         os
-        << "Stacked: " << ( type.stacked_ ? "yes" : "no" ) << endl;
+        << "Stacked: " << YES_NO(type.stacked_) << endl;
         for (S_IMUSANT_part part : type.parts_ )
         {
             os << "Part: " << part->getPartName() << ", Part ID: " << part->getID() << endl;
