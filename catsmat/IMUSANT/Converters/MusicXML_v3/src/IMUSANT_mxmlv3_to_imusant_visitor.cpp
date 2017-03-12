@@ -15,8 +15,6 @@
 
 #include "IMUSANT_mxmlv3_to_imusant_visitor.h"
 
-#define SHOULDNT_THIS_BE_HERE
-
 namespace IMUSANT
 {
     
@@ -224,10 +222,7 @@ namespace IMUSANT
         debug("S_clef_octave_change");
         int octave_change = atoi(elt->getValue().c_str());
         fCurrentClef.setTransposition(octave_change);
-#ifdef SHOULDNT_THIS_BE_HERE
-        fTransposing = true;
-        fTransposeOctaveChange = octave_change;
-#endif
+
     }
     
     void
