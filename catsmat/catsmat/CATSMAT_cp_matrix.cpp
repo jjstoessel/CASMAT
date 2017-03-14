@@ -10,6 +10,7 @@
 //  10 Mar 2015 - First fully functional on
 //  10 Nov 2016 - CPMatrix now copies the inserted note
 //
+#include <algorithm>
 #include "CATSMAT_cp_matrix.hpp"
 #include "CATSMAT_exception.h"
 
@@ -41,27 +42,6 @@ namespace CATSMAT
     CATSMAT_cp_matrix::~CATSMAT_cp_matrix()
     {
         
-    }
-
-    /*!
-     \brief CATSMAT_cp_matrix::add(const S_IMUSANT_score)
-     
-     Direct call for converting a score into a CP Matrix
-     
-     */
-    void
-    CATSMAT_cp_matrix::
-    add(const S_IMUSANT_score& score)
-    {
-        if (fSourceScore!=NULL) catsmat_runtime_error("Attempt to reallocate CP matrix.");
-        if (score==NULL) catsmat_runtime_error("Attempt to add NULL score to CP matrix.");
-        
-        fSourceScore = score;
-        IMUSANT_vector<S_IMUSANT_part>& parts = score->partlist()->parts();
-        for (auto part : parts )
-        {
-            add(part);
-        }
     }
     
     void
@@ -95,6 +75,7 @@ namespace CATSMAT
         fCurrentPart++;
         fCurrentChord = fCPMatrix.begin();
         fCumulativeMeasureDuration.set(TRational(0,1));
+        fCurrentMeasureNumber = 1;
     }
 
     /*!
@@ -403,22 +384,31 @@ namespace CATSMAT
     /*!
      \brief CATSMAT_cp_matrix::Selftest
      
-     A function to test the viability of all elements in the CP matrix
+     A function to test the viability of elements in the CP matrix
      
      */
     bool
     CATSMAT_cp_matrix::
     SelfTest()
     {
-        bool pass = true;
-        map<int, S_IMUSANT_note>::size_type chord_size = (*fCPMatrix.begin())->size();
+        if (fSourceScore==NULL) return false;
         
+        //check that there are the same number of measures in all parts - first in the source score
+        //In the future this test can be evoked prior to insertion for handling more complex scores
+        IMUSANT_vector<S_IMUSANT_part>& parts = fSourceScore->partlist()->parts();
+        IMUSANT_vector<S_IMUSANT_part>::difference_type diff_measures_count;
+        diff_measures_count = std::count_if(parts.begin(), parts.end(), [&parts](const S_IMUSANT_part& part){ return ( part->getNumMeasures()!=parts[0]->getNumMeasures()); });
+        if (diff_measures_count) return false;
+        
+        //then check over the matrix
+        
+        //check all chords are allocated - later file empty slots
+        map<int, S_IMUSANT_note>::size_type chord_size = (*fCPMatrix.begin())->size();
         for (auto chord : fCPMatrix )
         {
             if (chord_size!=chord->size())
             {
-                pass = false;
-                break;
+                return false;
             }
             //deref chord notes
             map<int, S_IMUSANT_note> chord_notes = *chord;
@@ -427,13 +417,14 @@ namespace CATSMAT
             {
                 if (chord_note.second == nullptr)
                 {
-                    pass = false;
-                    break;
+                    return false;
                 }
+                //notes could also be checked here
             }
         }
+        //other checks here
         
-        return pass;
+        return true;
     }
     
 }//namespace CATSMAT

@@ -347,6 +347,7 @@
 		9665C50F1E74B8B000947C15 /* Ockeghem_Prenez_sur_moi_(Cop).xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA33CBC81D6FD7A8001B7FF3 /* Ockeghem_Prenez_sur_moi_(Cop).xml */; };
 		9667B8AA1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
 		9667B8AB1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
+		96752E641E780DBD00399B4E /* CATSMAT_sonority_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 961789931D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp */; };
 		9695B5321DE08575000586D0 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		9695B5331DE08577000586D0 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		96A912EF1DE08D8700EF40F3 /* IMUSANT_generalised_interval_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A912ED1DE08C2D00EF40F3 /* IMUSANT_generalised_interval_Tests.cpp */; };
@@ -1117,6 +1118,7 @@
 		9668DB9C1D0ECD8D00C5AAA6 /* IMUSANT_contour_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_contour_suffixtree_builder.h; path = ../src/IMUSANT_contour_suffixtree_builder.h; sourceTree = "<group>"; };
 		9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_suffixtree_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_pitch_suffixtree_builder.cpp; sourceTree = "<group>"; };
 		9668DBA01D0ED53700C5AAA6 /* IMUSANT_pitch_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_pitch_suffixtree_builder.h; path = ../src/IMUSANT_pitch_suffixtree_builder.h; sourceTree = "<group>"; };
+		96752E631E78096600399B4E /* Ciconia-La_ray_au_soleyl_simplified.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ciconia-La_ray_au_soleyl_simplified.xml"; sourceTree = "<group>"; };
 		9695B52F1DE082BE000586D0 /* IMUSANT_generalised_interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_generalised_interval.h; sourceTree = "<group>"; };
 		9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generalised_interval.cpp; sourceTree = "<group>"; };
 		969E27A71A79EFDA00B173DA /* CATSMAT_cp_matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_cp_matrix.cpp; path = ../catsmat/CATSMAT_cp_matrix.cpp; sourceTree = "<group>"; };
@@ -2932,6 +2934,7 @@
 				BA33CBB71D6FD7A8001B7FF3 /* Anon-Tres_dous_compains.xml */,
 				BA33CBB81D6FD7A8001B7FF3 /* Anon-Umblemens_vos_pri.xml */,
 				96CC66E01DEBE7EC00E2F7FB /* Ciconia-Le ray au soleyl.xml */,
+				96752E631E78096600399B4E /* Ciconia-La_ray_au_soleyl_simplified.xml */,
 				BA33CBB91D6FD7A8001B7FF3 /* Cordier-Tout_par_compas-standardised.xml */,
 				BA33CBBA1D6FD7A8001B7FF3 /* Denis_Le_Grant-Se_je_chant_F-Pic_67.xml */,
 				96CC66DD1DEBB63000E2F7FB /* Du_Fay-Bien_veignes_vous.xml */,
@@ -3462,6 +3465,7 @@
 				BA10A5D91DA7503E000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				BA10A5D81DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp in Sources */,
 				1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */,
+				96752E641E780DBD00399B4E /* CATSMAT_sonority_sequences_Tests.cpp in Sources */,
 				BA09CB981E025253005E9B29 /* CATSMAT_score_profile.tpp in Sources */,
 				496EF7161B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp in Sources */,
 				9695B5331DE08577000586D0 /* IMUSANT_generalised_interval.cpp in Sources */,

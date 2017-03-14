@@ -13,8 +13,8 @@ const string TestScore_1_Measure_Expected = "sonority types: ( 1, 1, 1)\n( 1, 2,
 
 const string TestScore_4_Measures_Expected = "sonority types: ( 1, 1, 1)\n( 1, 3, 2)\n( 1, 4, 1)\n( 2, 1, 2)\n( 2, 2, 2)\n( 2, 3, 1)\n( 2, 4, 2)\n( 3, 1, 1)\n( 3, 2, 2)\n( 3, 3, 1)\n( 3, 4, 2)\n( 4, 1, 1)\n";
 
-const string TestScore_4_Measures_WithQuaverPassingNotes_Expected = "sonority types: ( 1, 1, 1)\n( 1, 2, 2)\n( 1, 4, 2)\n( 1, 4, 1)\n( 2, 1, 2)\n( 2, 1, 1)\n( 2, 3, 2)\n( 2, 4, 1)\n( 2, 4, 2)\n( 3, 1, 1)\n( 3, 2, 2)\n( 3, 3, 1)\n( 3, 4, 2)\n( 3, 5, 1)\n( 4, 1, 1)\n";
+const string TestScore_4_Measures_WithQuaverPassingNotes_Expected = "sonority types: ( 1, 1, 1)\n( 1, 2, 2)\n( 1, 4, 2)\n( 1, 5, 1)\n( 2, 1, 2)\n( 2, 2, 1)\n( 2, 3, 2)\n( 2, 4, 1)\n( 2, 5, 2)\n( 3, 1, 1)\n( 3, 2, 2)\n( 3, 3, 1)\n( 3, 4, 2)\n( 3, 5, 1)\n( 4, 1, 1)\n";
 
-const string TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected = "sonority types: ( 1, 1, 1)\n( 1, 1, 2)\n( 1, 1, 1)\n( 1, 3, 2)\n( 1, 4, 1)\n( 2, 1, 2)\n( 2, 2, 1)\n( 2, 2, 2)\n( 2, 3, 1)\n( 2, 4, 2)\n( 3, 1, 1)\n( 3, 2, 2)\n( 3, 3, 1)\n( 3, 5, 1)\n( 3, 7, 2)\n( 3, 7, 1)\n( 3, 7, 2)\n( 4, 1, 1)\n";
+const string TestScore_4_Measures_WithSemiQuaverPassingNotes_Expected = "sonority types: ( 1, 1, 1)\n( 1, 3, 2)\n( 1, 4, 1)\n( 1, 6, 2)\n( 1, 7, 1)\n( 2, 1, 2)\n( 2, 2, 1)\n( 2, 3, 2)\n( 2, 4, 1)\n( 2, 5, 2)\n( 3, 1, 1)\n( 3, 2, 2)\n( 3, 3, 1)\n( 3, 5, 1)\n( 3, 7, 2)\n( 3, 9, 1)\n( 3, 10, 2)\n( 4, 1, 1)\n";
 
 #endif

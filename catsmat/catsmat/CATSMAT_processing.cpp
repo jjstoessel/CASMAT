@@ -108,6 +108,7 @@ namespace CATSMAT
         }
     }
     
+    //This method identifies canonic parts only, places them in a CP matrix and then looks for repeated sequences of trigrams
     void
     CATSMAT_processing::
     FindRepeatedTrigramSequencesCanonic(int min, bool ignoreDissonances, bool ignoreRepeatedDyads)

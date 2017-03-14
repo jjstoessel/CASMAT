@@ -43,7 +43,6 @@ namespace CATSMAT {
         friend  ostream& operator<< (ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
         
         void    addpart();
-        void    add(const S_IMUSANT_score& score);
         void    add(const S_IMUSANT_part& part);
         void	add(const IMUSANT_note& note);
         void    set(const IMUSANT_time& time);
