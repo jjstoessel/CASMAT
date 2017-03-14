@@ -47,50 +47,5 @@ namespace IMUSANT {
         }
     }
         
-    IMUSANT_ContourSuffixTreeBuilder::CONTOUR_TABLE
-    IMUSANT_ContourSuffixTreeBuilder::entabulateMelodicDirectionPairs()
-    {
-        CONTOUR_TABLE table;
-        
-        for (auto cvm = id_vec_map_.begin(); cvm != id_vec_map_.end(); cvm++)
-        {
-            vector<IMUSANT_contour_symbol> contours = cvm->second;
-            map<pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int> row;
-            auto cnt1 = contours.begin(), cnt2 = cnt1+1;
-            do
-            {
-                pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol> cnt_pair = std::make_pair(*cnt1, *cnt2);
-                int count = row[cnt_pair];
-                row[cnt_pair] = ++count;
-                cnt1++;
-                cnt2++;
-            } while (cnt2!=contours.end());
-            table[cvm->first] = row;
-        }
-        
-        return table;
-    }
-    
-    string
-    IMUSANT_ContourSuffixTreeBuilder::entabulateAndPrintMelodicDirectionPairs()
-    {
-        CONTOUR_TABLE table = entabulateMelodicDirectionPairs();
-        ostringstream out;
-
-        for (auto row : table)
-        {
-            ostringstream s,c;
-            for (auto c_pair: row.second)
-            {
-                pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol> cnt_pair = c_pair.first;
-                s << "\"" << cnt_pair.first << "—" << cnt_pair.second << "\"" << "\t";
-                c << c_pair.second << "\t";
-            }
-            out << s.str() << std::endl;
-            out << c.str() << std::endl;
-        }
-        
-        return out.str();
-    }
     
 } // namespace IMUSANT

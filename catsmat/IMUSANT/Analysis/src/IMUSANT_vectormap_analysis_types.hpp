@@ -13,6 +13,7 @@
 #include "IMUSANT_t_vectormap_analysis.hpp"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_processing.h"
+#include "IMUSANT_contour_symbol.h"
 
 namespace IMUSANT {
     
@@ -36,6 +37,22 @@ namespace IMUSANT {
     private:
         void    BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections);
         void    Localise( IMUSANT_T_RepeatedSubstring<IMUSANT_pitch>& repeats, DEQUE_PAIR z, typename IMUSANT_T_VectorMap<IMUSANT_pitch,IMUSANT_processing>::id_vec_map::iterator& i,typename IMUSANT_T_VectorMap<IMUSANT_pitch,IMUSANT_processing>::id_vec_map::iterator& j, bool first, bool consecutive);
+    };
+    
+    class IMUSANT_ContourVectorMapAnalysis : public IMUSANT_T_VectorMapAnalysis<IMUSANT_contour_symbol, IMUSANT_processing>
+    {
+    public:
+        typedef std::map<int, map<pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int> > CONTOUR_TABLE;
+        
+                        IMUSANT_ContourVectorMapAnalysis() {}
+        void            Visit(const IMUSANT_processing&);
+        
+        CONTOUR_TABLE   EntabulateMelodicDirectionPairs();
+        string          EntabulateAndPrintMelodicDirectionPairs();
+    private:
+        void            BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections);
+        void            Localise( IMUSANT_T_RepeatedSubstring<IMUSANT_contour_symbol>& repeats, DEQUE_PAIR z, typename IMUSANT_T_VectorMap<IMUSANT_contour_symbol,IMUSANT_processing>::id_vec_map::iterator& i,typename IMUSANT_T_VectorMap<IMUSANT_contour_symbol,IMUSANT_processing>::id_vec_map::iterator& j, bool first, bool consecutive);
+        
     };
 }
 

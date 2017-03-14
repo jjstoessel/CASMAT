@@ -26,9 +26,7 @@ namespace IMUSANT {
         IMUSANT_ContourSuffixTreeBuilder() {}
         
         void            Visit(const IMUSANT_processing&);
-        
-        CONTOUR_TABLE   entabulateMelodicDirectionPairs();
-        string          entabulateAndPrintMelodicDirectionPairs();
+    
     private:
         
         void            BuildVectorMap(IMUSANT_processing::COLLECTIONMAP&);

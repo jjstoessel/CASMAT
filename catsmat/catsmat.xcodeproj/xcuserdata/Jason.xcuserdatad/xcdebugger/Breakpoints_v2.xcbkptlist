@@ -449,11 +449,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/Application/CATSMAT_menu.cpp"
-            timestampString = "511163526.869715"
+            timestampString = "511214068.874961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
             landmarkType = "7">
          </BreakpointContent>
@@ -657,11 +657,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/Application/CATSMAT_menu.cpp"
-            timestampString = "511163526.869715"
+            timestampString = "511214068.874961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
             landmarkType = "7">
          </BreakpointContent>
@@ -902,6 +902,38 @@
             endingLineNumber = "244"
             landmarkName = "compute_supermax(const typename suffixtree_impl&lt;V&gt;::node* n, int min_percent, int min_length, list&lt;repeats&lt;V&gt;::supermax_node*&gt;&amp; max_list)"
             landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::compute_supermax(ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::node const*, int, int, std::__1::list&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::supermax_node*, std::__1::allocator&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::supermax_node*&gt; &gt;&amp;)"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/repeats.h"
+                  timestampString = "511214070.334354"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "7790">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::compute_supermax(ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::node const*, int, int, std::__1::list&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::supermax_node*, std::__1::allocator&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::supermax_node*&gt; &gt;&amp;)"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/repeats.h"
+                  timestampString = "511214070.335612"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "7781">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -918,6 +950,38 @@
             endingLineNumber = "229"
             landmarkName = "compute_supermax(const typename suffixtree_impl&lt;V&gt;::node* n, int min_percent, int min_length, list&lt;repeats&lt;V&gt;::supermax_node*&gt;&amp; max_list)"
             landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::compute_supermax(ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::node const*, int, int, std::__1::list&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::supermax_node*, std::__1::allocator&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::supermax_node*&gt; &gt;&amp;)"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/repeats.h"
+                  timestampString = "511214070.338488"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "7041">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::compute_supermax(ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::node const*, int, int, std::__1::list&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::supermax_node*, std::__1::allocator&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::supermax_node*&gt; &gt;&amp;)"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/repeats.h"
+                  timestampString = "511214070.339815"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "7032">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

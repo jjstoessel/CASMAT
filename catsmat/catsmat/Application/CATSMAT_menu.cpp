@@ -64,7 +64,7 @@ outputWelcomeMessage(ostream &out)
     << "|	software. Newly created portions of this software and propriety		" << endl
     << "|	data formats are copyrighted by the designers and programmers.		" << endl
     << "|																		" << endl
-    << "=========================================================================" << endl << endl;
+    << "========================================================================" << endl << endl;
 }
 
 void
@@ -183,6 +183,7 @@ runToolsMenu(CATSMAT_processing* processor)
     IMUSANT_ContourSuffixTreeBuilder   cp;
     IMUSANT_IntervalVectorMapAnalysis  iv;
     IMUSANT_PitchVectorMapAnalysis     pv;
+    IMUSANT_ContourVectorMapAnalysis   cv;
     
     do
     {
@@ -320,8 +321,8 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'r':
                 case 'R':
                 {
-                    cp.Visit(*processor);
-                    cout << cp.entabulateAndPrintMelodicDirectionPairs();
+                    cv.Visit(*processor);
+                    cout << cv.EntabulateAndPrintMelodicDirectionPairs();
                     break;
                 }
                 //melint

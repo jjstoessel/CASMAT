@@ -2,7 +2,7 @@
 //  IMUSANT_T_VectorMap.hpp
 //  catsmat
 //
-//  Created by Jason James Stoessel on 7/03/2017.
+//  Created by Jason Stoessel on 7/03/2017.
 //
 //
 
@@ -28,7 +28,7 @@ namespace IMUSANT
         ~IMUSANT_T_VectorMap() {}
         
         void Visit(C&);
-        //id_vec_map&     get_id_vec_map() const { return id_vec_map_; }
+        id_vec_map&     get_id_vec_map() const { return id_vec_map_; }
         void            set_id_vec_map(const id_vec_map& ivm) { id_vec_map_ = ivm; };
         
     protected:
