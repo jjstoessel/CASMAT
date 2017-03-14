@@ -21,6 +21,7 @@ namespace CATSMAT
     class CATSMAT_TrigramSuffixTreeBuilder : public IMUSANT_T_SuffixTreeBuilder<CATSMAT_TrigramSequences::Token, CATSMAT_TrigramSequences>
     {
     public:
+        
         CATSMAT_TrigramSuffixTreeBuilder() {}
         
         void    Visit(const CATSMAT_TrigramSequences&);

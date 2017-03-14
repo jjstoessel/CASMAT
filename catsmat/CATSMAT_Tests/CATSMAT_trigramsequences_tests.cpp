@@ -54,7 +54,7 @@ protected:
 TEST_F(CATSMAT_TrigramSequences_Test, TestScore_1_Measure) {
     
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_1_Measure.xml");
-    theSequences.Visit(*the_matrix);
+    the_matrix->Accept(theSequences);
     
     string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
@@ -64,7 +64,7 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_1_Measure) {
 TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures) {
 
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures.xml");
-    theSequences.Visit(*the_matrix);
+    the_matrix->Accept(theSequences);
 
     string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
@@ -74,7 +74,8 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures) {
 TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures_WithQuaverPassingNotes) {
     
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures_WithQuaverPassingNotes.xml");
-    theSequences.Visit(*the_matrix);
+    theSequences.set_ignore_dissonances(false);
+    the_matrix->Accept(theSequences);
     
     string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
@@ -84,7 +85,8 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures_WithQuaverPassingNote
 TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes) {
     
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
-    theSequences.Visit(*the_matrix);
+    theSequences.set_ignore_dissonances(false);
+    the_matrix->Accept(theSequences);
     
     string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
@@ -95,11 +97,37 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures_WithSemiQuaverPassing
 TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie) {
     
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Josquin_MAF_Kyrie.xml");
-    theSequences.Visit(*the_matrix);
+    theSequences.set_ignore_dissonances(false);
+    the_matrix->Accept(theSequences);
     
     string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
     
     ASSERT_EQ(TestScore_Josquin_MAF_Kyrie, the_sequences_as_string);
+}
+
+TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_no_dissonances) {
+    
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Josquin_MAF_Kyrie.xml");
+    theSequences.set_ignore_dissonances(true);
+    the_matrix->Accept(theSequences);
+    std::stringstream ss;
+    
+    int i = 1;
+    for (auto tokens_sequence : theSequences.get_tokens())
+    {
+        ss << "Voice pair" << i << " : ";
+        for (auto token : tokens_sequence)
+        {
+            CATSMAT_TrigramSequences::Trigram trigram = CATSMAT_TrigramSequences::Token2Triple(token);
+            ss << trigram << ", ";
+        }
+        i++;
+        ss << endl;
+    }
+    
+    string the_tokens_as_string = ss.str();
+    
+    ASSERT_EQ(TestScore_Josquin_MAF_Kyrie_no_dissonances_Expected, the_tokens_as_string);
 }
 
 TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_Repeats) {
@@ -109,8 +137,10 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_Repeats) {
     
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Josquin_MAF_Kyrie.xml");
     
-    theSequences.Visit(*the_matrix);
-    trigram_tree.Visit(theSequences);
+    theSequences.set_ignore_dissonances(true);
+    theSequences.set_ignore_repeated(true);
+    the_matrix->Accept(theSequences);
+    theSequences.Accept(trigram_tree);
     
     repeats = trigram_tree.FindRepeatedSubstrings(3);
     
@@ -131,8 +161,9 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Talent_mest_pris_repeats) {
     
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Anon-Talent_mest_pris_I-IV_115.xml");
     
-    theSequences.Visit(*the_matrix);
-    trigram_tree.Visit(theSequences);
+    theSequences.set_ignore_dissonances(true);
+    the_matrix->Accept(theSequences);
+    theSequences.Accept(trigram_tree);
     
     repeats = trigram_tree.FindRepeatedSubstrings(4);
     
@@ -145,3 +176,40 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Talent_mest_pris_repeats) {
     
     ASSERT_EQ(TestScore_Talent_mest_pris_repeats_Expected, the_sequences_as_string);
 }
+
+TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Talent_mest_pris_trigram_information) {
+    
+    CATSMAT_TrigramSuffixTreeBuilder::SUBSTR_VECTOR repeats;
+    
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Anon-Talent_mest_pris_I-IV_115.xml");
+    
+    theSequences.set_ignore_dissonances(true);
+    the_matrix->Accept(theSequences);
+    CATSMAT_TrigramInformation trigram_info;
+    theSequences.Accept(trigram_info);
+    
+    std::stringstream the_info_as_stringstream;
+    the_info_as_stringstream << trigram_info;
+    string the_sequences_as_string = the_info_as_stringstream.str();
+    
+    ASSERT_EQ(TestScore_Talent_mest_pris_trigram_information_Expected, the_sequences_as_string);
+}
+
+TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_trigram_information) {
+    
+    CATSMAT_TrigramSuffixTreeBuilder::SUBSTR_VECTOR repeats;
+    
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Josquin_MAF_Kyrie.xml");
+    
+    theSequences.set_ignore_dissonances(true);
+    the_matrix->Accept(theSequences);
+    CATSMAT_TrigramInformation trigram_info;
+    theSequences.Accept(trigram_info);
+    
+    std::stringstream the_info_as_stringstream;
+    the_info_as_stringstream << trigram_info;
+    string the_sequences_as_string = the_info_as_stringstream.str();
+    
+    ASSERT_EQ(TestScore_Josquin_MAF_Kyrie_trigram_information_Expected, the_sequences_as_string);
+}
+

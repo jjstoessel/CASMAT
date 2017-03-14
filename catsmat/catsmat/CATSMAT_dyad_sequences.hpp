@@ -23,8 +23,8 @@ namespace CATSMAT
 {
     class CATSMAT_dyad_sequences: public CATSMAT_dyad_sequences_base<S_IMUSANT_interval_vector>
     {
-        
     public:
+        
         typedef suffixtree< vector<IMUSANT_interval> > interval_tree;
         
         friend  ostream& operator<<(ostream& os, const CATSMAT_dyad_sequences& sequences);

@@ -44,6 +44,40 @@ namespace CATSMAT
     }
 
     /*!
+     \brief CATSMAT_cp_matrix::add(const S_IMUSANT_score)
+     
+     Direct call for converting a score into a CP Matrix
+     
+     */
+    void
+    CATSMAT_cp_matrix::
+    add(const S_IMUSANT_score& score)
+    {
+        if (fSourceScore!=NULL) catsmat_runtime_error("Attempt to reallocate CP matrix.");
+        if (score==NULL) catsmat_runtime_error("Attempt to add NULL score to CP matrix.");
+        
+        fSourceScore = score;
+        IMUSANT_vector<S_IMUSANT_part>& parts = score->partlist()->parts();
+        for (auto part : parts )
+        {
+            add(part);
+        }
+    }
+    
+    void
+    CATSMAT_cp_matrix::
+    add(const S_IMUSANT_part& part)
+    {
+        //probably should check here if the part is the same length as the existing part (when there is already one)
+        
+        addpart();
+        for ( auto note : part->notes())
+        {
+            add(*note);
+        }
+    }
+    
+    /*!
      \brief CATSMAT_cp_matrix::addpart 
         
         Increments fCurrentPart and returned to the first chord of the CP matrix
@@ -357,12 +391,49 @@ namespace CATSMAT
         Print function for viewing contents of CP matrix in XML
      
      */
-    void CATSMAT_cp_matrix::
+    void
+    CATSMAT_cp_matrix::
     print(ostream& os)
     {
         for (auto i = fCPMatrix.begin(); i!=fCPMatrix.end(); i++) {
             (*i)->print(os);
         }
+    }
+    
+    /*!
+     \brief CATSMAT_cp_matrix::Selftest
+     
+     A function to test the viability of all elements in the CP matrix
+     
+     */
+    bool
+    CATSMAT_cp_matrix::
+    SelfTest()
+    {
+        bool pass = true;
+        map<int, S_IMUSANT_note>::size_type chord_size = (*fCPMatrix.begin())->size();
+        
+        for (auto chord : fCPMatrix )
+        {
+            if (chord_size!=chord->size())
+            {
+                pass = false;
+                break;
+            }
+            //deref chord notes
+            map<int, S_IMUSANT_note> chord_notes = *chord;
+            
+            for ( auto chord_note : chord_notes)
+            {
+                if (chord_note.second == nullptr)
+                {
+                    pass = false;
+                    break;
+                }
+            }
+        }
+        
+        return pass;
     }
     
 }//namespace CATSMAT

@@ -45,13 +45,21 @@ namespace IMUSANT
     IMUSANT_interval_vector::
     add(const IMUSANT_vector<S_IMUSANT_note>& note_vector)
     {
-        auto i = note_vector.begin();
-        for ( auto j = i + 1; j!=note_vector.end(); i++, j++)
+        IMUSANT_vector<S_IMUSANT_note>::const_iterator i = note_vector.begin();
+        for ( IMUSANT_vector<S_IMUSANT_note>::const_iterator j = std::next(i);
+              j!=note_vector.end(); i++, j++)
         {
-            if( *(*i)->pitch() != IMUSANT_pitch() && *(*j)->pitch() != IMUSANT_pitch())
+            IMUSANT_pitch pitch_1 = *(*i)->pitch();
+            IMUSANT_pitch pitch_2 = *(*j)->pitch();
+            IMUSANT_pitch undefined_pitch;
+            
+            if( (*j)->getPreviousTieNote()!=(*i) )
             {
-                IMUSANT_interval interval((*i)->pitch(),(*j)->pitch());
-                fIntervals.push_back(interval);
+                if ( (*i)->getType() == IMUSANT_NoteType::pitch && (*j)->getType() == IMUSANT_NoteType::pitch )
+                {
+                    IMUSANT_interval interval((*i)->pitch(),(*j)->pitch());
+                    fIntervals.push_back(interval);
+                }
             }
         }
         

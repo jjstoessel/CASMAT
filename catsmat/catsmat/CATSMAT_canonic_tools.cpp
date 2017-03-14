@@ -9,6 +9,7 @@
 #include "CATSMAT_canonic_tools.hpp"
 #include "IMUSANT_segmented_part_fixed_period.h"
 #include "IMUSANT_interval_vector.h"
+#include "IMUSANT_generalised_interval.h"
 // #define OUTPUT(s) cout << s;
 #define OUTPUT(s)
 #define YES_NO(s) ( s ? "yes" : "no" )
@@ -28,6 +29,8 @@ namespace CATSMAT
         {
             return false;
         }
+        
+        //Here is the place to search of sections, i.e. multiple canons in the one "piece"
         
         // adapted from IMUSANT_segmented_part_fixed_period
         // Sort the parts in the order in which they enter...
@@ -309,12 +312,12 @@ namespace CATSMAT
         auto part_one_interval = first_part_intervals->getIntervals().begin();
         auto part_two_interval = second_part_intervals->getIntervals().begin();
         
-        while( part_one_interval != first_part_intervals->getIntervals().end())
+        while( part_two_interval != second_part_intervals->getIntervals().end())
         {
             
             OUTPUT("Comparing " + part_one_interval->pretty_print() + " to " + part_two_interval->pretty_print());
             
-            if (! (*part_one_interval == *part_two_interval))
+            if (IMUSANT_generalised_interval(*part_one_interval).getNumber() != IMUSANT_generalised_interval(*part_two_interval).getNumber())
             {
                 num_non_matching_intervals++;
                 OUTPUT(" ---  DIFFERENT --- ");

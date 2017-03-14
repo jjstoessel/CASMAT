@@ -19,17 +19,16 @@ namespace CATSMAT
 {
 
 template <typename T> //T is a vector
-class CATSMAT_dyad_sequences_base: public BaseVisitor, public Visitor<CATSMAT_cp_matrix, void, true>
+class CATSMAT_dyad_sequences_base : public BaseVisitor, public Visitor<CATSMAT_cp_matrix, void, true>
 {
-
 public:
+
     friend  ostream& operator<< (ostream& os, const CATSMAT_dyad_sequences_base& elt );
     
                     CATSMAT_dyad_sequences_base() {}
     virtual         ~CATSMAT_dyad_sequences_base() {}
     
     virtual void    Visit(const CATSMAT_cp_matrix& matrix) = 0;
-    
     virtual void    Print(ostream& os) const = 0;
 
     void            set_ignore_repeated(bool ignore) { ignore_repeated_ = ignore; }

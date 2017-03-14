@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "445566825.278572"
+            timestampString = "511101351.805256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50">
+            startingLineNumber = "84"
+            endingLineNumber = "84">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -118,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "500469332.579547"
+            timestampString = "511101351.805256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "CATSMAT_cp_matrix:: distribute(const IMUSANT_note&amp; note, const S_IMUSANT_note previous_note)"
             landmarkType = "7">
          </BreakpointContent>
@@ -150,11 +150,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "445692434.469003"
+            timestampString = "511101351.805256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
             landmarkType = "7">
          </BreakpointContent>
@@ -166,11 +166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "500469332.579547"
+            timestampString = "511101351.805256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126">
+            startingLineNumber = "160"
+            endingLineNumber = "160">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -227,11 +227,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "445692434.469003"
+            timestampString = "511101351.805256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
             landmarkType = "7">
          </BreakpointContent>
@@ -449,11 +449,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/Application/CATSMAT_menu.cpp"
-            timestampString = "502145629.532472"
+            timestampString = "511163526.869715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
             landmarkType = "7">
          </BreakpointContent>
@@ -497,11 +497,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_cp_matrix.cpp"
-            timestampString = "500469326.235321"
+            timestampString = "511101351.805256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "CATSMAT_cp_matrix:: add(const IMUSANT_note&amp; note)"
             landmarkType = "7">
          </BreakpointContent>
@@ -657,11 +657,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/Application/CATSMAT_menu.cpp"
-            timestampString = "502145629.532472"
+            timestampString = "511163526.869715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
             landmarkType = "7">
          </BreakpointContent>
@@ -807,7 +807,7 @@
             startingLineNumber = "16"
             endingLineNumber = "16"
             landmarkName = "IMUSANT_generalised_interval::getInterval()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -823,7 +823,7 @@
             startingLineNumber = "43"
             endingLineNumber = "43"
             landmarkName = "IMUSANT_generalised_interval::compare(const IMUSANT_generalised_interval&amp; i)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -875,7 +875,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMUSANT_Tests/Analysis/IMUSANT_processing_Tests.cpp"
@@ -902,6 +902,38 @@
             endingLineNumber = "244"
             landmarkName = "compute_supermax(const typename suffixtree_impl&lt;V&gt;::node* n, int min_percent, int min_length, list&lt;repeats&lt;V&gt;::supermax_node*&gt;&amp; max_list)"
             landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::compute_supermax(ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::node const*, int, int, std::__1::list&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::supermax_node*, std::__1::allocator&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::supermax_node*&gt; &gt;&amp;)"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/repeats.h"
+                  timestampString = "511163666.460849"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "7790">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::compute_supermax(ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::node const*, int, int, std::__1::list&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::supermax_node*, std::__1::allocator&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::supermax_node*&gt; &gt;&amp;)"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/repeats.h"
+                  timestampString = "511163666.462835"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "7781">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -918,6 +950,38 @@
             endingLineNumber = "229"
             landmarkName = "compute_supermax(const typename suffixtree_impl&lt;V&gt;::node* n, int min_percent, int min_length, list&lt;repeats&lt;V&gt;::supermax_node*&gt;&amp; max_list)"
             landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::compute_supermax(ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::node const*, int, int, std::__1::list&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::supermax_node*, std::__1::allocator&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_interval, std::__1::allocator&lt;IMUSANT::IMUSANT_interval&gt; &gt; &gt;::supermax_node*&gt; &gt;&amp;)"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/repeats.h"
+                  timestampString = "511163666.467041"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "7041">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::compute_supermax(ns_suffixtree::suffixtree_impl&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::node const*, int, int, std::__1::list&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::supermax_node*, std::__1::allocator&lt;repeats&lt;std::__1::vector&lt;IMUSANT::IMUSANT_contour_symbol, std::__1::allocator&lt;IMUSANT::IMUSANT_contour_symbol&gt; &gt; &gt;::supermax_node*&gt; &gt;&amp;)"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Jason/Development/CATSMAT/catsmat/SuffixTree/repeats.h"
+                  timestampString = "511163666.469431"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "7032">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -948,20 +1012,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "catsmat/Application/CATSMAT_menu.cpp"
-            timestampString = "510584555.112421"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1011,17 +1061,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CATSMAT_Tests/CATSMAT_canonic_tools_tests.cpp"
-            timestampString = "510815866.054492"
+            filePath = "catsmat/CATSMAT_canonic_tools.cpp"
+            timestampString = "511053914.849727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Talent_mest_pris)"
-            landmarkType = "9">
+            startingLineNumber = "336"
+            endingLineNumber = "336">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1031,25 +1079,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "510977398.913634"
+            timestampString = "511053914.849727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "510977398.913634"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "CATSMAT_CanonicTools:: Detect_Canon_Type(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1061,11 +1095,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "510977398.913634"
+            timestampString = "511053914.849727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "CATSMAT_CanonicTools:: Detect_Canon_Type(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1077,11 +1111,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "510977398.913634"
+            timestampString = "511053914.849727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
             landmarkName = "CATSMAT_CanonicTools:: CalculateIOIUnit(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1089,17 +1123,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CATSMAT_Tests/CATSMAT_canonic_tools_tests.cpp"
-            timestampString = "511004164.599514"
+            filePath = "catsmat/CATSMAT_canonic_tools.cpp"
+            timestampString = "511053914.849727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Ockeghem_Prenez_sur_moi)"
-            landmarkType = "9">
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "CATSMAT_CanonicTools:: Detect_Canon_Type(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1109,13 +1143,171 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_tools.cpp"
-            timestampString = "511004482.231065"
+            timestampString = "511053914.849727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "CATSMAT_CanonicTools:: Detect_Canon_Type(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
+            landmarkName = "CATSMAT_CanonicTools:: IsIntervallicallyExact(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_canonic_tools.cpp"
+            timestampString = "511053914.849727"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+            landmarkName = "CATSMAT_CanonicTools:: IsIntervallicallyExact(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval_vector.cpp"
+            timestampString = "511010004.984351"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "IMUSANT_interval_vector:: add(const IMUSANT_vector&lt;S_IMUSANT_note&gt;&amp; note_vector)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/Analysis/Segmentation/FixedPeriodDetection/IMUSANT_segmented_part_fixed_period.cpp"
+            timestampString = "511013809.051943"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
+            landmarkName = "IMUSANT_segmented_part_fixed_period:: errorRateIsAcceptable(double error_threshold, int num_non_matching_notes, long number_of_notes)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_canonic_tools.cpp"
+            timestampString = "511053914.849727"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "CATSMAT_CanonicTools:: IsIntervallicallyExact(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_TrigramSequences.cpp"
+            timestampString = "511158122.246523"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "CATSMAT_TrigramInformation::Visit(const CATSMAT_TrigramSequences&amp; sequences)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_trigramsequences_tests.cpp"
+            timestampString = "511159660.806017"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_Repeats)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_TrigramSequences.cpp"
+            timestampString = "511158303.273844"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "CATSMAT_TrigramSequences:: Visit(const CATSMAT_cp_matrix&amp; matrix)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_TrigramSequences.cpp"
+            timestampString = "511158599.366978"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "CATSMAT_TrigramSequences:: Process(const list&lt;S_CATSMAT_chord&gt; &amp;matrix)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_TrigramSequences.hpp"
+            timestampString = "511161131.995384"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_trigramsequences_tests.cpp"
+            timestampString = "511161214.842291"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_no_dissonances)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

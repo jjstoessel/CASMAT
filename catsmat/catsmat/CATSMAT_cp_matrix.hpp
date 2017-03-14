@@ -43,6 +43,8 @@ namespace CATSMAT {
         friend  ostream& operator<< (ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
         
         void    addpart();
+        void    add(const S_IMUSANT_score& score);
+        void    add(const S_IMUSANT_part& part);
         void	add(const IMUSANT_note& note);
         void    set(const IMUSANT_time& time);
         void    set(const S_IMUSANT_score& score);
@@ -58,6 +60,8 @@ namespace CATSMAT {
         void    setCurrentLeftBarline(IMUSANT_barline::type barline) { fLeftBarline = barline; }
         
         S_IMUSANT_score getScore() const;
+        bool    SelfTest();
+        
         
     protected:
         //ctors

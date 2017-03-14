@@ -27,8 +27,7 @@ namespace IMUSANT
         IMUSANT_T_VectorMap() {}
         ~IMUSANT_T_VectorMap() {}
         
-        virtual void    Visit(const C&) = 0;
-        
+        void Visit(C&);
         //id_vec_map&     get_id_vec_map() const { return id_vec_map_; }
         void            set_id_vec_map(const id_vec_map& ivm) { id_vec_map_ = ivm; };
         

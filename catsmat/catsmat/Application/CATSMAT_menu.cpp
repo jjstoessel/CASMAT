@@ -160,6 +160,9 @@ outputToolsMenu(ostream &out)
     out << "K. Find repeated dyad sequences across voice pairs" << endl;
     out << "L. Find repeated dyadtuple sequences" << endl;
     out << "M. Find repeated sonority sequences" << endl;
+    out << "T. Find melodic segments using period segmentation" << endl;
+    out << "U. Find repeated trigram sequences" << endl;
+    out << "V. Give counts of trigrams" << endl;
     out << "N. Run all CATSMAT tools" << endl;
     out << endl;
     out << "O. Run all tools" << endl;
@@ -389,6 +392,28 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'O':
                 case 'o':
                     cout << "N: Not impemented yet.";
+                    break;
+                case 'U':
+                case 'u':
+                    cout << "Enter minimum length: ";
+                    cin >> length;
+                    cout << "Ignore dissonances? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'n') ignoreDissonances = false;
+                    cout << "Ignore repeated dyads? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'n') ignoreRepeatedDyads = false;
+                    processor->FindRepeatedTrigramSequences(length, ignoreDissonances, ignoreRepeatedDyads);
+                    break;
+                case 'V':
+                case 'v':
+                    cout << "Ignore dissonances? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'n') ignoreDissonances = false;
+                    cout << "Ignore repeated dyads? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'n') ignoreRepeatedDyads = false;
+                    processor->FindTrigramCounts(ignoreDissonances, ignoreRepeatedDyads);
                     break;
                 //Print all scores
                 case 'P':

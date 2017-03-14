@@ -31,7 +31,7 @@ namespace IMUSANT
 {
     template <typename T, class C> //T is type for tree; C is the visited class that provides vectors of T
     class IMUSANT_T_SuffixTreeBuilder :
-        public IMUSANT_T_VectorMap<T,C>//is visitable
+        public IMUSANT_T_VectorMap<T,C> //is visitor
     {
     public:
         typedef typename IMUSANT_T_RepeatedSubstring<T>::SUBSTR_VECTOR SUBSTR_VECTOR;
@@ -41,7 +41,7 @@ namespace IMUSANT
         IMUSANT_T_SuffixTreeBuilder() : tree_ptr_(NULL) {}
         ~IMUSANT_T_SuffixTreeBuilder() { if (tree_ptr_!=NULL) delete tree_ptr_; }
 
-        virtual void    Visit(const C&) = 0;
+        //virtual void    Visit(const C&) = 0;
         string          FindAndPrintRepeatedSubstrings(int min_length=4);
         string          FindAndPrintSupermaximals(int min_length=4, int min_percent=25);
         SUBSTR_VECTOR   FindRepeatedSubstrings(int min_length=4) const;

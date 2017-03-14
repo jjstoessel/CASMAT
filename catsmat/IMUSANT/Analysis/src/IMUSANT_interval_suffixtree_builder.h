@@ -23,9 +23,6 @@ namespace IMUSANT {
         IMUSANT_IntervalSuffixTreeBuilder();
         ~IMUSANT_IntervalSuffixTreeBuilder() {} 
         
-        //string          findAndPrintLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
-        //SUBSTR_VECTOR   findLcsPairsIntervals(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
-        
         void            Visit(const IMUSANT_processing&);
         
     private:

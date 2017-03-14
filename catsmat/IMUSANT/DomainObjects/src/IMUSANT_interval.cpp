@@ -277,7 +277,7 @@ namespace IMUSANT
         return ret;
     }
     
-    //returns the interval numbers without quality, i.e. 1 = unison, 2=second, etc.
+    //returns the interval numbers (Tanayev style) without quality, i.e. unison = 0, second = 1, etc.
     int IMUSANT_interval::getNumber() const
     {
         int ret;
@@ -294,35 +294,35 @@ namespace IMUSANT
             case min2:
             case maj2:
             case aug2:
-                ret = second;
+                ret = basic::second;
                 break;
             case dim3:
             case min3:
             case maj3:
             case aug3:
-                ret = third;
+                ret = basic::third;
                 break;
             case dim4:
             case per4:
             case aug4:
-                ret = fourth;
+                ret = basic::fourth;
                 break;
             case dim5:
             case per5:
             case aug5:
-                ret = fifth;
+                ret = basic::fifth;
                 break;
             case dim6:
             case min6:
             case maj6:
             case aug6:
-                ret = sixth;
+                ret = basic::sixth;
                 break;
             case dim7:
             case min7:
             case maj7:
             case aug7:
-                ret = seventh;
+                ret = basic::seventh;
                 break;
             //case octave:
             //    ret = 8;
@@ -336,7 +336,7 @@ namespace IMUSANT
             ret *= -1;
         
         if (fOctaves>0 & ret==0)
-            ret+=8;//ret+=7*fOctaves + 1; //convert to a compound interval
+            ret+=7;//ret+=7*fOctaves + 1; //convert to a compound interval
         return ret;
     }
 

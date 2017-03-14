@@ -20,7 +20,7 @@ namespace CATSMAT
     class CATSMAT_visitable : public BaseVisitable<>
     {
     public:
-        //LOKI_DEFINE_CONST_VISITABLE()
+        //LOKI_DEFINE_VISITABLE()
     };
     
 } //namespace CATSMAT
