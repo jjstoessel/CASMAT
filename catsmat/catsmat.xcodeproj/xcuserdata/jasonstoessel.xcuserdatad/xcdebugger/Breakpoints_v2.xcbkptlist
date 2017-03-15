@@ -198,11 +198,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_processing.cpp"
-            timestampString = "510117809.005192"
+            timestampString = "511252187.568768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149">
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "CATSMAT_processing:: FindTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1026,11 +1028,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_processing.cpp"
-            timestampString = "510117809.005192"
+            timestampString = "511252187.568768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "CATSMAT_processing:: FindRepeatedDyadSequences(int min, bool ignoreDissonances, bool ignoreRepeatedDyads, bool across)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1062,9 +1064,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "891"
-            endingLineNumber = "891"
-            landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitStart( S_unpitched&amp; elt)"
-            landmarkType = "7">
+            endingLineNumber = "891">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1094,9 +1094,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "CATSMAT_cp_matrix:: distribute(const IMUSANT_note&amp; note, const S_IMUSANT_note previous_note)"
-            landmarkType = "7">
+            endingLineNumber = "144">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1111,7 +1109,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
             endingLineNumber = "197"
-            landmarkName = "CATSMAT_cp_matrix:: split(const IMUSANT_note&amp; note)"
+            landmarkName = "CATSMAT_cp_matrix:: distribute(const IMUSANT_note&amp; note, const S_IMUSANT_note previous_note)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1187,7 +1185,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "274"
             endingLineNumber = "274"
-            landmarkName = "TEST_F(IMUSANT_processing_Tests, find_lcs_pairs_intervals_simple_test_1)"
+            landmarkName = "TEST_F(IMUSANT_processing_Tests, find_supermaximals_simple_test_1)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1336,7 +1334,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "233"
-            endingLineNumber = "233">
+            endingLineNumber = "233"
+            landmarkName = "CATSMAT_cp_matrix:: split(const IMUSANT_note&amp; note)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1491,9 +1491,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "CATSMAT_cp_matrix:: reindex()"
-            landmarkType = "7">
+            endingLineNumber = "310">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1517,11 +1515,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_processing.cpp"
-            timestampString = "510117809.005192"
+            timestampString = "511252187.568768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "CATSMAT_processing:: FindRepeatedDyadSequences(int min, bool ignoreDissonances, bool ignoreRepeatedDyads, bool across)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1666,6 +1664,22 @@
             startingLineNumber = "763"
             endingLineNumber = "763"
             landmarkName = "IMUSANT_mxmlv3_to_imusant_visitor:: visitEnd( S_pitch&amp; elt)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_processing.cpp"
+            timestampString = "511252187.568768"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "CATSMAT_processing:: FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

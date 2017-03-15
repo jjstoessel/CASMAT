@@ -6,7 +6,7 @@
 //
 //
 #include <algorithm>
-#include "CATSMAT_canonic_tools.hpp"
+#include "CATSMAT_canonic_techniques_tools.hpp"
 #include "IMUSANT_segmented_part_fixed_period.h"
 #include "IMUSANT_interval_vector.h"
 #include "IMUSANT_generalised_interval.h"
@@ -18,7 +18,7 @@ namespace CATSMAT
 {
 
     bool
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     Initialise(S_IMUSANT_score the_score, double error_threshold)
     {
         score_ = the_score;
@@ -49,7 +49,7 @@ namespace CATSMAT
     }
     
     void
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     Detect_Canon_Type(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
         OUTPUT("+++++  Detecting canon between Part " +
@@ -60,7 +60,7 @@ namespace CATSMAT
                "Error Threshold = " +
                std::to_string(error_threshold) +
                "\n") ;
-        CATSMAT_Canon_Type canon_type;
+        CATSMAT_CanonType canon_type;
         
         canon_type.imitative_ = IsIntervallicallyExact(first_part, second_part, error_threshold);
         canon_type.retrograde_ = IsRetrograde(first_part, second_part, error_threshold);
@@ -95,7 +95,7 @@ namespace CATSMAT
                 {
                     int ioi_unit_count = ioi.asAbsoluteNumeric()/ioi_unit.asAbsoluteNumeric();
                 
-                    CATSMAT_Canon_Type::CATSMAT_IOI_pair ioi_pair = std::make_pair(ioi_unit, ioi_unit_count);
+                    CATSMAT_CanonType::CATSMAT_IOI_pair ioi_pair = std::make_pair(ioi_unit, ioi_unit_count);
                     canon_type.ioi_pairs_.push_back(ioi_pair);
                 }
             }
@@ -134,12 +134,12 @@ namespace CATSMAT
     }
 
     void
-    CATSMAT_CanonicTools::
-    Insert(CATSMAT_Canon_Type insert_canon_type)
+    CATSMAT_CanonicTechniquesTools::
+    Insert(CATSMAT_CanonType insert_canon_type)
     {
         bool complementary_found = false;
         
-        for ( vector<CATSMAT_Canon_Type>::iterator known_canon_type = canon_types_.begin();
+        for ( vector<CATSMAT_CanonType>::iterator known_canon_type = canon_types_.begin();
                                                    known_canon_type!= canon_types_.end();
                                                    known_canon_type++)
         {
@@ -202,10 +202,10 @@ namespace CATSMAT
                     }
                     
                     //add a different ioi if required - but only if different to no of vv. * ioi_
-                    for (CATSMAT_Canon_Type::CATSMAT_IOI_pair insert_ioi_pair : insert_canon_type.ioi_pairs_)
+                    for (CATSMAT_CanonType::CATSMAT_IOI_pair insert_ioi_pair : insert_canon_type.ioi_pairs_)
                     {
                         int expected_ioi_count = insert_ioi_pair.second/(known_canon_type->number_of_voices_-1);
-                        CATSMAT_Canon_Type::CATSMAT_IOI_pair expected_ioi_pair = std::make_pair(insert_ioi_pair.first, expected_ioi_count);
+                        CATSMAT_CanonType::CATSMAT_IOI_pair expected_ioi_pair = std::make_pair(insert_ioi_pair.first, expected_ioi_count);
                         auto found_ioi_pair = std::find(known_canon_type->ioi_pairs_.begin(), known_canon_type->ioi_pairs_.end(), expected_ioi_pair);
                         if (found_ioi_pair==known_canon_type->ioi_pairs_.end())
                             known_canon_type->ioi_pairs_.push_back(insert_ioi_pair);
@@ -218,7 +218,7 @@ namespace CATSMAT
     }
 
     bool
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     IsMelodicallyExact(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
@@ -256,7 +256,7 @@ namespace CATSMAT
     }
     
     bool
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     IsRhythmicallyExact(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
@@ -295,7 +295,7 @@ namespace CATSMAT
 
     
     bool
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     IsIntervallicallyExact(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
@@ -335,7 +335,7 @@ namespace CATSMAT
 
 
     IMUSANT_interval
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     GetIntervalBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part)
     {
         
@@ -357,14 +357,14 @@ namespace CATSMAT
     }
     
     bool
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     IsRetrograde(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
         return false; // does nothing for now
     }
     
     bool
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     IsProportionalCanon(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, TRational& result, double error_threshold)
     {
         result.set(1,1);
@@ -373,21 +373,22 @@ namespace CATSMAT
     }
     
     bool
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     IsMensurationCanon(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
+        //inject found mensurations into mensurations_
         return false; // does nothing for now
     }
     
     bool
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     IsInversion(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
         return false; // does nothing for now
     }
     
     IMUSANT_duration
-    CATSMAT_CanonicTools::
+    CATSMAT_CanonicTechniquesTools::
     CalculateIOIUnit(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part)
     {
         IMUSANT_duration ioi_unit;
@@ -428,12 +429,12 @@ namespace CATSMAT
     }
     
     //output stream operator for CATSMAT_Canon_Type
-    ostream& operator<< (ostream& os, const CATSMAT_Canon_Type& type )
+    ostream& operator<< (ostream& os, const CATSMAT_CanonType& type )
     {
         os
         << "=== Canonic type ===" << endl
         << "Number of voices: " << type.number_of_voices_ << endl;
-        for (CATSMAT_Canon_Type::CATSMAT_IOI_pair unit_count : type.ioi_pairs_)
+        for (CATSMAT_CanonType::CATSMAT_IOI_pair unit_count : type.ioi_pairs_)
         {
             os << "IOI count: " << unit_count.second  << " (unit: " << unit_count.first << ")" << endl;
         }

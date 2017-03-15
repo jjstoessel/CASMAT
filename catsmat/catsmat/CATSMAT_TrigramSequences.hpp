@@ -39,7 +39,7 @@ namespace CATSMAT
         
         typedef std::array<signed int,3>    Trigram; //a word is the two vertical intervals and the step in the lower voice
         typedef std::vector<Trigram>        Sentence; // a sentence is a sequence of words for a voice pair
-        typedef unsigned long                Token;
+        typedef unsigned long               Token;
         typedef std::vector<vector<Token> > TokenVectors;
         enum    TrigramMembers { dyad1, dyad2, lowMelInterval };
         
@@ -81,6 +81,7 @@ namespace CATSMAT
         
         void Visit(const CATSMAT_TrigramSequences& sequences);
         void Print(ostream& os) const;
+        map<CATSMAT_TrigramSequences::Token, int>& token_count() { return token_count_; }
         
     private:
         map<CATSMAT_TrigramSequences::Token, int> token_count_;

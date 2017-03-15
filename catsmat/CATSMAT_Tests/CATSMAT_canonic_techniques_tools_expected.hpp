@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef CATSMAT_canonic_tools_expected_hpp
-#define CATSMAT_canonic_tools_expected_hpp
+#ifndef CATSMAT_canonic_technique_tools_expected_hpp
+#define CATSMAT_canonic_technique_tools_expected_hpp
 
 #include <stdio.h>
 

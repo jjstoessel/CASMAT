@@ -416,6 +416,16 @@ runToolsMenu(CATSMAT_processing* processor)
                     if (yn == 'n') ignoreRepeatedDyads = false;
                     processor->FindTrigramCounts(ignoreDissonances, ignoreRepeatedDyads);
                     break;
+                case 'W':
+                case 'w':
+                    if (yn == 'n') ignoreDissonances = false;
+                    cout << "Ignore repeated dyads? (y/n) ";
+                    cin >> yn;
+                    if (yn == 'n') ignoreRepeatedDyads = false;
+                    cout << "Enter minimum length: ";
+                    cin >> length;
+                    processor->FindSummativeTrigramCounts(ignoreDissonances, ignoreRepeatedDyads);
+                    break;
                 //Print all scores
                 case 'P':
                 case 'p':

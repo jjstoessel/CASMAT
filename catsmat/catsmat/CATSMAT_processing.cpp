@@ -16,12 +16,16 @@
 #include "CATSMAT_dyad_sequences.hpp"
 // #include "CATSMAT_dyadtuple_sequences.hpp"
 #include "CATSMAT_sonority_sequences.hpp"
+#include "CATSMAT_score_profile.hpp"
 #include "CATSMAT_TrigramSequences.hpp"
 #include "CATSMAT_TrigramSuffixTreeBuilder.hpp"
-#include "CATSMAT_canonic_tools.hpp"
+#include "CATSMAT_canonic_techniques_tools.hpp"
+
 
 using namespace std;
 using namespace boost;
+
+
 
 namespace CATSMAT
 {
@@ -115,7 +119,7 @@ namespace CATSMAT
     {
         for (auto score : this->getScores())
         {
-            S_CATSMAT_Canonic_Tools tools = new_CATSMAT_object<CATSMAT_CanonicTools>();
+            S_CATSMAT_CanonicTechniquesTools tools = new_CATSMAT_object<CATSMAT_CanonicTechniquesTools>();
             tools->Initialise(score);
             for (auto canon : tools->GetCanonTypes())
             {
@@ -148,13 +152,53 @@ namespace CATSMAT
             trigram_sequences.set_ignore_dissonances(ignoreDissonances);
             trigram_sequences.set_ignore_repeated(ignoreRepeatedDyads);
             
-            (*score).accept(score_to_matrix_translator);
+            score->accept(score_to_matrix_translator);
             score_to_matrix_translator.getCPMatrix()->Accept(trigram_sequences);
             trigram_sequences.Accept(trigram_info);
             
             cout << "Trigram counts in " << (*score).getMovementTitle() << endl;
             cout << trigram_info;
         }
+    }
+    
+    /*!
+     \fn CATSMAT_processing::FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads)
+     
+     \brief returns a table that collects all results from multiple scores
+     
+     */
+    void
+    CATSMAT_processing::
+    FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads)
+    {
+        CATSMAT_score_profile<CATSMAT_TrigramSequences::Token> trigrams_profile("trigram");
+        
+        for (auto score : this->getScores())
+        {
+            CATSMAT_collection_visitor      score_to_matrix_translator;
+            CATSMAT_TrigramSequences        trigram_sequences;
+            CATSMAT_TrigramInformation      trigram_info;
+            
+            trigram_sequences.set_ignore_dissonances(ignoreDissonances);
+            trigram_sequences.set_ignore_repeated(ignoreRepeatedDyads);
+            score->accept(score_to_matrix_translator);
+            score_to_matrix_translator.getCPMatrix()->Accept(trigram_sequences);
+            trigram_sequences.Accept(trigram_info);
+            map<CATSMAT_TrigramSequences::Token, int> score_tokens_by_count = trigram_info.token_count(); //CATSMAT_score_profile::PROFILE
+            string part_name = score->getWorkTitle();
+            if (part_name.empty())
+            {
+                part_name = score->getMovementTitle();
+                if (part_name.empty()) throw catsmat_runtime_error("The work or movement lacks a name");
+            }
+            trigrams_profile.Accumulate(part_name, score_tokens_by_count);
+        }
+        
+        cout << "Printing trigram table for inputed scores";
+        
+        cout << trigrams_profile;
+        
+        
     }
 
 } //namespace CATSMAT

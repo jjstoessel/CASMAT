@@ -16,6 +16,7 @@
 #include "CATSMAT_score_profile.hpp"
 #include "CATSMAT_partdata.h"
 #include "IMUSANT_generalised_interval.h"
+#include "CATSMAT_TrigramSequences.hpp"
 
 namespace CATSMAT
 {
@@ -107,6 +108,7 @@ namespace CATSMAT
     template class CATSMAT_score_profile<IMUSANT_interval>;
     template class CATSMAT_score_profile<IMUSANT_duration>;
     template class CATSMAT_score_profile<IMUSANT_generalised_interval>;
+    template class CATSMAT_score_profile<CATSMAT_TrigramSequences::Token>;
     
 }
 

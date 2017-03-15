@@ -6,7 +6,7 @@
  *  \author     Jason Stoessel
  *  \author     Derrick Hill
  *  \copyright  [add licence name]
- *  \breif      An internal representation of a note duration with comparison operators
+ *  \brief      An internal representation of a note duration with comparison operators
  *
  *  Changes:
  *  24 Mar 2016 Added handlers for time modification and normal duration and normal dots as "variables" of time modification

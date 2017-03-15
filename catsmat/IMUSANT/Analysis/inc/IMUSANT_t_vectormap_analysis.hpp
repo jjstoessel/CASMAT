@@ -25,7 +25,6 @@ namespace IMUSANT
     public:
         typedef typename IMUSANT_T_VectorMap<T,C>::SUBSTR_VECTOR    SUBSTR_VECTOR;
         typedef boost::multi_array<int, 2>                          int_2d_array_t;
-        //typedef typename IMUSANT_T_VectorMap<T,C>::id_vec_map       id_vec_map;
         typedef  deque<pair<T,T> >                                  DEQUE_PAIR;
         typedef typename DEQUE_PAIR::iterator                       DEQUE_PAIR_ITERATOR;
         

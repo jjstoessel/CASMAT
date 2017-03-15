@@ -15,6 +15,7 @@
 #include "IMUSANT_processing.h"
 #include "CATSMAT_collectionvisitor.hpp"
 
+
 using namespace IMUSANT;
 using namespace std;
 using namespace boost;
@@ -34,10 +35,13 @@ public:
     void FindRepeatedTrigramSequences(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
     void FindRepeatedTrigramSequencesCanonic(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
     void FindTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads);
+    void FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads);
 private:
 
 
 };
 
+    
+    
 } //namespace CATSMAT
 #endif //__CATSMAT_PROCESSING__

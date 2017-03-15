@@ -343,7 +343,7 @@
 		49FB9BD21C7879D80008B46D /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */; };
 		965208660A4CDA6F006AFD81 /* imusantcat_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965208650A4CDA6F006AFD81 /* imusantcat_main.cpp */; };
-		9665C50E1E724F0A00947C15 /* CATSMAT_canonic_tools_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9665C50C1E724F0A00947C15 /* CATSMAT_canonic_tools_tests.cpp */; };
+		9665C50E1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9665C50C1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp */; };
 		9665C50F1E74B8B000947C15 /* Ockeghem_Prenez_sur_moi_(Cop).xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA33CBC81D6FD7A8001B7FF3 /* Ockeghem_Prenez_sur_moi_(Cop).xml */; };
 		9667B8AA1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
 		9667B8AB1E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
@@ -353,8 +353,8 @@
 		96A912EF1DE08D8700EF40F3 /* IMUSANT_generalised_interval_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96A912ED1DE08C2D00EF40F3 /* IMUSANT_generalised_interval_Tests.cpp */; };
 		96A912F01DE102C900EF40F3 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
 		96A912F11DE102CB00EF40F3 /* IMUSANT_generalised_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */; };
-		96BF08781E7214E800F2A067 /* CATSMAT_canonic_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96BF08761E7214E800F2A067 /* CATSMAT_canonic_tools.cpp */; };
-		96BF08791E7214E800F2A067 /* CATSMAT_canonic_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96BF08761E7214E800F2A067 /* CATSMAT_canonic_tools.cpp */; };
+		96BF08781E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96BF08761E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp */; };
+		96BF08791E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96BF08761E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp */; };
 		96CC66C61DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C41DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp */; };
 		96CC66C71DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C41DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp */; };
 		96CC66CA1DEAF5B400E2F7FB /* CATSMAT_trigramsequences_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C91DEAF5B400E2F7FB /* CATSMAT_trigramsequences_tests.cpp */; };
@@ -1107,8 +1107,8 @@
 		9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_record.cpp; sourceTree = "<group>"; };
 		965209A40A4D1E8B006AFD81 /* IMUSANT_interval_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval_vector.h; sourceTree = "<group>"; };
 		965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_vector.cpp; sourceTree = "<group>"; };
-		9665C50C1E724F0A00947C15 /* CATSMAT_canonic_tools_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_canonic_tools_tests.cpp; sourceTree = "<group>"; };
-		9665C50D1E724F0A00947C15 /* CATSMAT_canonic_tools_expected.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CATSMAT_canonic_tools_expected.hpp; sourceTree = "<group>"; };
+		9665C50C1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_canonic_techniques_tools_tests.cpp; sourceTree = "<group>"; };
+		9665C50D1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_expected.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CATSMAT_canonic_techniques_tools_expected.hpp; sourceTree = "<group>"; };
 		9667B8A81E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_TrigramSuffixTreeBuilder.cpp; path = catsmat/CATSMAT_TrigramSuffixTreeBuilder.cpp; sourceTree = SOURCE_ROOT; };
 		9667B8A91E6902D600CB933B /* CATSMAT_TrigramSuffixTreeBuilder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_TrigramSuffixTreeBuilder.hpp; path = catsmat/CATSMAT_TrigramSuffixTreeBuilder.hpp; sourceTree = SOURCE_ROOT; };
 		9668DB911D0D7A8900C5AAA6 /* IMUSANT_t_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_t_suffixtree_builder.h; path = IMUSANT/Analysis/src/IMUSANT_t_suffixtree_builder.h; sourceTree = SOURCE_ROOT; };
@@ -1184,8 +1184,8 @@
 		96A71CBA1A9160CB0021C86A /* UTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTools.h; sourceTree = "<group>"; };
 		96A71CBB1A9160CB0021C86A /* xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xml.h; sourceTree = "<group>"; };
 		96A912ED1DE08C2D00EF40F3 /* IMUSANT_generalised_interval_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generalised_interval_Tests.cpp; sourceTree = "<group>"; };
-		96BF08761E7214E800F2A067 /* CATSMAT_canonic_tools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_canonic_tools.cpp; path = catsmat/CATSMAT_canonic_tools.cpp; sourceTree = SOURCE_ROOT; };
-		96BF08771E7214E800F2A067 /* CATSMAT_canonic_tools.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_canonic_tools.hpp; path = catsmat/CATSMAT_canonic_tools.hpp; sourceTree = SOURCE_ROOT; };
+		96BF08761E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_canonic_techniques_tools.cpp; path = catsmat/CATSMAT_canonic_techniques_tools.cpp; sourceTree = SOURCE_ROOT; };
+		96BF08771E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_canonic_techniques_tools.hpp; path = catsmat/CATSMAT_canonic_techniques_tools.hpp; sourceTree = SOURCE_ROOT; };
 		96CC66C41DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_TrigramSequences.cpp; path = catsmat/CATSMAT_TrigramSequences.cpp; sourceTree = SOURCE_ROOT; };
 		96CC66C51DE7E61900E2F7FB /* CATSMAT_TrigramSequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_TrigramSequences.hpp; path = catsmat/CATSMAT_TrigramSequences.hpp; sourceTree = SOURCE_ROOT; };
 		96CC66C81DEAF5B400E2F7FB /* CATSMAT_trigramsequences_expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_trigramsequences_expected.h; path = CATSMAT_Tests/CATSMAT_trigramsequences_expected.h; sourceTree = SOURCE_ROOT; };
@@ -1403,6 +1403,7 @@
 		BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_element.cpp; sourceTree = "<group>"; };
 		BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_sonority_sequences.cpp; path = catsmat/CATSMAT_sonority_sequences.cpp; sourceTree = SOURCE_ROOT; };
 		BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_sonority_sequences.hpp; path = catsmat/CATSMAT_sonority_sequences.hpp; sourceTree = SOURCE_ROOT; };
+		BABAE0E31E78D3A4002F0CDD /* Du_Fay-Inclita_stella_maris.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Inclita_stella_maris.xml"; sourceTree = "<group>"; };
 		BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_processing.h; sourceTree = "<group>"; };
 		BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_processing.cpp; sourceTree = "<group>"; };
 		BACBE5921D51B60000F94A2B /* CATSMAT_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_exception.h; path = catsmat/CATSMAT_exception.h; sourceTree = SOURCE_ROOT; };
@@ -1725,8 +1726,8 @@
 				BA10A5D61DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp */,
 				96CC66C81DEAF5B400E2F7FB /* CATSMAT_trigramsequences_expected.h */,
 				96CC66C91DEAF5B400E2F7FB /* CATSMAT_trigramsequences_tests.cpp */,
-				9665C50D1E724F0A00947C15 /* CATSMAT_canonic_tools_expected.hpp */,
-				9665C50C1E724F0A00947C15 /* CATSMAT_canonic_tools_tests.cpp */,
+				9665C50D1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_expected.hpp */,
+				9665C50C1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp */,
 			);
 			path = CATSMAT_Tests;
 			sourceTree = "<group>";
@@ -2912,8 +2913,8 @@
 				BA09CB951E025253005E9B29 /* CATSMAT_score_profile.tpp */,
 				BA10A5D21D979F06000679C5 /* CATSMAT_partdata.h */,
 				BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */,
-				96BF08761E7214E800F2A067 /* CATSMAT_canonic_tools.cpp */,
-				96BF08771E7214E800F2A067 /* CATSMAT_canonic_tools.hpp */,
+				96BF08761E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp */,
+				96BF08771E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.hpp */,
 			);
 			name = "General Analysis";
 			sourceTree = "<group>";
@@ -2938,6 +2939,7 @@
 				BA33CBB91D6FD7A8001B7FF3 /* Cordier-Tout_par_compas-standardised.xml */,
 				BA33CBBA1D6FD7A8001B7FF3 /* Denis_Le_Grant-Se_je_chant_F-Pic_67.xml */,
 				96CC66DD1DEBB63000E2F7FB /* Du_Fay-Bien_veignes_vous.xml */,
+				BABAE0E31E78D3A4002F0CDD /* Du_Fay-Inclita_stella_maris.xml */,
 				BA33CBBB1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_agnus_ed_Eakins.xml */,
 				BA33CBBC1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_credo_ed_Eakins.xml */,
 				BA33CBBD1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_gloria_ed_Eakins.xml */,
@@ -3469,9 +3471,9 @@
 				BA09CB981E025253005E9B29 /* CATSMAT_score_profile.tpp in Sources */,
 				496EF7161B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp in Sources */,
 				9695B5331DE08577000586D0 /* IMUSANT_generalised_interval.cpp in Sources */,
-				96BF08791E7214E800F2A067 /* CATSMAT_canonic_tools.cpp in Sources */,
+				96BF08791E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
 				BAA257F91CFEBFD50019B07F /* CATSMAT_chord.cpp in Sources */,
-				9665C50E1E724F0A00947C15 /* CATSMAT_canonic_tools_tests.cpp in Sources */,
+				9665C50E1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp in Sources */,
 				96FE22F91E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3699,7 +3701,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA10A5DA1DA75133000679C5 /* CATSMAT_scoredata.cpp in Sources */,
-				96BF08781E7214E800F2A067 /* CATSMAT_canonic_tools.cpp in Sources */,
+				96BF08781E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
 				BA10A5CD1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				BA09CB971E025253005E9B29 /* CATSMAT_score_profile.tpp in Sources */,
 				1E905DD61C1FE0230017850F /* CATSMAT_processing.cpp in Sources */,
