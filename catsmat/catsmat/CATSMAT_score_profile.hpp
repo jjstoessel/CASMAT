@@ -36,8 +36,8 @@ namespace CATSMAT {
         template <typename U>
         friend  ostream& operator<<(ostream& os, const CATSMAT_score_profile<U>& elt );
         
-        typedef tuple<string,T,int> TABLE_TUPLE;    //!< \typedef TABLE_TUPLE. A tuple of part name, T, and T count
-        typedef map<T,int>          PROFILE;        //!< \typedef PROFILE. A map for T and T count
+        template typedef tuple<string,T,int> TABLE_TUPLE;    //!< \typedef TABLE_TUPLE. A tuple of part name, T, and T count
+        template typedef map<T,int>          PROFILE;        //!< \typedef PROFILE. A map for T and T count
         
         /// CATSMAT_score_profile constructor.
         /**
@@ -74,6 +74,11 @@ namespace CATSMAT {
             /param  c   new delimter char
          */
         void setDelimiter(char c) { fDelimiter = c; }
+        /// profile()
+        /**
+         returns member variable
+         */
+        PROFILE& profile() { return fProfile; }
         
     private:
         

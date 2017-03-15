@@ -42,9 +42,15 @@ namespace CATSMAT {
                     }
                     else
                     {
+                        //add interval to interval profile
                         IMUSANT_interval interval(fLastPitch, note->pitch());
                         int currentIntervalCount = fHIntervalProfile[interval];
                         fHIntervalProfile[interval] = currentIntervalCount + 1;
+                        
+                        //add contour to contour profile
+                        IMUSANT_contour_symbol contour_symbol(fLastPitch, note->pitch());
+                        fContourSymbolProfile[contour_symbol] = fContourSymbolProfile[contour_symbol] + 1;
+                        
                         *fLastPitch=*note->pitch();
                     }
                 }

@@ -9,10 +9,12 @@
 #include "CATSMAT_TrigramSequences.hpp"
 #include "IMUSANT_generalised_interval.h"
 #include "CATSMAT_exception.h"
+#include "CATSMAT_score_profile.hpp"
 
 namespace CATSMAT
 {
     
+    //friendly print operators for trigram sequence, trigrams and tokens
     ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences& sequences)
     {
         sequences.Print(os);
@@ -31,6 +33,18 @@ namespace CATSMAT
     {
         os << "[" << trigram[CATSMAT_TrigramSequences::dyad1] << ", " << trigram[CATSMAT_TrigramSequences::dyad2] << ", " << trigram[CATSMAT_TrigramSequences::lowMelInterval] << "] ";
         
+        return os;
+    }
+    
+    ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences::Token& token)
+    {
+        os << CATSMAT_TrigramSequences::Token2Triple(token);
+        return os;
+    }
+    
+    ostream& operator<<(ostream& os, CATSMAT_TrigramSequences::Token& token)
+    {
+        os << CATSMAT_TrigramSequences::Token2Triple(token);
         return os;
     }
     
@@ -118,13 +132,13 @@ namespace CATSMAT
     {
         tokens_.resize(vectors_.size());
         
-        vector<vector<Token> >::iterator tokens = tokens_.begin();
+        vector<vector<CATSMAT_TrigramSequences::Token> >::iterator tokens = tokens_.begin();
         
         for (vector<Sentence>::iterator i = vectors_.begin(); i != vectors_.end(); i++)
         {
             for (Sentence::iterator j = i->begin(); j!=i->end(); j++) {
                 Trigram trigram = *j;
-                Token token = Triple2Token(trigram);
+                CATSMAT_TrigramSequences::Token token = Triple2Token(trigram);
                 tokens->push_back(token);
                 assert(Token2Triple(token)==trigram);
             }
@@ -354,5 +368,53 @@ namespace CATSMAT
         }
     }
     
+    //Specialisation of CATSMAT_score_profile::print for CATSMAT_TrigramSequences::Token
+    //required to ensure that trigram is printed (operator<<) rather than token
+    template<>
+    void
+    CATSMAT_score_profile<CATSMAT_TrigramSequences::Token>::
+    print(ostream& os) const
+    {
+        ostringstream header,lines,total;
+        header << fType << fDelimiter;
+        total << "Total" << fDelimiter;
+        
+        for (std::pair<CATSMAT_TrigramSequences::Token, int> data : fProfile)
+        {
+            CATSMAT_TrigramSequences::Trigram trigram = CATSMAT_TrigramSequences::Token2Triple(data.first);
+            //add pitch name to header
+            header << trigram << fDelimiter;
+            total << data.second << fDelimiter;
+        }
+        
+        for (auto s : fPartNames)
+        {
+            ostringstream line;
+            line << s.c_str() << fDelimiter;
+            
+            for (auto data : fProfile)
+            {
+                CATSMAT_TrigramSequences::Token t = data.first; //pitch type
+                //search table for occurrences of pitch in part
+                auto it = std::find_if(fTable.begin(), fTable.end(), [&s,&t](const TABLE_TUPLE& item)
+                                       {
+                                           return s == get<0>(item) && t == get<1>(item);
+                                       }); //returns iterator
+                if (it!=fTable.end())
+                    line << get<2>(*it) << fDelimiter;
+                else //not found
+                    line << "0" << fDelimiter;
+                
+            }
+            
+            lines << line.str() << endl;
+        }
+        
+        header << endl;
+        
+        os << header.str();
+        os << lines.str();
+        os << total.str() << endl;
+    }
     
 }

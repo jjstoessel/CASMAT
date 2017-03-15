@@ -20,7 +20,8 @@
 #include "CATSMAT_TrigramSequences.hpp"
 #include "CATSMAT_TrigramSuffixTreeBuilder.hpp"
 #include "CATSMAT_canonic_techniques_tools.hpp"
-
+#include "CATSMAT_scoredata.h"
+#include "IMUSANT_vectormap_analysis_types.hpp"
 
 using namespace std;
 using namespace boost;
@@ -171,7 +172,7 @@ namespace CATSMAT
     CATSMAT_processing::
     FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads)
     {
-        CATSMAT_score_profile<CATSMAT_TrigramSequences::Token> trigrams_profile("trigram");
+        CATSMAT_score_profile<CATSMAT_TrigramSequences::Token> trigrams_profile("trigrams");
         
         for (auto score : this->getScores())
         {
@@ -184,7 +185,7 @@ namespace CATSMAT
             score->accept(score_to_matrix_translator);
             score_to_matrix_translator.getCPMatrix()->Accept(trigram_sequences);
             trigram_sequences.Accept(trigram_info);
-            map<CATSMAT_TrigramSequences::Token, int> score_tokens_by_count = trigram_info.token_count(); //CATSMAT_score_profile::PROFILE
+            CATSMAT_TrigramInformation::PROFILE score_tokens_by_count = trigram_info.token_count();
             string part_name = score->getWorkTitle();
             if (part_name.empty())
             {
@@ -194,10 +195,43 @@ namespace CATSMAT
             trigrams_profile.Accumulate(part_name, score_tokens_by_count);
         }
         
-        cout << "Printing trigram table for inputed scores";
+        cout << "Printing trigram table for inputed scores" << endl;
         
         cout << trigrams_profile;
         
+    }
+    
+    /*!
+     \fn CATSMAT_processing::FindMelodicDirectionCounts()
+     
+     \brief returns a table that collects all results from multiple scores
+     
+     */
+    void
+    CATSMAT_processing::
+    FindMelodicDirectionCounts()
+    {
+        CATSMAT_score_profile<IMUSANT_contour_symbol> profiles("contours");
+        
+        for (auto score : this->getScores())
+        {
+            S_CATSMAT_scoredata                 scoredata = new_CATSMAT_object<CATSMAT_scoredata>();
+            IMUSANT_ContourVectorMapAnalysis    cv_map;
+            
+            scoredata->findBasicDataFromScore(score);
+            CATSMAT_score_profile<IMUSANT_contour_symbol> score_profile = scoredata->score_contour_symbol_profile();
+            string part_name = score->getWorkTitle();
+            if (part_name.empty())
+            {
+                part_name = score->getMovementTitle();
+                if (part_name.empty()) throw catsmat_runtime_error("The work or movement lacks a name");
+            }
+            profiles.Accumulate(part_name, score_profile.profile());
+        }
+        
+        cout << "Printing trigram table for inputed scores" << endl;
+        
+        cout << profiles;
         
     }
 

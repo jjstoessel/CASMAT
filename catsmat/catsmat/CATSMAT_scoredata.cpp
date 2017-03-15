@@ -51,6 +51,7 @@ namespace CATSMAT {
             fScorePitchProfile.Accumulate(data.first, data.second->getPitchProfile());
             fScoreDurationProfile.Accumulate(data.first, data.second->getDurationProfile());
             fScoreIntervalProfile.Accumulate(data.first, data.second->getHIntervalProfile());
+            fScoreContourSymbolProfile.Accumulate(data.first, data.second->getContourSymbolProfile());
             map<IMUSANT_generalised_interval,int> temp_map;
             for ( auto i : data.second->getHIntervalProfile())
             {
@@ -64,6 +65,7 @@ namespace CATSMAT {
         fScoreDurationProfile.Sort();
         fScoreIntervalProfile.Sort();
         fScoreGeneralisedIntervalProfile.Sort();
+        fScoreContourSymbolProfile.Sort();
     }
 
     

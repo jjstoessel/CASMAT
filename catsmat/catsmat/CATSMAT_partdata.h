@@ -15,6 +15,7 @@
 #include "IMUSANT_duration.h"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_part.h"
+#include "IMUSANT_contour_symbol.h"
 #include "smartpointer.h"
 
 using namespace IMUSANT;
@@ -37,7 +38,7 @@ namespace CATSMAT {
         const map<IMUSANT_pitch,int>& getPitchProfile() { return fPitchProfile; }
         const map<IMUSANT_duration,int>& getDurationProfile() { return fDurationProfile; }
         const map<IMUSANT_interval,int>& getHIntervalProfile() { return fHIntervalProfile; }
-        
+        const map<IMUSANT_contour_symbol,int>& getContourSymbolProfile() { return fContourSymbolProfile; }
     protected:
         CATSMAT_partdata();
         ~CATSMAT_partdata() {}
@@ -50,6 +51,7 @@ namespace CATSMAT {
         map<IMUSANT_pitch,int>      fPitchProfile;
         map<IMUSANT_duration,int>   fDurationProfile;
         map<IMUSANT_interval, int>  fHIntervalProfile; //horizontal interval profile
+        map<IMUSANT_contour_symbol, int> fContourSymbolProfile;
     };
     
     typedef IMUSANT_SMARTP<CATSMAT_partdata> S_CATSMAT_partdata;

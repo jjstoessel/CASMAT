@@ -162,7 +162,8 @@ outputToolsMenu(ostream &out)
     out << "M. Find repeated sonority sequences" << endl;
     out << "T. Find melodic segments using period segmentation" << endl;
     out << "U. Find repeated trigram sequences" << endl;
-    out << "V. Give counts of trigrams" << endl;
+    out << "V. Give count of trigrams for each score" << endl;
+    out << "W. Give count of trigrams for all scores" << endl;
     out << "N. Run all CATSMAT tools" << endl;
     out << endl;
     out << "O. Run all tools" << endl;
@@ -321,8 +322,10 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'r':
                 case 'R':
                 {
-                    cv.Visit(*processor);
-                    cout << cv.EntabulateAndPrintMelodicDirectionPairs();
+                    processor->FindMelodicDirectionCounts();
+                    //use the following following for melodic direction duples
+                    //cv.Visit(*processor);
+                    //cout << cv.EntabulateAndPrintMelodicDirectionPairs();
                     break;
                 }
                 //melint
@@ -418,12 +421,12 @@ runToolsMenu(CATSMAT_processing* processor)
                     break;
                 case 'W':
                 case 'w':
+                    cout << "Ignore dissonances? (y/n) ";
+                    cin >> yn;
                     if (yn == 'n') ignoreDissonances = false;
                     cout << "Ignore repeated dyads? (y/n) ";
                     cin >> yn;
                     if (yn == 'n') ignoreRepeatedDyads = false;
-                    cout << "Enter minimum length: ";
-                    cin >> length;
                     processor->FindSummativeTrigramCounts(ignoreDissonances, ignoreRepeatedDyads);
                     break;
                 //Print all scores

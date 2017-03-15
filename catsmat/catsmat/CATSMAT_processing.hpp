@@ -36,6 +36,7 @@ public:
     void FindRepeatedTrigramSequencesCanonic(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
     void FindTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads);
     void FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads);
+    void FindMelodicDirectionCounts();
 private:
 
 

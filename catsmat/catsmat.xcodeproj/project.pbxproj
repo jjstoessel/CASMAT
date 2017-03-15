@@ -1210,6 +1210,9 @@
 		96CC66DE1DEBB66500E2F7FB /* Pamphilus-Cucu cucu ognon canti cucu (Jeppsen).xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Pamphilus-Cucu cucu ognon canti cucu (Jeppsen).xml"; sourceTree = "<group>"; };
 		96CC66DF1DEBB68700E2F7FB /* Mod A 003-Et in terra.cmme.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Mod A 003-Et in terra.cmme.xml"; sourceTree = "<group>"; };
 		96CC66E01DEBE7EC00E2F7FB /* Ciconia-Le ray au soleyl.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ciconia-Le ray au soleyl.xml"; sourceTree = "<group>"; };
+		96E2172E1E79579200D603C2 /* Du_Fay-Bien_veignes_vous_canon_only.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Bien_veignes_vous_canon_only.xml"; sourceTree = "<group>"; };
+		96E2172F1E795C0D00D603C2 /* Du_Fay-Inclita_stella_maris_canon_only.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Inclita_stella_maris_canon_only.xml"; sourceTree = "<group>"; };
+		96E217301E795C2A00D603C2 /* Trigram results for Proportional canons.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Trigram results for Proportional canons.xlsx"; sourceTree = "<group>"; };
 		96FE22E91E6E986000B4A87F /* IMUSANT_t_vectormap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap.hpp; sourceTree = "<group>"; };
 		96FE22EF1E6EB8E000B4A87F /* IMUSANT_t_vectormap_analysis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap_analysis.hpp; sourceTree = "<group>"; };
 		96FE22F41E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_VectorMapAnalysisTypes.cpp; sourceTree = "<group>"; };
@@ -2939,6 +2942,8 @@
 				BA33CBB91D6FD7A8001B7FF3 /* Cordier-Tout_par_compas-standardised.xml */,
 				BA33CBBA1D6FD7A8001B7FF3 /* Denis_Le_Grant-Se_je_chant_F-Pic_67.xml */,
 				96CC66DD1DEBB63000E2F7FB /* Du_Fay-Bien_veignes_vous.xml */,
+				96E2172E1E79579200D603C2 /* Du_Fay-Bien_veignes_vous_canon_only.xml */,
+				96E2172F1E795C0D00D603C2 /* Du_Fay-Inclita_stella_maris_canon_only.xml */,
 				BABAE0E31E78D3A4002F0CDD /* Du_Fay-Inclita_stella_maris.xml */,
 				BA33CBBB1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_agnus_ed_Eakins.xml */,
 				BA33CBBC1D6FD7A8001B7FF3 /* Faugues-Missa_Lhomme_arme_I_credo_ed_Eakins.xml */,
@@ -3145,6 +3150,7 @@
 		C6859E8C029090F304C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				96E217301E795C2A00D603C2 /* Trigram results for Proportional canons.xlsx */,
 				49DA5F031E74C041003E8263 /* PeriodicSegmentationResults_20170217 */,
 				498D54511C32A72200439018 /* MusicXMLv3_Elements_Reqs.xlsx */,
 				496EF7211B24013600FE715F /* DevelopmentEnvironmentConfiguration.docx */,

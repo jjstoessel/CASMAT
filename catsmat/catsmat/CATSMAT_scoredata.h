@@ -23,6 +23,7 @@
 #include "CATSMAT_t_utilities.h"
 #include "CATSMAT_partdata.h"
 #include "CATSMAT_score_profile.hpp"
+#include "IMUSANT_contour_symbol.h"
 
 using namespace IMUSANT;
 using namespace std;
@@ -38,12 +39,19 @@ namespace CATSMAT {
         void    findBasicDataFromScore(S_IMUSANT_score scores);
         void    findContrapuntalData(CATSMAT_dyad_sequences& dyads);
         
+        CATSMAT_score_profile<IMUSANT_pitch>&   score_pitch_profile(){ return fScorePitchProfile; }
+        CATSMAT_score_profile<IMUSANT_duration> score_duration_profile(){ return fScoreDurationProfile; }
+        CATSMAT_score_profile<IMUSANT_interval> score_interval_profile(){ return fScoreIntervalProfile; }
+        CATSMAT_score_profile<IMUSANT_generalised_interval> score_generalised_interval_profile(){ return fScoreGeneralisedIntervalProfile; }
+        CATSMAT_score_profile<IMUSANT_contour_symbol>& score_contour_symbol_profile(){ return  fScoreContourSymbolProfile; }
+        
         void    print(ostream& os);
         
     protected:
         
-        CATSMAT_scoredata() : fScorePitchProfile("Pitch"), fScoreDurationProfile("Duration"), fScoreIntervalProfile("Interval"), fScoreGeneralisedIntervalProfile("General Interval"){}
+        CATSMAT_scoredata() : fScorePitchProfile("Pitches"), fScoreDurationProfile("Durations"), fScoreIntervalProfile("Intervals"), fScoreGeneralisedIntervalProfile("General Intervals"), fScoreContourSymbolProfile("Contours"){}
         ~CATSMAT_scoredata() {}
+        
         
     private:
         
@@ -69,6 +77,7 @@ namespace CATSMAT {
         CATSMAT_score_profile<IMUSANT_duration> fScoreDurationProfile;
         CATSMAT_score_profile<IMUSANT_interval> fScoreIntervalProfile;
         CATSMAT_score_profile<IMUSANT_generalised_interval> fScoreGeneralisedIntervalProfile;
+        CATSMAT_score_profile<IMUSANT_contour_symbol>   fScoreContourSymbolProfile;
         
     };
     

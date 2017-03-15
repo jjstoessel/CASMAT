@@ -35,18 +35,20 @@ namespace CATSMAT
     class CATSMAT_TrigramSequences : public CATSMAT_dyad_sequences_base<Sentence>, public BaseVisitable<void, DefaultCatchAll, true>
     {
     public:
-        void Accept(::Loki::BaseVisitor& guest) const { return AcceptImpl(*this, guest); }
         
+        typedef unsigned long               Token;
         typedef std::array<signed int,3>    Trigram; //a word is the two vertical intervals and the step in the lower voice
         typedef std::vector<Trigram>        Sentence; // a sentence is a sequence of words for a voice pair
-        typedef unsigned long               Token;
         typedef std::vector<vector<Token> > TokenVectors;
         enum    TrigramMembers { dyad1, dyad2, lowMelInterval };
         
         friend  ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences& sequences);
         friend  ostream& operator<<(ostream& os, const Trigram&);
         friend  ostream& operator<<(ostream& os, Trigram&);
+        friend  ostream& operator<<(ostream& os, const Token&);
+        friend  ostream& operator<<(ostream& os, Token&);
         
+        void    Accept(::Loki::BaseVisitor& guest) const { return AcceptImpl(*this, guest); }
         static  Trigram             Token2Triple(Token token);
         static  Token               Triple2Token(const Trigram& triple);
         
@@ -74,6 +76,8 @@ namespace CATSMAT
     class CATSMAT_TrigramInformation : public BaseVisitor, public Visitor<CATSMAT_TrigramSequences, void, true>
     {
     public:
+        typedef map<CATSMAT_TrigramSequences::Token,int> PROFILE;
+        
         friend  ostream& operator<< (ostream& os, const CATSMAT_TrigramInformation& trigram_info );
         
         CATSMAT_TrigramInformation() {}
@@ -81,10 +85,10 @@ namespace CATSMAT
         
         void Visit(const CATSMAT_TrigramSequences& sequences);
         void Print(ostream& os) const;
-        map<CATSMAT_TrigramSequences::Token, int>& token_count() { return token_count_; }
+        PROFILE& token_count() { return token_count_; }
         
     private:
-        map<CATSMAT_TrigramSequences::Token, int> token_count_;
+        PROFILE token_count_;
     };
     
     ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences& sequences);

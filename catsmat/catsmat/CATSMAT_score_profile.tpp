@@ -17,6 +17,7 @@
 #include "CATSMAT_partdata.h"
 #include "IMUSANT_generalised_interval.h"
 #include "CATSMAT_TrigramSequences.hpp"
+#include "IMUSANT_contour_symbol.h"
 
 namespace CATSMAT
 {
@@ -80,7 +81,7 @@ namespace CATSMAT
             {
                 T t = data.first; //pitch type
                 //search table for occurrences of pitch in part
-                auto it = std::find_if(fTable.begin(), fTable.end(), [&s,&t](const tuple<string,T,int>& item)
+                auto it = std::find_if(fTable.begin(), fTable.end(), [&s,&t](const TABLE_TUPLE& item)
                                        {
                                            return s == get<0>(item) && t == get<1>(item);
                                        }); //returns iterator
@@ -109,6 +110,7 @@ namespace CATSMAT
     template class CATSMAT_score_profile<IMUSANT_duration>;
     template class CATSMAT_score_profile<IMUSANT_generalised_interval>;
     template class CATSMAT_score_profile<CATSMAT_TrigramSequences::Token>;
+    template class CATSMAT_score_profile<IMUSANT_contour_symbol>;
     
 }
 
