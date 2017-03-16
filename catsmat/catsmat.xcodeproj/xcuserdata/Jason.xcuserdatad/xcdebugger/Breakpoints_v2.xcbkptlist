@@ -449,11 +449,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/Application/CATSMAT_menu.cpp"
-            timestampString = "511267431.557059"
+            timestampString = "511329245.978669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
             landmarkType = "7">
          </BreakpointContent>
@@ -657,11 +657,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/Application/CATSMAT_menu.cpp"
-            timestampString = "511267431.557059"
+            timestampString = "511329245.978669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
             landmarkType = "7">
          </BreakpointContent>
@@ -737,12 +737,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_partdata.cpp"
-            timestampString = "511305554.172396"
+            timestampString = "511330498.661797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "CATSMAT_partdata::print_interval_profile(ostream&amp; os)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "CATSMAT_partdata::print(ostream&amp; os)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -753,12 +753,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_partdata.cpp"
-            timestampString = "511305554.172396"
+            timestampString = "511330498.661797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "CATSMAT_partdata::print_interval_profile(ostream&amp; os)"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "CATSMAT_partdata::print(ostream&amp; os)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1410,12 +1410,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_scoredata.cpp"
-            timestampString = "511305267.074297"
+            timestampString = "511330866.318885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "CATSMAT_scoredata:: PostProcess()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_score_profile_special.cpp"
+            timestampString = "511329508.534987"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "print(ostream&amp; os)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_score_profile_special.cpp"
+            timestampString = "511329516.15749"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "print(ostream&amp; os)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_partdata.cpp"
+            timestampString = "511330366.585146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "CATSMAT_partdata::findBasicDataFromPart(S_IMUSANT_part part)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_partdata.cpp"
+            timestampString = "511330555.674049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "CATSMAT_partdata::findBasicDataFromPart(S_IMUSANT_part part)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_processing.cpp"
+            timestampString = "511330640.112851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "CATSMAT_processing:: FindMelodicDirectionDupleCounts()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

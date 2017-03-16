@@ -58,6 +58,7 @@ namespace CATSMAT {
                 temp_map[i.first] = i.second;
             }
             fScoreGeneralisedIntervalProfile.Accumulate(data.first, temp_map);
+            fContourSymbolDupleProfile.Accumulate(data.first, data.second->getContourSymbolDupleProfile());
             
         }
         

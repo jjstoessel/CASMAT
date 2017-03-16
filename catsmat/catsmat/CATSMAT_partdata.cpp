@@ -39,7 +39,7 @@ namespace CATSMAT {
                     if (*fLastPitch==IMUSANT_pitch()) //last element was not pitched
                     {
                         *fLastPitch = *note->pitch();
-                        fLastContour = nullptr;
+                        fLastContour = IMUSANT_contour_symbol(); //undefined
                     }
                     else
                     {
@@ -53,12 +53,14 @@ namespace CATSMAT {
                         fContourSymbolProfile[contour_symbol] = fContourSymbolProfile[contour_symbol] + 1;
                         
                         //add contour duple to contour duple profile
-                        if (fLastContour!=nullptr)
+                        if (fLastContour!=IMUSANT_contour_symbol())
                         {
-                            std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol> contour_pair = std::make_pair(*fLastContour, contour_symbol);
+                            std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol> contour_pair = std::make_pair(fLastContour, contour_symbol);
                             fContourSymbolDupleProfile[contour_pair] = fContourSymbolDupleProfile[contour_pair] + 1;
+                            
                         }
                         
+                        fLastContour = contour_symbol;
                         *fLastPitch=*note->pitch();
                     }
                 }

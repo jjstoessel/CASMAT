@@ -151,7 +151,8 @@ outputToolsMenu(ostream &out)
     out << "G.  Find longest common pitch subsequence in all pairs" << endl;
     out << "H.  Find melodic segments using LBDM" << endl;
     out << "T.  Find melodic segments using Periodic Segmentation" << endl;
-    out << "R.  Entabulate melodic direction duples" << endl;
+    out << "R.  Show melodic contours" << endl;
+    out << "X.  Entabulate melodic contour duples for all works" << endl;
     out << "S.  Show general data" << endl;
     out << "I.  Run all IMUSANT tools" << endl;
     out << endl;

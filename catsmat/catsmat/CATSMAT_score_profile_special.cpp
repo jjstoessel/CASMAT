@@ -91,7 +91,7 @@ namespace CATSMAT {
         {
             //CATSMAT_TrigramSequences::Trigram trigram = CATSMAT_TrigramSequences::Token2Triple(data.first);
             //add pitch name to header
-            //header << trigram << fDelimiter;
+            header << data.first.first << "-" << data.first.second << fDelimiter;
             total << data.second << fDelimiter;
         }
         

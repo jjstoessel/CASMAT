@@ -49,7 +49,7 @@ namespace CATSMAT {
         int fRestCount = 0;
         S_IMUSANT_pitch             fLastPitch;
         //S_IMUSANT_note              fPreviousNote = NULL;
-        S_IMUSANT_contour_symbol    fLastContour = nullptr;
+        IMUSANT_contour_symbol      fLastContour;
         map<IMUSANT_pitch,int>      fPitchProfile;
         map<IMUSANT_duration,int>   fDurationProfile;
         map<IMUSANT_interval, int>  fHIntervalProfile; //horizontal interval profile
