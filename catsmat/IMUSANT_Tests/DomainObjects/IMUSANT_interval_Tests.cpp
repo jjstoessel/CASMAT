@@ -308,24 +308,24 @@ TEST_F(IMUSANT_interval_Tests, add_intervals)
 
 TEST_F(IMUSANT_interval_Tests, compare_intervals)
 {
-    IMUSANT_interval int1(IMUSANT_pitch::C, IMUSANT_pitch::D, 3, 3);
-    IMUSANT_interval int2(IMUSANT_pitch::D, IMUSANT_pitch::D, 3, 4);
-    IMUSANT_interval int3(IMUSANT_pitch::C, IMUSANT_pitch::F, 3, 3);
-    IMUSANT_interval int4(IMUSANT_pitch::D, IMUSANT_pitch::A, 3, 3);
-    IMUSANT_interval int5(IMUSANT_pitch::E, IMUSANT_pitch::G, 3, 3);
-    IMUSANT_interval int6(IMUSANT_pitch::F, IMUSANT_pitch::A, 3, 3);
-    IMUSANT_interval int7(IMUSANT_pitch::D, IMUSANT_pitch::C, 3, 4);
-    IMUSANT_interval int8(IMUSANT_pitch::C, IMUSANT_pitch::B, 3, 3);
-    IMUSANT_interval int9(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3);
-    IMUSANT_interval int10(IMUSANT_pitch::E, IMUSANT_pitch::C, 3, 4);
+    IMUSANT_interval major2nd(IMUSANT_pitch::C, IMUSANT_pitch::D, 3, 3);
+    IMUSANT_interval octave(IMUSANT_pitch::D, IMUSANT_pitch::D, 3, 4);
+    IMUSANT_interval fourth(IMUSANT_pitch::C, IMUSANT_pitch::F, 3, 3);
+    IMUSANT_interval fifth(IMUSANT_pitch::D, IMUSANT_pitch::A, 3, 3);
+    IMUSANT_interval minor3rd(IMUSANT_pitch::E, IMUSANT_pitch::G, 3, 3);
+    IMUSANT_interval major3rd(IMUSANT_pitch::F, IMUSANT_pitch::A, 3, 3);
+    IMUSANT_interval minor7th(IMUSANT_pitch::D, IMUSANT_pitch::C, 3, 4);
+    IMUSANT_interval major7th(IMUSANT_pitch::C, IMUSANT_pitch::B, 3, 3);
+    IMUSANT_interval major6th(IMUSANT_pitch::C, IMUSANT_pitch::A, 3, 3);
+    IMUSANT_interval minor6th(IMUSANT_pitch::E, IMUSANT_pitch::C, 3, 4);
     IMUSANT_interval int11(IMUSANT_pitch::E, IMUSANT_pitch::B, 3, 3);
     
-    ASSERT_TRUE(int1<int2);
-    ASSERT_TRUE(int3<int4);
-    ASSERT_TRUE(int4==int11);
-    ASSERT_TRUE(int1!=int2);
-    ASSERT_TRUE(int5<int6);
-    ASSERT_TRUE(int1!=int9);
-    ASSERT_TRUE(int7<int8);
-    ASSERT_TRUE(int9>int10);
+    ASSERT_TRUE(major2nd<octave);
+    ASSERT_TRUE(fourth<fifth);
+    ASSERT_TRUE(fifth==int11);
+    ASSERT_TRUE(major2nd!=octave);
+    ASSERT_TRUE(minor3rd<major3rd);
+    ASSERT_TRUE(major2nd!=major6th);
+    ASSERT_TRUE(minor7th<major7th);
+    ASSERT_TRUE(major6th>minor6th);
 }

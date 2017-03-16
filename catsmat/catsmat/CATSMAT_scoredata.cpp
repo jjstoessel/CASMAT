@@ -11,6 +11,11 @@
 
 namespace CATSMAT {
     
+    CATSMAT_scoredata::
+    CATSMAT_scoredata() : fScorePitchProfile("Pitches"), fScoreDurationProfile("Durations"), fScoreIntervalProfile("Melodic Intervals"), fScoreGeneralisedIntervalProfile("General Melodic Intervals"), fScoreContourSymbolProfile("Contours"), fContourSymbolDupleProfile("Contour Duples")
+    {
+    }
+    
     void
     CATSMAT_scoredata::
     findBasicDataFromScore(S_IMUSANT_score score)

@@ -50,7 +50,7 @@ namespace CATSMAT {
         
     protected:
         
-        CATSMAT_scoredata() : fScorePitchProfile("Pitches"), fScoreDurationProfile("Durations"), fScoreIntervalProfile("Intervals"), fScoreGeneralisedIntervalProfile("General Intervals"), fScoreContourSymbolProfile("Contours"), fContourSymbolDupleProfile("Contour Duples"){}
+        CATSMAT_scoredata();
         ~CATSMAT_scoredata() {}
         
         

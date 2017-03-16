@@ -1215,6 +1215,7 @@
 		96E2172E1E79579200D603C2 /* Du_Fay-Bien_veignes_vous_canon_only.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Bien_veignes_vous_canon_only.xml"; sourceTree = "<group>"; };
 		96E2172F1E795C0D00D603C2 /* Du_Fay-Inclita_stella_maris_canon_only.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Inclita_stella_maris_canon_only.xml"; sourceTree = "<group>"; };
 		96E217301E795C2A00D603C2 /* Trigram results for Proportional canons.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Trigram results for Proportional canons.xlsx"; sourceTree = "<group>"; };
+		96E217311E7A6EC400D603C2 /* Anon-Blijfs_mi_doch_canon_only.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Anon-Blijfs_mi_doch_canon_only.xml"; sourceTree = "<group>"; };
 		96FE22E91E6E986000B4A87F /* IMUSANT_t_vectormap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap.hpp; sourceTree = "<group>"; };
 		96FE22EF1E6EB8E000B4A87F /* IMUSANT_t_vectormap_analysis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap_analysis.hpp; sourceTree = "<group>"; };
 		96FE22F41E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_VectorMapAnalysisTypes.cpp; sourceTree = "<group>"; };
@@ -2937,6 +2938,7 @@
 		BA33CBB51D6FD7A8001B7FF3 /* MusicXML */ = {
 			isa = PBXGroup;
 			children = (
+				96E217311E7A6EC400D603C2 /* Anon-Blijfs_mi_doch_canon_only.xml */,
 				96CC66CF1DEBB57F00E2F7FB /* Anon-Blijfs mi doch (no Solus T).xml */,
 				BA33CBB61D6FD7A8001B7FF3 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */,
 				BA33CBB71D6FD7A8001B7FF3 /* Anon-Tres_dous_compains.xml */,

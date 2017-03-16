@@ -82,6 +82,7 @@ addFilesToAnalyse(CATSMAT_processing *processor)
         <<	"  2 - Add all files from a directory..." << endl
         <<  "  3 - Load files from the configuration file at $HOME/catsmat_config.txt" << endl
         <<  "  4 - Load files from a configuration file I select..." << endl
+        <<  "  5 - Remove loaded scores from memory" << endl
         <<  "  8 - List the movements I have added so far..." << endl
         <<  "  9 - Analyze the files I have added..." << endl << endl;
     
@@ -110,6 +111,12 @@ addFilesToAnalyse(CATSMAT_processing *processor)
                     
                 case '4':
                     addFilesFromUserSelectedConfigurationFile(processor);
+                    finished = false;
+                    break;
+                    
+                case '5':
+                    processor->Clear();
+                    cout << "Scores unloaded" << endl;
                     finished = false;
                     break;
                     
@@ -165,6 +172,7 @@ outputToolsMenu(ostream &out)
     out << "U. Find repeated trigram sequences" << endl;
     out << "V. Give count of trigrams for each score" << endl;
     out << "W. Give count of trigrams for all scores" << endl;
+    out << "Z. List canonic techniques for all scores" << endl;
     out << "N. Run all CATSMAT tools" << endl;
     out << endl;
     out << "O. Run all tools" << endl;
@@ -433,6 +441,10 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'X':
                 case 'x':
                     processor->FindMelodicDirectionDupleCounts();
+                    break;
+                case 'Z':
+                case 'z':
+                    processor->ListCanonicTechniques();
                     break;
                 //Print all scores
                 case 'P':

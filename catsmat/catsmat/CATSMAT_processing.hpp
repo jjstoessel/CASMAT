@@ -38,6 +38,7 @@ public:
     void FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads);
     void FindMelodicDirectionCounts();
     void FindMelodicDirectionDupleCounts();
+    void ListCanonicTechniques();
 private:
 
 

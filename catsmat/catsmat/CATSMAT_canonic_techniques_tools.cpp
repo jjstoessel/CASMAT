@@ -62,6 +62,7 @@ namespace CATSMAT
                "\n") ;
         CATSMAT_CanonType canon_type;
         
+        canon_type.score_ = score_;
         canon_type.imitative_ = IsIntervallicallyExact(first_part, second_part, error_threshold);
         canon_type.retrograde_ = IsRetrograde(first_part, second_part, error_threshold);
         canon_type.contrary_motion_ = IsInversion(first_part, second_part, error_threshold);
@@ -298,8 +299,22 @@ namespace CATSMAT
     CATSMAT_CanonicTechniquesTools::
     IsIntervallicallyExact(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
     {
-        IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
-        IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
+        IMUSANT_vector<S_IMUSANT_note> part_one_notes;
+        IMUSANT_vector<S_IMUSANT_note> part_two_notes;
+        
+        if (first_part.Part->notes().size() >= second_part.Part->notes().size())
+        {
+            IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
+            IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
+        }
+        else
+        {
+            //the second part has more notes than the first
+            IMUSANT_vector<S_IMUSANT_note> part_one_notes = second_part.Part->notes();
+            IMUSANT_vector<S_IMUSANT_note> part_two_notes = first_part.Part->notes();
+        }
+            
+        
         
         S_IMUSANT_interval_vector first_part_intervals = new_IMUSANT_interval_vector();
         S_IMUSANT_interval_vector second_part_intervals = new_IMUSANT_interval_vector();
@@ -431,8 +446,10 @@ namespace CATSMAT
     //output stream operator for CATSMAT_Canon_Type
     ostream& operator<< (ostream& os, const CATSMAT_CanonType& type )
     {
+        string title = type.score_->getWorkTitle();
+        if (title.empty()) title = type.score_->getMovementTitle();
         os
-        << "=== Canonic type ===" << endl
+        << "**** Canonic techniques for " << title.c_str() << " ****" << endl
         << "Number of voices: " << type.number_of_voices_ << endl;
         for (CATSMAT_CanonType::CATSMAT_IOI_pair unit_count : type.ioi_pairs_)
         {
@@ -460,6 +477,7 @@ namespace CATSMAT
         {
             os << "Part: " << part->getPartName() << ", Part ID: " << part->getID() << endl;
         }
+        os << endl;
         return os;
     }
 

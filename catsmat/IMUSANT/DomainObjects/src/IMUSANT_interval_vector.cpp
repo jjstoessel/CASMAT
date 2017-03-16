@@ -49,6 +49,13 @@ namespace IMUSANT
         for ( IMUSANT_vector<S_IMUSANT_note>::const_iterator j = std::next(i);
               j!=note_vector.end(); i++, j++)
         {
+            //skip to last tied note
+            while (i!=note_vector.end() && (*i)->getNextTieNote()!=NULL)
+            {
+                i++;
+                j++;
+            }
+            if (i==note_vector.end() || j==note_vector.end()) break;
             IMUSANT_pitch pitch_1 = *(*i)->pitch();
             IMUSANT_pitch pitch_2 = *(*j)->pitch();
             IMUSANT_pitch undefined_pitch;

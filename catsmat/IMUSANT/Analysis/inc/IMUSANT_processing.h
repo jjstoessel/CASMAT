@@ -27,17 +27,19 @@ namespace IMUSANT
     class IMUSANT_processing
     {
     public:
+        typedef map<S_IMUSANT_score,IMUSANT_collection_visitor> COLLECTIONMAP;
+        typedef vector<S_IMUSANT_score> SCOREVECTOR;
+        
         IMUSANT_processing() {}
         
-        void	processDirectoryFiles(const filesystem::path& full_path);
-        S_IMUSANT_score	addFile(const filesystem::path& path);
+        void                processDirectoryFiles(const filesystem::path& full_path);
+        S_IMUSANT_score     addFile(const filesystem::path& path);
         
-        map<S_IMUSANT_score,IMUSANT_collection_visitor> getCollections() const { return collection_visitors; }
-        const vector<S_IMUSANT_score> getScores() const { return scores; }
-        vector<string> listWorksAndMovements();
+        COLLECTIONMAP       getCollections() const { return collection_visitors; }
+        const SCOREVECTOR   getScores() const { return scores; }
+        void                Clear() {   scores.clear(); collection_visitors.clear(); }
+        vector<string>      listWorksAndMovements();
 
-        typedef map<S_IMUSANT_score,IMUSANT_collection_visitor> COLLECTIONMAP;
-        
     private:
         // One collection visitor for each score. Pointer to score is key
         COLLECTIONMAP collection_visitors;
