@@ -39,6 +39,7 @@ namespace CATSMAT {
         const map<IMUSANT_duration,int>& getDurationProfile() { return fDurationProfile; }
         const map<IMUSANT_interval,int>& getHIntervalProfile() { return fHIntervalProfile; }
         const map<IMUSANT_contour_symbol,int>& getContourSymbolProfile() { return fContourSymbolProfile; }
+        const map<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>, int>& getContourSymbolDupleProfile() { return fContourSymbolDupleProfile; }
     protected:
         CATSMAT_partdata();
         ~CATSMAT_partdata() {}
@@ -46,12 +47,14 @@ namespace CATSMAT {
     private:
         int fNoteCount = 0;
         int fRestCount = 0;
-        S_IMUSANT_pitch               fLastPitch;
+        S_IMUSANT_pitch             fLastPitch;
         //S_IMUSANT_note              fPreviousNote = NULL;
+        S_IMUSANT_contour_symbol    fLastContour = nullptr;
         map<IMUSANT_pitch,int>      fPitchProfile;
         map<IMUSANT_duration,int>   fDurationProfile;
         map<IMUSANT_interval, int>  fHIntervalProfile; //horizontal interval profile
         map<IMUSANT_contour_symbol, int> fContourSymbolProfile;
+        map<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int > fContourSymbolDupleProfile;
     };
     
     typedef IMUSANT_SMARTP<CATSMAT_partdata> S_CATSMAT_partdata;

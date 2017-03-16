@@ -234,5 +234,38 @@ namespace CATSMAT
         cout << profiles;
         
     }
+    
+    void
+    CATSMAT_processing::
+    FindMelodicDirectionDupleCounts()
+    {
+        //IMUSANT_ContourVectorMapAnalysis   cv;
+        //cv.Visit(*this);
+        //cout << cv.EntabulateAndPrintMelodicDirectionPairs();
+        
+        CATSMAT_score_profile<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol> > profiles("contour duples");
+        
+        for (auto score : this->getScores())
+        {
+            S_CATSMAT_scoredata                 scoredata = new_CATSMAT_object<CATSMAT_scoredata>();
+            IMUSANT_ContourDupleVectorMapAnalysis    cv_map;
+            
+            scoredata->findBasicDataFromScore(score);
+            CATSMAT_score_profile<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol> > score_profile = scoredata->score_contour_symbol_duple_profile();
+            string part_name = score->getWorkTitle();
+            if (part_name.empty())
+            {
+                part_name = score->getMovementTitle();
+                if (part_name.empty()) throw catsmat_runtime_error("The work or movement lacks a name");
+            }
+            profiles.Accumulate(part_name, score_profile.profile());
+        }
+        
+        cout << "Printing trigram table for inputed scores" << endl;
+        
+        cout << profiles;
+
+        
+    }
 
 } //namespace CATSMAT

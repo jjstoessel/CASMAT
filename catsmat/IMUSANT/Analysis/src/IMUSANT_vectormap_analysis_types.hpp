@@ -54,6 +54,23 @@ namespace IMUSANT {
         void            Localise( IMUSANT_T_RepeatedSubstring<IMUSANT_contour_symbol>& repeats, DEQUE_PAIR z, typename IMUSANT_T_VectorMap<IMUSANT_contour_symbol,IMUSANT_processing>::id_vec_map::iterator& i,typename IMUSANT_T_VectorMap<IMUSANT_contour_symbol,IMUSANT_processing>::id_vec_map::iterator& j, bool first, bool consecutive);
         
     };
+    
+    class IMUSANT_ContourDupleVectorMapAnalysis : public IMUSANT_T_VectorMapAnalysis<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, IMUSANT_processing>
+    {
+    public:
+        typedef std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>   CONTOUR_PAIR;
+        typedef std::map<int, map<CONTOUR_PAIR, int> >                      CONTOUR_TABLE;
+        
+                        IMUSANT_ContourDupleVectorMapAnalysis() {}
+        void            Visit(const IMUSANT_processing&);
+        
+        //CONTOUR_TABLE   EntabulateMelodicDirectionPairs();
+        //string          EntabulateAndPrintMelodicDirectionPairs();
+    private:
+        void            BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections);
+        void            Localise( IMUSANT_T_RepeatedSubstring<CONTOUR_PAIR>& repeats, DEQUE_PAIR z, typename IMUSANT_T_VectorMap<CONTOUR_PAIR,IMUSANT_processing>::id_vec_map::iterator& i,typename IMUSANT_T_VectorMap<CONTOUR_PAIR,IMUSANT_processing>::id_vec_map::iterator& j, bool first, bool consecutive);
+        
+    };
 }
 
 #endif /* IMUSANT_VectorMapAnalysisTypes_hpp */

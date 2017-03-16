@@ -429,6 +429,10 @@ runToolsMenu(CATSMAT_processing* processor)
                     if (yn == 'n') ignoreRepeatedDyads = false;
                     processor->FindSummativeTrigramCounts(ignoreDissonances, ignoreRepeatedDyads);
                     break;
+                case 'X':
+                case 'x':
+                    processor->FindMelodicDirectionDupleCounts();
+                    break;
                 //Print all scores
                 case 'P':
                 case 'p':

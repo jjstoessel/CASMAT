@@ -206,6 +206,56 @@ namespace IMUSANT
         return out.str();
     }
 
+    //=== IMUSANT_ContourDupleVectorMapAnalysis ===
+    void
+    IMUSANT_ContourDupleVectorMapAnalysis::
+    Visit(const IMUSANT_processing& processing)
+    {
+        IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
+        
+        BuildVectorMap(collections);
+    }
+    
+    void
+    IMUSANT_ContourDupleVectorMapAnalysis::
+    BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
+    {
+        int ID = 0;
+        
+        for (auto i = collections.begin(); i!=collections.end(); i++)
+        {
+            IMUSANT_collection_visitor collection = i->second;
+            for (auto j = collection.getPartwiseContourVectors().begin(); j!=collection.getPartwiseContourVectors().end(); j++)
+            {
+                ++ID;
+                vector<IMUSANT_contour_symbol> contours = (*j)->getContours();
+                vector<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol> > contour_pairs;
+                for (auto k = contours.begin(); k!=contours.end(); k++)
+                {
+                    auto l = std::next(k);
+                    if (l==contours.end()) break;
+                    std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol> contour_pair = std::make_pair(*k, *l);
+                }
+                
+                id_vec_map_[ID] = contour_pairs;
+            }
+        }
+    }
+    
+    void
+    IMUSANT_ContourDupleVectorMapAnalysis::
+    Localise( IMUSANT_T_RepeatedSubstring<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>>& repeats,
+             DEQUE_PAIR z,
+             typename IMUSANT_T_VectorMap<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>,IMUSANT_processing>::id_vec_map::iterator& i,
+             typename IMUSANT_T_VectorMap<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>,IMUSANT_processing>::id_vec_map::iterator& j,
+             bool first, bool consecutive)
+    {
+        for (DEQUE_PAIR::iterator iv=z.begin(); iv!=z.end(); iv++)
+        {
+            repeats.sequence.push_back(iv->first);
+        }
+    }
+
 
 }
 

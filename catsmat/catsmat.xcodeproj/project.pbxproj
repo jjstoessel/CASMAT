@@ -392,6 +392,8 @@
 		BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D9001AAC0EE60053ADE3 /* CATSMAT_collectionvisitor.cpp */; };
 		BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
 		BAB505881B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */; };
+		BABAE0E51E7A02D5002F0CDD /* CATSMAT_score_profile_special.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0E41E7A02D5002F0CDD /* CATSMAT_score_profile_special.cpp */; };
+		BABAE0E61E7A02D5002F0CDD /* CATSMAT_score_profile_special.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0E41E7A02D5002F0CDD /* CATSMAT_score_profile_special.cpp */; };
 		BACF15C11D113FDA001C3991 /* IMUSANT_interval_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB941D0D803B00C5AAA6 /* IMUSANT_interval_suffixtree_builder.cpp */; };
 		BACF15C21D113FE2001C3991 /* IMUSANT_contour_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9B1D0ECD8D00C5AAA6 /* IMUSANT_contour_suffixtree_builder.cpp */; };
 		BACF15C31D113FE6001C3991 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9668DB9F1D0ED53700C5AAA6 /* IMUSANT_pitch_suffixtree_builder.cpp */; };
@@ -1407,6 +1409,7 @@
 		BAB505851B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_sonority_sequences.cpp; path = catsmat/CATSMAT_sonority_sequences.cpp; sourceTree = SOURCE_ROOT; };
 		BAB505861B40B35A001E7CC3 /* CATSMAT_sonority_sequences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_sonority_sequences.hpp; path = catsmat/CATSMAT_sonority_sequences.hpp; sourceTree = SOURCE_ROOT; };
 		BABAE0E31E78D3A4002F0CDD /* Du_Fay-Inclita_stella_maris.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Inclita_stella_maris.xml"; sourceTree = "<group>"; };
+		BABAE0E41E7A02D5002F0CDD /* CATSMAT_score_profile_special.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_score_profile_special.cpp; path = catsmat/CATSMAT_score_profile_special.cpp; sourceTree = SOURCE_ROOT; };
 		BAC604910A76F8F8000C1DF9 /* IMUSANT_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_processing.h; sourceTree = "<group>"; };
 		BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_processing.cpp; sourceTree = "<group>"; };
 		BACBE5921D51B60000F94A2B /* CATSMAT_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_exception.h; path = catsmat/CATSMAT_exception.h; sourceTree = SOURCE_ROOT; };
@@ -2914,6 +2917,7 @@
 				BA10A5CE1D93A40F000679C5 /* CATSMAT_scoredata.cpp */,
 				BA09CB961E025253005E9B29 /* CATSMAT_score_profile.hpp */,
 				BA09CB951E025253005E9B29 /* CATSMAT_score_profile.tpp */,
+				BABAE0E41E7A02D5002F0CDD /* CATSMAT_score_profile_special.cpp */,
 				BA10A5D21D979F06000679C5 /* CATSMAT_partdata.h */,
 				BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */,
 				96BF08761E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp */,
@@ -3480,6 +3484,7 @@
 				96BF08791E7214E800F2A067 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
 				BAA257F91CFEBFD50019B07F /* CATSMAT_chord.cpp in Sources */,
 				9665C50E1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp in Sources */,
+				BABAE0E61E7A02D5002F0CDD /* CATSMAT_score_profile_special.cpp in Sources */,
 				96FE22F91E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3716,6 +3721,7 @@
 				96CC66C61DE7E61900E2F7FB /* CATSMAT_TrigramSequences.cpp in Sources */,
 				BAA8D9021AAC10810053ADE3 /* CATSMAT_collectionvisitor.cpp in Sources */,
 				96FE22F81E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */,
+				BABAE0E51E7A02D5002F0CDD /* CATSMAT_score_profile_special.cpp in Sources */,
 				9695B5321DE08575000586D0 /* IMUSANT_generalised_interval.cpp in Sources */,
 				BAB505871B40B35A001E7CC3 /* CATSMAT_sonority_sequences.cpp in Sources */,
 				96CC66CD1DEB60F800E2F7FB /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */,

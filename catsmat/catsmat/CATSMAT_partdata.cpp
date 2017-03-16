@@ -35,10 +35,11 @@ namespace CATSMAT {
                     fPitchProfile[*note->pitch()] =  ++currentPCount;
                     int currentDCount = fDurationProfile[*note->duration()];
                     fDurationProfile[*note->duration()] = ++currentDCount;
-                    //see there is a last pitch stored and create melodic interval
-                    if (*fLastPitch==IMUSANT_pitch())
+                    //see if there is a last pitch stored and create melodic interval
+                    if (*fLastPitch==IMUSANT_pitch()) //last element was not pitched
                     {
                         *fLastPitch = *note->pitch();
+                        fLastContour = nullptr;
                     }
                     else
                     {
@@ -50,6 +51,13 @@ namespace CATSMAT {
                         //add contour to contour profile
                         IMUSANT_contour_symbol contour_symbol(fLastPitch, note->pitch());
                         fContourSymbolProfile[contour_symbol] = fContourSymbolProfile[contour_symbol] + 1;
+                        
+                        //add contour duple to contour duple profile
+                        if (fLastContour!=nullptr)
+                        {
+                            std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol> contour_pair = std::make_pair(*fLastContour, contour_symbol);
+                            fContourSymbolDupleProfile[contour_pair] = fContourSymbolDupleProfile[contour_pair] + 1;
+                        }
                         
                         *fLastPitch=*note->pitch();
                     }

@@ -44,12 +44,13 @@ namespace CATSMAT {
         CATSMAT_score_profile<IMUSANT_interval> score_interval_profile(){ return fScoreIntervalProfile; }
         CATSMAT_score_profile<IMUSANT_generalised_interval> score_generalised_interval_profile(){ return fScoreGeneralisedIntervalProfile; }
         CATSMAT_score_profile<IMUSANT_contour_symbol>& score_contour_symbol_profile(){ return  fScoreContourSymbolProfile; }
+        CATSMAT_score_profile<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol> >& score_contour_symbol_duple_profile() { return fContourSymbolDupleProfile; }
         
         void    print(ostream& os);
         
     protected:
         
-        CATSMAT_scoredata() : fScorePitchProfile("Pitches"), fScoreDurationProfile("Durations"), fScoreIntervalProfile("Intervals"), fScoreGeneralisedIntervalProfile("General Intervals"), fScoreContourSymbolProfile("Contours"){}
+        CATSMAT_scoredata() : fScorePitchProfile("Pitches"), fScoreDurationProfile("Durations"), fScoreIntervalProfile("Intervals"), fScoreGeneralisedIntervalProfile("General Intervals"), fScoreContourSymbolProfile("Contours"), fContourSymbolDupleProfile("Contour Duples"){}
         ~CATSMAT_scoredata() {}
         
         
@@ -78,6 +79,7 @@ namespace CATSMAT {
         CATSMAT_score_profile<IMUSANT_interval> fScoreIntervalProfile;
         CATSMAT_score_profile<IMUSANT_generalised_interval> fScoreGeneralisedIntervalProfile;
         CATSMAT_score_profile<IMUSANT_contour_symbol>   fScoreContourSymbolProfile;
+        CATSMAT_score_profile<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol> > fContourSymbolDupleProfile;
         
     };
     

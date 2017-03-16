@@ -15,9 +15,8 @@
 #include <iostream>
 #include "CATSMAT_score_profile.hpp"
 #include "CATSMAT_partdata.h"
-#include "IMUSANT_generalised_interval.h"
-#include "CATSMAT_TrigramSequences.hpp"
-#include "IMUSANT_contour_symbol.h"
+
+
 
 namespace CATSMAT
 {
@@ -102,15 +101,6 @@ namespace CATSMAT
         os << total.str() << endl;
         
     }
-    
-    
-    //explicit instantiations of templated classes
-    template class CATSMAT_score_profile<IMUSANT_pitch>;
-    template class CATSMAT_score_profile<IMUSANT_interval>;
-    template class CATSMAT_score_profile<IMUSANT_duration>;
-    template class CATSMAT_score_profile<IMUSANT_generalised_interval>;
-    template class CATSMAT_score_profile<CATSMAT_TrigramSequences::Token>;
-    template class CATSMAT_score_profile<IMUSANT_contour_symbol>;
     
 }
 
