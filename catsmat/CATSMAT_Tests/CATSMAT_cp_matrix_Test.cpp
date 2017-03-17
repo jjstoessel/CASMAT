@@ -11,6 +11,7 @@
 #include "CATSMAT_cp_matrix_Kyrie_Expected.h"
 #include "CATSMAT_cp_matrix_Sanctus_Expected.h"
 #include "CATSMAT_cp_matrix_Josquin_MAF_Kyrie_Expected.h"
+#include "CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h"
 
 #include "IMUSANT_score.h"
 
@@ -208,6 +209,24 @@ TEST_F(CATSMAT_cp_matrix_Test, Josquin_MAF_Kyrie)
 #endif
     
     ASSERT_EQ(Josquin_MAF_Kyrie_Expected, Josquin_MAF_Kyrie_Actual);
+    
+    unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
+TEST_F(CATSMAT_cp_matrix_Test, Josquin_Missa_LHA_super_vocales_musicales_agnus_II)
+{
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml");
+    CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
+    //assert(theMatrix->SelfTest());
+    
+    string Josquin_Missa_LHASVM_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+#ifdef VERBOSE
+    cout << "Diff for Josquin_MAF_Kyrie_Actual and Josquin_MAF_Kyrie_Expected" << endl;
+    testUtil.DiffActualAndExpected(Josquin_Missa_LHASVM_Actual, Josquin_Missa_LHASVM_Expected);
+#endif
+    
+    ASSERT_EQ(Josquin_Missa_LHASVM_Expected, Josquin_Missa_LHASVM_Actual);
     
     unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());

@@ -160,6 +160,9 @@ namespace CATSMAT
             throw catsmat_runtime_error("Unexpected end of Contrapuntal Matrix at note " + string(note.pretty_print()));
         }
         
+        if (fCurrentPart < 1 && std::next(fCurrentChord)==fCPMatrix.end() && note.duration() > (*fCurrentChord)->at(0)->duration())
+            throw catsmat_runtime_error("Final notes are not the same length across parts. Emend score accordingly.");
+        
         S_IMUSANT_duration current_chord_dur = (*(*fCurrentChord)).begin()->second->duration();
         
         //assumes that the duration of all notes in each existing chord are the same due to prior operation.

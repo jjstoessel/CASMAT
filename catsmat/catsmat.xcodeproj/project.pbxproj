@@ -360,6 +360,7 @@
 		96CC66CA1DEAF5B400E2F7FB /* CATSMAT_trigramsequences_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C91DEAF5B400E2F7FB /* CATSMAT_trigramsequences_tests.cpp */; };
 		96CC66CD1DEB60F800E2F7FB /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_suffixtree_builder.cpp */; };
 		96CC66CE1DEB60F800E2F7FB /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66CB1DEB60F800E2F7FB /* IMUSANT_generalised_interval_suffixtree_builder.cpp */; };
+		96E2173F1E7A95D300D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96E2173D1E7A8DD100D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml */; };
 		96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */; };
 		96FE22F61E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96FE22F41E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp */; };
 		96FE22F71E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96FE22F41E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp */; };
@@ -518,6 +519,7 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				96E2173F1E7A95D300D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml in CopyFiles */,
 				9665C50F1E74B8B000947C15 /* Ockeghem_Prenez_sur_moi_(Cop).xml in CopyFiles */,
 				BA4207E21CE806F6007204AF /* Kyrie.xml in CopyFiles */,
 				1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */,
@@ -1216,6 +1218,17 @@
 		96E2172F1E795C0D00D603C2 /* Du_Fay-Inclita_stella_maris_canon_only.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Inclita_stella_maris_canon_only.xml"; sourceTree = "<group>"; };
 		96E217301E795C2A00D603C2 /* Trigram results for Proportional canons.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Trigram results for Proportional canons.xlsx"; sourceTree = "<group>"; };
 		96E217311E7A6EC400D603C2 /* Anon-Blijfs_mi_doch_canon_only.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Anon-Blijfs_mi_doch_canon_only.xml"; sourceTree = "<group>"; };
+		96E217321E7A8B5200D603C2 /* Josquin-Missa_Lhomme_arme_sexti_toni-Agnus_dei_III.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_Lhomme_arme_sexti_toni-Agnus_dei_III.xml"; sourceTree = "<group>"; };
+		96E217351E7A8BBF00D603C2 /* Anon-Blijfs_mi_doch _canon_only.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Anon-Blijfs_mi_doch _canon_only.musx"; path = "Finale/Anon-Blijfs_mi_doch _canon_only.musx"; sourceTree = "<group>"; };
+		96E217361E7A8BBF00D603C2 /* Ciconia-La_ray_au_soleyl_simplified.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ciconia-La_ray_au_soleyl_simplified.musx"; path = "Finale/Ciconia-La_ray_au_soleyl_simplified.musx"; sourceTree = "<group>"; };
+		96E217371E7A8BBF00D603C2 /* Du Fay-Inclita stella maris.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Du Fay-Inclita stella maris.musx"; path = "Finale/Du Fay-Inclita stella maris.musx"; sourceTree = "<group>"; };
+		96E217381E7A8BBF00D603C2 /* Du Fay-Inclita stella maris_canon_only.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Du Fay-Inclita stella maris_canon_only.musx"; path = "Finale/Du Fay-Inclita stella maris_canon_only.musx"; sourceTree = "<group>"; };
+		96E217391E7A8BBF00D603C2 /* Du_Fay-Bien_veignes_vous.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Du_Fay-Bien_veignes_vous.musx"; path = "Finale/Du_Fay-Bien_veignes_vous.musx"; sourceTree = "<group>"; };
+		96E2173A1E7A8BBF00D603C2 /* Du_Fay-Bien_veignes_vous_canon_only.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Du_Fay-Bien_veignes_vous_canon_only.musx"; path = "Finale/Du_Fay-Bien_veignes_vous_canon_only.musx"; sourceTree = "<group>"; };
+		96E2173B1E7A8BBF00D603C2 /* Josquin-Missa_Lhomme_arme_sexti_toni-Agnus_dei_III.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Josquin-Missa_Lhomme_arme_sexti_toni-Agnus_dei_III.musx"; path = "Finale/Josquin-Missa_Lhomme_arme_sexti_toni-Agnus_dei_III.musx"; sourceTree = "<group>"; };
+		96E2173C1E7A8DA900D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx"; path = "Finale/Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx"; sourceTree = "<group>"; };
+		96E2173D1E7A8DD100D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml"; sourceTree = "<group>"; };
+		96E2173E1E7A949F00D603C2 /* CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h; sourceTree = "<group>"; };
 		96FE22E91E6E986000B4A87F /* IMUSANT_t_vectormap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap.hpp; sourceTree = "<group>"; };
 		96FE22EF1E6EB8E000B4A87F /* IMUSANT_t_vectormap_analysis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap_analysis.hpp; sourceTree = "<group>"; };
 		96FE22F41E6EC6A900B4A87F /* IMUSANT_VectorMapAnalysisTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_VectorMapAnalysisTypes.cpp; sourceTree = "<group>"; };
@@ -1721,6 +1734,7 @@
 				1E3E47DA1BF81BF500F2C037 /* CATSMAT_cp_matrix_Kyrie_Expected.h */,
 				1E3E47DB1BF81D5500F2C037 /* CATSMAT_cp_matrix_Sanctus_Expected.h */,
 				1E3E47DC1BF81DFE00F2C037 /* CATSMAT_cp_matrix_Josquin_MAF_Kyrie_Expected.h */,
+				96E2173E1E7A949F00D603C2 /* CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h */,
 				1E1836281B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp */,
 				1E18362D1B4916FD009B5D2C /* CATSMAT_dyad_sequences_Expected.h */,
 				1E18362B1B48C4CF009B5D2C /* CATSMAT_test_utility.h */,
@@ -2883,6 +2897,21 @@
 			name = "External Frameworks and Libraries";
 			sourceTree = SOURCE_ROOT;
 		};
+		96E217341E7A8BAB00D603C2 /* Finale */ = {
+			isa = PBXGroup;
+			children = (
+				96E217351E7A8BBF00D603C2 /* Anon-Blijfs_mi_doch _canon_only.musx */,
+				96E217361E7A8BBF00D603C2 /* Ciconia-La_ray_au_soleyl_simplified.musx */,
+				96E217371E7A8BBF00D603C2 /* Du Fay-Inclita stella maris.musx */,
+				96E217381E7A8BBF00D603C2 /* Du Fay-Inclita stella maris_canon_only.musx */,
+				96E217391E7A8BBF00D603C2 /* Du_Fay-Bien_veignes_vous.musx */,
+				96E2173A1E7A8BBF00D603C2 /* Du_Fay-Bien_veignes_vous_canon_only.musx */,
+				96E2173B1E7A8BBF00D603C2 /* Josquin-Missa_Lhomme_arme_sexti_toni-Agnus_dei_III.musx */,
+				96E2173C1E7A8DA900D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx */,
+			);
+			name = Finale;
+			sourceTree = "<group>";
+		};
 		BA10A5D41D979F33000679C5 /* Counterpoint Analysis */ = {
 			isa = PBXGroup;
 			children = (
@@ -2930,6 +2959,7 @@
 		BA33CBB41D6FD7A8001B7FF3 /* corpus */ = {
 			isa = PBXGroup;
 			children = (
+				96E217341E7A8BAB00D603C2 /* Finale */,
 				BA33CBB51D6FD7A8001B7FF3 /* MusicXML */,
 			);
 			path = corpus;
@@ -2965,8 +2995,10 @@
 				96CC66D21DEBB5CE00E2F7FB /* Josquin-Missa_De_beata_virgine-Credo.xml */,
 				96CC66D31DEBB5CE00E2F7FB /* Josquin-Missa_De_beata_virgine-Sanctus.xml */,
 				96CC66D41DEBB5CE00E2F7FB /* Josquin-Missa_Lhomme_arme_sexti_toni-Agnus.xml */,
+				96E217321E7A8B5200D603C2 /* Josquin-Missa_Lhomme_arme_sexti_toni-Agnus_dei_III.xml */,
 				96CC66D51DEBB5CE00E2F7FB /* Josquin-Missa_Lhomme_arme_sexti_toni-Credo.xml */,
 				96CC66D61DEBB5CE00E2F7FB /* Josquin-Missa_Lhomme_arme_sexti_toni-Sanctus.xml */,
+				96E2173D1E7A8DD100D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml */,
 				96CC66D01DEBB5A200E2F7FB /* J_de_Climens-Fuga_trium_temporum.xml */,
 				BA33CBC51D6FD7A8001B7FF3 /* Machaut-Ma_fin_est_mon_commencement.xml */,
 				BA33CBC61D6FD7A8001B7FF3 /* Missa Papae Marcelli Agnus Dei II no ficta.xml */,

@@ -286,6 +286,15 @@ namespace IMUSANT
         out.fTimeModification=1;
         out.fNormalDuration=IMUSANT_duration::unmeasured;
         
+        if (this->fDuration.getNumerator()-this->fDuration.getDenominator()==1 && this->fDuration.getNumerator()> 3 )
+        {
+            this->fTimeModification.setDenominator(fDuration.getNumerator());
+            this->fTimeModification.setNumerator(this->fDuration.getDenominator());
+            this->fDuration = 1;
+            this->fDots = 0;
+            this->fNormalDuration = 1;
+        }
+        
         return out;
     }
     
@@ -299,7 +308,16 @@ namespace IMUSANT
         this->fDuration = r;
         this->fTimeModification=1;
         this->fNormalDuration = IMUSANT_duration::unmeasured;
-        
+        //superparticular ratios in durations produce proportions
+        if (this->fDuration.getNumerator()-this->fDuration.getDenominator()==1 && this->fDuration.getNumerator()> 3 )
+        {
+            this->fTimeModification.setDenominator(this->fDuration.getNumerator());
+            this->fTimeModification.setNumerator(this->fDuration.getDenominator());
+            this->fDuration = 1;
+            this->fDots = 0;
+            this->fNormalDuration = 1;
+        }
+    
         return *this;
     }
     
@@ -337,6 +355,15 @@ namespace IMUSANT
             out.fDuration = r;
         }
         
+        if (this->fDuration.getNumerator()-this->fDuration.getDenominator()==1 && this->fDuration.getNumerator()> 3 )
+        {
+            this->fTimeModification.setDenominator(this->fDuration.getNumerator());
+            this->fTimeModification.setNumerator(this->fDuration.getDenominator());
+            this->fDuration = 1;
+            this->fDots = 0;
+            this->fNormalDuration = 1;
+        }
+        
         return out;
     }
     
@@ -370,21 +397,13 @@ namespace IMUSANT
     {
         IMUSANT_duration out;
         
-        TRational dotsmultiplier(1,1);
-        TRational index(1,1);
-        
-        for (int i = 1; i <= fDots; i++)
-        {
-            index *= TRational(1,2);
-            dotsmultiplier += index;
-            
-            if (i>7) {
-                throw "iteration error in IMUSANT_duration::getSimplifiedDuration()";
-                break;
-            }
-        }
-        
-        out.fDuration = (fDuration * dotsmultiplier)/fTimeModification;
+        if (fDots>8) throw __throw_runtime_error;
+        //  Dotted notes are a geometric series where the sum value of (S) of a duration with n dots is
+        //      Sn = a (2 - pow(0.5, n))
+        TRational dotsmultiplier(2,1);
+        TRational index = TRational(1,1<<fDots);
+        dotsmultiplier -= index;
+        out.fDuration = (fDuration*dotsmultiplier)/fTimeModification;
         out.fDots = 0;
         out.fTimeModification=1;
         out.fNormalDuration = IMUSANT_duration::unmeasured;
