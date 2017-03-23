@@ -272,8 +272,6 @@ namespace CATSMAT
     CATSMAT_processing::
     ListCanonicTechniques()
     {
-        
-        
         for (auto score : this->getScores())
         {
             S_CATSMAT_CanonicTechniquesTools tools = new_CATSMAT_object<CATSMAT_CanonicTechniquesTools>();

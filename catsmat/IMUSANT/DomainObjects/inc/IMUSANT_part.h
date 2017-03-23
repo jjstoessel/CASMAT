@@ -29,12 +29,12 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 	public:
 		VEXP friend IMUSANT_SMARTP<IMUSANT_part> new_IMUSANT_part();
     
-		void	addMeasure(const S_IMUSANT_measure& measure) { fMeasures.push_back(measure); }
+		void            addMeasure(const S_IMUSANT_measure& measure) { fMeasures.push_back(measure); }
 		
-        const string& getPartName() const { return fPartName; }
-		const string& getPartAbbrev() const { return fPartAbbrev; }
-		const string& getID() const { return fXMLID; }
-        const int   getDivisions() const { return fDivisions; }
+        const string&   getPartName() const { return fPartName; }
+		const string&   getPartAbbrev() const { return fPartAbbrev; }
+		const string&   getID() const { return fXMLID; }
+        const int       getDivisions() const { return fDivisions; }
 		
 		void	setPartName( const string& partName ) { fPartName = partName; }
 		void	setPartAbbrev( const string& partAbbrev ) { fPartAbbrev = partAbbrev; }
@@ -46,7 +46,7 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 		IMUSANT_vector<S_IMUSANT_measure> measures() { return fMeasures; }
         long getNumMeasures() const { return fMeasures.size(); }
     
-        IMUSANT_vector<S_IMUSANT_note> notes();
+        IMUSANT_vector<S_IMUSANT_note>& notes();
 		
 		void	print(ostream& os);
 		
@@ -61,6 +61,7 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 	private:
     
 		IMUSANT_vector<S_IMUSANT_measure>	fMeasures;
+        IMUSANT_vector<S_IMUSANT_note>      notes_;
 		long                    fVoiceCount = 0;
 		string 					fPartName = "";
         string 					fPartAbbrev = "";

@@ -65,6 +65,7 @@ namespace IMUSANT
                 if ( (*i)->getType() == IMUSANT_NoteType::pitch && (*j)->getType() == IMUSANT_NoteType::pitch )
                 {
                     IMUSANT_interval interval((*i)->pitch(),(*j)->pitch());
+                    interval.setLocation(0, (*i)->getMeasureNum(), (*i)->getNoteIndex(), 0, (*j)->getMeasureNum(), (*j)->getNoteIndex());
                     fIntervals.push_back(interval);
                 }
             }

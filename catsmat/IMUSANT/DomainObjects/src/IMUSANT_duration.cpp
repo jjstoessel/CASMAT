@@ -397,17 +397,23 @@ namespace IMUSANT
     {
         IMUSANT_duration out;
         
-        if (fDots>8) throw __throw_runtime_error;
+        if (fDots>8) throw "more than eight dots encountered";
         //  Dotted notes are a geometric series where the sum value of (S) of a duration with n dots is
         //      Sn = a (2 - pow(0.5, n))
         TRational dotsmultiplier(2,1);
         TRational index = TRational(1,1<<fDots);
         dotsmultiplier -= index;
         out.fDuration = (fDuration*dotsmultiplier)/fTimeModification;
+        //===
+//        if (fNormalDuration>TRational(0,1) && fTimeModification!=TRational(1,1))
+//            out.fDuration = (fNormalDuration/fTimeModification)*dotsmultiplier;
+//        else
+//            out.fDuration = fDuration*dotsmultiplier;
+        //===
         out.fDots = 0;
         out.fTimeModification=1;
         out.fNormalDuration = IMUSANT_duration::unmeasured;
-        
+    
         return out;
     }
     

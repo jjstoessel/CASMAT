@@ -256,7 +256,7 @@ namespace IMUSANT
             {
                 ret.fInterval = IMUSANT_interval::per1;
                 ret.fOctaves = abs(second->octave() - first->octave());
-                ret.fDirection = IMUSANT_interval::unison;
+                ret.fDirection = IMUSANT_interval::repeat;
             }
             else if (*second>*first) //ascending interval
             {
@@ -288,7 +288,7 @@ namespace IMUSANT
             case dim1:
             case per1:
             case aug1:
-                ret = unison;
+                ret = basic::unison;
                 break;
             case dim2:
             case min2:
@@ -463,7 +463,7 @@ namespace IMUSANT
     //private member function: checks interval is in correct form.
     void IMUSANT_interval::check(int calculated_interval)
     {
-        fDirection = unison;
+        fDirection = repeat;
         fOctaves = 0;
         fInterval = int2intervaltype(calculated_interval);
         
@@ -513,7 +513,7 @@ namespace IMUSANT
             
             //fInterval should have range -1 to base
             if (fInterval==0)
-                fDirection = unison;
+                fDirection = repeat;
             else if (fInterval>base)
             {
                 fOctaves = fInterval/base;

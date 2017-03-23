@@ -17,8 +17,8 @@
  */
 
 
-#ifndef ____CATSMAT_Ngram__
-#define ____CATSMAT_Ngram__
+#ifndef ____CATSMAT_TrigramSequences__
+#define ____CATSMAT_TrigramSequences__
 
 #include <stdio.h>
 #include <vector>
@@ -36,7 +36,7 @@ namespace CATSMAT
     {
     public:
         
-        typedef unsigned long               Token;
+        typedef unsigned int                Token;
         typedef std::array<signed int,3>    Trigram; //a word is the two vertical intervals and the step in the lower voice
         typedef std::vector<Trigram>        Sentence; // a sentence is a sequence of words for a voice pair
         typedef std::vector<vector<Token> > TokenVectors;
@@ -73,6 +73,7 @@ namespace CATSMAT
         bool                TokenContainsDissonantDyad(const Token& token, TrigramMembers& dissonant_dyad_index);
     };
     
+    //Visitor class to Trigram Sequences to extract trigram profile as all tokens from all sequences
     class CATSMAT_TrigramInformation : public BaseVisitor, public Visitor<CATSMAT_TrigramSequences, void, true>
     {
     public:
@@ -99,4 +100,4 @@ namespace CATSMAT
 
 
 
-#endif /* defined(____CATSMAT_Ngram__) */
+#endif /* defined(____CATSMAT_TrigramSequences__) */

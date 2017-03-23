@@ -35,8 +35,8 @@ namespace IMUSANT
             void	clear() { fIntervals.clear(); }
             long	intervalCount() { return fIntervals.size(); }
             void	pop_front() { fIntervals.erase(fIntervals.begin()); }
-            const vector<IMUSANT_interval>& getIntervals() const { return fIntervals; }
-            const vector<S_IMUSANT_record>&	getRecords() const { return fRecords; }
+            const   vector<IMUSANT_interval>&   getIntervals() const { return fIntervals; }
+            const   vector<S_IMUSANT_record>&	getRecords() const { return fRecords; }
             
             void print(ostream& os);
             

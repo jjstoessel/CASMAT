@@ -94,7 +94,14 @@ namespace CATSMAT
                             IMUSANT_generalised_interval v1(chord_notes[j]->pitch(), chord_notes[i]->pitch());
                             IMUSANT_generalised_interval v2(nextchord_notes[j]->pitch(), nextchord_notes[i]->pitch());
                             IMUSANT_generalised_interval h(chord_notes[j]->pitch(), nextchord_notes[j]->pitch());
-                            triple = { v1.getNumber(),v2.getNumber(),h.getNumber() };
+                            //=== added on 18 Mar 2017 - account for voice crossing; abs also added to triple creation
+                            if (v1.getNumber()<0)
+                            {
+                                IMUSANT_generalised_interval new_h(chord_notes[i]->pitch(), nextchord_notes[i]->pitch());
+                                h = new_h;
+                            }
+                            //===
+                            triple = { abs(v1.getNumber()),abs(v2.getNumber()),h.getNumber() };
                             
                         }
                         

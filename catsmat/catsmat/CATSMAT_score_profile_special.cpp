@@ -19,9 +19,8 @@ namespace CATSMAT {
     template class CATSMAT_score_profile<IMUSANT_pitch>;
     template class CATSMAT_score_profile<IMUSANT_interval>;
     template class CATSMAT_score_profile<IMUSANT_duration>;
-    template class CATSMAT_score_profile<IMUSANT_generalised_interval>;
     template class CATSMAT_score_profile<IMUSANT_contour_symbol>;
-    
+    template class CATSMAT_score_profile<int>; //basic interval/Taneyev interval index
     //Specialisation of CATSMAT_score_profile::print for CATSMAT_TrigramSequences::Token
     //required to ensure that trigram is printed (operator<<) rather than token
 
@@ -126,6 +125,4 @@ namespace CATSMAT {
     }
     
     template class CATSMAT_score_profile<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol> >;
-
-
 }

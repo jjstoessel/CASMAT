@@ -48,6 +48,7 @@ namespace CATSMAT {
                         int currentIntervalCount = fHIntervalProfile[interval];
                         fHIntervalProfile[interval] = currentIntervalCount + 1;
                         
+                        fGeneralisedIntervalProfile[interval.getNumber()] = fGeneralisedIntervalProfile[interval.getNumber()] + 1;
                         //add contour to contour profile
                         IMUSANT_contour_symbol contour_symbol(fLastPitch, note->pitch());
                         fContourSymbolProfile[contour_symbol] = fContourSymbolProfile[contour_symbol] + 1;

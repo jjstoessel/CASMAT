@@ -2,7 +2,7 @@
 //  CATSMAT_TrigramSuffixTreeBuilder.cpp
 //  catsmat
 //
-//  Created by Jason James Stoessel on 3/03/2017.
+//  Created by Jason Stoessel on 3/03/2017.
 //
 //
 

@@ -27,18 +27,18 @@ namespace IMUSANT
     }
     
     
-    IMUSANT_vector<S_IMUSANT_note>
+    IMUSANT_vector<S_IMUSANT_note>&
     IMUSANT_part::
     notes()
     {
-        IMUSANT_vector<S_IMUSANT_note> the_notes;
+        if (!notes_.empty()) return notes_;
         
         for (S_IMUSANT_measure measure : fMeasures)
         {
-            the_notes.append(measure->notes());
+            notes_.append(measure->notes());
         }
         
-        return the_notes;
+        return notes_;
     }
     
     void IMUSANT_part::print(ostream& os)

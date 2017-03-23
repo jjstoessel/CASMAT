@@ -93,7 +93,11 @@ namespace IMUSANT
     }
     
     TRational TRational::operator /(const TRational &dur) const {
+        
         return TRational(fNumerator * dur.fDenominator, fDenominator * dur.fNumerator);
+        //TRational ret(fNumerator * dur.fDenominator, fDenominator * dur.fNumerator);
+        //if (ret.getNumerator() == 0 && ret.getDenominator() == 0) ret.setDenominator(1);
+        //return ret;
     }
     
     TRational TRational::operator *(int num) const {
@@ -137,6 +141,7 @@ namespace IMUSANT
     {
         fNumerator   *= dur.fDenominator;
         fDenominator *= dur.fNumerator;
+        //if (fNumerator !=0 && fDenominator == 0) fDenominator = 1;
         return (*this);
     }
     

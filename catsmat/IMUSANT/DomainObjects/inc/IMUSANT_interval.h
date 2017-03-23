@@ -69,22 +69,22 @@ namespace IMUSANT
             per1=0, per5=1, maj2=2, maj6=3, maj3=4, maj7=5, aug4=6,
             aug1=7, aug5=8, aug2=9, aug6=10, aug3=11, aug7=12, augaug4=13,
             augaug1=14, augaug5=15, augaug2=16, augaug6=17, augaug3=18, augaug7=19,
-            base=39, /*octave=base,*/ count=base+1, undefined=0x4FFFFFFF/base
+            base=39, count=base+1, undefined=0x4FFFFFFF/base
         }; //undefined is internal variable
         
         typedef int interval_type;
 
         enum quality { none = 0, perfect = 1, imperfect = (perfect<<1), dissonant = (perfect<<2), diminished = dissonant, augmented = dissonant, double_diminished = dissonant, double_augmented = dissonant  };
-        enum direction { descending=-1, unison=0, ascending = 1, vertical_bottomtotop };
+        enum direction { descending=-1, repeat=0, ascending = 1, vertical_bottomtotop };
         // basic interval types
-        enum basic { second=1, third, fourth, fifth, sixth, seventh };
+        enum basic { unison = 0, second=1, third, fourth, fifth, sixth, seventh };
         
         friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval();
         friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);
         
         IMUSANT_interval() :
         fInterval(undefined),
-        fDirection(unison),
+        fDirection(repeat),
         fOctaves(undefined),
         fQuality(none)
         {}
