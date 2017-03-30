@@ -128,13 +128,15 @@ namespace IMUSANT
     void
     IMUSANT_duration::set(TRational dur, long dots)
     {
-        fDuration = dur;
-        fDots = dots;
-        fTimeModification = TRational(1,1);
-        fNormalDuration = dur;
-        fNormalDots = 0;
+//        fDuration = dur;
+//        fDots = dots;
+//        fTimeModification = TRational(1,1);
+//        fNormalDuration = dur;
+//        fNormalDots = 0;
+//        
+//        fDots += NormaliseDuration(fDuration);
         
-        fDots += NormaliseDuration(fDuration);
+        set(dur, dots, TRational(1,1), dur, 0);
     }
     
     void
@@ -193,7 +195,7 @@ namespace IMUSANT
     operator= (const IMUSANT_duration& dur)
     {
         this->set(dur.fDuration, dur.fDots,dur.fTimeModification, dur.fNormalDuration, dur.fNormalDots);
-        NormaliseDuration(fDuration);
+        //NormaliseDuration(fDuration);
         return *this;
     }
     
@@ -210,13 +212,11 @@ namespace IMUSANT
         dur.rationalise();
         
         long dots = 0;
-        TRational sesquialtera(3,2);
-        
         float r = 0.5; //ratio
         float gs = 0.0, intpart = 0.0;
         float base = dur; //cast to float
         
-        while (dots<5 && modff(log2(base), &intpart)!=0) //modff returns faction part
+        while (dots<5 && modff(log2(base), &intpart)!=0) //modff returns fraction remainder
         {
             gs = 2 - pow(r,dots+1);
             base = (float)dur/gs;
@@ -400,19 +400,22 @@ namespace IMUSANT
         if (fDots>8) throw "more than eight dots encountered";
         //  Dotted notes are a geometric series where the sum value of (S) of a duration with n dots is
         //      Sn = a (2 - pow(0.5, n))
-        TRational dotsmultiplier(2,1);
+        TRational dotsmultiplier(2,1), normaldotsmultiplier(2,1);
         TRational index = TRational(1,1<<fDots);
         dotsmultiplier -= index;
+        TRational normalindex = TRational(1, 1<<fNormalDots);
+        normaldotsmultiplier -= normalindex;
         out.fDuration = (fDuration*dotsmultiplier)/fTimeModification;
         //===
 //        if (fNormalDuration>TRational(0,1) && fTimeModification!=TRational(1,1))
-//            out.fDuration = (fNormalDuration/fTimeModification)*dotsmultiplier;
+//            out.fDuration = ((fNormalDuration*normaldotsmultiplier)/fTimeModification)*dotsmultiplier;
 //        else
 //            out.fDuration = fDuration*dotsmultiplier;
         //===
         out.fDots = 0;
         out.fTimeModification=1;
         out.fNormalDuration = IMUSANT_duration::unmeasured;
+        out.fNormalDots = 0;
     
         return out;
     }

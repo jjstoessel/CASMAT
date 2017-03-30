@@ -41,7 +41,6 @@ namespace IMUSANT
         IMUSANT_T_SuffixTreeBuilder() : tree_ptr_(NULL) {}
         ~IMUSANT_T_SuffixTreeBuilder() { if (tree_ptr_!=NULL) delete tree_ptr_; }
 
-        //virtual void    Visit(const C&) = 0;
         string          FindAndPrintRepeatedSubstrings(int min_length=4);
         string          FindAndPrintSupermaximals(int min_length=4, int min_percent=25);
         SUBSTR_VECTOR   FindRepeatedSubstrings(int min_length=4) const;
