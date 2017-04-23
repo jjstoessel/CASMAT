@@ -63,7 +63,7 @@ namespace IMUSANT
         bool                operator!= (const IMUSANT_duration& dur) const;
         bool                operator== (const IMUSANT_duration& dur) const;
         IMUSANT_duration	operator+(const IMUSANT_duration& right);
-        IMUSANT_duration&	operator+=(const IMUSANT_duration& rhs);
+        void                operator+=(const IMUSANT_duration& rhs);
         IMUSANT_duration    operator-(const IMUSANT_duration& right);
         void				operator-=(const IMUSANT_duration& rhs);
         bool                operator >(const IMUSANT_duration &dur) const;
@@ -84,6 +84,14 @@ namespace IMUSANT
         void set(TRational dur, long dots = 0);
         
         /**
+         \fn     Set
+         \breif  Simple set function for time modification.
+         \param  dur - a rational fraction indicating the duration relative to the semibreve; same as normal_dur
+         \param  dots - number of dots on note represented by this duration
+         */
+        void set( TRational dur, long dots, TRational timemod);
+        
+        /**
             \fn     Set
             \brief  Use this set function when there is a time modification.
             \param  dur - a rational fraction indicating the duration relative to the semibreve
@@ -96,7 +104,7 @@ namespace IMUSANT
             D-01024.  The normal-dur and normal-dots parameters are ignored.  You can set them to whatever you like and
             the class will still behave correctly
          */
-        void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots);
+        void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots=0);
 
         
         IMUSANT_duration	getSimplifiedDuration() const;
@@ -109,8 +117,9 @@ namespace IMUSANT
         // * 3/4 represents a dotted crotchet (1/2 + 1/4), and so this function changes 3/4 to 1/2 and returns 1.
         // * 6/4 represents a dotted breive (1/1 + 1/2), and so this function changes 6/4 to 1/1 and returns 1.
         //
-        static long	NormaliseDuration(TRational& dur);
+        static long         NormaliseDuration(TRational& dur);
         
+        static TRational    NormaliseTimeModification(TRational& dur);
         
         // Converters
         static const string	xmlv1(TRational d);
@@ -126,11 +135,11 @@ namespace IMUSANT
         
         static TRational unmeasured;
         static TRational maxima;                // 8  - asAbsoluteNumeric = 8192
-        static TRational longa;                 // 4 -  - asAbsoluteNumeric =  4096
+        static TRational longa;                 // 4  - asAbsoluteNumeric =  4096
         static TRational breve;                 // 2  - asAbsoluteNumeric = 2048
-        static TRational semibreve;             // 1 =  - asAbsoluteNumeric = 1024
+        static TRational semibreve;             // 1  - asAbsoluteNumeric = 1024
         static TRational minim;                 // 1/2  - asAbsoluteNumeric = 512
-        static TRational crochet;               // 1/4 -  - asAbsoluteNumeric = 256
+        static TRational crochet;               // 1/4  - asAbsoluteNumeric = 256
         static TRational quaver;                // 8th  - asAbsoluteNumeric = 128
         static TRational semiquaver;            // 16th  - asAbsoluteNumeric = 64
         static TRational demisemiquaver;        // 32nd  - asAbsoluteNumeric = 32

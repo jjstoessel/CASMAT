@@ -125,8 +125,8 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_TwoCrotchets)
     ASSERT_EQ(2, sum.fDuration.getDenominator());
     ASSERT_EQ(1, sum.fTimeModification.getNumerator());
     ASSERT_EQ(1, sum.fTimeModification.getDenominator());
-    ASSERT_EQ(0, sum.fNormalDuration.getNumerator());
-    ASSERT_EQ(1, sum.fNormalDuration.getDenominator());
+    ASSERT_EQ(1, sum.fNormalDuration.getNumerator());
+    ASSERT_EQ(2, sum.fNormalDuration.getDenominator());
     ASSERT_EQ(0, sum.fNormalDots);
     ASSERT_EQ(0, sum.fDots);
 }
@@ -151,8 +151,8 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_MixedNoteValues)
     ASSERT_EQ(8, sum.fDuration.getDenominator());
     ASSERT_EQ(1, sum.fTimeModification.getNumerator());
     ASSERT_EQ(1, sum.fTimeModification.getDenominator());
-    ASSERT_EQ(0, sum.fNormalDuration.getNumerator());
-    ASSERT_EQ(1, sum.fNormalDuration.getDenominator());
+    ASSERT_EQ(13, sum.fNormalDuration.getNumerator());
+    ASSERT_EQ(8, sum.fNormalDuration.getDenominator());
     ASSERT_EQ(0, sum.fNormalDots);
     ASSERT_EQ(0, sum.fDots);
 }
@@ -177,8 +177,8 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_WithDots)
     ASSERT_EQ(16, sum.fDuration.getDenominator());
     ASSERT_EQ(1, sum.fTimeModification.getNumerator());
     ASSERT_EQ(1, sum.fTimeModification.getDenominator());
-    ASSERT_EQ(0, sum.fNormalDuration.getNumerator());
-    ASSERT_EQ(1, sum.fNormalDuration.getDenominator());
+    ASSERT_EQ(39, sum.fNormalDuration.getNumerator());
+    ASSERT_EQ(16, sum.fNormalDuration.getDenominator());
     ASSERT_EQ(0, sum.fNormalDots);
     ASSERT_EQ(0, sum.fDots);
 }
@@ -189,9 +189,9 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_WithTimeMod)
     S_IMUSANT_duration crochet2 = new_IMUSANT_duration();
     S_IMUSANT_duration crochet3 = new_IMUSANT_duration();
     
-    crochet1->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::unmeasured, 0);
-    crochet2->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::unmeasured, 0);
-    crochet3->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crochet1->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::crochet, 0);
+    crochet2->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::crochet, 0);
+    crochet3->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::crochet, 0);
 
     IMUSANT_duration sum = *crochet1 + *crochet1 + *crochet1;
     
@@ -199,8 +199,8 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_WithTimeMod)
     ASSERT_EQ(2, sum.fDuration.getDenominator());
     ASSERT_EQ(1, sum.fTimeModification.getNumerator());
     ASSERT_EQ(1, sum.fTimeModification.getDenominator());
-    ASSERT_EQ(0, sum.fNormalDuration.getNumerator());
-    ASSERT_EQ(1, sum.fNormalDuration.getDenominator());
+    ASSERT_EQ(1, sum.fNormalDuration.getNumerator());
+    ASSERT_EQ(2, sum.fNormalDuration.getDenominator());
     ASSERT_EQ(0, sum.fNormalDots);
     ASSERT_EQ(0, sum.fDots);
 }
@@ -240,50 +240,51 @@ TEST_F(IMUSANT_duration_Tests, Duration_CompoundAssignmentOperator)
     ASSERT_EQ(2, crotchet1->fDuration.getDenominator());
     ASSERT_EQ(1, crotchet1->fTimeModification.getNumerator());
     ASSERT_EQ(1, crotchet1->fTimeModification.getDenominator());
-    ASSERT_TRUE(IMUSANT_duration::unmeasured == crotchet1->fNormalDuration);
+    ASSERT_TRUE(crotchet1->fNormalDuration == IMUSANT_duration::minim);
     ASSERT_EQ(0, crotchet1->fNormalDots);
     ASSERT_EQ(0, crotchet1->fDots);
     
 }
 
-TEST_F(IMUSANT_duration_Tests, Duration_NormaliseDuration)
+TEST_F(IMUSANT_duration_Tests, Duration_NormaliseDottedDuration)
 {
     S_IMUSANT_duration dur = new_IMUSANT_duration();
-    long num_dots = 0;
+    //long num_dots = 0;
     
-    dur->fDuration = TRational(3, 4);
-    num_dots = IMUSANT_duration::NormaliseDuration(dur->fDuration);
+    dur->set(TRational(3, 4));
+    //num_dots = IMUSANT_duration::NormaliseDuration(dur->fDuration); -- change to correct setter always normalises value
     
-    ASSERT_EQ(1, num_dots);
+    ASSERT_EQ(1, dur->fDots);
     ASSERT_EQ(1, dur->fDuration.getNumerator());
     ASSERT_EQ(2, dur->fDuration.getDenominator());
     ASSERT_TRUE(IMUSANT_duration::minim == dur->fDuration);
     
-    dur->fDuration = TRational(7, 8);
-    num_dots = IMUSANT_duration::NormaliseDuration(dur->fDuration);
+    dur->set(TRational(7, 8));
+    //num_dots = IMUSANT_duration::NormaliseDuration(dur->fDuration);
     
-    ASSERT_EQ(2, num_dots);
+    ASSERT_EQ(2, dur->fDots);
     ASSERT_EQ(1, dur->fDuration.getNumerator());
     ASSERT_EQ(2, dur->fDuration.getDenominator());
     ASSERT_TRUE(IMUSANT_duration::minim == dur->fDuration);
     
-    dur->fDuration = TRational(15, 16);
-    num_dots = IMUSANT_duration::NormaliseDuration(dur->fDuration);
+    dur->set(TRational(15, 16));
+    //num_dots = IMUSANT_duration::NormaliseDuration(dur->fDuration);
     
-    ASSERT_EQ(3, num_dots);
+    ASSERT_EQ(3, dur->fDots);
     ASSERT_EQ(1, dur->fDuration.getNumerator());
     ASSERT_EQ(2, dur->fDuration.getDenominator());
     ASSERT_TRUE(IMUSANT_duration::minim == dur->fDuration);
     
-    dur->fDuration = TRational(6, 4);
-    num_dots = IMUSANT_duration::NormaliseDuration(dur->fDuration);
+    dur->set(TRational(6, 4));
+    //num_dots = IMUSANT_duration::NormaliseDuration(dur->fDuration);
     
-    ASSERT_EQ(1, num_dots);
+    ASSERT_EQ(1, dur->fDots);
     ASSERT_EQ(1, dur->fDuration.getNumerator());
     ASSERT_EQ(1, dur->fDuration.getDenominator());
     ASSERT_TRUE(IMUSANT_duration::semibreve == dur->fDuration);
 }
 
+/* REDUNDANT TESTS - all durations are simplified upon input
 TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_SixOverFour)
 {
     // A duration of 6/4 simplifies to 3/2, which is a dotted semibreve.
@@ -291,33 +292,35 @@ TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_SixOverFour)
     S_IMUSANT_duration dur = new_IMUSANT_duration();
     S_IMUSANT_duration simplified_dur = new_IMUSANT_duration();
 
-    dur->fDuration = TRational(6, 4);
+    dur->set(TRational(6, 4));
 
     *simplified_dur = dur->getSimplifiedDuration();
     
-    ASSERT_EQ(1, simplified_dur->fDuration.getNumerator());
-    ASSERT_EQ(1, simplified_dur->fDuration.getDenominator());
-    ASSERT_TRUE(IMUSANT_duration::semibreve == simplified_dur->fDuration);
-    ASSERT_EQ(1, simplified_dur->fDots);
+    ASSERT_EQ(3, simplified_dur->fDuration.getNumerator());
+    ASSERT_EQ(2, simplified_dur->fDuration.getDenominator());
+    //ASSERT_TRUE(IMUSANT_duration::semibreve == simplified_dur->fDuration);
+    ASSERT_EQ(0, simplified_dur->fDots);
     
 }
 
 TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_SevenOverEight)
 {
-    // A duration of 7/8 simplifies to a double dotted minim
+    //  A duration of 7/8 simplifies to a double dotted minim
+    //  See above for explanation
     
     S_IMUSANT_duration dur = new_IMUSANT_duration();
     S_IMUSANT_duration simplified_dur = new_IMUSANT_duration();
     
-    dur->fDuration = TRational(7, 8);
+    dur->set(TRational(7, 8));
     
     *simplified_dur = dur->getSimplifiedDuration();
     
-    ASSERT_EQ(1, simplified_dur->fDuration.getNumerator());
-    ASSERT_EQ(2, simplified_dur->fDuration.getDenominator());
-    ASSERT_TRUE(IMUSANT_duration::minim == simplified_dur->fDuration);
-    ASSERT_EQ(2, simplified_dur->fDots);
+    ASSERT_EQ(7, simplified_dur->fDuration.getNumerator());
+    ASSERT_EQ(8, simplified_dur->fDuration.getDenominator());
+    //ASSERT_TRUE(IMUSANT_duration::minim == simplified_dur->fDuration);
+    ASSERT_EQ(0, simplified_dur->fDots);
 }
+*/
 
 TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_WithTimeMod)
 {
@@ -346,8 +349,8 @@ TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_WithTimeMod)
     ASSERT_EQ(0, simplified_dur->fDots);
     ASSERT_EQ(1, simplified_dur->fTimeModification.getNumerator());
     ASSERT_EQ(1, simplified_dur->fTimeModification.getDenominator());
-    ASSERT_EQ(0, simplified_dur->fNormalDuration.getNumerator());
-    ASSERT_EQ(1, simplified_dur->fNormalDuration.getDenominator());
+    ASSERT_EQ(1, simplified_dur->fNormalDuration.getNumerator());
+    ASSERT_EQ(12, simplified_dur->fNormalDuration.getDenominator());
     ASSERT_EQ(0, simplified_dur->fNormalDots);
 }
 
@@ -385,8 +388,8 @@ TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_WithTimeModAndNorm
     ASSERT_EQ(0, simplified_dur->fDots);
     ASSERT_EQ(1, simplified_dur->fTimeModification.getNumerator());
     ASSERT_EQ(1, simplified_dur->fTimeModification.getDenominator());
-    ASSERT_EQ(0, simplified_dur->fNormalDuration.getNumerator());
-    ASSERT_EQ(1, simplified_dur->fNormalDuration.getDenominator());
+    ASSERT_EQ(1, simplified_dur->fNormalDuration.getNumerator());
+    ASSERT_EQ(6, simplified_dur->fNormalDuration.getDenominator());
     ASSERT_EQ(0, simplified_dur->fNormalDots);
 }
 
@@ -423,21 +426,21 @@ TEST_F(IMUSANT_duration_Tests, Duration_GetSimplifiedDuration_WithTimeModAndDots
     ASSERT_EQ(0, simplified_dur->fDots);
     ASSERT_EQ(1, simplified_dur->fTimeModification.getNumerator());
     ASSERT_EQ(1, simplified_dur->fTimeModification.getDenominator());
-    ASSERT_EQ(0, simplified_dur->fNormalDuration.getNumerator());
-    ASSERT_EQ(1, simplified_dur->fNormalDuration.getDenominator());
+    ASSERT_EQ(1, simplified_dur->fNormalDuration.getNumerator());
+    ASSERT_EQ(8, simplified_dur->fNormalDuration.getDenominator());
     ASSERT_EQ(0, simplified_dur->fNormalDots);
 }
 
 TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_equalityOperator_WithTimeMod)
 {
     S_IMUSANT_duration crotchet_in_triplet_1 = new_IMUSANT_duration();
-    crotchet_in_triplet_1->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crotchet_in_triplet_1->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::crochet, 0);
     
     S_IMUSANT_duration crotchet_in_triplet_2 = new_IMUSANT_duration();
-    crotchet_in_triplet_2->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crotchet_in_triplet_2->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::crochet, 0);
     
     S_IMUSANT_duration crotchet_in_triplet_3 = new_IMUSANT_duration();
-    crotchet_in_triplet_3->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crotchet_in_triplet_3->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::crochet, 0);
     
     S_IMUSANT_duration crotchet1 = new_IMUSANT_duration();
     crotchet1->set(IMUSANT_duration::crochet, 0);
@@ -451,7 +454,7 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_equalityOperator_WithTi
     ASSERT_EQ(1, sum.fDuration.getDenominator());
     ASSERT_EQ(1, sum.fTimeModification.getNumerator());
     ASSERT_EQ(1, sum.fTimeModification.getDenominator());
-    ASSERT_EQ(0, sum.fNormalDuration.getNumerator());
+    ASSERT_EQ(1, sum.fNormalDuration.getNumerator());
     ASSERT_EQ(1, sum.fNormalDuration.getDenominator());
     ASSERT_EQ(0, sum.fNormalDots);
     ASSERT_EQ(0, sum.fDots);
@@ -461,8 +464,8 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_equalityOperator_WithTi
     comparison->fDuration.setDenominator(1);
     comparison->fTimeModification.setNumerator(1);
     comparison->fTimeModification.setDenominator(1);
-    comparison->fNormalDuration.setNumerator(0);
-    comparison->fNormalDuration.setDenominator(0);
+    comparison->fNormalDuration.setNumerator(1);
+    comparison->fNormalDuration.setDenominator(1);
     comparison->fNormalDots = 0;
     comparison->fDots = 0;
     
@@ -472,19 +475,19 @@ TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_equalityOperator_WithTi
 TEST_F(IMUSANT_duration_Tests, Duration_equalityOperator)
 {
     S_IMUSANT_duration lhs = new_IMUSANT_duration();
-    lhs->set(IMUSANT_duration::crochet, 1, *new TRational(3,2), IMUSANT_duration::unmeasured, 256);
+    lhs->set(IMUSANT_duration::crochet, 1, *new TRational(3,2), IMUSANT_duration::crochet, 256);
     
     S_IMUSANT_duration rhs = new_IMUSANT_duration();
-    rhs->set(IMUSANT_duration::crochet, 1, *new TRational(3,2), IMUSANT_duration::unmeasured, 256);
+    rhs->set(IMUSANT_duration::crochet, 1, *new TRational(3,2), IMUSANT_duration::crochet, 256);
     
     S_IMUSANT_duration neq1 = new_IMUSANT_duration();
-    neq1->set(IMUSANT_duration::quaver, 1, *new TRational(3,2), IMUSANT_duration::unmeasured, 256);
+    neq1->set(IMUSANT_duration::quaver, 1, *new TRational(3,2), IMUSANT_duration::crochet, 256);
     
     S_IMUSANT_duration neq2 = new_IMUSANT_duration();
-    neq2->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 256);
+    neq2->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::crochet, 256);
     
     S_IMUSANT_duration neq3 = new_IMUSANT_duration();
-    neq3->set(IMUSANT_duration::crochet, 1, *new TRational(2,2), IMUSANT_duration::unmeasured, 256);
+    neq3->set(IMUSANT_duration::crochet, 1, *new TRational(2,2), IMUSANT_duration::crochet, 256);
     
     //
     // We are not handling the MusicXML normal-type and normal-dots elements properly at the moment.
@@ -537,15 +540,15 @@ TEST_F(IMUSANT_duration_Tests, Duration_asAbsoluteNumeric_SumOfSimpleTuple)
     float sum_of_crotchets = crotchet1_actual_val + crotchet2_actual_val;
     
     S_IMUSANT_duration crotchet_in_triplet_1 = new_IMUSANT_duration();
-    crotchet_in_triplet_1->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crotchet_in_triplet_1->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::crochet, 0);
     float crotchet_in_triplet_1_actual_val = crotchet_in_triplet_1->asAbsoluteNumeric();
     
     S_IMUSANT_duration crotchet_in_triplet_2 = new_IMUSANT_duration();
-    crotchet_in_triplet_2->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crotchet_in_triplet_2->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::crochet, 0);
     float crotchet_in_triplet_2_actual_val = crotchet_in_triplet_2->asAbsoluteNumeric();
     
     S_IMUSANT_duration crotchet_in_triplet_3 = new_IMUSANT_duration();
-    crotchet_in_triplet_3->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crotchet_in_triplet_3->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::crochet, 0);
     float crotchet_in_triplet_3_actual_val = crotchet_in_triplet_3->asAbsoluteNumeric();
     
     float sum_of_tuple = crotchet_in_triplet_1_actual_val + crotchet_in_triplet_2_actual_val + crotchet_in_triplet_3_actual_val;
@@ -570,11 +573,11 @@ TEST_F(IMUSANT_duration_Tests, Duration_asAbsoluteNumeric_SumOfTupleWithDots)
     float sum_of_crotchets = crotchet1_actual_val + crotchet2_actual_val;
     
     S_IMUSANT_duration crotchet_in_triplet_1 = new_IMUSANT_duration();
-    crotchet_in_triplet_1->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    crotchet_in_triplet_1->set(IMUSANT_duration::crochet, 0, *new TRational(3,2), IMUSANT_duration::crochet, 0);
     float crotchet_in_triplet_1_actual_val = crotchet_in_triplet_1->asAbsoluteNumeric();
     
     S_IMUSANT_duration dotted_crotchet_in_triplet_2 = new_IMUSANT_duration();
-    dotted_crotchet_in_triplet_2->set(IMUSANT_duration::crochet, 1, *new TRational(3,2), IMUSANT_duration::unmeasured, 0);
+    dotted_crotchet_in_triplet_2->set(IMUSANT_duration::crochet, 1, *new TRational(3,2), IMUSANT_duration::crochet, 0);
     float dotted_crotchet_in_triplet_2_actual_val = dotted_crotchet_in_triplet_2->asAbsoluteNumeric();
     
     S_IMUSANT_duration quaver_in_triplet = new_IMUSANT_duration();
@@ -586,3 +589,48 @@ TEST_F(IMUSANT_duration_Tests, Duration_asAbsoluteNumeric_SumOfTupleWithDots)
     ASSERT_EQ(sum_of_crotchets, sum_of_tuple) << "The sum of the duration for two crotchets does not equal the sum of a tuple with dots over two crotchets. It should.";
 }
 
+//
+
+TEST_F(IMUSANT_duration_Tests, Triplet_Addition_With_Dotted_Note_Test)
+{
+    S_IMUSANT_duration semibreve, triplet_dotted_minim, triplet_crochet, triplet_minim;
+    
+    semibreve = new_IMUSANT_duration();
+    triplet_dotted_minim = new_IMUSANT_duration();
+    triplet_crochet = new_IMUSANT_duration();
+    triplet_minim = new_IMUSANT_duration();
+
+    semibreve->set(IMUSANT_duration::semibreve,0);
+    triplet_dotted_minim->set(IMUSANT_duration::minim, 1, TRational(3,2), IMUSANT_duration::minim, 0);
+    triplet_crochet->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::crochet, 0);
+    triplet_minim->set(IMUSANT_duration::minim, 0, TRational(3,2), IMUSANT_duration::minim, 0);
+    
+    S_IMUSANT_duration sum = new_IMUSANT_duration();
+    
+    *sum = *triplet_dotted_minim + *triplet_crochet + *triplet_minim;
+    
+    ASSERT_EQ(*sum, *semibreve);
+    
+}
+
+TEST_F(IMUSANT_duration_Tests, Triplet_Subtraction_With_Dotted_Note_Test)
+{
+    S_IMUSANT_duration undefined, triplet_dotted_minim, triplet_crochet, triplet_minim;
+    
+    undefined = new_IMUSANT_duration();
+    triplet_dotted_minim = new_IMUSANT_duration();
+    triplet_crochet = new_IMUSANT_duration();
+    triplet_minim = new_IMUSANT_duration();
+    
+    undefined->set(IMUSANT_duration::unmeasured,0);
+    triplet_dotted_minim->set(IMUSANT_duration::minim, 1, TRational(3,2), IMUSANT_duration::minim, 0);
+    triplet_crochet->set(IMUSANT_duration::crochet, 0, TRational(3,2), IMUSANT_duration::crochet, 0);
+    triplet_minim->set(IMUSANT_duration::minim, 0, TRational(3,2), IMUSANT_duration::minim, 0);
+    
+    S_IMUSANT_duration sum = new_IMUSANT_duration();
+    
+    *sum = *triplet_dotted_minim - *triplet_crochet - *triplet_minim;
+    
+    ASSERT_EQ(*sum, *undefined);
+    
+}

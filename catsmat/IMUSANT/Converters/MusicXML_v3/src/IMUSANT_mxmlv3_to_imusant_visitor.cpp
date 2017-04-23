@@ -626,6 +626,8 @@ namespace IMUSANT
         note_type.rationalise();
         
         fCurrentNoteDurationType = note_type;
+        //23 April 2017 - assume until there is a element indicating different that normal note is the same
+        fCurrentNormalNoteDurationType = note_type;
     }
     
     void
