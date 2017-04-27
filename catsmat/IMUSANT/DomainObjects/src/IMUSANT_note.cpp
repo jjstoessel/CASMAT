@@ -204,7 +204,7 @@ namespace IMUSANT
         if (fDuration != NULL)
         {
             os << ", ";
-            os << fDuration->asAbsoluteNumeric();
+            os << fDuration->AsAbsoluteNumeric();
         }
         
         

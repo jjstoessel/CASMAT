@@ -132,7 +132,7 @@ namespace IMUSANT
     addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
     {
         // Onset Interval Profile is just a vector containing the duration of each note.
-        profile_vector[index] = notes[index]->duration()->asAbsoluteNumeric();
+        profile_vector[index] = notes[index]->duration()->AsAbsoluteNumeric();
     }
   
     // ******** PITCH Interval Profile ******** //
@@ -169,7 +169,7 @@ namespace IMUSANT
         
         if (notes[index]->getType() == IMUSANT_NoteType::rest)
         {
-            profile_vector[index] = notes[index]->duration()->asAbsoluteNumeric();;
+            profile_vector[index] = notes[index]->duration()->AsAbsoluteNumeric();;
         }
         else
         {

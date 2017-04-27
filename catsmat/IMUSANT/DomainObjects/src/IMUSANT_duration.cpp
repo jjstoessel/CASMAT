@@ -10,8 +10,6 @@
 #include <math.h>
 #include "IMUSANT_duration.h"
 
-#define _NEW_ //comment out to return to old implementation
-
 namespace IMUSANT
 {
     //static strings of durations
@@ -121,10 +119,10 @@ namespace IMUSANT
     print (ostream& os) const
     {
         os  //<< "<RHYTHM_TYPE>" << fDuration.toString() << "<\\RHYTHM_TYPE>"
-            << "<RHYTHM_TYPE>" << xmlv1(fDuration) << "<\\RHYTHM_TYPE>"
-            << "<DOTS>" << to_string(fDots) << "<\\DOTS>"
-            << "<TIME_MOD>" << fTimeModification.toString() << "<\\TIME_MOD>";
-      //   << "<TIME_MOD>" << fTimeModification.toString() << " normal-type " << fNormalDuration.toString() << " normal-dots " << fNormalDots << "<\\TIME_MOD>";
+            << "<RHYTHM_TYPE>" << xmlv1(duration_) << "<\\RHYTHM_TYPE>"
+            << "<DOTS>" << to_string(dots_) << "<\\DOTS>"
+            << "<TIME_MOD>" << time_modification_.toString() << "<\\TIME_MOD>";
+      //   << "<TIME_MOD>" << time_modification_.toString() << " normal-type " << normal_duration_.toString() << " normal-dots " << normal_dots_ << "<\\TIME_MOD>";
     }
     
     void
@@ -143,16 +141,16 @@ namespace IMUSANT
     IMUSANT_duration::set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots)
     {
         
-        fDuration=dur;
-        fDots = NormaliseDuration(fDuration) + dots;
-        fTimeModification = timemod;
-        fNormalDuration = normal_dur;
-        fNormalDots = normal_dots;
+        duration_=dur;
+        dots_ = NormaliseDuration(duration_) + dots;
+        time_modification_ = timemod;
+        normal_duration_ = normal_dur;
+        normal_dots_ = normal_dots;
     }
     
     float
     IMUSANT_duration::
-    asAbsoluteNumeric() const
+    AsAbsoluteNumeric() const
     {
         //
         // This algorithm translates the static duration values defined above (oneohtwofourth etc) into
@@ -165,14 +163,14 @@ namespace IMUSANT
         // the values that are used.  See VersionOne TK-01209 -> "Account for normal-type in IMUSANT_duration::asAbsoluteNumeric()"
         
         // Calculate the simple numeric value by normalising to a scale where smallest rhythmic value = 1.
-        long numerator = fDuration.getNumerator() * SMALLEST_POSSIBLE_NOTE_VALUE_MULTIPLIER;
-        float initial_numeric = numerator / fDuration.getDenominator();
+        long numerator = duration_.getNumerator() * SMALLEST_POSSIBLE_NOTE_VALUE_MULTIPLIER;
+        float initial_numeric = numerator / duration_.getDenominator();
         
         // Account for time modifications (tuples)
         float initial_numeric_with_time_mod = initial_numeric;
-        if (fTimeModification != IMUSANT_duration::unmeasured)
+        if (time_modification_ != IMUSANT_duration::unmeasured)
         {
-            initial_numeric_with_time_mod = (initial_numeric * fTimeModification.getDenominator()) / fTimeModification.getNumerator();
+            initial_numeric_with_time_mod = (initial_numeric * time_modification_.getDenominator()) / time_modification_.getNumerator();
         }
         
         // Account for dots. For each additional dot we add a diminishing fraction of the
@@ -180,7 +178,7 @@ namespace IMUSANT
         // (A half of the initial value for the first dot, a quarter for the second, and so on)
         float incremental_val = initial_numeric_with_time_mod;
         int fraction_of_initial_value_to_add = 2;
-        for (long index = fDots; index > 0 ; index--)
+        for (long index = dots_; index > 0 ; index--)
         {
             incremental_val = (incremental_val + (initial_numeric_with_time_mod / fraction_of_initial_value_to_add));
             fraction_of_initial_value_to_add = fraction_of_initial_value_to_add * 2;
@@ -193,7 +191,7 @@ namespace IMUSANT
     IMUSANT_duration::
     operator= (const IMUSANT_duration& dur)
     {
-        this->set(dur.fDuration, dur.fDots,dur.fTimeModification, dur.fNormalDuration, dur.fNormalDots);
+        this->set(dur.duration_, dur.dots_,dur.time_modification_, dur.normal_duration_, dur.normal_dots_);
         //NormaliseDuration(fDuration);
         return *this;
     }
@@ -215,16 +213,14 @@ namespace IMUSANT
         float gs = 0.0, intpart = 0.0;
         float base = dur; //cast to float
         
-#ifdef _NEW_
         // superparticular and subsuperparticular ratios are dotted notes
         long n = dur.getNumerator();
         long d = dur.getDenominator();
         //determine if it is a duration that cannot be a dotted note
         if (/*(n%2)==1 &&*/ (d & (d-1)) || (n > 3 && (d-n!=1)) )
         {
-            return 0;
+            return dots; //0
         }
-#endif
         
         while (dots<5 && modff(log2(base), &intpart)!=0) //modff returns fraction remainder
         {
@@ -246,6 +242,8 @@ namespace IMUSANT
         return dots;
     }
     
+    //
+    //  Evaluates if a proportional duration
     TRational
     IMUSANT_duration::
     NormaliseTimeModification(TRational& dur)
@@ -267,8 +265,9 @@ namespace IMUSANT
         
         return time_mod;
     }
-    //--
-    //Comparision operators
+    
+    // -- Comparision operators ---
+    //
     //these also test for equality/inequality of simplified durations: see getSimplifiedDuration.
     bool
     IMUSANT_duration::
@@ -281,25 +280,23 @@ namespace IMUSANT
     IMUSANT_duration::
     operator== (const IMUSANT_duration& dur) const
     {
-        bool dur_match = fDuration == dur.fDuration;
-        bool dots_match = fDots == dur.fDots;
-        bool time_mod_match = fTimeModification == dur.fTimeModification;
+        //straight comparison
+        bool dur_match = duration_ == dur.duration_;
+        bool dots_match = dots_ == dur.dots_;
+        bool time_mod_match = time_modification_ == dur.time_modification_;
+        bool normal_duration_match = normal_duration_ == dur.normal_duration_;
+        bool normal_dots_match = normal_dots_ == dur.normal_dots_;
         
-        // We are not handling the MusicXML normal-type and normal-dots elements properly at the moment.
-        // See D-01024 - IMUSANT_duration does not handle dotted notes in tuplets (not handling XML normal-type attribute).
-        //
-        // bool normal_duration_match = fNormalDuration == dur.fNormalDuration;
-        //
+        //calculated comparison
+        bool simplified_duration_match = GetSimplifiedDuration().duration_ == dur.GetSimplifiedDuration().duration_;
         
-        bool simplified_duration_match = getSimplifiedDuration().fDuration == dur.getSimplifiedDuration().fDuration;
-        
-        return (dur_match &&
-                dots_match &&
-                time_mod_match
-                // && normal_duration_match   -- see comment above.
+        return (dur_match
+                && dots_match
+                && time_mod_match
+                && normal_duration_match
+                && normal_dots_match
                 )
-                ||
-                simplified_duration_match;
+                || simplified_duration_match;
     }
     
     
@@ -311,23 +308,14 @@ namespace IMUSANT
     {
         IMUSANT_duration out;
         
-        TRational r = getSimplifiedDuration().fDuration + right.getSimplifiedDuration().fDuration;
-        out.fDots = NormaliseDuration(r);
-        out.fTimeModification = NormaliseTimeModification(r);
-        out.fDuration = r;
-        if (out.fTimeModification != TRational(0))
-            out.fNormalDuration=r;
+        TRational r = GetSimplifiedDuration().duration_ + right.GetSimplifiedDuration().duration_;
+        out.dots_ = NormaliseDuration(r);
+        out.time_modification_ = NormaliseTimeModification(r);
+        out.duration_ = r;
+        if (out.time_modification_ != TRational(0))
+            out.normal_duration_=r;
         else
-            out.fNormalDuration=IMUSANT_duration::unmeasured;
-        
-//        if (this->fDuration.getNumerator()-this->fDuration.getDenominator()==1 && this->fDuration.getNumerator()> 3 )
-//        {
-//            this->fTimeModification.setDenominator(fDuration.getNumerator());
-//            this->fTimeModification.setNumerator(this->fDuration.getDenominator());
-//            this->fDuration = 1;
-//            this->fDots = 0;
-//            this->fNormalDuration = 1;
-//        }
+            out.normal_duration_=IMUSANT_duration::unmeasured;
         
         return out;
     }
@@ -337,22 +325,6 @@ namespace IMUSANT
     IMUSANT_duration::
     operator+=(const IMUSANT_duration& rhs)
     {
-        /*TRational r = getSimplifiedDuration().fDuration + rhs.getSimplifiedDuration().fDuration;
-        this->fDots = NormaliseDuration(r);
-        this->fDuration = r;
-        this->fTimeModification=1;
-        this->fNormalDuration = IMUSANT_duration::unmeasured;
-        //superparticular ratios in durations produce proportions
-        if (this->fDuration.getNumerator()-this->fDuration.getDenominator()==1 && this->fDuration.getNumerator()> 3 )
-        {
-            this->fTimeModification.setDenominator(this->fDuration.getNumerator());
-            this->fTimeModification.setNumerator(this->fDuration.getDenominator());
-            this->fDuration = 1;
-            this->fDots = 0;
-            this->fNormalDuration = 1;
-        }
-    
-        return *this;*/
         *this = *this + rhs;
     }
     
@@ -366,42 +338,15 @@ namespace IMUSANT
     {
         IMUSANT_duration out;
         
-        TRational r = getSimplifiedDuration().fDuration - right.getSimplifiedDuration().fDuration;
-        out.fDots = NormaliseDuration(r);
-        out.fTimeModification = NormaliseTimeModification(r);
-        out.fDuration = r;
-        if (out.fTimeModification != TRational(0))
-            out.fNormalDuration=r;
+        TRational r = GetSimplifiedDuration().duration_ - right.GetSimplifiedDuration().duration_;
+        out.dots_ = NormaliseDuration(r);
+        out.time_modification_ = NormaliseTimeModification(r);
+        out.duration_ = r;
+        if (out.time_modification_ != TRational(0))
+            out.normal_duration_=r;
         else
-            out.fNormalDuration=IMUSANT_duration::unmeasured;
-        
-        /*if (fTimeModification != TRational(1))
-        {
-            out.fTimeModification = fTimeModification;
-            out.fDuration = r*fTimeModification;
-            out.fDuration.rationalise();
-        }
-        else if (right.fTimeModification != TRational(1))
-        {
-            out.fTimeModification = right.fTimeModification;
-            out.fDuration = r*right.fTimeModification;
-            out.fDuration.rationalise();
-        }
-        else
-        {
-            out.fTimeModification=1;
-            out.fDuration = r;
-        }
-#ifdef _OUT_
-        if (out.fDuration.getNumerator()%2 == 1 && out.fDuration.getNumerator()> 3 && out.fDuration.getNumerator() !=7)
-        {
-            out.fTimeModification.setDenominator(out.fDuration.getNumerator());
-            out.fTimeModification.setNumerator(out.fDuration.getDenominator());
-            out.fDuration = TRational((r.getNumerator()/2)*2, r.getDenominator());
-            out.fDots = 0;
-            out.fNormalDuration = 1;
-        }
-#endif*/
+            out.normal_duration_=IMUSANT_duration::unmeasured;
+    
         return out;
     }
     
@@ -416,14 +361,14 @@ namespace IMUSANT
     IMUSANT_duration::
     operator >(const IMUSANT_duration &dur) const
     {
-        return (getSimplifiedDuration().fDuration > dur.getSimplifiedDuration().fDuration);
+        return (GetSimplifiedDuration().duration_ > dur.GetSimplifiedDuration().duration_);
     }
     
     bool
     IMUSANT_duration::
     operator <(const IMUSANT_duration &dur) const
     {
-        return (getSimplifiedDuration().fDuration < dur.getSimplifiedDuration().fDuration);
+        return (GetSimplifiedDuration().duration_ < dur.GetSimplifiedDuration().duration_);
     }
     
     //
@@ -431,56 +376,42 @@ namespace IMUSANT
     //
     IMUSANT_duration
     IMUSANT_duration::
-    getSimplifiedDuration() const
+    GetSimplifiedDuration() const
     {
         IMUSANT_duration out = *this;
         
-        //if (fDots>8) throw "more than eight dots encountered";
+        //if (dots_>8) throw "more than eight dots encountered";
         //  Dotted notes are a geometric series where the sum value of (S) of a duration with n dots is
         //      Sn = a (2 - pow(0.5, n))
         TRational dotsmultiplier(2,1), normaldotsmultiplier(2,1);
     
-        if (fNormalDots)
+        if (normal_dots_)
         {
-            TRational normalindex = TRational(1, 1<<fNormalDots);
+            TRational normalindex = TRational(1, 1<<normal_dots_);
             normaldotsmultiplier -= normalindex;
-            out.fNormalDuration = fNormalDuration * normaldotsmultiplier;
-            out.fNormalDots = 0;
+            out.normal_duration_ = normal_duration_ * normaldotsmultiplier;
+            out.normal_dots_ = 0;
         }
         
-        if (fTimeModification!=TRational(1,1))
+        if (time_modification_!=TRational(1,1))
         {
-            out.fDuration = (out.fNormalDuration/fTimeModification)*(fDuration/fNormalDuration);
-            out.fDuration.rationalise();
-            out.fTimeModification=1;
-            out.fNormalDuration = out.fDuration; //will produce unknown duration types
-            out.fNormalDuration.rationalise();
+            out.duration_ = (out.normal_duration_/time_modification_)*(duration_/normal_duration_);
+            out.duration_.rationalise();
+            out.time_modification_=1;
+            out.normal_duration_ = out.duration_; //will produce unknown duration types
+            out.normal_duration_.rationalise();
             
         }
         
-        if (fDots)
+        if (dots_)
         {
-            TRational index = TRational(1,1<<fDots);
+            TRational index = TRational(1,1<<dots_);
             dotsmultiplier -= index;
-            out.fDuration = out.fDuration * dotsmultiplier;
-            out.fDuration.rationalise();
-            out.fNormalDuration = out.fDuration;
-            out.fDots = 0;
+            out.duration_ = out.duration_ * dotsmultiplier;
+            out.duration_.rationalise();
+            out.normal_duration_ = out.duration_;
+            out.dots_ = 0;
         }
-        
-
-        
-        //out.fDuration = (fDuration*dotsmultiplier)/fTimeModification;
-#ifdef _NEW_
-//        if (fNormalDuration>TRational(0,1) && fTimeModification!=TRational(1,1))
-//            out.fDuration = ((fNormalDuration*normaldotsmultiplier)/fTimeModification)*dotsmultiplier;
-//        else
-//            out.fDuration = fDuration*dotsmultiplier;
-#endif
-        //out.fDots = 0;
-        //out.fTimeModification=1;
-        //out.fNormalDuration = IMUSANT_duration::unmeasured;
-        //out.fNormalDots = 0;
     
         return out;
     }

@@ -37,7 +37,7 @@ S_IMUSANT_rhythm_vector new_IMUSANT_rhythm_vector()
 IMUSANT_collection_visitor::IMUSANT_collection_visitor()
 {
 	fInChord = false;
-	fLastNote = 0;
+	fLastNote = NULL;
 	fCurrentPartID = 0;
 	fIgnoreRepeatedPitches = false;
 }

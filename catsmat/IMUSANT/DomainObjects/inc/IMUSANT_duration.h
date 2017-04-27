@@ -36,11 +36,11 @@ namespace IMUSANT
         friend IMUSANT_SMARTP<IMUSANT_duration> new_IMUSANT_duration(const TRational duration);
         
         IMUSANT_duration() :
-            fDuration(IMUSANT_duration::unmeasured),
-            fDots(0),
-            fTimeModification(TRational(1,1)),
-            fNormalDuration(IMUSANT_duration::unmeasured),
-            fNormalDots(0)
+            duration_(IMUSANT_duration::unmeasured),
+            dots_(0),
+            time_modification_(TRational(1,1)),
+            normal_duration_(IMUSANT_duration::unmeasured),
+            normal_dots_(0)
         {
             // empty constructor
         }
@@ -106,9 +106,11 @@ namespace IMUSANT
          */
         void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots=0);
 
+        void set_dots(long dots) { dots_ = dots; }
+        void set_normal_dots(long dots) { dots_ = dots; }
         
-        IMUSANT_duration	getSimplifiedDuration() const;
-        float               asAbsoluteNumeric() const;
+        IMUSANT_duration	GetSimplifiedDuration() const;
+        float               AsAbsoluteNumeric() const;
         
         // If dur is a ratio that represents a dotted note, then this function reduces dur to the fraction
         // without the dots and returns the number of dots required.
@@ -126,13 +128,14 @@ namespace IMUSANT
         static TRational	xmlv1(const string str);
         static TRational	xmlv3(const string str);
         
-        TRational           fDuration;
-        long                fDots;
-        TRational           fTimeModification;
-        TRational           fNormalDuration;    //the duration subject to fTimeModification
-        long                fNormalDots;
+        //getters
+        TRational&          duration() { return duration_; }
+        long                dots() { return dots_; }
+        TRational&          time_modification() { return time_modification_; }
+        TRational&          normal_duration() { return normal_duration_; }
+        long                normal_dots() { return normal_dots_; }
         
-        
+        //values of std durations
         static TRational unmeasured;
         static TRational maxima;                // 8  - asAbsoluteNumeric = 8192
         static TRational longa;                 // 4  - asAbsoluteNumeric =  4096
@@ -155,6 +158,12 @@ namespace IMUSANT
         
     protected:
 
+        TRational           duration_;          //duration as a fraction of semibreve/whole note
+        long                dots_;              //dots
+        TRational           time_modification_;  //ratio of fDuration to normal_duration_
+        TRational           normal_duration_;    //the duration subject to time_modification_ - default is fDuration
+        long                normal_dots_;        //dots to normal duration
+        
         static bimap<string, TRational>	fDuration2Stringv1;
         static bimap<string, TRational>	fDuration2Stringv3;
         
