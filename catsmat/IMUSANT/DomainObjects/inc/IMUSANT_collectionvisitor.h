@@ -56,7 +56,7 @@ namespace IMUSANT
     typedef IMUSANT_SMARTP<IMUSANT_rhythm_vector> S_IMUSANT_rhythm_vector;
     S_IMUSANT_rhythm_vector new_IMUSTANT_rhythm_vector();
     
-    class VEXP IMUSANT_collection_visitor : public IMUSANT_visitor
+    class IMUSANT_collection_visitor : public IMUSANT_visitor
     {
         public:
                         IMUSANT_collection_visitor();

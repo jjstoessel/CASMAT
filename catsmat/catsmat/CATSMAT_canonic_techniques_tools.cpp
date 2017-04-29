@@ -95,7 +95,7 @@ namespace CATSMAT
                 
                 if(ioi_unit!= IMUSANT_duration()) //only insert if ioi_unit was calculated
                 {
-                    int ioi_unit_count = ioi.asAbsoluteNumeric()/ioi_unit.asAbsoluteNumeric();
+                    int ioi_unit_count = ioi.AsAbsoluteNumeric()/ioi_unit.AsAbsoluteNumeric();
                 
                     CATSMAT_CanonType::CATSMAT_IOI_pair ioi_pair = std::make_pair(ioi_unit, ioi_unit_count);
                     canon_type.ioi_pairs_.push_back(ioi_pair);
@@ -408,7 +408,7 @@ namespace CATSMAT
         }
         
         IMUSANT_duration ioi = *IMUSANT_segmented_part_fixed_period::calculateEntryOffsetBetweenParts(first_part, second_part);
-        float ioi_units_float = ioi.asAbsoluteNumeric()/p1_measure_duration.asAbsoluteNumeric();
+        float ioi_units_float = ioi.AsAbsoluteNumeric()/p1_measure_duration.AsAbsoluteNumeric();
         int ioi_units = ioi_units_float;
         if ( ioi_units_float > (float)ioi_units || ioi_units_float < (float)ioi_units )
         {

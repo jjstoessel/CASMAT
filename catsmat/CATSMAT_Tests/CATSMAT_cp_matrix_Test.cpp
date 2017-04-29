@@ -214,6 +214,25 @@ TEST_F(CATSMAT_cp_matrix_Test, Josquin_MAF_Kyrie)
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
 
+TEST_F(CATSMAT_cp_matrix_Test, Triplet_test)
+{
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Triplet-test.xml");
+    CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
+    //assert(theMatrix->SelfTest());
+    
+    string Triplet_test_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+#ifdef VERBOSE
+    cout << "Diff for Triplet_Test_Actual and Triplet_Test_Expected" << endl;
+    testUtil.DiffActualAndExpected(Triplet_test_Actual, Triplet_test_Expected);
+#endif
+    
+    ASSERT_EQ(Triplet_test_Expected, Triplet_test_Actual);
+    
+    unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
+
+
 TEST_F(CATSMAT_cp_matrix_Test, Josquin_Missa_LHA_super_vocales_musicales_agnus_II)
 {
     S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml");

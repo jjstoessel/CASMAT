@@ -164,14 +164,14 @@ namespace IMUSANT
         std::stringstream buffer;
         char delimiter = ':';
         
-        float first_duration = getFirstNote()->duration()->asAbsoluteNumeric();
+        float first_duration = getFirstNote()->duration()->AsAbsoluteNumeric();
         int first_pitch = getFirstNote()->pitch()->getMidiKeyNumber();
         long first_measure = getFirstNote()->getMeasureNum();
         long first_note_index = getFirstNote()->getNoteIndex();
         long last_measure = getLastNote()->getMeasureNum();
         long last_note_index = getLastNote()->getNoteIndex();
         
-        float last_duration = getLastNote()->duration()->asAbsoluteNumeric();
+        float last_duration = getLastNote()->duration()->AsAbsoluteNumeric();
         int last_pitch = getLastNote()->pitch()->getMidiKeyNumber();
         long number_of_measures = getLastNote()->getMeasureNum() - getFirstNote()->getMeasureNum();
         

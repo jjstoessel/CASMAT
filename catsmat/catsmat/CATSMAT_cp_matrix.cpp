@@ -135,7 +135,7 @@ namespace CATSMAT
         //call to distribute note and return remainder; if note duration less than current chord duration
         //note is returned as remainder to spilt chord into two parts.
         IMUSANT_note remainder = distribute(note);
-        if (remainder.duration()->fDuration != IMUSANT_duration::unmeasured)
+        if (remainder.duration()->duration() != IMUSANT_duration::unmeasured)
             split(remainder);
     }
 
@@ -192,7 +192,7 @@ namespace CATSMAT
             
             fCurrentChord++;
             
-            if (dur->fDuration!=IMUSANT_duration::unmeasured)
+            if (dur->duration()!=IMUSANT_duration::unmeasured)
             {
                 remainder = distribute(remainder, part_note);
             }
@@ -238,7 +238,7 @@ namespace CATSMAT
             }
         }
         
-        if (note.duration()->fDuration==IMUSANT_duration::unmeasured) throw catsmat_runtime_error("Unmeasured duration encountered. Check your data.");
+        if (note.duration()->duration()==IMUSANT_duration::unmeasured) throw catsmat_runtime_error("Unmeasured duration encountered. Check your data.");
         //finally add new note (clone note&) to new chord to be pre-inserted
         *new_note = note;
         (*insert_chord)[fCurrentPart] = new_note;
