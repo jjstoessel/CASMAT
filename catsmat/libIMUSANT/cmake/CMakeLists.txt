@@ -55,14 +55,14 @@ set (SRCFOLDERS
         ${IMUSANT_DIR}/MusicXML/src
         ${IMUSANT_DIR}/DomainObjects/src
         ${IMUSANT_DIR}Converters/src
-        SUFFIXTREE_DIR
+        ${SUFFIXTREE_DIR}
         )
 
 set (INCFOLDERS
         ${IMUSANT_DIR}/MusicXML/inc
         ${IMUSANT_DIR}/DomainObjects/inc
         ${IMUSANT_DIR}Converters/inc
-        SUFFIXTREE_DIR
+        ${SUFFIXTREE_DIR}
         )
 
 foreach(folder ${SRCFOLDERS})
