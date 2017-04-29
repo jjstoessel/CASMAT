@@ -22,6 +22,7 @@
 #include "TRational.h"
 #include <sstream>
 #include <cmath>
+#include <cstring>
 
 namespace IMUSANT
 {
