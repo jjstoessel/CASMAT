@@ -1,17 +1,18 @@
 #######################################
-# CMAKE libmusicxml2
+# CMAKE libIMUSANT
 #######################################
-project(libmusicxml2)
+project(libIMUSANT)
 cmake_minimum_required(VERSION 2.4)
+set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)
 endif()
 
 #######################################
 # versions management
-set (VERSION 3.00)
-set (STRVERS "v.3.00")
-set (SSTRVERS "3.00")
+#set (VERSION 3.00)
+#set (STRVERS "v.3.00")
+#set (SSTRVERS "3.00")
 
 if(UNIX)
 	add_definitions(-Wall -DGCC)
@@ -43,23 +44,39 @@ endif(WIN32)
 
 #######################################
 # set directories, src and headers.
-set (LXML 		${CMAKE_CURRENT_SOURCE_DIR}/..)
-set (LXMLSRC 	${LXML}/src)
-set (LXMLSAMPLE ${LXML}/samples)
-set (SRCFOLDERS  factory files interface elements guido lib operations parser visitors)
+# Get source from IMUSANT project.  This would be easier if we moved the source.
+# The source in the Segmentation folder probably needs separating into src and inc directories.
+
+set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT)
+set (SUFFIXTREE_DIR 	${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
+set (LOKI_DIR 	        ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
+
+set (SRCFOLDERS
+        ${IMUSANT_DIR}/MusicXML/src
+        ${IMUSANT_DIR}/DomainObjects/src
+        ${IMUSANT_DIR}Converters/src
+        SUFFIXTREE_DIR
+        )
+
+set (INCFOLDERS
+        ${IMUSANT_DIR}/MusicXML/inc
+        ${IMUSANT_DIR}/DomainObjects/inc
+        ${IMUSANT_DIR}Converters/inc
+        SUFFIXTREE_DIR
+        )
 
 foreach(folder ${SRCFOLDERS})
-	set(SRC ${SRC} "${LXMLSRC}/${folder}/*.cpp")			# add source files
+	set(SRC ${SRC} "${folder}/*.cpp")			# add source files
 endforeach(folder)
 file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 
-foreach(folder ${SRCFOLDERS})
-	set(HEADERS ${HEADERS} "${LXMLSRC}/${folder}/*.h")		# add header files
+foreach(folder ${INCFOLDERS})
+	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
-foreach(folder ${SRCFOLDERS})
-	set(INCL ${INCL} "${LXMLSRC}/${folder}")				# add include folders
+foreach(folder ${INCFOLDERS})
+	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
 
 
@@ -72,14 +89,14 @@ set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 #######################################
 # set library target
 if(APPLE OR MSVC)
-	set(target libmusicxml2)
+	set(target libIMUSANT)
 else(APPLE OR MSVC)
-	set(target musicxml2)
+	set(target IMUSANT)
 endif(APPLE OR MSVC)
 
 if(MSVC)
 	enable_language(RC)
-	set(LIBCONTENT ${CORESRC} ${COREH} ${LXML}/win32/libmusicxml/libmusicxml.rc)
+	set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_DIR}/win32/libIMUSANT/libIMUSANT.rc)
 else(MSVC)
 	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
@@ -96,9 +113,10 @@ set_target_properties (${target} PROPERTIES
 )
 
 
-#######################################
+
+
+#[[#######################################
 # set sample targets
-#[[
 set (SAMPLES RandomMusic xmlfactory partsummary xml2guido xmliter countnotes readunrolled xml2midi xmlread xmltranspose xmlclone)
 set (TOOLS  xml2guido xmltranspose)
 
@@ -108,6 +126,7 @@ foreach(sample ${SAMPLES})
 	add_dependencies(${sample} ${target})
 endforeach(sample)
 ]]
+
 
 #######################################
 # install setup
