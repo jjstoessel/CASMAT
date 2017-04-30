@@ -77,12 +77,11 @@ namespace CATSMAT
         
         //NB. IMUSANT_PartEntry::Part->getPartName() is unreliable for obtaining a unique identifier
         
-        canon_type.strict_ = canon_type.imitative_ && IsRhythmicallyExact(first_part, second_part, error_threshold);
-        
-        if (canon_type.imitative_)
+        if (canon_type.imitative_ || canon_type.retrograde_)
         {
+            
             //find the interval of imitation and IOI
-            IMUSANT_interval interval = GetIntervalBetweenParts(first_part, second_part);
+            IMUSANT_interval interval = GetIntervalBetweenParts(first_part, second_part, canon_type.retrograde_);
             canon_type.intervals_.push_back(interval);
             
             if (!IMUSANT_segmented_part_fixed_period::partsEnterTogether(first_part, second_part))
@@ -102,6 +101,10 @@ namespace CATSMAT
                 }
             }
             
+            //are the durations exact also? if so the imitation is strict
+            canon_type.strict_ = IsRhythmicallyExact(first_part, second_part, error_threshold, canon_type.retrograde_);
+            
+            //otherwise there is some sort of rhythmic transformation happening
             if (!canon_type.strict_)
             {
                 TRational proportion;
@@ -122,10 +125,6 @@ namespace CATSMAT
             
             Insert(canon_type);
             return;
-        }
-        
-        if (canon_type.retrograde_)
-        {
         }
         
         if (canon_type.contrary_motion_)
@@ -257,39 +256,31 @@ namespace CATSMAT
         return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_notes, part_one_notes.size());
     }
     
+    //this will not work if a tie note is compared to a larger value equivalent. SOLUTION: removed all tied notes is a note string.
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsRhythmicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold)
+    IsRhythmicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold, bool retrograde)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
         
-        int first_part_index = first_part.EntryVectorIndexPosition;
-        int second_part_index = second_part.EntryVectorIndexPosition;
-        
-        S_IMUSANT_note n1;
-        S_IMUSANT_note n2;
+        auto first_part_iter = part_one_notes.begin() + first_part.EntryVectorIndexPosition;
         
         int num_non_matching_notes = 0;
         
-        while (first_part_index < part_one_notes.size() - second_part_index
-               &&
-               second_part_index < part_two_notes.size() )
+        if (retrograde)
         {
-            n1 = part_one_notes[first_part_index++];
-            n2 = part_two_notes[second_part_index++];
-            
-            
-            OUTPUT("Comparing " + n1->pretty_print() + " to " + n2->pretty_print());
-            
-            if (! (*n1->duration() == *n2->duration()))
-            {
-                num_non_matching_notes++;
-                OUTPUT(" ---  DIFFERENT --- ");
-            }
-            
-            OUTPUT(endl);
-            
+            num_non_matching_notes = CATSMAT::compare(first_part_iter,
+                                                      first_part_iter + (part_two_notes.size() - second_part.EntryVectorIndexPosition - 1),
+                                                      part_two_notes.rbegin(),
+                                                      [](S_IMUSANT_note& first, const S_IMUSANT_note& second){ return *first->duration()==*second->duration();});
+        }
+        else
+        {
+            num_non_matching_notes = CATSMAT::compare(first_part_iter,
+                                                      first_part_iter + (part_two_notes.size() - second_part.EntryVectorIndexPosition - 1),
+                                                      part_two_notes.begin() + second_part.EntryVectorIndexPosition,
+                                                      [](S_IMUSANT_note& first, const S_IMUSANT_note& second){ return *first->duration()==*second->duration();});
         }
         
         return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_notes, part_one_notes.size());
@@ -334,14 +325,20 @@ namespace CATSMAT
 
     IMUSANT_interval
     CATSMAT_CanonicTechniquesTools::
-    GetIntervalBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part)
+    GetIntervalBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, bool retrograde)
     {
         
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
         
-        int first_part_index = first_part.EntryVectorIndexPosition;
-        int second_part_index = second_part.EntryVectorIndexPosition;
+        int first_part_index, second_part_index;
+        
+        first_part_index = first_part.EntryVectorIndexPosition;
+        
+        if (retrograde)
+            second_part_index = (int)second_part.Part->notes().size() - 1;
+        else
+            second_part_index = second_part.EntryVectorIndexPosition;
         
         S_IMUSANT_note n1;
         S_IMUSANT_note n2;
@@ -358,7 +355,39 @@ namespace CATSMAT
     CATSMAT_CanonicTechniquesTools::
     IsRetrograde(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold)
     {
-        return false; // does nothing for now
+        //
+        
+        IMUSANT_vector<S_IMUSANT_note> part_one_notes;
+        IMUSANT_vector<S_IMUSANT_note> part_two_notes;
+        
+        if (first_part.Part->notes().size() >= second_part.Part->notes().size())
+        {
+            part_one_notes = second_part.Part->notes();
+            part_two_notes = first_part.Part->notes();
+        }
+        else
+        {
+            //the second part has more notes than the first
+            part_one_notes = first_part.Part->notes();
+            part_two_notes = second_part.Part->notes();
+        }
+        
+        S_IMUSANT_interval_vector first_part_intervals = new_IMUSANT_interval_vector();
+        S_IMUSANT_interval_vector second_part_intervals = new_IMUSANT_interval_vector();
+        
+        //this conversion does not enter rests, so compare directly
+        first_part_intervals->add(part_one_notes);
+        second_part_intervals->add(part_two_notes);
+        
+        int num_non_matching_intervals = 0;
+        
+        //look at one part in reverse; interval will be reversed
+        num_non_matching_intervals = CATSMAT::compare(first_part_intervals->getIntervals().begin(),
+                                                      first_part_intervals->getIntervals().end(),
+                                                      second_part_intervals->getIntervals().rbegin(),
+                                                      [](const IMUSANT_interval& first, const IMUSANT_interval& second){ return first.getNumber()==-second.getNumber();});
+        
+        return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
     }
     
     bool

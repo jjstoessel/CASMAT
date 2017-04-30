@@ -62,12 +62,12 @@ namespace CATSMAT
         void    Insert(CATSMAT_CanonType canon_type);
         bool    IsMelodicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, const double error_threshold);
         bool    IsIntervallicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, const double error_threshold);
-        bool    IsRhythmicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold);
+        bool    IsRhythmicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold, bool retrograde=false);
         bool    IsRetrograde(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, const double error_threshold);
         bool    IsProportionalCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, TRational& result, const double error_threshold);
         bool    IsMensurationCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold);
         bool    IsInversion(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold);
-        IMUSANT_interval   GetIntervalBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
+        IMUSANT_interval   GetIntervalBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, bool retrograde=false);
         IMUSANT_duration   CalculateIOIUnit(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
         
         S_IMUSANT_score             score_;

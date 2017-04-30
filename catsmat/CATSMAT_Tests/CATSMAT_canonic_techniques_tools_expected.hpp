@@ -17,4 +17,6 @@ const string TestScore_Ockeghem_Prenez_sur_moi_canontype_Expected = "**** Canoni
 
 const string TestScore_Josquin_MAF_Kyrie_canontype_Expected = "**** Canonic techniques for 1201a-Missa_Ad_fugam-Kyrie ****\nNumber of voices: 4\nIOI count: 1 (unit: <RHYTHM_TYPE>breve<\\RHYTHM_TYPE><DOTS>1<\\DOTS><TIME_MOD>1/1<\\TIME_MOD>)\nIOI count: 1 (unit: <RHYTHM_TYPE>breve<\\RHYTHM_TYPE><DOTS>1<\\DOTS><TIME_MOD>1/1<\\TIME_MOD>)\nInterval: 8ve / \nInterval: per5 \\ \nMelodically imitative: yes\nStrict: no\nRetrograde: no\nContrary motion: no\nProportional: no\nStacked: no\nPart: Superius, Part ID: P1\nPart: Altus, Part ID: P2\nPart: Tenor, Part ID: P3\nPart: Bassus, Part ID: P4\n\n";
 
+const string TestScore_Machaut_Ma_fin_est_mon_commencement_Expected = "**** Canonic techniques for Ma fin est mon commencement ****\nNumber of voices: 2\nInterval: per1 / \nMelodically imitative: no\nStrict: yes\nRetrograde: yes\nContrary motion: no\nProportional: no\nStacked: no\nPart: Ca 1, Part ID: P1\nPart: Ca 2, Part ID: P2\n\n";
+
 #endif /* CATSMAT_canonic_tools_expected_hpp */

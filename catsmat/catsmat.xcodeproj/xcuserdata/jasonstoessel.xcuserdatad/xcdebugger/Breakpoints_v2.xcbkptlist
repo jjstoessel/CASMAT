@@ -1850,15 +1850,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_techniques_tools.cpp"
-            timestampString = "514948306.44071"
+            timestampString = "515212271.376625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "411"
-            endingLineNumber = "411"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "CATSMAT_CanonicTechniquesTools:: CalculateIOIUnit(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1877,38 +1877,6 @@
             endingLineNumber = "472"
             landmarkName = "TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_equalityOperator_WithTimeMod)"
             landmarkType = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IMUSANT_duration_Tests_Duration_additionOperator_equalityOperator_WithTimeMod_Test::TestBody()"
-                  moduleName = "IMUSANT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/IMUSANT_Tests/DomainObjects/IMUSANT_duration_Tests.cpp"
-                  timestampString = "514949310.627531"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "472"
-                  endingLineNumber = "472"
-                  offsetFromSymbolStart = "5661">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IMUSANT_duration_Tests_Duration_additionOperator_equalityOperator_WithTimeMod_Test::TestBody()"
-                  moduleName = "IMUSANT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/IMUSANT_Tests/DomainObjects/IMUSANT_duration_Tests.cpp"
-                  timestampString = "514949310.629204"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "472"
-                  endingLineNumber = "472"
-                  offsetFromSymbolStart = "5766">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1955,6 +1923,226 @@
                   startingLineNumber = "524"
                   endingLineNumber = "524"
                   offsetFromSymbolStart = "476">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_canonic_techniques_tools_tests.cpp"
+            timestampString = "515205919.851265"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Machaut_Ma_fin_est_mon_commencement)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_t_utilities.h"
+            timestampString = "515206081.738182"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "compare(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first2, _BinaryPredicate __pred)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "int CATSMAT::compare&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::reverse_iterator&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt; &gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRhythmicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double, bool)::$_1&gt;(std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::reverse_iterator&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt; &gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRhythmicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double, bool)::$_1)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_t_utilities.h"
+                  timestampString = "515213850.759366"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "33">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "int CATSMAT::compare&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRhythmicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double, bool)::$_2&gt;(std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRhythmicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double, bool)::$_2)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_t_utilities.h"
+                  timestampString = "515213850.761143"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "int CATSMAT::compare&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsIntervallicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double)::$_3&gt;(std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsIntervallicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double)::$_3)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_t_utilities.h"
+                  timestampString = "515213850.763015"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "int CATSMAT::compare&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::reverse_iterator&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt; &gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRetrograde(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double)::$_4&gt;(std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::reverse_iterator&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt; &gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRetrograde(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double)::$_4)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_t_utilities.h"
+                  timestampString = "515213850.764729"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "33">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_canonic_techniques_tools.cpp"
+            timestampString = "515212271.376625"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
+            landmarkName = "CATSMAT_CanonicTechniquesTools:: IsRetrograde(const IMUSANT_PartEntry&amp; first_part, const IMUSANT_PartEntry&amp; second_part, double error_threshold)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_canonic_techniques_tools.cpp"
+            timestampString = "515212271.376625"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
+            landmarkName = "CATSMAT_CanonicTechniquesTools:: IsRetrograde(const IMUSANT_PartEntry&amp; first_part, const IMUSANT_PartEntry&amp; second_part, double error_threshold)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMUSANT/DomainObjects/src/IMUSANT_interval_vector.cpp"
+            timestampString = "515206919.230488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "IMUSANT_interval_vector:: add(const IMUSANT_vector&lt;S_IMUSANT_note&gt;&amp; note_vector)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_t_utilities.h"
+            timestampString = "515212819.268334"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "compare(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first2, _BinaryPredicate __pred)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "int CATSMAT::compare&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::reverse_iterator&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt; &gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRhythmicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double, bool)::$_1&gt;(std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::reverse_iterator&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt; &gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRhythmicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double, bool)::$_1)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_t_utilities.h"
+                  timestampString = "515213923.258707"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "int CATSMAT::compare&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRhythmicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double, bool)::$_2&gt;(std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_SMARTP&lt;IMUSANT::IMUSANT_note&gt;*&gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRhythmicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double, bool)::$_2)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_t_utilities.h"
+                  timestampString = "515213923.260713"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "159">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "int CATSMAT::compare&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsIntervallicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double)::$_3&gt;(std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsIntervallicallyExact(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double)::$_3)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_t_utilities.h"
+                  timestampString = "515213923.262445"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "159">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "int CATSMAT::compare&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::reverse_iterator&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt; &gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRetrograde(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double)::$_4&gt;(std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt;, std::__1::reverse_iterator&lt;std::__1::__wrap_iter&lt;IMUSANT::IMUSANT_interval const*&gt; &gt;, CATSMAT::CATSMAT_CanonicTechniquesTools::IsRetrograde(IMUSANT::IMUSANT_PartEntry const&amp;, IMUSANT::IMUSANT_PartEntry const&amp;, double)::$_4)"
+                  moduleName = "CATSMAT_Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/catsmat/CATSMAT_t_utilities.h"
+                  timestampString = "515213923.264106"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "216">
                </Location>
             </Locations>
          </BreakpointContent>
