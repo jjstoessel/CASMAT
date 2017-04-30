@@ -157,7 +157,7 @@ namespace IMUSANT
     private:
         
         //alternative pitch representation calculators
-        enum TPC        CalcTonalPitchClass(type name, inflection alt);
+        enum TPC             CalcTonalPitchClass(type name, inflection alt);
         type            GetNameFromTPC(IMUSANT_pitch::TPC tpc);
         inflection      GetInflectionFromTPC(IMUSANT_pitch::TPC tpc);
         
