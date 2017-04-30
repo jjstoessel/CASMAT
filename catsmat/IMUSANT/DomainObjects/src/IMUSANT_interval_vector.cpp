@@ -58,7 +58,7 @@ namespace IMUSANT
             if (i==note_vector.end() || j==note_vector.end()) break;
             IMUSANT_pitch pitch_1 = *(*i)->pitch();
             IMUSANT_pitch pitch_2 = *(*j)->pitch();
-            IMUSANT_pitch undefined_pitch;
+            //IMUSANT_pitch undefined_pitch;
             
             if( (*j)->getPreviousTieNote()!=(*i) )
             {

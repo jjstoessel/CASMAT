@@ -370,6 +370,7 @@
 		BA0CFB551EAC462800FC4310 /* CATSMAT_trigramsequences_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96CC66C91DEAF5B400E2F7FB /* CATSMAT_trigramsequences_tests.cpp */; };
 		BA0CFB561EAC464A00FC4310 /* CATSMAT_canonic_techniques_tools_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9665C50C1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp */; };
 		BA0CFB581EAC465C00FC4310 /* CATSMAT_sonority_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 961789931D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp */; };
+		BA0CFB591EB5667500FC4310 /* Machaut-Ma_fin_est_mon_commencement.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA33CBC51D6FD7A8001B7FF3 /* Machaut-Ma_fin_est_mon_commencement.xml */; };
 		BA10A5CD1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */; };
 		BA10A5D31D979F06000679C5 /* CATSMAT_partdata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */; };
 		BA10A5D91DA7503E000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */; };
@@ -521,6 +522,7 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				BA0CFB591EB5667500FC4310 /* Machaut-Ma_fin_est_mon_commencement.xml in CopyFiles */,
 				BA5D583E1E90962800BFC95C /* Triplet-test.xml in CopyFiles */,
 				96E2173F1E7A95D300D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml in CopyFiles */,
 				9665C50F1E74B8B000947C15 /* Ockeghem_Prenez_sur_moi_(Cop).xml in CopyFiles */,

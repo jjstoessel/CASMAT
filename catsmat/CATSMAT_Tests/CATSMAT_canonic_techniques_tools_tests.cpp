@@ -45,6 +45,7 @@ protected:
     
 };
 
+//simple three-part canon at unison
 TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Talent_mest_pris) {
     
     S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Anon-Talent_mest_pris_I-IV_115.xml");
@@ -62,6 +63,7 @@ TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Talent_mest_pris) {
     ASSERT_EQ(TestScore_Talent_mest_pris_canontype_Expected, the_types_as_string);
 }
 
+//stacked canon
 TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Ockeghem_Prenez_sur_moi) {
     
     S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Ockeghem_Prenez_sur_moi_(Cop).xml");
@@ -79,6 +81,7 @@ TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Ockeghem_Prenez_sur_moi) {
     ASSERT_EQ(TestScore_Ockeghem_Prenez_sur_moi_canontype_Expected, the_types_as_string);
 }
 
+//several canons
 TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Josquin_MAF_Kyrie) {
     
     S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Josquin_MAF_Kyrie.xml");
@@ -96,3 +99,20 @@ TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Josquin_MAF_Kyrie) {
     ASSERT_EQ(TestScore_Josquin_MAF_Kyrie_canontype_Expected, the_types_as_string);
 }
 
+//test for retrograde
+TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Machaut_Ma_fin_est_mon_commencement) {
+    
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Machaut-Ma_fin_est_mon_commencement.xml");
+    
+    S_CATSMAT_CanonicTechniquesTools tools = new_CATSMAT_object<CATSMAT_CanonicTechniquesTools>();
+    tools->Initialise(imusant_score);
+    
+    std::stringstream the_type_as_stringstream;
+    for ( auto type : tools->GetCanonTypes())
+    {
+        the_type_as_stringstream << type;
+    }
+    string the_types_as_string = the_type_as_stringstream.str();
+    
+    ASSERT_EQ(TestScore_Machaut_Ma_fin_est_mon_commencement_Expected, the_types_as_string);
+}
