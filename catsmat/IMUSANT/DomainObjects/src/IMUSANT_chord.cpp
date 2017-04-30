@@ -10,6 +10,7 @@
 #include "IMUSANT_chord.h"
 #include "IMUSANT_note.h"
 #include <iostream>
+#include <algorithm>
 
 namespace IMUSANT
 {
