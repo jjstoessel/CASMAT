@@ -11,8 +11,10 @@
 
 #include <stdio.h>
 #include "IMUSANT_t_suffixtree_builder.h"
-#include "Loki/Visitor.h"
+#include "Visitor.h"
 #include "IMUSANT_segmented_part_LBDM.h"
+
+using namespace Loki;
 
 namespace IMUSANT {
    

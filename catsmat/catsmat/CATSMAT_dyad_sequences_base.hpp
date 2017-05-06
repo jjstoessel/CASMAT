@@ -19,7 +19,7 @@ namespace CATSMAT
 {
 
 template <typename T> //T is a vector
-class CATSMAT_dyad_sequences_base : public BaseVisitor, public Visitor<CATSMAT_cp_matrix, void, true>
+class CATSMAT_dyad_sequences_base : public BaseVisitor, public Loki::Visitor<CATSMAT_cp_matrix, void, true>
 {
 public:
 

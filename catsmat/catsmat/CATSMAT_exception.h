@@ -27,7 +27,7 @@ namespace IMUSANT
             m_what_arg = what_arg;
         }
         
-        const char * what () const _NOEXCEPT
+        const char * what () const noexcept     //  _NOEXCEPT
         {
             string msg =
                 "CATSMAT encountered a fatal error: "
@@ -52,7 +52,7 @@ namespace IMUSANT
             m_what_arg = what_arg;
         }
         
-        const char * what () const _NOEXCEPT
+        const char * what () const noexcept     //  _NOEXCEPT
         {
             string msg =
             "CATSMAT encountered a fatal error: "
