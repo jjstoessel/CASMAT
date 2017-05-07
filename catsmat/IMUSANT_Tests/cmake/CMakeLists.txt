@@ -41,26 +41,51 @@ if(WIN32)
  endif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
 endif(WIN32)
 
+###############  BOOST LIBRARIES ###########
+set(BOOST_ROOT  "C:/local/boost_1_58_0")
+set(BOOST_LIBRARYDIR C:/local/boost_1_58_0/lib64-msvc-12.0)
+FIND_PACKAGE( Boost 1.58.0 REQUIRED  )
+INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
-#######################################
+message("BOOST_INCLUDE_DIRS=" ${BOOST_INCLUDE_DIRS})
+
+		#######################################
 # set directories, src and headers.
 # Get source from IMUSANT project.  This would be easier if we moved the source.
 # The source in the Segmentation folder probably needs separating into src and inc directories.
 
-set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT_Tests)
+set (IMUSANT_TESTS_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT_Tests)
+set (IMUSANT_DIR 	    	${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT)
+set (libIMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
+set (LOKI_DIR               ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
+set (SUFFIX_TREE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
+set (CATSMAT_DIR            ${CMAKE_CURRENT_SOURCE_DIR}/../../CATSMAT)    #### REVISIT really need to move IMUSANT_t_repeated_substring.h out of libIMUSANT
 
 set (SRCFOLDERS
-#		${IMUSANT_DIR}
-		${IMUSANT_DIR}/DomainObjects
-        ${IMUSANT_DIR}/Converters
-		${IMUSANT_DIR}/Utilities
+#		${IMUSANT_TESTS_DIR}
+		${IMUSANT_TESTS_DIR}/DomainObjects
+        ${IMUSANT_TESTS_DIR}/Converters
+		${IMUSANT_TESTS_DIR}/Utilities
 		)
 
 set (INCFOLDERS
-        ${IMUSANT_DIR}/Utilities
-        )
+		${libIMUSANT_DIR}
+		${IMUSANT_TESTS_DIR}/Utilities
+		${IMUSANT_DIR}/DomainObjects/inc
+		${IMUSANT_DIR}/Analysis/inc
+		${IMUSANT_DIR}/Analysis/src   #### REVISIT - really need to move these files ;-(
+		${IMUSANT_DIR}/Analysis/Segmentation
+		${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
+		${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
+		${IMUSANT_DIR}/MusicXML/inc
+		${IMUSANT_DIR}/Converters/MusicXML_v3
+		${LOKI_DIR}
+		${SUFFIX_TREE_DIR}
+		${CATSMAT_DIR})
 
-set(SRC ${SRC} "${IMUSANT_DIR}/main.cpp")
+set(SRC ${SRC}
+		${IMUSANT_TESTS_DIR}/main.cpp
+		${IMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_key_Tests.cpp)
 
 #[[   ====   REVISIT - Not building the actual tests at the moment. ======
 foreach(folder ${SRCFOLDERS})
@@ -70,14 +95,15 @@ file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 ]]
 
 foreach(folder ${INCFOLDERS})
-	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
+	set(HEADERS ${HEADERS} "${folder}/*.h")
+	set(HEADERS ${HEADERS} "${folder}/*.hpp")		# add header files
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
+#set(INCL ${INCL} "catsmat/libIMUSANT/")
 foreach(folder ${INCFOLDERS})
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
-
 
 #######################################
 # set includes
@@ -95,7 +121,7 @@ endif(APPLE OR MSVC)
 
 if(MSVC)
 	enable_language(RC)
-	# set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_DIR}/win32/libIMUSANT/libIMUSANT.rc)
+	set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_TESTS_DIR}/win32/libIMUSANT/libIMUSANT.rc)
 else(MSVC)
 	# set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
@@ -107,7 +133,10 @@ set_property(TARGET gtest-main PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtes
 
 add_executable(${target} ${SRC} )
 
+
 target_link_libraries(${target} gtest )
+target_link_libraries( ${target} ${Boost_LIBRARIES})
+
 
 set_target_properties (${target} PROPERTIES
 			FRAMEWORK TRUE

@@ -15,7 +15,7 @@
 
 #include <stdio.h>
 #include "boost/multi_array.hpp"
-#include "Loki/Visitor.h"
+#include "Visitor.h"
 #include "suffixtree.h"
 #include "IMUSANT_processing.h"
 #include "IMUSANT_t_repeated_substring.h"
@@ -24,6 +24,7 @@
 
 using namespace std;
 using namespace ns_suffixtree;
+using namespace Loki;
 
 //#define VERBOSE
 

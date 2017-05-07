@@ -10,8 +10,10 @@
 #define IMUSANT_vectormap_hpp
 
 #include <stdio.h>
-#include "Loki/Visitor.h"
+#include "Visitor.h"
 #include "IMUSANT_t_repeated_substring.h"
+
+using namespace Loki;
 
 namespace IMUSANT
 {
