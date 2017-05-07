@@ -19,6 +19,8 @@
 #include "gtest/gtest.h"
 #include <boost/filesystem.hpp>
 
+#define VERBOSE
+
 // The fixture for testing class CATSMAT_cp_matrix.
 class CATSMAT_TrigramSequences_Test : public ::testing::Test {
     
@@ -101,6 +103,11 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie) {
     the_matrix->Accept(theSequences);
     
     string the_sequences_as_string = testUtil.ConvertNGramSequencesToString(theSequences);
+    
+#ifdef VERBOSE
+    cout << "Diff for Triplet_Test_Actual and Triplet_Test_Expected" << endl;
+    testUtil.DiffActualAndExpected(the_sequences_as_string, TestScore_Josquin_MAF_Kyrie);
+#endif
     
     ASSERT_EQ(TestScore_Josquin_MAF_Kyrie, the_sequences_as_string);
 }

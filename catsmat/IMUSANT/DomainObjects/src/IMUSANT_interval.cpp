@@ -251,12 +251,14 @@ namespace IMUSANT
         if (first->name()!=IMUSANT_pitch::undefined && second->name()!=IMUSANT_pitch::undefined)
         {
             //Must account for octaves for compound intervals.
-            
             if (first->getTPC()==second->getTPC()) //if a unison or compound unison; 
             {
                 ret.fInterval = IMUSANT_interval::per1;
                 ret.fOctaves = abs(second->octave() - first->octave());
-                ret.fDirection = IMUSANT_interval::repeat;
+                if (ret.fOctaves == 0)
+                    ret.fDirection = IMUSANT_interval::repeat;
+                else
+                    ret.fDirection = ( second->octave() - first->octave() < 0 ? IMUSANT_interval::descending : IMUSANT_interval::ascending );
             }
             else if (*second>*first) //ascending interval
             {
@@ -332,11 +334,12 @@ namespace IMUSANT
                 break;
         }
         
+        if (fOctaves>0 & ret==0)
+            ret+=7;//ret+=7*fOctaves + 1; //convert to a compound interval
+        
         if (this->fDirection==descending)
             ret *= -1;
         
-        if (fOctaves>0 & ret==0)
-            ret+=7;//ret+=7*fOctaves + 1; //convert to a compound interval
         return ret;
     }
 

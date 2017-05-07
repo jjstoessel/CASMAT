@@ -227,7 +227,6 @@
 		496EF7001B22B06100FE715F /* IMUSANT_contour_symbol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */; };
 		496EF7011B22B06100FE715F /* IMUSANT_record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */; };
 		496EF7021B22B06100FE715F /* IMUSANT_interval_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */; };
-		496EF7051B22B06100FE715F /* IMUSANT_collectionvisitor.h in Sources */ = {isa = PBXBuildFile; fileRef = 965209850A4D1C94006AFD81 /* IMUSANT_collectionvisitor.h */; };
 		496EF7061B22B06100FE715F /* IMUSANT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC604920A76F8F8000C1DF9 /* IMUSANT_processing.cpp */; };
 		496EF70A1B22D2A000FE715F /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
 		496EF7161B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF7141B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp */; };
@@ -371,6 +370,8 @@
 		BA0CFB561EAC464A00FC4310 /* CATSMAT_canonic_techniques_tools_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9665C50C1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp */; };
 		BA0CFB581EAC465C00FC4310 /* CATSMAT_sonority_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 961789931D0BF49400DFB98A /* CATSMAT_sonority_sequences_Tests.cpp */; };
 		BA0CFB591EB5667500FC4310 /* Machaut-Ma_fin_est_mon_commencement.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA33CBC51D6FD7A8001B7FF3 /* Machaut-Ma_fin_est_mon_commencement.xml */; };
+		BA0CFB5C1EBBF12B00FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA0CFB5B1EBBEFB000FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */; };
+		BA0CFB5D1EBBF13300FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA0CFB5A1EBBEFB000FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */; };
 		BA10A5CD1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */; };
 		BA10A5D31D979F06000679C5 /* CATSMAT_partdata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5D11D979F06000679C5 /* CATSMAT_partdata.cpp */; };
 		BA10A5D91DA7503E000679C5 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */; };
@@ -522,6 +523,8 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				BA0CFB5D1EBBF13300FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml in CopyFiles */,
+				BA0CFB5C1EBBF12B00FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml in CopyFiles */,
 				BA0CFB591EB5667500FC4310 /* Machaut-Ma_fin_est_mon_commencement.xml in CopyFiles */,
 				BA5D583E1E90962800BFC95C /* Triplet-test.xml in CopyFiles */,
 				96E2173F1E7A95D300D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml in CopyFiles */,
@@ -1242,6 +1245,8 @@
 		96FE22F51E6EC6A900B4A87F /* IMUSANT_vectormap_analysis_types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = IMUSANT_vectormap_analysis_types.hpp; path = ../src/IMUSANT_vectormap_analysis_types.hpp; sourceTree = "<group>"; };
 		BA09CB951E025253005E9B29 /* CATSMAT_score_profile.tpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CATSMAT_score_profile.tpp; path = catsmat/CATSMAT_score_profile.tpp; sourceTree = SOURCE_ROOT; };
 		BA09CB961E025253005E9B29 /* CATSMAT_score_profile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CATSMAT_score_profile.hpp; path = catsmat/CATSMAT_score_profile.hpp; sourceTree = SOURCE_ROOT; };
+		BA0CFB5A1EBBEFB000FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Bononcini-RCM_canon_Musico_prattico_p105.xml"; path = "source_files/Bononcini-RCM_canon_Musico_prattico_p105.xml"; sourceTree = "<group>"; };
+		BA0CFB5B1EBBEFB000FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Cerreto-CM_canon_Della_prattica_musica_p222.xml"; path = "source_files/Cerreto-CM_canon_Della_prattica_musica_p222.xml"; sourceTree = "<group>"; };
 		BA10A5CB1D93A153000679C5 /* CATSMAT_scoredatacollector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_scoredatacollector.cpp; path = catsmat/CATSMAT_scoredatacollector.cpp; sourceTree = SOURCE_ROOT; };
 		BA10A5CC1D93A153000679C5 /* CATSMAT_scoredatacollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_scoredatacollector.h; path = catsmat/CATSMAT_scoredatacollector.h; sourceTree = SOURCE_ROOT; };
 		BA10A5CE1D93A40F000679C5 /* CATSMAT_scoredata.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_scoredata.cpp; path = catsmat/CATSMAT_scoredata.cpp; sourceTree = SOURCE_ROOT; };
@@ -1577,6 +1582,8 @@
 		1E2FA2C21B355A01002BB14F /* testdata */ = {
 			isa = PBXGroup;
 			children = (
+				BA0CFB5B1EBBEFB000FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */,
+				BA0CFB5A1EBBEFB000FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */,
 				1EDE2F161B3E0ACD00DB1BD0 /* source_files */,
 				1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */,
 				1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */,
@@ -3673,7 +3680,6 @@
 				496EF7001B22B06100FE715F /* IMUSANT_contour_symbol.cpp in Sources */,
 				496EF7011B22B06100FE715F /* IMUSANT_record.cpp in Sources */,
 				496EF7021B22B06100FE715F /* IMUSANT_interval_vector.cpp in Sources */,
-				496EF7051B22B06100FE715F /* IMUSANT_collectionvisitor.h in Sources */,
 				496EF7061B22B06100FE715F /* IMUSANT_processing.cpp in Sources */,
 				49CE2CE81E3C39CD00D13F22 /* IMUSANT_set_of_segment.cpp in Sources */,
 				496EF6DE1B22B05500FE715F /* IMUSANT_types.cpp in Sources */,
@@ -4004,7 +4010,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -4058,7 +4064,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
