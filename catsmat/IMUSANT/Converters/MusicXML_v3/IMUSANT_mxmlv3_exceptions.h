@@ -23,7 +23,7 @@ namespace IMUSANT
             m_what_arg = what_arg;
         }
         
-        const char * what () const noexcept     //  _NOEXCEPT
+        const char * what () const _NOEXCEPT
         {
             string msg =
                 "You are trying to use a MusicXML v3 element that has not been implemented: "
@@ -50,7 +50,7 @@ namespace IMUSANT
             m_what_arg = what_arg;
         }
         
-        const char * what () const noexcept     //  _NOEXCEPT
+        const char * what () const  _NOEXCEPT
         {
             string msg =
             "Unexpected element in IMUSANT_mxmlv3_to_imusant_visitor.  Element is: "

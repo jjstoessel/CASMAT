@@ -70,31 +70,31 @@ namespace IMUSANT
         typename vector<occurrence>::size_type num_occurrences() const;
         
         static string output_operator_help();
-//        friend ostream& operator<<(ostream& os, const IMUSANT_T_RepeatedSubstring<T>& substring)
-//        {
-//            //os << substring.sequence;
-//            os << "[";
-//            for (typename vector<T>::const_iterator ii = substring.sequence.begin(); ii != substring.sequence.end(); ++ii)
-//            {
-//                os << " " << *ii;
-//            }
-//            os << " ] ";
-//
-//            for (int index = 0; index < substring.occurrences.size(); index++)
-//            {
-//                typename IMUSANT_T_RepeatedSubstring<T>::occurrence occ;
-//                occ = substring.occurrences[index];
-//                os << "("
-//                << "MVT: " << occ.movement << ", "
-//                << "VCE: " << occ.voice << ", "
-//                << "MES: " << occ.measure << ", "
-//                << "IDX: " << occ.note_index << ") ";
-//            }
-//
-//            os << endl << endl;
-//
-//            return os;
-//        }
+        friend ostream& operator<<(ostream& os, const IMUSANT_T_RepeatedSubstring<T>& substring)
+        {
+            //os << substring.sequence;
+            os << "[";
+            for (typename vector<T>::const_iterator ii = substring.sequence.begin(); ii != substring.sequence.end(); ++ii)
+            {
+                os << " " << *ii;
+            }
+            os << " ] ";
+
+            for (int index = 0; index < substring.occurrences.size(); index++)
+            {
+                typename IMUSANT_T_RepeatedSubstring<T>::occurrence occ;
+                occ = substring.occurrences[index];
+                os << "("
+                << "MVT: " << occ.movement << ", "
+                << "VCE: " << occ.voice << ", "
+                << "MES: " << occ.measure << ", "
+                << "IDX: " << occ.note_index << ") ";
+            }
+
+            os << endl << endl;
+
+            return os;
+        }
     };
     
     //
