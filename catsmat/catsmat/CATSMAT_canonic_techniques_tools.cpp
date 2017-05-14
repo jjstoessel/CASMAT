@@ -4,7 +4,11 @@
 //
 //  Created by Jason James Stoessel on 10/03/2017.
 //
-//
+//  This class identifies all canonic relations between the parts of a composition, including
+//      - strict imitation, retrograde and contrary motion
+//      - the distance between the entries of successive parts
+//      - the rhythmic relationship between parts as a proportion or mensuration (to do)
+//  It compares parts melodically using generalised intervals.
 #include <algorithm>
 #include "CATSMAT_canonic_techniques_tools.hpp"
 #include "IMUSANT_segmented_part_fixed_period.h"
@@ -521,7 +525,7 @@ namespace CATSMAT
         << "Number of voices: " << type.number_of_voices_ << endl;
         for (CATSMAT_CanonType::CATSMAT_IOI_pair unit_count : type.ioi_pairs_)
         {
-            os << "IOI count: " << unit_count.second  << " (unit: " << unit_count.first << ")" << endl;
+            os << "IOI: " << unit_count.second  << " (unit: " << unit_count.first << ")" << endl;
         }
         //os
         //<< "IOI unit: " << type.ioi_unit_ << endl;
