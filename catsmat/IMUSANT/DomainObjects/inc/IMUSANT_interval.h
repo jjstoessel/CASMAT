@@ -75,9 +75,9 @@ namespace IMUSANT
         typedef int interval_type;
 
         enum quality { none = 0, perfect = 1, imperfect = (perfect<<1), dissonant = (perfect<<2), diminished = dissonant, augmented = dissonant, double_diminished = dissonant, double_augmented = dissonant  };
-        enum direction { descending=-1, repeat=0, ascending = 1, vertical_bottomtotop };
+        enum direction : int { descending=-1, repeat=0, ascending = 1, vertical_bottomtotop };
         // basic interval types
-        enum basic { unison = 0, second=1, third, fourth, fifth, sixth, seventh };
+        enum basic : int { unison = 0, second=1, third, fourth, fifth, sixth, seventh };
         
         friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval();
         friend IMUSANT_SMARTP<IMUSANT_interval> new_IMUSANT_interval(const S_IMUSANT_pitch previous, const S_IMUSANT_pitch current);

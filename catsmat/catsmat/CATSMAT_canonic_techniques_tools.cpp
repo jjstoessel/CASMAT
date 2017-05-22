@@ -9,7 +9,11 @@
 //      - the distance between the entries of successive parts
 //      - the rhythmic relationship between parts as a proportion or mensuration (to do)
 //  It compares parts melodically using generalised intervals.
+
 #include <algorithm>
+#include <numeric>
+#include <set>
+
 #include "CATSMAT_canonic_techniques_tools.hpp"
 #include "IMUSANT_segmented_part_fixed_period.h"
 #include "IMUSANT_interval_vector.h"
@@ -436,13 +440,59 @@ namespace CATSMAT
         return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
     }
     
+    //looks at proportional relationship between all notes in two canonic parts
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsProportionalCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, TRational& result, double error_threshold)
+    IsProportionalCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, TRational& result, double error_threshold, bool retrograde)
     {
-        result.set(1,1);
+        std::vector<TRational> diff;
+        std::map<TRational,int> diff_count;
+
+        IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
+        IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
         
-        return false; // does nothing for now
+        auto first_part_iter = part_one_notes.begin() + first_part.EntryVectorIndexPosition;
+        
+        int num_non_matching_notes = 0;
+        
+        if (retrograde)
+        {
+            std::transform(first_part_iter, first_part_iter + (part_two_notes.size() - second_part.EntryVectorIndexPosition - 1), part_two_notes.rbegin(), std::inserter(diff, diff.begin()), IsProportionalCanonBinaryOperator);
+            
+        }
+        else
+        {
+            std::transform(first_part_iter, first_part_iter + (part_two_notes.size() - second_part.EntryVectorIndexPosition - 1), part_two_notes.begin() + second_part.EntryVectorIndexPosition, std::inserter(diff, diff.begin()), IsProportionalCanonBinaryOperator);
+        }
+        
+        //make a table of proportions
+        for (auto diff_i = diff.begin(); diff_i!=diff.end(); diff_i++)
+        {
+            diff_count[*diff_i] = diff_count[*diff_i] + 1;
+        }
+        
+        //find the most frequent proportion (can be 1/1, but only when not "strict") and determine if there is an acceptable threshold for the number of non-matching notes
+        //a similar process might be used to find mensuration canons, ranking "proportions" by frequency.
+        auto max_diff_i = std::max_element(diff_count.begin(), diff_count.end(),
+                                           [](const pair<TRational,int>& p1, const pair<TRational,int>& p2)
+                                            {
+                                                return p1.second < p2.second;
+                                            });
+        
+        result = max_diff_i->first;
+        num_non_matching_notes = (int)diff.size() - max_diff_i->second;
+        
+        return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold, num_non_matching_notes, part_one_notes.size()); // does nothing for now
+    }
+    
+    //static predicate function
+    TRational
+    CATSMAT_CanonicTechniquesTools::
+    IsProportionalCanonBinaryOperator(S_IMUSANT_note& first, const S_IMUSANT_note& second)
+    {
+        TRational r = first->duration()->duration() / second->duration()->duration();
+        r.rationalise();
+        return r;
     }
     
     bool

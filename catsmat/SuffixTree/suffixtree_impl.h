@@ -481,7 +481,7 @@ suffixtree_impl<V>::node::find_shared_nodes(vector< pair<vector<number>, int> > 
 	
 	if (path_length>=length)
 	{
-		pair <vector<typename suffixtree_impl<V>::number>,int> res;
+		pair <vector<typename suffixtree_impl<V>::number>,size_type> res;
 		res.first=leaves;
 		res.second=path_length;
 		results.push_back(res);

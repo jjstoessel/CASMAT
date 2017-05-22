@@ -59,6 +59,7 @@ namespace CATSMAT
         }
     }
     
+    //depricated by FindRepeatedTrigramSequences
     void
     CATSMAT_processing::
     FindRepeatedDyadtupleSequences(int min)

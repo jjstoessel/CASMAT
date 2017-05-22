@@ -1854,11 +1854,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_techniques_tools.cpp"
-            timestampString = "515820986.654445"
+            timestampString = "517129274.229702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "496"
-            endingLineNumber = "496"
+            startingLineNumber = "546"
+            endingLineNumber = "546"
             landmarkName = "CATSMAT_CanonicTechniquesTools:: CalculateIOIUnit(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1877,38 +1877,6 @@
             endingLineNumber = "472"
             landmarkName = "TEST_F(IMUSANT_duration_Tests, Duration_additionOperator_equalityOperator_WithTimeMod)"
             landmarkType = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IMUSANT_duration_Tests_Duration_additionOperator_equalityOperator_WithTimeMod_Test::TestBody()"
-                  moduleName = "IMUSANT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/IMUSANT_Tests/DomainObjects/IMUSANT_duration_Tests.cpp"
-                  timestampString = "516422307.174158"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "472"
-                  endingLineNumber = "472"
-                  offsetFromSymbolStart = "5661">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IMUSANT_duration_Tests_Duration_additionOperator_equalityOperator_WithTimeMod_Test::TestBody()"
-                  moduleName = "IMUSANT_Tests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/IMUSANT_Tests/DomainObjects/IMUSANT_duration_Tests.cpp"
-                  timestampString = "516422307.176237"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "472"
-                  endingLineNumber = "472"
-                  offsetFromSymbolStart = "5766">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1978,7 +1946,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CATSMAT_Tests/CATSMAT_canonic_techniques_tools_tests.cpp"
@@ -2014,11 +1982,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_techniques_tools.cpp"
-            timestampString = "515814826.210742"
+            timestampString = "517122393.121482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "CATSMAT_CanonicTechniquesTools:: Detect_Canon_Type(IMUSANT_PartEntry&amp; first_part, IMUSANT_PartEntry&amp; second_part, double error_threshold)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2246,11 +2214,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CATSMAT_canonic_techniques_tools.cpp"
-            timestampString = "515820986.654445"
+            timestampString = "517122393.121482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "427"
-            endingLineNumber = "427"
+            startingLineNumber = "431"
+            endingLineNumber = "431"
             landmarkName = "CATSMAT_CanonicTechniquesTools:: IsRetrogradeContraryMotion(const IMUSANT_PartEntry&amp; first_part, const IMUSANT_PartEntry&amp; second_part, double error_threshold)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2301,6 +2269,38 @@
             endingLineNumber = "212"
             landmarkName = "compute_supermax(const typename suffixtree_impl&lt;V&gt;::node* n, int min_percent, int min_length, list&lt;repeats&lt;V&gt;::supermax_node*&gt;&amp; max_list)"
             landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_canonic_techniques_tools.cpp"
+            timestampString = "517128699.315078"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
+            landmarkName = "CATSMAT_CanonicTechniquesTools:: IsProportionalCanon(const IMUSANT_PartEntry&amp; first_part, const IMUSANT_PartEntry&amp; second_part, TRational&amp; result, double error_threshold, bool retrograde)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CATSMAT_canonic_techniques_tools.cpp"
+            timestampString = "517129274.229702"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
+            landmarkName = "CATSMAT_CanonicTechniquesTools:: IsProportionalCanon(const IMUSANT_PartEntry&amp; first_part, const IMUSANT_PartEntry&amp; second_part, TRational&amp; result, double error_threshold, bool retrograde)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
