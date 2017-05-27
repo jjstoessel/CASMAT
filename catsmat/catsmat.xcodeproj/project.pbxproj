@@ -1333,7 +1333,6 @@
 		08FB7795FE84155DC02AAC07 /* IMUSANT */ = {
 			isa = PBXGroup;
 			children = (
-				4970E0141B76B4F40052496C /* Analysis */,
 			);
 			path = IMUSANT;
 			sourceTree = "<group>";
@@ -1543,6 +1542,7 @@
 		496EF6BD1B22B01700FE715F /* libIMUSANT */ = {
 			isa = PBXGroup;
 			children = (
+				4970E0141B76B4F40052496C /* Analysis */,
 				49BAF94C1ED920ED000C84C4 /* FileProcessing */,
 				4970E0071B7586870052496C /* Converters */,
 				4970E0061B7586640052496C /* DomainObjects */,
