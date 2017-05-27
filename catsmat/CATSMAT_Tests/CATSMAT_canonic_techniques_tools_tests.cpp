@@ -12,7 +12,7 @@
 #include "gtest/gtest.h"
 #include "CATSMAT_canonic_techniques_tools.h"
 
-#include "CATSMAT_canonic_techniques_tools_expected.hpp"
+#include "CATSMAT_canonic_techniques_tools_expected.h"
 
 // The fixture for testing class CATSMAT_cp_matrix.
 class CATSMAT_Canonic_Tools_Test : public ::testing::Test {

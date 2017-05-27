@@ -674,6 +674,7 @@
 		49BAF9F51ED94721000C84C4 /* CATSMAT_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_exception.h; path = catsmat/Utilities/CATSMAT_exception.h; sourceTree = SOURCE_ROOT; };
 		49BAF9F61ED94721000C84C4 /* CATSMAT_t_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_t_utilities.h; path = catsmat/Utilities/CATSMAT_t_utilities.h; sourceTree = SOURCE_ROOT; };
 		49BAF9F71ED94721000C84C4 /* CATSMAT_visitable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_visitable.h; path = catsmat/Utilities/CATSMAT_visitable.h; sourceTree = SOURCE_ROOT; };
+		49BAF9F81ED9498A000C84C4 /* CATSMAT_canonic_techniques_tools_expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_canonic_techniques_tools_expected.h; sourceTree = "<group>"; };
 		49C80C001BA4E5C800DCA903 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		49C80C021BA4E5C800DCA903 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
 		49C80C041BA4E5C800DCA903 /* direction.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = direction.gif; sourceTree = "<group>"; };
@@ -1051,7 +1052,6 @@
 		965209A40A4D1E8B006AFD81 /* IMUSANT_interval_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval_vector.h; sourceTree = "<group>"; };
 		965209A50A4D1E8B006AFD81 /* IMUSANT_interval_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_vector.cpp; sourceTree = "<group>"; };
 		9665C50C1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_canonic_techniques_tools_tests.cpp; sourceTree = "<group>"; };
-		9665C50D1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_expected.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CATSMAT_canonic_techniques_tools_expected.hpp; sourceTree = "<group>"; };
 		96752E631E78096600399B4E /* Ciconia-La_ray_au_soleyl_simplified.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ciconia-La_ray_au_soleyl_simplified.xml"; sourceTree = "<group>"; };
 		9695B52F1DE082BE000586D0 /* IMUSANT_generalised_interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_generalised_interval.h; sourceTree = "<group>"; };
 		9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generalised_interval.cpp; sourceTree = "<group>"; };
@@ -1489,8 +1489,8 @@
 				BA10A5D61DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp */,
 				96CC66C81DEAF5B400E2F7FB /* CATSMAT_trigramsequences_expected.h */,
 				96CC66C91DEAF5B400E2F7FB /* CATSMAT_trigramsequences_tests.cpp */,
-				9665C50D1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_expected.hpp */,
 				9665C50C1E724F0A00947C15 /* CATSMAT_canonic_techniques_tools_tests.cpp */,
+				49BAF9F81ED9498A000C84C4 /* CATSMAT_canonic_techniques_tools_expected.h */,
 			);
 			path = CATSMAT_Tests;
 			sourceTree = "<group>";
