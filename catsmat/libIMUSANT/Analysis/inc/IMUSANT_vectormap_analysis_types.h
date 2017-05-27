@@ -10,7 +10,7 @@
 #define IMUSANT_VectorMapAnalysisTypes_hpp
 
 #include <stdio.h>
-#include "IMUSANT_t_vectormap_analysis.hpp"
+#include "IMUSANT_t_vectormap_analysis.h"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_processing.h"
 #include "IMUSANT_contour_symbol.h"

@@ -141,9 +141,6 @@
 		49BAF9431ED91D01000C84C4 /* IMUSANT_repeated_interval_substring.h in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF9161ED91C6A000C84C4 /* IMUSANT_repeated_interval_substring.h */; };
 		49BAF9441ED91D0D000C84C4 /* IMUSANT_t_repeated_substring.h in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF9181ED91C6A000C84C4 /* IMUSANT_t_repeated_substring.h */; };
 		49BAF9451ED91D10000C84C4 /* IMUSANT_t_suffixtree_builder.h in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF9191ED91C6A000C84C4 /* IMUSANT_t_suffixtree_builder.h */; };
-		49BAF9461ED91D10000C84C4 /* IMUSANT_t_vectormap_analysis.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF91A1ED91C6A000C84C4 /* IMUSANT_t_vectormap_analysis.hpp */; };
-		49BAF9471ED91D10000C84C4 /* IMUSANT_t_vectormap.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF91B1ED91C6A000C84C4 /* IMUSANT_t_vectormap.hpp */; };
-		49BAF9481ED91D10000C84C4 /* IMUSANT_vectormap_analysis_types.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF91C1ED91C6A000C84C4 /* IMUSANT_vectormap_analysis_types.hpp */; };
 		49BAF9501ED9213E000C84C4 /* IMUSANT_processing.h in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF94F1ED9213E000C84C4 /* IMUSANT_processing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49BAF9521ED92149000C84C4 /* IMUSANT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9511ED92149000C84C4 /* IMUSANT_processing.cpp */; };
 		49BAF95F1ED929B1000C84C4 /* IMUSANT_segment_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4926075F1DD11F8C007C8A54 /* IMUSANT_segment_Tests.cpp */; };
@@ -196,6 +193,9 @@
 		49BAF9F11ED945E4000C84C4 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DA1ED94599000C84C4 /* CATSMAT_sonority_sequences.cpp */; };
 		49BAF9F21ED945E4000C84C4 /* CATSMAT_TrigramSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DB1ED94599000C84C4 /* CATSMAT_TrigramSequences.cpp */; };
 		49BAF9F31ED945E4000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DC1ED94599000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
+		49BAF9FC1ED94A3F000C84C4 /* IMUSANT_t_vectormap_analysis.h in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF9F91ED94A3F000C84C4 /* IMUSANT_t_vectormap_analysis.h */; };
+		49BAF9FD1ED94A3F000C84C4 /* IMUSANT_t_vectormap.h in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF9FA1ED94A3F000C84C4 /* IMUSANT_t_vectormap.h */; };
+		49BAF9FE1ED94A3F000C84C4 /* IMUSANT_vectormap_analysis_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 49BAF9FB1ED94A3F000C84C4 /* IMUSANT_vectormap_analysis_types.h */; };
 		49C80D941BA4E71300DCA903 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D021BA4E5C900DCA903 /* factory.cpp */; };
 		49C80D951BA4E71300DCA903 /* unrolled_xml_tree_browser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D0D1BA4E5C900DCA903 /* unrolled_xml_tree_browser.cpp */; };
 		49C80D961BA4E71300DCA903 /* versions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D0F1BA4E5C900DCA903 /* versions.cpp */; };
@@ -618,9 +618,6 @@
 		49BAF9171ED91C6A000C84C4 /* IMUSANT_SuffixTreeBuilder.tpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMUSANT_SuffixTreeBuilder.tpp; sourceTree = "<group>"; };
 		49BAF9181ED91C6A000C84C4 /* IMUSANT_t_repeated_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_repeated_substring.h; sourceTree = "<group>"; };
 		49BAF9191ED91C6A000C84C4 /* IMUSANT_t_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_suffixtree_builder.h; sourceTree = "<group>"; };
-		49BAF91A1ED91C6A000C84C4 /* IMUSANT_t_vectormap_analysis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap_analysis.hpp; sourceTree = "<group>"; };
-		49BAF91B1ED91C6A000C84C4 /* IMUSANT_t_vectormap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_t_vectormap.hpp; sourceTree = "<group>"; };
-		49BAF91C1ED91C6A000C84C4 /* IMUSANT_vectormap_analysis_types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IMUSANT_vectormap_analysis_types.hpp; sourceTree = "<group>"; };
 		49BAF91D1ED91C7F000C84C4 /* IMUSANT_contour_suffixtree_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_contour_suffixtree_builder.cpp; sourceTree = "<group>"; };
 		49BAF91E1ED91C7F000C84C4 /* IMUSANT_generalised_interval_suffixtree_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generalised_interval_suffixtree_builder.cpp; sourceTree = "<group>"; };
 		49BAF91F1ED91C7F000C84C4 /* IMUSANT_interval_suffixtree_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_suffixtree_builder.cpp; sourceTree = "<group>"; };
@@ -675,6 +672,9 @@
 		49BAF9F61ED94721000C84C4 /* CATSMAT_t_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_t_utilities.h; path = catsmat/Utilities/CATSMAT_t_utilities.h; sourceTree = SOURCE_ROOT; };
 		49BAF9F71ED94721000C84C4 /* CATSMAT_visitable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_visitable.h; path = catsmat/Utilities/CATSMAT_visitable.h; sourceTree = SOURCE_ROOT; };
 		49BAF9F81ED9498A000C84C4 /* CATSMAT_canonic_techniques_tools_expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_canonic_techniques_tools_expected.h; sourceTree = "<group>"; };
+		49BAF9F91ED94A3F000C84C4 /* IMUSANT_t_vectormap_analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_vectormap_analysis.h; sourceTree = "<group>"; };
+		49BAF9FA1ED94A3F000C84C4 /* IMUSANT_t_vectormap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_vectormap.h; sourceTree = "<group>"; };
+		49BAF9FB1ED94A3F000C84C4 /* IMUSANT_vectormap_analysis_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_vectormap_analysis_types.h; sourceTree = "<group>"; };
 		49C80C001BA4E5C800DCA903 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		49C80C021BA4E5C800DCA903 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
 		49C80C041BA4E5C800DCA903 /* direction.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = direction.gif; sourceTree = "<group>"; };
@@ -1597,6 +1597,9 @@
 		4970E0151B76B5040052496C /* inc */ = {
 			isa = PBXGroup;
 			children = (
+				49BAF9F91ED94A3F000C84C4 /* IMUSANT_t_vectormap_analysis.h */,
+				49BAF9FA1ED94A3F000C84C4 /* IMUSANT_t_vectormap.h */,
+				49BAF9FB1ED94A3F000C84C4 /* IMUSANT_vectormap_analysis_types.h */,
 				49BAF9111ED91C6A000C84C4 /* IMUSANT_contour_suffixtree_builder.h */,
 				49BAF9121ED91C6A000C84C4 /* IMUSANT_generalised_interval_suffixtree_builder.h */,
 				49BAF9131ED91C6A000C84C4 /* IMUSANT_interval_suffixtree_builder.h */,
@@ -1605,9 +1608,6 @@
 				49BAF9171ED91C6A000C84C4 /* IMUSANT_SuffixTreeBuilder.tpp */,
 				49BAF9181ED91C6A000C84C4 /* IMUSANT_t_repeated_substring.h */,
 				49BAF9191ED91C6A000C84C4 /* IMUSANT_t_suffixtree_builder.h */,
-				49BAF91A1ED91C6A000C84C4 /* IMUSANT_t_vectormap_analysis.hpp */,
-				49BAF91B1ED91C6A000C84C4 /* IMUSANT_t_vectormap.hpp */,
-				49BAF91C1ED91C6A000C84C4 /* IMUSANT_vectormap_analysis_types.hpp */,
 			);
 			path = inc;
 			sourceTree = "<group>";
@@ -2874,18 +2874,18 @@
 				49BAF9441ED91D0D000C84C4 /* IMUSANT_t_repeated_substring.h in Headers */,
 				49BAF8A51ED90575000C84C4 /* IMUSANT_pitch.h in Headers */,
 				49BAF8A61ED90575000C84C4 /* IMUSANT_transposer.h in Headers */,
-				49BAF9481ED91D10000C84C4 /* IMUSANT_vectormap_analysis_types.hpp in Headers */,
 				49BAF9501ED9213E000C84C4 /* IMUSANT_processing.h in Headers */,
 				49CE2CE91E3C39CD00D13F22 /* IMUSANT_set_of_segment.h in Headers */,
 				49BAF9451ED91D10000C84C4 /* IMUSANT_t_suffixtree_builder.h in Headers */,
 				49BAF8AF1ED90575000C84C4 /* IMUSANT_score.h in Headers */,
 				49BAF8AA1ED90575000C84C4 /* IMUSANT_record.h in Headers */,
 				49BAF93F1ED91CF3000C84C4 /* IMUSANT_generalised_interval_suffixtree_builder.h in Headers */,
-				49BAF9461ED91D10000C84C4 /* IMUSANT_t_vectormap_analysis.hpp in Headers */,
 				BA1E393E1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h in Headers */,
 				4920C1661E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.h in Headers */,
+				49BAF9FC1ED94A3F000C84C4 /* IMUSANT_t_vectormap_analysis.h in Headers */,
 				49064B8F1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.h in Headers */,
 				49BAF8B41ED90575000C84C4 /* IMUSANT_visitor.h in Headers */,
+				49BAF9FD1ED94A3F000C84C4 /* IMUSANT_t_vectormap.h in Headers */,
 				49BAF89D1ED90470000C84C4 /* IMUSANT_mxmlv3_exceptions.h in Headers */,
 				49BAF8AE1ED90575000C84C4 /* IMUSANT_partlist.h in Headers */,
 				49BAF8A11ED90575000C84C4 /* IMUSANT_types.h in Headers */,
@@ -2893,13 +2893,13 @@
 				49BAF8A21ED90575000C84C4 /* IMUSANT_common.h in Headers */,
 				1EE08A4D1D8CE49600503B29 /* IMUSANT_segmented_note_vectors.h in Headers */,
 				49BAF8A81ED90575000C84C4 /* IMUSANT_chord.h in Headers */,
+				49BAF9FE1ED94A3F000C84C4 /* IMUSANT_vectormap_analysis_types.h in Headers */,
 				49BAF8AC1ED90575000C84C4 /* IMUSANT_key.h in Headers */,
 				49BAF8AD1ED90575000C84C4 /* IMUSANT_part.h in Headers */,
 				496BD4E21D3239630052F94E /* IMUSANT_consolidated_interval_profile_LBDM.h in Headers */,
 				1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */,
 				49BAF8B01ED90575000C84C4 /* IMUSANT_generalised_interval.h in Headers */,
 				49BAF89F1ED90575000C84C4 /* IMUSANT_conversions.h in Headers */,
-				49BAF9471ED91D10000C84C4 /* IMUSANT_t_vectormap.hpp in Headers */,
 				49BAF9411ED91CF9000C84C4 /* IMUSANT_pitch_suffixtree_builder.h in Headers */,
 				4926075E1DD11E24007C8A54 /* IMUSANT_segment.h in Headers */,
 				49BAF9431ED91D01000C84C4 /* IMUSANT_repeated_interval_substring.h in Headers */,

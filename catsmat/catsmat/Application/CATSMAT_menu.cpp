@@ -18,7 +18,7 @@
 #include "IMUSANT_contour_suffixtree_builder.h"
 #include "IMUSANT_LBDM_segmenter.h"
 #include "CATSMAT_scoredatacollector.h"
-#include "IMUSANT_vectormap_analysis_types.hpp"
+#include "IMUSANT_vectormap_analysis_types.h"
 
 using namespace std;
 using namespace CATSMAT;

@@ -18,7 +18,7 @@
 #include "IMUSANT_contour_suffixtree_builder.h"
 #include "IMUSANT_pitch_suffixtree_builder.h"
 #include "IMUSANT_LBDM_segmenter.h"
-#include "IMUSANT_vectormap_analysis_types.hpp"
+#include "IMUSANT_vectormap_analysis_types.h"
 
 // #define VERBOSE //toggle for verbose output
 

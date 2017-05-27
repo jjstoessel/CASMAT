@@ -19,7 +19,7 @@
 #include "suffixtree.h"
 #include "IMUSANT_processing.h"
 #include "IMUSANT_t_repeated_substring.h"
-#include "IMUSANT_t_vectormap.hpp"
+#include "IMUSANT_t_vectormap.h"
 #include "repeats.h"
 
 using namespace std;

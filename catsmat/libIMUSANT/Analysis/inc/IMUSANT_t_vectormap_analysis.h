@@ -14,7 +14,7 @@
 
 #include "boost/multi_array.hpp"
 
-#include "IMUSANT_t_vectormap.hpp"
+#include "IMUSANT_t_vectormap.h"
 #include "IMUSANT_t_repeated_substring.h"
 
 namespace IMUSANT

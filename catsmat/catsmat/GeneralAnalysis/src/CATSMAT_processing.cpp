@@ -21,7 +21,7 @@
 #include "CATSMAT_TrigramSuffixTreeBuilder.h"
 #include "CATSMAT_canonic_techniques_tools.h"
 #include "CATSMAT_scoredata.h"
-#include "IMUSANT_vectormap_analysis_types.hpp"
+#include "IMUSANT_vectormap_analysis_types.h"
 
 using namespace std;
 using namespace boost;
