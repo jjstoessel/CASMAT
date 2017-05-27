@@ -18,19 +18,19 @@ if(UNIX)
 	add_definitions(-Wall -DGCC)
 endif(UNIX)
 
-if(APPLE)
-	set (CMAKE_OSX_ARCHITECTURES "x86_64 i386")
-	if (${CMAKE_SYSTEM_VERSION} VERSION_LESS 9.0.0)
-		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.4u.sdk)
-	elseif (${CMAKE_SYSTEM_VERSION} VERSION_LESS 10.8.0)
-		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk)
-	elseif (${XCODE_VERSION} VERSION_LESS 4.0.0)
-		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.6.sdk)
-	else ()
-		set (CMAKE_OSX_SYSROOT "macosx10.7")
-	endif ()
-	set (CMAKE_C++_FLAGS -mmacosx-version-min=10.4)
-endif(APPLE)
+#if(APPLE)
+#	set (CMAKE_OSX_ARCHITECTURES "x86_64 i386")
+#	if (${CMAKE_SYSTEM_VERSION} VERSION_LESS 9.0.0)
+#		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.4u.sdk)
+#	elseif (${CMAKE_SYSTEM_VERSION} VERSION_LESS 10.8.0)
+#		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk)
+#	elseif (${XCODE_VERSION} VERSION_LESS 4.0.0)
+#		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.6.sdk)
+#	else ()
+#		set (CMAKE_OSX_SYSROOT "macosx10.7")
+#	endif ()
+#	set (CMAKE_C++_FLAGS -mmacosx-version-min=10.4)
+#endif(APPLE)
 
 if(WIN32)
  add_definitions(-DWINVER=0x0400 -DWIN32)
@@ -42,14 +42,38 @@ if(WIN32)
 endif(WIN32)
 
 ###############  BOOST LIBRARIES ###########
-set(BOOST_ROOT  "C:/local/boost_1_58_0")
-set(BOOST_LIBRARYDIR C:/local/boost_1_58_0/lib64-msvc-12.0)
+if (APPLE)
+	set(BOOST_ROOT "/usr/local/boost")
+	set(BOOST_LIBRARYDIR /usr/local/boost/lib)
+else ()
+	set(BOOST_ROOT "C:/local/boost_1_58_0")
+	set(BOOST_LIBRARYDIR C:/local/boost_1_58_0/lib64-msvc-12.0)
+endif ()
+
+
 FIND_PACKAGE( Boost 1.58.0 REQUIRED  )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
-message("BOOST_INCLUDE_DIRS=" ${BOOST_INCLUDE_DIRS})
 
-		#######################################
+###############  GTEST LIBRARIES ###########
+if (APPLE)
+	set(GTEST_ROOT "/Library/Frameworks/gtest.framework/gtest")
+	set(GTEST_INCLUDE_DIR "/Library/Frameworks/gtest.framework/Headers")
+
+else ()
+	set(GTEST_ROOT "C:/Development/googletest-master/googletest-master/cmake-build-debug/googlemock/gtest")
+	set(GTEST_INCLUDE_DIR "C:/Development/googletest-master/googletest-master/googletest/include/")
+endif ()
+
+message("GTEST_ROOT=" ${GTEST_ROOT})
+
+FIND_PACKAGE( GTEST REQUIRED  )
+include_directories(${GTEST_INCLUDE_DIR})
+
+
+
+
+#######################################
 # set directories, src and headers.
 # Get source from IMUSANT project.  This would be easier if we moved the source.
 # The source in the Segmentation folder probably needs separating into src and inc directories.
@@ -126,10 +150,10 @@ else(MSVC)
 	# set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
-add_library(gtest STATIC IMPORTED)
-add_library(gtest-main STATIC IMPORTED)
-set_property(TARGET gtest PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtest.a")
-set_property(TARGET gtest-main PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtest_main.a")
+#add_library(gtest STATIC IMPORTED)
+#add_library(gtest-main STATIC IMPORTED)
+#set_property(TARGET gtest PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtest.a")
+#set_property(TARGET gtest-main PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtest_main.a")
 
 add_executable(${target} ${SRC} )
 
