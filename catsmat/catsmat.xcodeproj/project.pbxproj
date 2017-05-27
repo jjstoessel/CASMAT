@@ -52,9 +52,9 @@
 		49394E871CDD83E600EC7D84 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49394E861CDD83CC00EC7D84 /* LBDM_Segmented_Part_Test_3.xml */; };
 		49394E891CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49394E881CDD8DBB00EC7D84 /* IMUSANT_interval_profile_LBDM_Tests.cpp */; };
 		494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */; };
-		4959E1371CF13BE300FAC403 /* exports.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1301CF13BE300FAC403 /* exports.h */; };
-		4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1311CF13BE300FAC403 /* smartpointer.h */; };
-		4959E1391CF13BE300FAC403 /* TRational.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1321CF13BE300FAC403 /* TRational.h */; };
+		4959E1371CF13BE300FAC403 /* exports.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1301CF13BE300FAC403 /* exports.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1311CF13BE300FAC403 /* smartpointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4959E1391CF13BE300FAC403 /* TRational.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1321CF13BE300FAC403 /* TRational.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4959E13A1CF13BE300FAC403 /* smartpointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4959E1341CF13BE300FAC403 /* smartpointer.cpp */; };
 		4959E13B1CF13BE300FAC403 /* TRational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4959E1351CF13BE300FAC403 /* TRational.cpp */; };
 		495A50251CA5ABFC006985E2 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495A50231CA5A3A5006985E2 /* LBDM_Segmented_Part_Test_1.xml */; };
@@ -1325,7 +1325,6 @@
 		08FB7795FE84155DC02AAC07 /* IMUSANT */ = {
 			isa = PBXGroup;
 			children = (
-				4959E12D1CF13BE300FAC403 /* MusicXML */,
 				4970E0141B76B4F40052496C /* Analysis */,
 			);
 			path = IMUSANT;
@@ -1538,6 +1537,7 @@
 			children = (
 				4970E0071B7586870052496C /* Converters */,
 				4970E0061B7586640052496C /* DomainObjects */,
+				4959E12D1CF13BE300FAC403 /* MusicXML */,
 				496EF6BE1B22B01700FE715F /* libIMUSANT.h */,
 				496EF6C01B22B01700FE715F /* libIMUSANTPriv.h */,
 				496EF6C21B22B01700FE715F /* libIMUSANT.cp */,
@@ -2817,28 +2817,28 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4959E1391CF13BE300FAC403 /* TRational.h in Headers */,
+				4959E1371CF13BE300FAC403 /* exports.h in Headers */,
+				4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */,
 				49BAF89E1ED90473000C84C4 /* IMUSANT_mxmlv3_to_imusant_visitor.h in Headers */,
 				49CE2CE51E3C33F900D13F22 /* IMUSANT_fixed_period_segmenter.h in Headers */,
 				49BAF8A31ED90575000C84C4 /* IMUSANT_comment.h in Headers */,
 				49BAF8A41ED90575000C84C4 /* IMUSANT_duration.h in Headers */,
 				49BAF8A91ED90575000C84C4 /* IMUSANT_barline.h in Headers */,
 				496EF6BF1B22B01700FE715F /* libIMUSANT.h in Headers */,
+				49BAF8B51ED90575000C84C4 /* IMUSANT_collectionvisitor.h in Headers */,
+				49BAF8B31ED90575000C84C4 /* IMUSANT_interval_vector.h in Headers */,
+				49BAF8A71ED90575000C84C4 /* IMUSANT_note.h in Headers */,
+				49BAF8AB1ED90575000C84C4 /* IMUSANT_measure.h in Headers */,
+				49BAF8A01ED90575000C84C4 /* IMUSANT_element.h in Headers */,
+				49BAF8B21ED90575000C84C4 /* IMUSANT_contour_symbol.h in Headers */,
+				49BAF8A51ED90575000C84C4 /* IMUSANT_pitch.h in Headers */,
 				49BAF8A61ED90575000C84C4 /* IMUSANT_transposer.h in Headers */,
 				49CE2CE91E3C39CD00D13F22 /* IMUSANT_set_of_segment.h in Headers */,
 				496EF6C11B22B01700FE715F /* libIMUSANTPriv.h in Headers */,
 				49BAF8AF1ED90575000C84C4 /* IMUSANT_score.h in Headers */,
 				49BAF8AA1ED90575000C84C4 /* IMUSANT_record.h in Headers */,
-				4959E1391CF13BE300FAC403 /* TRational.h in Headers */,
-				4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */,
-				49BAF8B51ED90575000C84C4 /* IMUSANT_collectionvisitor.h in Headers */,
-				49BAF8A71ED90575000C84C4 /* IMUSANT_note.h in Headers */,
-				49BAF8B31ED90575000C84C4 /* IMUSANT_interval_vector.h in Headers */,
-				49BAF8AB1ED90575000C84C4 /* IMUSANT_measure.h in Headers */,
-				4959E1371CF13BE300FAC403 /* exports.h in Headers */,
-				49BAF8A01ED90575000C84C4 /* IMUSANT_element.h in Headers */,
 				BA1E393E1D24E24E0052E616 /* IMUSANT_LBDM_segmenter.h in Headers */,
-				49BAF8B21ED90575000C84C4 /* IMUSANT_contour_symbol.h in Headers */,
-				49BAF8A51ED90575000C84C4 /* IMUSANT_pitch.h in Headers */,
 				4920C1661E133C7B00577FC6 /* IMUSANT_partlist_ordered_by_part_entry.h in Headers */,
 				49064B8F1D83E7F800865892 /* IMUSANT_weighted_strength_vectors.h in Headers */,
 				49BAF8B41ED90575000C84C4 /* IMUSANT_visitor.h in Headers */,
