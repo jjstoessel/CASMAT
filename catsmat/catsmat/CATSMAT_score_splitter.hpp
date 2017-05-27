@@ -2,7 +2,7 @@
 //  CATSMAT_score_splitter.hpp
 //  catsmat
 //
-//  Created by Jason James Stoessel on 22/03/2017.
+//  Created by Jason Stoessel on 22/03/2017.
 //
 //
 

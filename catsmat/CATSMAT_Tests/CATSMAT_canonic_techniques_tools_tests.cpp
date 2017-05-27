@@ -152,3 +152,22 @@ TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Bononcini_RCM_canon) {
     
     ASSERT_EQ(TestScore_Bononcini_RCM_canon_Expected, the_types_as_string);
 }
+
+//test for proportional canon
+//Du_Fay-Bien_veignes_vous.xml
+TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Bien_veignes_vous) {
+    
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Du_Fay-Bien_veignes_vous.xml");
+    
+    S_CATSMAT_CanonicTechniquesTools tools = new_CATSMAT_object<CATSMAT_CanonicTechniquesTools>();
+    tools->Initialise(imusant_score);
+    
+    std::stringstream the_type_as_stringstream;
+    for ( auto type : tools->GetCanonTypes())
+    {
+        the_type_as_stringstream << type;
+    }
+    string the_types_as_string = the_type_as_stringstream.str();
+    
+    ASSERT_EQ(TestScore_Du_Fay_Bien_veignes_vous_Expected, the_types_as_string);
+}

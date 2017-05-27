@@ -37,7 +37,7 @@ S_IMUSANT_rhythm_vector new_IMUSANT_rhythm_vector()
 IMUSANT_collection_visitor::IMUSANT_collection_visitor()
 {
 	fInChord = false;
-	fLastNote = NULL;
+	fLastNote = nullptr;
 	fCurrentPartID = 0;
 	fIgnoreRepeatedPitches = false;
 }
@@ -58,7 +58,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_barline& elt)
         &&
         elt->getLocation()==IMUSANT_barline::right)
 	{
-		fLastNote = 0;
+		fLastNote = NULL;
 	}
 }
 
@@ -131,11 +131,11 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 	{	//currently segmenting for all rests
 		//IMUSANT_interval empty;
 		//fIntervalVector->add(empty);
-		fLastNote = 0;
+		fLastNote = nullptr;
 	}
 	else//is non-pitched therefore interval can't be calculated
 	{
-		fLastNote = 0;
+		fLastNote = nullptr;
 	}
 
 	elt->lyrics().accept(*this);
@@ -145,7 +145,7 @@ void IMUSANT_collection_visitor::visit ( S_IMUSANT_note& elt )
 void IMUSANT_collection_visitor::visit ( S_IMUSANT_part& elt )
 {
 	//create part summary
-	fLastNote = 0;
+	fLastNote = nullptr;
 	fCurrentPartID++;
     fCurrentIntervalVector = new_IMUSANT_interval_vector();
     fCurrentIntervalVector->setMaximum(0x7fffffff);

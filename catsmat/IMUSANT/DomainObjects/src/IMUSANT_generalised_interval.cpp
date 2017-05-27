@@ -32,7 +32,7 @@ namespace IMUSANT {
         
         r+=7*fOctaves; //convert to a compound interval
         
-        if(fDirection!=unison || fDirection!=vertical_bottomtotop) r*=fDirection;
+        if(fDirection!=repeat || fDirection!=vertical_bottomtotop) r*=fDirection;
         
         return r;
     }

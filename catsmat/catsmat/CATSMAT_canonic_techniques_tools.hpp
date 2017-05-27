@@ -66,7 +66,8 @@ namespace CATSMAT
         bool    IsRetrograde(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, const double error_threshold);
         bool    IsContraryMotion(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold);
         bool    IsRetrogradeContraryMotion(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold);
-        bool    IsProportionalCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, TRational& result, const double error_threshold);
+        bool    IsProportionalCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, TRational& result, const double error_threshold, bool retrograde=false);
+        static TRational   IsProportionalCanonBinaryOperator(S_IMUSANT_note& first, const S_IMUSANT_note& second);
         bool    IsMensurationCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold);
         IMUSANT_interval   GetIntervalBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, bool retrograde=false);
         IMUSANT_duration   CalculateIOIUnit(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
