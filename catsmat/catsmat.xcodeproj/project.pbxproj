@@ -1315,7 +1315,6 @@
 			children = (
 				BAA8D8991AABFBA30053ADE3 /* CATSMAT */,
 				496EF4C51B229D8100FE715F /* CATSMAT_Tests */,
-				08FB7795FE84155DC02AAC07 /* IMUSANT */,
 				1E450E041B75806400BDF9EF /* IMUSANT_Tests */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				496EF6BD1B22B01700FE715F /* libIMUSANT */,
@@ -1328,13 +1327,6 @@
 				BA8068E41B27BC5700AEFB27 /* test_files */,
 			);
 			name = imusant;
-			sourceTree = "<group>";
-		};
-		08FB7795FE84155DC02AAC07 /* IMUSANT */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = IMUSANT;
 			sourceTree = "<group>";
 		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
@@ -1461,13 +1453,13 @@
 			path = FixedPeriodDetection;
 			sourceTree = "<group>";
 		};
-		4959E12D1CF13BE300FAC403 /* MusicXML */ = {
+		4959E12D1CF13BE300FAC403 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				4959E12E1CF13BE300FAC403 /* inc */,
 				4959E1331CF13BE300FAC403 /* src */,
 			);
-			path = MusicXML;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		4959E12E1CF13BE300FAC403 /* inc */ = {
@@ -1546,7 +1538,7 @@
 				49BAF94C1ED920ED000C84C4 /* FileProcessing */,
 				4970E0071B7586870052496C /* Converters */,
 				4970E0061B7586640052496C /* DomainObjects */,
-				4959E12D1CF13BE300FAC403 /* MusicXML */,
+				4959E12D1CF13BE300FAC403 /* Utilities */,
 				496EF6BE1B22B01700FE715F /* libIMUSANT.h */,
 			);
 			path = libIMUSANT;
