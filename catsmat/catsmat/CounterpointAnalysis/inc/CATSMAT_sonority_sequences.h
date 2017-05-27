@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-#include "CATSMAT_dyad_sequences_base.hpp"
+#include "CATSMAT_dyad_sequences_base.h"
 #include "suffixtree.h"
 
 using namespace ns_suffixtree;

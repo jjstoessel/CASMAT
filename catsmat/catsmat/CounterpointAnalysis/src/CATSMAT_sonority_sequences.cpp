@@ -6,7 +6,7 @@
 //
 //
 
-#include "CATSMAT_sonority_sequences.hpp"
+#include "CATSMAT_sonority_sequences.h"
 #include "CATSMAT_t_utilities.h"
 #include <map>
 

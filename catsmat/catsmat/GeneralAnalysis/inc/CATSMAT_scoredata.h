@@ -19,10 +19,10 @@
 #include "IMUSANT_score.h"
 #include "IMUSANT_generalised_interval.h"
 #include "IMUSANT_common.h"
-#include "CATSMAT_dyad_sequences.hpp"
+#include "CATSMAT_dyad_sequences.h"
 #include "CATSMAT_t_utilities.h"
 #include "CATSMAT_partdata.h"
-#include "CATSMAT_score_profile.hpp"
+#include "CATSMAT_score_profile.h"
 #include "IMUSANT_contour_symbol.h"
 
 using namespace IMUSANT;

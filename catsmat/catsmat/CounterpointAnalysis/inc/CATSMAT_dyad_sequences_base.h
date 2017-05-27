@@ -10,7 +10,7 @@
 #define __imusant__CATSMAT_dyad_sequences_base__
 
 #include <stdio.h>
-#include "CATSMAT_cp_matrix.hpp"
+#include "CATSMAT_cp_matrix.h"
 
 using namespace IMUSANT;
 using namespace Loki;

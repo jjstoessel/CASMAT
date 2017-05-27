@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include <vector>
 #include <array>
-#include "CATSMAT_dyad_sequences_base.hpp"
+#include "CATSMAT_dyad_sequences_base.h"
 
 using namespace std;
 

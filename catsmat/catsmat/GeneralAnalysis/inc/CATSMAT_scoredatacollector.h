@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "Loki/Visitor.h"
-#include "CATSMAT_processing.hpp"
+#include "CATSMAT_processing.h"
 #include "CATSMAT_scoredata.h"
 
 namespace CATSMAT {

@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <vector>
 #include <string>
-#include "CATSMAT_processing.hpp"
+#include "CATSMAT_processing.h"
 #include <boost/filesystem.hpp>
 
 using namespace std;

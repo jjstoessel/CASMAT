@@ -6,7 +6,7 @@
 //
 //
 
-#include "CATSMAT_TrigramSuffixTreeBuilder.hpp"
+#include "CATSMAT_TrigramSuffixTreeBuilder.h"
 
 namespace CATSMAT {
     

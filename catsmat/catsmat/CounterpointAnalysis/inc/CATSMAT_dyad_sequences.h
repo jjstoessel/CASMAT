@@ -10,9 +10,9 @@
 #define __imusant__CATSMAT_dyad_sequences__
 
 #include <stdio.h>
-#include "CATSMAT_cp_matrix.hpp"
+#include "CATSMAT_cp_matrix.h"
 #include "IMUSANT_interval_vector.h"
-#include "CATSMAT_dyad_sequences_base.hpp"
+#include "CATSMAT_dyad_sequences_base.h"
 #include "suffixtree.h"
 
 using namespace IMUSANT;

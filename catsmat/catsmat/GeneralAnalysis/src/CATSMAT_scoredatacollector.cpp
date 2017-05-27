@@ -7,7 +7,7 @@
 //
 
 #include "CATSMAT_scoredatacollector.h"
-#include "CATSMAT_collectionvisitor.hpp"
+#include "CATSMAT_collectionvisitor.h"
 
 namespace CATSMAT {
     

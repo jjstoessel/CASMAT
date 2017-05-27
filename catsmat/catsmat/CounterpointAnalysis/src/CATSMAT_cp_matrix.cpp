@@ -11,7 +11,7 @@
 //  10 Nov 2016 - CPMatrix now copies the inserted note
 //
 #include <algorithm>
-#include "CATSMAT_cp_matrix.hpp"
+#include "CATSMAT_cp_matrix.h"
 #include "CATSMAT_exception.h"
 
 namespace CATSMAT

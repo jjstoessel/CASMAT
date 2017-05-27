@@ -11,15 +11,15 @@
 #include <deque>
 #include <boost/filesystem.hpp>
 
-#include "CATSMAT_processing.hpp"
+#include "CATSMAT_processing.h"
 
-#include "CATSMAT_dyad_sequences.hpp"
+#include "CATSMAT_dyad_sequences.h"
 // #include "CATSMAT_dyadtuple_sequences.hpp"
-#include "CATSMAT_sonority_sequences.hpp"
-#include "CATSMAT_score_profile.hpp"
-#include "CATSMAT_TrigramSequences.hpp"
-#include "CATSMAT_TrigramSuffixTreeBuilder.hpp"
-#include "CATSMAT_canonic_techniques_tools.hpp"
+#include "CATSMAT_sonority_sequences.h"
+#include "CATSMAT_score_profile.h"
+#include "CATSMAT_TrigramSequences.h"
+#include "CATSMAT_TrigramSuffixTreeBuilder.h"
+#include "CATSMAT_canonic_techniques_tools.h"
 #include "CATSMAT_scoredata.h"
 #include "IMUSANT_vectormap_analysis_types.hpp"
 

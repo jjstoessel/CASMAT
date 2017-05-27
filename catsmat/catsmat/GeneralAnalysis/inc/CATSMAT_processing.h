@@ -13,7 +13,7 @@
 #include <boost/filesystem.hpp>
 
 #include "IMUSANT_processing.h"
-#include "CATSMAT_collectionvisitor.hpp"
+#include "CATSMAT_collectionvisitor.h"
 
 
 using namespace IMUSANT;

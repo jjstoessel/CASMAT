@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "IMUSANT_t_suffixtree_builder.h"
-#include "CATSMAT_TrigramSequences.hpp"
+#include "CATSMAT_TrigramSequences.h"
 
 using namespace std;
 

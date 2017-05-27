@@ -6,7 +6,7 @@
 //
 //
 
-#include "CATSMAT_chord.hpp"
+#include "CATSMAT_chord.h"
 
 
 namespace CATSMAT

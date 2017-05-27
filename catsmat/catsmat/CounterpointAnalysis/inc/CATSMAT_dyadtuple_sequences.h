@@ -10,7 +10,7 @@
 #define __imusant__CATSMAT_dyadtuple_sequences__
 
 #include <stdio.h>
-#include "CATSMAT_dyad_sequences_base.hpp"
+#include "CATSMAT_dyad_sequences_base.h"
 #include "boost/tuple/tuple.hpp"
 
 namespace CATSMAT

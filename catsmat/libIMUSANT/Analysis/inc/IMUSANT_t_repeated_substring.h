@@ -16,7 +16,7 @@
 #include "IMUSANT_interval.h"
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_generalised_interval.h"
-#include "CATSMAT_TrigramSequences.hpp"
+#include "CATSMAT_TrigramSequences.h"
 
 using namespace std;
 using namespace CATSMAT;

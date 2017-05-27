@@ -6,7 +6,7 @@
 //
 //
 
-#include "CATSMAT_dyad_sequences.hpp"
+#include "CATSMAT_dyad_sequences.h"
 #include "IMUSANT_chord.h"
 
 

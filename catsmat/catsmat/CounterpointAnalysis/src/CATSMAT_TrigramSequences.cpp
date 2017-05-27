@@ -6,10 +6,10 @@
 //
 
 
-#include "CATSMAT_TrigramSequences.hpp"
+#include "CATSMAT_TrigramSequences.h"
 #include "IMUSANT_generalised_interval.h"
 #include "CATSMAT_exception.h"
-#include "CATSMAT_score_profile.hpp"
+#include "CATSMAT_score_profile.h"
 
 namespace CATSMAT
 {

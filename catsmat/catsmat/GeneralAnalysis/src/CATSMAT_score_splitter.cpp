@@ -6,7 +6,7 @@
 //
 //
 
-#include "CATSMAT_score_splitter.hpp"
+#include "CATSMAT_score_splitter.h"
 
 namespace CATSMAT {
     CATSMAT_ScoreSpliter::CATSMAT_ScoreSpliter()

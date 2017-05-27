@@ -8,7 +8,7 @@
 
 #include <vector>
 #include <iostream>
-#include "CATSMAT_dyadtuple_sequences.hpp"
+#include "CATSMAT_dyadtuple_sequences.h"
 #include "boost/tuple/tuple_io.hpp"
 #include "suffixtree.h"
 

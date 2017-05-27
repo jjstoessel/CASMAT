@@ -13,7 +13,7 @@
 
 #include <numeric>
 #include <iostream>
-#include "CATSMAT_score_profile.hpp"
+#include "CATSMAT_score_profile.h"
 #include "CATSMAT_partdata.h"
 
 

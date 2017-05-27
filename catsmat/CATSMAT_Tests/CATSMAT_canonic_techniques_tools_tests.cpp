@@ -10,7 +10,7 @@
 
 #include "CATSMAT_test_utility.h"
 #include "gtest/gtest.h"
-#include "CATSMAT_canonic_techniques_tools.hpp"
+#include "CATSMAT_canonic_techniques_tools.h"
 
 #include "CATSMAT_canonic_techniques_tools_expected.hpp"
 

@@ -9,7 +9,7 @@
  *  It inherits from IMUSANT_collectionvisitor, and overrides for the relevant functions
  */
 
-#include "CATSMAT_collectionvisitor.hpp"
+#include "CATSMAT_collectionvisitor.h"
 #include "IMUSANT_chord.h"
 #include "IMUSANT_measure.h"
 #include "IMUSANT_part.h"

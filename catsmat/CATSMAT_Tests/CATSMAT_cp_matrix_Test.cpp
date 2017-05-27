@@ -5,7 +5,7 @@
 //
 
 #include "CATSMAT_test_utility.h"
-#include "CATSMAT_cp_matrix.hpp"
+#include "CATSMAT_cp_matrix.h"
 
 #include "CATSMAT_cp_matrix_Expected.h"
 #include "CATSMAT_cp_matrix_Kyrie_Expected.h"

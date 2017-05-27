@@ -14,7 +14,7 @@
 #include <numeric>
 #include <set>
 
-#include "CATSMAT_canonic_techniques_tools.hpp"
+#include "CATSMAT_canonic_techniques_tools.h"
 #include "IMUSANT_segmented_part_fixed_period.h"
 #include "IMUSANT_interval_vector.h"
 #include "IMUSANT_generalised_interval.h"

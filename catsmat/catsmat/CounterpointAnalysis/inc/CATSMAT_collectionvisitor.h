@@ -18,7 +18,7 @@
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_visitor.h"
 #include "IMUSANT_pitch.h"
-#include "CATSMAT_cp_matrix.hpp"
+#include "CATSMAT_cp_matrix.h"
 
 using namespace std;
 

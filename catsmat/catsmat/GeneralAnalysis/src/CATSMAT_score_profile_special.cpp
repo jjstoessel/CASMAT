@@ -7,10 +7,10 @@
 //
 
 #include <stdio.h>
-#include "CATSMAT_score_profile.hpp"
+#include "CATSMAT_score_profile.h"
 #include "CATSMAT_score_profile.tpp"
 #include "IMUSANT_generalised_interval.h"
-#include "CATSMAT_TrigramSequences.hpp"
+#include "CATSMAT_TrigramSequences.h"
 #include "IMUSANT_contour_symbol.h"
 
 namespace CATSMAT {
