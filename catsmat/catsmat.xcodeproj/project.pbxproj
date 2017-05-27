@@ -636,12 +636,9 @@
 		49BAF9741ED92BF4000C84C4 /* IMUSANT_test_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_test_utilities.h; sourceTree = "<group>"; };
 		49BAF9781ED92EAB000C84C4 /* IMUSANT_processing_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processing_Expected.h; path = FileProcessing/IMUSANT_processing_Expected.h; sourceTree = "<group>"; };
 		49BAF9791ED92EAB000C84C4 /* IMUSANT_processing_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_processing_Tests.cpp; path = FileProcessing/IMUSANT_processing_Tests.cpp; sourceTree = "<group>"; };
-		49BAF9AA1ED9420D000C84C4 /* CATSMAT_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_exception.h; path = catsmat/Application/CATSMAT_exception.h; sourceTree = SOURCE_ROOT; };
 		49BAF9AB1ED9420D000C84C4 /* CATSMAT_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_main.cpp; path = catsmat/Application/CATSMAT_main.cpp; sourceTree = SOURCE_ROOT; };
 		49BAF9AC1ED9420D000C84C4 /* CATSMAT_menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_menu.cpp; path = catsmat/Application/CATSMAT_menu.cpp; sourceTree = SOURCE_ROOT; };
 		49BAF9AD1ED9420D000C84C4 /* CATSMAT_menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_menu.h; path = catsmat/Application/CATSMAT_menu.h; sourceTree = SOURCE_ROOT; };
-		49BAF9B01ED94222000C84C4 /* CATSMAT_t_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_t_utilities.h; path = catsmat/CATSMAT_t_utilities.h; sourceTree = SOURCE_ROOT; };
-		49BAF9B11ED94222000C84C4 /* CATSMAT_visitable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_visitable.h; path = catsmat/CATSMAT_visitable.h; sourceTree = SOURCE_ROOT; };
 		49BAF9B41ED9455F000C84C4 /* CATSMAT_canonic_techniques_tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_canonic_techniques_tools.h; path = inc/CATSMAT_canonic_techniques_tools.h; sourceTree = "<group>"; };
 		49BAF9B51ED9455F000C84C4 /* CATSMAT_partdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_partdata.h; path = inc/CATSMAT_partdata.h; sourceTree = "<group>"; };
 		49BAF9B61ED9455F000C84C4 /* CATSMAT_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_processing.h; path = inc/CATSMAT_processing.h; sourceTree = "<group>"; };
@@ -674,6 +671,9 @@
 		49BAF9DA1ED94599000C84C4 /* CATSMAT_sonority_sequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_sonority_sequences.cpp; path = src/CATSMAT_sonority_sequences.cpp; sourceTree = "<group>"; };
 		49BAF9DB1ED94599000C84C4 /* CATSMAT_TrigramSequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_TrigramSequences.cpp; path = src/CATSMAT_TrigramSequences.cpp; sourceTree = "<group>"; };
 		49BAF9DC1ED94599000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_TrigramSuffixTreeBuilder.cpp; path = src/CATSMAT_TrigramSuffixTreeBuilder.cpp; sourceTree = "<group>"; };
+		49BAF9F51ED94721000C84C4 /* CATSMAT_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_exception.h; path = catsmat/Utilities/CATSMAT_exception.h; sourceTree = SOURCE_ROOT; };
+		49BAF9F61ED94721000C84C4 /* CATSMAT_t_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_t_utilities.h; path = catsmat/Utilities/CATSMAT_t_utilities.h; sourceTree = SOURCE_ROOT; };
+		49BAF9F71ED94721000C84C4 /* CATSMAT_visitable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_visitable.h; path = catsmat/Utilities/CATSMAT_visitable.h; sourceTree = SOURCE_ROOT; };
 		49C80C001BA4E5C800DCA903 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		49C80C021BA4E5C800DCA903 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
 		49C80C041BA4E5C800DCA903 /* direction.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = direction.gif; sourceTree = "<group>"; };
@@ -1785,7 +1785,6 @@
 		49B727B41C14184600FCF494 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				49BAF9AA1ED9420D000C84C4 /* CATSMAT_exception.h */,
 				49BAF9AB1ED9420D000C84C4 /* CATSMAT_main.cpp */,
 				49BAF9AC1ED9420D000C84C4 /* CATSMAT_menu.cpp */,
 				49BAF9AD1ED9420D000C84C4 /* CATSMAT_menu.h */,
@@ -1885,6 +1884,17 @@
 				49BAF9DC1ED94599000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		49BAF9F41ED94704000C84C4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				49BAF9F51ED94721000C84C4 /* CATSMAT_exception.h */,
+				49BAF9F61ED94721000C84C4 /* CATSMAT_t_utilities.h */,
+				49BAF9F71ED94721000C84C4 /* CATSMAT_visitable.h */,
+			);
+			name = Utilities;
+			path = ../catsmat/Utilities;
 			sourceTree = "<group>";
 		};
 		49C80BFD1BA4E5C800DCA903 /* libMusicXMLv3 */ = {
@@ -2817,11 +2827,10 @@
 		BAA8D8991AABFBA30053ADE3 /* CATSMAT */ = {
 			isa = PBXGroup;
 			children = (
-				49BAF9B01ED94222000C84C4 /* CATSMAT_t_utilities.h */,
-				49BAF9B11ED94222000C84C4 /* CATSMAT_visitable.h */,
 				49B727B41C14184600FCF494 /* Application */,
 				BA10A5D51D979F5F000679C5 /* GeneralAnalysis */,
 				BA10A5D41D979F33000679C5 /* CounterpointAnalysis */,
+				49BAF9F41ED94704000C84C4 /* Utilities */,
 			);
 			path = CATSMAT;
 			sourceTree = "<group>";
