@@ -17,8 +17,6 @@
 #include "boost/filesystem/convenience.hpp"
 #include "boost/multi_array.hpp"
 
-#include "IMUSANT_segmented_part_LBDM.h"
-
 #include "IMUSANT_processing.h"
 
 #include "suffixtree.h"
