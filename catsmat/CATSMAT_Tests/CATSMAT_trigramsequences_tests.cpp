@@ -8,8 +8,8 @@
 
 #include <stdio.h>
 
-#include "CATSMAT_TrigramSequences.hpp"
-#include "CATSMAT_TrigramSuffixTreeBuilder.hpp"
+#include "CATSMAT_TrigramSequences.h"
+#include "CATSMAT_TrigramSuffixTreeBuilder.h"
 #include "IMUSANT_t_repeated_substring.h"
 
 #include "CATSMAT_test_utility.h"

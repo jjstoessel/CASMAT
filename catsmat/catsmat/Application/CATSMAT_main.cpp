@@ -11,7 +11,7 @@
 
 #include <boost/filesystem.hpp>
 
-#include "CATSMAT_processing.hpp"
+#include "CATSMAT_processing.h"
 #include "CATSMAT_menu.h"
 
 

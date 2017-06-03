@@ -3,7 +3,7 @@
  *  Tests
  *
  *  Created by Jason Stoessel on 9/08/06.
- *  Copyright 2006 __MyCompanyName__. All rights reserved.
+ *  Copyright 2006 Jason Stoessel. All rights reserved.
  *
  */
 
@@ -24,8 +24,6 @@ template <class V>
 class repeats
 {
 	public:
-	
-		//friend class suffixtree_impl<V>::node;
 		
 		typedef typename suffixtree_impl<V>::value_type value_type;
 		typedef typename suffixtree_impl<V>::size_type size_type;
@@ -148,7 +146,7 @@ repeats<V>::compute_supermax(const typename suffixtree_impl<V>::node* n, int min
 	{
 		max_list = compute_supermax(child, min_percent, min_length, max_list);
 		lvn = stack[child->give_number()];
-		while (lvn!=0)
+		while (lvn!=NULL)
 		{
 			add_value(n->give_number(), lvn->value, lvn->count);
 			lvn = lvn->next;
@@ -170,7 +168,7 @@ repeats<V>::compute_supermax(const typename suffixtree_impl<V>::node* n, int min
 	
 	/* Determine if current node is supermaximal or near super maximal
 	 * 
-	 *	1:	Find total number of leaves in subtree an number of different left
+	 *	1:	Find total number of leaves in subtree and number of different left
 	 *		predecessors of those leaves (i.e. diversity of left predecessors).
 	 *		Any Node wih a diversity > 1 is left diverse.
 	 */
@@ -194,7 +192,7 @@ repeats<V>::compute_supermax(const typename suffixtree_impl<V>::node* n, int min
 	int witnesses = 0;
 	c = children.begin();
 	child = n->find_child(*c);
-	for ( ; (child!=0 && c!=children.end()); c++, child = n->find_child(*c))
+	for ( ; (child!=NULL && c!=children.end()); c++, child = n->find_child(*c))
 	{
 		if (child->children_size()==0 && child->find_leaf_positions().size() > 0)
 		{

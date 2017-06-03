@@ -134,13 +134,14 @@ template <typename T> class EXP ctree : virtual public smartable
 		typedef std::vector<treePtr>		branchs;	///< the node sub elements container type
 		typedef typename branchs::iterator	literator;	///< the current level iterator type
 		typedef treeIterator<treePtr>		iterator;	///< the top -> bottom iterator type
+        typedef typename std::vector<treePtr>::size_type size_type;
 
 		static treePtr new_tree() { ctree<T>* o = new ctree<T>; assert(o!=0); return o; }
 		
 		branchs& elements()						{ return fElements; }		
 		const branchs& elements() const			{ return fElements; }		
 		virtual void push (const treePtr& t)	{ fElements.push_back(t); }
-		virtual int  size  () const				{ return fElements.size(); }
+        virtual size_type  size  () const		{ return fElements.size(); }
 		virtual bool empty () const				{ return fElements.size()==0; }
 
 		iterator begin()			{ treePtr start=dynamic_cast<T*>(this); return iterator(start); }

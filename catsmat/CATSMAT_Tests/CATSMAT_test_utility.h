@@ -9,11 +9,11 @@
 #ifndef __imusant__CATSMAT_test_utility__
 #define __imusant__CATSMAT_test_utility__
 
-#include "CATSMAT_collectionvisitor.hpp"
-#include "CATSMAT_dyad_sequences.hpp"
-#include "CATSMAT_dyadtuple_sequences.hpp"
-#include "CATSMAT_sonority_sequences.hpp"
-#include "CATSMAT_TrigramSequences.hpp"
+#include "CATSMAT_collectionvisitor.h"
+#include "CATSMAT_dyad_sequences.h"
+#include "CATSMAT_dyadtuple_sequences.h"
+#include "CATSMAT_sonority_sequences.h"
+#include "CATSMAT_TrigramSequences.h"
 
 #include <boost/filesystem.hpp>
 #include "gtest/gtest.h"

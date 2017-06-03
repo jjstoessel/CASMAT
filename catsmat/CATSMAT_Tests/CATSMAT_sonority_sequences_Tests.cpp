@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 
-#include "CATSMAT_sonority_sequences.hpp"
+#include "CATSMAT_sonority_sequences.h"
 
 #include "CATSMAT_test_utility.h"
 
