@@ -15,6 +15,8 @@
 #include <exception>
 #include <boost/filesystem.hpp>
 
+#include "exports.h"
+
 #include "IMUSANT_score.h"
 #include "IMUSANT_collectionvisitor.h"
 
@@ -56,7 +58,7 @@ namespace IMUSANT
     
     struct MusicXML1FormatException : public std::exception
     {
-        const char * what () const _NOEXCEPT
+        const char * what () const noexcept
         {
             return "Invalid file format - MusicXML 1 files should be converted to MusicXML 3 for processing.";
         }
