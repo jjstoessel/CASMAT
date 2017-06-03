@@ -1,7 +1,7 @@
 #######################################
 # CMAKE libIMUSANT
 #######################################
-project(libIMUSANT)
+#project(libIMUSANT)
 cmake_minimum_required(VERSION 2.4)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
@@ -101,7 +101,11 @@ else(MSVC)
 	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
+message("LIBCONTENT=" ${LIBCONTENT} )
+message("COREH=" ${COREH} )
+
 add_library(${target} SHARED ${LIBCONTENT})
+
 set_target_properties (${target} PROPERTIES 
 			FRAMEWORK TRUE 
 			VERSION ${VERSION}

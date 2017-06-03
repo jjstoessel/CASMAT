@@ -1,7 +1,7 @@
 #######################################
 # CMAKE IMUSANT_Test
 #######################################
-project(IMUSANT_Test)
+#project(IMUSANT_Test)
 cmake_minimum_required(VERSION 2.4)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
@@ -105,6 +105,12 @@ foreach(folder ${INCFOLDERS})
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
 
+
+set (LIBFOLDERS ${LIBFOLDERS}
+		"/cygdrive/c/Development/CATSMAT/CATSMAT/cmake-build-debug/catsmat/libIMUSANT/cmake/cygIMUSANT.dll")
+
+
+
 #######################################
 # set includes
 include_directories( ${INCL})
@@ -123,7 +129,7 @@ if(MSVC)
 	enable_language(RC)
 	set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_TESTS_DIR}/win32/libIMUSANT/libIMUSANT.rc)
 else(MSVC)
-	# set(LIBCONTENT ${CORESRC} ${COREH})
+	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
 add_library(gtest STATIC IMPORTED)
@@ -133,10 +139,12 @@ set_property(TARGET gtest-main PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtes
 
 add_executable(${target} ${SRC} )
 
-
 target_link_libraries(${target} gtest )
 target_link_libraries( ${target} ${Boost_LIBRARIES})
 
+link_directories("/cygdrive/c/Development/CATSMAT/CATSMAT/cmake-build-debug/catsmat/libIMUSANT/cmake/")
+add_library(cygIMUSANT SHARED IMPORTED)
+add_dependencies(cygIMUSANT ${target})
 
 set_target_properties (${target} PROPERTIES
 			FRAMEWORK TRUE
