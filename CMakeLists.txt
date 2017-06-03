@@ -1,9 +1,5 @@
 cmake_minimum_required(VERSION 3.6.3)
 project(CATSMAT)
-#project(libMusicXMLv3)
-#project(libIMUSANT)
-#project(IMUSANT_Tests)
-
 
 if (APPLE)
 #    set(CMAKE_OSX_ARCHITECTURES "x86_64 i386")
@@ -22,13 +18,10 @@ if (APPLE)
 endif (APPLE)
 
 
-
-
-
 include_directories("catsmat/libIMUSANT")
 
 add_subdirectory (catsmat/libMusicXMLv3/libmusicxml-3.00-src/cmake)
 add_subdirectory (catsmat/libIMUSANT/cmake)
-add_subdirectory (catsmat/IMUSANT_Tests/cmake)
+add_subdirectory (catsmat/libIMUSANT_Tests/cmake)
 
 set(CMAKE_CXX_STANDARD 11)

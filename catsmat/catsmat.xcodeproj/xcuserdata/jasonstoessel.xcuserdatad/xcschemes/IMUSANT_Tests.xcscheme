@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1E450E051B7580A000BDF9EF"
                BuildableName = "IMUSANT_Tests"
-               BlueprintName = "IMUSANT_Tests"
+               BlueprintName = "libIMUSANT_Tests"
                ReferencedContainer = "container:catsmat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,7 +34,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E450E051B7580A000BDF9EF"
             BuildableName = "IMUSANT_Tests"
-            BlueprintName = "IMUSANT_Tests"
+            BlueprintName = "libIMUSANT_Tests"
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -57,7 +57,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E450E051B7580A000BDF9EF"
             BuildableName = "IMUSANT_Tests"
-            BlueprintName = "IMUSANT_Tests"
+            BlueprintName = "libIMUSANT_Tests"
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -76,7 +76,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E450E051B7580A000BDF9EF"
             BuildableName = "IMUSANT_Tests"
-            BlueprintName = "IMUSANT_Tests"
+            BlueprintName = "libIMUSANT_Tests"
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

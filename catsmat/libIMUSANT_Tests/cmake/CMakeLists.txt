@@ -1,18 +1,11 @@
 #######################################
 # CMAKE IMUSANT_Test
 #######################################
-project(IMUSANT_Test)
 cmake_minimum_required(VERSION 2.4)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)
 endif()
-
-#######################################
-# versions management
-#set (VERSION 3.00)
-#set (STRVERS "v.3.00")
-#set (SSTRVERS "3.00")
 
 if(UNIX)
 	add_definitions(-Wall -DGCC)
@@ -31,15 +24,15 @@ endif(UNIX)
 #	endif ()
 #	set (CMAKE_C++_FLAGS -mmacosx-version-min=10.4)
 #endif(APPLE)
-
-if(WIN32)
- add_definitions(-DWINVER=0x0400 -DWIN32)
- if(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
-  add_definitions(-DVC6)
- elseif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 8 2005")
-  add_definitions(-DVC2005)
- endif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
-endif(WIN32)
+#
+#if(WIN32)
+# add_definitions(-DWINVER=0x0400 -DWIN32)
+# if(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
+#  add_definitions(-DVC6)
+# elseif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 8 2005")
+#  add_definitions(-DVC2005)
+# endif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
+#endif(WIN32)
 
 ###############  BOOST LIBRARIES ###########
 if (APPLE)
@@ -59,7 +52,6 @@ INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 if (APPLE)
 	set(GTEST_ROOT "/Library/Frameworks/gtest.framework/gtest")
 	set(GTEST_INCLUDE_DIR "/Library/Frameworks/gtest.framework/Headers")
-
 else ()
 	set(GTEST_ROOT "C:/Development/googletest-master/googletest-master/cmake-build-debug/googlemock/gtest")
 	set(GTEST_INCLUDE_DIR "C:/Development/googletest-master/googletest-master/googletest/include/")
@@ -71,15 +63,12 @@ FIND_PACKAGE( GTEST REQUIRED  )
 include_directories(${GTEST_INCLUDE_DIR})
 
 
-
-
 #######################################
 # set directories, src and headers.
 # Get source from IMUSANT project.  This would be easier if we moved the source.
 # The source in the Segmentation folder probably needs separating into src and inc directories.
 
-set (IMUSANT_TESTS_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT_Tests)
-set (IMUSANT_DIR 	    	${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT)
+set (libIMUSANT_TESTS_DIR 	${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT_Tests)
 set (libIMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (LOKI_DIR               ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
 set (SUFFIX_TREE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
@@ -87,29 +76,32 @@ set (CATSMAT_DIR            ${CMAKE_CURRENT_SOURCE_DIR}/../../CATSMAT)    #### R
 
 set (SRCFOLDERS
 #		${IMUSANT_TESTS_DIR}
-		${IMUSANT_TESTS_DIR}/DomainObjects
-        ${IMUSANT_TESTS_DIR}/Converters
-		${IMUSANT_TESTS_DIR}/Utilities
+		${libIMUSANT_TESTS_DIR}/DomainObjects
+        ${libIMUSANT_TESTS_DIR}/Converters
+		${libIMUSANT_TESTS_DIR}/Utilities
 		)
 
 set (INCFOLDERS
 		${libIMUSANT_DIR}
 		${IMUSANT_TESTS_DIR}/Utilities
-		${IMUSANT_DIR}/DomainObjects/inc
-		${IMUSANT_DIR}/Analysis/inc
-		${IMUSANT_DIR}/Analysis/src   #### REVISIT - really need to move these files ;-(
-		${IMUSANT_DIR}/Analysis/Segmentation
-		${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
-		${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
-		${IMUSANT_DIR}/MusicXML/inc
-		${IMUSANT_DIR}/Converters/MusicXML_v3
+		${libIMUSANT_DIR}/DomainObjects/inc
+		${libIMUSANT_DIR}/Analysis/inc
+		${libIMUSANT_DIR}/Analysis/Segmentation
+		${libIMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
+		${libIMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
+		${libIMUSANT_DIR}/Utilities/inc
+		${libIMUSANT_DIR}/FileProcessing/inc
+		${libIMUSANT_DIR}/Converters/MusicXML_v3
+		${libIMUSANT_DIR}/Converters/MusicXML_v3/inc
+		${libIMUSANT_DIR}/Converters/MusicXML_v3/shared/inc
 		${LOKI_DIR}
 		${SUFFIX_TREE_DIR}
-		${CATSMAT_DIR})
+		${CATSMAT_DIR}/CounterpointAnalysis/inc
+		)
 
 set(SRC ${SRC}
-		${IMUSANT_TESTS_DIR}/main.cpp
-		${IMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_key_Tests.cpp)
+		${libIMUSANT_TESTS_DIR}/main.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_key_Tests.cpp)
 
 #[[   ====   REVISIT - Not building the actual tests at the moment. ======
 foreach(folder ${SRCFOLDERS})
@@ -120,14 +112,17 @@ file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 
 foreach(folder ${INCFOLDERS})
 	set(HEADERS ${HEADERS} "${folder}/*.h")
-	set(HEADERS ${HEADERS} "${folder}/*.hpp")		# add header files
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
-#set(INCL ${INCL} "catsmat/libIMUSANT/")
 foreach(folder ${INCFOLDERS})
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
+
+
+set (LIBFOLDERS ${LIBFOLDERS}
+		"/cygdrive/c/Development/CATSMAT/CATSMAT/cmake-build-debug/catsmat/libIMUSANT/cmake/libIMUSANT.dll")
+
 
 #######################################
 # set includes
@@ -138,16 +133,16 @@ set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 #######################################
 # set library target
 if(APPLE OR MSVC)
-	set(target IMUSANT_Test)
+	set(target libIMUSANT_Test)
 else(APPLE OR MSVC)
-	set(target IMUSANT_Test)
+	set(target libIMUSANT_Test)
 endif(APPLE OR MSVC)
 
 if(MSVC)
 	enable_language(RC)
-	set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_TESTS_DIR}/win32/libIMUSANT/libIMUSANT.rc)
+	set(LIBCONTENT ${CORESRC} ${COREH} ${libIMUSANT_TESTS_DIR}/win32/libIMUSANT/libIMUSANT.rc)
 else(MSVC)
-	# set(LIBCONTENT ${CORESRC} ${COREH})
+	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
 #add_library(gtest STATIC IMPORTED)
@@ -157,10 +152,12 @@ endif(MSVC)
 
 add_executable(${target} ${SRC} )
 
-
 target_link_libraries(${target} gtest )
 target_link_libraries( ${target} ${Boost_LIBRARIES})
 
+link_directories("/cygdrive/c/Development/CATSMAT/CATSMAT/cmake-build-debug/catsmat/libIMUSANT/cmake/")
+#add_library(libIMUSANT SHARED IMPORTED)
+add_dependencies(libIMUSANT ${target})
 
 set_target_properties (${target} PROPERTIES
 			FRAMEWORK TRUE

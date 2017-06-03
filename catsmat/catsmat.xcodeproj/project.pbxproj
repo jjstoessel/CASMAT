@@ -615,7 +615,7 @@
 		49BAF9131ED91C6A000C84C4 /* IMUSANT_interval_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval_suffixtree_builder.h; sourceTree = "<group>"; };
 		49BAF9141ED91C6A000C84C4 /* IMUSANT_pitch_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_pitch_suffixtree_builder.h; sourceTree = "<group>"; };
 		49BAF9161ED91C6A000C84C4 /* IMUSANT_repeated_interval_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_repeated_interval_substring.h; sourceTree = "<group>"; };
-		49BAF9171ED91C6A000C84C4 /* IMUSANT_SuffixTreeBuilder.tpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMUSANT_SuffixTreeBuilder.tpp; sourceTree = "<group>"; };
+		49BAF9171ED91C6A000C84C4 /* IMUSANT_SuffixTreeBuilder.tpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = IMUSANT_SuffixTreeBuilder.tpp; sourceTree = "<group>"; };
 		49BAF9181ED91C6A000C84C4 /* IMUSANT_t_repeated_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_repeated_substring.h; sourceTree = "<group>"; };
 		49BAF9191ED91C6A000C84C4 /* IMUSANT_t_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_suffixtree_builder.h; sourceTree = "<group>"; };
 		49BAF91D1ED91C7F000C84C4 /* IMUSANT_contour_suffixtree_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_contour_suffixtree_builder.cpp; sourceTree = "<group>"; };

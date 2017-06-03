@@ -1,7 +1,7 @@
 #######################################
 # CMAKE libIMUSANT
 #######################################
-project(libIMUSANT)
+#project(libIMUSANT)
 cmake_minimum_required(VERSION 2.4)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
@@ -47,22 +47,34 @@ endif(WIN32)
 # Get source from IMUSANT project.  This would be easier if we moved the source.
 # The source in the Segmentation folder probably needs separating into src and inc directories.
 
-set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT)
+set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (SUFFIXTREE_DIR 	${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
 set (LOKI_DIR 	        ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
+set (CATSMAT_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat)
 
 set (SRCFOLDERS
-        ${IMUSANT_DIR}/MusicXML/src
+        ${IMUSANT_DIR}/Analysis/src
+		${IMUSANT_DIR}/Analysis/Segmentation
+		${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
+		${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
         ${IMUSANT_DIR}/DomainObjects/src
-        ${IMUSANT_DIR}Converters/src
-        ${SUFFIXTREE_DIR}
+        ${IMUSANT_DIR}/Converters/src
+		${IMUSANT_DIR}/FileProcessing/src
+		${IMUSANT_DIR}/Utilities/src
         )
 
 set (INCFOLDERS
-        ${IMUSANT_DIR}/MusicXML/inc
+        ${IMUSANT_DIR}/Analysis/inc
+        ${IMUSANT_DIR}/Analysis/Segmentation
+        ${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
+        ${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
         ${IMUSANT_DIR}/DomainObjects/inc
-        ${IMUSANT_DIR}Converters/inc
+        ${IMUSANT_DIR}/Converters/inc
+        ${IMUSANT_DIR}/FileProcessing/inc
+        ${IMUSANT_DIR}/Utilities/inc
         ${SUFFIXTREE_DIR}
+        ${LOKI_DIR}
+        ${CATSMAT_DIR}/CounterpointAnalysis/inc
         )
 
 foreach(folder ${SRCFOLDERS})
@@ -75,9 +87,9 @@ foreach(folder ${INCFOLDERS})
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
-foreach(folder ${INCFOLDERS})
-	set(INCL ${INCL} "${folder}")				# add include folders
-endforeach(folder)
+#foreach(folder ${INCFOLDERS})
+#	set(INCL ${INCL} "${folder}")				# add include folders
+#endforeach(folder)
 
 
 #######################################
@@ -91,7 +103,7 @@ set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 if(APPLE OR MSVC)
 	set(target libIMUSANT)
 else(APPLE OR MSVC)
-	set(target IMUSANT)
+	set(target libIMUSANT)
 endif(APPLE OR MSVC)
 
 if(MSVC)
@@ -101,7 +113,11 @@ else(MSVC)
 	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
+message("LIBCONTENT=" ${LIBCONTENT} )
+message("COREH=" ${COREH} )
+
 add_library(${target} SHARED ${LIBCONTENT})
+
 set_target_properties (${target} PROPERTIES 
 			FRAMEWORK TRUE 
 			VERSION ${VERSION}
