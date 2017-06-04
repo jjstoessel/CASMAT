@@ -82,7 +82,7 @@ set (INCFOLDERS
         ${IMUSANT_DIR}/FileProcessing/inc
         ${IMUSANT_DIR}/Utilities/inc
         ${SUFFIXTREE_DIR}
-        ${LOKI_DIR}
+      #  ${LOKI_DIR}
 		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src
 		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/lib
 		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/visitors
