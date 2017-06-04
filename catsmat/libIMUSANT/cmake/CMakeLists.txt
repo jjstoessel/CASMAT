@@ -54,15 +54,18 @@ endif(APPLE OR MSVC)
 ###############  BOOST LIBRARIES ###########
 if (APPLE)
 	set(BOOST_ROOT "/usr/local/boost")
+    set(BOOST_FILESYSTEM_LIB  /usr/local/boost/lib/libboost_filesystem.dylib)
+    set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dylib)
+
 #	set(BOOST_LIBRARYDIR /usr/local/boost/lib)
 else ()
 	set(BOOST_ROOT "C:/local/boost_1_58_0")
-#	set(BOOST_LIBRARYDIR C:/local/boost_1_58_0/lib64-msvc-12.0)
+    set(BOOST_FILESYSTEM_LIB  C:/local/boost_1_58_0/lib64-msvc-12.0)
+    set(BOOST_SYSTEM_LIB      C:/local/boost_1_58_0/lib64-msvc-12.0)
 endif ()
 
 FIND_PACKAGE( Boost 1.58.0 REQUIRED  )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
-ADD_DEFINITIONS( "-DHAS_BOOST" )
 
 
 #######################################
@@ -116,8 +119,6 @@ include_directories( ${INCL})
 set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 
 
-
-
 if(MSVC)
 	enable_language(RC)
 	set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_DIR}/win32/libIMUSANT/libIMUSANT.rc)
@@ -125,13 +126,14 @@ else(MSVC)
 	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
-#message("LIBCONTENT=" ${LIBCONTENT} )
-#message("COREH=" ${COREH} )
 
 add_library(${target} SHARED ${LIBCONTENT})
 
-###############  libMusicXML LIBRARIES ###########
+###############  Targeted Libraries ###########
 TARGET_LINK_LIBRARIES(${target} libmusicxml2)
+TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
+TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
+
 
 
 set_target_properties (${target} PROPERTIES 
@@ -143,21 +145,6 @@ set_target_properties (${target} PROPERTIES
 			MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${STRVERS}
 			MACOSX_FRAMEWORK_BUNDLE_VERSION ${SSTRVERS}
 )
-
-
-
-
-#[[#######################################
-# set sample targets
-set (SAMPLES RandomMusic xmlfactory partsummary xml2guido xmliter countnotes readunrolled xml2midi xmlread xmltranspose xmlclone)
-set (TOOLS  xml2guido xmltranspose)
-
-foreach(sample ${SAMPLES})
-	add_executable( ${sample} ${LXMLSAMPLE}/${sample}.cpp )
-	target_link_libraries( ${sample} ${target})
-	add_dependencies(${sample} ${target})
-endforeach(sample)
-]]
 
 
 #######################################
