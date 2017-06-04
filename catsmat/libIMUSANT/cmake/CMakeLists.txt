@@ -42,18 +42,27 @@ if(WIN32)
 endif(WIN32)
 
 
+#######################################
+# set library target
+if(APPLE OR MSVC)
+    set(target libIMUSANT)
+else(APPLE OR MSVC)
+    set(target libIMUSANT)
+endif(APPLE OR MSVC)
+
+
 ###############  BOOST LIBRARIES ###########
 if (APPLE)
 	set(BOOST_ROOT "/usr/local/boost")
-	set(BOOST_LIBRARYDIR /usr/local/boost/lib)
+#	set(BOOST_LIBRARYDIR /usr/local/boost/lib)
 else ()
 	set(BOOST_ROOT "C:/local/boost_1_58_0")
-	set(BOOST_LIBRARYDIR C:/local/boost_1_58_0/lib64-msvc-12.0)
+#	set(BOOST_LIBRARYDIR C:/local/boost_1_58_0/lib64-msvc-12.0)
 endif ()
-
 
 FIND_PACKAGE( Boost 1.58.0 REQUIRED  )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+ADD_DEFINITIONS( "-DHAS_BOOST" )
 
 
 #######################################
@@ -107,13 +116,7 @@ include_directories( ${INCL})
 set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 
 
-#######################################
-# set library target
-if(APPLE OR MSVC)
-	set(target libIMUSANT)
-else(APPLE OR MSVC)
-	set(target libIMUSANT)
-endif(APPLE OR MSVC)
+
 
 if(MSVC)
 	enable_language(RC)
@@ -122,10 +125,14 @@ else(MSVC)
 	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
-message("LIBCONTENT=" ${LIBCONTENT} )
-message("COREH=" ${COREH} )
+#message("LIBCONTENT=" ${LIBCONTENT} )
+#message("COREH=" ${COREH} )
 
 add_library(${target} SHARED ${LIBCONTENT})
+
+###############  libMusicXML LIBRARIES ###########
+TARGET_LINK_LIBRARIES(${target} libmusicxml2)
+
 
 set_target_properties (${target} PROPERTIES 
 			FRAMEWORK TRUE 
