@@ -13,10 +13,13 @@
 #include <exception>
 
 #include "libIMUSANT.h"
+
 #include "IMUSANT_interval_suffixtree_builder.h"
 #include "IMUSANT_pitch_suffixtree_builder.h"
 #include "IMUSANT_contour_suffixtree_builder.h"
 #include "IMUSANT_LBDM_segmenter.h"
+#include "IMUSANT_fixed_period_segmenter.h"
+
 #include "CATSMAT_scoredatacollector.h"
 #include "IMUSANT_vectormap_analysis_types.h"
 
@@ -287,8 +290,8 @@ runToolsMenu(CATSMAT_processing* processor)
                 {
                     IMUSANT_fixed_period_segmenter segmenter;
                     segmenter.Visit(*processor);
-                    IMUSANT::IMUSANT_fixed_period_segmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
-                    for (IMUSANT::IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+                    IMUSANT_fixed_period_segmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
+                    for (IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
                          segment_set_iter != segments.end() ;
                          segment_set_iter++)
                     {
@@ -298,7 +301,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     
                     cout << "Format for using this data with R:" << endl;
                     bool first_time_round = true;
-                    for (IMUSANT::IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+                    for (IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
                          segment_set_iter != segments.end() ;
                          segment_set_iter++)
                     {

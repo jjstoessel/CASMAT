@@ -14,6 +14,8 @@
 #include <fstream>
 #include <string>
 
+#include <math.h>
+
 
 S_IMUSANT_score
 IMUSANT_test_utilities::

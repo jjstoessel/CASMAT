@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 
-#include "CATSMAT_dyadtuple_sequences.hpp"
+#include "CATSMAT_dyadtuple_sequences.h"
 
 #include "CATSMAT_test_utility.h"
 

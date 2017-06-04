@@ -53,10 +53,10 @@ set (LOKI_DIR 	        ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
 set (CATSMAT_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat)
 
 set (SRCFOLDERS
-        ${IMUSANT_DIR}/Analysis/src
-		${IMUSANT_DIR}/Analysis/Segmentation
-		${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
-		${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
+#        ${IMUSANT_DIR}/Analysis/src
+#		${IMUSANT_DIR}/Analysis/Segmentation
+#		${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
+#		${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
         ${IMUSANT_DIR}/DomainObjects/src
         ${IMUSANT_DIR}/Converters/src
 		${IMUSANT_DIR}/FileProcessing/src
@@ -64,10 +64,10 @@ set (SRCFOLDERS
         )
 
 set (INCFOLDERS
-        ${IMUSANT_DIR}/Analysis/inc
-        ${IMUSANT_DIR}/Analysis/Segmentation
-        ${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
-        ${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
+#        ${IMUSANT_DIR}/Analysis/inc
+#        ${IMUSANT_DIR}/Analysis/Segmentation
+#        ${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
+#        ${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
         ${IMUSANT_DIR}/DomainObjects/inc
         ${IMUSANT_DIR}/Converters/inc
         ${IMUSANT_DIR}/FileProcessing/inc

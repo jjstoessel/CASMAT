@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 
-#include "CATSMAT_dyad_sequences.hpp"
+#include "CATSMAT_dyad_sequences.h"
 
 #include "CATSMAT_test_utility.h"
 

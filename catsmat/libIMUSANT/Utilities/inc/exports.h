@@ -2,7 +2,10 @@
 #ifndef __exports__
 #define __exports__
 
-#ifdef WIN32
+
+#if defined(_WIN32) || defined(WIN32) || defined(__CYGWIN__) || defined(__MINGW32__) || defined(__BORLANDC__)
+
+#define _NOEXCEPT noexcept
 
 #pragma warning (disable : 4267)
 #pragma warning (disable : 4275)

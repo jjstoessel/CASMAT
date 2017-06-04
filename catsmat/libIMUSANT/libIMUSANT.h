@@ -35,14 +35,11 @@ class libIMUSANT
 #include "IMUSANT_score.h"
 #include "IMUSANT_processing.h"
 #include "IMUSANT_mxmlv3_exceptions.h"
-// #include "IMUSANT_t_repeated_substring.h"  // REVISIT
-#include "IMUSANT_segment.h"
-#include "IMUSANT_set_of_segment.h"
-#include "IMUSANT_segmented_part_fixed_period.h"
-#include "IMUSANT_partlist_ordered_by_part_entry.h"
+#include "IMUSANT_interval.h"
+#include "IMUSANT_interval_vector.h"
 
-#include "IMUSANT_LBDM_segmenter.h"
-#include "IMUSANT_fixed_period_segmenter.h"
+#include "smartpointer.h"
+
 
 #pragma GCC visibility pop
 #endif

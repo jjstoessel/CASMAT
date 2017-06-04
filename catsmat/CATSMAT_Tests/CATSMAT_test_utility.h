@@ -25,7 +25,18 @@ class CATSMAT_test_utility {
     
 public:
     
+    CATSMAT_test_utility()
+    {
+        _root_test_data_dir_name = "testdata";
+    }
+    
+    CATSMAT_test_utility(string root_test_data_dir_name)
+    {
+        _root_test_data_dir_name = root_test_data_dir_name;
+    }
+    
     filesystem::path MakePathToTestData(string relative_path) const;
+    filesystem::path MakePathToTestFile(string relative_path_to_test_data_file);
     
     S_IMUSANT_score InitialiseScoreFromFile(string relative_path) const;
     
@@ -46,11 +57,16 @@ public:
     
     void DiffActualAndExpected(string actual, string expected);
     
+    bool equalWithinTollerance(float f1, float f2);
+    bool checkEqualWithinTolleranceField(double expected, double actual, int index_pos);
+    
 private:
     string GetTempFilePath();
     void DiffFiles(string file1, string file2 );
     void ExecuteSystemCommand(string system_command);
     void OutputDiffResult(string temp_output_file_path);
+    
+    string _root_test_data_dir_name;
 
 };
 

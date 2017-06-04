@@ -11,6 +11,9 @@
 #include <fstream>
 #include <string>
 
+#include <math.h>
+
+
 #include "IMUSANT_processing.h"
 
 #include "CATSMAT_test_utility.h"
@@ -184,6 +187,16 @@ CATSMAT_test_utility::MakePathToTestData(string relative_path) const
     return testdata;
 }
 
+filesystem::path
+CATSMAT_test_utility::
+MakePathToTestFile(string relative_path_to_test_data_file)
+{
+    filesystem::path testdata(filesystem::initial_path());
+    testdata.append(_root_test_data_dir_name);
+    testdata.append(relative_path_to_test_data_file);
+    return testdata;
+}
+
 IMUSANT_note &
 CATSMAT_test_utility::CreateNote(IMUSANT_pitch::type note_name, int octave, TRational note_duration) const
 {
@@ -222,3 +235,27 @@ CATSMAT_test_utility::ConvertNGramSequencesToString(CATSMAT_TrigramSequences the
     std::string the_dyads_as_string = the_dyads_as_stringstream.str();
     return the_dyads_as_string;
 }
+
+bool
+CATSMAT_test_utility::
+equalWithinTollerance(float f1, float f2)
+{
+    return (fabs(f1 - f2) < 0.001);
+}
+
+bool
+CATSMAT_test_utility::
+checkEqualWithinTolleranceField(double expected, double actual, int index_pos)
+{
+    if (equalWithinTollerance(expected, actual))
+        return true;
+    else
+    {
+        cout << "Failed with jdex = " << index_pos
+        << ". Expected " << expected
+        << ". Received " << actual
+        << endl;
+        
+        return false;
+    }
+};

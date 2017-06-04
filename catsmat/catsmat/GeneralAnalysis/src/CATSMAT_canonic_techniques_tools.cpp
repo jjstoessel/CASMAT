@@ -97,7 +97,9 @@ namespace CATSMAT
             IMUSANT_interval interval = GetIntervalBetweenParts(first_part, second_part, canon_type.retrograde_);
             canon_type.intervals_.push_back(interval);
             
-            if (!IMUSANT_segmented_part_fixed_period::partsEnterTogether(first_part, second_part))
+            IMUSANT_segmented_part_fixed_period seg_part;
+            
+            if (!seg_part.partsEnterTogether(first_part, second_part))
             {
                 //calculate ioi_unit and ioi_unit_count
                 IMUSANT_duration ioi = *IMUSANT_segmented_part_fixed_period::calculateEntryOffsetBetweenParts(first_part, second_part);

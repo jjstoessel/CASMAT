@@ -85,10 +85,10 @@ set (INCFOLDERS
 		${libIMUSANT_DIR}
 		${IMUSANT_TESTS_DIR}/Utilities
 		${libIMUSANT_DIR}/DomainObjects/inc
-		${libIMUSANT_DIR}/Analysis/inc
-		${libIMUSANT_DIR}/Analysis/Segmentation
-		${libIMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
-		${libIMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
+#		${libIMUSANT_DIR}/Analysis/inc
+#		${libIMUSANT_DIR}/Analysis/Segmentation
+#		${libIMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
+#		${libIMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
 		${libIMUSANT_DIR}/Utilities/inc
 		${libIMUSANT_DIR}/FileProcessing/inc
 		${libIMUSANT_DIR}/Converters/MusicXML_v3
