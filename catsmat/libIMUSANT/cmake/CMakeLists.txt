@@ -42,6 +42,20 @@ if(WIN32)
 endif(WIN32)
 
 
+###############  BOOST LIBRARIES ###########
+if (APPLE)
+	set(BOOST_ROOT "/usr/local/boost")
+	set(BOOST_LIBRARYDIR /usr/local/boost/lib)
+else ()
+	set(BOOST_ROOT "C:/local/boost_1_58_0")
+	set(BOOST_LIBRARYDIR C:/local/boost_1_58_0/lib64-msvc-12.0)
+endif ()
+
+
+FIND_PACKAGE( Boost 1.58.0 REQUIRED  )
+INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+
+
 #######################################
 # set directories, src and headers.
 # Get source from IMUSANT project.  This would be easier if we moved the source.
@@ -51,30 +65,28 @@ set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (SUFFIXTREE_DIR 	${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
 set (LOKI_DIR 	        ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
 set (CATSMAT_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat)
+set (LIBMUSICXML_DIR    ${CMAKE_CURRENT_SOURCE_DIR}/../../libMusicXMLv3)
 
 set (SRCFOLDERS
-#        ${IMUSANT_DIR}/Analysis/src
-#		${IMUSANT_DIR}/Analysis/Segmentation
-#		${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
-#		${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
         ${IMUSANT_DIR}/DomainObjects/src
-        ${IMUSANT_DIR}/Converters/src
+        ${IMUSANT_DIR}/Converters/MusicXML_v3/src
 		${IMUSANT_DIR}/FileProcessing/src
 		${IMUSANT_DIR}/Utilities/src
         )
 
 set (INCFOLDERS
-#        ${IMUSANT_DIR}/Analysis/inc
-#        ${IMUSANT_DIR}/Analysis/Segmentation
-#        ${IMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
-#        ${IMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
         ${IMUSANT_DIR}/DomainObjects/inc
-        ${IMUSANT_DIR}/Converters/inc
+		${IMUSANT_DIR}/Converters/MusicXML_v3
+        ${IMUSANT_DIR}/Converters/MusicXML_v3/inc
+		${IMUSANT_DIR}/Converters/Shared/inc
         ${IMUSANT_DIR}/FileProcessing/inc
         ${IMUSANT_DIR}/Utilities/inc
         ${SUFFIXTREE_DIR}
         ${LOKI_DIR}
-        ${CATSMAT_DIR}/CounterpointAnalysis/inc
+		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src
+		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/lib
+		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/visitors
+		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/parser
         )
 
 foreach(folder ${SRCFOLDERS})
@@ -84,12 +96,9 @@ file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 
 foreach(folder ${INCFOLDERS})
 	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
+	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
-
-#foreach(folder ${INCFOLDERS})
-#	set(INCL ${INCL} "${folder}")				# add include folders
-#endforeach(folder)
 
 
 #######################################

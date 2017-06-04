@@ -22,6 +22,6 @@ include_directories("catsmat/libIMUSANT")
 
 add_subdirectory (catsmat/libMusicXMLv3/libmusicxml-3.00-src/cmake)
 add_subdirectory (catsmat/libIMUSANT/cmake)
-add_subdirectory (catsmat/libIMUSANT_Tests/cmake)
+#add_subdirectory (catsmat/libIMUSANT_Tests/cmake)
 
 set(CMAKE_CXX_STANDARD 11)
