@@ -40,7 +40,6 @@ if (APPLE)
 	set(BOOST_FILESYSTEM_LIB  /usr/local/boost/lib/libboost_filesystem.dylib)
 	set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dylib)
 
-	#	set(BOOST_LIBRARYDIR /usr/local/boost/lib)
 else ()
 	set(BOOST_ROOT "C:/local/boost_1_58_0")
 	set(BOOST_FILESYSTEM_LIB  C:/local/boost_1_58_0/lib64-msvc-12.0)
@@ -51,35 +50,17 @@ FIND_PACKAGE( Boost 1.58.0 REQUIRED  )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
 
-###############  GTEST LIBRARIES ###########
-if (APPLE)
-	set(GTEST_ROOT "/Library/Frameworks/gtest.framework/gtest")
-	set(GTEST_INCLUDE_DIR "/Library/Frameworks/gtest.framework/Headers")
-	set(GTEST_LIB  /Library/Frameworks/gtest.framework/gtest)
-else ()
-	set(GTEST_ROOT "C:/Development/googletest-master/googletest-master/cmake-build-debug/googlemock/gtest")
-	set(GTEST_INCLUDE_DIR "C:/Development/googletest-master/googletest-master/googletest/include/")
-endif ()
-
-message("GTEST_ROOT=" ${GTEST_ROOT})
-
-FIND_PACKAGE( GTEST REQUIRED  )
-include_directories(${GTEST_INCLUDE_DIRS})
-
-
 #######################################
 # set directories, src and headers.
-# Get source from IMUSANT project.  This would be easier if we moved the source.
-# The source in the Segmentation folder probably needs separating into src and inc directories.
 
 set (libIMUSANT_TESTS_DIR 	${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT_Tests)
+
 set (libIMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (LOKI_DIR               ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
 set (SUFFIX_TREE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
-set (CATSMAT_DIR            ${CMAKE_CURRENT_SOURCE_DIR}/../../CATSMAT)    #### REVISIT really need to move IMUSANT_t_repeated_substring.h out of libIMUSANT
+set (GOOGLE_TEST_INC_DIR	${CMAKE_CURRENT_SOURCE_DIR}/../../googletest-master/googletest/include)
 
 set (SRCFOLDERS
-#		${IMUSANT_TESTS_DIR}
 		${libIMUSANT_TESTS_DIR}/DomainObjects
         ${libIMUSANT_TESTS_DIR}/Converters
 		${libIMUSANT_TESTS_DIR}/Utilities
@@ -89,10 +70,6 @@ set (INCFOLDERS
 		${libIMUSANT_DIR}
 		${IMUSANT_TESTS_DIR}/Utilities
 		${libIMUSANT_DIR}/DomainObjects/inc
-#		${libIMUSANT_DIR}/Analysis/inc
-#		${libIMUSANT_DIR}/Analysis/Segmentation
-#		${libIMUSANT_DIR}/Analysis/Segmentation/FixedPeriodDetection
-#		${libIMUSANT_DIR}/Analysis/Segmentation/LocalBoundaryDetectionModel
 		${libIMUSANT_DIR}/Utilities/inc
 		${libIMUSANT_DIR}/FileProcessing/inc
 		${libIMUSANT_DIR}/Converters/MusicXML_v3
@@ -100,7 +77,7 @@ set (INCFOLDERS
 		${libIMUSANT_DIR}/Converters/MusicXML_v3/shared/inc
 		${LOKI_DIR}
 		${SUFFIX_TREE_DIR}
-		${CATSMAT_DIR}/CounterpointAnalysis/inc
+		${GOOGLE_TEST_INC_DIR}
 		)
 
 set(SRC ${SRC}
@@ -115,17 +92,10 @@ file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 ]]
 
 foreach(folder ${INCFOLDERS})
-	set(HEADERS ${HEADERS} "${folder}/*.h")
-endforeach(folder)
-file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
-
-foreach(folder ${INCFOLDERS})
+	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
-
-
-set (LIBFOLDERS ${LIBFOLDERS}
-		"/cygdrive/c/Development/CATSMAT/CATSMAT/cmake-build-debug/catsmat/libIMUSANT/cmake/libIMUSANT.dll")
+file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
 
 #######################################
@@ -149,26 +119,16 @@ else(MSVC)
 	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
-#add_library(gtest STATIC IMPORTED)
-#add_library(gtest-main STATIC IMPORTED)
-#set_property(TARGET gtest PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtest.a")
-#set_property(TARGET gtest-main PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtest_main.a")
-
 add_executable(${target} ${SRC} )
 
-target_link_libraries(${target} gtest )
-target_link_libraries( ${target} ${Boost_LIBRARIES})
 
 ###############  Targeted Libraries ###########
 TARGET_LINK_LIBRARIES(${target} libmusicxml2)
+TARGET_LINK_LIBRARIES(${target} libIMUSANT)
+TARGET_LINK_LIBRARIES(${target} gtest)
 TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
 TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
 
-
-
-link_directories("/cygdrive/c/Development/CATSMAT/CATSMAT/cmake-build-debug/catsmat/libIMUSANT/cmake/")
-#add_library(libIMUSANT SHARED IMPORTED)
-add_dependencies(libIMUSANT ${target})
 
 set_target_properties (${target} PROPERTIES
 			FRAMEWORK TRUE
@@ -179,21 +139,6 @@ set_target_properties (${target} PROPERTIES
 			MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${STRVERS}
 			MACOSX_FRAMEWORK_BUNDLE_VERSION ${SSTRVERS}
 )
-
-
-
-
-#[[#######################################
-# set sample targets
-set (SAMPLES RandomMusic xmlfactory partsummary xml2guido xmliter countnotes readunrolled xml2midi xmlread xmltranspose xmlclone)
-set (TOOLS  xml2guido xmltranspose)
-
-foreach(sample ${SAMPLES})
-	add_executable( ${sample} ${LXMLSAMPLE}/${sample}.cpp )
-	target_link_libraries( ${sample} ${target})
-	add_dependencies(${sample} ${target})
-endforeach(sample)
-]]
 
 
 #######################################

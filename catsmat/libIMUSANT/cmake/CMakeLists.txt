@@ -57,7 +57,6 @@ if (APPLE)
     set(BOOST_FILESYSTEM_LIB  /usr/local/boost/lib/libboost_filesystem.dylib)
     set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dylib)
 
-#	set(BOOST_LIBRARYDIR /usr/local/boost/lib)
 else ()
 	set(BOOST_ROOT "C:/local/boost_1_58_0")
     set(BOOST_FILESYSTEM_LIB  C:/local/boost_1_58_0/lib64-msvc-12.0)
@@ -70,13 +69,10 @@ INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
 #######################################
 # set directories, src and headers.
-# Get source from IMUSANT project.  This would be easier if we moved the source.
-# The source in the Segmentation folder probably needs separating into src and inc directories.
 
 set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (SUFFIXTREE_DIR 	${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
 set (LOKI_DIR 	        ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
-set (CATSMAT_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat)
 set (LIBMUSICXML_DIR    ${CMAKE_CURRENT_SOURCE_DIR}/../../libMusicXMLv3)
 
 set (SRCFOLDERS
@@ -94,7 +90,6 @@ set (INCFOLDERS
         ${IMUSANT_DIR}/FileProcessing/inc
         ${IMUSANT_DIR}/Utilities/inc
         ${SUFFIXTREE_DIR}
-      #  ${LOKI_DIR}
 		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src
 		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/lib
 		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/visitors
