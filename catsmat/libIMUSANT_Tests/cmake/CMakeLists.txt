@@ -37,12 +37,15 @@ endif(UNIX)
 ###############  BOOST LIBRARIES ###########
 if (APPLE)
 	set(BOOST_ROOT "/usr/local/boost")
-	set(BOOST_LIBRARYDIR /usr/local/boost/lib)
+	set(BOOST_FILESYSTEM_LIB  /usr/local/boost/lib/libboost_filesystem.dylib)
+	set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dylib)
+
+	#	set(BOOST_LIBRARYDIR /usr/local/boost/lib)
 else ()
 	set(BOOST_ROOT "C:/local/boost_1_58_0")
-	set(BOOST_LIBRARYDIR C:/local/boost_1_58_0/lib64-msvc-12.0)
+	set(BOOST_FILESYSTEM_LIB  C:/local/boost_1_58_0/lib64-msvc-12.0)
+	set(BOOST_SYSTEM_LIB      C:/local/boost_1_58_0/lib64-msvc-12.0)
 endif ()
-
 
 FIND_PACKAGE( Boost 1.58.0 REQUIRED  )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
@@ -52,6 +55,7 @@ INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 if (APPLE)
 	set(GTEST_ROOT "/Library/Frameworks/gtest.framework/gtest")
 	set(GTEST_INCLUDE_DIR "/Library/Frameworks/gtest.framework/Headers")
+	set(GTEST_LIB  /Library/Frameworks/gtest.framework/gtest)
 else ()
 	set(GTEST_ROOT "C:/Development/googletest-master/googletest-master/cmake-build-debug/googlemock/gtest")
 	set(GTEST_INCLUDE_DIR "C:/Development/googletest-master/googletest-master/googletest/include/")
@@ -60,7 +64,7 @@ endif ()
 message("GTEST_ROOT=" ${GTEST_ROOT})
 
 FIND_PACKAGE( GTEST REQUIRED  )
-include_directories(${GTEST_INCLUDE_DIR})
+include_directories(${GTEST_INCLUDE_DIRS})
 
 
 #######################################
@@ -154,6 +158,13 @@ add_executable(${target} ${SRC} )
 
 target_link_libraries(${target} gtest )
 target_link_libraries( ${target} ${Boost_LIBRARIES})
+
+###############  Targeted Libraries ###########
+TARGET_LINK_LIBRARIES(${target} libmusicxml2)
+TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
+TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
+
+
 
 link_directories("/cygdrive/c/Development/CATSMAT/CATSMAT/cmake-build-debug/catsmat/libIMUSANT/cmake/")
 #add_library(libIMUSANT SHARED IMPORTED)
