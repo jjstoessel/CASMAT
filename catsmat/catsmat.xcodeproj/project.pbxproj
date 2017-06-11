@@ -1409,7 +1409,6 @@
 			children = (
 				495434F01EE37E1600213203 /* inc */,
 				495434F11EE37E1D00213203 /* src */,
-				495434F21EE37E2700213203 /* Segmentation */,
 			);
 			name = Analysis;
 			path = ../catsmat/Analysis;
@@ -1457,7 +1456,8 @@
 				4954350D1EE37E8900213203 /* LocalBoundaryDetectionModel */,
 				4954350C1EE37E6700213203 /* FixedPeriodDetection */,
 			);
-			path = Segmentation;
+			name = Segmentation;
+			path = ../catsmat/Segmentation;
 			sourceTree = "<group>";
 		};
 		4954350C1EE37E6700213203 /* FixedPeriodDetection */ = {
@@ -2842,6 +2842,7 @@
 				49B727B41C14184600FCF494 /* Application */,
 				BA10A5D51D979F5F000679C5 /* GeneralAnalysis */,
 				BA10A5D41D979F33000679C5 /* CounterpointAnalysis */,
+				495434F21EE37E2700213203 /* Segmentation */,
 				49BAF9F41ED94704000C84C4 /* Utilities */,
 			);
 			path = CATSMAT;
