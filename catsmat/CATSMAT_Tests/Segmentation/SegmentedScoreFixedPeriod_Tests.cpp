@@ -1,5 +1,5 @@
 ////
-//  IMUSANT_segmented_part_fixed_period_Tests.cpp
+//  SegmentedScoreFixedPeriod_Tests.cpp
 //  catsmat
 //
 //  Created by Derrick Hill on 29/10/2016.
@@ -19,7 +19,7 @@
 
 
 #include "IMUSANT_set_of_segment.h"
-#include "IMUSANT_segmented_part_fixed_period.h"
+#include "SegmentedScoreFixedPeriod.h"
 
 #include <boost/filesystem.hpp>
 
@@ -31,19 +31,19 @@ using namespace boost;
 // #define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
-class IMUSANT_segmented_part_fixed_period_Tests :
+class SegmentedScoreFixedPeriod_Tests :
 public ::testing::Test
 {
     
 protected:
     
-    IMUSANT_segmented_part_fixed_period_Tests()
+    SegmentedScoreFixedPeriod_Tests()
     {
         // You can do set-up work for each test here.
         // This is a bit inefficient as each file gets parsed for each test case.
     }
     
-    virtual ~IMUSANT_segmented_part_fixed_period_Tests()
+    virtual ~SegmentedScoreFixedPeriod_Tests()
     {
         // You can do clean-up work that doesn't throw exceptions here.
     }
@@ -74,19 +74,19 @@ protected:
     string getActualSegmentsAsString(IMUSANT_set_of_segment segment_set);
 };
 
-CATSMAT_test_utility * IMUSANT_segmented_part_fixed_period_Tests::_test_utils = NULL;
+CATSMAT_test_utility * SegmentedScoreFixedPeriod_Tests::_test_utils = NULL;
 
-S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Kyrie = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Kyrie_TwoPartsOnly = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Sanctus = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_YankeeDoodle = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_fixed_period_Tests::fScore_Josquin_MAF_Christe = NULL;
+S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_Kyrie = NULL;
+S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_Kyrie_TwoPartsOnly = NULL;
+S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_Sanctus = NULL;
+S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_YankeeDoodle = NULL;
+S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_Josquin_MAF_Christe = NULL;
 
 
 // ************* UTILITY FUNCTIONS START HERE *********** //
 
 string
-IMUSANT_segmented_part_fixed_period_Tests::
+SegmentedScoreFixedPeriod_Tests::
 getActualSegmentsAsString(IMUSANT_set_of_segment segments_set)
 {
     
@@ -120,43 +120,43 @@ getActualSegmentsAsString(IMUSANT_set_of_segment segments_set)
 // ************* TEST CASES START HERE *********** //
 
 
-TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Constructor)
+TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Constructor)
 {
-    IMUSANT_segmented_part_fixed_period * segmented_part = new IMUSANT_segmented_part_fixed_period();
-    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    SegmentedScoreFixedPeriod * segmented_score = new SegmentedScoreFixedPeriod();
+    S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod();
     
-    ASSERT_FALSE(segmented_part == NULL);
-    ASSERT_FALSE(s_segmented_part == NULL);
+    ASSERT_FALSE(segmented_score == NULL);
+    ASSERT_FALSE(s_segmented_score == NULL);
     
-    delete segmented_part;
+    delete segmented_score;
 }
 
-TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_NotEnoughParts)
+TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_NotEnoughParts)
 {
-    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
-    int ret_val = s_segmented_part->initialise(fScore_YankeeDoodle);
+    S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod();
+    int ret_val = s_segmented_score->initialise(fScore_YankeeDoodle);
     
-    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::ERR_NOT_ENOUGH_PARTS, ret_val);
+    ASSERT_EQ(SegmentedScoreFixedPeriod::ERR_NOT_ENOUGH_PARTS, ret_val);
 }
 
-TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise__Josquin_MAF_Christe_NotAPeriodicCannon)
+TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise__Josquin_MAF_Christe_NotAPeriodicCannon)
 {
     // The algorithm cannot recognise this as a cannon at the moment.
     // There seems to be a periodic cannon between Superious and Tenor parts, but it's difficult.
-    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod();
     int ret_val = s_segmented_part->initialise(fScore_Josquin_MAF_Christe);
     
-    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
+    ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, ret_val);
     IMUSANT_set_of_segment segments = s_segmented_part->getSegmentsSet();
     ASSERT_EQ(0, segments.size()) << "Unexpected number of segments...";
 }
 
-TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly)
+TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly)
 {
-    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod();
     int error_code = s_segmented_part->initialise(fScore_Kyrie_TwoPartsOnly);
     
-    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, error_code);
+    ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, error_code);
     ASSERT_EQ(10752, s_segmented_part->getPeriodDurationForThisScore()->AsAbsoluteNumeric());
     
     IMUSANT_set_of_segment segments_set = s_segmented_part->getSegmentsSet();
@@ -174,7 +174,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly_Expected, actual_output);
 }
 
-TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
+TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
 {
     // Q: How many segments are there in Kyrie?
     //
@@ -211,10 +211,10 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
 //    Kyrie ele√òson	T	50	1	56	3	14	0
 //    Kyrie ele√òson	T	57	1	63	2	32	0
     
-    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod();
     int error_code = s_segmented_part->initialise(fScore_Kyrie);
     
-    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, error_code);
+    ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, error_code);
     ASSERT_EQ(10752, s_segmented_part->getPeriodDurationForThisScore()->AsAbsoluteNumeric());
     
     IMUSANT_set_of_segment segmentset = s_segmented_part->getSegmentsSet();
@@ -232,7 +232,7 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     ASSERT_EQ(FixedPeriodSegmentation_Initialise_Kyrie_Expected, actual_output);
 }
 
-TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initialise_Sanctus)
+TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Sanctus)
 {
     
     // Q: How many segments are there in Sanctus?
@@ -245,12 +245,12 @@ TEST_F(IMUSANT_segmented_part_fixed_period_Tests, FixedPeriodSegmentation_Initia
     //   TOTAL   65
     
     
-    S_IMUSANT_segmented_part_fixed_period s_segmented_part = new_IMUSANT_segmented_part_fixed_period();
+    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod();
     
     const double ERROR_THRESHOLD = 0.2;
     int ret_val = s_segmented_part->initialise(fScore_Sanctus, ERROR_THRESHOLD);
     
-    ASSERT_EQ(IMUSANT_segmented_part_fixed_period::SUCCESS, ret_val);
+    ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, ret_val);
     ASSERT_EQ(7680, s_segmented_part->getPeriodDurationForThisScore()->AsAbsoluteNumeric() );
     
     IMUSANT_set_of_segment segmentset = s_segmented_part->getSegmentsSet();

@@ -13,7 +13,7 @@
 
 #include "IMUSANT_t_suffixtree_builder.h"
 #include "Visitor.h"
-#include "IMUSANT_segmented_part_fixed_period.h"
+#include "SegmentedScoreFixedPeriod.h"
 
 using namespace Loki;
 

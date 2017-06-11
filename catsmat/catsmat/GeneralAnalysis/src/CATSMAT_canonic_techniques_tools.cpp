@@ -15,7 +15,7 @@
 #include <set>
 
 #include "CATSMAT_canonic_techniques_tools.h"
-#include "IMUSANT_segmented_part_fixed_period.h"
+#include "SegmentedScoreFixedPeriod.h"
 #include "IMUSANT_interval_vector.h"
 #include "IMUSANT_generalised_interval.h"
 
@@ -97,12 +97,12 @@ namespace CATSMAT
             IMUSANT_interval interval = GetIntervalBetweenParts(first_part, second_part, canon_type.retrograde_);
             canon_type.intervals_.push_back(interval);
             
-            IMUSANT_segmented_part_fixed_period seg_part;
+            SegmentedScoreFixedPeriod seg_part;
             
             if (!seg_part.partsEnterTogether(first_part, second_part))
             {
                 //calculate ioi_unit and ioi_unit_count
-                IMUSANT_duration ioi = *IMUSANT_segmented_part_fixed_period::calculateEntryOffsetBetweenParts(first_part, second_part);
+                IMUSANT_duration ioi = *SegmentedScoreFixedPeriod::calculateEntryOffsetBetweenParts(first_part, second_part);
                 IMUSANT_duration ioi_unit;
                 
                 ioi_unit = CalculateIOIUnit(first_part, second_part);
@@ -264,7 +264,7 @@ namespace CATSMAT
             
         }
         
-        return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_notes, part_one_notes.size());
+        return SegmentedScoreFixedPeriod::errorRateIsAcceptable(error_threshold,num_non_matching_notes, part_one_notes.size());
     }
     
     //this will not work if a tie note is compared to a larger value equivalent. SOLUTION: removed all tied notes is a note string.
@@ -294,7 +294,7 @@ namespace CATSMAT
                                                       [](S_IMUSANT_note& first, const S_IMUSANT_note& second){ return *first->duration()==*second->duration();});
         }
         
-        return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_notes, part_one_notes.size());
+        return SegmentedScoreFixedPeriod::errorRateIsAcceptable(error_threshold,num_non_matching_notes, part_one_notes.size());
     }
 
     
@@ -321,7 +321,7 @@ namespace CATSMAT
                                            second_part_intervals->getIntervals().begin(),
                                            [](const IMUSANT_interval& first, const IMUSANT_interval& second){ return first.getNumber()==second.getNumber();});
         
-        return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
+        return SegmentedScoreFixedPeriod::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
     }
 
     
@@ -382,7 +382,7 @@ namespace CATSMAT
                                                       second_part_begin,
                                                       [](const IMUSANT_interval& first, const IMUSANT_interval& second){ return first.getNumber()==-second.getNumber();});
         
-        return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
+        return SegmentedScoreFixedPeriod::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
     }
     
     bool
@@ -409,7 +409,7 @@ namespace CATSMAT
                                                       second_part_intervals->getIntervals().begin(),
                                                       [](const IMUSANT_interval& first, const IMUSANT_interval& second){ return first.getNumber()==-second.getNumber();});
         
-        return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
+        return SegmentedScoreFixedPeriod::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
     }
     
     bool
@@ -439,7 +439,7 @@ namespace CATSMAT
                                                       second_part_begin,
                                                       [](const IMUSANT_interval& first, const IMUSANT_interval& second){ return first.getNumber()==second.getNumber();});
         
-        return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
+        return SegmentedScoreFixedPeriod::errorRateIsAcceptable(error_threshold,num_non_matching_intervals, first_part_intervals->getIntervals().size());
     }
     
     //looks at proportional relationship between all notes in two canonic parts
@@ -484,7 +484,7 @@ namespace CATSMAT
         result = max_diff_i->first;
         num_non_matching_notes = (int)diff.size() - max_diff_i->second;
         
-        return IMUSANT_segmented_part_fixed_period::errorRateIsAcceptable(error_threshold, num_non_matching_notes, part_one_notes.size()); // does nothing for now
+        return SegmentedScoreFixedPeriod::errorRateIsAcceptable(error_threshold, num_non_matching_notes, part_one_notes.size()); // does nothing for now
     }
     
     //static predicate function
@@ -548,7 +548,7 @@ namespace CATSMAT
                 p1_measure_duration = measure_dur;
         }
         
-        IMUSANT_duration ioi = *IMUSANT_segmented_part_fixed_period::calculateEntryOffsetBetweenParts(first_part, second_part);
+        IMUSANT_duration ioi = *SegmentedScoreFixedPeriod::calculateEntryOffsetBetweenParts(first_part, second_part);
         float ioi_units_float = ioi.AsAbsoluteNumeric()/p1_measure_duration.AsAbsoluteNumeric();
         int ioi_units = ioi_units_float;
         if ( ioi_units_float > (float)ioi_units || ioi_units_float < (float)ioi_units )

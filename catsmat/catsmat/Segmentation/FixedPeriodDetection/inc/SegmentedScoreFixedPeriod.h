@@ -22,7 +22,7 @@ using namespace std;
 
 namespace CATSMAT
 {
-    class IMUSANT_segmented_part_fixed_period : public smartable
+    class SegmentedScoreFixedPeriod : public smartable
     {
     public:
         
@@ -31,11 +31,11 @@ namespace CATSMAT
         static const int SUCCESS = 0;
         static const int ERR_NOT_ENOUGH_PARTS = 1;
         
-        IMUSANT_segmented_part_fixed_period()
+        SegmentedScoreFixedPeriod()
         {
         }
         
-        virtual ~IMUSANT_segmented_part_fixed_period() {}
+        virtual ~SegmentedScoreFixedPeriod() {}
         
         int initialise(S_IMUSANT_score the_score, double error_threshold = 0.1);
         
@@ -46,8 +46,8 @@ namespace CATSMAT
         
         S_IMUSANT_duration getPeriodDurationForThisScore();
         
-        friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_fixed_period& segmented_part);
-        friend IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
+        friend ostream& operator<< (ostream& os, const SegmentedScoreFixedPeriod& segmented_part);
+        friend IMUSANT_SMARTP<SegmentedScoreFixedPeriod> new_SegmentedScoreFixedPeriod();
        
         //these are not class dependent member functions of broader utility
         static S_IMUSANT_duration calculateEntryOffsetBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part); //i.e. Interonset interval
@@ -92,8 +92,8 @@ namespace CATSMAT
         
     };
     
-    typedef IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> S_IMUSANT_segmented_part_fixed_period;
-    IMUSANT_SMARTP<IMUSANT_segmented_part_fixed_period> new_IMUSANT_segmented_part_fixed_period();
+    typedef IMUSANT_SMARTP<SegmentedScoreFixedPeriod> S_SegmentedScoreFixedPeriod;
+    IMUSANT_SMARTP<SegmentedScoreFixedPeriod> new_SegmentedScoreFixedPeriod();
 
 }
 
