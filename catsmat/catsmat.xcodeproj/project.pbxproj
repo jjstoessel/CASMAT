@@ -24,6 +24,24 @@
 		1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
 		1EDE2F221B3E7CFA00DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
 		490E3BB91CFA5EB90091A44E /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
+		492905B71EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B11EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp */; };
+		492905B81EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B21EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp */; };
+		492905B91EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B31EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp */; };
+		492905BA1EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */; };
+		492905BB1EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */; };
+		492905BC1EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */; };
+		492905C61EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */; };
+		492905C71EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */; };
+		492905C81EECD92300B0D5A7 /* IMUSANT_segmented_part_fixed_period.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C51EECD92300B0D5A7 /* IMUSANT_segmented_part_fixed_period.cpp */; };
+		492905C91EECD97E00B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */; };
+		492905CA1EECD97E00B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */; };
+		492905CB1EECD97E00B0D5A7 /* IMUSANT_segmented_part_fixed_period.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C51EECD92300B0D5A7 /* IMUSANT_segmented_part_fixed_period.cpp */; };
+		492905CC1EECD98400B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B11EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp */; };
+		492905CD1EECD98400B0D5A7 /* IMUSANT_LBDM_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B21EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp */; };
+		492905CE1EECD98400B0D5A7 /* IMUSANT_segmented_note_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B31EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp */; };
+		492905CF1EECD98400B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */; };
+		492905D01EECD98400B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */; };
+		492905D11EECD98400B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */; };
 		494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */; };
 		495435081EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435011EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp */; };
 		495435091EE37E5C00213203 /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* IMUSANT_repeated_interval_substring.cpp */; };
@@ -33,15 +51,6 @@
 		495435471EE3A95400213203 /* IMUSANT_interval_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435001EE37E5C00213203 /* IMUSANT_interval_suffixtree_builder.cpp */; };
 		495435481EE3A95F00213203 /* IMUSANT_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435131EE37EFD00213203 /* IMUSANT_segment.cpp */; };
 		495435491EE3A96300213203 /* IMUSANT_set_of_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435151EE37EFD00213203 /* IMUSANT_set_of_segment.cpp */; };
-		4954354A1EE3A97500213203 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954351B1EE37F0700213203 /* IMUSANT_interval_profile_LBDM.cpp */; };
-		4954354B1EE3A97500213203 /* IMUSANT_LBDM_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954351D1EE37F0700213203 /* IMUSANT_LBDM_segmenter.cpp */; };
-		4954354C1EE3A97500213203 /* IMUSANT_segmented_note_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954351F1EE37F0700213203 /* IMUSANT_segmented_note_vectors.cpp */; };
-		4954354D1EE3A97500213203 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435211EE37F0700213203 /* IMUSANT_segmented_part_LBDM.cpp */; };
-		4954354E1EE3A97500213203 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435231EE37F0700213203 /* IMUSANT_segmented_profile_vectors.cpp */; };
-		4954354F1EE3A97500213203 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435251EE37F0700213203 /* IMUSANT_weighted_strength_vectors.cpp */; };
-		495435501EE3A97A00213203 /* IMUSANT_fixed_period_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954352D1EE37F1300213203 /* IMUSANT_fixed_period_segmenter.cpp */; };
-		495435511EE3A97A00213203 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954352F1EE37F1300213203 /* IMUSANT_partlist_ordered_by_part_entry.cpp */; };
-		495435521EE3A97A00213203 /* IMUSANT_segmented_part_fixed_period.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435311EE37F1300213203 /* IMUSANT_segmented_part_fixed_period.cpp */; };
 		495435541EE3B05A00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435041EE37E5C00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp */; };
 		495435551EE3B0A800213203 /* CATSMAT_cp_matrix_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF7141B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp */; };
 		495435561EE3B0AC00213203 /* CATSMAT_dyad_sequences_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E1836281B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp */; };
@@ -64,15 +73,6 @@
 		495435671EE3B13200213203 /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435041EE37E5C00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp */; };
 		495435681EE3B13D00213203 /* IMUSANT_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435131EE37EFD00213203 /* IMUSANT_segment.cpp */; };
 		495435691EE3B13D00213203 /* IMUSANT_set_of_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435151EE37EFD00213203 /* IMUSANT_set_of_segment.cpp */; };
-		4954356A1EE3B14600213203 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954351B1EE37F0700213203 /* IMUSANT_interval_profile_LBDM.cpp */; };
-		4954356B1EE3B14600213203 /* IMUSANT_LBDM_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954351D1EE37F0700213203 /* IMUSANT_LBDM_segmenter.cpp */; };
-		4954356C1EE3B14600213203 /* IMUSANT_segmented_note_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954351F1EE37F0700213203 /* IMUSANT_segmented_note_vectors.cpp */; };
-		4954356D1EE3B14600213203 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435211EE37F0700213203 /* IMUSANT_segmented_part_LBDM.cpp */; };
-		4954356E1EE3B14600213203 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435231EE37F0700213203 /* IMUSANT_segmented_profile_vectors.cpp */; };
-		4954356F1EE3B14600213203 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435251EE37F0700213203 /* IMUSANT_weighted_strength_vectors.cpp */; };
-		495435701EE3B14D00213203 /* IMUSANT_fixed_period_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954352D1EE37F1300213203 /* IMUSANT_fixed_period_segmenter.cpp */; };
-		495435711EE3B14D00213203 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954352F1EE37F1300213203 /* IMUSANT_partlist_ordered_by_part_entry.cpp */; };
-		495435721EE3B14D00213203 /* IMUSANT_segmented_part_fixed_period.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435311EE37F1300213203 /* IMUSANT_segmented_part_fixed_period.cpp */; };
 		495435761EE3B30700213203 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435731EE3B2E600213203 /* LBDM_Segmented_Part_Test_1.xml */; };
 		495435771EE3B30700213203 /* LBDM_Segmented_Part_Test_2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435741EE3B2E600213203 /* LBDM_Segmented_Part_Test_2.xml */; };
 		495435781EE3B30700213203 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435751EE3B2E600213203 /* LBDM_Segmented_Part_Test_3.xml */; };
@@ -501,6 +501,26 @@
 		1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.xml; sourceTree = "<group>"; };
 		1EE7EAD11D44582C00F3D342 /* IMUSANT_mxmlv3_exceptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMUSANT_mxmlv3_exceptions.h; sourceTree = "<group>"; };
 		4920C16A1E13A0EC00577FC6 /* Kyrie_TwoPartsOnly.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie_TwoPartsOnly.xml; sourceTree = "<group>"; };
+		492905A81EECD8D700B0D5A7 /* IMUSANT_consolidated_interval_profile_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_consolidated_interval_profile_LBDM.h; sourceTree = "<group>"; };
+		492905A91EECD8D700B0D5A7 /* IMUSANT_consolidated_interval_profile_LBDM_visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_consolidated_interval_profile_LBDM_visitor.h; sourceTree = "<group>"; };
+		492905AA1EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval_profile_LBDM.h; sourceTree = "<group>"; };
+		492905AB1EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_LBDM_segmenter.h; sourceTree = "<group>"; };
+		492905AC1EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segmented_note_vectors.h; sourceTree = "<group>"; };
+		492905AD1EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segmented_part_LBDM.h; sourceTree = "<group>"; };
+		492905AE1EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segmented_profile_vectors.h; sourceTree = "<group>"; };
+		492905AF1EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_weighted_strength_vectors.h; sourceTree = "<group>"; };
+		492905B11EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_profile_LBDM.cpp; sourceTree = "<group>"; };
+		492905B21EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_LBDM_segmenter.cpp; sourceTree = "<group>"; };
+		492905B31EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_note_vectors.cpp; sourceTree = "<group>"; };
+		492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_part_LBDM.cpp; sourceTree = "<group>"; };
+		492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_profile_vectors.cpp; sourceTree = "<group>"; };
+		492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_weighted_strength_vectors.cpp; sourceTree = "<group>"; };
+		492905BF1EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_fixed_period_segmenter.h; sourceTree = "<group>"; };
+		492905C01EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_partlist_ordered_by_part_entry.h; sourceTree = "<group>"; };
+		492905C11EECD92300B0D5A7 /* IMUSANT_segmented_part_fixed_period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segmented_part_fixed_period.h; sourceTree = "<group>"; };
+		492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_fixed_period_segmenter.cpp; sourceTree = "<group>"; };
+		492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_partlist_ordered_by_part_entry.cpp; sourceTree = "<group>"; };
+		492905C51EECD92300B0D5A7 /* IMUSANT_segmented_part_fixed_period.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_part_fixed_period.cpp; sourceTree = "<group>"; };
 		494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest1.xml; sourceTree = "<group>"; };
 		495434F31EE37E5000213203 /* IMUSANT_contour_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_contour_suffixtree_builder.h; sourceTree = "<group>"; };
 		495434F41EE37E5000213203 /* IMUSANT_generalised_interval_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_generalised_interval_suffixtree_builder.h; sourceTree = "<group>"; };
@@ -521,26 +541,6 @@
 		495435141EE37EFD00213203 /* IMUSANT_segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segment.h; sourceTree = "<group>"; };
 		495435151EE37EFD00213203 /* IMUSANT_set_of_segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_set_of_segment.cpp; sourceTree = "<group>"; };
 		495435161EE37EFD00213203 /* IMUSANT_set_of_segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_set_of_segment.h; sourceTree = "<group>"; };
-		495435191EE37F0700213203 /* IMUSANT_consolidated_interval_profile_LBDM_visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_consolidated_interval_profile_LBDM_visitor.h; path = LocalBoundaryDetectionModel/IMUSANT_consolidated_interval_profile_LBDM_visitor.h; sourceTree = "<group>"; };
-		4954351A1EE37F0700213203 /* IMUSANT_consolidated_interval_profile_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_consolidated_interval_profile_LBDM.h; path = LocalBoundaryDetectionModel/IMUSANT_consolidated_interval_profile_LBDM.h; sourceTree = "<group>"; };
-		4954351B1EE37F0700213203 /* IMUSANT_interval_profile_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_interval_profile_LBDM.cpp; path = LocalBoundaryDetectionModel/IMUSANT_interval_profile_LBDM.cpp; sourceTree = "<group>"; };
-		4954351C1EE37F0700213203 /* IMUSANT_interval_profile_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_interval_profile_LBDM.h; path = LocalBoundaryDetectionModel/IMUSANT_interval_profile_LBDM.h; sourceTree = "<group>"; };
-		4954351D1EE37F0700213203 /* IMUSANT_LBDM_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_LBDM_segmenter.cpp; path = LocalBoundaryDetectionModel/IMUSANT_LBDM_segmenter.cpp; sourceTree = "<group>"; };
-		4954351E1EE37F0700213203 /* IMUSANT_LBDM_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_LBDM_segmenter.h; path = LocalBoundaryDetectionModel/IMUSANT_LBDM_segmenter.h; sourceTree = "<group>"; };
-		4954351F1EE37F0700213203 /* IMUSANT_segmented_note_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_note_vectors.cpp; path = LocalBoundaryDetectionModel/IMUSANT_segmented_note_vectors.cpp; sourceTree = "<group>"; };
-		495435201EE37F0700213203 /* IMUSANT_segmented_note_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_segmented_note_vectors.h; path = LocalBoundaryDetectionModel/IMUSANT_segmented_note_vectors.h; sourceTree = "<group>"; };
-		495435211EE37F0700213203 /* IMUSANT_segmented_part_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_part_LBDM.cpp; path = LocalBoundaryDetectionModel/IMUSANT_segmented_part_LBDM.cpp; sourceTree = "<group>"; };
-		495435221EE37F0700213203 /* IMUSANT_segmented_part_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_segmented_part_LBDM.h; path = LocalBoundaryDetectionModel/IMUSANT_segmented_part_LBDM.h; sourceTree = "<group>"; };
-		495435231EE37F0700213203 /* IMUSANT_segmented_profile_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_profile_vectors.cpp; path = LocalBoundaryDetectionModel/IMUSANT_segmented_profile_vectors.cpp; sourceTree = "<group>"; };
-		495435241EE37F0700213203 /* IMUSANT_segmented_profile_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_segmented_profile_vectors.h; path = LocalBoundaryDetectionModel/IMUSANT_segmented_profile_vectors.h; sourceTree = "<group>"; };
-		495435251EE37F0700213203 /* IMUSANT_weighted_strength_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_weighted_strength_vectors.cpp; path = LocalBoundaryDetectionModel/IMUSANT_weighted_strength_vectors.cpp; sourceTree = "<group>"; };
-		495435261EE37F0700213203 /* IMUSANT_weighted_strength_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_weighted_strength_vectors.h; path = LocalBoundaryDetectionModel/IMUSANT_weighted_strength_vectors.h; sourceTree = "<group>"; };
-		4954352D1EE37F1300213203 /* IMUSANT_fixed_period_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_fixed_period_segmenter.cpp; path = FixedPeriodDetection/IMUSANT_fixed_period_segmenter.cpp; sourceTree = "<group>"; };
-		4954352E1EE37F1300213203 /* IMUSANT_fixed_period_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_fixed_period_segmenter.h; path = FixedPeriodDetection/IMUSANT_fixed_period_segmenter.h; sourceTree = "<group>"; };
-		4954352F1EE37F1300213203 /* IMUSANT_partlist_ordered_by_part_entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_partlist_ordered_by_part_entry.cpp; path = FixedPeriodDetection/IMUSANT_partlist_ordered_by_part_entry.cpp; sourceTree = "<group>"; };
-		495435301EE37F1300213203 /* IMUSANT_partlist_ordered_by_part_entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_partlist_ordered_by_part_entry.h; path = FixedPeriodDetection/IMUSANT_partlist_ordered_by_part_entry.h; sourceTree = "<group>"; };
-		495435311EE37F1300213203 /* IMUSANT_segmented_part_fixed_period.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_segmented_part_fixed_period.cpp; path = FixedPeriodDetection/IMUSANT_segmented_part_fixed_period.cpp; sourceTree = "<group>"; };
-		495435321EE37F1300213203 /* IMUSANT_segmented_part_fixed_period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_segmented_part_fixed_period.h; path = FixedPeriodDetection/IMUSANT_segmented_part_fixed_period.h; sourceTree = "<group>"; };
 		495435371EE37FAB00213203 /* IMUSANT_interval_profile_LBDM_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_profile_LBDM_Tests.cpp; sourceTree = "<group>"; };
 		495435381EE37FAB00213203 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_partlist_ordered_by_part_entry_Tests.cpp; sourceTree = "<group>"; };
 		495435391EE37FAB00213203 /* IMUSANT_segment_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segment_Tests.cpp; sourceTree = "<group>"; };
@@ -1404,6 +1404,72 @@
 			path = source_files;
 			sourceTree = "<group>";
 		};
+		492905A61EECD8D700B0D5A7 /* LocalBoundaryDetectionModel */ = {
+			isa = PBXGroup;
+			children = (
+				492905A71EECD8D700B0D5A7 /* inc */,
+				492905B01EECD8D700B0D5A7 /* src */,
+			);
+			path = LocalBoundaryDetectionModel;
+			sourceTree = "<group>";
+		};
+		492905A71EECD8D700B0D5A7 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				492905A81EECD8D700B0D5A7 /* IMUSANT_consolidated_interval_profile_LBDM.h */,
+				492905A91EECD8D700B0D5A7 /* IMUSANT_consolidated_interval_profile_LBDM_visitor.h */,
+				492905AA1EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.h */,
+				492905AB1EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.h */,
+				492905AC1EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.h */,
+				492905AD1EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.h */,
+				492905AE1EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.h */,
+				492905AF1EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		492905B01EECD8D700B0D5A7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				492905B11EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp */,
+				492905B21EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp */,
+				492905B31EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp */,
+				492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */,
+				492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */,
+				492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		492905BD1EECD92300B0D5A7 /* FixedPeriodDetection */ = {
+			isa = PBXGroup;
+			children = (
+				492905BE1EECD92300B0D5A7 /* inc */,
+				492905C21EECD92300B0D5A7 /* src */,
+			);
+			path = FixedPeriodDetection;
+			sourceTree = "<group>";
+		};
+		492905BE1EECD92300B0D5A7 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				492905BF1EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.h */,
+				492905C01EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.h */,
+				492905C11EECD92300B0D5A7 /* IMUSANT_segmented_part_fixed_period.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		492905C21EECD92300B0D5A7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */,
+				492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */,
+				492905C51EECD92300B0D5A7 /* IMUSANT_segmented_part_fixed_period.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		495434EC1EE37DC400213203 /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
@@ -1449,49 +1515,15 @@
 		495434F21EE37E2700213203 /* Segmentation */ = {
 			isa = PBXGroup;
 			children = (
+				492905BD1EECD92300B0D5A7 /* FixedPeriodDetection */,
+				492905A61EECD8D700B0D5A7 /* LocalBoundaryDetectionModel */,
 				495435131EE37EFD00213203 /* IMUSANT_segment.cpp */,
 				495435141EE37EFD00213203 /* IMUSANT_segment.h */,
 				495435151EE37EFD00213203 /* IMUSANT_set_of_segment.cpp */,
 				495435161EE37EFD00213203 /* IMUSANT_set_of_segment.h */,
-				4954350D1EE37E8900213203 /* LocalBoundaryDetectionModel */,
-				4954350C1EE37E6700213203 /* FixedPeriodDetection */,
 			);
 			name = Segmentation;
 			path = ../catsmat/Segmentation;
-			sourceTree = "<group>";
-		};
-		4954350C1EE37E6700213203 /* FixedPeriodDetection */ = {
-			isa = PBXGroup;
-			children = (
-				4954352D1EE37F1300213203 /* IMUSANT_fixed_period_segmenter.cpp */,
-				4954352E1EE37F1300213203 /* IMUSANT_fixed_period_segmenter.h */,
-				4954352F1EE37F1300213203 /* IMUSANT_partlist_ordered_by_part_entry.cpp */,
-				495435301EE37F1300213203 /* IMUSANT_partlist_ordered_by_part_entry.h */,
-				495435311EE37F1300213203 /* IMUSANT_segmented_part_fixed_period.cpp */,
-				495435321EE37F1300213203 /* IMUSANT_segmented_part_fixed_period.h */,
-			);
-			name = FixedPeriodDetection;
-			sourceTree = "<group>";
-		};
-		4954350D1EE37E8900213203 /* LocalBoundaryDetectionModel */ = {
-			isa = PBXGroup;
-			children = (
-				495435191EE37F0700213203 /* IMUSANT_consolidated_interval_profile_LBDM_visitor.h */,
-				4954351A1EE37F0700213203 /* IMUSANT_consolidated_interval_profile_LBDM.h */,
-				4954351B1EE37F0700213203 /* IMUSANT_interval_profile_LBDM.cpp */,
-				4954351C1EE37F0700213203 /* IMUSANT_interval_profile_LBDM.h */,
-				4954351D1EE37F0700213203 /* IMUSANT_LBDM_segmenter.cpp */,
-				4954351E1EE37F0700213203 /* IMUSANT_LBDM_segmenter.h */,
-				4954351F1EE37F0700213203 /* IMUSANT_segmented_note_vectors.cpp */,
-				495435201EE37F0700213203 /* IMUSANT_segmented_note_vectors.h */,
-				495435211EE37F0700213203 /* IMUSANT_segmented_part_LBDM.cpp */,
-				495435221EE37F0700213203 /* IMUSANT_segmented_part_LBDM.h */,
-				495435231EE37F0700213203 /* IMUSANT_segmented_profile_vectors.cpp */,
-				495435241EE37F0700213203 /* IMUSANT_segmented_profile_vectors.h */,
-				495435251EE37F0700213203 /* IMUSANT_weighted_strength_vectors.cpp */,
-				495435261EE37F0700213203 /* IMUSANT_weighted_strength_vectors.h */,
-			);
-			name = LocalBoundaryDetectionModel;
 			sourceTree = "<group>";
 		};
 		495435361EE37FAB00213203 /* Segmentation */ = {
@@ -3118,48 +3150,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				492905CD1EECD98400B0D5A7 /* IMUSANT_LBDM_segmenter.cpp in Sources */,
 				496EF4C71B229D8100FE715F /* main.cpp in Sources */,
 				495435641EE3B13200213203 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */,
-				4954356F1EE3B14600213203 /* IMUSANT_weighted_strength_vectors.cpp in Sources */,
+				492905C91EECD97E00B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp in Sources */,
 				49BAF9EF1ED945E4000C84C4 /* CATSMAT_dyad_sequences.cpp in Sources */,
+				492905CE1EECD98400B0D5A7 /* IMUSANT_segmented_note_vectors.cpp in Sources */,
 				49BAF9F31ED945E4000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
 				49BAF9E81ED945D1000C84C4 /* CATSMAT_score_profile_special.cpp in Sources */,
 				495435591EE3B0BB00213203 /* CATSMAT_scoredatacollector_tests.cpp in Sources */,
 				49BAF9E71ED945D1000C84C4 /* CATSMAT_processing.cpp in Sources */,
-				4954356C1EE3B14600213203 /* IMUSANT_segmented_note_vectors.cpp in Sources */,
 				49BAF9ED1ED945E4000C84C4 /* CATSMAT_collectionvisitor.cpp in Sources */,
+				492905CC1EECD98400B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
 				495435631EE3B13200213203 /* IMUSANT_interval_suffixtree_builder.cpp in Sources */,
+				492905D01EECD98400B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */,
 				495435601EE3B0D500213203 /* IMUSANT_segmented_part_LBDM_Tests.cpp in Sources */,
+				492905CB1EECD97E00B0D5A7 /* IMUSANT_segmented_part_fixed_period.cpp in Sources */,
 				495435651EE3B13200213203 /* IMUSANT_repeated_interval_substring.cpp in Sources */,
 				49BAF9EB1ED945D5000C84C4 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				49BAF9F21ED945E4000C84C4 /* CATSMAT_TrigramSequences.cpp in Sources */,
 				495435621EE3B13200213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */,
 				49BAF9F11ED945E4000C84C4 /* CATSMAT_sonority_sequences.cpp in Sources */,
 				49BAF9E51ED945D1000C84C4 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
+				492905CF1EECD98400B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
 				495435661EE3B13200213203 /* IMUSANT_t_repeated_substring.cpp in Sources */,
 				49BAF9F01ED945E4000C84C4 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
 				495435681EE3B13D00213203 /* IMUSANT_segment.cpp in Sources */,
 				4954355A1EE3B0BF00213203 /* CATSMAT_trigramsequences_tests.cpp in Sources */,
 				4954355D1EE3B0CA00213203 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp in Sources */,
 				49BAF9EA1ED945D5000C84C4 /* CATSMAT_scoredata.cpp in Sources */,
-				4954356E1EE3B14600213203 /* IMUSANT_segmented_profile_vectors.cpp in Sources */,
 				4954355F1EE3B0D200213203 /* IMUSANT_segmented_part_fixed_period_Tests.cpp in Sources */,
 				1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */,
-				4954356A1EE3B14600213203 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
 				4954355C1EE3B0C700213203 /* IMUSANT_interval_profile_LBDM_Tests.cpp in Sources */,
 				495435551EE3B0A800213203 /* CATSMAT_cp_matrix_Test.cpp in Sources */,
-				4954356B1EE3B14600213203 /* IMUSANT_LBDM_segmenter.cpp in Sources */,
+				492905CA1EECD97E00B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */,
 				49BAF9E91ED945D5000C84C4 /* CATSMAT_score_splitter.cpp in Sources */,
-				4954356D1EE3B14600213203 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
 				495435581EE3B0B800213203 /* CATSMAT_sonority_sequences_Tests.cpp in Sources */,
 				495435561EE3B0AC00213203 /* CATSMAT_dyad_sequences_Test.cpp in Sources */,
-				495435701EE3B14D00213203 /* IMUSANT_fixed_period_segmenter.cpp in Sources */,
 				495435611EE3B13200213203 /* IMUSANT_contour_suffixtree_builder.cpp in Sources */,
-				495435711EE3B14D00213203 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */,
 				495435671EE3B13200213203 /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */,
+				492905D11EECD98400B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */,
 				49BAF9E61ED945D1000C84C4 /* CATSMAT_partdata.cpp in Sources */,
 				4954355E1EE3B0CE00213203 /* IMUSANT_segment_Tests.cpp in Sources */,
-				495435721EE3B14D00213203 /* IMUSANT_segmented_part_fixed_period.cpp in Sources */,
 				495435691EE3B13D00213203 /* IMUSANT_set_of_segment.cpp in Sources */,
 				4954355B1EE3B0C200213203 /* CATSMAT_canonic_techniques_tools_tests.cpp in Sources */,
 				49BAF9EC1ED945E4000C84C4 /* CATSMAT_chord.cpp in Sources */,
@@ -3244,10 +3276,10 @@
 				49BAF9C31ED9456C000C84C4 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
 				49BAF9AE1ED9420D000C84C4 /* CATSMAT_main.cpp in Sources */,
 				49BAF9C61ED9456C000C84C4 /* CATSMAT_score_profile_special.cpp in Sources */,
+				492905BB1EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */,
 				49BAF9C81ED9456C000C84C4 /* CATSMAT_scoredata.cpp in Sources */,
 				49BAF9C51ED9456C000C84C4 /* CATSMAT_processing.cpp in Sources */,
 				49BAF9E01ED94599000C84C4 /* CATSMAT_dyad_sequences.cpp in Sources */,
-				4954354D1EE3A97500213203 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
 				495435081EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */,
 				495435471EE3A95400213203 /* IMUSANT_interval_suffixtree_builder.cpp in Sources */,
 				495435451EE3A95400213203 /* IMUSANT_contour_suffixtree_builder.cpp in Sources */,
@@ -3255,27 +3287,27 @@
 				4954350A1EE37E5C00213203 /* IMUSANT_t_repeated_substring.cpp in Sources */,
 				49BAF9E11ED94599000C84C4 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
 				495435461EE3A95400213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */,
-				4954354E1EE3A97500213203 /* IMUSANT_segmented_profile_vectors.cpp in Sources */,
+				492905B91EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp in Sources */,
 				49BAF9C91ED9456C000C84C4 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				49BAF9E21ED94599000C84C4 /* CATSMAT_sonority_sequences.cpp in Sources */,
-				495435501EE3A97A00213203 /* IMUSANT_fixed_period_segmenter.cpp in Sources */,
+				492905C61EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp in Sources */,
 				495435091EE37E5C00213203 /* IMUSANT_repeated_interval_substring.cpp in Sources */,
+				492905C71EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */,
 				495435541EE3B05A00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */,
-				495435511EE3A97A00213203 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */,
 				49BAF9C71ED9456C000C84C4 /* CATSMAT_score_splitter.cpp in Sources */,
 				49BAF9E31ED94599000C84C4 /* CATSMAT_TrigramSequences.cpp in Sources */,
 				495435491EE3A96300213203 /* IMUSANT_set_of_segment.cpp in Sources */,
+				492905BC1EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */,
 				49BAF9C41ED9456C000C84C4 /* CATSMAT_partdata.cpp in Sources */,
-				4954354A1EE3A97500213203 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
+				492905BA1EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
 				49BAF9DE1ED94599000C84C4 /* CATSMAT_collectionvisitor.cpp in Sources */,
 				49BAF9E41ED94599000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
-				4954354F1EE3A97500213203 /* IMUSANT_weighted_strength_vectors.cpp in Sources */,
+				492905B81EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp in Sources */,
 				49BAF9DD1ED94599000C84C4 /* CATSMAT_chord.cpp in Sources */,
 				495435481EE3A95F00213203 /* IMUSANT_segment.cpp in Sources */,
+				492905B71EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
+				492905C81EECD92300B0D5A7 /* IMUSANT_segmented_part_fixed_period.cpp in Sources */,
 				49BAF9AF1ED9420D000C84C4 /* CATSMAT_menu.cpp in Sources */,
-				4954354C1EE3A97500213203 /* IMUSANT_segmented_note_vectors.cpp in Sources */,
-				495435521EE3A97A00213203 /* IMUSANT_segmented_part_fixed_period.cpp in Sources */,
-				4954354B1EE3A97500213203 /* IMUSANT_LBDM_segmenter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
