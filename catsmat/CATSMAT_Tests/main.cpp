@@ -15,8 +15,8 @@ int main(int argc, char * argv[]) {
     
     cout << "RUNNING CATSMAT TESTS" << endl;
     cout << "---------------------" << endl;
-//    ::testing::GTEST_FLAG(filter) = "*CP_Matrix*";   // Syntax for limiting which tests get run.
     ::testing::InitGoogleTest(&argc, argv);
+//    ::testing::GTEST_FLAG(filter) = "*GetSegmentsAsNoteVectors_From_Score_Kyrie*";   // Syntax for limiting which tests get run.
     return RUN_ALL_TESTS();
     
 }
