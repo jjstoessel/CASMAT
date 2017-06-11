@@ -58,6 +58,7 @@ protected:
         fScore_LBDM_Test1 = _test_utils->InitialiseScoreFromFile("LBDM_Segmented_Part_Test_1.xml");
         fScore_LBDM_Test3 = _test_utils->InitialiseScoreFromFile("LBDM_Segmented_Part_Test_3.xml");
         fScore_Kyrie = _test_utils->InitialiseScoreFromFile("Kyrie.xml");
+        fScore_Kyrie_2 = _test_utils->InitialiseScoreFromFile("Kyrie_2.xml");
         fScore_Sanctus = _test_utils->InitialiseScoreFromFile("Sanctus.xml");
         fScore_YankeeDoodle = _test_utils->InitialiseScoreFromFile("Yankee_Doodle.xml");
     }
@@ -137,6 +138,7 @@ protected:
     static S_IMUSANT_score fScore_LBDM_Test1;
     static S_IMUSANT_score fScore_LBDM_Test3;
     static S_IMUSANT_score fScore_Kyrie;
+    static S_IMUSANT_score fScore_Kyrie_2;
     static S_IMUSANT_score fScore_Sanctus;
     static S_IMUSANT_score fScore_YankeeDoodle;
 
@@ -147,6 +149,7 @@ CATSMAT_test_utility * IMUSANT_segmented_part_LBDM_Tests::_test_utils = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_LBDM_Test1 = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_LBDM_Test3 = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_Kyrie = NULL;
+S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_Kyrie_2 = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_Sanctus = NULL;
 S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_YankeeDoodle = NULL;
 
@@ -379,7 +382,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Ky
     // See Task TK-01266 - "Generate results for Sanctus and analyse."
     // Current implementation of LBDM does not really give us the results we are looking for.  Work in progress.
     
-    S_IMUSANT_part& the_part = fScore_Kyrie->partlist()->getPart("P2");
+    S_IMUSANT_part& the_part = fScore_Kyrie_2->partlist()->getPart("P2");
     
     S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM();
     seg_part->initialise(the_part);

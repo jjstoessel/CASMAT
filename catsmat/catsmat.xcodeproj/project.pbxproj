@@ -42,6 +42,7 @@
 		492905CF1EECD98400B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */; };
 		492905D01EECD98400B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */; };
 		492905D11EECD98400B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */; };
+		492905D31EECDEC300B0D5A7 /* Kyrie_2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 492905D21EECDE9F00B0D5A7 /* Kyrie_2.xml */; };
 		494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */; };
 		495435081EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435011EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp */; };
 		495435091EE37E5C00213203 /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* IMUSANT_repeated_interval_substring.cpp */; };
@@ -417,6 +418,7 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				492905D31EECDEC300B0D5A7 /* Kyrie_2.xml in CopyFiles */,
 				4954357E1EE3B53200213203 /* Kyrie_TwoPartsOnly.xml in CopyFiles */,
 				4954357C1EE3B4D500213203 /* Josquin_MAF_Christe.xml in CopyFiles */,
 				4954357A1EE3B3F400213203 /* Yankee_Doodle.xml in CopyFiles */,
@@ -521,6 +523,7 @@
 		492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_fixed_period_segmenter.cpp; sourceTree = "<group>"; };
 		492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_partlist_ordered_by_part_entry.cpp; sourceTree = "<group>"; };
 		492905C51EECD92300B0D5A7 /* IMUSANT_segmented_part_fixed_period.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_part_fixed_period.cpp; sourceTree = "<group>"; };
+		492905D21EECDE9F00B0D5A7 /* Kyrie_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie_2.xml; sourceTree = "<group>"; };
 		494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest1.xml; sourceTree = "<group>"; };
 		495434F31EE37E5000213203 /* IMUSANT_contour_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_contour_suffixtree_builder.h; sourceTree = "<group>"; };
 		495434F41EE37E5000213203 /* IMUSANT_generalised_interval_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_generalised_interval_suffixtree_builder.h; sourceTree = "<group>"; };
@@ -1316,6 +1319,7 @@
 		1E2FA2C21B355A01002BB14F /* testdata */ = {
 			isa = PBXGroup;
 			children = (
+				492905D21EECDE9F00B0D5A7 /* Kyrie_2.xml */,
 				49CDADA81ED8FE6E003D6095 /* Anon-Talent_mest_pris_I-IV_115.xml */,
 				BA0CFB5A1EBBEFB000FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */,
 				BA0CFB5B1EBBEFB000FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */,
