@@ -26,10 +26,10 @@ namespace CATSMAT {
         
         for (vector<S_IMUSANT_score>::const_iterator scores_iter = scores.begin(); scores_iter != scores.end(); scores_iter++)
         {
-            S_SegmentedScoreFixedPeriod seg_score = new_SegmentedScoreFixedPeriod();
+            S_SegmentedScoreFixedPeriod seg_score = new_SegmentedScoreFixedPeriod(fSegmentationResult);
             seg_score->initialise(*scores_iter);
             
-            segments.push_back(seg_score->getSegmentsSet());
+           segments.push_back(seg_score->getSegmentsSet());
         }
         
         return segments;

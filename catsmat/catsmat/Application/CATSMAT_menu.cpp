@@ -172,6 +172,7 @@ outputToolsMenu(ostream &out)
     out << "L. Find repeated dyadtuple sequences" << endl;
     out << "M. Find repeated sonority sequences" << endl;
     out << "T. Find melodic segments using period segmentation" << endl;
+    out << "Q. Find all melodic segments using all the segmentation algorithms available" << endl;
     out << "U. Find repeated trigram sequences" << endl;
     out << "V. Give count of trigrams for each score" << endl;
     out << "W. Give count of trigrams for all scores" << endl;
@@ -271,15 +272,24 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'h':
                     {
                         vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
-                        //segmented_parts = processor->findMelodicSegments_LBDM();
-                        IMUSANT_LBDM_segmenter segmenter;
+                        
+                        IMUSANT_set_of_segment segmentation_result;
+                        IMUSANT_LBDM_segmenter segmenter(segmentation_result);
                         segmenter.Visit(*processor);
+                        
+                        
+                        cout << "ORIGINAL IMPLEMENTATION USING vector<S_IMUSANT_segmented_part_LBDM>" << endl;
                         segmented_parts = segmenter.getSegmentedParts();
                         for (vector<S_IMUSANT_segmented_part_LBDM>::iterator seg_part_iter = segmented_parts.begin(); seg_part_iter != segmented_parts.end() ; seg_part_iter++)
                         {
                             cout << ((*seg_part_iter)->print(true,true)) << endl;
                         }
-                    
+                        
+                        cout << "NEW IMPLEMENTATION USING IMUSANT_set_of_segment segmentation_result" << endl;
+                        cout << "Not working because IMUSANT_segmented_part_LBDM does not yet implement the use of the segmentation_results input parameter." << endl;
+                        
+                        
+                        cout << segmentation_result << endl;
                         
                     }
                     break;
@@ -288,8 +298,10 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'T':
                 case 't':
                 {
-                    IMUSANT_fixed_period_segmenter segmenter;
+                    IMUSANT_set_of_segment segmentation_results;
+                    IMUSANT_fixed_period_segmenter segmenter(segmentation_results);
                     segmenter.Visit(*processor);
+                    
                     IMUSANT_fixed_period_segmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
                     for (IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
                          segment_set_iter != segments.end() ;
@@ -312,6 +324,22 @@ runToolsMenu(CATSMAT_processing* processor)
                     
                 }
                 break;
+                    
+                case 'Q':
+                case 'q':
+                {
+                    IMUSANT_set_of_segment segmentation_results;
+                    
+                    IMUSANT_fixed_period_segmenter fp_segmenter(segmentation_results);
+                    fp_segmenter.Visit(*processor);
+                    
+                    IMUSANT_LBDM_segmenter lbdm_segmenter(segmentation_results);
+                    lbdm_segmenter.Visit(*processor);
+                    
+                    // output the segmentation_results here...
+                    
+                    break;
+                }
                
                 //Run all IMUSANT tools
                 case 'I':

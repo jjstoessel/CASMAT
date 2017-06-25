@@ -97,7 +97,8 @@ namespace CATSMAT
             IMUSANT_interval interval = GetIntervalBetweenParts(first_part, second_part, canon_type.retrograde_);
             canon_type.intervals_.push_back(interval);
             
-            SegmentedScoreFixedPeriod seg_part;
+            IMUSANT_set_of_segment segmentation_result;
+            SegmentedScoreFixedPeriod seg_part(segmentation_result);
             
             if (!seg_part.partsEnterTogether(first_part, second_part))
             {

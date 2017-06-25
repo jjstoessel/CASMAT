@@ -27,14 +27,20 @@ namespace CATSMAT {
         
         typedef vector<IMUSANT_set_of_segment> SetOfSegmentsVector;
         
-        IMUSANT_fixed_period_segmenter() {}
+        IMUSANT_fixed_period_segmenter(IMUSANT_set_of_segment &segmentation_results)
+        : fSegmentationResult(segmentation_results)
+        {
+        }
         ~IMUSANT_fixed_period_segmenter() {}
         
         void    Visit(const IMUSANT_processing&);
+        
         const   SetOfSegmentsVector& getSegmentSets() { return sp; }
         SetOfSegmentsVector findMelodicSegmentsFixedPeriod(const vector<S_IMUSANT_score>& scores);
         
     private:
+        
+        IMUSANT_set_of_segment &fSegmentationResult;
         
         SetOfSegmentsVector sp;
         

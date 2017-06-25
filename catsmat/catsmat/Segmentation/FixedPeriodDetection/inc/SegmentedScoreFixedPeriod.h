@@ -13,6 +13,7 @@
 
 #include "libIMUSANT.h"
 
+#include "I_Segmented.h"
 #include "IMUSANT_segment.h"
 #include "IMUSANT_set_of_segment.h"
 #include "IMUSANT_partlist_ordered_by_part_entry.h"
@@ -22,7 +23,7 @@ using namespace std;
 
 namespace CATSMAT
 {
-    class SegmentedScoreFixedPeriod : public smartable
+    class SegmentedScoreFixedPeriod : public smartable, I_Segmented
     {
     public:
         
@@ -31,7 +32,7 @@ namespace CATSMAT
         static const int SUCCESS = 0;
         static const int ERR_NOT_ENOUGH_PARTS = 1;
         
-        SegmentedScoreFixedPeriod()
+        SegmentedScoreFixedPeriod(IMUSANT_set_of_segment & segmentation_result) : I_Segmented(segmentation_result)
         {
         }
         
@@ -42,7 +43,7 @@ namespace CATSMAT
         //
         // This method returns you the segments, as a set (no duplicates).
         //
-        IMUSANT_set_of_segment getSegmentsSet();
+        IMUSANT_set_of_segment & getSegmentsSet();
         
         S_IMUSANT_duration getPeriodDurationForThisScore();
         
@@ -60,8 +61,6 @@ namespace CATSMAT
         double fErrorThreshold = 0;
         
         S_IMUSANT_duration fPeriodDuration;
-        
-        IMUSANT_set_of_segment fSegmentsSet;
         
         void comparePartsForPeriodicSegments(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
         void extractPeriodicSegmentsFromParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
@@ -93,7 +92,7 @@ namespace CATSMAT
     };
     
     typedef IMUSANT_SMARTP<SegmentedScoreFixedPeriod> S_SegmentedScoreFixedPeriod;
-    IMUSANT_SMARTP<SegmentedScoreFixedPeriod> new_SegmentedScoreFixedPeriod();
+    IMUSANT_SMARTP<SegmentedScoreFixedPeriod> new_SegmentedScoreFixedPeriod(IMUSANT_set_of_segment & segmentation_results);
 
 }
 

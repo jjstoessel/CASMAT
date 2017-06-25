@@ -33,6 +33,18 @@ namespace CATSMAT
         calculateOverallLocalBoundaryStrengthVector();
     }
     
+    //
+    // This method returns you the segments, as a set (no duplicates).
+    //
+    IMUSANT_set_of_segment &
+    IMUSANT_segmented_part_LBDM::
+    getSegmentsSet()
+    {
+        throw "Not Implemented - IMUSANT_segmented_part_LBDM::getSegmentsSet()";
+        
+        return fSegmentationResult;
+    }
+    
     
     void
     IMUSANT_segmented_part_LBDM::
@@ -342,9 +354,9 @@ namespace CATSMAT
     }
     
     
-    S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM()
+    S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM(IMUSANT_set_of_segment & segmentation_results)
     {
-        IMUSANT_segmented_part_LBDM* o = new IMUSANT_segmented_part_LBDM();
+        IMUSANT_segmented_part_LBDM* o = new IMUSANT_segmented_part_LBDM(segmentation_results);
         assert (o!=0);
         return o;
     }

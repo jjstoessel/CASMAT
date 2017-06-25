@@ -122,8 +122,9 @@ getActualSegmentsAsString(IMUSANT_set_of_segment segments_set)
 
 TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Constructor)
 {
-    SegmentedScoreFixedPeriod * segmented_score = new SegmentedScoreFixedPeriod();
-    S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod();
+    IMUSANT_set_of_segment seg_results;
+    SegmentedScoreFixedPeriod * segmented_score = new SegmentedScoreFixedPeriod(seg_results);
+    S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod(seg_results);
     
     ASSERT_FALSE(segmented_score == NULL);
     ASSERT_FALSE(s_segmented_score == NULL);
@@ -133,7 +134,8 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Constructor)
 
 TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_NotEnoughParts)
 {
-    S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod();
+    IMUSANT_set_of_segment seg_results;
+    S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod(seg_results);
     int ret_val = s_segmented_score->initialise(fScore_YankeeDoodle);
     
     ASSERT_EQ(SegmentedScoreFixedPeriod::ERR_NOT_ENOUGH_PARTS, ret_val);
@@ -143,7 +145,8 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise__Josq
 {
     // The algorithm cannot recognise this as a cannon at the moment.
     // There seems to be a periodic cannon between Superious and Tenor parts, but it's difficult.
-    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod();
+    IMUSANT_set_of_segment seg_results;
+    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     int ret_val = s_segmented_part->initialise(fScore_Josquin_MAF_Christe);
     
     ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, ret_val);
@@ -153,7 +156,8 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise__Josq
 
 TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly)
 {
-    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod();
+    IMUSANT_set_of_segment seg_results;
+    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     int error_code = s_segmented_part->initialise(fScore_Kyrie_TwoPartsOnly);
     
     ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, error_code);
@@ -211,7 +215,8 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie
 //    Kyrie ele√òson	T	50	1	56	3	14	0
 //    Kyrie ele√òson	T	57	1	63	2	32	0
     
-    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod();
+    IMUSANT_set_of_segment seg_results;
+    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     int error_code = s_segmented_part->initialise(fScore_Kyrie);
     
     ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, error_code);
@@ -245,7 +250,8 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Sanct
     //   TOTAL   65
     
     
-    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod();
+    IMUSANT_set_of_segment seg_results;
+    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     
     const double ERROR_THRESHOLD = 0.2;
     int ret_val = s_segmented_part->initialise(fScore_Sanctus, ERROR_THRESHOLD);

@@ -217,7 +217,7 @@ namespace CATSMAT
     SegmentedScoreFixedPeriod::
     addSegment(S_IMUSANT_segment segment)
     {
-        fSegmentsSet.insert(*segment);
+        fSegmentationResult.insert(*segment);
     }
     
     S_IMUSANT_segment
@@ -320,20 +320,20 @@ namespace CATSMAT
     SegmentedScoreFixedPeriod::
     clearSegments()
     {
-        fSegmentsSet.clear();
+        fSegmentationResult.clear();
     }
     
-    IMUSANT_set_of_segment
+    IMUSANT_set_of_segment &
     SegmentedScoreFixedPeriod::
     getSegmentsSet()
     {
-        return fSegmentsSet;
+        return fSegmentationResult;
     }
     
     
-    S_SegmentedScoreFixedPeriod new_SegmentedScoreFixedPeriod()
+    S_SegmentedScoreFixedPeriod new_SegmentedScoreFixedPeriod(IMUSANT_set_of_segment & segmentation_results)
     {
-        SegmentedScoreFixedPeriod* o = new SegmentedScoreFixedPeriod();
+        SegmentedScoreFixedPeriod* o = new SegmentedScoreFixedPeriod(segmentation_results);
         assert (o!=0);
         return o;
     }

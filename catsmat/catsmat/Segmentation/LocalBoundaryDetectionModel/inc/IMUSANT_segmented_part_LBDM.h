@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 
+
+#include "I_Segmented.h"
 #include "IMUSANT_part.h"
 #include "IMUSANT_interval_profile_LBDM.h"
 #include "IMUSANT_consolidated_interval_profile_LBDM.h"
@@ -22,13 +24,13 @@ using namespace std;
 
 namespace CATSMAT
 {
-    class IMUSANT_segmented_part_LBDM : public smartable
+    class IMUSANT_segmented_part_LBDM : public smartable, I_Segmented
     {
     public:
 
         friend IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM();
         
-        IMUSANT_segmented_part_LBDM()
+        IMUSANT_segmented_part_LBDM(IMUSANT_set_of_segment & segmentation_result) : I_Segmented(segmentation_result)
         {
         }
         
@@ -52,6 +54,12 @@ namespace CATSMAT
         {
             SEGMENT_BOUNDARY_CALCULATION_SPAN = segment_boundary_calculation_span;
         };
+        
+        //
+        // This method returns you the segments, as a set (no duplicates).
+        //
+        IMUSANT_set_of_segment & getSegmentsSet();
+        
         
         
         //
@@ -172,7 +180,7 @@ namespace CATSMAT
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;
-    IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM();
+    IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(IMUSANT_set_of_segment & segmentation_results);
 }
 
 #endif /* defined(__imusant__IMUSANT_segmented_part_LBDM__) */

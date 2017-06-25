@@ -591,6 +591,7 @@
 		497FE7B41EFF74D3008F066B /* I_SetOfSegment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = I_SetOfSegment.h; sourceTree = "<group>"; };
 		497FE7B51EFF763D008F066B /* I_Segment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = I_Segment.h; sourceTree = "<group>"; };
 		497FE7B61EFF8340008F066B /* SegmentContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentContext.cpp; sourceTree = "<group>"; };
+		497FE7B91EFF92F9008F066B /* I_Segmented.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = I_Segmented.h; sourceTree = "<group>"; };
 		498CFE521D7B019C006379F0 /* IMUSANT_transposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_transposer.h; sourceTree = "<group>"; };
 		498CFE531D7B01D3006379F0 /* IMUSANT_transposer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_transposer.cpp; sourceTree = "<group>"; };
 		498D54511C32A72200439018 /* MusicXMLv3_Elements_Reqs.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = MusicXMLv3_Elements_Reqs.xlsx; sourceTree = "<group>"; };
@@ -1759,6 +1760,7 @@
 				497FE7A71EFF6E7D008F066B /* IMUSANT_set_of_segment.h */,
 				497FE7B41EFF74D3008F066B /* I_SetOfSegment.h */,
 				497FE7B51EFF763D008F066B /* I_Segment.h */,
+				497FE7B91EFF92F9008F066B /* I_Segmented.h */,
 			);
 			path = inc;
 			sourceTree = "<group>";
