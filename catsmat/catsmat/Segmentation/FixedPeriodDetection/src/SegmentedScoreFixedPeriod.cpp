@@ -224,7 +224,8 @@ namespace CATSMAT
     SegmentedScoreFixedPeriod::
     makeNewSegment(S_IMUSANT_part part)
     {
-        S_IMUSANT_segment next_segment = new_IMUSANT_segment(fScore, part, this->SEGMENTATION_ALGORITHM);
+        S_SegmentContext context = new_SegmentContext(fScore, part, this->SEGMENTATION_ALGORITHM);
+        S_IMUSANT_segment next_segment = new_IMUSANT_segment(context);
         return next_segment;
     };
     

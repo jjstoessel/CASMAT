@@ -12,34 +12,33 @@
 #include <stdio.h>
 
 #include "libIMUSANT.h"
+#include "I_Segment.h"
 
 using namespace std;
 using namespace IMUSANT;
 
 namespace CATSMAT
 {
-    class IMUSANT_segment : public IMUSANT::smartable
+    class IMUSANT_segment : public IMUSANT::smartable, I_Segment
     {
     public:
        
-        friend IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm);
+        friend IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_SegmentContext context);
         friend ostream& operator<< (ostream& os, const IMUSANT_segment& segment);
         
-        IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm)
+        IMUSANT_segment(S_SegmentContext context)
+        : I_Segment(context)
         {
-            fScore = score;
-            fPart = part;
-            fSegmentationAlgorithm = segmentation_algorithm;
         }
         
         virtual ~IMUSANT_segment() {}
         
+        S_SegmentContext getContext() const;
+        
         S_IMUSANT_score getScore() const;
-        void setScore(S_IMUSANT_score score);
-        
         S_IMUSANT_part getPart() const;
-        void setPart(S_IMUSANT_part);
-        
+        const string getAlgorithm() const;
+
         const vector<S_IMUSANT_note> notes() const;
         void addNote(S_IMUSANT_note note);
         
@@ -52,23 +51,18 @@ namespace CATSMAT
         long getConfidence() const { return fConfidence; };
         void setConfidence(long confidence_level) { fConfidence = confidence_level; };
         
-        const string &getAlgorithm() const;
-        
         bool operator== (const IMUSANT_segment& rhs) const;
         
         string printPropertiesHeaderRow() const;
         string printProperties() const;
         
     private:
-        S_IMUSANT_score fScore;
-        S_IMUSANT_part fPart;
         vector<S_IMUSANT_note> fNotes;
         long fConfidence = 0;
-        string fSegmentationAlgorithm;
     };
-    
+
     typedef IMUSANT_SMARTP<IMUSANT_segment> S_IMUSANT_segment;
-    IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm);
+    IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_SegmentContext context);
     
     struct SegmentComparator
     {

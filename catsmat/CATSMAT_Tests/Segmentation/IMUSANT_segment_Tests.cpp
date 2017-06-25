@@ -67,13 +67,14 @@ TEST_F(IMUSANT_segment_Tests, Constructor)
     S_IMUSANT_part part = new_IMUSANT_part();
     string algorithm_id = "test algorithm";
     
-    S_IMUSANT_segment p_segment = new_IMUSANT_segment(score, part, algorithm_id);
+    S_SegmentContext context = new_SegmentContext(score, part, algorithm_id);
+    S_IMUSANT_segment p_segment = new_IMUSANT_segment(context);
 
     ASSERT_FALSE(p_segment == NULL);
     
-    ASSERT_EQ(algorithm_id, p_segment->getAlgorithm());
+    ASSERT_EQ(algorithm_id, p_segment->getAlgorithm());    
     
-    IMUSANT_segment segment(score, part, algorithm_id);
+    IMUSANT_segment segment(context);
     ASSERT_EQ(algorithm_id, segment.getAlgorithm());
 }
 
@@ -83,7 +84,9 @@ TEST_F(IMUSANT_segment_Tests, CollectionMethods)
     S_IMUSANT_part part = new_IMUSANT_part();
     string algorithm_id = "test algorithm";
     
-    S_IMUSANT_segment p_segment = new_IMUSANT_segment(score, part, algorithm_id);
+    S_SegmentContext context = new_SegmentContext(score, part, algorithm_id);
+    
+    S_IMUSANT_segment p_segment = new_IMUSANT_segment(context);
     
     S_IMUSANT_note n1 = new_IMUSANT_note();
     S_IMUSANT_note n2 = new_IMUSANT_note();

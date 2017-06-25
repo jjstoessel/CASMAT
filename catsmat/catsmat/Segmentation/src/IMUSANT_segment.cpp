@@ -11,9 +11,9 @@
 namespace CATSMAT
 {
     
-    S_IMUSANT_segment new_IMUSANT_segment(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm)
+    S_IMUSANT_segment new_IMUSANT_segment(S_SegmentContext context)
     {
-        IMUSANT_segment* o = new IMUSANT_segment(score, part, segmentation_algorithm);
+        IMUSANT_segment* o = new IMUSANT_segment(context);
         assert (o!=0);
         return o;
     }
@@ -22,28 +22,14 @@ namespace CATSMAT
     IMUSANT_segment::
     getScore() const
     {
-        return fScore;
+        return fSegmentContext->getScore();
     }
     
     S_IMUSANT_part
     IMUSANT_segment::
     getPart() const
     {
-        return fPart;
-    }
-    
-    void
-    IMUSANT_segment::
-    setScore(S_IMUSANT_score score)
-    {
-        fScore = score;
-    }
-    
-    void
-    IMUSANT_segment::
-    setPart(S_IMUSANT_part part)
-    {
-        fPart = part;
+        return fSegmentContext->getPart();
     }
     
     const vector<S_IMUSANT_note>
@@ -90,11 +76,11 @@ namespace CATSMAT
         fNotes.clear();
     }
     
-    const string &
+    const string
     IMUSANT_segment::
     getAlgorithm() const
     {
-        return fSegmentationAlgorithm;
+        return fSegmentContext->getSegmentationAlgorithm();
     }
     
     bool
