@@ -2,8 +2,16 @@
 //  SegmentContext.h
 //  catsmat
 //
-//  Created by Derrick Hill on 25/6/17.
+// SegmentContext is designed to be injected into a segment to identify where the segment came from.
 //
+// S_IMUSANT_score score
+// The score in which the segment is found.
+//
+// S_IMUSANT_part part
+// The part in which the segment is found
+//
+// string segmentation_algorithm
+// The segmentation algorithm that identified the segment as a segment.
 //
 
 #ifndef SegmentContext_h
