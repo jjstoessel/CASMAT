@@ -51,7 +51,7 @@ protected:
         fScore_ParserTest5 = _test_utils->initialiseScoreFromFile("MusicXMLv3/MusicXML_ParserTest5.xml");
         fScore_ParserTest_Transpose1 = _test_utils->initialiseScoreFromFile("MusicXMLv3/MusicXML_ParserTest_Transpose1.xml");
         
-        fScore_ParserTestBeetAnGeSample = _test_utils->initialiseScoreFromFile("MusicXMLv3.xmlsamples/BeetAnGeSample.xml");
+        fScore_ParserTestBeetAnGeSample = _test_utils->initialiseScoreFromFile("MusicXMLv3/BeetAnGeSample.xml");
     }
     
     static bool CheckLyric(S_IMUSANT_part part, int measure_index, int note_index,
@@ -134,7 +134,7 @@ verbose_output(string expected, string actual)
 
 TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, MXMLv3_Dichterliebe01)
 {
-    string relative_path = "MusicXMLv3.xmlsamples/Dichterliebe01.xml";
+    string relative_path = "MusicXMLv3/Dichterliebe01.xml";
     
     filesystem::path file_path = _test_utils->makePathToTestFile(relative_path);
     
@@ -653,7 +653,7 @@ TEST_F(IMUSANT_mxmlv3_to_imusant_visitor_Tests, ExpectingAnException_ScoreInstru
     
     try
     {
-        _test_utils->initialiseScoreFromFile("MusicXMLv3.xmlsamples/Telemann.xml");
+        _test_utils->initialiseScoreFromFile("MusicXMLv3/Telemann.xml");
     }
     catch (IMUSANT::MusicXML3_ElementNotImplemented& e)
     {

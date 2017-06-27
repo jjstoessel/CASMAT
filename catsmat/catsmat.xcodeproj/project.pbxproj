@@ -99,9 +99,6 @@
 		496A00921B9BCBED0070BCE1 /* Saltarello.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80EC1B9A77F000A673F7 /* Saltarello.xml */; };
 		496A00931B9BCBED0070BCE1 /* SchbAvMaSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80EF1B9A77F000A673F7 /* SchbAvMaSample.xml */; };
 		496A00941B9BCBED0070BCE1 /* Telemann.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80F21B9A77F000A673F7 /* Telemann.xml */; };
-		496A00951B9BCC410070BCE1 /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0201B76C10B0052496C /* Kyrie.xml */; };
-		496A00961B9BCC410070BCE1 /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4970E0211B76C10B0052496C /* Sanctus.xml */; };
-		496A01251B9BCD1C0070BCE1 /* test_files in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA8068E41B27BC5700AEFB27 /* test_files */; };
 		496EF4C71B229D8100FE715F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF4C61B229D8100FE715F /* main.cpp */; };
 		496EF4D11B229EFB00FE715F /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		496EF4D21B229F0A00FE715F /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
@@ -347,7 +344,7 @@
 		1E450E1C1B7580A000BDF9EF /* Copy Files (3 items) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = IMUSANT_testdata/MusicXMLv3.xmlsamples;
+			dstPath = IMUSANT_testdata/MusicXMLv3;
 			dstSubfolderSpec = 16;
 			files = (
 				496A00831B9BCBED0070BCE1 /* ActorPreludeSample.xml in Copy Files (3 items) */,
@@ -390,27 +387,6 @@
 				49714EF21C01793000C0A52C /* BeetAnGeSample.xml in CopyFiles */,
 				49714EF11C015CFF00C0A52C /* MusicXML_ParserTest2.xml in CopyFiles */,
 				494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		496A00821B9BCB2D0070BCE1 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = IMUSANT_testdata/MusicXMLv1.simple_test_data;
-			dstSubfolderSpec = 16;
-			files = (
-				496A00951B9BCC410070BCE1 /* Kyrie.xml in CopyFiles */,
-				496A00961B9BCC410070BCE1 /* Sanctus.xml in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		496A00971B9BCC4F0070BCE1 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = IMUSANT_testdata;
-			dstSubfolderSpec = 16;
-			files = (
-				496A01251B9BCD1C0070BCE1 /* test_files in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3027,8 +3003,6 @@
 				1E450E0A1B7580A000BDF9EF /* Sources */,
 				1E450E161B7580A000BDF9EF /* Frameworks */,
 				1E450E1C1B7580A000BDF9EF /* Copy Files (3 items) */,
-				496A00821B9BCB2D0070BCE1 /* CopyFiles */,
-				496A00971B9BCC4F0070BCE1 /* CopyFiles */,
 				494D25BB1BDAFE0500141228 /* CopyFiles */,
 			);
 			buildRules = (
