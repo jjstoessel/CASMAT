@@ -53,22 +53,19 @@ INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 #######################################
 # set directories, src and headers.
 
-set (libIMUSANT_TESTS_DIR 	${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT_Tests)
+set (libIMUSANT_TESTS_DIR 	           ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT_Tests)
+set (libIMUSANT_TEST_DATA_DIR 	       ${libIMUSANT_TESTS_DIR}/testdata/MusicXMLv3)
+set (libIMUSANT_TEST_DATA_BINARY_DIR   ${CMAKE_CURRENT_BINARY_DIR}/IMUSANT_testdata/MusicXMLv3)
 
 set (libIMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (LOKI_DIR               ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
 set (SUFFIX_TREE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
 set (GOOGLE_TEST_INC_DIR	${CMAKE_CURRENT_SOURCE_DIR}/../../googletest-master/googletest/include)
 
-set (SRCFOLDERS
-		${libIMUSANT_TESTS_DIR}/DomainObjects
-        ${libIMUSANT_TESTS_DIR}/Converters
-		${libIMUSANT_TESTS_DIR}/Utilities
-		)
 
 set (INCFOLDERS
 		${libIMUSANT_DIR}
-		${IMUSANT_TESTS_DIR}/Utilities
+		${libIMUSANT_TESTS_DIR}/Utilities
 		${libIMUSANT_DIR}/DomainObjects/inc
 		${libIMUSANT_DIR}/Utilities/inc
 		${libIMUSANT_DIR}/FileProcessing/inc
@@ -82,20 +79,28 @@ set (INCFOLDERS
 
 set(SRC ${SRC}
 		${libIMUSANT_TESTS_DIR}/main.cpp
-		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_key_Tests.cpp)
+		${libIMUSANT_TESTS_DIR}/Utilities/IMUSANT_test_utilities.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_duration_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_generalised_interval_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_interval_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_interval_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_key_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_measure_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_note_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_part_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_pitch_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_score_Tests.cpp
+#		${libIMUSANT_TESTS_DIR}/FileProcessing/IMUSANT_processing_Tests.cpp    -- Needs to be moved to CATSMAT.
+		${libIMUSANT_TESTS_DIR}/Converters/IMUSANT_mxmlv3_to_imusant_visitor_Tests.cpp
+		)
 
-#[[   ====   REVISIT - Not building the actual tests at the moment. ======
-foreach(folder ${SRCFOLDERS})
-	set(SRC ${SRC} "${folder}/*.cpp")			# add source files
-endforeach(folder)
-file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
-]]
 
 foreach(folder ${INCFOLDERS})
 	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
+
 
 
 #######################################
@@ -128,6 +133,33 @@ TARGET_LINK_LIBRARIES(${target} libIMUSANT)
 TARGET_LINK_LIBRARIES(${target} gtest)
 TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
 TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
+
+
+
+# Copy the test data files.
+set(TEST_DATA ${TEST_DATA}
+		MusicXML_ParserTest1.xml
+		MusicXML_ParserTest2.xml
+		MusicXML_ParserTest3.xml
+		MusicXML_ParserTest4.xml
+		MusicXML_ParserTest5.xml
+		Josquin_MAF_Christe.xml
+		Sanctus.xml
+		Kyrie.xml
+		Yankee_Doodle.xml
+		MusicXML_ParserTest_Transpose1.xml
+		RepeatedIntervalSubstrings_SimpleTest1.xml
+		BeetAnGeSample.xml
+		Dichterliebe01.xml
+		Telemann.xml
+		)
+
+foreach(test_file  ${TEST_DATA})
+	add_custom_command(
+			TARGET ${target} POST_BUILD
+			COMMAND ${CMAKE_COMMAND} -E copy  ${libIMUSANT_TEST_DATA_DIR}/${test_file}  ${libIMUSANT_TEST_DATA_BINARY_DIR}/${test_file}
+	)
+endforeach(test_file)
 
 
 set_target_properties (${target} PROPERTIES

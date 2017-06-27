@@ -83,7 +83,8 @@ set (SRCFOLDERS
         )
 
 set (INCFOLDERS
-        ${IMUSANT_DIR}/DomainObjects/inc
+		${IMUSANT_DIR}/
+		${IMUSANT_DIR}/DomainObjects/inc
 		${IMUSANT_DIR}/Converters/MusicXML_v3
         ${IMUSANT_DIR}/Converters/MusicXML_v3/inc
 		${IMUSANT_DIR}/Converters/Shared/inc
