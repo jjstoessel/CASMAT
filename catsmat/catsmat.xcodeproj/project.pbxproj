@@ -628,6 +628,9 @@
 		498D80F21B9A77F000A673F7 /* Telemann.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Telemann.xml; sourceTree = "<group>"; };
 		49A423371DB1F1B6003CA5DD /* Sanctus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sanctus.xml; sourceTree = "<group>"; };
 		49A423391DB220A8003CA5DD /* MusicXML_ParserTest_Transpose1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest_Transpose1.xml; sourceTree = "<group>"; };
+		49B2CB7F1F02628A007ED810 /* BeetAnGeSample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BeetAnGeSample.xml; sourceTree = "<group>"; };
+		49B2CB801F02628A007ED810 /* Dichterliebe01.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Dichterliebe01.xml; sourceTree = "<group>"; };
+		49B2CB811F02628A007ED810 /* Telemann.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Telemann.xml; sourceTree = "<group>"; };
 		49BAF94F1ED9213E000C84C4 /* IMUSANT_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_processing.h; path = inc/IMUSANT_processing.h; sourceTree = "<group>"; };
 		49BAF9511ED92149000C84C4 /* IMUSANT_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_processing.cpp; path = src/IMUSANT_processing.cpp; sourceTree = "<group>"; };
 		49BAF96F1ED92ACF000C84C4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -1754,6 +1757,9 @@
 		498D80BA1B9A77F000A673F7 /* MusicXMLv3 */ = {
 			isa = PBXGroup;
 			children = (
+				49B2CB7F1F02628A007ED810 /* BeetAnGeSample.xml */,
+				49B2CB801F02628A007ED810 /* Dichterliebe01.xml */,
+				49B2CB811F02628A007ED810 /* Telemann.xml */,
 				49DA50031DCE87AB00AC1975 /* Josquin_MAF_Christe.xml */,
 				49A423391DB220A8003CA5DD /* MusicXML_ParserTest_Transpose1.xml */,
 				49A423371DB1F1B6003CA5DD /* Sanctus.xml */,
