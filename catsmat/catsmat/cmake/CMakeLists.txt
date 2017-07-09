@@ -61,9 +61,8 @@ set (CATSMAT_GENERAL_ANALYSIS_DIR      		${CATSMAT_DIR}/GeneralAnalysis)
 set (CATSMAT_SEGMENTATION_DIR      			${CATSMAT_DIR}/Segmentation)
 set (CATSMAT_UTILITIES_DIR      			${CATSMAT_DIR}/Utilities)
 
-#set (libIMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
-set (LOKI_DIR               ${CATSMAT_DIR}/../Loki)
-set (SUFFIX_TREE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
+set (LOKI_DIR               				${CATSMAT_DIR}/../Loki)
+set (SUFFIX_TREE_DIR        				${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
 
 set (CATSMAT_ANALYSIS_SRC_DIR      				${CATSMAT_DIR}/Analysis/src)
 set (CATSMAT_APPLICATION_SRC_DIR      			${CATSMAT_DIR}/Application)
@@ -98,8 +97,6 @@ set (INCFOLDERS
 		)
 
 set(SRC ${SRC}
-#		${CATSMAT_DIR}/../libIMUSANT/FileProcessing/src/IMUSANT_processing.cpp    # REVISIT
-
 		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_contour_suffixtree_builder.cpp
 		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_generalised_interval_suffixtree_builder.cpp
 		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_interval_suffixtree_builder.cpp
@@ -131,6 +128,7 @@ set(SRC ${SRC}
 
 		${CATSMAT_SEGMENTATION_SRC_DIR}/IMUSANT_segment.cpp
 		${CATSMAT_SEGMENTATION_SRC_DIR}/IMUSANT_set_of_segment.cpp
+		${CATSMAT_SEGMENTATION_SRC_DIR}/SegmentContext.cpp
 
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/IMUSANT_fixed_period_segmenter.cpp
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/IMUSANT_partlist_ordered_by_part_entry.cpp
