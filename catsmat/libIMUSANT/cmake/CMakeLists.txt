@@ -82,15 +82,18 @@ set (SRCFOLDERS
 		${IMUSANT_DIR}/Utilities/src
         )
 
-set (INCFOLDERS
+set (EXPORTED_HEADER_FOLDERS
 		${IMUSANT_DIR}/
 		${IMUSANT_DIR}/DomainObjects/inc
 		${IMUSANT_DIR}/Converters/MusicXML_v3
-        ${IMUSANT_DIR}/Converters/MusicXML_v3/inc
+		${IMUSANT_DIR}/Converters/MusicXML_v3/inc
 		${IMUSANT_DIR}/Converters/Shared/inc
-        ${IMUSANT_DIR}/FileProcessing/inc
-        ${IMUSANT_DIR}/Utilities/inc
-        ${SUFFIXTREE_DIR}
+		${IMUSANT_DIR}/FileProcessing/inc
+		${IMUSANT_DIR}/Utilities/inc
+		)
+
+set (IMPORTED_HEADER_FOLDERS
+		${SUFFIXTREE_DIR}
 		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src
 		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/lib
 		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/visitors
@@ -102,11 +105,19 @@ foreach(folder ${SRCFOLDERS})
 endforeach(folder)
 file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 
-foreach(folder ${INCFOLDERS})
+foreach(folder ${EXPORTED_HEADER_FOLDERS})
+	set(EXP_HEADERS ${EXP_HEADERS}  "${folder}/*.h")
+	set(HEADERS     ${HEADERS}      "${folder}/*.h")		# add header files
+	set(INCL        ${INCL}         "${folder}")				# add include folders
+endforeach(folder)
+
+foreach(folder ${IMPORTED_HEADER_FOLDERS})
 	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
+
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
+file (GLOB EXPORTED_HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${EXP_HEADERS})
 
 
 #######################################
@@ -136,7 +147,7 @@ set_target_properties (${target} PROPERTIES
 			FRAMEWORK TRUE 
 			VERSION ${VERSION}
 			FRAMEWORK_VERSION ${VERSION}
-			PUBLIC_HEADER "${COREH}"
+			PUBLIC_HEADER "${EXPORTED_HEADERS}"
 			DEFINE_SYMBOL LIBMUSICXML_EXPORTS
 			MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${STRVERS}
 			MACOSX_FRAMEWORK_BUNDLE_VERSION ${SSTRVERS}

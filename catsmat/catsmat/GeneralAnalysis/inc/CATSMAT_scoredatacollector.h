@@ -10,7 +10,7 @@
 #define __catsmat__CATSMAT_scoredatacollector__
 
 #include <stdio.h>
-#include "Loki/Visitor.h"
+#include "Visitor.h"
 #include "CATSMAT_processing.h"
 #include "CATSMAT_scoredata.h"
 

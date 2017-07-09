@@ -64,7 +64,6 @@ set (CATSMAT_UTILITIES_DIR      			${CATSMAT_DIR}/Utilities)
 #set (libIMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (LOKI_DIR               ${CATSMAT_DIR}/../Loki)
 set (SUFFIX_TREE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
-#set (GOOGLE_TEST_INC_DIR	${CMAKE_CURRENT_SOURCE_DIR}/../../googletest-master/googletest/include)
 
 set (CATSMAT_ANALYSIS_SRC_DIR      				${CATSMAT_DIR}/Analysis/src)
 set (CATSMAT_APPLICATION_SRC_DIR      			${CATSMAT_DIR}/Application)
@@ -78,6 +77,8 @@ set (CATSMAT_APPLICATION_INC_DIR      			${CATSMAT_DIR}/Application)
 set (CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR      ${CATSMAT_DIR}/CounterpointAnalysis/inc)
 set (CATSMAT_GENERAL_ANALYSIS_INC_DIR      		${CATSMAT_DIR}/GeneralAnalysis/inc)
 set (CATSMAT_SEGMENTATION_INC_DIR      			${CATSMAT_DIR}/Segmentation/inc)
+set (CATSMAT_SEGMENTATION_LBDM_INC_DIR      	${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc)
+set (CATSMAT_SEGMENTATION_FIXED_INC_DIR      	${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc)
 set (CATSMAT_UTILITIES_INC_DIR      			${CATSMAT_DIR}/Utilities)
 set (LIBIMUSNT_HEADER_DIR						${CMAKE_BINARY_DIR}/catsmat/libIMUSANT/cmake/libIMUSANT.framework/Headers)
 
@@ -87,17 +88,13 @@ set (INCFOLDERS
 		${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}
 		${CATSMAT_GENERAL_ANALYSIS_INC_DIR}
 		${CATSMAT_SEGMENTATION_INC_DIR}
+		${CATSMAT_SEGMENTATION_LBDM_INC_DIR}
+		${CATSMAT_SEGMENTATION_FIXED_INC_DIR}
 		${CATSMAT_UTILITIES_INC_DIR}
 		${CATSMAT_DIR}
 		${LOKI_DIR}
 		${SUFFIX_TREE_DIR}
 		${LIBIMUSNT_HEADER_DIR}
-#		${CATSMAT_DIR}/../libIMUSANT/Converters/MusicXML_v3     #REVISIT
-#		${CATSMAT_DIR}/../libIMUSANT/Converters/Shared/inc     #REVISIT
-#		${CATSMAT_DIR}/../libIMUSANT/Converters/MusicXML_v3/inc     #REVISIT
-#		${CATSMAT_DIR}/../libIMUSANT/FileProcessing/inc     #REVISIT
-		${CATSMAT_DIR}/../libIMUSANT/Utilities/inc    # REVISIT
-#		${CATSMAT_DIR}/../libIMUSANT/DomainObjects/inc    # REVISIT
 		)
 
 set(SRC ${SRC}
