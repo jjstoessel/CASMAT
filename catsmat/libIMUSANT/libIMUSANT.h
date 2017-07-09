@@ -19,6 +19,9 @@ class libIMUSANT
 		void HelloWorld(const char *);
 };
 
+#include "exports.h"
+#include "smartpointer.h"
+
 #include "IMUSANT_types.h"
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_duration.h"
@@ -37,9 +40,6 @@ class libIMUSANT
 #include "IMUSANT_mxmlv3_exceptions.h"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_interval_vector.h"
-
-#include "smartpointer.h"
-
 
 #pragma GCC visibility pop
 #endif

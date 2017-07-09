@@ -17,8 +17,15 @@
 #include "boost/multi_array.hpp"
 #include "Visitor.h"
 #include "suffixtree.h"
+
+
+#include "libIMUSANT.h"
+
+/*****
 #include "IMUSANT_processing.h"
-#include "IMUSANT_t_repeated_substring.h"
+****/
+
+ #include "IMUSANT_t_repeated_substring.h"
 #include "IMUSANT_t_vectormap.h"
 #include "repeats.h"
 

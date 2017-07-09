@@ -16,6 +16,8 @@
 #include "IMUSANT_contour_symbol.h"
 #include "IMUSANT_t_repeated_substring.h"
 
+using namespace IMUSANT;
+
 namespace CATSMAT {
     
     class IMUSANT_ContourSuffixTreeBuilder : public IMUSANT_T_SuffixTreeBuilder<IMUSANT_contour_symbol,IMUSANT_processing>
