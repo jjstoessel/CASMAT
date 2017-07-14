@@ -1,7 +1,7 @@
 #######################################
-# CMAKE libIMUSANT
+# CMAKE IMUSANT_Test
 #######################################
-project(libIMUSANT)
+project(IMUSANT_Test)
 cmake_minimum_required(VERSION 2.4)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
@@ -43,28 +43,27 @@ endif(WIN32)
 # Get source from IMUSANT project.  This would be easier if we moved the source.
 # The source in the Segmentation folder probably needs separating into src and inc directories.
 
-set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT)
-set (SUFFIXTREE_DIR 	${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
-set (LOKI_DIR 	        ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
+set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT_Tests)
 
 set (SRCFOLDERS
-        ${IMUSANT_DIR}/MusicXML/src
-        ${IMUSANT_DIR}/DomainObjects/src
-        ${IMUSANT_DIR}Converters/src
-        ${SUFFIXTREE_DIR}
-        )
+#		${IMUSANT_DIR}
+		${IMUSANT_DIR}/DomainObjects
+        ${IMUSANT_DIR}/Converters
+		${IMUSANT_DIR}/Utilities
+		)
 
 set (INCFOLDERS
-        ${IMUSANT_DIR}/MusicXML/inc
-        ${IMUSANT_DIR}/DomainObjects/inc
-        ${IMUSANT_DIR}Converters/inc
-        ${SUFFIXTREE_DIR}
+        ${IMUSANT_DIR}/Utilities
         )
 
+set(SRC ${SRC} "${IMUSANT_DIR}/main.cpp")
+
+#[[   ====   REVISIT - Not building the actual tests at the moment. ======
 foreach(folder ${SRCFOLDERS})
 	set(SRC ${SRC} "${folder}/*.cpp")			# add source files
 endforeach(folder)
 file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
+]]
 
 foreach(folder ${INCFOLDERS})
 	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
@@ -85,21 +84,29 @@ set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 #######################################
 # set library target
 if(APPLE OR MSVC)
-	set(target libIMUSANT)
+	set(target IMUSANT_Test)
 else(APPLE OR MSVC)
-	set(target IMUSANT)
+	set(target IMUSANT_Test)
 endif(APPLE OR MSVC)
 
 if(MSVC)
 	enable_language(RC)
-	set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_DIR}/win32/libIMUSANT/libIMUSANT.rc)
+	# set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_DIR}/win32/libIMUSANT/libIMUSANT.rc)
 else(MSVC)
-	set(LIBCONTENT ${CORESRC} ${COREH})
+	# set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
-add_library(${target} SHARED ${LIBCONTENT})
-set_target_properties (${target} PROPERTIES 
-			FRAMEWORK TRUE 
+add_library(gtest STATIC IMPORTED)
+add_library(gtest-main STATIC IMPORTED)
+set_property(TARGET gtest PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtest.a")
+set_property(TARGET gtest-main PROPERTY IMPORTED_LOCATION "${GTEST_ROOT}/libgtest_main.a")
+
+add_executable(${target} ${SRC} )
+
+target_link_libraries(${target} gtest )
+
+set_target_properties (${target} PROPERTIES
+			FRAMEWORK TRUE
 			VERSION ${VERSION}
 			FRAMEWORK_VERSION ${VERSION}
 			PUBLIC_HEADER "${COREH}"
@@ -127,10 +134,10 @@ endforeach(sample)
 #######################################
 # install setup
 if(NOT APPLE)
-install ( TARGETS ${target} ${TOOLS} 
-	RUNTIME DESTINATION bin 
-    	LIBRARY DESTINATION lib 
-    	ARCHIVE DESTINATION lib 
+install ( TARGETS ${target} ${TOOLS}
+	RUNTIME DESTINATION bin
+    	LIBRARY DESTINATION lib
+    	ARCHIVE DESTINATION lib
     	FRAMEWORK DESTINATION "/Library/Frameworks" CONFIGURATIONS Release
     	PUBLIC_HEADER DESTINATION include/libmusicxml
 )
