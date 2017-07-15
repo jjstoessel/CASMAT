@@ -29,7 +29,7 @@ namespace IMUSANT
 class IMUSANT_score;
 typedef IMUSANT_SMARTP<IMUSANT_score> 	S_IMUSANT_score;
 
-class VEXP IMUSANT_score : public smartable, public IMUSANT_visitable
+class IMUSANT_score : public smartable, public IMUSANT_visitable
 {
 	public:
 		EXP friend IMUSANT_SMARTP<IMUSANT_score> new_IMUSANT_score(const string& movtTitle);

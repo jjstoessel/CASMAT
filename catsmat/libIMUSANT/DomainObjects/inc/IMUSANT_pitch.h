@@ -23,16 +23,16 @@ namespace IMUSANT
     
     class IMUSANT_pitch; //forward declaration
     typedef IMUSANT_SMARTP<IMUSANT_pitch> S_IMUSANT_pitch;
-    VEXP IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
+    IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
     
-    VEXP ostream& operator<< (ostream& os, const IMUSANT_pitch& elt );
+    ostream& operator<< (ostream& os, const IMUSANT_pitch& elt );
     /*!
      \brief An IMUSANT pitch representation.
      This class handles pitch representations
      Currently only takes account of semitones
      */
     
-    class VEXP IMUSANT_pitch : public smartable
+    class IMUSANT_pitch : public smartable
     {
         
     public:
@@ -63,7 +63,7 @@ namespace IMUSANT
         } TPC;
 
         
-        VEXP friend IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
+        friend IMUSANT_SMARTP<IMUSANT_pitch> new_IMUSANT_pitch();
         
         IMUSANT_pitch() :
             fNameSounding(undefined),

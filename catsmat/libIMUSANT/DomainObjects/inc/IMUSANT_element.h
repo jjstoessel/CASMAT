@@ -37,14 +37,14 @@ namespace IMUSANT
     class IMUSANT_visitor;
     class IMUSANT_element;
     
-    VEXP ostream& operator<< (ostream& os, const IMUSANT_SMARTP<IMUSANT_element>& elt);
+    ostream& operator<< (ostream& os, const IMUSANT_SMARTP<IMUSANT_element>& elt);
     
     
     /*!
      \brief A generic IMUSANT element base clase.
      
      */
-    class VEXP IMUSANT_element : public smartable, public IMUSANT_visitable
+    class IMUSANT_element : public smartable, public IMUSANT_visitable
     {
     public:
         

@@ -20,12 +20,12 @@ namespace IMUSANT
     
     class IMUSANT_key;
     
-    VEXP ostream& operator<< (ostream& os, const IMUSANT_key& elt );
+    ostream& operator<< (ostream& os, const IMUSANT_key& elt );
     
     /*!
      \brief An IMUSANT key representation.
      */
-    class VEXP IMUSANT_key
+    class IMUSANT_key
     {
     public:
         

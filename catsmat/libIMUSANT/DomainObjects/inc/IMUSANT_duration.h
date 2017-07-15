@@ -26,9 +26,9 @@ namespace IMUSANT
 {
     class IMUSANT_duration;
     
-    VEXP ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
+    ostream& operator<< (ostream& os, const IMUSANT_duration& elt );
     
-    class VEXP IMUSANT_duration : public smartable
+    class IMUSANT_duration : public smartable
     {
     public:
         
