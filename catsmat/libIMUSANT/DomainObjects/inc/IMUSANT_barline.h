@@ -80,7 +80,7 @@ namespace IMUSANT
     //
     // IMUSANT_barline
     //
-    class EXP IMUSANT_barline : public IMUSANT_element
+    class IMUSANT_barline : public IMUSANT_element
     {
     public:
         enum location {
@@ -93,7 +93,7 @@ namespace IMUSANT
             light_heavy, heavy_light, heavy_heavy,
             last=heavy_heavy };
         
-        EXP friend IMUSANT_SMARTP<IMUSANT_barline> new_IMUSANT_barline();
+        friend IMUSANT_SMARTP<IMUSANT_barline> new_IMUSANT_barline();
         
         virtual void accept(IMUSANT_visitor& visitor);
         
@@ -144,7 +144,7 @@ namespace IMUSANT
     
     IMUSANT_SMARTP<IMUSANT_ending> new_IMUSANT_ending();
     IMUSANT_SMARTP<IMUSANT_repeat> new_IMUSANT_repeat();
-    EXP IMUSANT_SMARTP<IMUSANT_barline> new_IMUSANT_barline();
+    IMUSANT_SMARTP<IMUSANT_barline> new_IMUSANT_barline();
     
 } //namespace IMUSANT
 
