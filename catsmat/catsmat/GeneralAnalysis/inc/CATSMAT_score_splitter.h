@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "IMUSANT_score.h"
-#include "Visitor.h"
+#include "Loki/Visitor.h"
 #include "smartpointer.h"
 
 using namespace IMUSANT;

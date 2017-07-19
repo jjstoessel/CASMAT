@@ -10,7 +10,8 @@
 #define __imusant__CATSMAT_visitable__
 
 #include <stdio.h>
-#include "Visitor.h"
+#include "Loki/Visitor.h"
+//#include "/Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/Loki/Visitor.h"
 
 using namespace Loki;
 
