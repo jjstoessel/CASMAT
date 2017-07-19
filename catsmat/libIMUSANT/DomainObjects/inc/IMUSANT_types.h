@@ -39,8 +39,8 @@ namespace IMUSANT
     class IMUSANT_time;
     
     
-    VEXP ostream& operator<< (ostream& os, const IMUSANT_clef& elt );
-    VEXP ostream& operator<< (ostream& os, const IMUSANT_time& elt );
+    ostream& operator<< (ostream& os, const IMUSANT_clef& elt );
+    ostream& operator<< (ostream& os, const IMUSANT_time& elt );
     
     
     //handling actual note attached accidentals
@@ -60,7 +60,7 @@ namespace IMUSANT
             last=koron
         };
         
-        EXP friend IMUSANT_SMARTP<IMUSANT_accidental> new_IMUSANT_accidental();
+        friend IMUSANT_SMARTP<IMUSANT_accidental> new_IMUSANT_accidental();
         
         accident                    getAccident()   const	{ return fAccident; }
         IMUSANT_YesNo::type			getCautionary() const	{ return fCautionary; }
@@ -114,14 +114,14 @@ namespace IMUSANT
     };
     typedef IMUSANT_SMARTP<IMUSANT_accidental> S_IMUSANT_accidental;
     
-    EXP S_IMUSANT_accidental new_IMUSANT_accidental();
+    S_IMUSANT_accidental new_IMUSANT_accidental();
     
     
     /*!
      \brief an IMUSANT clef representation.
      
      */
-    class VEXP IMUSANT_clef
+    class IMUSANT_clef
     {
     public:
         enum { G_clef = 'G', F_clef = 'F', C_clef = 'C', D_clef = 'D', tablature = 'T', percussion = 'P', undefined = ' ' };
@@ -153,7 +153,7 @@ namespace IMUSANT
         short	fOctaveChange; //transposing clefs negative for number octaves lower, positive for octaves higher
     };
     
-    class VEXP IMUSANT_time
+    class IMUSANT_time
     {
     public:
         //fSymbol values
@@ -207,7 +207,7 @@ namespace IMUSANT
 #define CONTAINER_TYPE vector<std::string>
     
     //This is one lyric set to a note, may be multisyllabic
-    class VEXP IMUSANT_lyric : public smartable, public IMUSANT_visitable
+    class IMUSANT_lyric : public smartable, public IMUSANT_visitable
     {
     public:
         

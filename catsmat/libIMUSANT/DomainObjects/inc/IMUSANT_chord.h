@@ -23,7 +23,7 @@ class IMUSANT_chord : public IMUSANT_element
 	public:
 		enum sorttype { pitch, duration };
 	
-		VEXP friend IMUSANT_SMARTP<IMUSANT_chord> new_IMUSANT_chord();
+		friend IMUSANT_SMARTP<IMUSANT_chord> new_IMUSANT_chord();
 		
 		void    accept(IMUSANT_visitor& visitor);
 	
@@ -52,10 +52,9 @@ class IMUSANT_chord : public IMUSANT_element
     
         };
 };
-typedef IMUSANT_SMARTP<IMUSANT_chord> S_IMUSANT_chord;
 
-
-VEXP IMUSANT_SMARTP<IMUSANT_chord> new_IMUSANT_chord();
+	typedef IMUSANT_SMARTP<IMUSANT_chord> S_IMUSANT_chord;
+	IMUSANT_SMARTP<IMUSANT_chord> new_IMUSANT_chord();
 
 } //namespace IMUSANT
 #endif

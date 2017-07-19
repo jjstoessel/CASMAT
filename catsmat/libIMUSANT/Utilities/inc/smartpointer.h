@@ -39,7 +39,7 @@
 
 namespace IMUSANT
 {
-    class EXP smartable {
+    class smartable {
     private:
         unsigned 	refCount;
     public:

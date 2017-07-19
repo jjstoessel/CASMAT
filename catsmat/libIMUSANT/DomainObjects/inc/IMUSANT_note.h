@@ -36,13 +36,13 @@ namespace IMUSANT
      A note is represented by its name, optional accidentals,
      duration (in the form of numerator/denominator) and optional dots.
      */
-    class VEXP IMUSANT_note : public IMUSANT_element
+    class  IMUSANT_note : public IMUSANT_element
     {
         friend bool IMUSANT_pitch::operator> (const IMUSANT_pitch& pitch) const;
         
     public:
         
-        VEXP friend IMUSANT_SMARTP<IMUSANT_note> new_IMUSANT_note();
+        friend IMUSANT_SMARTP<IMUSANT_note> new_IMUSANT_note();
         
         IMUSANT_note();
         IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration );
@@ -129,7 +129,7 @@ namespace IMUSANT
     };
     typedef IMUSANT_SMARTP<IMUSANT_note> S_IMUSANT_note;
     
-    VEXP IMUSANT_SMARTP<IMUSANT_note> new_IMUSANT_note();
+    IMUSANT_SMARTP<IMUSANT_note> new_IMUSANT_note();
     
 } //namespace IMUSANT
 #endif

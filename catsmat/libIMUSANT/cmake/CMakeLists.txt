@@ -1,7 +1,7 @@
 #######################################
 # CMAKE libIMUSANT
 #######################################
-project(libIMUSANT)
+#project(libIMUSANT)
 cmake_minimum_required(VERSION 2.4)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
@@ -17,16 +17,20 @@ endif()
 if(UNIX)
 	add_definitions(-Wall -DGCC)
 endif(UNIX)
-
-if(APPLE)
-	set (CMAKE_OSX_ARCHITECTURES "x86_64 i386")
-	if (${CMAKE_SYSTEM_VERSION} VERSION_LESS 9.0.0)
-		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.4u.sdk)
-	elseif (${CMAKE_SYSTEM_VERSION} VERSION_LESS 10.8.0)
-		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk)
-	endif ()
-	set (CMAKE_C++_FLAGS -mmacosx-version-min=10.4)
-endif(APPLE)
+#
+#if(APPLE)
+#	set (CMAKE_OSX_ARCHITECTURES "x86_64 i386")
+#	if (${CMAKE_SYSTEM_VERSION} VERSION_LESS 9.0.0)
+#		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.4u.sdk)
+#	elseif (${CMAKE_SYSTEM_VERSION} VERSION_LESS 10.8.0)
+#		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk)
+#	elseif (${XCODE_VERSION} VERSION_LESS 4.0.0)
+#		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.6.sdk)
+#	else ()
+#		set (CMAKE_OSX_SYSROOT "macosx10.7")
+#	endif ()
+#	set (CMAKE_C++_FLAGS -mmacosx-version-min=10.4)
+#endif(APPLE)
 
 if(WIN32)
  add_definitions(-DWINVER=0x0400 -DWIN32)
@@ -39,26 +43,63 @@ endif(WIN32)
 
 
 #######################################
-# set directories, src and headers.
-# Get source from IMUSANT project.  This would be easier if we moved the source.
-# The source in the Segmentation folder probably needs separating into src and inc directories.
+# set library target
+if(APPLE OR MSVC)
+    set(target libIMUSANT)
+else(APPLE OR MSVC)
+    set(target libIMUSANT)
+endif(APPLE OR MSVC)
 
-set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../IMUSANT)
+
+###############  BOOST LIBRARIES ###########
+#set(Boost_DEBUG ON)
+
+if (APPLE)
+	set(BOOST_ROOT 				"/usr/local/boost")
+    set(BOOST_FILESYSTEM_LIB  	/usr/local/boost/lib/libboost_filesystem.dylib)
+    set(BOOST_SYSTEM_LIB      	/usr/local/boost/lib/libboost_system.dylib)
+
+else ()
+	set(BOOST_ROOT 				"/usr/local/boost")
+	set(BOOST_INCLUDEDIR 		"/usr/local/boost/include/boost")
+	set(BOOST_FILESYSTEM_LIB  	/usr/local/boost/lib/libboost_filesystem.dll.a)
+	set(BOOST_SYSTEM_LIB      	/usr/local/boost/lib/libboost_system.dll.a)
+endif ()
+
+FIND_PACKAGE( Boost REQUIRED )
+INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+
+#######################################
+# set directories, src and headers.
+
+set (IMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (SUFFIXTREE_DIR 	${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
 set (LOKI_DIR 	        ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
+set (LIBMUSICXML_DIR    ${CMAKE_CURRENT_SOURCE_DIR}/../../libMusicXMLv3)
 
 set (SRCFOLDERS
-        ${IMUSANT_DIR}/MusicXML/src
         ${IMUSANT_DIR}/DomainObjects/src
-        ${IMUSANT_DIR}Converters/src
-        ${SUFFIXTREE_DIR}
+        ${IMUSANT_DIR}/Converters/MusicXML_v3/src
+		${IMUSANT_DIR}/FileProcessing/src
+		${IMUSANT_DIR}/Utilities/src
         )
 
-set (INCFOLDERS
-        ${IMUSANT_DIR}/MusicXML/inc
-        ${IMUSANT_DIR}/DomainObjects/inc
-        ${IMUSANT_DIR}Converters/inc
-        ${SUFFIXTREE_DIR}
+set (EXPORTED_HEADER_FOLDERS
+		${IMUSANT_DIR}/
+		${IMUSANT_DIR}/DomainObjects/inc
+		${IMUSANT_DIR}/Converters/MusicXML_v3
+		${IMUSANT_DIR}/Converters/MusicXML_v3/inc
+		${IMUSANT_DIR}/Converters/Shared/inc
+		${IMUSANT_DIR}/FileProcessing/inc
+		${IMUSANT_DIR}/Utilities/inc
+		)
+
+set (IMPORTED_HEADER_FOLDERS
+		${SUFFIXTREE_DIR}
+		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src
+		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/lib
+		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/visitors
+		${LIBMUSICXML_DIR}/libmusicxml-3.00-src/src/parser
         )
 
 foreach(folder ${SRCFOLDERS})
@@ -66,14 +107,19 @@ foreach(folder ${SRCFOLDERS})
 endforeach(folder)
 file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 
-foreach(folder ${INCFOLDERS})
-	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
+foreach(folder ${EXPORTED_HEADER_FOLDERS})
+	set(EXP_HEADERS ${EXP_HEADERS}  "${folder}/*.h")
+	set(HEADERS     ${HEADERS}      "${folder}/*.h")		# add header files
+	set(INCL        ${INCL}         "${folder}")				# add include folders
 endforeach(folder)
-file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
-foreach(folder ${INCFOLDERS})
+foreach(folder ${IMPORTED_HEADER_FOLDERS})
+	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
+
+file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
+file (GLOB EXPORTED_HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${EXP_HEADERS})
 
 
 #######################################
@@ -82,14 +128,6 @@ include_directories( ${INCL})
 set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 
 
-#######################################
-# set library target
-if(APPLE OR MSVC)
-	set(target libIMUSANT)
-else(APPLE OR MSVC)
-	set(target IMUSANT)
-endif(APPLE OR MSVC)
-
 if(MSVC)
 	enable_language(RC)
 	set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_DIR}/win32/libIMUSANT/libIMUSANT.rc)
@@ -97,31 +135,25 @@ else(MSVC)
 	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
+
 add_library(${target} SHARED ${LIBCONTENT})
+
+###############  Targeted Libraries ###########
+TARGET_LINK_LIBRARIES(${target} libmusicxml2)
+TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
+TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
+
+
+
 set_target_properties (${target} PROPERTIES 
 			FRAMEWORK TRUE 
 			VERSION ${VERSION}
 			FRAMEWORK_VERSION ${VERSION}
-			PUBLIC_HEADER "${COREH}"
+			PUBLIC_HEADER "${EXPORTED_HEADERS}"
 			DEFINE_SYMBOL LIBMUSICXML_EXPORTS
 			MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${STRVERS}
 			MACOSX_FRAMEWORK_BUNDLE_VERSION ${SSTRVERS}
 )
-
-
-
-
-#[[#######################################
-# set sample targets
-set (SAMPLES RandomMusic xmlfactory partsummary xml2guido xmliter countnotes readunrolled xml2midi xmlread xmltranspose xmlclone)
-set (TOOLS  xml2guido xmltranspose)
-
-foreach(sample ${SAMPLES})
-	add_executable( ${sample} ${LXMLSAMPLE}/${sample}.cpp )
-	target_link_libraries( ${sample} ${target})
-	add_dependencies(${sample} ${target})
-endforeach(sample)
-]]
 
 
 #######################################

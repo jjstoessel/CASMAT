@@ -34,7 +34,7 @@ using namespace std;
 namespace IMUSANT
 {
     
-    class EXP TRational {
+    class TRational {
         
     private:
         

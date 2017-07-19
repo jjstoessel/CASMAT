@@ -70,7 +70,7 @@ set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 if(APPLE OR MSVC)
 	set(target libmusicxml2)
 else(APPLE OR MSVC)
-	set(target musicxml2)
+	set(target libmusicxml2)
 endif(APPLE OR MSVC)
 
 if(MSVC)

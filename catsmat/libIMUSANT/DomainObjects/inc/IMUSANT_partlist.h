@@ -21,10 +21,10 @@ namespace IMUSANT
 class IMUSANT_partlist;
 typedef IMUSANT_SMARTP<IMUSANT_partlist> 	S_IMUSANT_partlist;
 
-class EXP IMUSANT_partlist :  public smartable, public IMUSANT_visitable
+class IMUSANT_partlist :  public smartable, public IMUSANT_visitable
 {
     public:
-        EXP friend IMUSANT_SMARTP<IMUSANT_partlist> new_IMUSANT_partlist();
+		friend IMUSANT_SMARTP<IMUSANT_partlist> new_IMUSANT_partlist();
 		friend	ostream& operator<<(ostream& os, S_IMUSANT_partlist& partlist);
 		
 		void					accept(IMUSANT_visitor& visitor);
@@ -43,9 +43,9 @@ class EXP IMUSANT_partlist :  public smartable, public IMUSANT_visitable
     private:
         IMUSANT_vector<S_IMUSANT_part> fPartsList; 
 };
-typedef IMUSANT_SMARTP<IMUSANT_partlist> S_IMUSANT_partlist;
 
-EXP IMUSANT_SMARTP<IMUSANT_partlist> new_IMUSANT_partlist();
+	typedef IMUSANT_SMARTP<IMUSANT_partlist> S_IMUSANT_partlist;
+	IMUSANT_SMARTP<IMUSANT_partlist> new_IMUSANT_partlist();
 
 } //namespace IMUSANT
 #endif

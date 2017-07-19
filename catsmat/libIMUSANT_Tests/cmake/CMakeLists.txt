@@ -41,12 +41,13 @@ if (APPLE)
 	set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dylib)
 
 else ()
-	set(BOOST_ROOT "C:/local/boost_1_58_0")
-	set(BOOST_FILESYSTEM_LIB  C:/local/boost_1_58_0/lib64-msvc-12.0)
-	set(BOOST_SYSTEM_LIB      C:/local/boost_1_58_0/lib64-msvc-12.0)
+	set(BOOST_ROOT "/usr/local/boost")
+	set(BOOST_INCLUDEDIR "/usr/local/boost/include/boost")
+	set(BOOST_FILESYSTEM_LIB  /usr/local/boost/lib/libboost_filesystem.dll.a)
+	set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dll.a)
 endif ()
 
-FIND_PACKAGE( Boost 1.58.0 REQUIRED  )
+FIND_PACKAGE( Boost REQUIRED  )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
 

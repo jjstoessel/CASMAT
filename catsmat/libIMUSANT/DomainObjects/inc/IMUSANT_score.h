@@ -29,10 +29,10 @@ namespace IMUSANT
 class IMUSANT_score;
 typedef IMUSANT_SMARTP<IMUSANT_score> 	S_IMUSANT_score;
 
-class VEXP IMUSANT_score : public smartable, public IMUSANT_visitable
+class IMUSANT_score : public smartable, public IMUSANT_visitable
 {
 	public:
-		EXP friend IMUSANT_SMARTP<IMUSANT_score> new_IMUSANT_score(const string& movtTitle);
+		friend IMUSANT_SMARTP<IMUSANT_score> new_IMUSANT_score(const string& movtTitle);
 		
 		friend	ostream& operator<<(ostream& os, S_IMUSANT_score& score);
         
@@ -92,9 +92,8 @@ class VEXP IMUSANT_score : public smartable, public IMUSANT_visitable
 		string				fDate;			//publication date; composition date?
 };
 
-typedef IMUSANT_SMARTP<IMUSANT_score> S_IMUSANT_score;
-    
-EXP IMUSANT_SMARTP<IMUSANT_score> new_IMUSANT_score(const string& movtTitle="");
+	typedef IMUSANT_SMARTP<IMUSANT_score> S_IMUSANT_score;
+	IMUSANT_SMARTP<IMUSANT_score> new_IMUSANT_score(const string& movtTitle="");
 
 } //namespace IMUSANT
 #endif

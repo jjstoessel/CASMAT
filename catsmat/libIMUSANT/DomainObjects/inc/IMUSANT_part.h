@@ -24,10 +24,10 @@ using namespace std;
 namespace IMUSANT
 {
 
-class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable 
+class IMUSANT_part : public smartable, public IMUSANT_visitable
 {
 	public:
-		VEXP friend IMUSANT_SMARTP<IMUSANT_part> new_IMUSANT_part();
+		friend IMUSANT_SMARTP<IMUSANT_part> new_IMUSANT_part();
     
 		void            addMeasure(const S_IMUSANT_measure& measure) { fMeasures.push_back(measure); }
 		
@@ -68,9 +68,9 @@ class VEXP IMUSANT_part : public smartable, public IMUSANT_visitable
 		string 					fXMLID = "";
         int                     fDivisions = 1;
 };
-typedef IMUSANT_SMARTP<IMUSANT_part> S_IMUSANT_part;
 
-VEXP IMUSANT_SMARTP<IMUSANT_part> new_IMUSANT_part();
+	typedef IMUSANT_SMARTP<IMUSANT_part> S_IMUSANT_part;
+	IMUSANT_SMARTP<IMUSANT_part> new_IMUSANT_part();
     
 } //namespace IMUSANT
 #endif

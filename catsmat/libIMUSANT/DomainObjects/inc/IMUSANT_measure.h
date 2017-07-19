@@ -24,11 +24,11 @@ namespace IMUSANT
     /*!
      \brief The part measure element
      */
-    class VEXP IMUSANT_measure : public smartable, public IMUSANT_visitable
+    class IMUSANT_measure : public smartable, public IMUSANT_visitable
     {
     public:
         
-        VEXP friend IMUSANT_SMARTP<IMUSANT_measure> new_IMUSANT_measure();
+        friend IMUSANT_SMARTP<IMUSANT_measure> new_IMUSANT_measure();
         
         
         IMUSANT_vector<S_IMUSANT_element>&	elements();
@@ -70,8 +70,7 @@ namespace IMUSANT
         long                                fMeasNum;
     };
     typedef IMUSANT_SMARTP<IMUSANT_measure>	S_IMUSANT_measure;
-    
-    VEXP    IMUSANT_SMARTP<IMUSANT_measure> new_IMUSANT_measure();
+    IMUSANT_SMARTP<IMUSANT_measure> new_IMUSANT_measure();
     
 } //namespace IMUSANT
 #endif
