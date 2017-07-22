@@ -62,7 +62,7 @@ set (CATSMAT_GENERAL_ANALYSIS_DIR      		${CATSMAT_DIR}/GeneralAnalysis)
 set (CATSMAT_SEGMENTATION_DIR      			${CATSMAT_DIR}/Segmentation)
 set (CATSMAT_UTILITIES_DIR      			${CATSMAT_DIR}/Utilities)
 
-set (LOKI_DIR               				${CATSMAT_DIR}/../Loki)
+set (LOKI_DIR               				${CATSMAT_DIR}/..)
 set (SUFFIX_TREE_DIR        				${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
 
 set (CATSMAT_ANALYSIS_SRC_DIR      				${CATSMAT_DIR}/Analysis/src)

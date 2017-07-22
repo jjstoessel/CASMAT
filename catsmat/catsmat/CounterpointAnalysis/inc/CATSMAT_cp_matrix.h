@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 #include "smartpointer.h"
-#include "Visitor.h"
+#include "Loki/Visitor.h"
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_note.h"
