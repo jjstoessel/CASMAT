@@ -1,7 +1,7 @@
 #######################################
 # CMAKE IMUSANT_Test
 #######################################
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 3.7)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)
@@ -11,28 +11,6 @@ if(UNIX)
 	add_definitions(-Wall -DGCC)
 endif(UNIX)
 
-#if(APPLE)
-#	set (CMAKE_OSX_ARCHITECTURES "x86_64 i386")
-#	if (${CMAKE_SYSTEM_VERSION} VERSION_LESS 9.0.0)
-#		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.4u.sdk)
-#	elseif (${CMAKE_SYSTEM_VERSION} VERSION_LESS 10.8.0)
-#		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk)
-#	elseif (${XCODE_VERSION} VERSION_LESS 4.0.0)
-#		set (CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.6.sdk)
-#	else ()
-#		set (CMAKE_OSX_SYSROOT "macosx10.7")
-#	endif ()
-#	set (CMAKE_C++_FLAGS -mmacosx-version-min=10.4)
-#endif(APPLE)
-#
-#if(WIN32)
-# add_definitions(-DWINVER=0x0400 -DWIN32)
-# if(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
-#  add_definitions(-DVC6)
-# elseif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 8 2005")
-#  add_definitions(-DVC2005)
-# endif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
-#endif(WIN32)
 
 ###############  BOOST LIBRARIES ###########
 if (APPLE)
@@ -43,8 +21,8 @@ if (APPLE)
 else ()
 	set(BOOST_ROOT "/usr/local/boost")
 	set(BOOST_INCLUDEDIR "/usr/local/boost/include/boost")
-	set(BOOST_FILESYSTEM_LIB  /usr/local/boost/lib/libboost_filesystem.dll.a)
-	set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dll.a)
+	set(BOOST_FILESYSTEM_LIB  /usr/local/boost/bin/cygboost_filesystem.dll)
+	set(BOOST_SYSTEM_LIB      /usr/local/boost/bin/cygboost_system.dll)
 endif ()
 
 FIND_PACKAGE( Boost REQUIRED  )
@@ -62,7 +40,6 @@ set (libIMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (LOKI_DIR               ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
 set (SUFFIX_TREE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
 set (GOOGLE_TEST_INC_DIR	${CMAKE_CURRENT_SOURCE_DIR}/../../googletest-master/googletest/include)
-
 
 set (INCFOLDERS
 		${libIMUSANT_DIR}
@@ -91,7 +68,6 @@ set(SRC ${SRC}
 		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_part_Tests.cpp
 		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_pitch_Tests.cpp
 		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_score_Tests.cpp
-#		${libIMUSANT_TESTS_DIR}/FileProcessing/IMUSANT_processing_Tests.cpp    -- Needs to be moved to CATSMAT.
 		${libIMUSANT_TESTS_DIR}/Converters/IMUSANT_mxmlv3_to_imusant_visitor_Tests.cpp
 		)
 
@@ -101,8 +77,6 @@ foreach(folder ${INCFOLDERS})
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
-
-
 
 #######################################
 # set includes
@@ -118,23 +92,29 @@ else(APPLE OR MSVC)
 	set(target libIMUSANT_Test)
 endif(APPLE OR MSVC)
 
-if(MSVC)
-	enable_language(RC)
-	set(LIBCONTENT ${CORESRC} ${COREH} ${libIMUSANT_TESTS_DIR}/win32/libIMUSANT/libIMUSANT.rc)
-else(MSVC)
-	set(LIBCONTENT ${CORESRC} ${COREH})
-endif(MSVC)
+#if(MSVC)
+#	enable_language(RC)
+#	set(LIBCONTENT ${CORESRC} ${COREH} ${libIMUSANT_TESTS_DIR}/win32/libIMUSANT/libIMUSANT.rc)
+#else(MSVC)
+#	set(LIBCONTENT ${CORESRC} ${COREH})
+#endif(MSVC)
+
+#enable_testing()
 
 add_executable(${target} ${SRC} )
 
-
 ###############  Targeted Libraries ###########
+TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
+TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
 TARGET_LINK_LIBRARIES(${target} libmusicxml2)
 TARGET_LINK_LIBRARIES(${target} libIMUSANT)
 TARGET_LINK_LIBRARIES(${target} gtest)
-TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
-TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
 
+#
+#add_test(
+#		NAME ${target}
+#		COMMAND ${target}
+#)
 
 
 # Copy the test data files.
@@ -162,26 +142,26 @@ foreach(test_file  ${TEST_DATA})
 	)
 endforeach(test_file)
 
+#
+#set_target_properties (${target} PROPERTIES
+#			FRAMEWORK TRUE
+#			VERSION ${VERSION}
+#			FRAMEWORK_VERSION ${VERSION}
+#			PUBLIC_HEADER "${COREH}"
+#			DEFINE_SYMBOL LIBMUSICXML_EXPORTS
+#			MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${STRVERS}
+#			MACOSX_FRAMEWORK_BUNDLE_VERSION ${SSTRVERS}
+#)
 
-set_target_properties (${target} PROPERTIES
-			FRAMEWORK TRUE
-			VERSION ${VERSION}
-			FRAMEWORK_VERSION ${VERSION}
-			PUBLIC_HEADER "${COREH}"
-			DEFINE_SYMBOL LIBMUSICXML_EXPORTS
-			MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${STRVERS}
-			MACOSX_FRAMEWORK_BUNDLE_VERSION ${SSTRVERS}
-)
 
-
-#######################################
-# install setup
-if(NOT APPLE)
-install ( TARGETS ${target} ${TOOLS}
-	RUNTIME DESTINATION bin
-    	LIBRARY DESTINATION lib
-    	ARCHIVE DESTINATION lib
-    	FRAMEWORK DESTINATION "/Library/Frameworks" CONFIGURATIONS Release
-    	PUBLIC_HEADER DESTINATION include/libmusicxml
-)
-endif()
+########################################
+## install setup
+#if(NOT APPLE)
+#install ( TARGETS ${target} ${TOOLS}
+#	RUNTIME DESTINATION bin
+#    	LIBRARY DESTINATION lib
+#    	ARCHIVE DESTINATION lib
+#    	FRAMEWORK DESTINATION "/Library/Frameworks" CONFIGURATIONS Release
+#    	PUBLIC_HEADER DESTINATION include/libmusicxml
+#)
+#endif()
