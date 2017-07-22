@@ -16,7 +16,7 @@
 
 using namespace IMUSANT;
 
-class VEXP IMUSANT_test_utilities
+class IMUSANT_test_utilities
 {
 public:
     
