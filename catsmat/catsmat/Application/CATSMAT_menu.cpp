@@ -87,7 +87,8 @@ addFilesToAnalyse(CATSMAT_processing *processor)
         <<  "  4 - Load files from a configuration file I select..." << endl
         <<  "  5 - Remove loaded scores from memory" << endl
         <<  "  8 - List the movements I have added so far..." << endl
-        <<  "  9 - Analyze the files I have added..." << endl << endl;
+        <<  "  9 - Analyze the files I have added..." << endl
+        <<  "  0 - Exit program" << endl << endl;
     
         char selectedMenuItem = 'x';
         cin >> selectedMenuItem;
@@ -128,6 +129,7 @@ addFilesToAnalyse(CATSMAT_processing *processor)
                     finished = false;
                     break;
                     
+                case '0':
                 case '9':
                     finished = true;
                     break;

@@ -82,13 +82,11 @@
 		4959E13A1CF13BE300FAC403 /* smartpointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4959E1341CF13BE300FAC403 /* smartpointer.cpp */; };
 		4959E13B1CF13BE300FAC403 /* TRational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4959E1351CF13BE300FAC403 /* TRational.cpp */; };
 		496A00831B9BCBED0070BCE1 /* ActorPreludeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80BF1B9A77F000A673F7 /* ActorPreludeSample.xml */; };
-		496A00841B9BCBED0070BCE1 /* BeetAnGeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C21B9A77F000A673F7 /* BeetAnGeSample.xml */; };
 		496A00851B9BCBED0070BCE1 /* Binchois.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C51B9A77F000A673F7 /* Binchois.xml */; };
 		496A00861B9BCBED0070BCE1 /* BrahWiMeSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80C81B9A77F000A673F7 /* BrahWiMeSample.xml */; };
 		496A00871B9BCBED0070BCE1 /* BrookeWestSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80CB1B9A77F000A673F7 /* BrookeWestSample.xml */; };
 		496A00881B9BCBED0070BCE1 /* Chant.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80CE1B9A77F000A673F7 /* Chant.xml */; };
 		496A00891B9BCBED0070BCE1 /* DebuMandSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80D11B9A77F000A673F7 /* DebuMandSample.xml */; };
-		496A008A1B9BCBED0070BCE1 /* Dichterliebe01.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80D41B9A77F000A673F7 /* Dichterliebe01.xml */; };
 		496A008B1B9BCBED0070BCE1 /* Echigo-Jishi.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80D71B9A77F000A673F7 /* Echigo-Jishi.xml */; };
 		496A008C1B9BCBED0070BCE1 /* FaurReveSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80DA1B9A77F000A673F7 /* FaurReveSample.xml */; };
 		496A008D1B9BCBED0070BCE1 /* MahlFaGe4Sample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80DD1B9A77F000A673F7 /* MahlFaGe4Sample.xml */; };
@@ -98,7 +96,6 @@
 		496A00911B9BCBED0070BCE1 /* MozaVeilSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80E91B9A77F000A673F7 /* MozaVeilSample.xml */; };
 		496A00921B9BCBED0070BCE1 /* Saltarello.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80EC1B9A77F000A673F7 /* Saltarello.xml */; };
 		496A00931B9BCBED0070BCE1 /* SchbAvMaSample.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80EF1B9A77F000A673F7 /* SchbAvMaSample.xml */; };
-		496A00941B9BCBED0070BCE1 /* Telemann.xml in Copy Files (3 items) */ = {isa = PBXBuildFile; fileRef = 498D80F21B9A77F000A673F7 /* Telemann.xml */; };
 		496EF4C71B229D8100FE715F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF4C61B229D8100FE715F /* main.cpp */; };
 		496EF4D11B229EFB00FE715F /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		496EF4D21B229F0A00FE715F /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
@@ -126,7 +123,6 @@
 		4970E0101B7591470052496C /* IMUSANT_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4970E00E1B7590820052496C /* IMUSANT_interval.cpp */; };
 		4970E0191B76B97F0052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		49714EF11C015CFF00C0A52C /* MusicXML_ParserTest2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49714EF01C014EFE00C0A52C /* MusicXML_ParserTest2.xml */; };
-		49714EF21C01793000C0A52C /* BeetAnGeSample.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 498D80C21B9A77F000A673F7 /* BeetAnGeSample.xml */; };
 		4973E9BA1C50DA8E0086AB4A /* MusicXML_ParserTest3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4973E9B91C50DA640086AB4A /* MusicXML_ParserTest3.xml */; };
 		497FE7AB1EFF6E87008F066B /* IMUSANT_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497FE7A91EFF6E87008F066B /* IMUSANT_segment.cpp */; };
 		497FE7AC1EFF6E87008F066B /* IMUSANT_set_of_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497FE7AA1EFF6E87008F066B /* IMUSANT_set_of_segment.cpp */; };
@@ -348,13 +344,11 @@
 			dstSubfolderSpec = 16;
 			files = (
 				496A00831B9BCBED0070BCE1 /* ActorPreludeSample.xml in Copy Files (3 items) */,
-				496A00841B9BCBED0070BCE1 /* BeetAnGeSample.xml in Copy Files (3 items) */,
 				496A00851B9BCBED0070BCE1 /* Binchois.xml in Copy Files (3 items) */,
 				496A00861B9BCBED0070BCE1 /* BrahWiMeSample.xml in Copy Files (3 items) */,
 				496A00871B9BCBED0070BCE1 /* BrookeWestSample.xml in Copy Files (3 items) */,
 				496A00881B9BCBED0070BCE1 /* Chant.xml in Copy Files (3 items) */,
 				496A00891B9BCBED0070BCE1 /* DebuMandSample.xml in Copy Files (3 items) */,
-				496A008A1B9BCBED0070BCE1 /* Dichterliebe01.xml in Copy Files (3 items) */,
 				496A008B1B9BCBED0070BCE1 /* Echigo-Jishi.xml in Copy Files (3 items) */,
 				496A008C1B9BCBED0070BCE1 /* FaurReveSample.xml in Copy Files (3 items) */,
 				496A008D1B9BCBED0070BCE1 /* MahlFaGe4Sample.xml in Copy Files (3 items) */,
@@ -364,7 +358,6 @@
 				496A00911B9BCBED0070BCE1 /* MozaVeilSample.xml in Copy Files (3 items) */,
 				496A00921B9BCBED0070BCE1 /* Saltarello.xml in Copy Files (3 items) */,
 				496A00931B9BCBED0070BCE1 /* SchbAvMaSample.xml in Copy Files (3 items) */,
-				496A00941B9BCBED0070BCE1 /* Telemann.xml in Copy Files (3 items) */,
 			);
 			name = "Copy Files (3 items)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +377,6 @@
 				1E76912A1C81518500D371D8 /* MusicXML_ParserTest5.xml in CopyFiles */,
 				49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */,
 				4973E9BA1C50DA8E0086AB4A /* MusicXML_ParserTest3.xml in CopyFiles */,
-				49714EF21C01793000C0A52C /* BeetAnGeSample.xml in CopyFiles */,
 				49714EF11C015CFF00C0A52C /* MusicXML_ParserTest2.xml in CopyFiles */,
 				494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */,
 			);
@@ -1173,6 +1165,7 @@
 		BA4462670A9196520033DB86 /* IMUSANT_contour_symbol.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = IMUSANT_contour_symbol.h; sourceTree = "<group>"; };
 		BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_contour_symbol.cpp; sourceTree = "<group>"; };
 		BA5D583D1E9095F200BFC95C /* Triplet-test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Triplet-test.xml"; sourceTree = "<group>"; };
+		BA62613E1F1F166400D266D0 /* Palestrina-MPM-Agnus Dei II (ficta).xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Palestrina-MPM-Agnus Dei II (ficta).xml"; sourceTree = "<group>"; };
 		BA670D1F0A10049A0072CE20 /* IMUSANT_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_types.h; sourceTree = "<group>"; };
 		BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_types.cpp; sourceTree = "<group>"; };
 		BA697EFC0AA4FBD7002DC3B2 /* IMUSANT_pitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_pitch.h; sourceTree = "<group>"; };
@@ -2861,6 +2854,7 @@
 				BA33CBFD1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam reservatam_3_Credo.xml */,
 				BA33CBFE1D6FD7A8001B7FF3 /* Trent 9_Missa ad fugam_1_Kyrie.xml */,
 				96CC66DC1DEBB60300E2F7FB /* Trent 13_Benet-Kyrie Deus creator.xml */,
+				BA62613E1F1F166400D266D0 /* Palestrina-MPM-Agnus Dei II (ficta).xml */,
 			);
 			path = MusicXML;
 			sourceTree = "<group>";
@@ -3383,13 +3377,13 @@
 				GOOGLE_TEST_FRAMEWORK_DIR = /usr/local;
 				HEADER_SEARCH_PATHS = (
 					$BOOST_ROOT_INC_DIR,
-					"$(LOKI_INC_DIR)",
+					$PROJECT_DIR,
 				);
 				LIBRARY_SEARCH_PATHS = $BOOST_ROOT_LIB_DIR;
 				LIB_MUSIC_XML_3_DIR = "$(PROJECT_DIR)/libMusicXMLv3";
-				LOKI_INC_DIR = "$(PROJECT_DIR)";
+				LOKI_INC_DIR = "$(PROJECT_DIR)/Loki";
 				ONLY_ACTIVE_ARCH = YES;
-				USER_HEADER_SEARCH_PATHS = "$(LOKI_INC_DIR)";
+				USER_HEADER_SEARCH_PATHS = "";
 				ZERO_LINK = YES;
 			};
 			name = Debug;
@@ -3423,12 +3417,12 @@
 				GOOGLE_TEST_FRAMEWORK_DIR = /usr/local;
 				HEADER_SEARCH_PATHS = (
 					$BOOST_ROOT_INC_DIR,
-					"$(LOKI_INC_DIR)",
+					$PROJECT_DIR,
 				);
 				LIBRARY_SEARCH_PATHS = $BOOST_ROOT_LIB_DIR;
 				LIB_MUSIC_XML_3_DIR = "$(PROJECT_DIR)/libMusicXMLv3";
-				LOKI_INC_DIR = "$(PROJECT_DIR)";
-				USER_HEADER_SEARCH_PATHS = "$(LOKI_INC_DIR)";
+				LOKI_INC_DIR = "$(PROJECT_DIR)/Loki";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -3582,6 +3576,7 @@
 				HEADER_SEARCH_PATHS = (
 					$BOOST_ROOT_INC_DIR,
 					$GOOGLE_TEST_FRAMEWORK_DIR/Headers,
+					$PROJECT_DIR,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3630,6 +3625,7 @@
 				HEADER_SEARCH_PATHS = (
 					$BOOST_ROOT_INC_DIR,
 					$GOOGLE_TEST_FRAMEWORK_DIR/Headers,
+					$PROJECT_DIR,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3689,15 +3685,18 @@
 				HEADER_SEARCH_PATHS = (
 					"$(LIB_MUSIC_XML_3_DIR)/**",
 					$BOOST_ROOT_INC_DIR,
+					"$(PROJECT_DIR)/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/boost/lib,
 				);
+				LOKI_INC_DIR = "$(PROJECT_DIR)/Loki";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -3743,15 +3742,18 @@
 				HEADER_SEARCH_PATHS = (
 					"$(LIB_MUSIC_XML_3_DIR)/**",
 					$BOOST_ROOT_INC_DIR,
+					"$(PROJECT_DIR)/**",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/boost/lib,
 				);
+				LOKI_INC_DIR = "$(PROJECT_DIR)/Loki";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -3882,13 +3884,14 @@
 				HEADER_SEARCH_PATHS = (
 					$BOOST_ROOT_INC_DIR,
 					"$LIB_MUSIC_XML_3_DIR/**",
-					"$(PROJECT_DIR)/Loki",
+					"$(PROJECT_DIR)",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					$BOOST_ROOT_LIB_DIR,
 				);
+				LOKI_INC_DIR = "$(PROJECT_DIR)/Loki";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3930,13 +3933,14 @@
 				HEADER_SEARCH_PATHS = (
 					$BOOST_ROOT_INC_DIR,
 					"$LIB_MUSIC_XML_3_DIR/**",
-					"$(PROJECT_DIR)/Loki",
+					"$(PROJECT_DIR)",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					$BOOST_ROOT_LIB_DIR,
 				);
+				LOKI_INC_DIR = "$(PROJECT_DIR)/Loki";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -15,7 +15,7 @@
 
 #include <stdio.h>
 #include "boost/multi_array.hpp"
-#include "Visitor.h"
+#include "Loki/Visitor.h"
 #include "suffixtree.h"
 
 

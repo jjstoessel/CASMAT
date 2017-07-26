@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 #include "IMUSANT_t_suffixtree_builder.h"
-#include "Visitor.h"
+#include "Loki/Visitor.h"
 #include "SegmentedScoreFixedPeriod.h"
 
 using namespace Loki;
