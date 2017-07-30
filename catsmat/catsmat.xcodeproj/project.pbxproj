@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		1E0D00DB1CBE4F9A0035CA98 /* Yankee_Doodle.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E0D00DA1CBE4F7C0035CA98 /* Yankee_Doodle.xml */; };
 		1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E18362A1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp */; };
-		1E2FA2C61B35A517002BB14F /* Josquin_MAF_Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */; };
-		1E2FA2C71B35A517002BB14F /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C41B355A01002BB14F /* Kyrie.xml */; };
-		1E2FA2C81B35A517002BB14F /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C51B355A01002BB14F /* Sanctus.xml */; };
 		1E450E171B7580A000BDF9EF /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
 		1E450E181B7580A000BDF9EF /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF7191B23BF9C00FE715F /* gtest.framework */; };
 		1E450E1A1B7580A000BDF9EF /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
@@ -19,10 +16,6 @@
 		1E5218B81BAD0A1E00FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */; };
 		1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E6C38D01BB662F80025BA7E /* IMUSANT_converters_shared_types.h */; };
 		1E76912A1C81518500D371D8 /* MusicXML_ParserTest5.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E7691291C81511700D371D8 /* MusicXML_ParserTest5.xml */; };
-		1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
-		1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
-		1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
-		1EDE2F221B3E7CFA00DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
 		490E3BB91CFA5EB90091A44E /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
 		492905B71EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B11EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp */; };
 		492905B81EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B21EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp */; };
@@ -40,10 +33,31 @@
 		492905CF1EECD98400B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */; };
 		492905D01EECD98400B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */; };
 		492905D11EECD98400B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */; };
-		492905D31EECDEC300B0D5A7 /* Kyrie_2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 492905D21EECDE9F00B0D5A7 /* Kyrie_2.xml */; };
 		492905D61EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp */; };
 		492905D71EECE57100B0D5A7 /* SegmentedScoreFixedPeriod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp */; };
 		492905D91EECE82900B0D5A7 /* SegmentedScoreFixedPeriod_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D81EECE82900B0D5A7 /* SegmentedScoreFixedPeriod_Tests.cpp */; };
+		4949DD2A1F2D6E9D00248DA4 /* Anon-Talent_mest_pris_I-IV_115.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49CDADA81ED8FE6E003D6095 /* Anon-Talent_mest_pris_I-IV_115.xml */; };
+		4949DD2B1F2D6E9D00248DA4 /* Bononcini-RCM_canon_Musico_prattico_p105.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4949DD241F2D6CD000248DA4 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */; };
+		4949DD2C1F2D6E9D00248DA4 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4949DD251F2D6CD000248DA4 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */; };
+		4949DD2D1F2D6E9D00248DA4 /* Du_Fay-Bien_veignes_vous.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4949DD261F2D6CD000248DA4 /* Du_Fay-Bien_veignes_vous.xml */; };
+		4949DD2E1F2D6E9D00248DA4 /* Josquin_MAF_Christe.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4954357B1EE3B49800213203 /* Josquin_MAF_Christe.xml */; };
+		4949DD2F1F2D6E9D00248DA4 /* Josquin_MAF_Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */; };
+		4949DD301F2D6E9D00248DA4 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4949DD271F2D6CD000248DA4 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml */; };
+		4949DD311F2D6E9D00248DA4 /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C41B355A01002BB14F /* Kyrie.xml */; };
+		4949DD321F2D6E9D00248DA4 /* Kyrie_2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 492905D21EECDE9F00B0D5A7 /* Kyrie_2.xml */; };
+		4949DD331F2D6E9D00248DA4 /* Kyrie_TwoPartsOnly.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4954357D1EE3B52400213203 /* Kyrie_TwoPartsOnly.xml */; };
+		4949DD341F2D6E9D00248DA4 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435731EE3B2E600213203 /* LBDM_Segmented_Part_Test_1.xml */; };
+		4949DD351F2D6E9D00248DA4 /* LBDM_Segmented_Part_Test_2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435741EE3B2E600213203 /* LBDM_Segmented_Part_Test_2.xml */; };
+		4949DD361F2D6E9D00248DA4 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435751EE3B2E600213203 /* LBDM_Segmented_Part_Test_3.xml */; };
+		4949DD371F2D6E9D00248DA4 /* Machaut-Ma_fin_est_mon_commencement.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4949DD281F2D6CD000248DA4 /* Machaut-Ma_fin_est_mon_commencement.xml */; };
+		4949DD381F2D6E9D00248DA4 /* Ockeghem_Prenez_sur_moi_Cop.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4949DD291F2D6CD000248DA4 /* Ockeghem_Prenez_sur_moi_Cop.xml */; };
+		4949DD391F2D6E9D00248DA4 /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FA2C51B355A01002BB14F /* Sanctus.xml */; };
+		4949DD3A1F2D6E9D00248DA4 /* TestScore_1_Measure.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */; };
+		4949DD3B1F2D6E9D00248DA4 /* TestScore_4_Measures.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */; };
+		4949DD3C1F2D6E9D00248DA4 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */; };
+		4949DD3D1F2D6E9D00248DA4 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */; };
+		4949DD3E1F2D6E9D00248DA4 /* Triplet-test.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA5D583D1E9095F200BFC95C /* Triplet-test.xml */; };
+		4949DD3F1F2D6E9D00248DA4 /* Yankee_Doodle.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435791EE3B3E400213203 /* Yankee_Doodle.xml */; };
 		494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */; };
 		495435081EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435011EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp */; };
 		495435091EE37E5C00213203 /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* IMUSANT_repeated_interval_substring.cpp */; };
@@ -70,12 +84,6 @@
 		495435651EE3B13200213203 /* IMUSANT_repeated_interval_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* IMUSANT_repeated_interval_substring.cpp */; };
 		495435661EE3B13200213203 /* IMUSANT_t_repeated_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435031EE37E5C00213203 /* IMUSANT_t_repeated_substring.cpp */; };
 		495435671EE3B13200213203 /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435041EE37E5C00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp */; };
-		495435761EE3B30700213203 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435731EE3B2E600213203 /* LBDM_Segmented_Part_Test_1.xml */; };
-		495435771EE3B30700213203 /* LBDM_Segmented_Part_Test_2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435741EE3B2E600213203 /* LBDM_Segmented_Part_Test_2.xml */; };
-		495435781EE3B30700213203 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435751EE3B2E600213203 /* LBDM_Segmented_Part_Test_3.xml */; };
-		4954357A1EE3B3F400213203 /* Yankee_Doodle.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435791EE3B3E400213203 /* Yankee_Doodle.xml */; };
-		4954357C1EE3B4D500213203 /* Josquin_MAF_Christe.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4954357B1EE3B49800213203 /* Josquin_MAF_Christe.xml */; };
-		4954357E1EE3B53200213203 /* Kyrie_TwoPartsOnly.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4954357D1EE3B52400213203 /* Kyrie_TwoPartsOnly.xml */; };
 		4959E1371CF13BE300FAC403 /* exports.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1301CF13BE300FAC403 /* exports.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1311CF13BE300FAC403 /* smartpointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4959E1391CF13BE300FAC403 /* TRational.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1321CF13BE300FAC403 /* TRational.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -284,7 +292,6 @@
 		49C80DE11BA4EFC100DCA903 /* liblibMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */; };
 		49C80DE41BA51E1B00DCA903 /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
 		49C80DE51BA51E5200DCA903 /* liblibMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */; };
-		49CDADA91ED8FF34003D6095 /* Anon-Talent_mest_pris_I-IV_115.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49CDADA81ED8FE6E003D6095 /* Anon-Talent_mest_pris_I-IV_115.xml */; };
 		49D6903C1C8BC96B00EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49D6903B1C8BC91900EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml */; };
 		49DA50041DCE87F300AC1975 /* Josquin_MAF_Christe.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49DA50031DCE87AB00AC1975 /* Josquin_MAF_Christe.xml */; };
 		49F59B8A1BAE6DD30030FFF1 /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
@@ -292,17 +299,9 @@
 		49FB9BD11C7879CB0008B46D /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		49FB9BD21C7879D80008B46D /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */; };
-		9665C50F1E74B8B000947C15 /* Ockeghem_Prenez_sur_moi_(Cop).xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA33CBC81D6FD7A8001B7FF3 /* Ockeghem_Prenez_sur_moi_(Cop).xml */; };
-		96E2173F1E7A95D300D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96E2173D1E7A8DD100D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml */; };
 		96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */; };
-		BA0CFB591EB5667500FC4310 /* Machaut-Ma_fin_est_mon_commencement.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA33CBC51D6FD7A8001B7FF3 /* Machaut-Ma_fin_est_mon_commencement.xml */; };
-		BA0CFB5C1EBBF12B00FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA0CFB5B1EBBEFB000FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */; };
-		BA0CFB5D1EBBF13300FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA0CFB5A1EBBEFB000FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */; };
-		BA4207E21CE806F6007204AF /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
-		BA5D583E1E90962800BFC95C /* Triplet-test.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA5D583D1E9095F200BFC95C /* Triplet-test.xml */; };
 		BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
-		BAF5554F1ED2BDCA008A5159 /* Du_Fay-Bien_veignes_vous.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96CC66DD1DEBB63000E2F7FB /* Du_Fay-Bien_veignes_vous.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -388,29 +387,28 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
-				492905D31EECDEC300B0D5A7 /* Kyrie_2.xml in CopyFiles */,
-				4954357E1EE3B53200213203 /* Kyrie_TwoPartsOnly.xml in CopyFiles */,
-				4954357C1EE3B4D500213203 /* Josquin_MAF_Christe.xml in CopyFiles */,
-				4954357A1EE3B3F400213203 /* Yankee_Doodle.xml in CopyFiles */,
-				495435761EE3B30700213203 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */,
-				495435771EE3B30700213203 /* LBDM_Segmented_Part_Test_2.xml in CopyFiles */,
-				495435781EE3B30700213203 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */,
-				BAF5554F1ED2BDCA008A5159 /* Du_Fay-Bien_veignes_vous.xml in CopyFiles */,
-				BA0CFB5D1EBBF13300FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml in CopyFiles */,
-				BA0CFB5C1EBBF12B00FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml in CopyFiles */,
-				BA0CFB591EB5667500FC4310 /* Machaut-Ma_fin_est_mon_commencement.xml in CopyFiles */,
-				BA5D583E1E90962800BFC95C /* Triplet-test.xml in CopyFiles */,
-				96E2173F1E7A95D300D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml in CopyFiles */,
-				9665C50F1E74B8B000947C15 /* Ockeghem_Prenez_sur_moi_(Cop).xml in CopyFiles */,
-				BA4207E21CE806F6007204AF /* Kyrie.xml in CopyFiles */,
-				1EDE2F1C1B3E138400DB1BD0 /* TestScore_1_Measure.xml in CopyFiles */,
-				1EDE2F1B1B3E0C2700DB1BD0 /* TestScore_4_Measures.xml in CopyFiles */,
-				1EDE2F1F1B3E765300DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */,
-				1EDE2F221B3E7CFA00DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */,
-				1E2FA2C61B35A517002BB14F /* Josquin_MAF_Kyrie.xml in CopyFiles */,
-				1E2FA2C71B35A517002BB14F /* Kyrie.xml in CopyFiles */,
-				1E2FA2C81B35A517002BB14F /* Sanctus.xml in CopyFiles */,
-				49CDADA91ED8FF34003D6095 /* Anon-Talent_mest_pris_I-IV_115.xml in CopyFiles */,
+				4949DD2A1F2D6E9D00248DA4 /* Anon-Talent_mest_pris_I-IV_115.xml in CopyFiles */,
+				4949DD2B1F2D6E9D00248DA4 /* Bononcini-RCM_canon_Musico_prattico_p105.xml in CopyFiles */,
+				4949DD2C1F2D6E9D00248DA4 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml in CopyFiles */,
+				4949DD2D1F2D6E9D00248DA4 /* Du_Fay-Bien_veignes_vous.xml in CopyFiles */,
+				4949DD2E1F2D6E9D00248DA4 /* Josquin_MAF_Christe.xml in CopyFiles */,
+				4949DD2F1F2D6E9D00248DA4 /* Josquin_MAF_Kyrie.xml in CopyFiles */,
+				4949DD301F2D6E9D00248DA4 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml in CopyFiles */,
+				4949DD311F2D6E9D00248DA4 /* Kyrie.xml in CopyFiles */,
+				4949DD321F2D6E9D00248DA4 /* Kyrie_2.xml in CopyFiles */,
+				4949DD331F2D6E9D00248DA4 /* Kyrie_TwoPartsOnly.xml in CopyFiles */,
+				4949DD341F2D6E9D00248DA4 /* LBDM_Segmented_Part_Test_1.xml in CopyFiles */,
+				4949DD351F2D6E9D00248DA4 /* LBDM_Segmented_Part_Test_2.xml in CopyFiles */,
+				4949DD361F2D6E9D00248DA4 /* LBDM_Segmented_Part_Test_3.xml in CopyFiles */,
+				4949DD371F2D6E9D00248DA4 /* Machaut-Ma_fin_est_mon_commencement.xml in CopyFiles */,
+				4949DD381F2D6E9D00248DA4 /* Ockeghem_Prenez_sur_moi_Cop.xml in CopyFiles */,
+				4949DD391F2D6E9D00248DA4 /* Sanctus.xml in CopyFiles */,
+				4949DD3A1F2D6E9D00248DA4 /* TestScore_1_Measure.xml in CopyFiles */,
+				4949DD3B1F2D6E9D00248DA4 /* TestScore_4_Measures.xml in CopyFiles */,
+				4949DD3C1F2D6E9D00248DA4 /* TestScore_4_Measures_WithQuaverPassingNotes.xml in CopyFiles */,
+				4949DD3D1F2D6E9D00248DA4 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml in CopyFiles */,
+				4949DD3E1F2D6E9D00248DA4 /* Triplet-test.xml in CopyFiles */,
+				4949DD3F1F2D6E9D00248DA4 /* Yankee_Doodle.xml in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +493,12 @@
 		492905D41EECE52E00B0D5A7 /* SegmentedScoreFixedPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedScoreFixedPeriod.h; sourceTree = "<group>"; };
 		492905D51EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentedScoreFixedPeriod.cpp; sourceTree = "<group>"; };
 		492905D81EECE82900B0D5A7 /* SegmentedScoreFixedPeriod_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentedScoreFixedPeriod_Tests.cpp; sourceTree = "<group>"; };
+		4949DD241F2D6CD000248DA4 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Bononcini-RCM_canon_Musico_prattico_p105.xml"; sourceTree = "<group>"; };
+		4949DD251F2D6CD000248DA4 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Cerreto-CM_canon_Della_prattica_musica_p222.xml"; sourceTree = "<group>"; };
+		4949DD261F2D6CD000248DA4 /* Du_Fay-Bien_veignes_vous.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Du_Fay-Bien_veignes_vous.xml"; sourceTree = "<group>"; };
+		4949DD271F2D6CD000248DA4 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml"; sourceTree = "<group>"; };
+		4949DD281F2D6CD000248DA4 /* Machaut-Ma_fin_est_mon_commencement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Machaut-Ma_fin_est_mon_commencement.xml"; sourceTree = "<group>"; };
+		4949DD291F2D6CD000248DA4 /* Ockeghem_Prenez_sur_moi_Cop.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ockeghem_Prenez_sur_moi_Cop.xml; sourceTree = "<group>"; };
 		494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest1.xml; sourceTree = "<group>"; };
 		495434F31EE37E5000213203 /* IMUSANT_contour_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_contour_suffixtree_builder.h; sourceTree = "<group>"; };
 		495434F41EE37E5000213203 /* IMUSANT_generalised_interval_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_generalised_interval_suffixtree_builder.h; sourceTree = "<group>"; };
@@ -1084,8 +1088,6 @@
 		96E2173C1E7A8DA900D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx"; path = "Finale/Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx"; sourceTree = "<group>"; };
 		96E2173D1E7A8DD100D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml"; sourceTree = "<group>"; };
 		96E2173E1E7A949F00D603C2 /* CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h; sourceTree = "<group>"; };
-		BA0CFB5A1EBBEFB000FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Bononcini-RCM_canon_Musico_prattico_p105.xml"; path = "source_files/Bononcini-RCM_canon_Musico_prattico_p105.xml"; sourceTree = "<group>"; };
-		BA0CFB5B1EBBEFB000FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Cerreto-CM_canon_Della_prattica_musica_p222.xml"; path = "source_files/Cerreto-CM_canon_Della_prattica_musica_p222.xml"; sourceTree = "<group>"; };
 		BA10A5D61DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_scoredatacollector_tests.cpp; sourceTree = "<group>"; };
 		BA10A5D71DA74217000679C5 /* CATSMAT_scoredatacollector_tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_scoredatacollector_tests.h; sourceTree = "<group>"; };
 		BA33CBB61D6FD7A8001B7FF3 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Talent_mest_pris_I-IV_115_52r-.xml"; sourceTree = "<group>"; };
@@ -1299,22 +1301,26 @@
 			isa = PBXGroup;
 			children = (
 				1EDE2F161B3E0ACD00DB1BD0 /* source_files */,
-				492905D21EECDE9F00B0D5A7 /* Kyrie_2.xml */,
 				49CDADA81ED8FE6E003D6095 /* Anon-Talent_mest_pris_I-IV_115.xml */,
-				BA0CFB5A1EBBEFB000FC4310 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */,
-				BA0CFB5B1EBBEFB000FC4310 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */,
+				4949DD241F2D6CD000248DA4 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */,
+				4949DD251F2D6CD000248DA4 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */,
+				4949DD261F2D6CD000248DA4 /* Du_Fay-Bien_veignes_vous.xml */,
+				4954357B1EE3B49800213203 /* Josquin_MAF_Christe.xml */,
+				1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */,
+				4949DD271F2D6CD000248DA4 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml */,
+				1E2FA2C41B355A01002BB14F /* Kyrie.xml */,
+				492905D21EECDE9F00B0D5A7 /* Kyrie_2.xml */,
+				4954357D1EE3B52400213203 /* Kyrie_TwoPartsOnly.xml */,
 				495435731EE3B2E600213203 /* LBDM_Segmented_Part_Test_1.xml */,
 				495435741EE3B2E600213203 /* LBDM_Segmented_Part_Test_2.xml */,
 				495435751EE3B2E600213203 /* LBDM_Segmented_Part_Test_3.xml */,
+				4949DD281F2D6CD000248DA4 /* Machaut-Ma_fin_est_mon_commencement.xml */,
+				4949DD291F2D6CD000248DA4 /* Ockeghem_Prenez_sur_moi_Cop.xml */,
+				1E2FA2C51B355A01002BB14F /* Sanctus.xml */,
 				1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */,
 				1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */,
 				1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */,
 				1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */,
-				1E2FA2C31B355A01002BB14F /* Josquin_MAF_Kyrie.xml */,
-				4954357B1EE3B49800213203 /* Josquin_MAF_Christe.xml */,
-				1E2FA2C41B355A01002BB14F /* Kyrie.xml */,
-				4954357D1EE3B52400213203 /* Kyrie_TwoPartsOnly.xml */,
-				1E2FA2C51B355A01002BB14F /* Sanctus.xml */,
 				BA5D583D1E9095F200BFC95C /* Triplet-test.xml */,
 				495435791EE3B3E400213203 /* Yankee_Doodle.xml */,
 			);
