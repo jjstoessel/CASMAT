@@ -8,8 +8,6 @@ if (APPLE)
 endif (APPLE)
 
 
-include_directories("catsmat/libIMUSANT")
-
 add_subdirectory (catsmat/googletest-master/googletest)
 add_subdirectory (catsmat/libMusicXMLv3/libmusicxml-3.00-src/cmake)
 add_subdirectory (catsmat/libIMUSANT/cmake)
