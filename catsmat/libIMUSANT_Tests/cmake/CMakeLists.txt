@@ -1,15 +1,12 @@
 #######################################
 # CMAKE IMUSANT_Test
 #######################################
-cmake_minimum_required(VERSION 3.7)
+
+cmake_minimum_required(VERSION 3.6)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)
 endif()
-
-if(UNIX)
-	add_definitions(-Wall -DGCC)
-endif(UNIX)
 
 
 ###############  BOOST LIBRARIES ###########
@@ -85,22 +82,8 @@ set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 
 
 #######################################
-# set library target
-if(APPLE OR MSVC)
-	set(target libIMUSANT_Test)
-else(APPLE OR MSVC)
-	set(target libIMUSANT_Test)
-endif(APPLE OR MSVC)
-
-#if(MSVC)
-#	enable_language(RC)
-#	set(LIBCONTENT ${CORESRC} ${COREH} ${libIMUSANT_TESTS_DIR}/win32/libIMUSANT/libIMUSANT.rc)
-#else(MSVC)
-#	set(LIBCONTENT ${CORESRC} ${COREH})
-#endif(MSVC)
-
-#enable_testing()
-
+# create target and add executable
+set(target libIMUSANT_Test)
 add_executable(${target} ${SRC} )
 
 ###############  Targeted Libraries ###########
@@ -109,12 +92,6 @@ TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
 TARGET_LINK_LIBRARIES(${target} libmusicxml2)
 TARGET_LINK_LIBRARIES(${target} libIMUSANT)
 TARGET_LINK_LIBRARIES(${target} gtest)
-
-#
-#add_test(
-#		NAME ${target}
-#		COMMAND ${target}
-#)
 
 
 # Copy the test data files.
@@ -141,27 +118,3 @@ foreach(test_file  ${TEST_DATA})
 			COMMAND ${CMAKE_COMMAND} -E copy  ${libIMUSANT_TEST_DATA_DIR}/${test_file}  ${libIMUSANT_TEST_DATA_BINARY_DIR}/${test_file}
 	)
 endforeach(test_file)
-
-#
-#set_target_properties (${target} PROPERTIES
-#			FRAMEWORK TRUE
-#			VERSION ${VERSION}
-#			FRAMEWORK_VERSION ${VERSION}
-#			PUBLIC_HEADER "${COREH}"
-#			DEFINE_SYMBOL LIBMUSICXML_EXPORTS
-#			MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${STRVERS}
-#			MACOSX_FRAMEWORK_BUNDLE_VERSION ${SSTRVERS}
-#)
-
-
-########################################
-## install setup
-#if(NOT APPLE)
-#install ( TARGETS ${target} ${TOOLS}
-#	RUNTIME DESTINATION bin
-#    	LIBRARY DESTINATION lib
-#    	ARCHIVE DESTINATION lib
-#    	FRAMEWORK DESTINATION "/Library/Frameworks" CONFIGURATIONS Release
-#    	PUBLIC_HEADER DESTINATION include/libmusicxml
-#)
-#endif()

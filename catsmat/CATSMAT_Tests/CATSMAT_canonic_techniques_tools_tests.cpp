@@ -66,7 +66,7 @@ TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Talent_mest_pris) {
 //stacked canon
 TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Ockeghem_Prenez_sur_moi) {
     
-    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Ockeghem_Prenez_sur_moi_(Cop).xml");
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Ockeghem_Prenez_sur_moi_Cop.xml");
     
     S_CATSMAT_CanonicTechniquesTools tools = new_CATSMAT_object<CATSMAT_CanonicTechniquesTools>();
     tools->Initialise(imusant_score);
