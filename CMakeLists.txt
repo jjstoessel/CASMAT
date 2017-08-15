@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.6.3)
 project(CATSMAT)
 
 if (APPLE)
-    set(CMAKE_OSX_DEPLOYMENT_TARGET=10.4)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET=10.5)
     set(MACOSX_RPATH ON)
-    set(CMAKE_C++_FLAGS -mmacosx-version-min=10.4)
+    set(CMAKE_C++_FLAGS -mmacosx-version-min=10.5)
 endif (APPLE)
 
 

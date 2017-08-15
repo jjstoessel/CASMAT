@@ -19,9 +19,9 @@ if(UNIX)
 endif(UNIX)
 
 if(APPLE)
-	set (CMAKE_MACOSX_RPATH 1)
+	#set (CMAKE_MACOSX_RPATH 1)
 	#set (CMAKE_OSX_ARCHITECTURES x86_64;i386)
-    set(CMAKE_OSX_DEPLOYMENT_TARGET=10.7)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET=10.5)
     set(MACOSX_RPATH ON)
 endif(APPLE)
 
@@ -45,7 +45,7 @@ endif(APPLE OR MSVC)
 
 
 ###############  BOOST LIBRARIES ###########
-#set(Boost_DEBUG ON)
+set(Boost_DEBUG ON)
 
 if (APPLE)
 	set(BOOST_ROOT 				/usr/local/boost)
