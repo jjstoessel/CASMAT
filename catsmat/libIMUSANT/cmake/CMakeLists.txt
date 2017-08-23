@@ -2,7 +2,7 @@
 # CMAKE libIMUSANT
 #######################################
 #project(libIMUSANT)
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 3.8)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)
@@ -45,25 +45,8 @@ endif(APPLE OR MSVC)
 
 
 ###############  BOOST LIBRARIES ###########
-set(Boost_DEBUG ON)
-
-if (APPLE)
-	set(BOOST_ROOT 				/usr/local/boost)
-    set(BOOST_INCLUDEDIR 		/usr/local/boost/include/boost)
-    set(BOOST_FILESYSTEM_LIB  	/usr/local/boost/lib/libboost_filesystem.dylib)
-    set(BOOST_SYSTEM_LIB      	/usr/local/boost/lib/libboost_system.dylib)
-
-else ()
-	set(BOOST_ROOT 				"/usr/local/boost")
-	set(BOOST_INCLUDEDIR 		"/usr/local/boost/include/boost")
-	set(BOOST_FILESYSTEM_LIB  /usr/local/boost/bin/cygboost_filesystem.dll)
-	set(BOOST_SYSTEM_LIB      /usr/local/boost/bin/cygboost_system.dll)
-#	set(BOOST_FILESYSTEM_LIB  	/usr/local/boost/lib/libboost_filesystem.dll.a)
-#	set(BOOST_SYSTEM_LIB      	/usr/local/boost/lib/libboost_system.dll.a)
-endif ()
-
-FIND_PACKAGE( Boost REQUIRED )
-INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+message("INSIDE libIMUSANT")
+include(${CMAKE_SOURCE_DIR}/CMakeBoost.txt)
 
 #######################################
 # set directories, src and headers.
@@ -136,10 +119,9 @@ add_library(${target} SHARED ${LIBCONTENT})
 
 ###############  Targeted Libraries ###########
 TARGET_LINK_LIBRARIES(${target} libmusicxml2)
-TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
-TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
-
-
+TARGET_LINK_LIBRARIES(${target} ${Boost_LIBRARIES})
+#TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
+#TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
 
 set_target_properties (${target} PROPERTIES 
 			FRAMEWORK TRUE 
