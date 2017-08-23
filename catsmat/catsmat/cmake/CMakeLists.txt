@@ -3,6 +3,7 @@
 #######################################
 cmake_minimum_required(VERSION 3.6)
 project(CATSMAT) #js
+
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)
