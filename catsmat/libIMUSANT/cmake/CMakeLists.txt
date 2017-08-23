@@ -8,19 +8,11 @@ if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)
 endif()
 
-#######################################
-# versions management
-#set (VERSION 3.00)
-#set (STRVERS "v.3.00")
-#set (SSTRVERS "3.00")
-
 if(UNIX)
 	add_definitions(-Wall -DGCC)
 endif(UNIX)
 
 if(APPLE)
-	#set (CMAKE_MACOSX_RPATH 1)
-	#set (CMAKE_OSX_ARCHITECTURES x86_64;i386)
     set(CMAKE_OSX_DEPLOYMENT_TARGET=10.5)
     set(MACOSX_RPATH ON)
 endif(APPLE)
@@ -120,8 +112,6 @@ add_library(${target} SHARED ${LIBCONTENT})
 ###############  Targeted Libraries ###########
 TARGET_LINK_LIBRARIES(${target} libmusicxml2)
 TARGET_LINK_LIBRARIES(${target} ${Boost_LIBRARIES})
-#TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
-#TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
 
 set_target_properties (${target} PROPERTIES 
 			FRAMEWORK TRUE 
