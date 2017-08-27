@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef I_Segmented_h
-#define I_Segmented_h
+#ifndef __I_Segmented__
+#define __I_Segmented__
 
 #include "SetOfSegment.h"
 
@@ -33,4 +33,4 @@ namespace CATSMAT
 }
 
 
-#endif /* I_Segmented_h */
+#endif /* __I_Segmented__ */

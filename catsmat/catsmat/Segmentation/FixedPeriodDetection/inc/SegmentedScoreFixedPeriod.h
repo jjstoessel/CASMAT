@@ -1,6 +1,6 @@
 
-#ifndef __SegmentedPartFixedPeriod__
-#define __SegmentedPartFixedPeriod__
+#ifndef __SegmentedScoreFixedPeriod__
+#define __SegmentedScoreFixedPeriod__
 
 #include <stdio.h>
 
@@ -90,4 +90,4 @@ namespace CATSMAT
 }
 
 
-#endif /* defined(__SegmentedPartFixedPeriod__) */
+#endif /* defined(__SegmentedScoreFixedPeriod__) */

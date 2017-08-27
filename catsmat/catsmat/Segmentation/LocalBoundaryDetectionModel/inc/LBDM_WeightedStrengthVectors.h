@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef __catsmat__IMUSANT_weighted_strength_vectors__
-#define __catsmat__IMUSANT_weighted_strength_vectors__
+#ifndef __LBDM_WeightedStrengthVectors__
+#define __LBDM_WeightedStrengthVectors__
 
 #include <stdio.h>
 
@@ -39,4 +39,4 @@ namespace CATSMAT
     };
 }
 
-#endif /* defined(__catsmat__IMUSANT_weighted_strength_vectors__) */
+#endif /* defined(__LBDM_WeightedStrengthVectors__) */

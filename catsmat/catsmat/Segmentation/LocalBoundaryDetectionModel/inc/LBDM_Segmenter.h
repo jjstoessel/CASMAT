@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef __imusant__IMUSANT_LBDM_segmenter__
-#define __imusant__IMUSANT_LBDM_segmenter__
+#ifndef __LBDM_Segmenter__
+#define __LBDM_Segmenter__
 
 #include <stdio.h>
 #include "IMUSANT_t_suffixtree_builder.h"
@@ -45,4 +45,4 @@ namespace CATSMAT {
     };
 
 }
-#endif /* defined(__imusant__IMUSANT_LBDM_segmenter__) */
+#endif /* defined(__LBDM_Segmenter__) */

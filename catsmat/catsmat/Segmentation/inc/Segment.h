@@ -1,6 +1,6 @@
 
-#ifndef Segment_h
-#define Segment_h
+#ifndef __Segment__
+#define __Segment__
 
 #include <stdio.h>
 

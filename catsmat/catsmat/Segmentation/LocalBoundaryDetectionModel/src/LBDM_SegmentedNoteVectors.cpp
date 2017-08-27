@@ -1,17 +1,17 @@
 //
-//  IMUSANT_segmented_note_vectors.cpp
+//  LBDM_SegmentedNoteVectors.cpp
 //  catsmat
 //
 //  Created by Derrick Hill on 17/09/2016.
 //
 //
 
-#include "IMUSANT_segmented_note_vectors.h"
+#include "LBDM_SegmentedNoteVectors.h"
 
 namespace CATSMAT {
     
     void
-    IMUSANT_segmented_note_vectors::
+    LBDM_SegmentedNoteVectors::
     visit(LBDM_ConsolidatedIntervalProfile *target)
     {
         if (target->isBoundary())

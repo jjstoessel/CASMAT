@@ -14,8 +14,8 @@
 // The segmentation algorithm that identified the segment as a segment.
 //
 
-#ifndef SegmentContext_h
-#define SegmentContext_h
+#ifndef __SegmentContext__
+#define __SegmentContext__
 
 
 #include <stdio.h>
@@ -54,7 +54,7 @@ namespace CATSMAT
     IMUSANT_SMARTP<SegmentContext> new_SegmentContext(S_IMUSANT_score score, S_IMUSANT_part part, string &segmentation_algorithm);
 }
 
-#endif /* SegmentContext_h */
+#endif /* __SegmentContext__ */
 
 
 

@@ -1,13 +1,13 @@
 //
-//  IMUSANT_segmented_note_vectors.h
+//  LBDM_SegmentedNoteVectors.h
 //  catsmat
 //
 //  Created by Derrick Hill on 17/09/2016.
 //
 //
 
-#ifndef __catsmat__IMUSANT_segmented_note_vectors__
-#define __catsmat__IMUSANT_segmented_note_vectors__
+#ifndef __LBDM_SegmentedNoteVectors__
+#define __LBDM_SegmentedNoteVectors__
 
 #include <stdio.h>
 #include <vector>
@@ -20,12 +20,12 @@ using namespace std;
 
 namespace CATSMAT
 {
-    class IMUSANT_segmented_note_vectors : public LBDM_ConsolidatedIntervalProfileVisitor
+    class LBDM_SegmentedNoteVectors : public LBDM_ConsolidatedIntervalProfileVisitor
     {
     public:
         
-        IMUSANT_segmented_note_vectors() {}
-        virtual ~IMUSANT_segmented_note_vectors() {}
+        LBDM_SegmentedNoteVectors() {}
+        virtual ~LBDM_SegmentedNoteVectors() {}
         
         virtual void visit(LBDM_ConsolidatedIntervalProfile *target);
         
@@ -38,4 +38,4 @@ namespace CATSMAT
 }
 
 
-#endif /* defined(__catsmat__IMUSANT_segmented_note_vectors__) */
+#endif /* defined(__LBDM_SegmentedNoteVectors__) */

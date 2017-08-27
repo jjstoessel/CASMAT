@@ -145,7 +145,7 @@ namespace CATSMAT
     LBDM_SegmentedPart::
     getSegmentsAsNoteVectors()
     {
-        IMUSANT_segmented_note_vectors segments;
+        LBDM_SegmentedNoteVectors segments;
         
         getSegmentsUsingVisitor(segments);
         

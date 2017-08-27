@@ -1,6 +1,6 @@
 
-#ifndef IMUSANT_partlist_ordered_by_part_entry_h
-#define IMUSANT_partlist_ordered_by_part_entry_h
+#ifndef __PartlistOrderedByPartEntry__
+#define __PartlistOrderedByPartEntry__
 
 #include <stdio.h>
 
@@ -80,4 +80,4 @@ namespace CATSMAT
     
 }
 
-#endif /* IMUSANT_partlist_ordered_by_part_entry_h */
+#endif /* __PartlistOrderedByPartEntry__ */

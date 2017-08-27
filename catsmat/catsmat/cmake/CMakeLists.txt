@@ -29,7 +29,7 @@ endforeach(folder)
 
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
-FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem system REQUIRED ) #JS changed to look for specific libraries
+FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem system REQUIRED )
 
 if (Boost_FOUND)
 	#report boost status
@@ -41,7 +41,7 @@ if (Boost_FOUND)
 	set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 	#set target, add executable and link libraries (default shared/dynamic libraries)
 	set(target CATSMAT)
-	add_executable(${target} ${SRC} ${HEADERS})
+	add_executable(${target} ${SRC} ${HEADERS})   # We need the HEADERS to enable intellisence in CLion
 	TARGET_LINK_LIBRARIES(${target} libmusicxml2; libIMUSANT; ${Boost_LIBRARIES}  )
 endif()
 # Note: set environmental variable DYLD_LIBRARY_PATH=/usr/local/boost/lib (or custom directory)

@@ -1,6 +1,6 @@
 
-#ifndef __catsmat__IMUSANT_segmented_profile_vectors__
-#define __catsmat__IMUSANT_segmented_profile_vectors__
+#ifndef __LBDM_SegmentedProfileVectors__
+#define __LBDM_SegmentedProfileVectors__
 
 #include <stdio.h>
 #include <vector>
@@ -30,4 +30,4 @@ namespace CATSMAT
     };
 }
 
-#endif /* defined(__catsmat__IMUSANT_segmented_profile_vectors__) */
+#endif /* defined(__LBDM_SegmentedProfileVectors__) */

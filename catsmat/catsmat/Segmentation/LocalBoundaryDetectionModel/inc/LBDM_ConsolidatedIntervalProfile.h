@@ -1,6 +1,6 @@
 
-#ifndef __imusant__IMUSANT_consolidated_profiles_LBDM__
-#define __imusant__IMUSANT_consolidated_profiles_LBDM__
+#ifndef __LBDM_ConsolidatedIntervalProfile__
+#define __LBDM_ConsolidatedIntervalProfile__
 
 #include <stdio.h>
 
@@ -136,4 +136,4 @@ namespace CATSMAT
     };
 }
 
-#endif /* defined(__imusant__IMUSANT_consolidated_profiles_LBDM__) */
+#endif /* defined(__LBDM_ConsolidatedIntervalProfile__) */

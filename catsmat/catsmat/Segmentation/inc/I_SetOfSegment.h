@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef I_SetOfSegment_h
-#define I_SetOfSegment_h
+#ifndef __I_SetOfSegment__
+#define __I_SetOfSegment__
 
 #include <stdio.h>
 
@@ -25,7 +25,4 @@ namespace CATSMAT
     };
 }
 
-#endif /* IMUSANT_set_of_segment_h */
-
-
-#endif /* I_SetOfSegment_h */
+#endif /* __I_SetOfSegment__ */

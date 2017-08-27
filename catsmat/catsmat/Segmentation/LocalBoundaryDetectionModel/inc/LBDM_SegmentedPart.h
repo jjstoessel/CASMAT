@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef __imusant__IMUSANT_segmented_part_LBDM__
-#define __imusant__IMUSANT_segmented_part_LBDM__
+#ifndef __LBDM_SegmentedPart__
+#define __LBDM_SegmentedPart__
 
 #include <stdio.h>
 
@@ -17,7 +17,7 @@
 #include "LBDM_IntervalProfile.h"
 #include "LBDM_ConsolidatedIntervalProfile.h"
 #include "LBDM_SegmentedProfileVectors.h"
-#include "IMUSANT_segmented_note_vectors.h"
+#include "LBDM_SegmentedNoteVectors.h"
 #include "LBDM_WeightedStrengthVectors.h"
 
 using namespace std;
@@ -183,4 +183,4 @@ namespace CATSMAT
     IMUSANT_SMARTP<LBDM_SegmentedPart> new_IMUSANT_segmented_part_LBDM(SetOfSegment & segmentation_results);
 }
 
-#endif /* defined(__imusant__IMUSANT_segmented_part_LBDM__) */
+#endif /* defined(__LBDM_SegmentedPart__) */

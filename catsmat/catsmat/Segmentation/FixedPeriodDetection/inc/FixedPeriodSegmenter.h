@@ -1,6 +1,6 @@
 
-#ifndef FixedPeriodSegmenter_hpp
-#define FixedPeriodSegmenter_hpp
+#ifndef __FixedPeriodSegmenter__
+#define __FixedPeriodSegmenter__
 
 #include <stdio.h>
 
@@ -41,4 +41,4 @@ namespace CATSMAT {
     
 }
 
-#endif /* FixedPeriodSegmenter_hpp */
+#endif /* __FixedPeriodSegmenter__ */

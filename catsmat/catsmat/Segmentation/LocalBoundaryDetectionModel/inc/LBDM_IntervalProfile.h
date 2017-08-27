@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef __LBDM_interval_profile__
-#define __LBDM_interval_profile__
+#ifndef __LBDM_IntervalProfile__
+#define __LBDM_IntervalProfile__
 
 #include <stdio.h>
 #include <vector>
@@ -62,4 +62,4 @@ namespace CATSMAT
 }
 
 
-#endif /* defined(__LBDM_interval_profile__) */
+#endif /* defined(__LBDM_IntervalProfile__) */
