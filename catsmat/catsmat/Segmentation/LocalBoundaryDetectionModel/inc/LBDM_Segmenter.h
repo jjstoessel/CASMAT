@@ -27,7 +27,7 @@ namespace CATSMAT {
         
         typedef vector<S_IMUSANT_segmented_part_LBDM> PART_SEGS_VEC;
         
-        LBDM_Segmenter(IMUSANT_set_of_segment &segmentation_results)
+        LBDM_Segmenter(SetOfSegment &segmentation_results)
         : fSegmentationResult(segmentation_results)
         {
         }
@@ -38,7 +38,7 @@ namespace CATSMAT {
         PART_SEGS_VEC findMelodicSegments_LBDM(const vector<S_IMUSANT_score>& scores);
         
     private:
-        IMUSANT_set_of_segment &fSegmentationResult;
+        SetOfSegment &fSegmentationResult;
         
         PART_SEGS_VEC sp;
         

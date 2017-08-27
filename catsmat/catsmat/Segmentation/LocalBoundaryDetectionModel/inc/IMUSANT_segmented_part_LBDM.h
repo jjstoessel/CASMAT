@@ -30,7 +30,7 @@ namespace CATSMAT
 
         friend IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM();
         
-        IMUSANT_segmented_part_LBDM(IMUSANT_set_of_segment & segmentation_result) : I_Segmented(segmentation_result)
+        IMUSANT_segmented_part_LBDM(SetOfSegment & segmentation_result) : I_Segmented(segmentation_result)
         {
         }
         
@@ -58,7 +58,7 @@ namespace CATSMAT
         //
         // This method returns you the segments, as a set (no duplicates).
         //
-        IMUSANT_set_of_segment & getSegmentsSet();
+        SetOfSegment & getSegmentsSet();
         
         
         
@@ -180,7 +180,7 @@ namespace CATSMAT
     };
     
     typedef IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;
-    IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(IMUSANT_set_of_segment & segmentation_results);
+    IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(SetOfSegment & segmentation_results);
 }
 
 #endif /* defined(__imusant__IMUSANT_segmented_part_LBDM__) */

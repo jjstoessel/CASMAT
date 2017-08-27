@@ -100,11 +100,11 @@ set(SRC ${SRC}
 		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_scoredatacollector.cpp
 
 		${CATSMAT_SEGMENTATION_SRC_DIR}/IMUSANT_segment.cpp
-		${CATSMAT_SEGMENTATION_SRC_DIR}/IMUSANT_set_of_segment.cpp
+		${CATSMAT_SEGMENTATION_SRC_DIR}/SetOfSegment.cpp
 		${CATSMAT_SEGMENTATION_SRC_DIR}/SegmentContext.cpp
 
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/FixedPeriodSegmenter.cpp
-		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/IMUSANT_partlist_ordered_by_part_entry.cpp
+		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/PartlistOrderedByPartEntry.cpp
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/SegmentedScoreFixedPeriod.cpp
 
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_interval_profile_LBDM.cpp

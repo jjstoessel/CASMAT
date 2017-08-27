@@ -6,7 +6,7 @@
 //
 //
 
-#include "IMUSANT_partlist_ordered_by_part_entry.h"
+#include "PartlistOrderedByPartEntry.h"
 #include <algorithm>
 
 using namespace std;
@@ -15,23 +15,23 @@ using namespace std;
 namespace CATSMAT
 {
     bool
-    IMUSANT_PartEntry::
-    operator <(const IMUSANT_PartEntry &rhs) const
+    PartEntry::
+    operator <(const PartEntry &rhs) const
     {
         return *(this->EntryDurationOffset) < *(rhs.EntryDurationOffset);
     }
     
-    vector<IMUSANT_PartEntry>
-    IMUSANT_partlist_ordered_by_part_entry::
+    vector<PartEntry>
+    PartlistOrderedByPartEntry::
     getPartsInOrder(S_IMUSANT_score the_score)
     {
-        vector<IMUSANT_PartEntry> ordered_part_list;
+        vector<PartEntry> ordered_part_list;
         
         vector<S_IMUSANT_part> parts = the_score->partlist()->parts();
         
         for (int index = 0 ; index < parts.size(); index++)
         {
-            IMUSANT_PartEntry entry_point = findEntryPoint(parts[index]);
+            PartEntry entry_point = findEntryPoint(parts[index]);
             ordered_part_list.push_back(entry_point);
         }
         
@@ -40,14 +40,14 @@ namespace CATSMAT
         return ordered_part_list;
     }
     
-    IMUSANT_PartEntry
-    IMUSANT_partlist_ordered_by_part_entry::
+    PartEntry
+    PartlistOrderedByPartEntry::
     findEntryPoint(S_IMUSANT_part part)
     {
         vector<S_IMUSANT_note> notes = part->notes();
         S_IMUSANT_note next_note;
         
-        IMUSANT_PartEntry entry_point;
+        PartEntry entry_point;
         entry_point.Part = part;
         
         for (int index = 0; index < notes.size(); index++)
@@ -69,9 +69,9 @@ namespace CATSMAT
     }
     
     
-    S_IMUSANT_partlist_ordered_by_part_entry new_IMUSANT_partlist_ordered_by_part_entry()
+    S_PartlistOrderedByPartEntry new_PartlistOrderedByPartEntry()
     {
-        IMUSANT_partlist_ordered_by_part_entry* o = new IMUSANT_partlist_ordered_by_part_entry();
+        PartlistOrderedByPartEntry* o = new PartlistOrderedByPartEntry();
         assert (o!=0);
         return o;
     }

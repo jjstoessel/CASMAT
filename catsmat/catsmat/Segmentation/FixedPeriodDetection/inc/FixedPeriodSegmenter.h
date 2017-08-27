@@ -18,9 +18,9 @@ namespace CATSMAT {
     {
     public:
         
-        typedef vector<IMUSANT_set_of_segment> SetOfSegmentsVector;
+        typedef vector<SetOfSegment> SetOfSegmentsVector;
         
-        FixedPeriodSegmenter(IMUSANT_set_of_segment &segmentation_results)
+        FixedPeriodSegmenter(SetOfSegment &segmentation_results)
         : fSegmentationResult(segmentation_results)
         {
         }
@@ -33,7 +33,7 @@ namespace CATSMAT {
         
     private:
         
-        IMUSANT_set_of_segment &fSegmentationResult;
+        SetOfSegment &fSegmentationResult;
         
         SetOfSegmentsVector sp;
         

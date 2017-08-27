@@ -18,7 +18,7 @@
 #include "libIMUSANT.h"
 
 
-#include "IMUSANT_set_of_segment.h"
+#include "SetOfSegment.h"
 #include "SegmentedScoreFixedPeriod.h"
 
 #include <boost/filesystem.hpp>
@@ -71,7 +71,7 @@ protected:
     static S_IMUSANT_score fScore_YankeeDoodle;
     static S_IMUSANT_score fScore_Josquin_MAF_Christe;
     
-    string getActualSegmentsAsString(IMUSANT_set_of_segment segment_set);
+    string getActualSegmentsAsString(SetOfSegment segment_set);
 };
 
 CATSMAT_test_utility * SegmentedScoreFixedPeriod_Tests::_test_utils = NULL;
@@ -87,13 +87,13 @@ S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_Josquin_MAF_Christe = NU
 
 string
 SegmentedScoreFixedPeriod_Tests::
-getActualSegmentsAsString(IMUSANT_set_of_segment segments_set)
+getActualSegmentsAsString(SetOfSegment segments_set)
 {
     
     // The code below gurantees that the output is in a deterministic order (we use unordered_set, so I'm just making sure...).
     vector<string> segment_strings;
     
-    for (IMUSANT_set_of_segment::iterator it = segments_set.begin() ;
+    for (SetOfSegment::iterator it = segments_set.begin() ;
          it != segments_set.end();
          it++)
     {
@@ -122,7 +122,7 @@ getActualSegmentsAsString(IMUSANT_set_of_segment segments_set)
 
 TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Constructor)
 {
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     SegmentedScoreFixedPeriod * segmented_score = new SegmentedScoreFixedPeriod(seg_results);
     S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod(seg_results);
     
@@ -134,7 +134,7 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Constructor)
 
 TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_NotEnoughParts)
 {
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod(seg_results);
     int ret_val = s_segmented_score->initialise(fScore_YankeeDoodle);
     
@@ -145,25 +145,25 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise__Josq
 {
     // The algorithm cannot recognise this as a cannon at the moment.
     // There seems to be a periodic cannon between Superious and Tenor parts, but it's difficult.
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     int ret_val = s_segmented_part->initialise(fScore_Josquin_MAF_Christe);
     
     ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, ret_val);
-    IMUSANT_set_of_segment segments = s_segmented_part->getSegmentsSet();
+    SetOfSegment segments = s_segmented_part->getSegmentsSet();
     ASSERT_EQ(0, segments.size()) << "Unexpected number of segments...";
 }
 
 TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly)
 {
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     int error_code = s_segmented_part->initialise(fScore_Kyrie_TwoPartsOnly);
     
     ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, error_code);
     ASSERT_EQ(10752, s_segmented_part->getPeriodDurationForThisScore()->AsAbsoluteNumeric());
     
-    IMUSANT_set_of_segment segments_set = s_segmented_part->getSegmentsSet();
+    SetOfSegment segments_set = s_segmented_part->getSegmentsSet();
     
 #ifdef VERBOSE
     cout << segments_set << endl;
@@ -215,14 +215,14 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie
 //    Kyrie ele√òson	T	50	1	56	3	14	0
 //    Kyrie ele√òson	T	57	1	63	2	32	0
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     int error_code = s_segmented_part->initialise(fScore_Kyrie);
     
     ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, error_code);
     ASSERT_EQ(10752, s_segmented_part->getPeriodDurationForThisScore()->AsAbsoluteNumeric());
     
-    IMUSANT_set_of_segment segmentset = s_segmented_part->getSegmentsSet();
+    SetOfSegment segmentset = s_segmented_part->getSegmentsSet();
 
 #ifdef VERBOSE
     cout << segmentset << endl;
@@ -250,7 +250,7 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Sanct
     //   TOTAL   65
     
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     
     const double ERROR_THRESHOLD = 0.2;
@@ -259,7 +259,7 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Sanct
     ASSERT_EQ(SegmentedScoreFixedPeriod::SUCCESS, ret_val);
     ASSERT_EQ(7680, s_segmented_part->getPeriodDurationForThisScore()->AsAbsoluteNumeric() );
     
-    IMUSANT_set_of_segment segmentset = s_segmented_part->getSegmentsSet();
+    SetOfSegment segmentset = s_segmented_part->getSegmentsSet();
     
 #ifdef VERBOSE
     cout << segmentset << endl;

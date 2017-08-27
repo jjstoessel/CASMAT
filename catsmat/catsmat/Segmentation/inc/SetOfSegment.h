@@ -16,12 +16,12 @@
 
 namespace CATSMAT
 {
-    class IMUSANT_set_of_segment : public unordered_set<IMUSANT_segment, SegmentHash, SegmentComparator>
+    class SetOfSegment : public unordered_set<IMUSANT_segment, SegmentHash, SegmentComparator>
     {
-        friend ostream& operator<< (ostream& os, const IMUSANT_set_of_segment& segment_set);
+        friend ostream& operator<< (ostream& os, const SetOfSegment& segment_set);
         
     public:
-        virtual ~IMUSANT_set_of_segment() {}
+        virtual ~SetOfSegment() {}
         
         string printProperties(bool include_header_row);
         

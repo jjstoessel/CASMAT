@@ -36,7 +36,7 @@ namespace CATSMAT
     //
     // This method returns you the segments, as a set (no duplicates).
     //
-    IMUSANT_set_of_segment &
+    SetOfSegment &
     IMUSANT_segmented_part_LBDM::
     getSegmentsSet()
     {
@@ -354,7 +354,7 @@ namespace CATSMAT
     }
     
     
-    S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM(IMUSANT_set_of_segment & segmentation_results)
+    S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM(SetOfSegment & segmentation_results)
     {
         IMUSANT_segmented_part_LBDM* o = new IMUSANT_segmented_part_LBDM(segmentation_results);
         assert (o!=0);

@@ -275,7 +275,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     {
                         vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
                         
-                        IMUSANT_set_of_segment segmentation_result;
+                        SetOfSegment segmentation_result;
                         LBDM_Segmenter segmenter(segmentation_result);
                         segmenter.Visit(*processor);
                         
@@ -287,7 +287,7 @@ runToolsMenu(CATSMAT_processing* processor)
                             cout << ((*seg_part_iter)->print(true,true)) << endl;
                         }
                         
-                        cout << "NEW IMPLEMENTATION USING IMUSANT_set_of_segment segmentation_result" << endl;
+                        cout << "NEW IMPLEMENTATION USING SetOfSegment segmentation_result" << endl;
                         cout << "Not working because IMUSANT_segmented_part_LBDM does not yet implement the use of the segmentation_results input parameter." << endl;
                         
                         
@@ -300,7 +300,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'T':
                 case 't':
                 {
-                    IMUSANT_set_of_segment segmentation_results;
+                    SetOfSegment segmentation_results;
                     FixedPeriodSegmenter segmenter(segmentation_results);
                     segmenter.Visit(*processor);
 
@@ -330,7 +330,7 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'Q':
                 case 'q':
                 {
-                    IMUSANT_set_of_segment segmentation_results;
+                    SetOfSegment segmentation_results;
 
                     FixedPeriodSegmenter fp_segmenter(segmentation_results);
                     fp_segmenter.Visit(*processor);

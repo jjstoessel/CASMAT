@@ -13,7 +13,7 @@
 #include "smartpointer.h"
 #include "IMUSANT_score.h"
 #include "IMUSANT_interval.h"
-#include "IMUSANT_partlist_ordered_by_part_entry.h" //we will use IMUSANT_PartEntry
+#include "PartlistOrderedByPartEntry.h" //we will use PartEntry
 #include "CATSMAT_t_utilities.h"
 
 using namespace IMUSANT;
@@ -58,20 +58,20 @@ namespace CATSMAT
         CATSMAT_CanonicTechniquesTools() {}
         ~CATSMAT_CanonicTechniquesTools() {}
     private:
-        void    Detect_Canon_Type(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold);
+        void    Detect_Canon_Type(PartEntry& first_part, PartEntry& second_part, double error_threshold);
         void    Insert(CATSMAT_CanonType canon_type);
-        bool    IsMelodicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, const double error_threshold);
-        bool    IsIntervallicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, const double error_threshold);
-        bool    IsRhythmicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold, bool retrograde=false);
-        bool    IsRetrograde(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, const double error_threshold);
-        bool    IsContraryMotion(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold);
-        bool    IsRetrogradeContraryMotion(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold);
-        bool    IsProportionalCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, TRational& result, const double error_threshold, bool retrograde=false);
+        bool    IsMelodicallyExact(const PartEntry& first_part, const PartEntry& second_part, const double error_threshold);
+        bool    IsIntervallicallyExact(const PartEntry& first_part, const PartEntry& second_part, const double error_threshold);
+        bool    IsRhythmicallyExact(const PartEntry& first_part, const PartEntry& second_part, double error_threshold, bool retrograde=false);
+        bool    IsRetrograde(const PartEntry& first_part, const PartEntry& second_part, const double error_threshold);
+        bool    IsContraryMotion(const PartEntry& first_part, const PartEntry& second_part, double error_threshold);
+        bool    IsRetrogradeContraryMotion(const PartEntry& first_part, const PartEntry& second_part, double error_threshold);
+        bool    IsProportionalCanon(const PartEntry& first_part, const PartEntry& second_part, TRational& result, const double error_threshold, bool retrograde=false);
         static TRational   IsProportionalCanonBinaryOperator(S_IMUSANT_note& first, const S_IMUSANT_note& second);
-        bool    IsMensurationCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold);
-        IMUSANT_interval   GetIntervalBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, bool retrograde=false);
-        IMUSANT_duration   CalculateIOIUnit(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part);
-        void    OrderPartsByLength(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, IMUSANT_vector<S_IMUSANT_note> &part_one_notes, IMUSANT_vector<S_IMUSANT_note>& part_two_notes);
+        bool    IsMensurationCanon(const PartEntry& first_part, const PartEntry& second_part, double error_threshold);
+        IMUSANT_interval   GetIntervalBetweenParts(PartEntry& first_part, PartEntry& second_part, bool retrograde=false);
+        IMUSANT_duration   CalculateIOIUnit(PartEntry& first_part, PartEntry& second_part);
+        void    OrderPartsByLength(const PartEntry& first_part, const PartEntry& second_part, IMUSANT_vector<S_IMUSANT_note> &part_one_notes, IMUSANT_vector<S_IMUSANT_note>& part_two_notes);
         
         S_IMUSANT_score             score_;
         double                      error_threshold_ = 0;

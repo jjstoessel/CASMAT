@@ -1,5 +1,5 @@
 //
-//  IMUSANT_partlist_ordered_by_part_entry_Tests.cpp
+//  PartlistOrderedByPartEntry_Tests.cpp
 //  catsmat
 //
 //  Created by Derrick Hill on 28/12/16.
@@ -14,7 +14,7 @@
 
 #include "libIMUSANT.h"
 
-#include "IMUSANT_partlist_ordered_by_part_entry.h"
+#include "PartlistOrderedByPartEntry.h"
 
 #include <boost/filesystem.hpp>
 
@@ -27,18 +27,18 @@ using namespace boost;
 
 
 
-class IMUSANT_partlist_ordered_by_part_entry_Tests :
+class PartlistOrderedByPartEntry_Tests :
 public ::testing::Test
 {
 protected:
-    
-    IMUSANT_partlist_ordered_by_part_entry_Tests()
+
+    PartlistOrderedByPartEntry_Tests()
     {
         // You can do set-up work for each test here.
         // This is a bit inefficient as each file gets parsed for each test case.
     }
     
-    virtual ~IMUSANT_partlist_ordered_by_part_entry_Tests()
+    virtual ~PartlistOrderedByPartEntry_Tests()
     {
         // You can do clean-up work that doesn't throw exceptions here.
     }
@@ -67,17 +67,17 @@ protected:
     
 };
 
-CATSMAT_test_utility * IMUSANT_partlist_ordered_by_part_entry_Tests::_test_utils = NULL;
+CATSMAT_test_utility * PartlistOrderedByPartEntry_Tests::_test_utils = NULL;
 
-S_IMUSANT_score IMUSANT_partlist_ordered_by_part_entry_Tests::fScore_Kyrie = NULL;
-S_IMUSANT_score IMUSANT_partlist_ordered_by_part_entry_Tests::fScore_Sanctus = NULL;
-S_IMUSANT_score IMUSANT_partlist_ordered_by_part_entry_Tests::fScore_YankeeDoodle = NULL;
-S_IMUSANT_score IMUSANT_partlist_ordered_by_part_entry_Tests::fScore_Josquin_MAF_Christe = NULL;
+S_IMUSANT_score PartlistOrderedByPartEntry_Tests::fScore_Kyrie = NULL;
+S_IMUSANT_score PartlistOrderedByPartEntry_Tests::fScore_Sanctus = NULL;
+S_IMUSANT_score PartlistOrderedByPartEntry_Tests::fScore_YankeeDoodle = NULL;
+S_IMUSANT_score PartlistOrderedByPartEntry_Tests::fScore_Josquin_MAF_Christe = NULL;
 
 // ************* TEST CASES START HERE *********** //
 
 
-TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, IMUSANT_PartEntry_Vector_Sort)
+TEST_F(PartlistOrderedByPartEntry_Tests, IMUSANT_PartEntry_Vector_Sort)
 {
     S_IMUSANT_part dummy_part = new_IMUSANT_part();
     
@@ -96,11 +96,11 @@ TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, IMUSANT_PartEntry_Vector_So
     S_IMUSANT_duration duration5 = new_IMUSANT_duration();
     duration5->set(TRational(4,1));
     
-    IMUSANT_PartEntry pe1(dummy_part, 1, 1, duration1);
-    IMUSANT_PartEntry pe2(dummy_part, 2, 2, duration2);
-    IMUSANT_PartEntry pe3(dummy_part, 3, 3, duration3);
-    IMUSANT_PartEntry pe4(dummy_part, 4, 4, duration4);
-    IMUSANT_PartEntry pe5(dummy_part, 5, 5, duration5);
+    PartEntry pe1(dummy_part, 1, 1, duration1);
+    PartEntry pe2(dummy_part, 2, 2, duration2);
+    PartEntry pe3(dummy_part, 3, 3, duration3);
+    PartEntry pe4(dummy_part, 4, 4, duration4);
+    PartEntry pe5(dummy_part, 5, 5, duration5);
     
     IMUSANT_PartEntry_Vector pev;
     pev.push_back(pe3);
@@ -120,10 +120,10 @@ TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, IMUSANT_PartEntry_Vector_So
 }
 
 
-TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_Constructor)
+TEST_F(PartlistOrderedByPartEntry_Tests, PartlistOrderedByPartEntry_Constructor)
 {
-    IMUSANT_partlist_ordered_by_part_entry * ordered_partlist = new IMUSANT_partlist_ordered_by_part_entry();
-    S_IMUSANT_partlist_ordered_by_part_entry s_ordered_partlist = new_IMUSANT_partlist_ordered_by_part_entry();
+    PartlistOrderedByPartEntry * ordered_partlist = new PartlistOrderedByPartEntry();
+    S_PartlistOrderedByPartEntry s_ordered_partlist = new_PartlistOrderedByPartEntry();
     
     
     ASSERT_FALSE(ordered_partlist == NULL);
@@ -133,11 +133,11 @@ TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_
 }
 
 
-TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_YankeeDoodle)
+TEST_F(PartlistOrderedByPartEntry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_YankeeDoodle)
 {
-    S_IMUSANT_partlist_ordered_by_part_entry s_ordered_partlist = new_IMUSANT_partlist_ordered_by_part_entry();
+    S_PartlistOrderedByPartEntry s_ordered_partlist = new_PartlistOrderedByPartEntry();
     
-    vector<IMUSANT_PartEntry> ordered_partlist = s_ordered_partlist->getPartsInOrder(fScore_YankeeDoodle);
+    vector<PartEntry> ordered_partlist = s_ordered_partlist->getPartsInOrder(fScore_YankeeDoodle);
     
     ASSERT_FALSE(s_ordered_partlist == NULL);
     ASSERT_EQ(1, ordered_partlist.size());
@@ -149,11 +149,11 @@ TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_
     ASSERT_EQ(default_duration, *(ordered_partlist[0].EntryDurationOffset));
 }
 
-TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_Kyrie)
+TEST_F(PartlistOrderedByPartEntry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_Kyrie)
 {
-    S_IMUSANT_partlist_ordered_by_part_entry s_ordered_partlist = new_IMUSANT_partlist_ordered_by_part_entry();
+    S_PartlistOrderedByPartEntry s_ordered_partlist = new_PartlistOrderedByPartEntry();
     
-    vector<IMUSANT_PartEntry> ordered_partlist = s_ordered_partlist->getPartsInOrder(fScore_Kyrie);
+    vector<PartEntry> ordered_partlist = s_ordered_partlist->getPartsInOrder(fScore_Kyrie);
     
     ASSERT_FALSE(s_ordered_partlist == NULL);
     
@@ -175,11 +175,11 @@ TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_
     ASSERT_EQ(14, ordered_partlist[2].EntryVectorIndexPosition);
 }
 
-TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_Sanctus)
+TEST_F(PartlistOrderedByPartEntry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_Sanctus)
 {
-    S_IMUSANT_partlist_ordered_by_part_entry s_ordered_partlist = new_IMUSANT_partlist_ordered_by_part_entry();
+    S_PartlistOrderedByPartEntry s_ordered_partlist = new_PartlistOrderedByPartEntry();
     
-    vector<IMUSANT_PartEntry> ordered_partlist = s_ordered_partlist->getPartsInOrder(fScore_Sanctus);
+    vector<PartEntry> ordered_partlist = s_ordered_partlist->getPartsInOrder(fScore_Sanctus);
     
     ASSERT_FALSE(s_ordered_partlist == NULL);
     ASSERT_EQ(3, ordered_partlist.size());
@@ -201,11 +201,11 @@ TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_
     ASSERT_EQ(10, ordered_partlist[2].EntryVectorIndexPosition);
 }
 
-TEST_F(IMUSANT_partlist_ordered_by_part_entry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_Josquin_MAF_Christe)
+TEST_F(PartlistOrderedByPartEntry_Tests, PartlistOrderedByPartEntry_GetPartsInOrder_Josquin_MAF_Christe)
 {
-    S_IMUSANT_partlist_ordered_by_part_entry s_ordered_partlist = new_IMUSANT_partlist_ordered_by_part_entry();
+    S_PartlistOrderedByPartEntry s_ordered_partlist = new_PartlistOrderedByPartEntry();
     
-    vector<IMUSANT_PartEntry> ordered_partlist = s_ordered_partlist->getPartsInOrder(fScore_Josquin_MAF_Christe);
+    vector<PartEntry> ordered_partlist = s_ordered_partlist->getPartsInOrder(fScore_Josquin_MAF_Christe);
     
     ASSERT_FALSE(s_ordered_partlist == NULL);
     ASSERT_EQ(4, ordered_partlist.size());

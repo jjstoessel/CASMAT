@@ -34,7 +34,7 @@ set(SRC ${SRC}
 		${CATSMAT_TEST_DIR}/CATSMAT_test_utility.cpp
 		${CATSMAT_TEST_DIR}/CATSMAT_trigramsequences_tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_interval_profile_LBDM_Tests.cpp
-		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_partlist_ordered_by_part_entry_Tests.cpp
+		${CATSMAT_SEGMENTATION_TEST_DIR}/PartlistOrderedByPartEntry_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_segment_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_segmented_part_LBDM_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/SegmentedScoreFixedPeriod_Tests.cpp
