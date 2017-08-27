@@ -33,7 +33,7 @@ set(SRC ${SRC}
 		${CATSMAT_TEST_DIR}/CATSMAT_sonority_sequences_Tests.cpp
 		${CATSMAT_TEST_DIR}/CATSMAT_test_utility.cpp
 		${CATSMAT_TEST_DIR}/CATSMAT_trigramsequences_tests.cpp
-		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_interval_profile_LBDM_Tests.cpp
+		${CATSMAT_SEGMENTATION_TEST_DIR}/LBDM_IntervalProfile_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/PartlistOrderedByPartEntry_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/Segment_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/LBDM_SegmentedPart_Tests.cpp

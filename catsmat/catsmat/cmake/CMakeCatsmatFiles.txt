@@ -107,7 +107,7 @@ set(SRC ${SRC}
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/PartlistOrderedByPartEntry.cpp
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/SegmentedScoreFixedPeriod.cpp
 
-		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_interval_profile_LBDM.cpp
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_IntervalProfile.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_Segmenter.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_note_vectors.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_SegmentedPart.cpp
@@ -153,9 +153,9 @@ set(HEADERS ${HEADERS}
         ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/PartlistOrderedByPartEntry.h
         ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/SegmentedScoreFixedPeriod.h
 
-        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/IMUSANT_consolidated_interval_profile_LBDM.h
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_ConsolidatedIntervalProfile.h
         ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/IMUSANT_consolidated_interval_profile_LBDM_visitor.h
-        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/IMUSANT_interval_profile_LBDM.h
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_IntervalProfile.h
         ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_Segmenter.h
         ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/IMUSANT_segmented_note_vectors.h
         ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_SegmentedPart.h

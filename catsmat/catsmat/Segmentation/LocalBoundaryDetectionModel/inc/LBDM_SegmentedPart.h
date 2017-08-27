@@ -14,7 +14,7 @@
 
 #include "I_Segmented.h"
 #include "IMUSANT_part.h"
-#include "IMUSANT_interval_profile_LBDM.h"
+#include "LBDM_IntervalProfile.h"
 #include "LBDM_ConsolidatedIntervalProfile.h"
 #include "LBDM_SegmentedProfileVectors.h"
 #include "IMUSANT_segmented_note_vectors.h"
@@ -147,9 +147,9 @@ namespace CATSMAT
             return fPart;
         }
         
-        IMUSANT_pitch_interval_profile pitch_interval_profile;
-        IMUSANT_IOI_interval_profile ioi_interval_profile;
-        IMUSANT_rest_interval_profile rest_interval_profile;
+        LBDM_PitchIntervalProfile pitch_interval_profile;
+        LBDM_IOI_IntervalProfile ioi_interval_profile;
+        LBDM_RestIntervalProfile rest_interval_profile;
  
     private:
         

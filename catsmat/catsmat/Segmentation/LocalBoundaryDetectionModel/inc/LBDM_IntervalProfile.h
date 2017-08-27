@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef __imusant__IMUSANT_interval_profile_LBDM__
-#define __imusant__IMUSANT_interval_profile_LBDM__
+#ifndef __LBDM_interval_profile__
+#define __LBDM_interval_profile__
 
 #include <stdio.h>
 #include <vector>
@@ -18,7 +18,7 @@ using namespace IMUSANT;
 
 namespace CATSMAT
 {
-    class IMUSANT_interval_profile
+    class LBDM_IntervalProfile
     {
     public:
         void initialise(vector<float>::size_type number_of_elements);
@@ -29,7 +29,7 @@ namespace CATSMAT
         void calculateChangeVector();
         void calculateStrengthVector();
         
-        friend ostream& operator<< (ostream& os, const IMUSANT_interval_profile& profile);
+        friend ostream& operator<< (ostream& os, const LBDM_IntervalProfile& profile);
         
     private:
         ostream& printVectors(ostream& os) const;
@@ -39,27 +39,27 @@ namespace CATSMAT
         
     };
     
-    class IMUSANT_IOI_interval_profile : public IMUSANT_interval_profile
+    class LBDM_IOI_IntervalProfile : public LBDM_IntervalProfile
     {
     public:
-        IMUSANT_IOI_interval_profile() {};
+        LBDM_IOI_IntervalProfile() {};
         void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
     };
     
-    class IMUSANT_pitch_interval_profile : public IMUSANT_interval_profile
+    class LBDM_PitchIntervalProfile : public LBDM_IntervalProfile
     {
     public:
-        IMUSANT_pitch_interval_profile() {};
+        LBDM_PitchIntervalProfile() {};
         void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
     };
 
-    class IMUSANT_rest_interval_profile : public IMUSANT_interval_profile
+    class LBDM_RestIntervalProfile : public LBDM_IntervalProfile
     {
     public:
-        IMUSANT_rest_interval_profile() {};
+        LBDM_RestIntervalProfile() {};
         void addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes);
     };
 }
 
 
-#endif /* defined(__imusant__IMUSANT_interval_profile_LBDM__) */
+#endif /* defined(__LBDM_interval_profile__) */
