@@ -19,7 +19,7 @@ using namespace Loki;
 namespace CATSMAT {
    
 
-    class IMUSANT_LBDM_segmenter :
+    class LBDM_Segmenter :
         public Loki::BaseVisitor,
         public Loki::Visitor<IMUSANT_processing, void, true>
     {
@@ -27,11 +27,11 @@ namespace CATSMAT {
         
         typedef vector<S_IMUSANT_segmented_part_LBDM> PART_SEGS_VEC;
         
-        IMUSANT_LBDM_segmenter(IMUSANT_set_of_segment &segmentation_results)
+        LBDM_Segmenter(IMUSANT_set_of_segment &segmentation_results)
         : fSegmentationResult(segmentation_results)
         {
         }
-        ~IMUSANT_LBDM_segmenter() {}
+        ~LBDM_Segmenter() {}
         
         void    Visit(const IMUSANT_processing&);
         const   PART_SEGS_VEC& getSegmentedParts() { return sp; }

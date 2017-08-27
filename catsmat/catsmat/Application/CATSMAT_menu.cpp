@@ -17,7 +17,7 @@
 #include "IMUSANT_interval_suffixtree_builder.h"
 #include "IMUSANT_pitch_suffixtree_builder.h"
 #include "IMUSANT_contour_suffixtree_builder.h"
-#include "IMUSANT_LBDM_segmenter.h"
+#include "LBDM_Segmenter.h"
 #include "FixedPeriodSegmenter.h"
 
 #include "CATSMAT_scoredatacollector.h"
@@ -276,7 +276,7 @@ runToolsMenu(CATSMAT_processing* processor)
                         vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
                         
                         IMUSANT_set_of_segment segmentation_result;
-                        IMUSANT_LBDM_segmenter segmenter(segmentation_result);
+                        LBDM_Segmenter segmenter(segmentation_result);
                         segmenter.Visit(*processor);
                         
                         
@@ -334,8 +334,8 @@ runToolsMenu(CATSMAT_processing* processor)
 
                     FixedPeriodSegmenter fp_segmenter(segmentation_results);
                     fp_segmenter.Visit(*processor);
-                    
-                    IMUSANT_LBDM_segmenter lbdm_segmenter(segmentation_results);
+
+                    LBDM_Segmenter lbdm_segmenter(segmentation_results);
                     lbdm_segmenter.Visit(*processor);
                     
                     // output the segmentation_results here...

@@ -17,7 +17,7 @@
 #include "IMUSANT_segmented_profile_vectors.h"
 #include "IMUSANT_weighted_strength_vectors.h"
 #include "IMUSANT_segmented_part_LBDM.h"
-#include "IMUSANT_LBDM_segmenter.h"
+#include "LBDM_Segmenter.h"
 
 #include "libIMUSANT.h"
 #include <boost/filesystem.hpp>
@@ -668,16 +668,16 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsFromMultiplePartsWithWeight
 {
     
     IMUSANT_set_of_segment seg_results;
-    IMUSANT_LBDM_segmenter segmenter(seg_results);
+    LBDM_Segmenter segmenter(seg_results);
     vector<S_IMUSANT_score> scores;
     scores.push_back(fScore_Kyrie);
-    
-    IMUSANT_LBDM_segmenter::PART_SEGS_VEC parts = segmenter.findMelodicSegments_LBDM(scores);
+
+    LBDM_Segmenter::PART_SEGS_VEC parts = segmenter.findMelodicSegments_LBDM(scores);
     
     vector<IMUSANT_strength_vector> all_weighted_avg_segments;
     vector<IMUSANT_note_vector> all_note_segments;
     
-    for (IMUSANT_LBDM_segmenter::PART_SEGS_VEC::iterator part_iter = parts.begin();
+    for (LBDM_Segmenter::PART_SEGS_VEC::iterator part_iter = parts.begin();
          part_iter != parts.end();
          part_iter++)
     {

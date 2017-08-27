@@ -9,7 +9,124 @@ if(CMAKE_CONFIGURATION_TYPES)
 endif()
 
 # This file contains all the paths for the CATSMAT code that we are testing.
-include(${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat/cmake/CMakeCatsmatFiles.txt)
+#include(${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat/cmake/CMakeCatsmatFiles.txt)
+
+######
+######
+###############  BOOST LIBRARIES ###########
+if (APPLE)
+	set(BOOST_ROOT /usr/local/boost)
+	#set(BOOST_LIBRARYDIR /usr/local/boost/lib)
+	#set(BOOST_INCLUDEDIR /usr/local/boost/include/boost)
+	#set(BOOST_FILESYSTEM_LIB  /usr/local/boost/lib/libboost_filesystem.dylib)
+	#set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dylib)
+else ()
+	set(BOOST_ROOT "/usr/local/boost")
+	set(BOOST_INCLUDEDIR "/usr/local/boost/include/boost")
+	set(BOOST_FILESYSTEM_LIB  /usr/local/boost/lib/libboost_filesystem.dll.a)
+	set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dll.a)
+endif ()
+
+#######################################
+# set directories, src and headers.
+
+set (CATSMAT_DIR 	                   		${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat)
+set (CATSMAT_ANALYSIS_DIR      				${CATSMAT_DIR}/Analysis)
+set (CATSMAT_APPLICATION_DIR      			${CATSMAT_DIR}/Application)
+set (CATSMAT_COUNTERPOINT_ANALYSIS_DIR      ${CATSMAT_DIR}/CounterpointAnalysis)
+set (CATSMAT_GENERAL_ANALYSIS_DIR      		${CATSMAT_DIR}/GeneralAnalysis)
+set (CATSMAT_SEGMENTATION_DIR      			${CATSMAT_DIR}/Segmentation)
+set (CATSMAT_UTILITIES_DIR      			${CATSMAT_DIR}/Utilities)
+
+set (LOKI_DIR               				${CATSMAT_DIR}/..)
+set (SUFFIX_TREE_DIR        				${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
+
+set (CATSMAT_ANALYSIS_SRC_DIR      				${CATSMAT_DIR}/Analysis/src)
+set (CATSMAT_APPLICATION_SRC_DIR      			${CATSMAT_DIR}/Application)
+set (CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR      ${CATSMAT_DIR}/CounterpointAnalysis/src)
+set (CATSMAT_GENERAL_ANALYSIS_SRC_DIR      		${CATSMAT_DIR}/GeneralAnalysis/src)
+set (CATSMAT_SEGMENTATION_SRC_DIR      			${CATSMAT_DIR}/Segmentation/src)
+set (CATSMAT_UTILITIES_SRC_DIR      			${CATSMAT_DIR}/Utilities/src)
+
+set (CATSMAT_ANALYSIS_INC_DIR      				${CATSMAT_DIR}/Analysis/inc)
+set (CATSMAT_APPLICATION_INC_DIR      			${CATSMAT_DIR}/Application)
+set (CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR      ${CATSMAT_DIR}/CounterpointAnalysis/inc)
+set (CATSMAT_GENERAL_ANALYSIS_INC_DIR      		${CATSMAT_DIR}/GeneralAnalysis/inc)
+set (CATSMAT_SEGMENTATION_INC_DIR      			${CATSMAT_DIR}/Segmentation/inc)
+set (CATSMAT_SEGMENTATION_LBDM_INC_DIR      	${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc)
+set (CATSMAT_SEGMENTATION_FIXED_INC_DIR      	${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc)
+set (CATSMAT_UTILITIES_INC_DIR      			${CATSMAT_DIR}/Utilities)
+set (LIBIMUSNT_HEADER_DIR						${CMAKE_BINARY_DIR}/catsmat/libIMUSANT/cmake/libIMUSANT.framework/Headers)
+
+set (INCFOLDERS
+		${CATSMAT_ANALYSIS_INC_DIR}
+		${CATSMAT_APPLICATION_INC_DIR}
+		${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}
+		${CATSMAT_GENERAL_ANALYSIS_INC_DIR}
+		${CATSMAT_SEGMENTATION_INC_DIR}
+		${CATSMAT_SEGMENTATION_LBDM_INC_DIR}
+		${CATSMAT_SEGMENTATION_FIXED_INC_DIR}
+		${CATSMAT_UTILITIES_INC_DIR}
+		${CATSMAT_DIR}
+		${LOKI_DIR}
+		${SUFFIX_TREE_DIR}
+		${LIBIMUSNT_HEADER_DIR}
+		)
+
+set(SRC ${SRC}
+		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_contour_suffixtree_builder.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_generalised_interval_suffixtree_builder.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_interval_suffixtree_builder.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_pitch_suffixtree_builder.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_repeated_interval_substring.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_t_repeated_substring.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_VectorMapAnalysisTypes.cpp
+
+		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_chord.cpp
+		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_collectionvisitor.cpp
+		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_cp_matrix.cpp
+		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_dyad_sequences.cpp
+		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_dyadtuple_sequences.cpp
+		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_sonority_sequences.cpp
+		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_TrigramSequences.cpp
+		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_TrigramSuffixTreeBuilder.cpp
+
+		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_canonic_techniques_tools.cpp
+		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_partdata.cpp
+		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_processing.cpp
+		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_score_profile.tpp
+		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_score_splitter.cpp
+		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_score_profile_special.cpp
+		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_scoredata.cpp
+		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_scoredatacollector.cpp
+
+		${CATSMAT_SEGMENTATION_SRC_DIR}/IMUSANT_segment.cpp
+		${CATSMAT_SEGMENTATION_SRC_DIR}/IMUSANT_set_of_segment.cpp
+		${CATSMAT_SEGMENTATION_SRC_DIR}/SegmentContext.cpp
+
+		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/FixedPeriodSegmenter.cpp
+		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/IMUSANT_partlist_ordered_by_part_entry.cpp
+		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/SegmentedScoreFixedPeriod.cpp
+
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_interval_profile_LBDM.cpp
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_Segmenter.cpp
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_note_vectors.cpp
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_part_LBDM.cpp
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_profile_vectors.cpp
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_weighted_strength_vectors.cpp
+		)
+
+#
+# If you are building the CATSMAT application then you will need to add these files into SRC in your own CMakeLists.txt
+# file that is including this one.  This construct allows users of this file that have their own main() to build that
+# instead of the main() in the CATSMAT project.
+#
+set (CATSMAT_APPLICATION_FILES
+		${CATSMAT_APPLICATION_SRC_DIR}/CATSMAT_main.cpp
+		${CATSMAT_APPLICATION_SRC_DIR}/CATSMAT_menu.cpp
+		)
+######
+######
 
 
 set (CATSMAT_TEST_DIR				${CMAKE_CURRENT_SOURCE_DIR}/..)
