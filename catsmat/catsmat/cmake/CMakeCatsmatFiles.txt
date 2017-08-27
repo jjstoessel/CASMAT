@@ -26,10 +26,6 @@ else ()
 	set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dll.a)
 endif ()
 
-if (APPLE)
-    set (CMAKE_MACOSX_RPATH ON)
-endif ()
-
 #######################################
 # set directories, src and headers.
 

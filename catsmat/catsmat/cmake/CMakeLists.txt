@@ -4,6 +4,10 @@
 cmake_minimum_required(VERSION 3.6)
 project(CATSMAT) #js
 
+if (APPLE)
+	set (CMAKE_MACOSX_RPATH ON)
+endif ()
+
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)

@@ -5,22 +5,12 @@
 # CMakeLists.txt file in multiple places.
 #
 
-
 ###############  BOOST LIBRARIES ###########
 set(Boost_DEBUG ON)
-
-if (APPLE)
-    set(BOOST_ROOT /usr/local/boost)
-    #set(BOOST_LIBRARYDIR /usr/local/boost/lib)
-    #set(BOOST_INCLUDEDIR /usr/local/boost/include/boost)
-	#set(BOOST_FILESYSTEM_LIB  /usr/local/boost/lib/libboost_filesystem.dylib)
-	#set(BOOST_SYSTEM_LIB      /usr/local/boost/lib/libboost_system.dylib)
-else ()
-	set(BOOST_ROOT "/usr/local/boost")
-    FIND_PACKAGE( Boost 1.64.0 COMPONENTS filesystem REQUIRED )
-    include_directories(${Boost_INCLUDE_DIRS})
-    message("Boost Libraries are here:" ${Boost_LIBRARIES})
-endif ()
+set(BOOST_ROOT "/usr/local/boost")
+FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem REQUIRED ) #version 1.57 is the earliest boost supported
+include_directories(${Boost_INCLUDE_DIRS})
+message("Boost Libraries are here:" ${Boost_LIBRARIES})
 
 if (APPLE)
     set (CMAKE_MACOSX_RPATH ON)
