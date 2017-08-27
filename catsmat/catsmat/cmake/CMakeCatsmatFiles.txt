@@ -112,7 +112,7 @@ set(SRC ${SRC}
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_note_vectors.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_part_LBDM.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_profile_vectors.cpp
-		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_weighted_strength_vectors.cpp
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_WeightedStrengthVectors.cpp
 		)
 
 #

@@ -157,7 +157,7 @@ namespace CATSMAT
     IMUSANT_segmented_part_LBDM::
     getSegmentsWithWeightedAverages()
     {
-        IMUSANT_weighted_strength_vectors segments;
+        LBDM_WeightedStrengthVectors segments;
         
         getSegmentsUsingVisitor(segments);
         

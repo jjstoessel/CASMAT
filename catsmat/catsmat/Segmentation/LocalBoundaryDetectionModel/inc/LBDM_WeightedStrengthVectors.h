@@ -21,12 +21,12 @@ namespace CATSMAT
 {
     typedef vector<double> IMUSANT_strength_vector;
     
-    class IMUSANT_weighted_strength_vectors : public IMUSANT_consolidated_interval_profile_LBDM_visitor
+    class LBDM_WeightedStrengthVectors : public IMUSANT_consolidated_interval_profile_LBDM_visitor
     {
     public:
         
-        IMUSANT_weighted_strength_vectors() {}
-        virtual ~IMUSANT_weighted_strength_vectors() {}
+        LBDM_WeightedStrengthVectors() {}
+        virtual ~LBDM_WeightedStrengthVectors() {}
         
         virtual void visit(IMUSANT_consolidated_interval_profile_LBDM *target);
         

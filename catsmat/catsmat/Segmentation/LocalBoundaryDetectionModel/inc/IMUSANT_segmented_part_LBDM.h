@@ -18,7 +18,7 @@
 #include "IMUSANT_consolidated_interval_profile_LBDM.h"
 #include "IMUSANT_segmented_profile_vectors.h"
 #include "IMUSANT_segmented_note_vectors.h"
-#include "IMUSANT_weighted_strength_vectors.h"
+#include "LBDM_WeightedStrengthVectors.h"
 
 using namespace std;
 
