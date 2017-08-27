@@ -7,7 +7,7 @@
 #include "libIMUSANT.h"
 
 #include "I_Segmented.h"
-#include "IMUSANT_segment.h"
+#include "Segment.h"
 #include "SetOfSegment.h"
 #include "PartlistOrderedByPartEntry.h"
 
@@ -57,15 +57,15 @@ namespace CATSMAT
         
         void comparePartsForPeriodicSegments(PartEntry& first_part, PartEntry& second_part, double error_threshold);
         void extractPeriodicSegmentsFromParts(PartEntry& first_part, PartEntry& second_part, double error_threshold);
-        int populateNextSegment(S_IMUSANT_segment next_segment,
+        int populateNextSegment(S_Segment next_segment,
                                 PartEntry& first_part,
                                 PartEntry& second_part,
                                 int& first_part_index,
                                 int& second_part_index,
                                 S_IMUSANT_duration period_duration);
         
-        int populateNextSegments(S_IMUSANT_segment first_part_segment,
-                                 S_IMUSANT_segment second_part_segment,
+        int populateNextSegments(S_Segment first_part_segment,
+                                 S_Segment second_part_segment,
                                  PartEntry& first_part,
                                  PartEntry& second_part,
                                  int& first_part_index,
@@ -73,9 +73,9 @@ namespace CATSMAT
                                  S_IMUSANT_duration period_duration);
         
         
-        S_IMUSANT_segment makeNewSegment(const S_IMUSANT_part part);
+        S_Segment makeNewSegment(const S_IMUSANT_part part);
         void clearSegments();
-        void addSegment(S_IMUSANT_segment segment);
+        void addSegment(S_Segment segment);
         
         void setPeriodDurationForThisScore(S_IMUSANT_duration period_duration);
         void clearPeriodDurationForThisScore();

@@ -6,7 +6,7 @@
 
 #include "libIMUSANT.h"
 
-#include "IMUSANT_segment.h"
+#include "Segment.h"
 
 using namespace std;
 

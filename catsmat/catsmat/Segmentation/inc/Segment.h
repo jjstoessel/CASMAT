@@ -1,13 +1,6 @@
-//
-//  IMUSANT_segment.h
-//  catsmat
-//
-//  Created by Derrick Hill on 8/11/2016.
-//
-//
 
-#ifndef IMUSANT_segment_h
-#define IMUSANT_segment_h
+#ifndef Segment_h
+#define Segment_h
 
 #include <stdio.h>
 
@@ -19,19 +12,19 @@ using namespace IMUSANT;
 
 namespace CATSMAT
 {
-    class IMUSANT_segment : public IMUSANT::smartable, I_Segment
+    class Segment : public IMUSANT::smartable, I_Segment
     {
     public:
        
-        friend IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_SegmentContext context);
-        friend ostream& operator<< (ostream& os, const IMUSANT_segment& segment);
+        friend IMUSANT_SMARTP<Segment> new_Segment(S_SegmentContext context);
+        friend ostream& operator<< (ostream& os, const Segment& segment);
         
-        IMUSANT_segment(S_SegmentContext context)
+        Segment(S_SegmentContext context)
         : I_Segment(context)
         {
         }
         
-        virtual ~IMUSANT_segment() {}
+        virtual ~Segment() {}
         
         S_SegmentContext getContext() const;
         
@@ -51,7 +44,7 @@ namespace CATSMAT
         long getConfidence() const { return fConfidence; };
         void setConfidence(long confidence_level) { fConfidence = confidence_level; };
         
-        bool operator== (const IMUSANT_segment& rhs) const;
+        bool operator== (const Segment& rhs) const;
         
         string printPropertiesHeaderRow() const;
         string printProperties() const;
@@ -61,13 +54,13 @@ namespace CATSMAT
         long fConfidence = 0;
     };
 
-    typedef IMUSANT_SMARTP<IMUSANT_segment> S_IMUSANT_segment;
-    IMUSANT_SMARTP<IMUSANT_segment> new_IMUSANT_segment(S_SegmentContext context);
+    typedef IMUSANT_SMARTP<Segment> S_Segment;
+    IMUSANT_SMARTP<Segment> new_Segment(S_SegmentContext context);
     
     struct SegmentComparator
     {
     public:
-        bool operator()(const IMUSANT_segment& seg1, const IMUSANT_segment& seg2) const
+        bool operator()(const Segment& seg1, const Segment& seg2) const
         {
             
             return seg1 == seg2;
@@ -77,7 +70,7 @@ namespace CATSMAT
     struct SegmentHash
     {
     public:
-        size_t operator()(const IMUSANT_segment& segment) const
+        size_t operator()(const Segment& segment) const
         {
             long first_note_index = 0;
             long first_note_measure = 0;
@@ -107,4 +100,4 @@ namespace CATSMAT
     };
 }
 
-#endif /* IMUSANT_segment_hpp */
+#endif /* Segment_hpp */

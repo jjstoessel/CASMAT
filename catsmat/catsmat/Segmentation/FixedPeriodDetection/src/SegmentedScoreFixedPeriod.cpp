@@ -89,8 +89,8 @@ namespace CATSMAT
         {
             OUTPUT("\n---  STARTING NEW SEGMENT ---\n");
             
-            S_IMUSANT_segment first_part_segment = makeNewSegment(first_part.Part);
-            S_IMUSANT_segment second_part_segment = makeNewSegment(second_part.Part);
+            S_Segment first_part_segment = makeNewSegment(first_part.Part);
+            S_Segment second_part_segment = makeNewSegment(second_part.Part);
             
             S_IMUSANT_duration period_duration = getPeriodDurationForPartComparison(first_part, second_part);
             
@@ -111,7 +111,7 @@ namespace CATSMAT
         
     int
     SegmentedScoreFixedPeriod::
-    populateNextSegment(S_IMUSANT_segment next_segment,
+    populateNextSegment(S_Segment next_segment,
                         PartEntry& first_part,
                         PartEntry& second_part,
                         int& first_part_index,
@@ -157,8 +157,8 @@ namespace CATSMAT
     
     int
     SegmentedScoreFixedPeriod::
-    populateNextSegments(S_IMUSANT_segment first_part_segment,
-                         S_IMUSANT_segment second_part_segment,
+    populateNextSegments(S_Segment first_part_segment,
+                         S_Segment second_part_segment,
                          PartEntry& first_part,
                          PartEntry& second_part,
                          int& first_part_index,
@@ -215,17 +215,17 @@ namespace CATSMAT
     
     void
     SegmentedScoreFixedPeriod::
-    addSegment(S_IMUSANT_segment segment)
+    addSegment(S_Segment segment)
     {
         fSegmentationResult.insert(*segment);
     }
     
-    S_IMUSANT_segment
+    S_Segment
     SegmentedScoreFixedPeriod::
     makeNewSegment(S_IMUSANT_part part)
     {
         S_SegmentContext context = new_SegmentContext(fScore, part, this->SEGMENTATION_ALGORITHM);
-        S_IMUSANT_segment next_segment = new_IMUSANT_segment(context);
+        S_Segment next_segment = new_Segment(context);
         return next_segment;
     };
     

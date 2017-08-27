@@ -12,11 +12,11 @@
 #include <stdio.h>
 #include <unordered_set>
 
-#include "IMUSANT_segment.h"
+#include "Segment.h"
 
 namespace CATSMAT
 {
-    class SetOfSegment : public unordered_set<IMUSANT_segment, SegmentHash, SegmentComparator>
+    class SetOfSegment : public unordered_set<Segment, SegmentHash, SegmentComparator>
     {
         friend ostream& operator<< (ostream& os, const SetOfSegment& segment_set);
         
