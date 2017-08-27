@@ -108,7 +108,7 @@ set(SRC ${SRC}
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/SegmentedScoreFixedPeriod.cpp
 
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_interval_profile_LBDM.cpp
-		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_LBDM_segmenter.cpp
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_Segmenter.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_note_vectors.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_part_LBDM.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_profile_vectors.cpp

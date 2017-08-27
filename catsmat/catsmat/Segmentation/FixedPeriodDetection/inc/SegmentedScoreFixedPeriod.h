@@ -1,13 +1,6 @@
-//
-//  IMUSANT_segmented_part_fixed_period.h
-//  catsmat
-//
-//  Created by Derrick Hill on 29/10/2016.
-//
-//
 
-#ifndef __catsmat__IMUSANT_segmented_part_fixed_period__
-#define __catsmat__IMUSANT_segmented_part_fixed_period__
+#ifndef __SegmentedPartFixedPeriod__
+#define __SegmentedPartFixedPeriod__
 
 #include <stdio.h>
 
@@ -27,7 +20,7 @@ namespace CATSMAT
     {
     public:
         
-        string SEGMENTATION_ALGORITHM = "IMUSANT_segmented_part_fixed_period";
+        string SEGMENTATION_ALGORITHM = "SegmentedScoreFixedPeriod";
         
         static const int SUCCESS = 0;
         static const int ERR_NOT_ENOUGH_PARTS = 1;
@@ -97,4 +90,4 @@ namespace CATSMAT
 }
 
 
-#endif /* defined(__catsmat__IMUSANT_segmented_part_fixed_period__) */
+#endif /* defined(__SegmentedPartFixedPeriod__) */
