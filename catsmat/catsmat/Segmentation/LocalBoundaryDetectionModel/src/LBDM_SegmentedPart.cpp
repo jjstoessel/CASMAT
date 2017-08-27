@@ -1,5 +1,5 @@
 //
-//  IMUSANT_segmented_part_LBDM.cpp
+//  LBDM_SegmentedPart.cpp
 //
 //  Created by Derrick Hill on 19/03/2016.
 //
@@ -13,7 +13,7 @@
 //
 
 
-#include "IMUSANT_segmented_part_LBDM.h"
+#include "LBDM_SegmentedPart.h"
 
 #include <iomanip>
 #include <iostream>
@@ -21,11 +21,11 @@
 namespace CATSMAT
 {
     //
-    // IMUSANT_segmented_part_LBDM
+    // LBDM_SegmentedPart
     //
     
     void
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     initialise(S_IMUSANT_part the_part)
     {
         fPart = the_part;
@@ -37,17 +37,17 @@ namespace CATSMAT
     // This method returns you the segments, as a set (no duplicates).
     //
     SetOfSegment &
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     getSegmentsSet()
     {
-        throw "Not Implemented - IMUSANT_segmented_part_LBDM::getSegmentsSet()";
+        throw "Not Implemented - LBDM_SegmentedPart::getSegmentsSet()";
         
         return fSegmentationResult;
     }
     
     
     void
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     buildIntervalProfiles()
     {
         IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
@@ -74,7 +74,7 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     calculateOverallLocalBoundaryStrengthVector()
     {
         overall_local_boundary_strength_profile.clear();
@@ -95,17 +95,17 @@ namespace CATSMAT
         }
     }
     
-    IMUSANT_consolidated_interval_profile_vector_LBDM
-    IMUSANT_segmented_part_LBDM::
+    LBDM_ConsolidatedIntervalProfileVector
+    LBDM_SegmentedPart::
     getConsolidatedProfiles()
     {
-        IMUSANT_consolidated_interval_profile_vector_LBDM ret_val;
+        LBDM_ConsolidatedIntervalProfileVector ret_val;
         
         IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
         
         for (int index = 0; index < pitch_interval_profile.strength_vector.size(); index++)
         {
-            IMUSANT_consolidated_interval_profile_LBDM next_row;
+            LBDM_ConsolidatedIntervalProfile next_row;
             
             if (index == 0)
             {
@@ -130,8 +130,8 @@ namespace CATSMAT
         return ret_val;
     }
     
-    vector<IMUSANT_consolidated_interval_profile_vector_LBDM>
-    IMUSANT_segmented_part_LBDM::
+    vector<LBDM_ConsolidatedIntervalProfileVector>
+    LBDM_SegmentedPart::
     getSegmentsWithProfileVectors()
     {
         LBDM_SegmentedProfileVectors segments;
@@ -142,7 +142,7 @@ namespace CATSMAT
     }
     
     vector <IMUSANT_note_vector>
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     getSegmentsAsNoteVectors()
     {
         IMUSANT_segmented_note_vectors segments;
@@ -154,7 +154,7 @@ namespace CATSMAT
 
     
     vector<IMUSANT_strength_vector>
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     getSegmentsWithWeightedAverages()
     {
         LBDM_WeightedStrengthVectors segments;
@@ -165,12 +165,12 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     getSegmentsUsingVisitor(IMUSANT_consolidated_interval_profile_LBDM_visitor &visitor)
     {
-        IMUSANT_consolidated_interval_profile_vector_LBDM consolidated_profiles = getConsolidatedProfiles();
+        LBDM_ConsolidatedIntervalProfileVector consolidated_profiles = getConsolidatedProfiles();
         
-        for (IMUSANT_consolidated_interval_profile_vector_LBDM::iterator data_iter = consolidated_profiles.begin();
+        for (LBDM_ConsolidatedIntervalProfileVector::iterator data_iter = consolidated_profiles.begin();
              data_iter != consolidated_profiles.end();
              data_iter++)
         {
@@ -179,7 +179,7 @@ namespace CATSMAT
     }
             
     int
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     findNextSegmentBoundary(int start_index)
     {
         // Examine the values N positions either side of start_index.
@@ -211,7 +211,7 @@ namespace CATSMAT
     }
     
     bool
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     isThisASegmentBoundary(int strength_profile_index_position) const
     {
         if (strength_profile_index_position == overall_local_boundary_strength_profile.size() -1)
@@ -248,7 +248,7 @@ namespace CATSMAT
     }
     
     int
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     getArrayPositionsWithoutOverflowingLowerBound(int index_position, int span) const
     {
         // make sure we don't overrun the start of the array going backwards;
@@ -257,7 +257,7 @@ namespace CATSMAT
     }
     
     int
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     getArrayPositionsWithoutOverflowingUpperBound(int index_position, int span) const
     {
         // make sure we don't overrun the end of the array going forwards;
@@ -285,21 +285,21 @@ namespace CATSMAT
     
 
     ostream&
-    operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part)
+    operator<< (ostream& os, const LBDM_SegmentedPart& segmented_part)
     {
         os << segmented_part.print(true);
         return os;
     }
     
     string
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     printForTesting() const
     {
         return print(false);
     }
     
     string
-    IMUSANT_segmented_part_LBDM::
+    LBDM_SegmentedPart::
     print(bool include_notes, bool include_boundaries) const
     {
         IMUSANT_vector<S_IMUSANT_note> notes = fPart->notes();
@@ -356,7 +356,7 @@ namespace CATSMAT
     
     S_IMUSANT_segmented_part_LBDM new_IMUSANT_segmented_part_LBDM(SetOfSegment & segmentation_results)
     {
-        IMUSANT_segmented_part_LBDM* o = new IMUSANT_segmented_part_LBDM(segmentation_results);
+        LBDM_SegmentedPart* o = new LBDM_SegmentedPart(segmentation_results);
         assert (o!=0);
         return o;
     }

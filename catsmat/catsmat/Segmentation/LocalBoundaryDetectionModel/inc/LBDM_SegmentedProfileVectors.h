@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "IMUSANT_consolidated_interval_profile_LBDM_visitor.h"
-#include "IMUSANT_consolidated_interval_profile_LBDM.h"
+#include "LBDM_ConsolidatedIntervalProfile.h"
 
 using namespace std;
 
@@ -15,13 +15,13 @@ namespace CATSMAT
     class LBDM_SegmentedProfileVectors : public IMUSANT_consolidated_interval_profile_LBDM_visitor
     {
     public:
-        
+
         LBDM_SegmentedProfileVectors() {}
         virtual ~LBDM_SegmentedProfileVectors() {}
 
-        virtual void visit(IMUSANT_consolidated_interval_profile_LBDM *target);
+        virtual void visit(LBDM_ConsolidatedIntervalProfile *target);
         
-        vector<IMUSANT_consolidated_interval_profile_vector_LBDM> segments;
+        vector<LBDM_ConsolidatedIntervalProfileVector> segments;
         
     private:
         

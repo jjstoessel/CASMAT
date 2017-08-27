@@ -14,7 +14,7 @@
 
 #include "CATSMAT_test_utility.h"
 
-#include "IMUSANT_segmented_part_LBDM_Expected.h"
+#include "LBDM_SegmentedPart_Expected.h"
 #include "IMUSANT_interval_profile_LBDM.h"
 
 #include "libIMUSANT.h"

@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "IMUSANT_t_suffixtree_builder.h"
 #include "Loki/Visitor.h"
-#include "IMUSANT_segmented_part_LBDM.h"
+#include "LBDM_SegmentedPart.h"
 
 using namespace Loki;
 

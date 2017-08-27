@@ -1,5 +1,5 @@
 //
-//  IMUSANT_segmented_part_LBDM.h
+//  LBDM_SegmentedPart.h
 //  imusant
 //
 //  Created by Derrick Hill on 19/03/2016.
@@ -15,7 +15,7 @@
 #include "I_Segmented.h"
 #include "IMUSANT_part.h"
 #include "IMUSANT_interval_profile_LBDM.h"
-#include "IMUSANT_consolidated_interval_profile_LBDM.h"
+#include "LBDM_ConsolidatedIntervalProfile.h"
 #include "LBDM_SegmentedProfileVectors.h"
 #include "IMUSANT_segmented_note_vectors.h"
 #include "LBDM_WeightedStrengthVectors.h"
@@ -24,17 +24,17 @@ using namespace std;
 
 namespace CATSMAT
 {
-    class IMUSANT_segmented_part_LBDM : public smartable, I_Segmented
+    class LBDM_SegmentedPart : public smartable, I_Segmented
     {
     public:
 
-        friend IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM();
+        friend IMUSANT_SMARTP<LBDM_SegmentedPart> new_IMUSANT_segmented_part_LBDM();
         
-        IMUSANT_segmented_part_LBDM(SetOfSegment & segmentation_result) : I_Segmented(segmentation_result)
+        LBDM_SegmentedPart(SetOfSegment & segmentation_result) : I_Segmented(segmentation_result)
         {
         }
         
-        virtual ~IMUSANT_segmented_part_LBDM() {}
+        virtual ~LBDM_SegmentedPart() {}
         
         
         //
@@ -69,9 +69,9 @@ namespace CATSMAT
         // all the change intervals for the part.
         //
         // For the calculation of segments we always use the EndNote element of each
-        // IMUSANT_consolidated_interval_profile_LBDM.
+        // LBDM_ConsolidatedIntervalProfile.
         //
-        IMUSANT_consolidated_interval_profile_vector_LBDM  getConsolidatedProfiles();
+        LBDM_ConsolidatedIntervalProfileVector  getConsolidatedProfiles();
         
         //
         // This method returns the weighted average change vector as a single (unsegmented) vector.
@@ -93,7 +93,7 @@ namespace CATSMAT
         // vectors for each segment. Each element of the
         // returned vector is a segment.
         //
-        vector<IMUSANT_consolidated_interval_profile_vector_LBDM> getSegmentsWithProfileVectors();
+        vector<LBDM_ConsolidatedIntervalProfileVector> getSegmentsWithProfileVectors();
         
         //
         // This method returns you segments with the weighted averages isolated
@@ -126,7 +126,7 @@ namespace CATSMAT
         // Where the note values represented by this {1.1, 72, 512} are
         // {MeasureNumber.NoteIndex, MidiKeyNumber, DurationAsAbsoluteNumeric}
         //
-        friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part);
+        friend ostream& operator<< (ostream& os, const LBDM_SegmentedPart& segmented_part);
         
         // This output operator produces compilable output that can be extracted as an
         // array initialisation for the purposes of capturing test case expected output.
@@ -179,8 +179,8 @@ namespace CATSMAT
 
     };
     
-    typedef IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;
-    IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(SetOfSegment & segmentation_results);
+    typedef IMUSANT_SMARTP<LBDM_SegmentedPart> S_IMUSANT_segmented_part_LBDM;
+    IMUSANT_SMARTP<LBDM_SegmentedPart> new_IMUSANT_segmented_part_LBDM(SetOfSegment & segmentation_results);
 }
 
 #endif /* defined(__imusant__IMUSANT_segmented_part_LBDM__) */

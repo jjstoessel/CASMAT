@@ -13,7 +13,7 @@
 
 
 #include "IMUSANT_consolidated_interval_profile_LBDM_visitor.h"
-#include "IMUSANT_consolidated_interval_profile_LBDM.h"
+#include "LBDM_ConsolidatedIntervalProfile.h"
 
 using namespace std;
 
@@ -28,7 +28,7 @@ namespace CATSMAT
         LBDM_WeightedStrengthVectors() {}
         virtual ~LBDM_WeightedStrengthVectors() {}
         
-        virtual void visit(IMUSANT_consolidated_interval_profile_LBDM *target);
+        virtual void visit(LBDM_ConsolidatedIntervalProfile *target);
         
         vector<IMUSANT_strength_vector> segments;
         

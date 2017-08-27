@@ -14,7 +14,7 @@
 
 #include "IMUSANT_note.h"
 #include "IMUSANT_consolidated_interval_profile_LBDM_visitor.h"
-#include "IMUSANT_consolidated_interval_profile_LBDM.h"
+#include "LBDM_ConsolidatedIntervalProfile.h"
 
 using namespace std;
 
@@ -27,7 +27,7 @@ namespace CATSMAT
         IMUSANT_segmented_note_vectors() {}
         virtual ~IMUSANT_segmented_note_vectors() {}
         
-        virtual void visit(IMUSANT_consolidated_interval_profile_LBDM *target);
+        virtual void visit(LBDM_ConsolidatedIntervalProfile *target);
         
         vector<IMUSANT_note_vector> segments;
         

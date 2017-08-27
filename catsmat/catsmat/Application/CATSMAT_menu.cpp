@@ -288,7 +288,7 @@ runToolsMenu(CATSMAT_processing* processor)
                         }
                         
                         cout << "NEW IMPLEMENTATION USING SetOfSegment segmentation_result" << endl;
-                        cout << "Not working because IMUSANT_segmented_part_LBDM does not yet implement the use of the segmentation_results input parameter." << endl;
+                        cout << "Not working because LBDM_SegmentedPart does not yet implement the use of the segmentation_results input parameter." << endl;
                         
                         
                         cout << segmentation_result << endl;

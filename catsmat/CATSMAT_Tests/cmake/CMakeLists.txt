@@ -36,7 +36,7 @@ set(SRC ${SRC}
 		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_interval_profile_LBDM_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/PartlistOrderedByPartEntry_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/Segment_Tests.cpp
-		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_segmented_part_LBDM_Tests.cpp
+		${CATSMAT_SEGMENTATION_TEST_DIR}/LBDM_SegmentedPart_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/SegmentedScoreFixedPeriod_Tests.cpp
 		${CATSMAT_TEST_DIR}/main.cpp
 		)
@@ -54,6 +54,7 @@ set(HEADERS ${HEADERS}
 		${CATSMAT_TEST_DIR}/CATSMAT_sonority_sequences_Expected.h
 		${CATSMAT_TEST_DIR}/CATSMAT_test_utility.h
 		${CATSMAT_TEST_DIR}/CATSMAT_trigramsequences_expected.h
+		${CATSMAT_SEGMENTATION_TEST_DIR}/LBDM_SegmentedPart_Expected.h
 )
 
 foreach(folder ${INCFOLDERS})
@@ -84,7 +85,7 @@ if (Boost_FOUND)
 	set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 	#set target, add executable and link libraries (default shared/dynamic libraries)
 	set(target CATSMAT_Test)
-	add_executable(${target} ${SRC} )
+	add_executable(${target} ${SRC} ${HEADERS})
 	TARGET_LINK_LIBRARIES(${target} libmusicxml2; libIMUSANT; gtest; ${Boost_LIBRARIES}  )
 endif()
 

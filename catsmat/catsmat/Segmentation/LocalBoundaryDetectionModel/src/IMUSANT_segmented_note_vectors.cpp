@@ -12,7 +12,7 @@ namespace CATSMAT {
     
     void
     IMUSANT_segmented_note_vectors::
-    visit(IMUSANT_consolidated_interval_profile_LBDM *target)
+    visit(LBDM_ConsolidatedIntervalProfile *target)
     {
         if (target->isBoundary())
         {

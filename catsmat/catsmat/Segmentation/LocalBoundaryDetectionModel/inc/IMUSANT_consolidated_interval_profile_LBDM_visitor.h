@@ -13,7 +13,7 @@
 
 namespace CATSMAT
 {
-    class IMUSANT_consolidated_interval_profile_LBDM;
+    class LBDM_ConsolidatedIntervalProfile;
     
     class IMUSANT_consolidated_interval_profile_LBDM_visitor
     {
@@ -22,7 +22,7 @@ namespace CATSMAT
         IMUSANT_consolidated_interval_profile_LBDM_visitor() {}
         virtual ~IMUSANT_consolidated_interval_profile_LBDM_visitor() {}
         
-        virtual void visit(IMUSANT_consolidated_interval_profile_LBDM *target) = 0;
+        virtual void visit(LBDM_ConsolidatedIntervalProfile *target) = 0;
     };
 }
 

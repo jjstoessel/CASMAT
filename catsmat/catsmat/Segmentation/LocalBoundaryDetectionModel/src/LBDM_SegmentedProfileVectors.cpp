@@ -12,11 +12,11 @@ namespace CATSMAT {
     
     void
     LBDM_SegmentedProfileVectors::
-    visit(IMUSANT_consolidated_interval_profile_LBDM *target)
+    visit(LBDM_ConsolidatedIntervalProfile *target)
     {
         if (target->isBoundary())
         {
-            IMUSANT_consolidated_interval_profile_vector_LBDM next_segment;
+            LBDM_ConsolidatedIntervalProfileVector next_segment;
             segments.push_back(next_segment);
             fCurrentSegmentIndex++;
         }

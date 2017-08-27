@@ -15,7 +15,7 @@ namespace CATSMAT {
     
     void
     LBDM_WeightedStrengthVectors::
-    visit(IMUSANT_consolidated_interval_profile_LBDM *target)
+    visit(LBDM_ConsolidatedIntervalProfile *target)
     {
         if (target->isBoundary())
         {
