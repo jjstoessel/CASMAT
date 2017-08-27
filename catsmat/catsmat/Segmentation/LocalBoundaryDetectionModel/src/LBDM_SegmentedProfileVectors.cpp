@@ -1,17 +1,17 @@
 //
-//  IMUSANT_segmented_profile_vectors.cpp
+//  LBDM_SegmentedProfileVectors.cpp
 //  catsmat
 //
 //  Created by Derrick Hill on 10/09/2016.
 //
 //
 
-#include "IMUSANT_segmented_profile_vectors.h"
+#include "LBDM_SegmentedProfileVectors.h"
 
 namespace CATSMAT {
     
     void
-    IMUSANT_segmented_profile_vectors::
+    LBDM_SegmentedProfileVectors::
     visit(IMUSANT_consolidated_interval_profile_LBDM *target)
     {
         if (target->isBoundary())

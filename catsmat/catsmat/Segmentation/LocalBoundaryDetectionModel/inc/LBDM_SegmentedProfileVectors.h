@@ -1,10 +1,3 @@
-//
-//  IMUSANT_segmented_profile_vectors.h
-//  catsmat
-//
-//  Created by Derrick Hill on 10/09/2016.
-//
-//
 
 #ifndef __catsmat__IMUSANT_segmented_profile_vectors__
 #define __catsmat__IMUSANT_segmented_profile_vectors__
@@ -19,12 +12,12 @@ using namespace std;
 
 namespace CATSMAT
 {
-    class IMUSANT_segmented_profile_vectors : public IMUSANT_consolidated_interval_profile_LBDM_visitor
+    class LBDM_SegmentedProfileVectors : public IMUSANT_consolidated_interval_profile_LBDM_visitor
     {
     public:
         
-        IMUSANT_segmented_profile_vectors() {}
-        virtual ~IMUSANT_segmented_profile_vectors() {}
+        LBDM_SegmentedProfileVectors() {}
+        virtual ~LBDM_SegmentedProfileVectors() {}
 
         virtual void visit(IMUSANT_consolidated_interval_profile_LBDM *target);
         

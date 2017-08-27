@@ -14,7 +14,7 @@
 #include "CATSMAT_test_utility.h"
 
 #include "IMUSANT_segmented_part_LBDM_Expected.h"
-#include "IMUSANT_segmented_profile_vectors.h"
+#include "LBDM_SegmentedProfileVectors.h"
 #include "LBDM_WeightedStrengthVectors.h"
 #include "IMUSANT_segmented_part_LBDM.h"
 #include "LBDM_Segmenter.h"

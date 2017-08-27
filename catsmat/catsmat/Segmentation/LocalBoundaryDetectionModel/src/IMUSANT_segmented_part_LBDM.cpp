@@ -134,7 +134,7 @@ namespace CATSMAT
     IMUSANT_segmented_part_LBDM::
     getSegmentsWithProfileVectors()
     {
-        IMUSANT_segmented_profile_vectors segments;
+        LBDM_SegmentedProfileVectors segments;
         
         getSegmentsUsingVisitor(segments);
         

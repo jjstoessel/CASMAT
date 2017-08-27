@@ -111,9 +111,57 @@ set(SRC ${SRC}
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_Segmenter.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_note_vectors.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_part_LBDM.cpp
-		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/IMUSANT_segmented_profile_vectors.cpp
+		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_SegmentedProfileVectors.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_WeightedStrengthVectors.cpp
 		)
+		
+set(HEADERS ${HEADERS}
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_contour_suffixtree_builder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_generalised_interval_suffixtree_builder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_interval_suffixtree_builder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_pitch_suffixtree_builder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_repeated_interval_substring.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_t_repeated_substring.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_VectorMapAnalysisTypes.h
+
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_chord.h
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_collectionvisitor.h
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_cp_matrix.h
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_dyad_sequences.h
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_dyad_sequences_base.h
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_dyadtuple_sequences.h
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_sonority_sequences.h
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_TrigramSequences.h
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_TrigramSuffixTreeBuilder.h
+
+        ${CATSMAT_GENERAL_ANALYSIS_INC_DIR}/CATSMAT_canonic_techniques_tools.h
+        ${CATSMAT_GENERAL_ANALYSIS_INC_DIR}/CATSMAT_partdata.h
+        ${CATSMAT_GENERAL_ANALYSIS_INC_DIR}/CATSMAT_processing.h
+        ${CATSMAT_GENERAL_ANALYSIS_INC_DIR}/CATSMAT_score_profile.tpp
+        ${CATSMAT_GENERAL_ANALYSIS_INC_DIR}/CATSMAT_score_splitter.h
+        ${CATSMAT_GENERAL_ANALYSIS_INC_DIR}/CATSMAT_scoredata.h
+        ${CATSMAT_GENERAL_ANALYSIS_INC_DIR}/CATSMAT_scoredatacollector.h
+
+        ${CATSMAT_SEGMENTATION_INC_DIR}/I_Segment.h
+        ${CATSMAT_SEGMENTATION_INC_DIR}/I_Segmented.h
+        ${CATSMAT_SEGMENTATION_INC_DIR}/I_SetOfSegment.h
+        ${CATSMAT_SEGMENTATION_INC_DIR}/Segment.h
+        ${CATSMAT_SEGMENTATION_INC_DIR}/SetOfSegment.h
+        ${CATSMAT_SEGMENTATION_INC_DIR}/SegmentContext.h
+
+        ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/FixedPeriodSegmenter.h
+        ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/PartlistOrderedByPartEntry.h
+        ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/SegmentedScoreFixedPeriod.h
+
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/IMUSANT_consolidated_interval_profile_LBDM.h
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/IMUSANT_consolidated_interval_profile_visitor_LBDM.h
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/IMUSANT_interval_profile_LBDM.h
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_Segmenter.h
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/IMUSANT_segmented_note_vectors.h
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/IMUSANT_segmented_part_LBDM.h
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_SegmentedProfileVectors.h
+        ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_WeightedStrengthVectors.h
+        )
 
 #
 # If you are building the CATSMAT application then you will need to add these files into SRC in your own CMakeLists.txt

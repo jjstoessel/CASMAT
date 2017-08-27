@@ -41,8 +41,22 @@ set(SRC ${SRC}
 		${CATSMAT_TEST_DIR}/main.cpp
 		)
 
+set(HEADERS ${HEADERS}
+		${CATSMAT_TEST_DIR}/CATSMAT_canonic_techniques_tools_expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Josquin_MAF_Kyrie_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Kyrie_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Sanctus_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_dyad_sequences_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_dyadtuple_sequences_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_scoredatacollector_tests.h
+		${CATSMAT_TEST_DIR}/CATSMAT_sonority_sequences_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_test_utility.h
+		${CATSMAT_TEST_DIR}/CATSMAT_trigramsequences_expected.h
+)
+
 foreach(folder ${INCFOLDERS})
-	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
