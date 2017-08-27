@@ -103,7 +103,7 @@ set(SRC ${SRC}
 		${CATSMAT_SEGMENTATION_SRC_DIR}/IMUSANT_set_of_segment.cpp
 		${CATSMAT_SEGMENTATION_SRC_DIR}/SegmentContext.cpp
 
-		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/IMUSANT_fixed_period_segmenter.cpp
+		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/FixedPeriodSegmenter.cpp
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/IMUSANT_partlist_ordered_by_part_entry.cpp
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/SegmentedScoreFixedPeriod.cpp
 

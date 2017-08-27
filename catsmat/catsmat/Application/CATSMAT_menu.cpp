@@ -18,7 +18,7 @@
 #include "IMUSANT_pitch_suffixtree_builder.h"
 #include "IMUSANT_contour_suffixtree_builder.h"
 #include "IMUSANT_LBDM_segmenter.h"
-#include "IMUSANT_fixed_period_segmenter.h"
+#include "FixedPeriodSegmenter.h"
 
 #include "CATSMAT_scoredatacollector.h"
 #include "IMUSANT_vectormap_analysis_types.h"
@@ -301,11 +301,11 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 't':
                 {
                     IMUSANT_set_of_segment segmentation_results;
-                    IMUSANT_fixed_period_segmenter segmenter(segmentation_results);
+                    FixedPeriodSegmenter segmenter(segmentation_results);
                     segmenter.Visit(*processor);
-                    
-                    IMUSANT_fixed_period_segmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
-                    for (IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+
+                    FixedPeriodSegmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
+                    for (FixedPeriodSegmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
                          segment_set_iter != segments.end() ;
                          segment_set_iter++)
                     {
@@ -315,7 +315,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     
                     cout << "Format for using this data with R:" << endl;
                     bool first_time_round = true;
-                    for (IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+                    for (FixedPeriodSegmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
                          segment_set_iter != segments.end() ;
                          segment_set_iter++)
                     {
@@ -331,8 +331,8 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'q':
                 {
                     IMUSANT_set_of_segment segmentation_results;
-                    
-                    IMUSANT_fixed_period_segmenter fp_segmenter(segmentation_results);
+
+                    FixedPeriodSegmenter fp_segmenter(segmentation_results);
                     fp_segmenter.Visit(*processor);
                     
                     IMUSANT_LBDM_segmenter lbdm_segmenter(segmentation_results);
