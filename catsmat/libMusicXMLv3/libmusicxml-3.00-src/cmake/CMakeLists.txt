@@ -81,8 +81,13 @@ else(MSVC)
 	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
-add_library(${target} SHARED ${LIBCONTENT})
-set_target_properties (${target} PROPERTIES 
+if(UNIX)
+	add_library(${target} ${LIBCONTENT})
+elseif(UNIX)
+	add_library(${target} SHARED ${LIBCONTENT})
+endif(UNIX)
+
+set_target_properties (${target} PROPERTIES
 			FRAMEWORK TRUE 
 			VERSION ${VERSION}
 			FRAMEWORK_VERSION ${VERSION}
