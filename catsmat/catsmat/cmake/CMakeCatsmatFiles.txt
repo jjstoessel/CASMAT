@@ -1,8 +1,8 @@
 #
-# This file contains the definitions for ${INCFOLDERS} and ${SRC} that you need to
+# This file contains the definitions for ${INCFOLDERS}, ${HEADERS} and ${SRC} that you need to
 # build CATSMAT.
 #
-# I have factored thios out into a separate file so that these definitions can be included by the
+# I have factored this out into a separate file so that these definitions can be included by the
 # CMakeLists.txt file for both CATSMAT and CATSMAT_Test.
 #
 # Ideally CATSMAT should be separated into a library and that the tests and the application

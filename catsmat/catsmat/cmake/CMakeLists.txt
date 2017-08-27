@@ -24,9 +24,9 @@ set(SRC ${SRC}
 
 # Build up the include paths for header files.
 foreach(folder ${INCFOLDERS})
-	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
+
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
 FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem system REQUIRED ) #JS changed to look for specific libraries
