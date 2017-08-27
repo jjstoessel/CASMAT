@@ -170,7 +170,7 @@ namespace CATSMAT
         
         void calculateOverallLocalBoundaryStrengthVector();
 
-        void getSegmentsUsingVisitor(IMUSANT_consolidated_interval_profile_LBDM_visitor &visitor);
+        void getSegmentsUsingVisitor(LBDM_ConsolidatedIntervalProfileVisitor &visitor);
         
         int             findNextSegmentBoundary(int start_index);
         bool            isThisASegmentBoundary(int strength_profile_index_position) const;

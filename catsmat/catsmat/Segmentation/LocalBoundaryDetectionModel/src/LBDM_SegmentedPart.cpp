@@ -166,7 +166,7 @@ namespace CATSMAT
     
     void
     LBDM_SegmentedPart::
-    getSegmentsUsingVisitor(IMUSANT_consolidated_interval_profile_LBDM_visitor &visitor)
+    getSegmentsUsingVisitor(LBDM_ConsolidatedIntervalProfileVisitor &visitor)
     {
         LBDM_ConsolidatedIntervalProfileVector consolidated_profiles = getConsolidatedProfiles();
         

@@ -5,14 +5,14 @@
 #include <stdio.h>
 #include <vector>
 
-#include "IMUSANT_consolidated_interval_profile_LBDM_visitor.h"
+#include "LBDM_ConsolidatedIntervalProfileVisitor.h"
 #include "LBDM_ConsolidatedIntervalProfile.h"
 
 using namespace std;
 
 namespace CATSMAT
 {
-    class LBDM_SegmentedProfileVectors : public IMUSANT_consolidated_interval_profile_LBDM_visitor
+    class LBDM_SegmentedProfileVectors : public LBDM_ConsolidatedIntervalProfileVisitor
     {
     public:
 

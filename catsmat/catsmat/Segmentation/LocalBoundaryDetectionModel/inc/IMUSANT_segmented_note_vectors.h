@@ -13,14 +13,14 @@
 #include <vector>
 
 #include "IMUSANT_note.h"
-#include "IMUSANT_consolidated_interval_profile_LBDM_visitor.h"
+#include "LBDM_ConsolidatedIntervalProfileVisitor.h"
 #include "LBDM_ConsolidatedIntervalProfile.h"
 
 using namespace std;
 
 namespace CATSMAT
 {
-    class IMUSANT_segmented_note_vectors : public IMUSANT_consolidated_interval_profile_LBDM_visitor
+    class IMUSANT_segmented_note_vectors : public LBDM_ConsolidatedIntervalProfileVisitor
     {
     public:
         

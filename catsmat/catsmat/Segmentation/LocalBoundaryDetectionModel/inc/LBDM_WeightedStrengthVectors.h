@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 
-#include "IMUSANT_consolidated_interval_profile_LBDM_visitor.h"
+#include "LBDM_ConsolidatedIntervalProfileVisitor.h"
 #include "LBDM_ConsolidatedIntervalProfile.h"
 
 using namespace std;
@@ -21,7 +21,7 @@ namespace CATSMAT
 {
     typedef vector<double> IMUSANT_strength_vector;
     
-    class LBDM_WeightedStrengthVectors : public IMUSANT_consolidated_interval_profile_LBDM_visitor
+    class LBDM_WeightedStrengthVectors : public LBDM_ConsolidatedIntervalProfileVisitor
     {
     public:
         

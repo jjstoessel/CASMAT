@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-#include "IMUSANT_consolidated_interval_profile_LBDM_visitor.h"
+#include "LBDM_ConsolidatedIntervalProfileVisitor.h"
 #include "libIMUSANT.h"
 
 using namespace std;
@@ -114,7 +114,7 @@ namespace CATSMAT
             return fIsBoundary;
         }
         
-        void accept(IMUSANT_consolidated_interval_profile_LBDM_visitor& visitor)
+        void accept(LBDM_ConsolidatedIntervalProfileVisitor& visitor)
         {
             visitor.visit(this);
         }
