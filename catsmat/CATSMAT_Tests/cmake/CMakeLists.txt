@@ -11,7 +11,6 @@ endif()
 # This file contains all the paths for the CATSMAT code that we are testing.
 include(${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat/cmake/CMakeCatsmatFiles.txt)
 
-
 set (CATSMAT_TEST_DIR				${CMAKE_CURRENT_SOURCE_DIR}/..)
 set (CATSMAT_SEGMENTATION_TEST_DIR	${CATSMAT_TEST_DIR}/Segmentation)
 set (GOOGLE_TEST_INC_DIR			${CMAKE_CURRENT_SOURCE_DIR}/../../googletest-master/googletest/include)
@@ -34,16 +33,31 @@ set(SRC ${SRC}
 		${CATSMAT_TEST_DIR}/CATSMAT_sonority_sequences_Tests.cpp
 		${CATSMAT_TEST_DIR}/CATSMAT_test_utility.cpp
 		${CATSMAT_TEST_DIR}/CATSMAT_trigramsequences_tests.cpp
-		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_interval_profile_LBDM_Tests.cpp
-		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_partlist_ordered_by_part_entry_Tests.cpp
-		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_segment_Tests.cpp
-		${CATSMAT_SEGMENTATION_TEST_DIR}/IMUSANT_segmented_part_LBDM_Tests.cpp
+		${CATSMAT_SEGMENTATION_TEST_DIR}/LBDM_IntervalProfile_Tests.cpp
+		${CATSMAT_SEGMENTATION_TEST_DIR}/PartlistOrderedByPartEntry_Tests.cpp
+		${CATSMAT_SEGMENTATION_TEST_DIR}/Segment_Tests.cpp
+		${CATSMAT_SEGMENTATION_TEST_DIR}/LBDM_SegmentedPart_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/SegmentedScoreFixedPeriod_Tests.cpp
 		${CATSMAT_TEST_DIR}/main.cpp
 		)
 
+set(HEADERS ${HEADERS}
+		${CATSMAT_TEST_DIR}/CATSMAT_canonic_techniques_tools_expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Josquin_MAF_Kyrie_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Kyrie_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_cp_matrix_Sanctus_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_dyad_sequences_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_dyadtuple_sequences_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_scoredatacollector_tests.h
+		${CATSMAT_TEST_DIR}/CATSMAT_sonority_sequences_Expected.h
+		${CATSMAT_TEST_DIR}/CATSMAT_test_utility.h
+		${CATSMAT_TEST_DIR}/CATSMAT_trigramsequences_expected.h
+		${CATSMAT_SEGMENTATION_TEST_DIR}/LBDM_SegmentedPart_Expected.h
+)
+
 foreach(folder ${INCFOLDERS})
-	set(HEADERS ${HEADERS} "${folder}/*.h")		# add header files
 	set(INCL ${INCL} "${folder}")				# add include folders
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
@@ -53,13 +67,8 @@ file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 include_directories( ${INCL})
 set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 
-
-# create the build target and the executable
-#set(target CATSMAT_Test)
-#add_executable(${target} ${SRC} )
-
 #find boost
-FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem system REQUIRED ) #JS changed to look for specific libraries
+FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem system REQUIRED )
 
 if (Boost_FOUND)
 	#report boost status
@@ -71,18 +80,9 @@ if (Boost_FOUND)
 	set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 	#set target, add executable and link libraries (default shared/dynamic libraries)
 	set(target CATSMAT_Test)
-	add_executable(${target} ${SRC} )
+	add_executable(${target} ${SRC} ${HEADERS})   # We need the HEADERS to enable intellisence in CLion
 	TARGET_LINK_LIBRARIES(${target} libmusicxml2; libIMUSANT; gtest; ${Boost_LIBRARIES}  )
 endif()
-
-
-# Targeted Libraries
-#TARGET_LINK_LIBRARIES(${target} libmusicxml2)
-#TARGET_LINK_LIBRARIES(${target} libIMUSANT)
-#TARGET_LINK_LIBRARIES(${target} gtest)
-#TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
-#TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
-
 
 # Copy the test data files.
 set(TEST_DATA ${TEST_DATA}

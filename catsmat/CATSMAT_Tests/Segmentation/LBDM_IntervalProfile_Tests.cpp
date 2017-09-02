@@ -1,5 +1,5 @@
 //
-//  IMUSANT_interval_profile_LBDM_Tests.cpp
+//  LBDM_IntervalProfile_Tests.cpp
 //  imusant
 //
 //  Created by Derrick Hill on 7/05/2016.
@@ -14,8 +14,8 @@
 
 #include "CATSMAT_test_utility.h"
 
-#include "IMUSANT_segmented_part_LBDM_Expected.h"
-#include "IMUSANT_interval_profile_LBDM.h"
+#include "LBDM_SegmentedPart_Expected.h"
+#include "LBDM_IntervalProfile.h"
 
 #include "libIMUSANT.h"
 #include <boost/filesystem.hpp>
@@ -25,21 +25,21 @@ using namespace boost;
 
 //#define VERBOSE = 1;
 
-// The fixture for testing class IMUSANT_interval_profile_LBDM
-class IMUSANT_interval_profile_LBDM_Tests :
+// The fixture for testing class LBDM_IntervalProfile
+class LBDM_IntervalProfile_Tests :
             public ::testing::Test,
             public IMUSANT_segmented_part_LBDM_Expected
 {
     
 protected:
     
-    IMUSANT_interval_profile_LBDM_Tests()
+    LBDM_IntervalProfile_Tests()
     {
         // You can do set-up work for each test here.
         // This is a bit inefficient as each file gets parsed for each test case.
     }
     
-    virtual ~IMUSANT_interval_profile_LBDM_Tests()
+    virtual ~LBDM_IntervalProfile_Tests()
     {
         // You can do clean-up work that doesn't throw exceptions here.
     }
@@ -67,20 +67,20 @@ protected:
     
 };
 
-CATSMAT_test_utility * IMUSANT_interval_profile_LBDM_Tests::_test_utils = NULL;
-S_IMUSANT_score IMUSANT_interval_profile_LBDM_Tests::fScore_LBDM_Test1 = NULL;
-S_IMUSANT_score IMUSANT_interval_profile_LBDM_Tests::fScore_YankeeDoodle = NULL;
+CATSMAT_test_utility * LBDM_IntervalProfile_Tests::_test_utils = NULL;
+S_IMUSANT_score LBDM_IntervalProfile_Tests::fScore_LBDM_Test1 = NULL;
+S_IMUSANT_score LBDM_IntervalProfile_Tests::fScore_YankeeDoodle = NULL;
 
 // ************* TEST CASES START HERE *********** //
 
 
-TEST_F(IMUSANT_interval_profile_LBDM_Tests, IOI_profile_addProfileEntry)
+TEST_F(LBDM_IntervalProfile_Tests, IOI_profile_addProfileEntry)
 {
     S_IMUSANT_part part;
     fScore_LBDM_Test1->getPartById("P1", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
-    CATSMAT::IMUSANT_IOI_interval_profile ioi_profile;
+    CATSMAT::LBDM_IOI_IntervalProfile ioi_profile;
     ioi_profile.initialise(notes.size());
     
     for (int index = 0; index < notes.size(); index++)
@@ -113,13 +113,13 @@ TEST_F(IMUSANT_interval_profile_LBDM_Tests, IOI_profile_addProfileEntry)
     
 }
 
-TEST_F(IMUSANT_interval_profile_LBDM_Tests, pitch_profile_addProfileEntry)
+TEST_F(LBDM_IntervalProfile_Tests, pitch_profile_addProfileEntry)
 {
     S_IMUSANT_part part;
     fScore_LBDM_Test1->getPartById("P2", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
-    CATSMAT::IMUSANT_pitch_interval_profile pitch_profile;
+    CATSMAT::LBDM_PitchIntervalProfile pitch_profile;
     pitch_profile.initialise(notes.size());
     
     for (int index = 0; index < notes.size(); index++)
@@ -149,13 +149,13 @@ TEST_F(IMUSANT_interval_profile_LBDM_Tests, pitch_profile_addProfileEntry)
 #endif
 }
 
-TEST_F(IMUSANT_interval_profile_LBDM_Tests, rest_profile_addProfileEntry)
+TEST_F(LBDM_IntervalProfile_Tests, rest_profile_addProfileEntry)
 {
     S_IMUSANT_part part;
     fScore_LBDM_Test1->getPartById("P3", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
-    CATSMAT::IMUSANT_rest_interval_profile rest_profile;
+    CATSMAT::LBDM_RestIntervalProfile rest_profile;
     rest_profile.initialise(notes.size());
     
     for (int index = 0; index < notes.size(); index++)
@@ -191,13 +191,13 @@ TEST_F(IMUSANT_interval_profile_LBDM_Tests, rest_profile_addProfileEntry)
 }
 
 
-TEST_F(IMUSANT_interval_profile_LBDM_Tests, pitch_profile_calculateChangeVector)
+TEST_F(LBDM_IntervalProfile_Tests, pitch_profile_calculateChangeVector)
 {
     S_IMUSANT_part part;
     fScore_LBDM_Test1->getPartById("P2", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
-    CATSMAT::IMUSANT_pitch_interval_profile profile;
+    CATSMAT::LBDM_PitchIntervalProfile profile;
     profile.initialise(notes.size());
     
     for (int index = 0; index < notes.size(); index++)
@@ -225,13 +225,13 @@ TEST_F(IMUSANT_interval_profile_LBDM_Tests, pitch_profile_calculateChangeVector)
 #endif
 }
 
-TEST_F(IMUSANT_interval_profile_LBDM_Tests, pitch_profile_P1_calculateStrengthVector)
+TEST_F(LBDM_IntervalProfile_Tests, pitch_profile_P1_calculateStrengthVector)
 {
     S_IMUSANT_part part;
     fScore_LBDM_Test1->getPartById("P1", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
-    CATSMAT::IMUSANT_pitch_interval_profile profile;
+    CATSMAT::LBDM_PitchIntervalProfile profile;
     profile.initialise(notes.size());
     
     for (int index = 0; index < notes.size(); index++)
@@ -257,13 +257,13 @@ TEST_F(IMUSANT_interval_profile_LBDM_Tests, pitch_profile_P1_calculateStrengthVe
 }
 
 
-TEST_F(IMUSANT_interval_profile_LBDM_Tests, IOI_profile_P1_calculateStrengthVector)
+TEST_F(LBDM_IntervalProfile_Tests, IOI_profile_P1_calculateStrengthVector)
 {
     S_IMUSANT_part part;
     fScore_LBDM_Test1->getPartById("P1", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
-    CATSMAT::IMUSANT_IOI_interval_profile profile;
+    CATSMAT::LBDM_IOI_IntervalProfile profile;
     profile.initialise(notes.size());
     
     for (int index = 0; index < notes.size(); index++)
@@ -290,13 +290,13 @@ TEST_F(IMUSANT_interval_profile_LBDM_Tests, IOI_profile_P1_calculateStrengthVect
 }
 
 
-TEST_F(IMUSANT_interval_profile_LBDM_Tests, pitch_profile_P2_calculateStrengthVector)
+TEST_F(LBDM_IntervalProfile_Tests, pitch_profile_P2_calculateStrengthVector)
 {
     S_IMUSANT_part part;
     fScore_LBDM_Test1->getPartById("P2", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
-    CATSMAT::IMUSANT_pitch_interval_profile profile;
+    CATSMAT::LBDM_PitchIntervalProfile profile;
     profile.initialise(notes.size());
     
     for (int index = 0; index < notes.size(); index++)
@@ -323,13 +323,13 @@ TEST_F(IMUSANT_interval_profile_LBDM_Tests, pitch_profile_P2_calculateStrengthVe
 }
 
 
-TEST_F(IMUSANT_interval_profile_LBDM_Tests, IOI_profile_P2_calculateStrengthVector)
+TEST_F(LBDM_IntervalProfile_Tests, IOI_profile_P2_calculateStrengthVector)
 {
     S_IMUSANT_part part;
     fScore_LBDM_Test1->getPartById("P2", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
-    CATSMAT::IMUSANT_IOI_interval_profile profile;
+    CATSMAT::LBDM_IOI_IntervalProfile profile;
     profile.initialise(notes.size());
     
     for (int index = 0; index < notes.size(); index++)
@@ -355,13 +355,13 @@ TEST_F(IMUSANT_interval_profile_LBDM_Tests, IOI_profile_P2_calculateStrengthVect
     
 }
 
-TEST_F(IMUSANT_interval_profile_LBDM_Tests, rest_profile_P3_calculateStrengthVector)
+TEST_F(LBDM_IntervalProfile_Tests, rest_profile_P3_calculateStrengthVector)
 {
     S_IMUSANT_part part;
     fScore_LBDM_Test1->getPartById("P3", part);
     
     IMUSANT_vector<S_IMUSANT_note> notes = part->notes();
-    CATSMAT::IMUSANT_rest_interval_profile profile;
+    CATSMAT::LBDM_RestIntervalProfile profile;
     profile.initialise(notes.size());
     
     for (int index = 0; index < notes.size(); index++)

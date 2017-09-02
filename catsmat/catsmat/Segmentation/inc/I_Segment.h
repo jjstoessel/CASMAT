@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef I_Segment_h
-#define I_Segment_h
+#ifndef __I_Segment__
+#define __I_Segment__
 
 #include "SegmentContext.h"
 #include "libIMUSANT.h"
@@ -37,4 +37,4 @@ namespace CATSMAT
 
 
 
-#endif /* I_Segment_h */
+#endif /* __I_Segment__ */

@@ -1,26 +1,18 @@
 #######################################
 # CMAKE libIMUSANT
 #######################################
-#project(libIMUSANT)
-cmake_minimum_required(VERSION 3.6)
+
+cmake_minimum_required(VERSION 3.8)
 set(CMAKE_CXX_STANDARD 11)
 if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)
 endif()
-
-#######################################
-# versions management
-#set (VERSION 3.00)
-#set (STRVERS "v.3.00")
-#set (SSTRVERS "3.00")
 
 if(UNIX)
 	add_definitions(-Wall -DGCC)
 endif(UNIX)
 
 if(APPLE)
-	#set (CMAKE_MACOSX_RPATH 1)
-	#set (CMAKE_OSX_ARCHITECTURES x86_64;i386)
     set(CMAKE_OSX_DEPLOYMENT_TARGET=10.5)
     set(MACOSX_RPATH ON)
 endif(APPLE)
@@ -34,15 +26,9 @@ if(WIN32)
  endif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
 endif(WIN32)
 
-
 #######################################
 # set library target
-if(APPLE OR MSVC)
-    set(target libIMUSANT)
-else(APPLE OR MSVC)
-    set(target libIMUSANT)
-endif(APPLE OR MSVC)
-
+set(target libIMUSANT)
 
 ###############  BOOST LIBRARIES ###########
 message("INSIDE libIMUSANT")
@@ -114,8 +100,11 @@ else(MSVC)
 	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
-
-add_library(${target} SHARED ${LIBCONTENT})
+if(UNIX)
+	add_library(${target} ${LIBCONTENT})
+else(UNIX )
+	add_library(${target} SHARED ${LIBCONTENT})
+endif(UNIX)
 
 ###############  Targeted Libraries ###########
 TARGET_LINK_LIBRARIES(${target} libmusicxml2)

@@ -17,8 +17,8 @@
 #include "IMUSANT_interval_suffixtree_builder.h"
 #include "IMUSANT_pitch_suffixtree_builder.h"
 #include "IMUSANT_contour_suffixtree_builder.h"
-#include "IMUSANT_LBDM_segmenter.h"
-#include "IMUSANT_fixed_period_segmenter.h"
+#include "LBDM_Segmenter.h"
+#include "FixedPeriodSegmenter.h"
 
 #include "CATSMAT_scoredatacollector.h"
 #include "IMUSANT_vectormap_analysis_types.h"
@@ -275,8 +275,8 @@ runToolsMenu(CATSMAT_processing* processor)
                     {
                         vector<S_IMUSANT_segmented_part_LBDM> segmented_parts;
                         
-                        IMUSANT_set_of_segment segmentation_result;
-                        IMUSANT_LBDM_segmenter segmenter(segmentation_result);
+                        SetOfSegment segmentation_result;
+                        LBDM_Segmenter segmenter(segmentation_result);
                         segmenter.Visit(*processor);
                         
                         
@@ -287,8 +287,8 @@ runToolsMenu(CATSMAT_processing* processor)
                             cout << ((*seg_part_iter)->print(true,true)) << endl;
                         }
                         
-                        cout << "NEW IMPLEMENTATION USING IMUSANT_set_of_segment segmentation_result" << endl;
-                        cout << "Not working because IMUSANT_segmented_part_LBDM does not yet implement the use of the segmentation_results input parameter." << endl;
+                        cout << "NEW IMPLEMENTATION USING SetOfSegment segmentation_result" << endl;
+                        cout << "Not working because LBDM_SegmentedPart does not yet implement the use of the segmentation_results input parameter." << endl;
                         
                         
                         cout << segmentation_result << endl;
@@ -300,12 +300,12 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'T':
                 case 't':
                 {
-                    IMUSANT_set_of_segment segmentation_results;
-                    IMUSANT_fixed_period_segmenter segmenter(segmentation_results);
+                    SetOfSegment segmentation_results;
+                    FixedPeriodSegmenter segmenter(segmentation_results);
                     segmenter.Visit(*processor);
-                    
-                    IMUSANT_fixed_period_segmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
-                    for (IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+
+                    FixedPeriodSegmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
+                    for (FixedPeriodSegmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
                          segment_set_iter != segments.end() ;
                          segment_set_iter++)
                     {
@@ -315,7 +315,7 @@ runToolsMenu(CATSMAT_processing* processor)
                     
                     cout << "Format for using this data with R:" << endl;
                     bool first_time_round = true;
-                    for (IMUSANT_fixed_period_segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+                    for (FixedPeriodSegmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
                          segment_set_iter != segments.end() ;
                          segment_set_iter++)
                     {
@@ -330,12 +330,12 @@ runToolsMenu(CATSMAT_processing* processor)
                 case 'Q':
                 case 'q':
                 {
-                    IMUSANT_set_of_segment segmentation_results;
-                    
-                    IMUSANT_fixed_period_segmenter fp_segmenter(segmentation_results);
+                    SetOfSegment segmentation_results;
+
+                    FixedPeriodSegmenter fp_segmenter(segmentation_results);
                     fp_segmenter.Visit(*processor);
-                    
-                    IMUSANT_LBDM_segmenter lbdm_segmenter(segmentation_results);
+
+                    LBDM_Segmenter lbdm_segmenter(segmentation_results);
                     lbdm_segmenter.Visit(*processor);
                     
                     // output the segmentation_results here...

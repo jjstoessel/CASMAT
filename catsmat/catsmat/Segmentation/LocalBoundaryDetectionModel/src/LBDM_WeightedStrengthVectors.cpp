@@ -1,12 +1,12 @@
 //
-//  IMUSANT_weighted_strength_vectors.cpp
+//  LBDM_WeightedStrengthVectors.cpp
 //  catsmat
 //
 //  Created by Derrick Hill on 10/09/2016.
 //
 //
 
-#include "IMUSANT_weighted_strength_vectors.h"
+#include "LBDM_WeightedStrengthVectors.h"
 
 #include <vector>
 
@@ -14,8 +14,8 @@
 namespace CATSMAT {
     
     void
-    IMUSANT_weighted_strength_vectors::
-    visit(IMUSANT_consolidated_interval_profile_LBDM *target)
+    LBDM_WeightedStrengthVectors::
+    visit(LBDM_ConsolidatedIntervalProfile *target)
     {
         if (target->isBoundary())
         {

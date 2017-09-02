@@ -1,10 +1,3 @@
-//
-//  IMUSANT_segment_Tests.cpp
-//  catsmat
-//
-//  Created by Derrick Hill on 8/11/2016.
-//
-//
 
 #include <stdio.h>
 
@@ -15,9 +8,7 @@
 
 #include "libIMUSANT.h"
 
-#include "IMUSANT_segment.h"
-
-
+#include "Segment.h"
 
 using namespace IMUSANT;
 using namespace CATSMAT;
@@ -27,18 +18,18 @@ using namespace boost;
 
 
 // The fixture for testing class IMUSANT_pitch.
-class IMUSANT_segment_Tests : public ::testing::Test
+class Segment_Tests : public ::testing::Test
 {
     
 protected:
     
-    IMUSANT_segment_Tests()
+    Segment_Tests()
     {
         // You can do set-up work for each test here.
         // This is a bit inefficient as each file gets parsed for each test case.
     }
     
-    virtual ~IMUSANT_segment_Tests()
+    virtual ~Segment_Tests()
     {
         // You can do clean-up work that doesn't throw exceptions here.
     }
@@ -55,30 +46,30 @@ protected:
     static CATSMAT_test_utility * _test_utils;
 };
 
-CATSMAT_test_utility * IMUSANT_segment_Tests::_test_utils = NULL;
+CATSMAT_test_utility * Segment_Tests::_test_utils = NULL;
 
 
 // ************* TEST CASES START HERE *********** //
 
 
-TEST_F(IMUSANT_segment_Tests, Constructor)
+TEST_F(Segment_Tests, Constructor)
 {
     S_IMUSANT_score score = new_IMUSANT_score();
     S_IMUSANT_part part = new_IMUSANT_part();
     string algorithm_id = "test algorithm";
     
     S_SegmentContext context = new_SegmentContext(score, part, algorithm_id);
-    S_IMUSANT_segment p_segment = new_IMUSANT_segment(context);
+    S_Segment p_segment = new_Segment(context);
 
     ASSERT_FALSE(p_segment == NULL);
     
     ASSERT_EQ(algorithm_id, p_segment->getAlgorithm());    
     
-    IMUSANT_segment segment(context);
+    Segment segment(context);
     ASSERT_EQ(algorithm_id, segment.getAlgorithm());
 }
 
-TEST_F(IMUSANT_segment_Tests, CollectionMethods)
+TEST_F(Segment_Tests, CollectionMethods)
 {
     S_IMUSANT_score score = new_IMUSANT_score();
     S_IMUSANT_part part = new_IMUSANT_part();
@@ -86,7 +77,7 @@ TEST_F(IMUSANT_segment_Tests, CollectionMethods)
     
     S_SegmentContext context = new_SegmentContext(score, part, algorithm_id);
     
-    S_IMUSANT_segment p_segment = new_IMUSANT_segment(context);
+    S_Segment p_segment = new_Segment(context);
     
     S_IMUSANT_note n1 = new_IMUSANT_note();
     S_IMUSANT_note n2 = new_IMUSANT_note();

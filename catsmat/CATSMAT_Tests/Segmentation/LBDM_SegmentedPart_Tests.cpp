@@ -1,5 +1,5 @@
 
-//  IMUSANT_segmented_part_LBDM_Tests.cpp
+//  LBDM_SegmentedPart_Tests.cpp
 //  imusant
 //
 //  Created by Derrick Hill on 15/03/2016.
@@ -13,11 +13,11 @@
 
 #include "CATSMAT_test_utility.h"
 
-#include "IMUSANT_segmented_part_LBDM_Expected.h"
-#include "IMUSANT_segmented_profile_vectors.h"
-#include "IMUSANT_weighted_strength_vectors.h"
-#include "IMUSANT_segmented_part_LBDM.h"
-#include "IMUSANT_LBDM_segmenter.h"
+#include "LBDM_SegmentedPart_Expected.h"
+#include "LBDM_SegmentedProfileVectors.h"
+#include "LBDM_WeightedStrengthVectors.h"
+#include "LBDM_SegmentedPart.h"
+#include "LBDM_Segmenter.h"
 
 #include "libIMUSANT.h"
 #include <boost/filesystem.hpp>
@@ -29,20 +29,20 @@ using namespace boost;
 //#define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
-class IMUSANT_segmented_part_LBDM_Tests :
+class LBDM_SegmentedPart_Tests :
             public ::testing::Test,
             public IMUSANT_segmented_part_LBDM_Expected
 {
     
 protected:
     
-    IMUSANT_segmented_part_LBDM_Tests()
+    LBDM_SegmentedPart_Tests()
     {
         // You can do set-up work for each test here.
         // This is a bit inefficient as each file gets parsed for each test case.
     }
     
-    virtual ~IMUSANT_segmented_part_LBDM_Tests()
+    virtual ~LBDM_SegmentedPart_Tests()
     {
         // You can do clean-up work that doesn't throw exceptions here.
     }
@@ -68,8 +68,8 @@ protected:
         S_IMUSANT_part part;
         score->getPartById(part_id, part);
         
-        IMUSANT_set_of_segment seg_results;
-        IMUSANT_segmented_part_LBDM seg_part(seg_results);
+        SetOfSegment seg_results;
+        LBDM_SegmentedPart seg_part(seg_results);
         seg_part.initialise(part);
         
         IMUSANT_strength_vector lbsp = seg_part.getWeightedAverageStrengthVector();
@@ -146,22 +146,22 @@ protected:
     
 };
 
-CATSMAT_test_utility * IMUSANT_segmented_part_LBDM_Tests::_test_utils = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_LBDM_Test1 = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_LBDM_Test3 = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_Kyrie = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_Kyrie_2 = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_Sanctus = NULL;
-S_IMUSANT_score IMUSANT_segmented_part_LBDM_Tests::fScore_YankeeDoodle = NULL;
+CATSMAT_test_utility * LBDM_SegmentedPart_Tests::_test_utils = NULL;
+S_IMUSANT_score LBDM_SegmentedPart_Tests::fScore_LBDM_Test1 = NULL;
+S_IMUSANT_score LBDM_SegmentedPart_Tests::fScore_LBDM_Test3 = NULL;
+S_IMUSANT_score LBDM_SegmentedPart_Tests::fScore_Kyrie = NULL;
+S_IMUSANT_score LBDM_SegmentedPart_Tests::fScore_Kyrie_2 = NULL;
+S_IMUSANT_score LBDM_SegmentedPart_Tests::fScore_Sanctus = NULL;
+S_IMUSANT_score LBDM_SegmentedPart_Tests::fScore_YankeeDoodle = NULL;
 
 // ************* TEST CASES START HERE *********** //
 
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)
+TEST_F(LBDM_SegmentedPart_Tests, Constructor)
 {
     S_IMUSANT_part part = new_IMUSANT_part();
-    IMUSANT_set_of_segment seg_results;
-    IMUSANT_segmented_part_LBDM * segmented_part = new IMUSANT_segmented_part_LBDM(seg_results);
+    SetOfSegment seg_results;
+    LBDM_SegmentedPart * segmented_part = new LBDM_SegmentedPart(seg_results);
     ASSERT_FALSE(segmented_part == NULL);
 
     S_IMUSANT_segmented_part_LBDM s_segmented_part = new_IMUSANT_segmented_part_LBDM(seg_results);
@@ -171,7 +171,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, Constructor)
 }
 
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P1)
+TEST_F(LBDM_SegmentedPart_Tests, calculateOverallLocalBoundaryStrengthProfile_P1)
 {
     vector<double> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P1");
 
@@ -185,7 +185,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
     }
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P2)
+TEST_F(LBDM_SegmentedPart_Tests, calculateOverallLocalBoundaryStrengthProfile_P2)
 {
     vector<double> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P2");
 
@@ -199,7 +199,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
     }
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_P3)
+TEST_F(LBDM_SegmentedPart_Tests, calculateOverallLocalBoundaryStrengthProfile_P3)
 {
     vector<double> lbsp = getOverallStrengthVectorFromPart(fScore_LBDM_Test1, "P3");
     
@@ -213,7 +213,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
     }
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthProfile_YankeeDoodle)
+TEST_F(LBDM_SegmentedPart_Tests, calculateOverallLocalBoundaryStrengthProfile_YankeeDoodle)
 {
     vector<double> lbsp = getOverallStrengthVectorFromPart(fScore_YankeeDoodle, "P1");
     
@@ -228,23 +228,23 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, calculateOverallLocalBoundaryStrengthP
 }
 
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, getConsolidatedProfiles_YankeeDoodle)
+TEST_F(LBDM_SegmentedPart_Tests, getConsolidatedProfiles_YankeeDoodle)
 {
     S_IMUSANT_part part;
     fScore_YankeeDoodle->getPartById("P1", part);
     
-    IMUSANT_set_of_segment seg_results;
-    IMUSANT_segmented_part_LBDM seg_part(seg_results);
+    SetOfSegment seg_results;
+    LBDM_SegmentedPart seg_part(seg_results);
     seg_part.initialise(part);
     
-    IMUSANT_consolidated_interval_profile_vector_LBDM consolidated_profiles = seg_part.getConsolidatedProfiles();
+    LBDM_ConsolidatedIntervalProfileVector consolidated_profiles = seg_part.getConsolidatedProfiles();
     
     int count_expected = YANKEEDOODLE_COUNT;
     ASSERT_EQ(count_expected, consolidated_profiles.size());
     
     for (int jdex = 0 ; jdex < YANKEEDOODLE_COUNT; jdex++)
     {
-        IMUSANT_consolidated_interval_profile_LBDM next_row = consolidated_profiles[jdex];
+        LBDM_ConsolidatedIntervalProfile next_row = consolidated_profiles[jdex];
         
         ASSERT_TRUE(checkEqualWithinTolleranceField(strength_YD_expected[jdex][WEIGHTED_AVG_STRENGTH_EXPECTED],
                                                     next_row.getWeightedAverage(),
@@ -285,7 +285,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getConsolidatedProfiles_YankeeDoodle)
 }
 
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, LongOutputOperator)
+TEST_F(LBDM_SegmentedPart_Tests, LongOutputOperator)
 {
     string soprano_expected =
     "PART NAME - Soprano\nSTRENGTH VECTORS\nNOTE1                       NOTE2                                  PITCH             IOI            REST    WEIGHTED AVG\n{\n{-,                         {1.1, 72, 256},                        72.00,          256.00,            0.00,           73.00},             // 0\n{{1.1, 72, 256},            {1.2, 72, 256},                         0.00,            0.00,            0.00,            0.00},             // 1\n{{1.2, 72, 256},            {1.3, 72, 256},                         0.00,            0.00,            0.00,            0.00},             // 2\n{{1.3, 72, 256},            {1.4, 72, 256},                         0.00,           85.33,            0.00,           21.33},             // 3\n{{1.4, 72, 256},            {2.1, 72, 512},                         0.00,          170.67,            0.00,           42.67},             // 4\n{{2.1, 72, 512},            {2.2, 72, 512},                         0.00,          170.67,            0.00,           42.67},             // 5\n{{2.2, 72, 512},            {3.1, 72, 1024},                        0.00,         1137.78,            0.00,          284.44},             // 6\n{{3.1, 72, 1024},           {4.1, 72, 128},                         0.00,           99.56,            0.00,           24.89},             // 7\n{{4.1, 72, 128},            {4.2, 72, 128},                         0.00,            0.00,            0.00,            0.00},             // 8\n{{4.2, 72, 128},            {4.3, 72, 128},                         0.00,            0.00,            0.00,            0.00},             // 9\n{{4.3, 72, 128},            {4.4, 72, 128},                         0.00,           76.80,            0.00,           19.20},             // 10\n{{4.4, 72, 128},            {4.5, 72, 512},                         0.00,          380.34,            0.00,           95.09},             // 11\n{{4.5, 72, 512},            {5.1, 72, 384},                         0.00,          246.86,            0.00,           61.71},             // 12\n{{5.1, 72, 384},            {5.2, 72, 128},                         0.00,          128.00,            0.00,           32.00},             // 13\n{{5.2, 72, 128},            {5.3, 72, 384},                         0.00,          384.00,            0.00,           96.00},             // 14\n{{5.3, 72, 384},            {5.4, 72, 128},                         0.00,          163.56,            0.00,           40.89},             // 15\n{{5.4, 72, 128},            {6.1, 72, 1024},                        0.00,          796.44,            0.00,          199.11},             // 16\n}\n";
@@ -293,7 +293,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, LongOutputOperator)
     
     S_IMUSANT_part& soprano = fScore_LBDM_Test1->partlist()->getPart("P1");
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(seg_results);
     
     seg_part->initialise(soprano);
@@ -304,7 +304,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, LongOutputOperator)
 
  }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, ShortOutputOperator)
+TEST_F(LBDM_SegmentedPart_Tests, ShortOutputOperator)
 {
     string soprano_expected =
     "PART NAME - Soprano\nSTRENGTH VECTORS\n           PITCH             IOI            REST    WEIGHTED AVG\n{\n{           72.00,          256.00,            0.00,           73.00},             // 0\n{            0.00,            0.00,            0.00,            0.00},             // 1\n{            0.00,            0.00,            0.00,            0.00},             // 2\n{            0.00,           85.33,            0.00,           21.33},             // 3\n{            0.00,          170.67,            0.00,           42.67},             // 4\n{            0.00,          170.67,            0.00,           42.67},             // 5\n{            0.00,         1137.78,            0.00,          284.44},             // 6\n{            0.00,           99.56,            0.00,           24.89},             // 7\n{            0.00,            0.00,            0.00,            0.00},             // 8\n{            0.00,            0.00,            0.00,            0.00},             // 9\n{            0.00,           76.80,            0.00,           19.20},             // 10\n{            0.00,          380.34,            0.00,           95.09},             // 11\n{            0.00,          246.86,            0.00,           61.71},             // 12\n{            0.00,          128.00,            0.00,           32.00},             // 13\n{            0.00,          384.00,            0.00,           96.00},             // 14\n{            0.00,          163.56,            0.00,           40.89},             // 15\n{            0.00,          796.44,            0.00,          199.11},             // 16\n}\n";
@@ -312,7 +312,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, ShortOutputOperator)
     
     S_IMUSANT_part& soprano = fScore_LBDM_Test1->partlist()->getPart("P1");
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(seg_results);
     
     seg_part->initialise(soprano);
@@ -323,16 +323,16 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, ShortOutputOperator)
     
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_YankeeDoodle)
+TEST_F(LBDM_SegmentedPart_Tests, GetSegmentsAsNoteVectors_From_Score_YankeeDoodle)
 {
     S_IMUSANT_part& the_part = fScore_YankeeDoodle->partlist()->getPart("P1");
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(seg_results);
     seg_part->initialise(the_part);
     
     seg_part->setSegmentBoundaryCalculationSpan(4);
-    IMUSANT_consolidated_interval_profile_vector_LBDM data = seg_part->getConsolidatedProfiles();
+    LBDM_ConsolidatedIntervalProfileVector data = seg_part->getConsolidatedProfiles();
     
     vector<IMUSANT_note_vector> segments = seg_part->getSegmentsAsNoteVectors();
     
@@ -382,7 +382,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Ya
     ASSERT_EQ(6, segments[5][1]->getNoteIndex());
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Kyrie)
+TEST_F(LBDM_SegmentedPart_Tests, GetSegmentsAsNoteVectors_From_Score_Kyrie)
 {
     // See Task TK-01264 - "Investigate anomaly with segment boundaries involving rests in first bars of Kyrie"
     // See Task TK-01266 - "Generate results for Sanctus and analyse."
@@ -390,12 +390,12 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Ky
     
     S_IMUSANT_part& the_part = fScore_Kyrie_2->partlist()->getPart("P2");
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(seg_results);
     seg_part->initialise(the_part);
     
     seg_part->setSegmentBoundaryCalculationSpan(4);
-    IMUSANT_consolidated_interval_profile_vector_LBDM data = seg_part->getConsolidatedProfiles();
+    LBDM_ConsolidatedIntervalProfileVector data = seg_part->getConsolidatedProfiles();
     
     vector<IMUSANT_note_vector> segments = seg_part->getSegmentsAsNoteVectors();
     
@@ -435,16 +435,16 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Ky
     ASSERT_EQ(2, segments[19].size());
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Sanctus)
+TEST_F(LBDM_SegmentedPart_Tests, GetSegmentsAsNoteVectors_From_Score_Sanctus)
 {
     S_IMUSANT_part& the_part = fScore_Sanctus->partlist()->getPart("P2");
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(seg_results);
     seg_part->initialise(the_part);
     
     seg_part->setSegmentBoundaryCalculationSpan(4);
-    IMUSANT_consolidated_interval_profile_vector_LBDM data = seg_part->getConsolidatedProfiles();
+    LBDM_ConsolidatedIntervalProfileVector data = seg_part->getConsolidatedProfiles();
     
     vector<IMUSANT_note_vector> segments = seg_part->getSegmentsAsNoteVectors();
     
@@ -512,16 +512,16 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, GetSegmentsAsNoteVectors_From_Score_Sa
     
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithProfileVectors_Test)
+TEST_F(LBDM_SegmentedPart_Tests, getSegmentsWithProfileVectors_Test)
 {
     S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(seg_results);
     
     seg_part->initialise(the_part);
     seg_part->setSegmentBoundaryCalculationSpan(4);
-    vector<IMUSANT_consolidated_interval_profile_vector_LBDM> segments = seg_part->getSegmentsWithProfileVectors();
+    vector<LBDM_ConsolidatedIntervalProfileVector> segments = seg_part->getSegmentsWithProfileVectors();
     
     ASSERT_EQ(4, segments.size());
     ASSERT_EQ(7, segments[0].size());
@@ -530,11 +530,11 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithProfileVectors_Test)
     ASSERT_EQ(8, segments[3].size());
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Test)
+TEST_F(LBDM_SegmentedPart_Tests, getSegmentsWithWeightedAverages_Test)
 {
     S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(seg_results);
     
     seg_part->initialise(the_part);
@@ -548,7 +548,7 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Test)
     ASSERT_EQ(8, segments[3].size());
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, euclidianDistance_Test)
+TEST_F(LBDM_SegmentedPart_Tests, euclidianDistance_Test)
 {
     vector<double> v1;
     vector<double> v2;
@@ -604,11 +604,11 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, euclidianDistance_Test)
     ASSERT_TRUE(_test_utils->equalWithinTollerance(49.5694, one_three));
 }
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Similarity_Test)
+TEST_F(LBDM_SegmentedPart_Tests, getSegmentsWithWeightedAverages_Similarity_Test)
 {
     S_IMUSANT_part& the_part = fScore_LBDM_Test3->partlist()->getPart("P1");
     
-    IMUSANT_set_of_segment seg_results;
+    SetOfSegment seg_results;
     S_IMUSANT_segmented_part_LBDM seg_part = new_IMUSANT_segmented_part_LBDM(seg_results);
     
     seg_part->initialise(the_part);
@@ -664,20 +664,20 @@ TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsWithWeightedAverages_Simila
 
 // #define V_VERBOSE
 
-TEST_F(IMUSANT_segmented_part_LBDM_Tests, getSegmentsFromMultiplePartsWithWeightedAverages_Similarity_Test)
+TEST_F(LBDM_SegmentedPart_Tests, getSegmentsFromMultiplePartsWithWeightedAverages_Similarity_Test)
 {
     
-    IMUSANT_set_of_segment seg_results;
-    IMUSANT_LBDM_segmenter segmenter(seg_results);
+    SetOfSegment seg_results;
+    LBDM_Segmenter segmenter(seg_results);
     vector<S_IMUSANT_score> scores;
     scores.push_back(fScore_Kyrie);
-    
-    IMUSANT_LBDM_segmenter::PART_SEGS_VEC parts = segmenter.findMelodicSegments_LBDM(scores);
+
+    LBDM_Segmenter::PART_SEGS_VEC parts = segmenter.findMelodicSegments_LBDM(scores);
     
     vector<IMUSANT_strength_vector> all_weighted_avg_segments;
     vector<IMUSANT_note_vector> all_note_segments;
     
-    for (IMUSANT_LBDM_segmenter::PART_SEGS_VEC::iterator part_iter = parts.begin();
+    for (LBDM_Segmenter::PART_SEGS_VEC::iterator part_iter = parts.begin();
          part_iter != parts.end();
          part_iter++)
     {

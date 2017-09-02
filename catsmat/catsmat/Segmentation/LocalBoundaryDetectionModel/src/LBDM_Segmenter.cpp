@@ -6,20 +6,20 @@
 //
 //
 
-#include "IMUSANT_LBDM_segmenter.h"
+#include "LBDM_Segmenter.h"
 #include "IMUSANT_score.h"
 
 namespace CATSMAT {
     
     void
-    IMUSANT_LBDM_segmenter::
+    LBDM_Segmenter::
     Visit(const IMUSANT_processing& processor)
     {
         sp = findMelodicSegments_LBDM(processor.getScores());
     }
     
-    IMUSANT_LBDM_segmenter::PART_SEGS_VEC
-    IMUSANT_LBDM_segmenter::
+    LBDM_Segmenter::PART_SEGS_VEC
+    LBDM_Segmenter::
     findMelodicSegments_LBDM(const vector<S_IMUSANT_score>& scores)
     {
         PART_SEGS_VEC segmented_parts;

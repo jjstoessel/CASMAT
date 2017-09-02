@@ -1,13 +1,6 @@
-//
-//  IMUSANT_fixed_period_segmenter.hpp
-//  catsmat
-//
-//  Created by Derrick Hill on 28/1/17.
-//
-//
 
-#ifndef IMUSANT_fixed_period_segmenter_hpp
-#define IMUSANT_fixed_period_segmenter_hpp
+#ifndef __FixedPeriodSegmenter__
+#define __FixedPeriodSegmenter__
 
 #include <stdio.h>
 
@@ -19,19 +12,19 @@ using namespace Loki;
 
 namespace CATSMAT {
     
-    class IMUSANT_fixed_period_segmenter :
+    class FixedPeriodSegmenter :
         public Loki::BaseVisitor,
         public Loki::Visitor<IMUSANT_processing, void, true>
     {
     public:
         
-        typedef vector<IMUSANT_set_of_segment> SetOfSegmentsVector;
+        typedef vector<SetOfSegment> SetOfSegmentsVector;
         
-        IMUSANT_fixed_period_segmenter(IMUSANT_set_of_segment &segmentation_results)
+        FixedPeriodSegmenter(SetOfSegment &segmentation_results)
         : fSegmentationResult(segmentation_results)
         {
         }
-        ~IMUSANT_fixed_period_segmenter() {}
+        ~FixedPeriodSegmenter() {}
         
         void    Visit(const IMUSANT_processing&);
         
@@ -40,7 +33,7 @@ namespace CATSMAT {
         
     private:
         
-        IMUSANT_set_of_segment &fSegmentationResult;
+        SetOfSegment &fSegmentationResult;
         
         SetOfSegmentsVector sp;
         
@@ -48,4 +41,4 @@ namespace CATSMAT {
     
 }
 
-#endif /* IMUSANT_fixed_period_segmenter_hpp */
+#endif /* __FixedPeriodSegmenter__ */

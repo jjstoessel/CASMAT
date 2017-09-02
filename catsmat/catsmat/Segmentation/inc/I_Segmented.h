@@ -6,10 +6,10 @@
 //
 //
 
-#ifndef I_Segmented_h
-#define I_Segmented_h
+#ifndef __I_Segmented__
+#define __I_Segmented__
 
-#include "IMUSANT_set_of_segment.h"
+#include "SetOfSegment.h"
 
 
 namespace CATSMAT
@@ -19,18 +19,18 @@ namespace CATSMAT
         
     public:
         
-        I_Segmented(IMUSANT_set_of_segment & segmentation_result) : fSegmentationResult(segmentation_result)  {}
+        I_Segmented(SetOfSegment & segmentation_result) : fSegmentationResult(segmentation_result)  {}
         
         //
         // This method returns you the segments, as a set (no duplicates).
         //
-        virtual IMUSANT_set_of_segment & getSegmentsSet() = 0;
+        virtual SetOfSegment & getSegmentsSet() = 0;
         
     protected:
-        IMUSANT_set_of_segment &fSegmentationResult;
+        SetOfSegment &fSegmentationResult;
         
     };
 }
 
 
-#endif /* I_Segmented_h */
+#endif /* __I_Segmented__ */

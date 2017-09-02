@@ -6,20 +6,20 @@
 //
 //
 
-#ifndef __imusant__IMUSANT_LBDM_segmenter__
-#define __imusant__IMUSANT_LBDM_segmenter__
+#ifndef __LBDM_Segmenter__
+#define __LBDM_Segmenter__
 
 #include <stdio.h>
 #include "IMUSANT_t_suffixtree_builder.h"
 #include "Loki/Visitor.h"
-#include "IMUSANT_segmented_part_LBDM.h"
+#include "LBDM_SegmentedPart.h"
 
 using namespace Loki;
 
 namespace CATSMAT {
    
 
-    class IMUSANT_LBDM_segmenter :
+    class LBDM_Segmenter :
         public Loki::BaseVisitor,
         public Loki::Visitor<IMUSANT_processing, void, true>
     {
@@ -27,22 +27,22 @@ namespace CATSMAT {
         
         typedef vector<S_IMUSANT_segmented_part_LBDM> PART_SEGS_VEC;
         
-        IMUSANT_LBDM_segmenter(IMUSANT_set_of_segment &segmentation_results)
+        LBDM_Segmenter(SetOfSegment &segmentation_results)
         : fSegmentationResult(segmentation_results)
         {
         }
-        ~IMUSANT_LBDM_segmenter() {}
+        ~LBDM_Segmenter() {}
         
         void    Visit(const IMUSANT_processing&);
         const   PART_SEGS_VEC& getSegmentedParts() { return sp; }
         PART_SEGS_VEC findMelodicSegments_LBDM(const vector<S_IMUSANT_score>& scores);
         
     private:
-        IMUSANT_set_of_segment &fSegmentationResult;
+        SetOfSegment &fSegmentationResult;
         
         PART_SEGS_VEC sp;
         
     };
 
 }
-#endif /* defined(__imusant__IMUSANT_LBDM_segmenter__) */
+#endif /* defined(__LBDM_Segmenter__) */

@@ -1,17 +1,10 @@
-//
-//  IMUSANT_consolidated_profiles_LBDM.h
-//  imusant
-//
-//  Created by Derrick Hill on 10/07/2016.
-//
-//
 
-#ifndef __imusant__IMUSANT_consolidated_profiles_LBDM__
-#define __imusant__IMUSANT_consolidated_profiles_LBDM__
+#ifndef __LBDM_ConsolidatedIntervalProfile__
+#define __LBDM_ConsolidatedIntervalProfile__
 
 #include <stdio.h>
 
-#include "IMUSANT_consolidated_interval_profile_LBDM_visitor.h"
+#include "LBDM_ConsolidatedIntervalProfileVisitor.h"
 #include "libIMUSANT.h"
 
 using namespace std;
@@ -28,13 +21,13 @@ namespace CATSMAT
     // Weighted Avg = The overall local boundary strength profile for the interval.
     // Is Boundary = Is this interval on a segment boundary.
     
-    class IMUSANT_consolidated_interval_profile_LBDM
+    class LBDM_ConsolidatedIntervalProfile
     {
     public:
         
-        IMUSANT_consolidated_interval_profile_LBDM() {};
+        LBDM_ConsolidatedIntervalProfile() {};
         
-        IMUSANT_consolidated_interval_profile_LBDM(S_IMUSANT_note start_note,
+        LBDM_ConsolidatedIntervalProfile(S_IMUSANT_note start_note,
                                                    S_IMUSANT_note end_note,
                                                    double pitch,
                                                    double ioi,
@@ -121,7 +114,7 @@ namespace CATSMAT
             return fIsBoundary;
         }
         
-        void accept(IMUSANT_consolidated_interval_profile_LBDM_visitor& visitor)
+        void accept(LBDM_ConsolidatedIntervalProfileVisitor& visitor)
         {
             visitor.visit(this);
         }
@@ -137,10 +130,10 @@ namespace CATSMAT
         bool fIsBoundary = false;
     };
     
-    class IMUSANT_consolidated_interval_profile_vector_LBDM : public vector <IMUSANT_consolidated_interval_profile_LBDM>
+    class LBDM_ConsolidatedIntervalProfileVector : public vector <LBDM_ConsolidatedIntervalProfile>
     {
 
     };
 }
 
-#endif /* defined(__imusant__IMUSANT_consolidated_profiles_LBDM__) */
+#endif /* defined(__LBDM_ConsolidatedIntervalProfile__) */

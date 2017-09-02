@@ -1,40 +1,40 @@
 //
-//  IMUSANT_segmented_part_LBDM.h
+//  LBDM_SegmentedPart.h
 //  imusant
 //
 //  Created by Derrick Hill on 19/03/2016.
 //
 //
 
-#ifndef __imusant__IMUSANT_segmented_part_LBDM__
-#define __imusant__IMUSANT_segmented_part_LBDM__
+#ifndef __LBDM_SegmentedPart__
+#define __LBDM_SegmentedPart__
 
 #include <stdio.h>
 
 
 #include "I_Segmented.h"
 #include "IMUSANT_part.h"
-#include "IMUSANT_interval_profile_LBDM.h"
-#include "IMUSANT_consolidated_interval_profile_LBDM.h"
-#include "IMUSANT_segmented_profile_vectors.h"
-#include "IMUSANT_segmented_note_vectors.h"
-#include "IMUSANT_weighted_strength_vectors.h"
+#include "LBDM_IntervalProfile.h"
+#include "LBDM_ConsolidatedIntervalProfile.h"
+#include "LBDM_SegmentedProfileVectors.h"
+#include "LBDM_SegmentedNoteVectors.h"
+#include "LBDM_WeightedStrengthVectors.h"
 
 using namespace std;
 
 namespace CATSMAT
 {
-    class IMUSANT_segmented_part_LBDM : public smartable, I_Segmented
+    class LBDM_SegmentedPart : public smartable, I_Segmented
     {
     public:
 
-        friend IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM();
+        friend IMUSANT_SMARTP<LBDM_SegmentedPart> new_IMUSANT_segmented_part_LBDM();
         
-        IMUSANT_segmented_part_LBDM(IMUSANT_set_of_segment & segmentation_result) : I_Segmented(segmentation_result)
+        LBDM_SegmentedPart(SetOfSegment & segmentation_result) : I_Segmented(segmentation_result)
         {
         }
         
-        virtual ~IMUSANT_segmented_part_LBDM() {}
+        virtual ~LBDM_SegmentedPart() {}
         
         
         //
@@ -58,7 +58,7 @@ namespace CATSMAT
         //
         // This method returns you the segments, as a set (no duplicates).
         //
-        IMUSANT_set_of_segment & getSegmentsSet();
+        SetOfSegment & getSegmentsSet();
         
         
         
@@ -69,9 +69,9 @@ namespace CATSMAT
         // all the change intervals for the part.
         //
         // For the calculation of segments we always use the EndNote element of each
-        // IMUSANT_consolidated_interval_profile_LBDM.
+        // LBDM_ConsolidatedIntervalProfile.
         //
-        IMUSANT_consolidated_interval_profile_vector_LBDM  getConsolidatedProfiles();
+        LBDM_ConsolidatedIntervalProfileVector  getConsolidatedProfiles();
         
         //
         // This method returns the weighted average change vector as a single (unsegmented) vector.
@@ -93,7 +93,7 @@ namespace CATSMAT
         // vectors for each segment. Each element of the
         // returned vector is a segment.
         //
-        vector<IMUSANT_consolidated_interval_profile_vector_LBDM> getSegmentsWithProfileVectors();
+        vector<LBDM_ConsolidatedIntervalProfileVector> getSegmentsWithProfileVectors();
         
         //
         // This method returns you segments with the weighted averages isolated
@@ -126,7 +126,7 @@ namespace CATSMAT
         // Where the note values represented by this {1.1, 72, 512} are
         // {MeasureNumber.NoteIndex, MidiKeyNumber, DurationAsAbsoluteNumeric}
         //
-        friend ostream& operator<< (ostream& os, const IMUSANT_segmented_part_LBDM& segmented_part);
+        friend ostream& operator<< (ostream& os, const LBDM_SegmentedPart& segmented_part);
         
         // This output operator produces compilable output that can be extracted as an
         // array initialisation for the purposes of capturing test case expected output.
@@ -147,9 +147,9 @@ namespace CATSMAT
             return fPart;
         }
         
-        IMUSANT_pitch_interval_profile pitch_interval_profile;
-        IMUSANT_IOI_interval_profile ioi_interval_profile;
-        IMUSANT_rest_interval_profile rest_interval_profile;
+        LBDM_PitchIntervalProfile pitch_interval_profile;
+        LBDM_IOI_IntervalProfile ioi_interval_profile;
+        LBDM_RestIntervalProfile rest_interval_profile;
  
     private:
         
@@ -170,7 +170,7 @@ namespace CATSMAT
         
         void calculateOverallLocalBoundaryStrengthVector();
 
-        void getSegmentsUsingVisitor(IMUSANT_consolidated_interval_profile_LBDM_visitor &visitor);
+        void getSegmentsUsingVisitor(LBDM_ConsolidatedIntervalProfileVisitor &visitor);
         
         int             findNextSegmentBoundary(int start_index);
         bool            isThisASegmentBoundary(int strength_profile_index_position) const;
@@ -179,8 +179,8 @@ namespace CATSMAT
 
     };
     
-    typedef IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> S_IMUSANT_segmented_part_LBDM;
-    IMUSANT_SMARTP<IMUSANT_segmented_part_LBDM> new_IMUSANT_segmented_part_LBDM(IMUSANT_set_of_segment & segmentation_results);
+    typedef IMUSANT_SMARTP<LBDM_SegmentedPart> S_IMUSANT_segmented_part_LBDM;
+    IMUSANT_SMARTP<LBDM_SegmentedPart> new_IMUSANT_segmented_part_LBDM(SetOfSegment & segmentation_results);
 }
 
-#endif /* defined(__imusant__IMUSANT_segmented_part_LBDM__) */
+#endif /* defined(__LBDM_SegmentedPart__) */

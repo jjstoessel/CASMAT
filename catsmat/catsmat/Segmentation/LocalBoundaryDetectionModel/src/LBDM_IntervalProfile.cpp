@@ -6,7 +6,7 @@
 //
 //
 
-#include "IMUSANT_interval_profile_LBDM.h"
+#include "LBDM_IntervalProfile.h"
 #include "IMUSANT_note.h"
 
 #include <iomanip>
@@ -20,14 +20,14 @@ namespace CATSMAT
 {
     
     void
-    IMUSANT_interval_profile::
+    LBDM_IntervalProfile::
     initialise(vector<double>::size_type number_of_elements)
     {
         profile_vector.assign(number_of_elements, 0);
     }
     
     void
-    IMUSANT_interval_profile::
+    LBDM_IntervalProfile::
     calculateChangeVector()
     {
         // The degree of change for the first interval is itself.
@@ -43,7 +43,7 @@ namespace CATSMAT
     }
     
     double
-    IMUSANT_interval_profile::
+    LBDM_IntervalProfile::
     calculateDegreeOfChange(double value1, double value2)
     {
         double degree_of_change = 0;
@@ -61,7 +61,7 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_interval_profile::
+    LBDM_IntervalProfile::
     calculateStrengthVector()
     {
         strength_vector.clear();
@@ -79,7 +79,7 @@ namespace CATSMAT
     }
     
     double
-    IMUSANT_interval_profile::
+    LBDM_IntervalProfile::
     calculateBoundaryStrength(double interval_value, double preceding_change_value, double succeeding_change_value)
     {
         double boundary_strength = interval_value * (preceding_change_value + succeeding_change_value);
@@ -88,7 +88,7 @@ namespace CATSMAT
 
     
     ostream&
-    operator<< (ostream& os, const IMUSANT_interval_profile& profile)
+    operator<< (ostream& os, const LBDM_IntervalProfile& profile)
     {
         profile.printVectors(os);
         return os;
@@ -102,13 +102,13 @@ namespace CATSMAT
 #define FILL "\t"
 
     ostream&
-    IMUSANT_interval_profile::
+    LBDM_IntervalProfile::
     printVectors(ostream& os) const
     {
     
         if (profile_vector.size() == 0)
         {
-            os << "IMUSANT_interval_profile::printVectors() - NO VALUES" << endl;
+            os << "LBDM_IntervalProfile::printVectors() - NO VALUES" << endl;
         }
         else
         {
@@ -128,7 +128,7 @@ namespace CATSMAT
     // ****** IOI Interval Profile ******** //
     
     void
-    IMUSANT_IOI_interval_profile::
+    LBDM_IOI_IntervalProfile::
     addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
     {
         // Onset Interval Profile is just a vector containing the duration of each note.
@@ -137,7 +137,7 @@ namespace CATSMAT
   
     // ******** PITCH Interval Profile ******** //
     void
-    IMUSANT_pitch_interval_profile::
+    LBDM_PitchIntervalProfile::
     addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
     {
         // Pitch Interval Profile is a vector containing the pitch of each note.
@@ -161,7 +161,7 @@ namespace CATSMAT
     
     // ******** REST Interval Profile ******** //
     void
-    IMUSANT_rest_interval_profile::
+    LBDM_RestIntervalProfile::
     addProfileEntry(int index, IMUSANT_vector<S_IMUSANT_note> &notes)
     {
         // Rest Interval Profile is a vector containing the ???? of each rest.

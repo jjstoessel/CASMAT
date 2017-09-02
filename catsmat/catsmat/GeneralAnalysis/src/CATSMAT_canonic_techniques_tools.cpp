@@ -43,10 +43,10 @@ namespace CATSMAT
         
         // adapted from IMUSANT_segmented_part_fixed_period
         // Sort the parts in the order in which they enter...
-        IMUSANT_partlist_ordered_by_part_entry part_sorter;
-        vector<IMUSANT_PartEntry> parts_in_entry_order = part_sorter.getPartsInOrder(the_score);
+        PartlistOrderedByPartEntry part_sorter;
+        vector<PartEntry> parts_in_entry_order = part_sorter.getPartsInOrder(the_score);
         
-        for (vector<IMUSANT_PartEntry>::iterator first_part_index = parts_in_entry_order.begin(); first_part_index!=parts_in_entry_order.end() ; first_part_index++ )
+        for (vector<PartEntry>::iterator first_part_index = parts_in_entry_order.begin(); first_part_index!=parts_in_entry_order.end() ; first_part_index++ )
         {
             for (auto second_part_index = first_part_index + 1; second_part_index != parts_in_entry_order.end() ; second_part_index++)
             {
@@ -59,7 +59,7 @@ namespace CATSMAT
     
     void
     CATSMAT_CanonicTechniquesTools::
-    Detect_Canon_Type(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, double error_threshold)
+    Detect_Canon_Type(PartEntry& first_part, PartEntry& second_part, double error_threshold)
     {
         OUTPUT("+++++  Detecting canon between Part " +
                first_part.Part->getPartName() +
@@ -88,7 +88,7 @@ namespace CATSMAT
         canon_type.parts_.push_back(first_part.Part);
         canon_type.parts_.push_back(second_part.Part);
         
-        //NB. IMUSANT_PartEntry::Part->getPartName() is unreliable for obtaining a unique identifier
+        //NB. PartEntry::Part->getPartName() is unreliable for obtaining a unique identifier
         
         if (canon_type.imitative_ || canon_type.retrograde_ || canon_type.contrary_motion_) //this if statement can probably be deleted
         {
@@ -97,7 +97,7 @@ namespace CATSMAT
             IMUSANT_interval interval = GetIntervalBetweenParts(first_part, second_part, canon_type.retrograde_);
             canon_type.intervals_.push_back(interval);
             
-            IMUSANT_set_of_segment segmentation_result;
+            SetOfSegment segmentation_result;
             SegmentedScoreFixedPeriod seg_part(segmentation_result);
             
             if (!seg_part.partsEnterTogether(first_part, second_part))
@@ -232,7 +232,7 @@ namespace CATSMAT
 
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsMelodicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold)
+    IsMelodicallyExact(const PartEntry& first_part, const PartEntry& second_part, double error_threshold)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
@@ -271,7 +271,7 @@ namespace CATSMAT
     //this will not work if a tie note is compared to a larger value equivalent. SOLUTION: removed all tied notes is a note string.
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsRhythmicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold, bool retrograde)
+    IsRhythmicallyExact(const PartEntry& first_part, const PartEntry& second_part, double error_threshold, bool retrograde)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
         IMUSANT_vector<S_IMUSANT_note> part_two_notes = second_part.Part->notes();
@@ -301,7 +301,7 @@ namespace CATSMAT
     
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsIntervallicallyExact(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold)
+    IsIntervallicallyExact(const PartEntry& first_part, const PartEntry& second_part, double error_threshold)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes;
         IMUSANT_vector<S_IMUSANT_note> part_two_notes;
@@ -328,7 +328,7 @@ namespace CATSMAT
     
     IMUSANT_interval
     CATSMAT_CanonicTechniquesTools::
-    GetIntervalBetweenParts(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part, bool retrograde)
+    GetIntervalBetweenParts(PartEntry& first_part, PartEntry& second_part, bool retrograde)
     {
         
         IMUSANT_vector<S_IMUSANT_note> part_one_notes = first_part.Part->notes();
@@ -356,7 +356,7 @@ namespace CATSMAT
     
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsRetrograde(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold)
+    IsRetrograde(const PartEntry& first_part, const PartEntry& second_part, double error_threshold)
     {
         //
         
@@ -388,7 +388,7 @@ namespace CATSMAT
     
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsContraryMotion(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold)
+    IsContraryMotion(const PartEntry& first_part, const PartEntry& second_part, double error_threshold)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes;
         IMUSANT_vector<S_IMUSANT_note> part_two_notes;
@@ -415,7 +415,7 @@ namespace CATSMAT
     
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsRetrogradeContraryMotion(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold)
+    IsRetrogradeContraryMotion(const PartEntry& first_part, const PartEntry& second_part, double error_threshold)
     {
         IMUSANT_vector<S_IMUSANT_note> part_one_notes;
         IMUSANT_vector<S_IMUSANT_note> part_two_notes;
@@ -446,7 +446,7 @@ namespace CATSMAT
     //looks at proportional relationship between all notes in two canonic parts
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsProportionalCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, TRational& result, double error_threshold, bool retrograde)
+    IsProportionalCanon(const PartEntry& first_part, const PartEntry& second_part, TRational& result, double error_threshold, bool retrograde)
     {
         std::vector<TRational> diff;
         std::map<TRational,int> diff_count;
@@ -500,7 +500,7 @@ namespace CATSMAT
     
     bool
     CATSMAT_CanonicTechniquesTools::
-    IsMensurationCanon(const IMUSANT_PartEntry& first_part, const IMUSANT_PartEntry& second_part, double error_threshold)
+    IsMensurationCanon(const PartEntry& first_part, const PartEntry& second_part, double error_threshold)
     {
         //inject found mensurations into mensurations_
         return false; // does nothing for now
@@ -509,8 +509,8 @@ namespace CATSMAT
     
     void
     CATSMAT_CanonicTechniquesTools::
-    OrderPartsByLength(const IMUSANT_PartEntry& first_part,
-                       const IMUSANT_PartEntry& second_part,
+    OrderPartsByLength(const PartEntry& first_part,
+                       const PartEntry& second_part,
                        IMUSANT_vector<S_IMUSANT_note> &part_one_notes,
                        IMUSANT_vector<S_IMUSANT_note>& part_two_notes)
     {
@@ -529,7 +529,7 @@ namespace CATSMAT
     
     IMUSANT_duration
     CATSMAT_CanonicTechniquesTools::
-    CalculateIOIUnit(IMUSANT_PartEntry& first_part, IMUSANT_PartEntry& second_part)
+    CalculateIOIUnit(PartEntry& first_part, PartEntry& second_part)
     {
         IMUSANT_duration ioi_unit;
         IMUSANT_duration p1_measure_duration, p2_measure_duration;

@@ -1,53 +1,53 @@
 //
-//  IMUSANT_segment.cpp
+//  Segment.cpp
 //  catsmat
 //
 //  Created by Derrick Hill on 8/11/2016.
 //
 //
 
-#include "IMUSANT_segment.h"
+#include "Segment.h"
 
 namespace CATSMAT
 {
     
-    S_IMUSANT_segment new_IMUSANT_segment(S_SegmentContext context)
+    S_Segment new_Segment(S_SegmentContext context)
     {
-        IMUSANT_segment* o = new IMUSANT_segment(context);
+        Segment* o = new Segment(context);
         assert (o!=0);
         return o;
     }
     
     S_IMUSANT_score
-    IMUSANT_segment::
+    Segment::
     getScore() const
     {
         return fSegmentContext->getScore();
     }
     
     S_IMUSANT_part
-    IMUSANT_segment::
+    Segment::
     getPart() const
     {
         return fSegmentContext->getPart();
     }
     
     const vector<S_IMUSANT_note>
-    IMUSANT_segment::
+    Segment::
     notes() const
     {
         return fNotes;
     }
     
     void
-    IMUSANT_segment::
+    Segment::
     addNote(S_IMUSANT_note note)
     {
         fNotes.push_back(note);
     }
     
     S_IMUSANT_note
-    IMUSANT_segment::
+    Segment::
     getFirstNote() const
     {
 //      if (! fNotes.empty())
@@ -55,7 +55,7 @@ namespace CATSMAT
     }
     
     S_IMUSANT_note
-    IMUSANT_segment::
+    Segment::
     getLastNote() const
     {
         //      if (! fNotes.empty())
@@ -63,29 +63,29 @@ namespace CATSMAT
     }
     
     long
-    IMUSANT_segment::
+    Segment::
     size() const
     {
         return fNotes.size();
     }
     
     void
-    IMUSANT_segment::
+    Segment::
     clear()
     {
         fNotes.clear();
     }
     
     const string
-    IMUSANT_segment::
+    Segment::
     getAlgorithm() const
     {
         return fSegmentContext->getSegmentationAlgorithm();
     }
     
     bool
-    IMUSANT_segment::
-    operator== (const IMUSANT_segment& rhs) const
+    Segment::
+    operator== (const Segment& rhs) const
     {
         return
         (
@@ -110,7 +110,7 @@ namespace CATSMAT
     }
     
     
-    ostream& operator<< (ostream& os, const IMUSANT_segment& segment )
+    ostream& operator<< (ostream& os, const Segment& segment )
     {
         os
 //        << "Score: " << segment.getScore()->getMovementTitle() << endl
@@ -132,7 +132,7 @@ namespace CATSMAT
     }
     
     string
-    IMUSANT_segment::
+    Segment::
     printPropertiesHeaderRow() const
     {
         std::stringstream buffer;
@@ -144,7 +144,7 @@ namespace CATSMAT
     }
     
     string
-    IMUSANT_segment::
+    Segment::
     printProperties() const
     {
         std::stringstream buffer;
