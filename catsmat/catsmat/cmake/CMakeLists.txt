@@ -29,7 +29,7 @@ foreach(folder ${INCFOLDERS})
 endforeach(folder)
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
-FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem system REQUIRED ) #JS changed to look for specific libraries
+include("${CMAKE_SOURCE_DIR}/CMakeBoost.txt")
 
 if (Boost_FOUND)
 	#report boost status

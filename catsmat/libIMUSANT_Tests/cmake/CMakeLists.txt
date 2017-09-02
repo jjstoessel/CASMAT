@@ -76,8 +76,6 @@ add_executable(${target} ${SRC} )
 
 ###############  Targeted Libraries ###########
 TARGET_LINK_LIBRARIES(${target} ${Boost_LIBRARIES})
-#TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
-#TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
 TARGET_LINK_LIBRARIES(${target} libmusicxml2)
 TARGET_LINK_LIBRARIES(${target} libIMUSANT)
 TARGET_LINK_LIBRARIES(${target} gtest)

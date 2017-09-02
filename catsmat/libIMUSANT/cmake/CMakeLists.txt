@@ -120,8 +120,6 @@ add_library(${target} SHARED ${LIBCONTENT})
 ###############  Targeted Libraries ###########
 TARGET_LINK_LIBRARIES(${target} libmusicxml2)
 TARGET_LINK_LIBRARIES(${target} ${Boost_LIBRARIES})
-#TARGET_LINK_LIBRARIES(${target} ${BOOST_FILESYSTEM_LIB})
-#TARGET_LINK_LIBRARIES(${target} ${BOOST_SYSTEM_LIB})
 
 set_target_properties (${target} PROPERTIES 
 			FRAMEWORK TRUE 

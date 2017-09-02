@@ -29,7 +29,8 @@ endif ()
 #######################################
 # set directories, src and headers.
 
-set (CATSMAT_DIR 	                   		${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat)
+#set (CATSMAT_DIR 	                   		${CMAKE_CURRENT_SOURCE_DIR}/../../catsmat)
+set (CATSMAT_DIR 	                   		${CMAKE_SOURCE_DIR}/catsmat/catsmat)
 set (CATSMAT_ANALYSIS_DIR      				${CATSMAT_DIR}/Analysis)
 set (CATSMAT_APPLICATION_DIR      			${CATSMAT_DIR}/Application)
 set (CATSMAT_COUNTERPOINT_ANALYSIS_DIR      ${CATSMAT_DIR}/CounterpointAnalysis)
@@ -38,7 +39,8 @@ set (CATSMAT_SEGMENTATION_DIR      			${CATSMAT_DIR}/Segmentation)
 set (CATSMAT_UTILITIES_DIR      			${CATSMAT_DIR}/Utilities)
 
 set (LOKI_DIR               				${CATSMAT_DIR}/..)
-set (SUFFIX_TREE_DIR        				${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
+#set (SUFFIX_TREE_DIR        				${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
+set (SUFFIX_TREE_DIR        				${CMAKE_SOURCE_DIR}/catsmat/SuffixTree)
 
 set (CATSMAT_ANALYSIS_SRC_DIR      				${CATSMAT_DIR}/Analysis/src)
 set (CATSMAT_APPLICATION_SRC_DIR      			${CATSMAT_DIR}/Application)

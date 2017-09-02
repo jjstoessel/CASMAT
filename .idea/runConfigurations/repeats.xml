@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="repeats" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-f dummyfile -i" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CATSMAT" TARGET_NAME="repeats" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CATSMAT" RUN_TARGET_NAME="repeats">
+    <envs>
+      <env name="DYLD_LIBRARY_PATH" value="/usr/local/boost/lib" />
+    </envs>
+    <method />
+  </configuration>
+</component>

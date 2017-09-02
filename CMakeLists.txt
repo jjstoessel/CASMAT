@@ -14,5 +14,7 @@ add_subdirectory (catsmat/libIMUSANT/cmake)
 add_subdirectory (catsmat/libIMUSANT_Tests/cmake)
 add_subdirectory (catsmat/catsmat/cmake)
 add_subdirectory (catsmat/CATSMAT_Tests/cmake)
+add_subdirectory (catsmat/Commando/cmake)
+add_subdirectory (catsmat/catsmat/repeats/cmake)
 
 set(CMAKE_CXX_STANDARD 11)
