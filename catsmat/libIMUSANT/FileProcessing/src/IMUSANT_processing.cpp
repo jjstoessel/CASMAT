@@ -250,5 +250,5 @@ namespace IMUSANT
         
         return parser.get_imusant_score();
     }
-    
+
 } //namespace IMUSANT

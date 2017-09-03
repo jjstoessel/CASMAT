@@ -128,7 +128,7 @@ addFilesToAnalyse(CATSMAT_processing *processor)
                     listWorksAndMovementsAddedSoFar(processor);
                     finished = false;
                     break;
-                    
+
                 case '0':
                 case '9':
                     finished = true;
@@ -173,7 +173,6 @@ outputToolsMenu(ostream &out)
     out << "K. Find repeated dyad sequences across voice pairs" << endl;
     out << "L. Find repeated dyadtuple sequences" << endl;
     out << "M. Find repeated sonority sequences" << endl;
-    out << "T. Find melodic segments using period segmentation" << endl;
     out << "Q. Find all melodic segments using all the segmentation algorithms available" << endl;
     out << "U. Find repeated trigram sequences" << endl;
     out << "V. Give count of trigrams for each score" << endl;
@@ -491,6 +490,8 @@ runToolsMenu(CATSMAT_processing* processor)
                     
                     break;
                 }
+                default:
+                    break;
                     
             }
             cout << endl << "Run another test? (y/n): ";

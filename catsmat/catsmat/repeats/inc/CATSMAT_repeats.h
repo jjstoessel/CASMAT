@@ -35,49 +35,60 @@ public:
     virtual int main();
 };*/
 
+using namespace std;
 
+namespace CATSMAT
+{
+    class CATSMAT_repeats : public CLI::SingleMode {
+    public:
 
-class CATSMAT_repeats : public CLI::SingleMode {
-public:
+        const string file_switch = "file";
+        const string directory_switch = "directory";
+        const string config_switch = "config";
+        const string interval_search_flag = "interval";
+        const string generalised_interval_search_flag = "generalised";
+        const string contour_search_flag = "contour";
 
-    CLI::Switch file_               {"file", "1", "File to operate on", "f"};
-    CLI::Switch directory_          {"directory", "1", "Directory to operate on", "d"};
-    CLI::Switch config_             {"config", "1", "Configuration file listing files to operate on", "x"};
-    CLI::Flag interval_             {"interval", "1", "Search for repeated interval substrings", "i"};
-    CLI::Flag generalised_interval_ {"generalised", "1", "Search for repeated generalised interval substrings", "g"};
-    CLI::Flag contour_              {"contour", "O", "Search for repeated contour substrings", "c"};
+        CLI::Switch file_               {file_switch, "", "File to operate on", "f"};
+        CLI::Switch directory_          {directory_switch, "", "Directory to operate on", "d"};
+        CLI::Switch config_             {config_switch, "", "Configuration file listing files to operate on", "x"};
+        CLI::Flag interval_             {interval_search_flag, "1", "Search for repeated interval substrings", "i"};
+        CLI::Flag generalised_interval_ {generalised_interval_search_flag, "1", "Search for repeated generalised interval substrings", "g"};
+        CLI::Flag contour_              {contour_search_flag, "1", "Search for repeated contour substrings", "c"};
 
-    CLI::Terminator version_ {"version", "show version info",
-                             "CATSMAT_repeats (1.0.0)\nCopyright (c) Jason Stoessel 2018. All rights reserved."
-                                     "\nGNU General Public License v3.0\nThis is free software; see the source for"
-                                     " copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or"
-                                     " FITNESS FOR A PARTICULAR PURPOSE.", "V"};
+        CLI::Terminator version_ {"version", "show version info",
+                                  "CATSMAT_repeats (1.0.0)\nCopyright (c) Jason Stoessel 2018. All rights reserved."
+                                          "\nGNU General Public License v3.0\nThis is free software; see the source for"
+                                          " copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or"
+                                          " FITNESS FOR A PARTICULAR PURPOSE.", "V"};
 
-    CLI::Terminator copyright_ {"copyright", "show copyright info",
-                               "CATSMAT_repeats (1.0.1)\nCopyright (c) Jason Stoessel 2018. All rights reserved."
-                                       "\nGNU General Public License v3.0\nThis is free software; see the source for"
-                                       " copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or"
-                                       " FITNESS FOR A PARTICULAR PURPOSE.", "C"};
+        CLI::Terminator copyright_ {"copyright", "show copyright info",
+                                    "CATSMAT_repeats (1.0.1)\nCopyright (c) Jason Stoessel 2018. All rights reserved."
+                                            "\nGNU General Public License v3.0\nThis is free software; see the source for"
+                                            " copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or"
+                                            " FITNESS FOR A PARTICULAR PURPOSE.", "C"};
 
-    CATSMAT_repeats(const int argc, const char **argv)
-            : SingleMode(argc, argv,
-                        "Search for repeated substrings in symbolic music. Give one of the above subcommands "
-                                "with no arguments for their respective usage, or pass the -h, --help flag "
-                                "for more information alone or with one of the above subcommands.",
-                        "Report bugs to: jason.stoessel@une.edu.au\n"
-                                "CATSMAT home page: <https://github.com/jjstoessel/CATSMAT>")
-    {
-        Register(&file_);
-        Register(&directory_);
-        Register(&config_);
-        Register(&interval_);
-        Register(&generalised_interval_);
-        Register(&contour_);
-        Register(&version_, &copyright_);
-    }
+        CATSMAT_repeats(const int argc, const char **argv)
+                : SingleMode(argc, argv,
+                             "Search for repeated substrings in symbolic music. Give one of the above subcommands "
+                                     "with no arguments for their respective usage, or pass the -h, --help flag "
+                                     "for more information alone or with one of the above subcommands.",
+                             "Report bugs to: jason.stoessel@une.edu.au\n"
+                                     "CATSMAT home page: <https://github.com/jjstoessel/CATSMAT>")
+        {
+            Register(&file_);
+            Register(&directory_);
+            Register(&config_);
+            Register(&interval_);
+            Register(&generalised_interval_);
+            Register(&contour_);
+            Register(&version_, &copyright_);
+        }
 
-    virtual int main();
-};
+        virtual int main();
+    };
+
+} //namespace CATSMAT
 
 
 #endif //CATSMAT_CATSMAT_REPEATS_H

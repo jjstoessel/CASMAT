@@ -30,7 +30,8 @@ int main (int argc, char * const argv[])
 	CATSMAT_processing processor;
 	
     the_menu.addFilesToAnalyse(&processor);
-    the_menu.runToolsMenu(&processor);
+    if (!processor.getScores().empty())
+     the_menu.runToolsMenu(&processor);
     
     cout << "Goodbye." << endl;
 

@@ -8,7 +8,7 @@
 ###############  BOOST LIBRARIES ###########
 set(Boost_DEBUG ON)
 set(BOOST_ROOT "/usr/local/boost")
-FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem REQUIRED ) #version 1.57 is the earliest boost supported
+FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem system REQUIRED ) #version 1.57 is the earliest boost supported
 include_directories(${Boost_INCLUDE_DIRS})
 message("Boost Libraries are here:" ${Boost_LIBRARIES})
 

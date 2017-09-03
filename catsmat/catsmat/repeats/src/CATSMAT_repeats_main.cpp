@@ -4,6 +4,8 @@
 
 #include "repeats/inc/CATSMAT_repeats.h"
 
+using namespace CATSMAT;
+
 int main(const int argc, const char **argv)
 {
     return CATSMAT_repeats(argc, argv).Exe();

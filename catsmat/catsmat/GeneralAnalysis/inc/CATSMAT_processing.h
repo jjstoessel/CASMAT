@@ -28,7 +28,12 @@ class CATSMAT_processing : public IMUSANT_processing
 public:
 
     CATSMAT_processing() {}
-    
+    //relative file and config loaders
+    void processRelativeDirectoryFiles(const string& directory);
+    S_IMUSANT_score addRelativeFile(const string& filename);
+    void addFilesFromFixedConfigFile();
+    void addFilesFromConfigFile(boost::filesystem::path config_file);
+
     void FindRepeatedDyadSequences(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true, bool across=true);
     void FindRepeatedDyadtupleSequences(int min);
     void FindRepeatedSonoritySequences(int min);
@@ -40,7 +45,18 @@ public:
     void FindMelodicDirectionDupleCounts();
     void ListCanonicTechniques();
 private:
+    typedef map<int, boost::filesystem::path> index_path_pair;
 
+    //utility
+    boost::filesystem::path getHomeDirectory();
+
+    //config file handlers
+    index_path_pair getConfigurationFiles();
+    vector<string> getContentsOfConfigurationFile(boost::filesystem::path path_to_configuration_file);
+
+    const char * HOME_DIR_ENV_VAR_NAME = "HOME";
+    const string FIXED_CONFIG_FILE_NAME = "catsmat_config.txt";
+    const string CONFIG_FILE_DIR = "catsmat_config";
 
 };
 

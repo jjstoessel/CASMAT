@@ -33,7 +33,7 @@ namespace IMUSANT
         typedef vector<S_IMUSANT_score> SCOREVECTOR;
         
         IMUSANT_processing() {}
-        
+
         void                processDirectoryFiles(const filesystem::path& full_path);
         S_IMUSANT_score     addFile(const filesystem::path& path);
         

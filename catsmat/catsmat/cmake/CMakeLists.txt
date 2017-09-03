@@ -1,6 +1,7 @@
 #######################################
 # CMAKE CATSMAT
 #######################################
+# Note: set environmental variable DYLD_LIBRARY_PATH=/usr/local/boost/lib (or custom directory) on Mac only
 cmake_minimum_required(VERSION 3.6)
 project(CATSMAT) #js
 
@@ -44,4 +45,4 @@ if (Boost_FOUND)
 	add_executable(${target} ${SRC} )
 	TARGET_LINK_LIBRARIES(${target} libmusicxml2; libIMUSANT; ${Boost_LIBRARIES}  )
 endif()
-# Note: set environmental variable DYLD_LIBRARY_PATH=/usr/local/boost/lib (or custom directory)
+
