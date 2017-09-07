@@ -20,12 +20,20 @@ int CATSMAT_repeats::main()
     IMUSANT_IntervalSuffixTreeBuilder  ip;
     IMUSANT_ContourSuffixTreeBuilder cp;
 
-    auto filename = ArgV.get<std::string>(file_switch);
-    auto directory = ArgV.get<std::string>(directory_switch);
-    bool interval_flag = ArgV.get<bool>(interval_search_flag);
-    bool generalised_interval_flag = ArgV.get<bool>(generalised_interval_search_flag);
-
-    bool contour_flag = ArgV.get<bool>(contour_search_flag);
+    auto filename = ArgV.get<std::string>(kFileSwitch);
+    auto directory = ArgV.get<std::string>(kDirectorySwitch);
+    auto config_file = ArgV.get<std::string>(kConfigSwitch);
+    bool interval_flag = ArgV.get<bool>(kIntervalSearchFlag);
+    bool generalised_interval_flag = ArgV.get<bool>(kGeneralisedIntervalSearchFlag);
+    bool contour_flag = ArgV.get<bool>(kContourSearchFlag);
+    bool score_only_search_flag = ArgV.get<bool>(kScoreSearchFlag);
+    bool pitch_search_flag = ArgV.get<bool>(kPitchSearchFlag);
+    bool dyad_search_flag = ArgV.get<bool>(kDyadSearchFlag);
+    bool trigram_search_flag = ArgV.get<bool>(kTrigramSearchFlag);
+    bool x_score_search_flag = ArgV.get<bool>(kXScoreSearchFlag);
+    bool dissonances = ArgV.get<bool>(kDissonancesFlag);
+    bool repeats = ArgV.get<bool>(kRepeatsFlag);
+    auto length = ArgV.get<int>(kMinSubstringLengthSwitch);
 
     if (!filename.empty()) {
         processor.addRelativeFile(filename);
@@ -38,7 +46,6 @@ int CATSMAT_repeats::main()
     if (!processor.getScores().empty())
     {
         if (interval_flag) {
-            int length = 4; //temp
             std::cout << "Performing repeated interval substring search" << std::endl;
             cout << ip.FindAndPrintRepeatedSubstrings(length);
         }

@@ -8,7 +8,7 @@
 #include "Commando/inc/MultiMode.hpp"
 
 /* repeated_substrings - interval (-i), generalised interval (-g), contour_type (-c), pitches (-p), dyads (-d),
- * trigrams (-3) using the current IMUSANT_<type>SuffixTreeBuilder type and FindAndPrintRepeatedSubstrings member
+ * trigrams (-t) using the current IMUSANT_<type>SuffixTreeBuilder type and FindAndPrintRepeatedSubstrings member
  * function, or processor->FindRepeatedDyadSequences or processor->FindRepeatedTrigramSequences.
  * (It may be useful to add processor member functions for options -i, -c, and -p. Note there needs
  * to be an option (-s)[s for score] or (-x) across option, and a ignore dissonances and ignore repeated
@@ -42,19 +42,39 @@ namespace CATSMAT
     class CATSMAT_repeats : public CLI::SingleMode {
     public:
 
-        const string file_switch = "file";
-        const string directory_switch = "directory";
-        const string config_switch = "config";
-        const string interval_search_flag = "interval";
-        const string generalised_interval_search_flag = "generalised";
-        const string contour_search_flag = "contour";
+        const string kFileSwitch = "file";
+        const string kDirectorySwitch = "directory";
+        const string kConfigSwitch = "config";
+        const string kIntervalSearchFlag = "interval"; //default
+        const string kGeneralisedIntervalSearchFlag = "generalised";
+        const string kContourSearchFlag = "contour";
+        const string kPitchSearchFlag = "pitch";
+        const string kDyadSearchFlag = "dyad";
+        const string kTrigramSearchFlag = "trigram";
+        const string kScoreSearchFlag = "score_search"; //default
+        const string kXScoreSearchFlag = "cross_score_search";
+        const string kMinSubstringLengthSwitch = "length";
+        const string kDissonancesFlag = "dissonances"; //for dyad and trigram searches only
+        const string kRepeatsFlag = "repeats"; //ignore repeated pitches and dyads
 
-        CLI::Switch file_               {file_switch, "", "File to operate on", "f"};
-        CLI::Switch directory_          {directory_switch, "", "Directory to operate on", "d"};
-        CLI::Switch config_             {config_switch, "", "Configuration file listing files to operate on", "x"};
-        CLI::Flag interval_             {interval_search_flag, "1", "Search for repeated interval substrings", "i"};
-        CLI::Flag generalised_interval_ {generalised_interval_search_flag, "1", "Search for repeated generalised interval substrings", "g"};
-        CLI::Flag contour_              {contour_search_flag, "1", "Search for repeated contour substrings", "c"};
+        CLI::Switch file_               {kFileSwitch, "", "File to operate on", "f"};
+        CLI::Switch directory_          {kDirectorySwitch, "", "Directory to operate on", "d"};
+        CLI::Switch config_             {kConfigSwitch, "", "Configuration file listing files to operate on", "x"};
+
+        //different type searches
+        CLI::Flag interval_             {kIntervalSearchFlag, "0", "Search for repeated interval substrings", "i"};
+        CLI::Flag generalised_interval_ {kGeneralisedIntervalSearchFlag, "0", "Search for repeated generalised interval substrings", "g"};
+        CLI::Flag contour_              {kContourSearchFlag, "0", "Search for repeated contour substrings", "c"};
+        CLI::Flag pitch_                {kPitchSearchFlag, "0", "search for repeated pitch substrings", "p"};
+        CLI::Flag dyad_                 {kDyadSearchFlag, "0", "Search for repeated dyad substrings", "d"};
+        CLI::Flag trigram_              {kTrigramSearchFlag, "0", "Search for repeated trigram substrings", "t"};
+        CLI::Flag score_search_         {kScoreSearchFlag, "0", "Search in each score only", "s"};
+        CLI::Flag x_score_search_       {kXScoreSearchFlag, "0", "Search across scores", "x"};
+
+        //other options
+        CLI::Switch min_length_         {kMinSubstringLengthSwitch, "4", "Minimum length for found substrings", "l"};
+        CLI::Flag dissonances_          {kDissonancesFlag, "0", "Include dissonances (default: off). On = 1, Off = 0", "D"};
+        CLI::Flag repeats_              {kRepeatsFlag, "0", "Include repeates (default: off). On = 1, Off = 0", "r"};
 
         CLI::Terminator version_ {"version", "show version info",
                                   "CATSMAT_repeats (1.0.0)\nCopyright (c) Jason Stoessel 2018. All rights reserved."
@@ -82,6 +102,14 @@ namespace CATSMAT
             Register(&interval_);
             Register(&generalised_interval_);
             Register(&contour_);
+            Register(&pitch_);
+            Register(&dyad_);
+            Register(&trigram_);
+            Register(&score_search_);
+            Register(&x_score_search_);
+            Register(&min_length_);
+            Register(&dissonances_);
+            Register(&repeats_);
             Register(&version_, &copyright_);
         }
 

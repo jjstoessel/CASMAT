@@ -43,6 +43,7 @@ if (Boost_FOUND)
 	#set target, add executable and link libraries (default shared/dynamic libraries)
 	set(target CATSMAT)
 	add_executable(${target} ${SRC} )
-	TARGET_LINK_LIBRARIES(${target} libmusicxml2; libIMUSANT; ${Boost_LIBRARIES}  )
+	TARGET_LINK_LIBRARIES(${target} libmusicxml2; libIMUSANT; ${Boost_LIBRARIES} )
+
 endif()
 

@@ -44,6 +44,8 @@ file (GLOB COREH RELATIVE . ${HEADERS} ${COMMANDO_HEADERS})
 
 include("${CMAKE_SOURCE_DIR}/CMakeBoost.txt")
 
+add_definitions( -DBOOST_ALL_NO_LIB )
+
 if (Boost_FOUND)
     #report boost status
     message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
