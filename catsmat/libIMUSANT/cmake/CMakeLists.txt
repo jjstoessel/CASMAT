@@ -120,7 +120,6 @@ set_target_properties (${target} PROPERTIES
 			MACOSX_FRAMEWORK_BUNDLE_VERSION ${SSTRVERS}
 )
 
-
 #######################################
 # install setup
 if(NOT APPLE)
