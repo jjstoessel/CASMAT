@@ -3,9 +3,7 @@
 //
 #include <iostream>
 #include "repeats/inc/CATSMAT_repeats.h"
-#include <boost/filesystem.hpp>
 #include "GeneralAnalysis/inc/CATSMAT_processing.h"
-#include "Application/CATSMAT_menu.h"
 #include "IMUSANT_interval_suffixtree_builder.h"
 #include "IMUSANT_pitch_suffixtree_builder.h"
 #include "IMUSANT_contour_suffixtree_builder.h"
@@ -15,24 +13,22 @@ using namespace CATSMAT;
 int CATSMAT_repeats::main()
 {
     filesystem::path full_path(filesystem::initial_path());
-    CATSMAT_menu the_menu;
     CATSMAT_processing processor;
-    IMUSANT_IntervalSuffixTreeBuilder  ip;
-    IMUSANT_ContourSuffixTreeBuilder cp;
 
     auto filename = ArgV.get<std::string>(kFileSwitch);
     auto directory = ArgV.get<std::string>(kDirectorySwitch);
     auto config_file = ArgV.get<std::string>(kConfigSwitch);
+    bool default_config = ArgV.get<bool>(kDefaultConfigFlag);
     bool interval_flag = ArgV.get<bool>(kIntervalSearchFlag);
     bool generalised_interval_flag = ArgV.get<bool>(kGeneralisedIntervalSearchFlag);
     bool contour_flag = ArgV.get<bool>(kContourSearchFlag);
-    bool score_only_search_flag = ArgV.get<bool>(kScoreSearchFlag);
-    bool pitch_search_flag = ArgV.get<bool>(kPitchSearchFlag);
+    bool pitch_flag = ArgV.get<bool>(kPitchSearchFlag);
     bool dyad_search_flag = ArgV.get<bool>(kDyadSearchFlag);
+    bool sonority_search_flag = ArgV.get<bool>(kSonoritySearchFlag);
     bool trigram_search_flag = ArgV.get<bool>(kTrigramSearchFlag);
     bool x_score_search_flag = ArgV.get<bool>(kXScoreSearchFlag);
-    bool dissonances = ArgV.get<bool>(kDissonancesFlag);
-    bool repeats = ArgV.get<bool>(kRepeatsFlag);
+    bool include_dissonances = ArgV.get<bool>(kDissonancesFlag);
+    bool include_repeats = ArgV.get<bool>(kRepeatsFlag);
     auto length = ArgV.get<int>(kMinSubstringLengthSwitch);
 
     if (!filename.empty()) {
@@ -43,23 +39,55 @@ int CATSMAT_repeats::main()
         processor.processRelativeDirectoryFiles(directory);
     }
 
+    if (!config_file.empty()) {
+
+    } else if (default_config) {
+        processor.addFilesFromFixedConfigFile();
+    }
+
     if (!processor.getScores().empty())
     {
-        if (interval_flag) {
+        IMUSANT_IntervalSuffixTreeBuilder  ip;
+        IMUSANT_PitchSuffixTreeBuilder     pp;
+        IMUSANT_ContourSuffixTreeBuilder   cp;
+
+        if (interval_flag) { //A
+            ip.Visit(processor);
             std::cout << "Performing repeated interval substring search" << std::endl;
             cout << ip.FindAndPrintRepeatedSubstrings(length);
         }
 
-        if (contour_flag) {
-            int length = 4; //temp
+        if (contour_flag) { //B
+
+            cp.Visit(processor);
             std::cout << "Performing repeated contour substring search" << std::endl;
             cout << cp.FindAndPrintRepeatedSubstrings(length);
+        }
+
+        if (pitch_flag) {
+            pp.Visit(processor);
+            std::cout << "Performing repeated pitch substring search" << std::endl;
+            cout << pp.FindAndPrintRepeatedSubstrings(length);
         }
 
         if (generalised_interval_flag) {
             //To DO
         }
 
+        if (dyad_search_flag) { //old option J and K
+            std::cout << "Performing repeated dyad substring search" << std::endl;
+            processor.FindRepeatedDyadSequences(length, !include_dissonances, !include_repeats, x_score_search_flag);
+        }
+
+        if (sonority_search_flag) { //old option M
+            std::cout << "Performing repeated sonority substring search" << std::endl;
+            processor.FindRepeatedSonoritySequences(length);
+        }
+
+        if (trigram_search_flag) { //old option U
+            std::cout << "Performing repeated trigram substring search" << std::endl;
+            processor.FindRepeatedTrigramSequences(length, !include_dissonances, !include_repeats);
+        }
     }
 
     return 0;
