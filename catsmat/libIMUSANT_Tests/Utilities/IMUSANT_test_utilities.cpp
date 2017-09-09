@@ -16,6 +16,7 @@
 
 #include <math.h>
 
+// #define VERBOSE
 
 S_IMUSANT_score
 IMUSANT_test_utilities::
@@ -36,6 +37,11 @@ makePathToTestFile(string relative_path_to_test_data_file)
     filesystem::path testdata(filesystem::initial_path());
     testdata.append(_root_test_data_dir_name);
     testdata.append(relative_path_to_test_data_file);
+
+#ifdef VERBOSE
+    cout << "makePathToTestFile() - Path to test data file is: " << testdata.generic_string() << endl;
+#endif
+
     return testdata;
 }
 
@@ -47,7 +53,12 @@ DiffActualAndExpected(string actual, string expected)
     
     string actual_file_path = GetTempFilePath();
     string expected_file_path = GetTempFilePath();
-    
+
+#ifdef VERBOSE
+    cout << "DiffActualAndExpected() - Actual file is: " << actual_file_path << endl;
+    cout << "DiffActualAndExpected() - Expected file is: " << expected_file_path << endl;
+#endif
+
     ofstream actual_file(actual_file_path);
     ofstream expected_file(expected_file_path);
     
@@ -74,15 +85,13 @@ string
 IMUSANT_test_utilities::
 GetTempFilePath()
 {
-    boost::filesystem::path temp = boost::filesystem::temp_directory_path();
-    boost::filesystem::path temp_file_name = boost::filesystem::unique_path();
-    
-    temp /= temp_file_name;
-    temp.replace_extension(".txt");
-    
-    // cout << "Temp file is: " << temp.string() << endl;
-    
-    return temp.string();
+    string ret_val = tmpnam(nullptr);
+
+#ifdef VERBOSE
+    cout << "Temp file is: " << ret_val << endl;
+#endif
+
+    return ret_val;
 }
 
 void
@@ -96,6 +105,11 @@ ExecuteSystemCommand(string system_command)
     }
     
     int status;
+
+#ifdef VERBOSE
+    cout << "System Command: " << system_command.c_str() << endl;
+#endif
+
     status = std::system(system_command.c_str());
     
     if (status < 0)
@@ -118,7 +132,7 @@ IMUSANT_test_utilities::
 OutputDiffResult(string temp_output_file_path)
 {
     string line;
-    ifstream myfile (temp_output_file_path);
+    ifstream myfile (temp_output_file_path.c_str());
     
     if (myfile.is_open())
     {
