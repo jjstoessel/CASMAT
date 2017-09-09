@@ -111,15 +111,13 @@ CATSMAT_test_utility::DiffFiles(string actual_file_path, string expected_file_pa
 string
 CATSMAT_test_utility::GetTempFilePath()
 {
-    boost::filesystem::path temp = boost::filesystem::temp_directory_path();
-    boost::filesystem::path temp_file_name = boost::filesystem::unique_path();
-    
-    temp /= temp_file_name;
-    temp.replace_extension(".txt");
-    
-    // cout << "Temp file is: " << temp.string() << endl;
-    
-    return temp.string();
+    string ret_val = tmpnam(nullptr);
+
+#ifdef VERBOSE
+    cout << "Temp file is: " << ret_val << endl;
+#endif
+
+    return ret_val;
 }
 
 void
