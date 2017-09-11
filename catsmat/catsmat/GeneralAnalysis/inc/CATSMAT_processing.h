@@ -35,7 +35,6 @@ public:
     void addFilesFromConfigFile(boost::filesystem::path config_file);
 
     void FindRepeatedDyadSequences(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true, bool across=true);
-    void FindRepeatedDyadtupleSequences(int min);
     void FindRepeatedSonoritySequences(int min);
     void FindRepeatedTrigramSequences(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
     void FindRepeatedTrigramSequencesCanonic(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);

@@ -26,6 +26,7 @@ namespace CATSMAT
         const string kFileSwitch = "file";
         const string kDirectorySwitch = "directory";
         const string kConfigSwitch = "config";
+        const string kOutputFileSwitch = "output_file";
         const string kDefaultConfigFlag = "default_config";
         const string kIntervalSearchFlag = "interval"; //default
         const string kGeneralisedIntervalSearchFlag = "generalised";
@@ -38,27 +39,29 @@ namespace CATSMAT
         const string kMinSubstringLengthSwitch = "length";
         const string kDissonancesFlag = "include_dissonances"; //for dyad and trigram searches only
         const string kRepeatsFlag = "include_repeats"; //ignore repeated pitches and dyads
+        const string kCanonicVoicesOnlyFlag = "canon_voices";
 
         CLI::Switch file_               {kFileSwitch, "", "File to operate on", "f"};
         CLI::Switch directory_          {kDirectorySwitch, "", "Directory to operate on", "d"};
         CLI::Switch config_             {kConfigSwitch, "", "Configuration file listing files to operate on", "k"};
+        CLI::Switch output_file_        {kOutputFileSwitch, "out.txt", "Results output file", "o"};
         CLI::Flag default_config_       {kDefaultConfigFlag, "0", "Use configuration file in HOME directory listing files to operate on", "K"};
-
 
         //different type searches
         CLI::Flag interval_             {kIntervalSearchFlag, "0", "Search for repeated interval substrings", "i"};
         CLI::Flag generalised_interval_ {kGeneralisedIntervalSearchFlag, "0", "Search for repeated generalised interval substrings", "g"};
         CLI::Flag contour_              {kContourSearchFlag, "0", "Search for repeated contour substrings", "c"};
         CLI::Flag pitch_                {kPitchSearchFlag, "0", "search for repeated pitch substrings", "p"};
-        CLI::Flag dyad_                 {kDyadSearchFlag, "0", "Search for repeated dyad substrings", "d"};
+        CLI::Flag dyad_                 {kDyadSearchFlag, "0", "Search for repeated dyad substrings", "y"};
         CLI::Flag sonority_             {kSonoritySearchFlag, "0", "Search for repeated sonorities substrings", "s"};
         CLI::Flag trigram_              {kTrigramSearchFlag, "0", "Search for repeated trigram substrings", "t"};
         CLI::Flag x_score_search_       {kXScoreSearchFlag, "0", "Search across scores", "x"};
 
         //other options
         CLI::Switch min_length_         {kMinSubstringLengthSwitch, "4", "Minimum length for found substrings", "l"};
-        CLI::Flag include_dissonances_          {kDissonancesFlag, "0", "Include dissonances (default: off). On = 1, Off = 0", "D"};
-        CLI::Flag include_repeats_              {kRepeatsFlag, "0", "Include repeates (default: off). On = 1, Off = 0", "r"};
+        CLI::Flag include_dissonances_  {kDissonancesFlag, "0", "Include dissonances (default: off). On = 1, Off = 0", "D"};
+        CLI::Flag include_repeats_      {kRepeatsFlag, "0", "Include repeats (default: off). On = 1, Off = 0", "r"};
+        CLI::Flag canonic_voices_       {kCanonicVoicesOnlyFlag, "0", "Include canonic voices only. On = 1, Off = 0", "r"};
 
         CLI::Terminator version_ {"version", "show version info",
                                   "CATSMAT_repeats (1.0.0)\nCopyright (c) Jason Stoessel 2018. All rights reserved."
@@ -83,6 +86,7 @@ namespace CATSMAT
             Register(&file_);
             Register(&directory_);
             Register(&config_);
+            Register(&output_file_);
             Register(&default_config_);
             Register(&interval_);
             Register(&generalised_interval_);
@@ -95,6 +99,7 @@ namespace CATSMAT
             Register(&min_length_);
             Register(&include_dissonances_);
             Register(&include_repeats_);
+            Register(&canonic_voices);
             Register(&version_, &copyright_);
         }
 

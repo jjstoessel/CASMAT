@@ -47,7 +47,8 @@ namespace CATSMAT {
         CATSMAT_score_profile<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol> >& score_contour_symbol_duple_profile() { return fContourSymbolDupleProfile; }
         
         void    print(ostream& os);
-        
+        void    PrintTitle(ostream& os);
+
     protected:
         
         CATSMAT_scoredata();

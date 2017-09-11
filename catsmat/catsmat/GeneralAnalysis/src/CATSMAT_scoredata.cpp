@@ -77,13 +77,13 @@ namespace CATSMAT {
     {
         
     }
-    
+
     void
     CATSMAT_scoredata::
-    print(ostream& os)
+    PrintTitle(ostream& os)
     {
         string title = "unknown";
-        
+
         if (!fWorkTitle.empty() ) {
             title = fWorkTitle;
             if (!fMovementTitle.empty())
@@ -94,9 +94,15 @@ namespace CATSMAT {
         {
             title = fMovementTitle;
         }
-        
+
         os << "General data for " << title << endl;
-        
+    }
+
+    void
+    CATSMAT_scoredata::
+    print(ostream& os)
+    {
+        PrintTitle(os);
         
         os << fScorePitchProfile;
         os << fScoreDurationProfile;

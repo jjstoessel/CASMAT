@@ -215,14 +215,6 @@ namespace CATSMAT
         }
     }
     
-    //deprecated by FindRepeatedTrigramSequences
-    void
-    CATSMAT_processing::
-    FindRepeatedDyadtupleSequences(int min)
-    {
-        
-    }
-    
     void
     CATSMAT_processing::
     FindRepeatedSonoritySequences(int min)

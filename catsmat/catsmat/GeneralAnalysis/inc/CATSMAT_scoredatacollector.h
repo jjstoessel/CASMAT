@@ -29,6 +29,8 @@ namespace CATSMAT {
         void Visit(const CATSMAT_processing& processor);
         
         void print(ostream& os) const;
+
+        vector<S_CATSMAT_scoredata> get() { return scoresdata; }
         
     private:
         

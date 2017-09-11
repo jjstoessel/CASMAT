@@ -16,7 +16,6 @@ namespace CATSMAT {
         for (auto score : processor.getScores())
         {
             //get basic data like note, interval, etc. counts
-            //S_CATSMAT_scoredata scoredata = new_CATSMAT_scoredata();
             S_CATSMAT_scoredata scoredata = new_CATSMAT_object<CATSMAT_scoredata>();
             
             scoredata->findBasicDataFromScore(score);
