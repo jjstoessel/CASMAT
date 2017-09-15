@@ -18,5 +18,6 @@ add_subdirectory (catsmat/Commando/cmake)
 add_subdirectory (catsmat/catsmat/repeats/cmake)
 add_subdirectory (catsmat/catsmat/canonic_techniques/cmake)
 add_subdirectory (catsmat/catsmat/count/cmake)
+add_subdirectory (catsmat/catsmat/Segmentation/cmake)
 
 set(CMAKE_CXX_STANDARD 11)
