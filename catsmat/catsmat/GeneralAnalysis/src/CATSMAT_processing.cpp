@@ -8,6 +8,7 @@
  *  A file processing class for CATSMAT.
  */
 #include <iostream>
+#include <fstream>
 #include <deque>
 #include <boost/filesystem.hpp>
 
