@@ -17,7 +17,7 @@ using namespace boost;
 //#define VERBOSE = 1;
 
 
-// The fixture for testing class IMUSANT_pitch.
+// The fixture for testing class Segment.
 class Segment_Tests : public ::testing::Test
 {
     
@@ -40,13 +40,9 @@ protected:
     }
     
     static void SetUpTestCase() {
-        _test_utils = new CATSMAT_test_utility("IMUSANT_testdata");
     }
-    
-    static CATSMAT_test_utility * _test_utils;
 };
 
-CATSMAT_test_utility * Segment_Tests::_test_utils = NULL;
 
 
 // ************* TEST CASES START HERE *********** //
