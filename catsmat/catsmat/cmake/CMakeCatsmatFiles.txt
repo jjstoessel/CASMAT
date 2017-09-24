@@ -124,7 +124,11 @@ set(HEADERS ${HEADERS}
         ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_pitch_suffixtree_builder.h
         ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_repeated_interval_substring.h
         ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_t_repeated_substring.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_t_suffixtree_builder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_t_vectormap.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_t_vectormap_analysis.h
         ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_vectormap_analysis_types.h
+
 
         ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_chord.h
         ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_collectionvisitor.h
@@ -148,6 +152,7 @@ set(HEADERS ${HEADERS}
         ${CATSMAT_SEGMENTATION_INC_DIR}/I_Segmented.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/I_SetOfSegment.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/Segment.h
+        ${CATSMAT_SEGMENTATION_INC_DIR}/Segmenter.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/SetOfSegment.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/SegmentContext.h
 
