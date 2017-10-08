@@ -2,14 +2,14 @@
 // Created by Jason Stoessel on 15/9/17.
 //
 
-#include "Segmenter.h"
+#include "SegmentationApplication.h"
 #include "GeneralAnalysis/inc/CATSMAT_processing.h"
 #include "LBDM_Segmenter.h"
 #include "FP_Segmenter.h"
 
 using namespace CATSMAT;
 
-int Segmenter::main() {
+int SegmentationApplication::main() {
 
     try {
 

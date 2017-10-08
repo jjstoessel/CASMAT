@@ -33,9 +33,9 @@
 		492905CF1EECD98400B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */; };
 		492905D01EECD98400B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */; };
 		492905D11EECD98400B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */; };
-		492905D61EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp */; };
-		492905D71EECE57100B0D5A7 /* SegmentedScoreFixedPeriod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp */; };
-		492905D91EECE82900B0D5A7 /* SegmentedScoreFixedPeriod_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D81EECE82900B0D5A7 /* SegmentedScoreFixedPeriod_Tests.cpp */; };
+		492905D61EECE55100B0D5A7 /* FP_SegmentedScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */; };
+		492905D71EECE57100B0D5A7 /* FP_SegmentedScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */; };
+		492905D91EECE82900B0D5A7 /* FP_SegmentedScore_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D81EECE82900B0D5A7 /* FP_SegmentedScore_Tests.cpp */; };
 		4949DD2A1F2D6E9D00248DA4 /* Anon-Talent_mest_pris_I-IV_115.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49CDADA81ED8FE6E003D6095 /* Anon-Talent_mest_pris_I-IV_115.xml */; };
 		4949DD2B1F2D6E9D00248DA4 /* Bononcini-RCM_canon_Musico_prattico_p105.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4949DD241F2D6CD000248DA4 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */; };
 		4949DD2C1F2D6E9D00248DA4 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4949DD251F2D6CD000248DA4 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */; };
@@ -490,9 +490,9 @@
 		492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_fixed_period_segmenter.cpp; sourceTree = "<group>"; };
 		492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_partlist_ordered_by_part_entry.cpp; sourceTree = "<group>"; };
 		492905D21EECDE9F00B0D5A7 /* Kyrie_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie_2.xml; sourceTree = "<group>"; };
-		492905D41EECE52E00B0D5A7 /* SegmentedScoreFixedPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedScoreFixedPeriod.h; sourceTree = "<group>"; };
-		492905D51EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentedScoreFixedPeriod.cpp; sourceTree = "<group>"; };
-		492905D81EECE82900B0D5A7 /* SegmentedScoreFixedPeriod_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentedScoreFixedPeriod_Tests.cpp; sourceTree = "<group>"; };
+		492905D41EECE52E00B0D5A7 /* FP_SegmentedScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FP_SegmentedScore.h; sourceTree = "<group>"; };
+		492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FP_SegmentedScore.cpp; sourceTree = "<group>"; };
+		492905D81EECE82900B0D5A7 /* FP_SegmentedScore_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FP_SegmentedScore_Tests.cpp; sourceTree = "<group>"; };
 		4949DD241F2D6CD000248DA4 /* Bononcini-RCM_canon_Musico_prattico_p105.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Bononcini-RCM_canon_Musico_prattico_p105.xml"; sourceTree = "<group>"; };
 		4949DD251F2D6CD000248DA4 /* Cerreto-CM_canon_Della_prattica_musica_p222.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Cerreto-CM_canon_Della_prattica_musica_p222.xml"; sourceTree = "<group>"; };
 		4949DD261F2D6CD000248DA4 /* Du_Fay-Bien_veignes_vous.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Du_Fay-Bien_veignes_vous.xml"; sourceTree = "<group>"; };
@@ -1442,7 +1442,7 @@
 		492905BE1EECD92300B0D5A7 /* inc */ = {
 			isa = PBXGroup;
 			children = (
-				492905D41EECE52E00B0D5A7 /* SegmentedScoreFixedPeriod.h */,
+				492905D41EECE52E00B0D5A7 /* FP_SegmentedScore.h */,
 				492905BF1EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.h */,
 				492905C01EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.h */,
 			);
@@ -1452,7 +1452,7 @@
 		492905C21EECD92300B0D5A7 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				492905D51EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp */,
+				492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */,
 				492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */,
 				492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */,
 			);
@@ -1516,7 +1516,7 @@
 		495435361EE37FAB00213203 /* Segmentation */ = {
 			isa = PBXGroup;
 			children = (
-				492905D81EECE82900B0D5A7 /* SegmentedScoreFixedPeriod_Tests.cpp */,
+				492905D81EECE82900B0D5A7 /* FP_SegmentedScore_Tests.cpp */,
 				495435371EE37FAB00213203 /* IMUSANT_interval_profile_LBDM_Tests.cpp */,
 				495435381EE37FAB00213203 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp */,
 				495435391EE37FAB00213203 /* IMUSANT_segment_Tests.cpp */,
@@ -3181,10 +3181,10 @@
 				495435651EE3B13200213203 /* IMUSANT_repeated_interval_substring.cpp in Sources */,
 				49BAF9EB1ED945D5000C84C4 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				49BAF9F21ED945E4000C84C4 /* CATSMAT_TrigramSequences.cpp in Sources */,
-				492905D71EECE57100B0D5A7 /* SegmentedScoreFixedPeriod.cpp in Sources */,
+				492905D71EECE57100B0D5A7 /* FP_SegmentedScore.cpp in Sources */,
 				495435621EE3B13200213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */,
 				49BAF9F11ED945E4000C84C4 /* CATSMAT_sonority_sequences.cpp in Sources */,
-				492905D91EECE82900B0D5A7 /* SegmentedScoreFixedPeriod_Tests.cpp in Sources */,
+				492905D91EECE82900B0D5A7 /* FP_SegmentedScore_Tests.cpp in Sources */,
 				49BAF9E51ED945D1000C84C4 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
 				497FE7AD1EFF6EA0008F066B /* IMUSANT_segment.cpp in Sources */,
 				492905CF1EECD98400B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
@@ -3311,7 +3311,7 @@
 				49BAF9C71ED9456C000C84C4 /* CATSMAT_score_splitter.cpp in Sources */,
 				49BAF9E31ED94599000C84C4 /* CATSMAT_TrigramSequences.cpp in Sources */,
 				497FE7AB1EFF6E87008F066B /* IMUSANT_segment.cpp in Sources */,
-				492905D61EECE55100B0D5A7 /* SegmentedScoreFixedPeriod.cpp in Sources */,
+				492905D61EECE55100B0D5A7 /* FP_SegmentedScore.cpp in Sources */,
 				492905BC1EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */,
 				497FE7B71EFF8340008F066B /* SegmentContext.cpp in Sources */,
 				49BAF9C41ED9456C000C84C4 /* CATSMAT_partdata.cpp in Sources */,

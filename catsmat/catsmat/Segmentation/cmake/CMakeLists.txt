@@ -21,8 +21,8 @@ include(${CMAKE_SOURCE_DIR}/catsmat/catsmat/cmake/CMakeCatsmatFiles.txt)
 set (CATSMAT_SEGMENTER_DIR ..)
 
 set (CATSMAT_SEGMENTER_FILES
-        ${CATSMAT_SEGMENTER_DIR}/src/Segmenter_main.cpp
-        ${CATSMAT_SEGMENTER_DIR}/src/Segmenter.cpp
+        ${CATSMAT_SEGMENTER_DIR}/Application/SegmenterMain.cpp
+        ${CATSMAT_SEGMENTER_DIR}/Application/SegmentationApplication.cpp
         )
 
 set(COMMANDO_INC_FOLDER "${CATSMAT_DIR}/Commando/inc")

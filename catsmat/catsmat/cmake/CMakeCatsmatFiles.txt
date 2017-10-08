@@ -152,7 +152,6 @@ set(HEADERS ${HEADERS}
         ${CATSMAT_SEGMENTATION_INC_DIR}/I_Segmented.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/I_SetOfSegment.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/Segment.h
-        ${CATSMAT_SEGMENTATION_INC_DIR}/Segmenter.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/SetOfSegment.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/SegmentContext.h
 
@@ -168,6 +167,9 @@ set(HEADERS ${HEADERS}
         ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_SegmentedPart.h
         ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_SegmentedProfileVectors.h
         ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_WeightedStrengthVectors.h
+
+        ${CATSMAT_DIR}/Segmentation/Application/SegmentationApplication.h
+
         )
 
 #

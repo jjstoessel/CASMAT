@@ -11,7 +11,7 @@ using namespace std;
 
 namespace CATSMAT {
 
-    class Segmenter : public CLI::SingleMode {
+    class SegmentationApplication : public CLI::SingleMode {
     public:
         const string kFileSwitch = "file";
         const string kDirectorySwitch = "directory";
@@ -44,7 +44,7 @@ namespace CATSMAT {
                                            " copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or"
                                            " FITNESS FOR A PARTICULAR PURPOSE.", "C"};
 
-        Segmenter(const int argc, const char **argv)
+        SegmentationApplication(const int argc, const char **argv)
                 : SingleMode(argc, argv,
                              "Data collection utility for canonic compositions. Give one of the above subcommands "
                                      "with no arguments for their respective usage, or pass the -h, --help flag "
