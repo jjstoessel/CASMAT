@@ -104,6 +104,7 @@ set(SRC ${SRC}
 		${CATSMAT_SEGMENTATION_SRC_DIR}/Segment.cpp
 		${CATSMAT_SEGMENTATION_SRC_DIR}/SetOfSegment.cpp
 		${CATSMAT_SEGMENTATION_SRC_DIR}/SegmentContext.cpp
+		${CATSMAT_SEGMENTATION_SRC_DIR}/Segmenter.cpp
 
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/FP_Segmenter.cpp
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/PartlistOrderedByPartEntry.cpp
@@ -154,6 +155,7 @@ set(HEADERS ${HEADERS}
         ${CATSMAT_SEGMENTATION_INC_DIR}/Segment.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/SetOfSegment.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/SegmentContext.h
+        ${CATSMAT_SEGMENTATION_INC_DIR}/Segmenter.h
 
         ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/FP_Segmenter.h
         ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/PartlistOrderedByPartEntry.h
