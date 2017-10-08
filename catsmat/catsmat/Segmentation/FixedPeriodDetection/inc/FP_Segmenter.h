@@ -6,13 +6,13 @@
 
 #include "IMUSANT_t_suffixtree_builder.h"
 #include "Loki/Visitor.h"
-#include "SegmentedScoreFixedPeriod.h"
+#include "FP_SegmentedScore.h"
 
 using namespace Loki;
 
 namespace CATSMAT {
     
-    class FixedPeriodSegmenter :
+    class FP_Segmenter :
         public Loki::BaseVisitor,
         public Loki::Visitor<IMUSANT_processing, void, true>
     {
@@ -20,11 +20,11 @@ namespace CATSMAT {
         
         typedef vector<SetOfSegment> SetOfSegmentsVector;
         
-        FixedPeriodSegmenter(SetOfSegment &segmentation_results)
+        FP_Segmenter(SetOfSegment &segmentation_results)
         : fSegmentationResult(segmentation_results)
         {
         }
-        ~FixedPeriodSegmenter() {}
+        ~FP_Segmenter() {}
         
         void    Visit(const IMUSANT_processing&);
         

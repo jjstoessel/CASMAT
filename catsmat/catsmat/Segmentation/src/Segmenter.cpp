@@ -5,7 +5,7 @@
 #include "Segmenter.h"
 #include "GeneralAnalysis/inc/CATSMAT_processing.h"
 #include "LBDM_Segmenter.h"
-#include "FixedPeriodSegmenter.h"
+#include "FP_Segmenter.h"
 
 using namespace CATSMAT;
 
@@ -65,11 +65,11 @@ int Segmenter::main() {
             if (isoperiodic) { //old option T
 
                 SetOfSegment segmentation_results;
-                FixedPeriodSegmenter segmenter(segmentation_results);
+                FP_Segmenter segmenter(segmentation_results);
                 segmenter.Visit(processor);
 
-                FixedPeriodSegmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
-                for (FixedPeriodSegmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+                FP_Segmenter::SetOfSegmentsVector segments = segmenter.getSegmentSets();
+                for (FP_Segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
                      segment_set_iter != segments.end() ;
                      segment_set_iter++)
                 {
@@ -79,7 +79,7 @@ int Segmenter::main() {
 
                 cout << "Format for using this data with R:" << endl;
                 bool first_time_round = true;
-                for (FixedPeriodSegmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
+                for (FP_Segmenter::SetOfSegmentsVector::iterator segment_set_iter = segments.begin();
                      segment_set_iter != segments.end() ;
                      segment_set_iter++)
                 {

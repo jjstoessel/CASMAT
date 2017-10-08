@@ -10,6 +10,7 @@
 #define __I_SetOfSegment__
 
 #include <stdio.h>
+#include "I_Segment.h"
 
 namespace CATSMAT
 {
@@ -18,7 +19,7 @@ namespace CATSMAT
 
     public:
         
-        virtual insertSegment(I_Segment segment);
+        virtual void insertSegment(I_Segment segment) = 0;
         virtual void clearSegments() = 0;
         virtual string printProperties(bool include_header_row) = 0;
         

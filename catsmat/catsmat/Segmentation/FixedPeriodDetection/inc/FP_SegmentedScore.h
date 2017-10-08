@@ -1,6 +1,6 @@
 
-#ifndef __SegmentedScoreFixedPeriod__
-#define __SegmentedScoreFixedPeriod__
+#ifndef __FP_SegmentedScore__
+#define __FP_SegmentedScore__
 
 #include <stdio.h>
 
@@ -16,20 +16,20 @@ using namespace std;
 
 namespace CATSMAT
 {
-    class SegmentedScoreFixedPeriod : public smartable, I_Segmented
+    class FP_SegmentedScore : public smartable, I_Segmented
     {
     public:
         
-        string SEGMENTATION_ALGORITHM = "SegmentedScoreFixedPeriod";
+        string SEGMENTATION_ALGORITHM = "FP_SegmentedScore";
         
         static const int SUCCESS = 0;
         static const int ERR_NOT_ENOUGH_PARTS = 1;
         
-        SegmentedScoreFixedPeriod(SetOfSegment & segmentation_result) : I_Segmented(segmentation_result)
+        FP_SegmentedScore(SetOfSegment & segmentation_result) : I_Segmented(segmentation_result)
         {
         }
         
-        virtual ~SegmentedScoreFixedPeriod() {}
+        virtual ~FP_SegmentedScore() {}
         
         int initialise(S_IMUSANT_score the_score, double error_threshold = 0.1);
         
@@ -40,8 +40,8 @@ namespace CATSMAT
         
         S_IMUSANT_duration getPeriodDurationForThisScore();
         
-        friend ostream& operator<< (ostream& os, const SegmentedScoreFixedPeriod& segmented_part);
-        friend IMUSANT_SMARTP<SegmentedScoreFixedPeriod> new_SegmentedScoreFixedPeriod();
+        friend ostream& operator<< (ostream& os, const FP_SegmentedScore& segmented_part);
+        friend IMUSANT_SMARTP<FP_SegmentedScore> new_SegmentedScoreFixedPeriod();
        
         //these are not class dependent member functions of broader utility
         static S_IMUSANT_duration calculateEntryOffsetBetweenParts(PartEntry& first_part, PartEntry& second_part); //i.e. Interonset interval
@@ -84,10 +84,10 @@ namespace CATSMAT
         
     };
     
-    typedef IMUSANT_SMARTP<SegmentedScoreFixedPeriod> S_SegmentedScoreFixedPeriod;
-    IMUSANT_SMARTP<SegmentedScoreFixedPeriod> new_SegmentedScoreFixedPeriod(SetOfSegment & segmentation_results);
+    typedef IMUSANT_SMARTP<FP_SegmentedScore> S_SegmentedScoreFixedPeriod;
+    IMUSANT_SMARTP<FP_SegmentedScore> new_SegmentedScoreFixedPeriod(SetOfSegment & segmentation_results);
 
 }
 
 
-#endif /* defined(__SegmentedScoreFixedPeriod__) */
+#endif /* defined(__FP_SegmentedScore__) */

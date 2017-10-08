@@ -1,12 +1,12 @@
 //
-//  SegmentedScoreFixedPeriod.cpp
+//  FP_SegmentedScore.cpp
 //  catsmat
 //
 //  Created by Derrick Hill on 29/10/2016.
 //
 //
 
-#include "SegmentedScoreFixedPeriod.h"
+#include "FP_SegmentedScore.h"
 
 
 // #define OUTPUT(s) cout << s;
@@ -16,11 +16,11 @@
 namespace CATSMAT
 {
     
-    const int SegmentedScoreFixedPeriod::SUCCESS;
-    const int SegmentedScoreFixedPeriod::ERR_NOT_ENOUGH_PARTS;
+    const int FP_SegmentedScore::SUCCESS;
+    const int FP_SegmentedScore::ERR_NOT_ENOUGH_PARTS;
     
     int
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     initialise(S_IMUSANT_score the_score, double error_threshold)
     {
         fScore = the_score;
@@ -53,7 +53,7 @@ namespace CATSMAT
     }
     
     void
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     comparePartsForPeriodicSegments(PartEntry& first_part, PartEntry& second_part, double error_threshold)
     {
         OUTPUT("+++++  Comparing Part " +
@@ -77,7 +77,7 @@ namespace CATSMAT
     }
     
     void
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     extractPeriodicSegmentsFromParts(PartEntry& first_part, PartEntry& second_part, double error_threshold)
     {
         int first_part_index = first_part.EntryVectorIndexPosition;
@@ -110,7 +110,7 @@ namespace CATSMAT
     }
         
     int
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     populateNextSegment(S_Segment next_segment,
                         PartEntry& first_part,
                         PartEntry& second_part,
@@ -156,7 +156,7 @@ namespace CATSMAT
     }
     
     int
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     populateNextSegments(S_Segment first_part_segment,
                          S_Segment second_part_segment,
                          PartEntry& first_part,
@@ -204,7 +204,7 @@ namespace CATSMAT
     }
     
     bool
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     partsEnterTogether(PartEntry& first_part, PartEntry& second_part)
     {
         S_IMUSANT_duration part_entry_difference = calculateEntryOffsetBetweenParts(first_part, second_part);
@@ -214,14 +214,14 @@ namespace CATSMAT
     }
     
     void
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     addSegment(S_Segment segment)
     {
         fSegmentationResult.insert(*segment);
     }
     
     S_Segment
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     makeNewSegment(S_IMUSANT_part part)
     {
         S_SegmentContext context = new_SegmentContext(fScore, part, this->SEGMENTATION_ALGORITHM);
@@ -230,7 +230,7 @@ namespace CATSMAT
     };
     
     bool
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     errorRateIsAcceptable(double error_threshold, int num_non_matching_notes, long number_of_notes)
     {
         bool ret_val = false;
@@ -251,28 +251,28 @@ namespace CATSMAT
     }
     
     void
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     setPeriodDurationForThisScore(S_IMUSANT_duration period_duration)
     {
         fPeriodDuration = period_duration;
     }
     
     void
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     clearPeriodDurationForThisScore()
     {
         fPeriodDuration = NULL;
     }
     
     S_IMUSANT_duration
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     getPeriodDurationForThisScore()
     {
         return fPeriodDuration;
     }
     
     S_IMUSANT_duration
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     getPeriodDurationForPartComparison(PartEntry& first_part, PartEntry& second_part)
     {
         if (! fPeriodDuration)
@@ -287,7 +287,7 @@ namespace CATSMAT
     }
 
     S_IMUSANT_duration
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     calculatePeriodDurationForThisScore(IMUSANT_PartEntry_Vector& parts_in_entry_order)
     {
         for (int index = 0; index < parts_in_entry_order.size() - 1; index++)
@@ -304,7 +304,7 @@ namespace CATSMAT
     }
     
     S_IMUSANT_duration
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     calculateEntryOffsetBetweenParts(PartEntry& first_part, PartEntry& second_part)
     {
         IMUSANT_duration part_one_duration_offset = *(first_part.EntryDurationOffset);
@@ -317,14 +317,14 @@ namespace CATSMAT
     }
     
     void
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     clearSegments()
     {
         fSegmentationResult.clear();
     }
     
     SetOfSegment &
-    SegmentedScoreFixedPeriod::
+    FP_SegmentedScore::
     getSegmentsSet()
     {
         return fSegmentationResult;
@@ -333,7 +333,7 @@ namespace CATSMAT
     
     S_SegmentedScoreFixedPeriod new_SegmentedScoreFixedPeriod(SetOfSegment & segmentation_results)
     {
-        SegmentedScoreFixedPeriod* o = new SegmentedScoreFixedPeriod(segmentation_results);
+        FP_SegmentedScore* o = new FP_SegmentedScore(segmentation_results);
         assert (o!=0);
         return o;
     }

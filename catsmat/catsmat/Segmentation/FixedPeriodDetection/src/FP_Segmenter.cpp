@@ -6,20 +6,20 @@
 //
 //
 
-#include "FixedPeriodSegmenter.h"
+#include "FP_Segmenter.h"
 #include "IMUSANT_score.h"
 
 namespace CATSMAT {
     
     void
-    FixedPeriodSegmenter::
+    FP_Segmenter::
     Visit(const IMUSANT_processing& processor)
     {
         sp = findMelodicSegmentsFixedPeriod(processor.getScores());
     }
 
-    FixedPeriodSegmenter::SetOfSegmentsVector
-    FixedPeriodSegmenter::
+    FP_Segmenter::SetOfSegmentsVector
+    FP_Segmenter::
     findMelodicSegmentsFixedPeriod(const vector<S_IMUSANT_score>& scores)
     {
         SetOfSegmentsVector segments;

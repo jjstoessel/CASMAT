@@ -105,9 +105,9 @@ set(SRC ${SRC}
 		${CATSMAT_SEGMENTATION_SRC_DIR}/SetOfSegment.cpp
 		${CATSMAT_SEGMENTATION_SRC_DIR}/SegmentContext.cpp
 
-		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/FixedPeriodSegmenter.cpp
+		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/FP_Segmenter.cpp
 		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/PartlistOrderedByPartEntry.cpp
-		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/SegmentedScoreFixedPeriod.cpp
+		${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/src/FP_SegmentedScore.cpp
 
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_IntervalProfile.cpp
 		${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/src/LBDM_Segmenter.cpp
@@ -156,9 +156,9 @@ set(HEADERS ${HEADERS}
         ${CATSMAT_SEGMENTATION_INC_DIR}/SetOfSegment.h
         ${CATSMAT_SEGMENTATION_INC_DIR}/SegmentContext.h
 
-        ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/FixedPeriodSegmenter.h
+        ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/FP_Segmenter.h
         ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/PartlistOrderedByPartEntry.h
-        ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/SegmentedScoreFixedPeriod.h
+        ${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc/FP_SegmentedScore.h
 
         ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_ConsolidatedIntervalProfile.h
         ${CATSMAT_DIR}/Segmentation/LocalBoundaryDetectionModel/inc/LBDM_ConsolidatedIntervalProfileVisitor.h
