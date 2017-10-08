@@ -84,7 +84,7 @@ namespace CATSMAT
         
     };
     
-    typedef IMUSANT_SMARTP<FP_SegmentedScore> S_SegmentedScoreFixedPeriod;
+    typedef IMUSANT_SMARTP<FP_SegmentedScore> S_FP_SegmentedScore;
     IMUSANT_SMARTP<FP_SegmentedScore> new_SegmentedScoreFixedPeriod(SetOfSegment & segmentation_results);
 
 }

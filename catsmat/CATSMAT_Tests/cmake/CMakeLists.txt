@@ -37,7 +37,7 @@ set(SRC ${SRC}
 		${CATSMAT_SEGMENTATION_TEST_DIR}/PartlistOrderedByPartEntry_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/Segment_Tests.cpp
 		${CATSMAT_SEGMENTATION_TEST_DIR}/LBDM_SegmentedPart_Tests.cpp
-		${CATSMAT_SEGMENTATION_TEST_DIR}/SegmentedScoreFixedPeriod_Tests.cpp
+		${CATSMAT_SEGMENTATION_TEST_DIR}/FP_SegmentedScore_Tests.cpp
 		${CATSMAT_TEST_DIR}/main.cpp
 		)
 

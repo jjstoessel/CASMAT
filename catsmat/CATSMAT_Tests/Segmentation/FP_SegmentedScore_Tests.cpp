@@ -1,5 +1,5 @@
 ////
-//  SegmentedScoreFixedPeriod_Tests.cpp
+//  FP_SegmentedScore_Tests.cpp
 //  catsmat
 //
 //  Created by Derrick Hill on 29/10/2016.
@@ -31,19 +31,19 @@ using namespace boost;
 // #define VERBOSE = 1;
 
 // The fixture for testing class IMUSANT_pitch.
-class SegmentedScoreFixedPeriod_Tests :
+class FP_SegmentedScore_Tests :
 public ::testing::Test
 {
     
 protected:
     
-    SegmentedScoreFixedPeriod_Tests()
+    FP_SegmentedScore_Tests()
     {
         // You can do set-up work for each test here.
         // This is a bit inefficient as each file gets parsed for each test case.
     }
     
-    virtual ~SegmentedScoreFixedPeriod_Tests()
+    virtual ~FP_SegmentedScore_Tests()
     {
         // You can do clean-up work that doesn't throw exceptions here.
     }
@@ -74,19 +74,19 @@ protected:
     string getActualSegmentsAsString(SetOfSegment segment_set);
 };
 
-CATSMAT_test_utility * SegmentedScoreFixedPeriod_Tests::_test_utils = NULL;
+CATSMAT_test_utility * FP_SegmentedScore_Tests::_test_utils = NULL;
 
-S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_Kyrie = NULL;
-S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_Kyrie_TwoPartsOnly = NULL;
-S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_Sanctus = NULL;
-S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_YankeeDoodle = NULL;
-S_IMUSANT_score SegmentedScoreFixedPeriod_Tests::fScore_Josquin_MAF_Christe = NULL;
+S_IMUSANT_score FP_SegmentedScore_Tests::fScore_Kyrie = NULL;
+S_IMUSANT_score FP_SegmentedScore_Tests::fScore_Kyrie_TwoPartsOnly = NULL;
+S_IMUSANT_score FP_SegmentedScore_Tests::fScore_Sanctus = NULL;
+S_IMUSANT_score FP_SegmentedScore_Tests::fScore_YankeeDoodle = NULL;
+S_IMUSANT_score FP_SegmentedScore_Tests::fScore_Josquin_MAF_Christe = NULL;
 
 
 // ************* UTILITY FUNCTIONS START HERE *********** //
 
 string
-SegmentedScoreFixedPeriod_Tests::
+FP_SegmentedScore_Tests::
 getActualSegmentsAsString(SetOfSegment segments_set)
 {
     
@@ -120,11 +120,11 @@ getActualSegmentsAsString(SetOfSegment segments_set)
 // ************* TEST CASES START HERE *********** //
 
 
-TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Constructor)
+TEST_F(FP_SegmentedScore_Tests, FixedPeriodSegmentation_Constructor)
 {
     SetOfSegment seg_results;
     FP_SegmentedScore * segmented_score = new FP_SegmentedScore(seg_results);
-    S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod(seg_results);
+    S_FP_SegmentedScore s_segmented_score = new_SegmentedScoreFixedPeriod(seg_results);
     
     ASSERT_FALSE(segmented_score == NULL);
     ASSERT_FALSE(s_segmented_score == NULL);
@@ -132,21 +132,21 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Constructor)
     delete segmented_score;
 }
 
-TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_NotEnoughParts)
+TEST_F(FP_SegmentedScore_Tests, FixedPeriodSegmentation_Initialise_NotEnoughParts)
 {
     SetOfSegment seg_results;
-    S_SegmentedScoreFixedPeriod s_segmented_score = new_SegmentedScoreFixedPeriod(seg_results);
+    S_FP_SegmentedScore s_segmented_score = new_SegmentedScoreFixedPeriod(seg_results);
     int ret_val = s_segmented_score->initialise(fScore_YankeeDoodle);
     
     ASSERT_EQ(FP_SegmentedScore::ERR_NOT_ENOUGH_PARTS, ret_val);
 }
 
-TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise__Josquin_MAF_Christe_NotAPeriodicCannon)
+TEST_F(FP_SegmentedScore_Tests, FixedPeriodSegmentation_Initialise__Josquin_MAF_Christe_NotAPeriodicCannon)
 {
     // The algorithm cannot recognise this as a cannon at the moment.
     // There seems to be a periodic cannon between Superious and Tenor parts, but it's difficult.
     SetOfSegment seg_results;
-    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
+    S_FP_SegmentedScore s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     int ret_val = s_segmented_part->initialise(fScore_Josquin_MAF_Christe);
     
     ASSERT_EQ(FP_SegmentedScore::SUCCESS, ret_val);
@@ -154,10 +154,10 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise__Josq
     ASSERT_EQ(0, segments.size()) << "Unexpected number of segments...";
 }
 
-TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly)
+TEST_F(FP_SegmentedScore_Tests, FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly)
 {
     SetOfSegment seg_results;
-    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
+    S_FP_SegmentedScore s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     int error_code = s_segmented_part->initialise(fScore_Kyrie_TwoPartsOnly);
     
     ASSERT_EQ(FP_SegmentedScore::SUCCESS, error_code);
@@ -178,7 +178,7 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie
     ASSERT_EQ(FixedPeriodSegmentation_Initialise_Kyrie_TwoPartsOnly_Expected, actual_output);
 }
 
-TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
+TEST_F(FP_SegmentedScore_Tests, FixedPeriodSegmentation_Initialise_Kyrie)
 {
     // Q: How many segments are there in Kyrie?
     //
@@ -216,7 +216,7 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie
 //    Kyrie ele√òson	T	57	1	63	2	32	0
     
     SetOfSegment seg_results;
-    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
+    S_FP_SegmentedScore s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     int error_code = s_segmented_part->initialise(fScore_Kyrie);
     
     ASSERT_EQ(FP_SegmentedScore::SUCCESS, error_code);
@@ -237,7 +237,7 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Kyrie
     ASSERT_EQ(FixedPeriodSegmentation_Initialise_Kyrie_Expected, actual_output);
 }
 
-TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Sanctus)
+TEST_F(FP_SegmentedScore_Tests, FixedPeriodSegmentation_Initialise_Sanctus)
 {
     
     // Q: How many segments are there in Sanctus?
@@ -251,7 +251,7 @@ TEST_F(SegmentedScoreFixedPeriod_Tests, FixedPeriodSegmentation_Initialise_Sanct
     
     
     SetOfSegment seg_results;
-    S_SegmentedScoreFixedPeriod s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
+    S_FP_SegmentedScore s_segmented_part = new_SegmentedScoreFixedPeriod(seg_results);
     
     const double ERROR_THRESHOLD = 0.2;
     int ret_val = s_segmented_part->initialise(fScore_Sanctus, ERROR_THRESHOLD);

@@ -331,7 +331,7 @@ namespace CATSMAT
     }
     
     
-    S_SegmentedScoreFixedPeriod new_SegmentedScoreFixedPeriod(SetOfSegment & segmentation_results)
+    S_FP_SegmentedScore new_SegmentedScoreFixedPeriod(SetOfSegment & segmentation_results)
     {
         FP_SegmentedScore* o = new FP_SegmentedScore(segmentation_results);
         assert (o!=0);
