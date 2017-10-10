@@ -1,0 +1,38 @@
+Tres dous compains.MusicXML Part.46.1.50.4:23:4:384.000000:65:768.000000:64
+Tres dous compains.MusicXML Part.31.1.35.8:32:4:768.000000:60:384.000000:62
+Tres dous compains.MusicXML Part.26.1.30.6:33:4:768.000000:53:768.000000:57
+Tres dous compains.MusicXML Part.66.1.70.9:60:4:256.000000:53:128.000000:64
+Tres dous compains.MusicXML Part.21.1.25.10:35:4:768.000000:65:384.000000:55
+Tres dous compains.T.61.1.65.11:69:4:768.000000:65:256.000000:55
+Tres dous compains.Ct.61.1.65.9:60:4:256.000000:53:128.000000:64
+Tres dous compains.Ct.16.1.20.10:35:4:768.000000:65:384.000000:55
+Tres dous compains.T.56.1.60.9:60:4:256.000000:53:128.000000:64
+Tres dous compains.Ct.51.1.55.8:55:4:256.000000:60:768.000000:64
+Tres dous compains.Ct.41.1.45.4:23:4:384.000000:65:768.000000:64
+Tres dous compains.T.36.1.40.4:23:4:384.000000:65:768.000000:64
+Tres dous compains.MusicXML Part.41.1.45.11:36:4:768.000000:53:128.000000:64
+Tres dous compains.T.41.1.45.6:34:4:768.000000:60:768.000000:57
+Tres dous compains.T.51.1.55.9:47:4:256.000000:60:384.000000:-1
+Tres dous compains.Ct.36.1.40.11:36:4:768.000000:53:128.000000:64
+Tres dous compains.Ct.66.1.70.11:69:4:768.000000:65:256.000000:55
+Tres dous compains.T.31.1.35.11:36:4:768.000000:53:128.000000:64
+Tres dous compains.Ct.31.1.35.10:35:4:768.000000:60:384.000000:55
+Tres dous compains.T.26.1.30.10:35:4:768.000000:60:384.000000:55
+Tres dous compains.MusicXML Part.51.1.55.6:34:4:768.000000:60:768.000000:57
+Tres dous compains.T.16.1.20.6:33:4:768.000000:53:768.000000:57
+Tres dous compains.Ct.26.1.30.8:32:4:768.000000:60:384.000000:62
+Tres dous compains.T.46.1.50.8:55:4:256.000000:60:768.000000:64
+Tres dous compains.Ct.21.1.25.6:33:4:768.000000:53:768.000000:57
+Tres dous compains.Ct.11.1.15.7:28:4:768.000000:53:128.000000:64
+Tres dous compains.MusicXML Part.61.1.65.9:47:4:256.000000:60:384.000000:-1
+Tres dous compains.MusicXML Part.11.1.15.7:20:4:1536.000000:60:384.000000:55
+Tres dous compains.T.21.1.25.8:32:4:768.000000:60:384.000000:62
+Tres dous compains.MusicXML Part.36.1.40.10:35:4:768.000000:60:384.000000:55
+Tres dous compains.MusicXML Part.16.1.20.7:28:4:768.000000:53:128.000000:64
+Tres dous compains.Ct.46.1.50.6:34:4:768.000000:60:768.000000:57
+Tres dous compains.Ct.6.1.10.7:20:4:1536.000000:60:384.000000:55
+Tres dous compains.Ct.56.1.60.9:47:4:256.000000:60:384.000000:-1
+Tres dous compains.MusicXML Part.56.1.60.8:55:4:256.000000:60:768.000000:64
+Tres dous compains.T.11.1.15.10:35:4:768.000000:65:384.000000:55
+Tres dous compains.T.6.1.10.7:28:4:768.000000:53:128.000000:64
+Tres dous compains.T.1.1.5.7:20:4:1536.000000:60:384.000000:55
