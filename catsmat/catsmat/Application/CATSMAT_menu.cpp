@@ -14,14 +14,14 @@
 
 #include "libIMUSANT.h"
 
-#include "IMUSANT_interval_suffixtree_builder.h"
-#include "IMUSANT_pitch_suffixtree_builder.h"
-#include "IMUSANT_contour_suffixtree_builder.h"
+#include "IntervalSuffixtreeBuilder.h"
+#include "PitchSuffixtreeBuilder.h"
+#include "ContourSuffixtreeBuilder.h"
 #include "LBDM_Segmenter.h"
 #include "FP_Segmenter.h"
 
 #include "CATSMAT_scoredatacollector.h"
-#include "IMUSANT_vectormap_analysis_types.h"
+#include "VectorMapAnalysisTypes.h"
 
 using namespace std;
 using namespace CATSMAT;
@@ -193,12 +193,12 @@ CATSMAT_menu::
 runToolsMenu(CATSMAT_processing* processor)
 {
     bool moreTools = true;
-    IMUSANT_IntervalSuffixTreeBuilder  ip;
-    IMUSANT_PitchSuffixTreeBuilder     pp;
-    IMUSANT_ContourSuffixTreeBuilder   cp;
-    IMUSANT_IntervalVectorMapAnalysis  iv;
-    IMUSANT_PitchVectorMapAnalysis     pv;
-    IMUSANT_ContourVectorMapAnalysis   cv;
+    IntervalSuffixTreeBuilder  ip;
+    PitchSuffixTreeBuilder     pp;
+    ContourSuffixTreeBuilder   cp;
+    IntervalVectorMapAnalysis  iv;
+    PitchVectorMapAnalysis     pv;
+    ContourVectorMapAnalysis   cv;
     
     do
     {

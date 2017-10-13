@@ -34,7 +34,7 @@ namespace CATSMAT {
         CLI::Switch file_{kFileSwitch, "", "File to operate on", "f"};
         CLI::Switch directory_{kDirectorySwitch, "", "Directory to operate on", "d"};
         CLI::Switch config_{kConfigSwitch, "", "Configuration file listing files to operate on", "k"};
-        CLI::Switch output_file_        {kOutputFileSwitch, "out.txt", "Results output file", "o"};
+        CLI::Switch output_file_        {kOutputFileSwitch, "out.txtleo", "Results output file", "o"};
 
         CLI::Flag   default_config_{kDefaultConfigFlag, "0",
                                   "Use configuration file in HOME directory listing files to operate on", "K"};

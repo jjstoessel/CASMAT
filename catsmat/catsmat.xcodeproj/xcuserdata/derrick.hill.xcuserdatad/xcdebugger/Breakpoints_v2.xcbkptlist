@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/src/IMUSANT_repeated_interval_substring.cpp"
+            filePath = "IMUSANT/Analysis/src/RepeatedIntervalSubstring.cpp"
             timestampString = "461913797.5279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "operator&lt;&lt;( ostream&amp; os, const IMUSANT_repeated_interval_substring&amp; substring )"
+            landmarkName = "operator&lt;&lt;( ostream&amp; os, const RepeatedIntervalSubstring&amp; substring )"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

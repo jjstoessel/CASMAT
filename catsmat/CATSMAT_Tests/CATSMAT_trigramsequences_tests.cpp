@@ -10,7 +10,7 @@
 
 #include "CATSMAT_TrigramSequences.h"
 #include "CATSMAT_TrigramSuffixTreeBuilder.h"
-#include "IMUSANT_t_repeated_substring.h"
+#include "TRepeatedSubstring.h"
 
 #include "CATSMAT_test_utility.h"
 

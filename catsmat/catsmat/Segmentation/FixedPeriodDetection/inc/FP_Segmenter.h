@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-#include "IMUSANT_t_suffixtree_builder.h"
+#include "TSuffixtreeBuilder.h"
 #include "Loki/Visitor.h"
 #include "FP_SegmentedScore.h"
 

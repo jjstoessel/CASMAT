@@ -6,13 +6,13 @@
 //
 //
 
-#include "IMUSANT_vectormap_analysis_types.h"
+#include "VectorMapAnalysisTypes.h"
 
 namespace CATSMAT
 {
     
     void
-    IMUSANT_IntervalVectorMapAnalysis::
+    IntervalVectorMapAnalysis::
     Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
@@ -21,7 +21,7 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_IntervalVectorMapAnalysis::
+    IntervalVectorMapAnalysis::
     BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file
@@ -39,11 +39,11 @@ namespace CATSMAT
     }
 
     void
-    IMUSANT_IntervalVectorMapAnalysis::
-    Localise( IMUSANT_T_RepeatedSubstring<IMUSANT_interval>& repeats,
+    IntervalVectorMapAnalysis::
+    Localise( TRepeatedSubstring<IMUSANT_interval>& repeats,
                   DEQUE_PAIR z,
-                  typename IMUSANT_T_VectorMap<IMUSANT_interval,IMUSANT_processing>::id_vec_map::iterator& i,
-                  typename IMUSANT_T_VectorMap<IMUSANT_interval,IMUSANT_processing>::id_vec_map::iterator& j,
+                  typename TVectorMap<IMUSANT_interval,IMUSANT_processing>::id_vec_map::iterator& i,
+                  typename TVectorMap<IMUSANT_interval,IMUSANT_processing>::id_vec_map::iterator& j,
                   bool first, bool consecutive)
     {
         for (DEQUE_PAIR::iterator iv=z.begin(); iv!=z.end(); iv++)
@@ -76,9 +76,9 @@ namespace CATSMAT
         }
     }
     
-    //=== IMUSANT_PitchVectorMapAnalysis ===
+    //=== PitchVectorMapAnalysis ===
     void
-    IMUSANT_PitchVectorMapAnalysis::
+    PitchVectorMapAnalysis::
     Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
@@ -87,7 +87,7 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_PitchVectorMapAnalysis::
+    PitchVectorMapAnalysis::
     BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         int ID = 0;
@@ -104,11 +104,11 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_PitchVectorMapAnalysis::
-    Localise( IMUSANT_T_RepeatedSubstring<IMUSANT_pitch>& repeats,
+    PitchVectorMapAnalysis::
+    Localise( TRepeatedSubstring<IMUSANT_pitch>& repeats,
              DEQUE_PAIR z,
-             typename IMUSANT_T_VectorMap<IMUSANT_pitch,IMUSANT_processing>::id_vec_map::iterator& i,
-             typename IMUSANT_T_VectorMap<IMUSANT_pitch,IMUSANT_processing>::id_vec_map::iterator& j,
+             typename TVectorMap<IMUSANT_pitch,IMUSANT_processing>::id_vec_map::iterator& i,
+             typename TVectorMap<IMUSANT_pitch,IMUSANT_processing>::id_vec_map::iterator& j,
              bool first, bool consecutive)
     {
         for (DEQUE_PAIR::iterator iv=z.begin(); iv!=z.end(); iv++)
@@ -117,9 +117,9 @@ namespace CATSMAT
         }
     }
     
-    //=== IMUSANT_ContourVectorMapAnalysis ===
+    //=== ContourVectorMapAnalysis ===
     void
-    IMUSANT_ContourVectorMapAnalysis::
+    ContourVectorMapAnalysis::
     Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
@@ -128,7 +128,7 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_ContourVectorMapAnalysis::
+    ContourVectorMapAnalysis::
     BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         int ID = 0;
@@ -145,11 +145,11 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_ContourVectorMapAnalysis::
-    Localise( IMUSANT_T_RepeatedSubstring<IMUSANT_contour_symbol>& repeats,
+    ContourVectorMapAnalysis::
+    Localise( TRepeatedSubstring<IMUSANT_contour_symbol>& repeats,
              DEQUE_PAIR z,
-             typename IMUSANT_T_VectorMap<IMUSANT_contour_symbol,IMUSANT_processing>::id_vec_map::iterator& i,
-             typename IMUSANT_T_VectorMap<IMUSANT_contour_symbol,IMUSANT_processing>::id_vec_map::iterator& j,
+             typename TVectorMap<IMUSANT_contour_symbol,IMUSANT_processing>::id_vec_map::iterator& i,
+             typename TVectorMap<IMUSANT_contour_symbol,IMUSANT_processing>::id_vec_map::iterator& j,
              bool first, bool consecutive)
     {
         for (DEQUE_PAIR::iterator iv=z.begin(); iv!=z.end(); iv++)
@@ -157,9 +157,9 @@ namespace CATSMAT
             repeats.sequence.push_back(iv->first);
         }
     }
-    
-    IMUSANT_ContourVectorMapAnalysis::CONTOUR_TABLE
-    IMUSANT_ContourVectorMapAnalysis::
+
+    ContourVectorMapAnalysis::CONTOUR_TABLE
+    ContourVectorMapAnalysis::
     EntabulateMelodicDirectionPairs()
     {
         CONTOUR_TABLE table;
@@ -184,7 +184,7 @@ namespace CATSMAT
     }
 
     string
-    IMUSANT_ContourVectorMapAnalysis::
+    ContourVectorMapAnalysis::
     EntabulateAndPrintMelodicDirectionPairs()
     {
         CONTOUR_TABLE table = EntabulateMelodicDirectionPairs();
@@ -206,9 +206,9 @@ namespace CATSMAT
         return out.str();
     }
 
-    //=== IMUSANT_ContourDupleVectorMapAnalysis ===
+    //=== ContourDupleVectorMapAnalysis ===
     void
-    IMUSANT_ContourDupleVectorMapAnalysis::
+    ContourDupleVectorMapAnalysis::
     Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
@@ -217,7 +217,7 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_ContourDupleVectorMapAnalysis::
+    ContourDupleVectorMapAnalysis::
     BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         int ID = 0;
@@ -243,11 +243,11 @@ namespace CATSMAT
     }
     
     void
-    IMUSANT_ContourDupleVectorMapAnalysis::
-    Localise( IMUSANT_T_RepeatedSubstring<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>>& repeats,
+    ContourDupleVectorMapAnalysis::
+    Localise( TRepeatedSubstring<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>>& repeats,
              DEQUE_PAIR z,
-             typename IMUSANT_T_VectorMap<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>,IMUSANT_processing>::id_vec_map::iterator& i,
-             typename IMUSANT_T_VectorMap<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>,IMUSANT_processing>::id_vec_map::iterator& j,
+             typename TVectorMap<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>,IMUSANT_processing>::id_vec_map::iterator& i,
+             typename TVectorMap<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>,IMUSANT_processing>::id_vec_map::iterator& j,
              bool first, bool consecutive)
     {
         for (DEQUE_PAIR::iterator iv=z.begin(); iv!=z.end(); iv++)

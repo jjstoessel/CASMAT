@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef __imusant__IMUSANT_repeated_interval_substring__
-#define __imusant__IMUSANT_repeated_interval_substring__
+#ifndef __RepeatedIntervalSubstring__
+#define __RepeatedIntervalSubstring__
 
 #include "libIMUSANT.h"
 
@@ -33,12 +33,12 @@ namespace CATSMAT
     // -- Number of Occurences: 8 -- 
     //
     
-    class IMUSANT_repeated_interval_substring
+    class RepeatedIntervalSubstring
     {
     public:
         
-        IMUSANT_repeated_interval_substring();
-        virtual ~IMUSANT_repeated_interval_substring() {}
+        RepeatedIntervalSubstring();
+        virtual ~RepeatedIntervalSubstring() {}
     
         //
         // Interval Sequence
@@ -63,10 +63,10 @@ namespace CATSMAT
         vector<occurrence>::size_type num_occurrences();
         
         static string output_operator_help();
-        friend ostream& operator<<( ostream& os, const IMUSANT_repeated_interval_substring& substring);
+        friend ostream& operator<<( ostream& os, const RepeatedIntervalSubstring& substring);
     };
 }
 
 
-#endif /* defined(__imusant__IMUSANT_repeated_interval_substring__) */
+#endif /* defined(__RepeatedIntervalSubstring__) */
 

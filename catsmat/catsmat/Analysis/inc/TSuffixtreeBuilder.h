@@ -1,5 +1,5 @@
 //
-//  IMUSANT_T_SuffixTreeBuilder.h
+//  TSuffixTreeBuilder.h
 //  Base class for suffix-tree based processors of IMUSANT collections
 //
 //  Created by Jason Stoessel on 12/06/2016.
@@ -10,8 +10,8 @@
 //  To do: refactor to class name IMUSANT_suffix_tree_builder to be
 //
 
-#ifndef ____IMUSANT_t_suffixtree_builder__
-#define ____IMUSANT_t_suffixtree_builder__
+#ifndef ____TSuffixTreeBuilder__
+#define ____TSuffixTreeBuilder__
 
 #include <stdio.h>
 #include "boost/multi_array.hpp"
@@ -25,8 +25,8 @@
 #include "IMUSANT_processing.h"
 ****/
 
- #include "IMUSANT_t_repeated_substring.h"
-#include "IMUSANT_t_vectormap.h"
+ #include "TRepeatedSubstring.h"
+#include "TVectorMap.h"
 #include "repeats.h"
 
 using namespace std;
@@ -38,16 +38,16 @@ using namespace Loki;
 namespace CATSMAT
 {
     template <typename T, class C> //T is type for tree; C is the visited class that provides vectors of T
-    class IMUSANT_T_SuffixTreeBuilder :
-        public IMUSANT_T_VectorMap<T,C> //is visitor
+    class TSuffixTreeBuilder :
+        public TVectorMap<T,C> //is visitor
     {
     public:
-        typedef typename IMUSANT_T_RepeatedSubstring<T>::SUBSTR_VECTOR SUBSTR_VECTOR;
+        typedef typename TRepeatedSubstring<T>::SUBSTR_VECTOR SUBSTR_VECTOR;
         typedef suffixtree< vector<T> >     stree;
         typedef typename stree::number      number;
         
-        IMUSANT_T_SuffixTreeBuilder() : tree_ptr_(NULL) {}
-        ~IMUSANT_T_SuffixTreeBuilder() { if (tree_ptr_!=NULL) delete tree_ptr_; }
+        TSuffixTreeBuilder() : tree_ptr_(NULL) {}
+        ~TSuffixTreeBuilder() { if (tree_ptr_!=NULL) delete tree_ptr_; }
 
         string          FindAndPrintRepeatedSubstrings(int min_length=4);
         string          FindAndPrintSupermaximals(int min_length=4, int min_percent=25);
@@ -70,7 +70,7 @@ namespace CATSMAT
      */
     template<typename T, class C>
     suffixtree< vector<T> >*
-    IMUSANT_T_SuffixTreeBuilder<T,C>::
+    TSuffixTreeBuilder<T,C>::
     buildSuffixTree(const map<int, vector<T> >& id_vec_map)
     {
         //get first part from first file
@@ -91,7 +91,7 @@ namespace CATSMAT
     
     template<typename T, class C>
     string
-    IMUSANT_T_SuffixTreeBuilder<T,C>::
+    TSuffixTreeBuilder<T,C>::
     FindAndPrintRepeatedSubstrings(int min_length)
     {
         SUBSTR_VECTOR the_result;
@@ -110,7 +110,7 @@ namespace CATSMAT
     
     template<typename T, class C>
     string
-    IMUSANT_T_SuffixTreeBuilder<T,C>::
+    TSuffixTreeBuilder<T,C>::
     FindAndPrintSupermaximals(int min_length, int min_percent)
     {
         SUBSTR_VECTOR the_result;
@@ -129,8 +129,8 @@ namespace CATSMAT
 
 
     template<typename T, class C>
-    typename IMUSANT_T_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
-    IMUSANT_T_SuffixTreeBuilder<T,C>::
+    typename TSuffixTreeBuilder<T,C>::SUBSTR_VECTOR
+    TSuffixTreeBuilder<T,C>::
     FindRepeatedSubstrings(int min_length) const
     {
         SUBSTR_VECTOR ret_val;
@@ -161,7 +161,7 @@ namespace CATSMAT
              csi != common_substrings_indexes.end();
              csi++)
         {
-            IMUSANT_T_RepeatedSubstring<T> repeat;
+            TRepeatedSubstring<T> repeat;
             bool sequence_added = false;
             
             //iterate through substring using indices
@@ -197,8 +197,8 @@ namespace CATSMAT
 
     
     template<typename T, class C>
-    typename IMUSANT_T_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
-    IMUSANT_T_SuffixTreeBuilder<T,C>::
+    typename TSuffixTreeBuilder<T,C>::SUBSTR_VECTOR
+    TSuffixTreeBuilder<T,C>::
     FindSupermaximals(int min_length, int min_percent)
     {
         SUBSTR_VECTOR ret_val;
@@ -212,7 +212,7 @@ namespace CATSMAT
             //list<typename repeats<vector<T> >::supermax_node*>::const_iterator
             for (auto q=supermaxs.begin(); q!=supermaxs.end(); q++)
             {
-                IMUSANT_T_RepeatedSubstring<T> maxy;
+                TRepeatedSubstring<T> maxy;
                 
                 for (typename repeats<vector<T> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
                 {
@@ -232,4 +232,4 @@ namespace CATSMAT
         return ret_val;
     }
 }
-#endif /* defined(____IMUSANT_t_suffixtree_builder__) */
+#endif /* defined(____TSuffixTreeBuilder__) */

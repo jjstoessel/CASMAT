@@ -99,7 +99,7 @@ namespace CATSMAT
             Register(&min_length_);
             Register(&include_dissonances_);
             Register(&include_repeats_);
-            Register(&canonic_voices);
+            Register(&canonic_voices_);
             Register(&version_, &copyright_);
         }
 

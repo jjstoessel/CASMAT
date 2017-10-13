@@ -6,13 +6,13 @@
 //
 //
 
-#include "IMUSANT_contour_suffixtree_builder.h"
+#include "ContourSuffixtreeBuilder.h"
 #include "repeats.h"
 
 namespace CATSMAT {
     
     void
-    IMUSANT_ContourSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
+    ContourSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
@@ -23,14 +23,14 @@ namespace CATSMAT {
     
     
     IMUSANT_range
-    IMUSANT_ContourSuffixTreeBuilder::
+    ContourSuffixTreeBuilder::
     CalcRange(IMUSANT_contour_symbol& symbol) const
     {
         return symbol.getLocation();
     }
     
     void
-    IMUSANT_ContourSuffixTreeBuilder::
+    ContourSuffixTreeBuilder::
     BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file

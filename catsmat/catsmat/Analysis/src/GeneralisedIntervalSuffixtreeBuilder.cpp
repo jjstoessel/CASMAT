@@ -1,6 +1,6 @@
 
 //
-//  IMUSANT_GeneralisedIntervalSuffixTreeBuilder.cpp
+//  GeneralisedIntervalSuffixTreeBuilder.cpp
 //
 //  Created by Jason Stoessel on 28/11/2016.
 //
@@ -8,7 +8,7 @@
 
 #include <utility>
 #include "boost/multi_array.hpp"
-#include "IMUSANT_generalised_interval_suffixtree_builder.h"
+#include "GeneralisedIntervalSuffixtreeBuilder.h"
 #include "repeats.h"
 
 
@@ -18,13 +18,13 @@ using namespace IMUSANT;
 
 namespace CATSMAT {
 
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder
-    ::IMUSANT_GeneralisedIntervalSuffixTreeBuilder()
+    GeneralisedIntervalSuffixTreeBuilder
+    ::GeneralisedIntervalSuffixTreeBuilder()
     {
     }
     
     void
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder
+    GeneralisedIntervalSuffixTreeBuilder
     ::Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
@@ -36,7 +36,7 @@ namespace CATSMAT {
     
     //Prepare list of interval strings and feed to template class to create actual tree
     void
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
+    GeneralisedIntervalSuffixTreeBuilder::
     BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         int ID = 0;
@@ -55,7 +55,7 @@ namespace CATSMAT {
     
     
     /*string
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
+    GeneralisedIntervalSuffixTreeBuilder::findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR the_result;
         the_result = findLcsPairsIntervals(consecutive,reverse_search,retrograde);
@@ -75,8 +75,8 @@ namespace CATSMAT {
     // This example of dynamic programming is adapted from Crochemore and Lecroq,
     // Pattern MAtching and text compression algorithms, available from:
     // http://www-igm.univ-mlv.fr/~mac/REC/DOC/03-CRC.ps
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::SUBSTR_VECTOR
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
+    GeneralisedIntervalSuffixTreeBuilder::SUBSTR_VECTOR
+    GeneralisedIntervalSuffixTreeBuilder::
     findLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR ret_val;
@@ -189,7 +189,7 @@ namespace CATSMAT {
     }*/
     
     IMUSANT_range
-    IMUSANT_GeneralisedIntervalSuffixTreeBuilder::
+    GeneralisedIntervalSuffixTreeBuilder::
     CalcRange(IMUSANT_generalised_interval& interval) const
     {
         return interval.getLocation();

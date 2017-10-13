@@ -22,7 +22,7 @@
 #include "CATSMAT_TrigramSuffixTreeBuilder.h"
 #include "CATSMAT_canonic_techniques_tools.h"
 #include "CATSMAT_scoredata.h"
-#include "IMUSANT_vectormap_analysis_types.h"
+#include "VectorMapAnalysisTypes.h"
 
 using namespace std;
 using namespace boost;
@@ -290,7 +290,41 @@ namespace CATSMAT
             }
         }
     }
-    
+
+    //This method compares pairs of trigram sequences across a score, ie. trigrams over three voices
+    void
+    CATSMAT_processing::
+    FindRepeatedTrigramSequencesThreeVoices(int min, bool ignoreDissonances, bool ignoreRepeatedDyads)
+    {
+        for (auto score : this->getScores())
+        {
+            CATSMAT_collection_visitor      score_to_matrix_translator;
+            CATSMAT_TrigramSequences        trigram_sequences;
+            trigram_sequences.set_ignore_dissonances(ignoreDissonances);
+            trigram_sequences.set_ignore_repeated(ignoreRepeatedDyads);
+
+            if (score!=NULL)
+            {
+                (*score).accept(score_to_matrix_translator);
+                if (!score_to_matrix_translator.getCPMatrix()->SelfTest())
+                    catsmat_runtime_error("Problem in CP Matrix for " + score->getWorkTitle());
+                score_to_matrix_translator.getCPMatrix()->Accept(trigram_sequences);
+
+                for (auto trigram_sequence : trigram_sequences.get_tokens())
+                {
+
+                }
+
+                //CATSMAT_TrigramSuffixTreeBuilder trigram_tree;
+                //trigram_sequences.Accept(trigram_tree);
+                //cout << "Repeated trigram sequences in " << (*score).getMovementTitle() << endl;
+                //cout << trigram_tree.FindAndPrintRepeatedSubstrings().c_str();
+            }
+        }
+
+    }
+
+    //This method counts trigrams in a score
     void
     CATSMAT_processing::
     FindTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads)
@@ -366,7 +400,7 @@ namespace CATSMAT
         for (auto score : this->getScores())
         {
             S_CATSMAT_scoredata                 scoredata = new_CATSMAT_object<CATSMAT_scoredata>();
-            IMUSANT_ContourVectorMapAnalysis    cv_map;
+            ContourVectorMapAnalysis    cv_map;
             
             scoredata->findBasicDataFromScore(score);
             CATSMAT_score_profile<IMUSANT_contour_symbol> score_profile = scoredata->score_contour_symbol_profile();
@@ -398,7 +432,7 @@ namespace CATSMAT
         for (auto score : this->getScores())
         {
             S_CATSMAT_scoredata                 scoredata = new_CATSMAT_object<CATSMAT_scoredata>();
-            IMUSANT_ContourDupleVectorMapAnalysis    cv_map;
+            ContourDupleVectorMapAnalysis    cv_map;
             
             scoredata->findBasicDataFromScore(score);
             CATSMAT_score_profile<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol> > score_profile = scoredata->score_contour_symbol_duple_profile();

@@ -1,33 +1,33 @@
 //
-//  IMUSANT_T_VectorMap.hpp
+//  TSuffixTreeBuilder.hpp
 //  catsmat
 //
 //  Created by Jason Stoessel on 7/03/2017.
 //
 //
 
-#ifndef IMUSANT_vectormap_hpp
-#define IMUSANT_vectormap_hpp
+#ifndef TSuffixTreeBuilder_hpp
+#define TSuffixTreeBuilder_hpp
 
 #include <stdio.h>
 #include "Loki/Visitor.h"
-#include "IMUSANT_t_repeated_substring.h"
+#include "TRepeatedSubstring.h"
 
 using namespace Loki;
 
 namespace CATSMAT
 {
     template <typename T, class C> //T is type for tree; C is the visited class that provides vectors of T
-    class IMUSANT_T_VectorMap :
+    class TVectorMap :
     public Loki::BaseVisitor,
     public Loki::Visitor<C, void, true>
     {
     public:
-        typedef typename IMUSANT_T_RepeatedSubstring<T>::SUBSTR_VECTOR SUBSTR_VECTOR;
+        typedef typename TRepeatedSubstring<T>::SUBSTR_VECTOR SUBSTR_VECTOR;
         typedef map<int, vector<T> >        id_vec_map;
         
-        IMUSANT_T_VectorMap() {}
-        ~IMUSANT_T_VectorMap() {}
+        TVectorMap() {}
+        ~TVectorMap() {}
         
         void Visit(C&);
         id_vec_map&     get_id_vec_map() const { return id_vec_map_; }
@@ -40,4 +40,4 @@ namespace CATSMAT
 
 }
 
-#endif /* IMUSANT_vectormap_hpp */
+#endif /* TSuffixTreeBuilder_hpp */

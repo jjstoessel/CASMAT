@@ -14,11 +14,11 @@
 
 #include "libIMUSANT.h"
 #include <boost/filesystem.hpp>
-#include "IMUSANT_interval_suffixtree_builder.h"
-#include "IMUSANT_contour_suffixtree_builder.h"
-#include "IMUSANT_pitch_suffixtree_builder.h"
+#include "IntervalSuffixtreeBuilder.h"
+#include "ContourSuffixtreeBuilder.h"
+#include "PitchSuffixtreeBuilder.h"
 #include "LBDM_Segmenter.h"
-#include "IMUSANT_vectormap_analysis_types.h"
+#include "VectorMapAnalysisTypes.h"
 
 // #define VERBOSE //toggle for verbose output
 

@@ -1,7 +1,7 @@
 /**
-    \class      IMUSANT_IntervalSuffixTreeBuilder
-    \file       IMUSANT_IntervalSuffixTreeBuilder.cpp
-    \namespace  imusant
+    \class      IntervalSuffixTreeBuilder
+    \file       IntervalSuffixTreeBuilder.cpp
+    \namespace  catsmat
     \date       Created by Jason Stoessel on 12/06/2016.
     \author     Jason Stoessel
     \copyright  [add licence name]
@@ -17,7 +17,7 @@
 
 #include <utility>
 #include "boost/multi_array.hpp"
-#include "IMUSANT_interval_suffixtree_builder.h"
+#include "IntervalSuffixtreeBuilder.h"
 #include "repeats.h"
 
 
@@ -26,13 +26,13 @@ using namespace std;
 
 namespace CATSMAT {
 
-    IMUSANT_IntervalSuffixTreeBuilder::
-    IMUSANT_IntervalSuffixTreeBuilder()
+    IntervalSuffixTreeBuilder::
+    IntervalSuffixTreeBuilder()
     {
     }
     
     void
-    IMUSANT_IntervalSuffixTreeBuilder::
+    IntervalSuffixTreeBuilder::
     Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
@@ -44,7 +44,7 @@ namespace CATSMAT {
     
     //Prepare list of interval strings and feed to template class to create actual tree
     void
-    IMUSANT_IntervalSuffixTreeBuilder::
+    IntervalSuffixTreeBuilder::
     BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file
@@ -63,14 +63,14 @@ namespace CATSMAT {
     
     
     IMUSANT_range
-    IMUSANT_IntervalSuffixTreeBuilder::
+    IntervalSuffixTreeBuilder::
     CalcRange(IMUSANT_interval& interval) const
     {
         return interval.getLocation();
     }
     
     /*string
-    IMUSANT_IntervalSuffixTreeBuilder::
+    IntervalSuffixTreeBuilder::
     findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR the_result;

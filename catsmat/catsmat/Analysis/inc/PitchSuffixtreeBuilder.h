@@ -6,21 +6,21 @@
 //
 //
 
-#ifndef ____IMUSANT_PitchSuffixTreeBuilder__
-#define ____IMUSANT_PitchSuffixTreeBuilder__
+#ifndef ____PitchSuffixTreeBuilder__
+#define ____PitchSuffixTreeBuilder__
 
 #include <stdio.h>
-#include "IMUSANT_t_suffixtree_builder.h"
+#include "TSuffixtreeBuilder.h"
 #include "IMUSANT_pitch.h"
-#include "IMUSANT_t_repeated_substring.h"
+#include "TRepeatedSubstring.h"
 
 namespace CATSMAT {
     
-    class IMUSANT_PitchSuffixTreeBuilder : public IMUSANT_T_SuffixTreeBuilder<IMUSANT_pitch,IMUSANT_processing>
+    class PitchSuffixTreeBuilder : public TSuffixTreeBuilder<IMUSANT_pitch,IMUSANT_processing>
     {
     public:
                 
-        IMUSANT_PitchSuffixTreeBuilder() {}
+        PitchSuffixTreeBuilder() {}
         
         void    Visit(const IMUSANT_processing&);
         
@@ -31,4 +31,4 @@ namespace CATSMAT {
     };
 }
 
-#endif /* defined(____IMUSANT_PitchSuffixTreeBuilder__) */
+#endif /* defined(____PitchSuffixTreeBuilder__) */

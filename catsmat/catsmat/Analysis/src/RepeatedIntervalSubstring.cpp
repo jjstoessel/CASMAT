@@ -1,18 +1,18 @@
 //
-//  IMUSANT_repeated_interval_substring.cpp
+//  RepeatedIntervalSubstring.cpp
 //  imusant
 //
 //  Created by Derrick Hill on 12/08/2015.
 //
 //
 
-#include "IMUSANT_repeated_interval_substring.h"
+#include "RepeatedIntervalSubstring.h"
 
 namespace CATSMAT
 {
     
-    IMUSANT_repeated_interval_substring::
-    IMUSANT_repeated_interval_substring()
+    RepeatedIntervalSubstring::
+    RepeatedIntervalSubstring()
     {
         interval_sequence = new_IMUSANT_interval_vector();
     }
@@ -21,7 +21,7 @@ namespace CATSMAT
     // Interval Sequence
     //
     unsigned long
-    IMUSANT_repeated_interval_substring::
+    RepeatedIntervalSubstring::
     get_interval_sequence_length()
     {
         return interval_sequence->getIntervals().size();
@@ -31,17 +31,17 @@ namespace CATSMAT
     //  Occurrences
     //
     void
-    IMUSANT_repeated_interval_substring::
+    RepeatedIntervalSubstring::
     add_occurrence(occurrence the_occurrence)
     {
         occurrences.push_back(the_occurrence);
     }
     
     void
-    IMUSANT_repeated_interval_substring::
+    RepeatedIntervalSubstring::
     add_occurrence(long movement, long voice, long measure, long note_index)
     {
-        IMUSANT_repeated_interval_substring::occurrence occ;
+        RepeatedIntervalSubstring::occurrence occ;
         occ.movement = movement;
         occ.voice = voice;
         occ.measure = measure;
@@ -50,15 +50,15 @@ namespace CATSMAT
         add_occurrence(occ);
     }
     
-    vector<IMUSANT_repeated_interval_substring::occurrence>::size_type
-    IMUSANT_repeated_interval_substring::
+    vector<RepeatedIntervalSubstring::occurrence>::size_type
+    RepeatedIntervalSubstring::
     num_occurrences()
     {
         return occurrences.size();
     }
     
     string
-    IMUSANT_repeated_interval_substring::
+    RepeatedIntervalSubstring::
     output_operator_help()
     {
         string ret_val =
@@ -70,13 +70,13 @@ namespace CATSMAT
         return ret_val;
     }
     
-    ostream& operator<<( ostream& os, const IMUSANT_repeated_interval_substring& substring )
+    ostream& operator<<( ostream& os, const RepeatedIntervalSubstring& substring )
     {       
         os << substring.interval_sequence;
 
         for (int index = 0; index < substring.occurrences.size(); index++)
         {
-            IMUSANT_repeated_interval_substring::occurrence occ;
+            RepeatedIntervalSubstring::occurrence occ;
             occ = substring.occurrences[index];
             os << "("
                  << "MVT: " << occ.movement << ", "

@@ -328,7 +328,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
-            landmarkName = "IMUSANT_IntervalSuffixTreeBuilder:: findRepeatedIntervalSubstrings(int min_length)"
+            landmarkName = "IntervalSuffixTreeBuilder:: findRepeatedIntervalSubstrings(int min_length)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -392,7 +392,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
             endingLineNumber = "114"
-            landmarkName = "IMUSANT_IntervalSuffixTreeBuilder:: findRepeatedIntervalSubstrings(int min_length)"
+            landmarkName = "IntervalSuffixTreeBuilder:: findRepeatedIntervalSubstrings(int min_length)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -438,7 +438,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "292"
             endingLineNumber = "292"
-            landmarkName = "IMUSANT_IntervalSuffixTreeBuilder:: findAndPrintSupermaximalIntervals(int min_length, int min_percent)"
+            landmarkName = "IntervalSuffixTreeBuilder:: findAndPrintSupermaximalIntervals(int min_length, int min_percent)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -862,7 +862,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IMUSANT/Analysis/inc/IMUSANT_T_VectorMapAnalysis.hpp"
+            filePath = "IMUSANT/Analysis/inc/TVectorMapAnalysis.hpp"
             timestampString = "510573362.434105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

@@ -1,13 +1,13 @@
 //
-//  IMUSANT_T_RepeatedSubstring.h
+//  TRepeatedSubstring.h
 //  imusant
 //
 //  Created by Jason Stoessel on 20/05/2016.
 //  Adapted from non-template interval implementation by Derrick Hill
 //
 
-#ifndef __imusant__IMUSANT_t_repeated_substring__
-#define __imusant__IMUSANT_t_repeated_substring__
+#ifndef __TRepeatedSubstring__
+#define __TRepeatedSubstring__
 
 #include <stdio.h>
 #include <iostream>
@@ -37,14 +37,14 @@ namespace CATSMAT
     //
     
     template <typename T>
-    class IMUSANT_T_RepeatedSubstring
+    class TRepeatedSubstring
     {
     public:
         
-        typedef vector<IMUSANT_T_RepeatedSubstring<T> > SUBSTR_VECTOR;
+        typedef vector<TRepeatedSubstring<T> > SUBSTR_VECTOR;
         
-        IMUSANT_T_RepeatedSubstring() : sequence(), occurrences() {}
-        virtual ~IMUSANT_T_RepeatedSubstring() {}
+        TRepeatedSubstring() : sequence(), occurrences() {}
+        virtual ~TRepeatedSubstring() {}
     
         //
         // Interval Sequence
@@ -70,7 +70,7 @@ namespace CATSMAT
         typename vector<occurrence>::size_type num_occurrences() const;
         
         static string output_operator_help();
-        friend ostream& operator<<(ostream& os, const IMUSANT_T_RepeatedSubstring<T>& substring)
+        friend ostream& operator<<(ostream& os, const TRepeatedSubstring<T>& substring)
         {
             //os << substring.sequence;
             os << "[";
@@ -82,7 +82,7 @@ namespace CATSMAT
 
             for (int index = 0; index < substring.occurrences.size(); index++)
             {
-                typename IMUSANT_T_RepeatedSubstring<T>::occurrence occ;
+                typename TRepeatedSubstring<T>::occurrence occ;
                 occ = substring.occurrences[index];
                 os << "("
                 << "MVT: " << occ.movement << ", "
@@ -102,7 +102,7 @@ namespace CATSMAT
     //
     template <typename T>
     unsigned long
-    IMUSANT_T_RepeatedSubstring<T>::
+    TRepeatedSubstring<T>::
     get_sequence_length()
     {
         return sequence->size();
@@ -113,7 +113,7 @@ namespace CATSMAT
     //
     template <typename T>
     void
-    IMUSANT_T_RepeatedSubstring<T>::
+    TRepeatedSubstring<T>::
     add_occurrence(occurrence the_occurrence)
     {
         occurrences.push_back(the_occurrence);
@@ -121,7 +121,7 @@ namespace CATSMAT
     
     template <typename T>
     void
-    IMUSANT_T_RepeatedSubstring<T>::
+    TRepeatedSubstring<T>::
     add_occurrence(long movement, long voice, long measure, long note_index)
     {
         occurrence occ;
@@ -134,8 +134,8 @@ namespace CATSMAT
     }
     
 //    template <typename T>
-//    const IMUSANT_T_RepeatedSubstring<T>&
-//    IMUSANT_T_RepeatedSubstring<T>::operator=(const IMUSANT_t_repeated_substring<T> &rhs)
+//    const TRepeatedSubstring<T>&
+//    TRepeatedSubstring<T>::operator=(const IMUSANT_t_repeated_substring<T> &rhs)
 //    {
 //        if (this == &rhs)
 //            return *this;
@@ -147,8 +147,8 @@ namespace CATSMAT
 
     
     template <typename T>
-    typename vector<typename IMUSANT_T_RepeatedSubstring<T>::occurrence>::size_type
-    IMUSANT_T_RepeatedSubstring<T>::
+    typename vector<typename TRepeatedSubstring<T>::occurrence>::size_type
+    TRepeatedSubstring<T>::
     num_occurrences() const
     {
         return occurrences.size();
@@ -156,7 +156,7 @@ namespace CATSMAT
     
     template <typename T>
     string
-    IMUSANT_T_RepeatedSubstring<T>::
+    TRepeatedSubstring<T>::
     output_operator_help()
     {
         string ret_val =
@@ -167,7 +167,7 @@ namespace CATSMAT
 
     //explicit instantiations
     
-    class IMUSANT_repeated_interval_substring : public IMUSANT_T_RepeatedSubstring<IMUSANT_interval>
+    class RepeatedIntervalSubstring : public TRepeatedSubstring<IMUSANT_interval>
     {
     public:
         static string  output_operator_help()
@@ -182,7 +182,7 @@ namespace CATSMAT
         }
     };
     
-    class IMUSANT_repeated_generalised_interval_substring : public IMUSANT_T_RepeatedSubstring<IMUSANT_generalised_interval>
+    class IMUSANT_repeated_generalised_interval_substring : public TRepeatedSubstring<IMUSANT_generalised_interval>
     {
     public:
         static string  output_operator_help()
@@ -198,7 +198,7 @@ namespace CATSMAT
     };
 
     
-    class IMUSANT_repeated_contour_substring: public IMUSANT_T_RepeatedSubstring<IMUSANT_contour_symbol>
+    class IMUSANT_repeated_contour_substring: public TRepeatedSubstring<IMUSANT_contour_symbol>
     {
     public:
         static string  output_operator_help()
@@ -214,7 +214,7 @@ namespace CATSMAT
 
     };
     
-    class IMUSANT_repeated_pitch_substring: public IMUSANT_T_RepeatedSubstring<IMUSANT_pitch>
+    class IMUSANT_repeated_pitch_substring: public TRepeatedSubstring<IMUSANT_pitch>
     {
     public:
         static string  output_operator_help()
@@ -230,7 +230,7 @@ namespace CATSMAT
         
     };
     
-    class IMUSANT_repeated_trigram_token_substring : public IMUSANT_T_RepeatedSubstring<CATSMAT_TrigramSequences::Token>
+    class IMUSANT_repeated_trigram_token_substring : public TRepeatedSubstring<CATSMAT_TrigramSequences::Token>
     {
     public:
         static string  output_operator_help()
@@ -245,10 +245,10 @@ namespace CATSMAT
         }
         friend ostream& operator<<(ostream& os, const std::array<signed int,3>& trigram);
         
-        friend ostream& operator<<(ostream& os, const IMUSANT_T_RepeatedSubstring<CATSMAT_TrigramSequences::Token>& substring);
+        friend ostream& operator<<(ostream& os, const TRepeatedSubstring<CATSMAT_TrigramSequences::Token>& substring);
     };
     
 }
 
-#endif /* defined(__imusant__IIMUSANT_t_repeated_substring__) */
+#endif /* defined(__TRepeatedSubstring__) */
 

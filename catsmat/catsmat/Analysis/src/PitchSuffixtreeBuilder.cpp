@@ -1,17 +1,17 @@
 //
-//  IMUSANT_PitchSuffixTreeBuilder.cpp
+//  PitchSuffixTreeBuilder.cpp
 //  
 //
 //  Created by Jason Stoessel on 13/06/2016.
 //
 //
 
-#include "IMUSANT_pitch_suffixtree_builder.h"
+#include "PitchSuffixtreeBuilder.h"
 
 namespace CATSMAT {
     
     void
-    IMUSANT_PitchSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
+    PitchSuffixTreeBuilder::Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
@@ -21,7 +21,7 @@ namespace CATSMAT {
     }
     
     void
-    IMUSANT_PitchSuffixTreeBuilder::
+    PitchSuffixTreeBuilder::
     BuildVectorMap(IMUSANT_processing::COLLECTIONMAP& collections)
     {
         //get first part from first file
@@ -41,7 +41,7 @@ namespace CATSMAT {
     
     
     IMUSANT_range
-    IMUSANT_PitchSuffixTreeBuilder::
+    PitchSuffixTreeBuilder::
     CalcRange(IMUSANT_pitch& pitch) const
     {
         return IMUSANT_range(); //nothing for now

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="repeats" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-f Anon-Blijfs_mi_doch_canon_only.xml -i -l 5" WORKING_DIR="file://$USER_HOME$/Documents/Development/CATSMAT/catsmat/corpus/MusicXML" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CATSMAT" TARGET_NAME="repeats" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CATSMAT" RUN_TARGET_NAME="repeats">
+  <configuration default="false" name="repeats" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-f &quot;Missa Papae Marcelli Agnus Dei II with ficta.xml&quot; -t" WORKING_DIR="file://$PROJECT_DIR$/catsmat/corpus/MusicXML" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CATSMAT" TARGET_NAME="repeats" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CATSMAT" RUN_TARGET_NAME="repeats">
     <envs>
       <env name="DYLD_LIBRARY_PATH" value="/usr/local/boost/lib" />
     </envs>

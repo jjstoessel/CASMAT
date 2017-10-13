@@ -10,7 +10,7 @@
 #define __LBDM_Segmenter__
 
 #include <stdio.h>
-#include "IMUSANT_t_suffixtree_builder.h"
+#include "TSuffixtreeBuilder.h"
 #include "Loki/Visitor.h"
 #include "LBDM_SegmentedPart.h"
 

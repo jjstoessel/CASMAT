@@ -1,5 +1,5 @@
 //
-//  IMUSANT_SuffixTreeBuilder.cpp
+//  TSuffixTreeBuilder.cpp
 //  catsmat
 //
 //  Created by Jason Stoessel on 7/03/2017.
@@ -11,16 +11,10 @@
 #include "repeats.h"
 #include "boost/multi_array.hpp"
 
-#include "IMUSANT_SuffixTreeBuilder.h"
+#include "TSuffixTreeBuilder.h"
 
 namespace CATSMAT
 {
-
-    //#include "IMUSANT_SuffixTreeBuilder.h"
-    
-    //explicit instantiations of classes
-    
-    //IMUSANT_SuffixTreeBuilder<IMUSANT_interval, IMUSANT_processing> IMUSANT_SuffixTreeBuilder;
     
     /*!
      \brief builds suffix tree from a map of vectors with unique ID
@@ -28,7 +22,7 @@ namespace CATSMAT
      */
     //template<typename T, class C>
     suffixtree< vector<T> >*
-    IMUSANT_SuffixTreeBuilder<T,C>::
+    TSuffixTreeBuilder<T,C>::
     buildSuffixTree(const map<int, vector<T> >& id_vec_map)
     {
         //get first part from first file
@@ -48,8 +42,8 @@ namespace CATSMAT
     }
     
     template<typename T, class C>
-    typename IMUSANT_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
-    IMUSANT_SuffixTreeBuilder<T,C>::
+    typename TSuffixTreeBuilder<T,C>::SUBSTR_VECTOR
+    TSuffixTreeBuilder<T,C>::
     FindRepeatedSubstrings(int min_length) const
     {
         SUBSTR_VECTOR ret_val;
@@ -112,41 +106,41 @@ namespace CATSMAT
         
         return ret_val;
     }
-    
-    template<typename T, class C>
-     typename IMUSANT_SuffixTreeBuilder<T,C>::SUBSTR_VECTOR
-     IMUSANT_SuffixTreeBuilder<T,C>::
-     FindSupermaximals(int min_length, int min_percent)
-     {
-     SUBSTR_VECTOR ret_val;
-     
-                 if (tree_ptr_!=NULL)
-                 {
-                     repeats<vector<T> > rep(tree_ptr_);
-     
-                     list<typename repeats<vector<T> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
-     
-                     //list<typename repeats<vector<T> >::supermax_node*>::const_iterator
-                     for (auto q=supermaxs.begin(); q!=supermaxs.end(); q++)
-                     {
-                         IMUSANT_t_repeated_substring<T> maxy;
-     
-                         for (typename repeats<vector<T> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
-                         {
-                             maxy.sequence.push_back(*t);
-                         }
-     
-                         //cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
-     
-                         //this is a dumb interim solution by JS at the moment.
-                         maxy.add_occurrence( 0, (*q)->num_witness, (*q)->num_leaves, (*q)->percent );
-     
-                         ret_val.push_back(maxy);
-                     }
-                 }
-                 
-     return ret_val;
-     }
 
-} // namespace IMUSANT
+    template<typename T, class C>
+    typename TSuffixTreeBuilder<T,C>::SUBSTR_VECTOR
+    TSuffixTreeBuilder<T,C>::
+    FindSupermaximals(int min_length, int min_percent)
+    {
+        SUBSTR_VECTOR ret_val;
+
+        if (tree_ptr_!=NULL)
+        {
+            repeats<vector<T> > rep(tree_ptr_);
+
+            list<typename repeats<vector<T> >::supermax_node*> supermaxs = rep.supermax_find(min_percent, min_length);
+
+            //list<typename repeats<vector<T> >::supermax_node*>::const_iterator
+            for (auto q=supermaxs.begin(); q!=supermaxs.end(); q++)
+            {
+                IMUSANT_t_repeated_substring<T> maxy;
+
+                for (typename repeats<vector<T> >::index t = (*q)->begin_i; t!=(*q)->end_i; t++)
+                {
+                    maxy.sequence.push_back(*t);
+                }
+
+                //cout << "Witnesses: " << (*q)->num_witness << " number of leaves: " << (*q)->num_leaves << " Percent: " << (*q)->percent << endl;
+
+                //this is a dumb interim solution by JS at the moment.
+                maxy.add_occurrence( 0, (*q)->num_witness, (*q)->num_leaves, (*q)->percent );
+
+                ret_val.push_back(maxy);
+            }
+        }
+
+        return ret_val;
+    }
+
+} // namespace CATSMAT
 

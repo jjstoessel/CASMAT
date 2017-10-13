@@ -38,6 +38,8 @@ public:
     void FindRepeatedSonoritySequences(int min);
     void FindRepeatedTrigramSequences(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
     void FindRepeatedTrigramSequencesCanonic(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
+    void FindRepeatedTrigramSequencesEachPair(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
+    void FindRepeatedTrigramSequencesThreeVoices(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
     void FindTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads);
     void FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads);
     void FindMelodicDirectionCounts();

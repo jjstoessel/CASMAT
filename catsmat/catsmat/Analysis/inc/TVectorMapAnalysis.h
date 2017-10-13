@@ -1,44 +1,44 @@
 //
-//  IMUSANT_T_VectorMapAnalysis.hpp
+//  TVectorMapAnalysis.hpp
 //  catsmat
 //
 //  Created by Jason James Stoessel on 7/03/2017.
 //
 //
 
-#ifndef IMUSANT_t_vectormap_analysis_hpp
-#define IMUSANT_t_vectormap_analysis_hpp
+#ifndef ____TVectorMapAnalysis__
+#define ____TVectorMapAnalysis__
 
 #include <stdio.h>
 #include <utility>
 
 #include "boost/multi_array.hpp"
 
-#include "IMUSANT_t_vectormap.h"
-#include "IMUSANT_t_repeated_substring.h"
+#include "TVectorMap.h"
+#include "TRepeatedSubstring.h"
 
 namespace CATSMAT
 {
     template <typename T, class C>
-    class IMUSANT_T_VectorMapAnalysis : public IMUSANT_T_VectorMap<T,C>
+    class TVectorMapAnalysis : public TVectorMap<T,C>
     {
     public:
-        typedef typename IMUSANT_T_VectorMap<T,C>::SUBSTR_VECTOR    SUBSTR_VECTOR;
+        typedef typename TVectorMap<T,C>::SUBSTR_VECTOR    SUBSTR_VECTOR;
         typedef boost::multi_array<int, 2>                          int_2d_array_t;
         typedef  deque<pair<T,T> >                                  DEQUE_PAIR;
         typedef typename DEQUE_PAIR::iterator                       DEQUE_PAIR_ITERATOR;
         
-        IMUSANT_T_VectorMapAnalysis() {}
-        ~IMUSANT_T_VectorMapAnalysis() {}
+        TVectorMapAnalysis() {}
+        ~TVectorMapAnalysis() {}
         
         SUBSTR_VECTOR  FindLCSPairs(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
         string         FindAndPrintLCSPairs(bool consecutive=true, bool reverse_search=false, bool retrograde=false);
         
     protected:
-        virtual void Localise( IMUSANT_T_RepeatedSubstring<T>&,
+        virtual void Localise( TRepeatedSubstring<T>&,
                                DEQUE_PAIR,
-                               typename IMUSANT_T_VectorMap<T,C>::id_vec_map::iterator&,
-                               typename IMUSANT_T_VectorMap<T,C>::id_vec_map::iterator&,
+                               typename TVectorMap<T,C>::id_vec_map::iterator&,
+                               typename TVectorMap<T,C>::id_vec_map::iterator&,
                                bool first, bool consecutive) = 0;
         
     };
@@ -50,8 +50,8 @@ namespace CATSMAT
     // Pattern MAtching and text compression algorithms, available from:
     // http://www-igm.univ-mlv.fr/~mac/REC/DOC/03-CRC.ps
     template <typename T, class C>
-    typename IMUSANT_T_VectorMapAnalysis<T,C>::SUBSTR_VECTOR
-    IMUSANT_T_VectorMapAnalysis<T,C>::
+    typename TVectorMapAnalysis<T,C>::SUBSTR_VECTOR
+    TVectorMapAnalysis<T,C>::
     FindLCSPairs(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR ret_val;
@@ -120,7 +120,7 @@ namespace CATSMAT
                 }
                 
 
-                IMUSANT_T_RepeatedSubstring<T> repeated_substring;
+                TRepeatedSubstring<T> repeated_substring;
                 bool first_loc_set = false;
                 Localise(repeated_substring, z, i, j, first_loc_set, consecutive); //virtual void in base class
                 ret_val.push_back(repeated_substring);
@@ -131,7 +131,7 @@ namespace CATSMAT
     
     template <typename T, class C>
     string
-    IMUSANT_T_VectorMapAnalysis<T,C>::
+    TVectorMapAnalysis<T,C>::
     FindAndPrintLCSPairs(bool consecutive, bool reverse_search, bool retrograde)
     {
         SUBSTR_VECTOR the_result;
@@ -151,4 +151,4 @@ namespace CATSMAT
     
 }
 
-#endif /* IMUSANT_t_vectormap_analysis_hpp */
+#endif /* ____TVectorMapAnalysis__ */

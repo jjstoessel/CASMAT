@@ -7,11 +7,11 @@
 //
 //
 
-#include "IMUSANT_t_repeated_substring.h"
+#include "TRepeatedSubstring.h"
 
 namespace CATSMAT
 {
-    ostream& operator<<(ostream& os, const IMUSANT_T_RepeatedSubstring<CATSMAT_TrigramSequences::Token>& substring)
+    ostream& operator<<(ostream& os, const TRepeatedSubstring<CATSMAT_TrigramSequences::Token>& substring)
     {
         for (auto ii : substring.sequence)
         {

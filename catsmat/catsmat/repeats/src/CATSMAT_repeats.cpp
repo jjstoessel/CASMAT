@@ -4,9 +4,9 @@
 #include <iostream>
 #include "repeats/inc/CATSMAT_repeats.h"
 #include "GeneralAnalysis/inc/CATSMAT_processing.h"
-#include "IMUSANT_interval_suffixtree_builder.h"
-#include "IMUSANT_pitch_suffixtree_builder.h"
-#include "IMUSANT_contour_suffixtree_builder.h"
+#include "IntervalSuffixtreeBuilder.h"
+#include "PitchSuffixtreeBuilder.h"
+#include "ContourSuffixtreeBuilder.h"
 
 using namespace CATSMAT;
 
@@ -49,9 +49,9 @@ int CATSMAT_repeats::main()
         }
 
         if (!processor.getScores().empty()) {
-            IMUSANT_IntervalSuffixTreeBuilder ip;
-            IMUSANT_PitchSuffixTreeBuilder pp;
-            IMUSANT_ContourSuffixTreeBuilder cp;
+            IntervalSuffixTreeBuilder ip;
+            PitchSuffixTreeBuilder pp;
+            ContourSuffixTreeBuilder cp;
 
             if (interval_flag) { //A
                 ip.Visit(processor);

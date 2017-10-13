@@ -75,13 +75,13 @@ set (INCFOLDERS
 		)
 
 set(SRC ${SRC}
-		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_contour_suffixtree_builder.cpp
-		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_generalised_interval_suffixtree_builder.cpp
-		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_interval_suffixtree_builder.cpp
-		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_pitch_suffixtree_builder.cpp
-		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_repeated_interval_substring.cpp
-		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_t_repeated_substring.cpp
-		${CATSMAT_ANALYSIS_SRC_DIR}/IMUSANT_VectorMapAnalysisTypes.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/ContourSuffixtreeBuilder.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/GeneralisedIntervalSuffixtreeBuilder.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/IntervalSuffixTreeBuilder.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/PitchSuffixTreeBuilder.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/RepeatedIntervalSubstring.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/TRepeatedSubstring.cpp
+		${CATSMAT_ANALYSIS_SRC_DIR}/VectorMapAnalysisTypes.cpp
 
 		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_chord.cpp
 		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_collectionvisitor.cpp
@@ -119,16 +119,16 @@ set(SRC ${SRC}
 		)
 		
 set(HEADERS ${HEADERS}
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_contour_suffixtree_builder.h
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_generalised_interval_suffixtree_builder.h
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_interval_suffixtree_builder.h
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_pitch_suffixtree_builder.h
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_repeated_interval_substring.h
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_t_repeated_substring.h
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_t_suffixtree_builder.h
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_t_vectormap.h
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_t_vectormap_analysis.h
-        ${CATSMAT_ANALYSIS_INC_DIR}/IMUSANT_vectormap_analysis_types.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/ContourSuffixtreeBuilder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/GeneralisedIntervalSuffixtreeBuilder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/IntervalSuffixTreeBuilder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/PitchSuffixTreeBuilder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/RepeatedIntervalSubstring.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/TRepeatedSubstring.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/TSuffixtreeBuilder.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/TVectorMap.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/TVectorMapAnalysis.h
+        ${CATSMAT_ANALYSIS_INC_DIR}/VectorMapAnalysisTypes.h
 
 
         ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_chord.h
