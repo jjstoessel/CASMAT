@@ -139,7 +139,7 @@ namespace CATSMAT {
                     else b--;
                 }
                 
-                IMUSANT_repeated_generalised_interval_substring repeated_interval_substring;
+                RepeatedGeneralisedIntervalSubstring repeated_interval_substring;
                 bool first_loc_set = false;
                 //cout << "Common subsequence: " << endl;
                 for (deque<pair<IMUSANT_generalised_interval,IMUSANT_generalised_interval> >::iterator iv=z.begin(); iv!=z.end(); iv++)

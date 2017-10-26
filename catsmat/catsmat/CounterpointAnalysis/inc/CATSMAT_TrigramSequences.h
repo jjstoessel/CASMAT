@@ -36,9 +36,9 @@ namespace CATSMAT
     {
     public:
         
-        typedef unsigned int                Token;
-        typedef std::array<signed int,3>    Trigram; //a word is the two vertical intervals and the step in the lower voice
-        typedef std::vector<Trigram>        Sentence; // a sentence is a sequence of words for a voice pair
+        typedef unsigned int                Token;      //a token is a compressed representation of a trigram
+        typedef std::array<signed int,3>    Trigram;    //a trigram is the two vertical intervals and the step in the lower voice
+        typedef std::vector<Trigram>        Sentence;   //a sentence is a sequence of trigrams for a voice pair
         typedef std::vector<vector<Token> > TokenVectors;
         enum    TrigramMembers { dyad1, dyad2, lowMelInterval };
         
@@ -47,7 +47,7 @@ namespace CATSMAT
         friend  ostream& operator<<(ostream& os, Trigram&);
         friend  ostream& operator<<(ostream& os, const Token&);
         friend  ostream& operator<<(ostream& os, Token&);
-        
+
         void    Accept(::Loki::BaseVisitor& guest) const { return AcceptImpl(*this, guest); }
         static  Trigram             Token2Triple(Token token);
         static  Token               Triple2Token(const Trigram& triple);

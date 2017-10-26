@@ -47,7 +47,7 @@ namespace CATSMAT
         os << CATSMAT_TrigramSequences::Token2Triple(token);
         return os;
     }
-    
+
     void
     CATSMAT_TrigramSequences::
     Visit(const CATSMAT_cp_matrix& matrix)
@@ -75,8 +75,7 @@ namespace CATSMAT
                 //deref chord notes
                 map<int, S_IMUSANT_note> chord_notes = **chord;
                 map<int, S_IMUSANT_note> nextchord_notes = **nextchord;
-                vector<Sentence>::iterator sentences_iter = vectors_.begin(); 
-                
+                vector<Sentence>::iterator sentences_iter = vectors_.begin();
                 
                 for (int i = 0; i<chord_size; i++)
                 {
@@ -304,12 +303,7 @@ namespace CATSMAT
         token = (triple[dyad1]&0x000000ff) | (triple[dyad2]&0x000000ff)<<8 | (triple[lowMelInterval]&0x000000ff)<<16;
         assert(triple==Token2Triple(token));
         return token;
-        
-        /*std::ostringstream str;
-        str << triple[lowMelInterval] << triple[dyad2] << triple[dyad1];
-        Token token_hash = std::hash<std::string>{}(str.str());
-    
-        return token_hash;*/
+
     }
     
     //static member function
@@ -334,7 +328,7 @@ namespace CATSMAT
     Print(ostream& os) const
     {
         int i = 1;
-        for (auto triples : vectors_)//for (auto triples : sentences_)
+        for (auto triples : vectors_)
         {
             os << "Voice pair " << i << ": ";
             for (auto triple : triples)

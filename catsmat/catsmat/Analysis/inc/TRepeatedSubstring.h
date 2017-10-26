@@ -70,13 +70,14 @@ namespace CATSMAT
         typename vector<occurrence>::size_type num_occurrences() const;
         
         static string output_operator_help();
+
         friend ostream& operator<<(ostream& os, const TRepeatedSubstring<T>& substring)
         {
             //os << substring.sequence;
             os << "[";
             for (typename vector<T>::const_iterator ii = substring.sequence.begin(); ii != substring.sequence.end(); ++ii)
             {
-                os << " " << *ii;
+                os << " " << T(*ii);
             }
             os << " ] ";
 
@@ -182,7 +183,7 @@ namespace CATSMAT
         }
     };
     
-    class IMUSANT_repeated_generalised_interval_substring : public TRepeatedSubstring<IMUSANT_generalised_interval>
+    class RepeatedGeneralisedIntervalSubstring : public TRepeatedSubstring<IMUSANT_generalised_interval>
     {
     public:
         static string  output_operator_help()
@@ -198,7 +199,7 @@ namespace CATSMAT
     };
 
     
-    class IMUSANT_repeated_contour_substring: public TRepeatedSubstring<IMUSANT_contour_symbol>
+    class RepeatedContourSubstring: public TRepeatedSubstring<IMUSANT_contour_symbol>
     {
     public:
         static string  output_operator_help()
@@ -214,7 +215,7 @@ namespace CATSMAT
 
     };
     
-    class IMUSANT_repeated_pitch_substring: public TRepeatedSubstring<IMUSANT_pitch>
+    class RepeatedPitchSubstring: public TRepeatedSubstring<IMUSANT_pitch>
     {
     public:
         static string  output_operator_help()
@@ -230,7 +231,7 @@ namespace CATSMAT
         
     };
     
-    class IMUSANT_repeated_trigram_token_substring : public TRepeatedSubstring<CATSMAT_TrigramSequences::Token>
+    class RepeatedTrigramTokenSubstring : public TRepeatedSubstring<CATSMAT_TrigramSequences::Token>
     {
     public:
         static string  output_operator_help()

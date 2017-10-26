@@ -22,7 +22,7 @@ namespace CATSMAT
         
         for (int index = 0; index < substring.occurrences.size(); index++)
         {
-            IMUSANT_repeated_trigram_token_substring::occurrence occ;
+            RepeatedTrigramTokenSubstring::occurrence occ;
             occ = substring.occurrences[index];
             os << "("
             << "MVT: " << occ.movement << ", "

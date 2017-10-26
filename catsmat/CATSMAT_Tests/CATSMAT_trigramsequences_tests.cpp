@@ -174,12 +174,28 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Talent_mest_pris_repeats) {
     
     repeats = trigram_tree.FindRepeatedSubstrings(4);
     
-    std::stringstream the_dyads_as_stringstream;
-    for ( auto repeat : repeats)
+    std::stringstream the_trigrams_as_stringstream;
+
+    for (auto repeat : repeats)
     {
-        the_dyads_as_stringstream << repeat;
+        the_trigrams_as_stringstream << " ";
+
+        for (auto token : repeat.sequence)
+        {
+            the_trigrams_as_stringstream << CATSMAT_TrigramSequences::Token2Triple(token);
+        }
+
+        for (auto occurrence : repeat.occurrences)
+        {
+            the_trigrams_as_stringstream << "("
+               << "MVT: " << occurrence.movement << ", "
+               << "VCE: " << occurrence.voice << ", "
+               << "MES: " << occurrence.measure << ", "
+               << "IDX: " << occurrence.note_index << ") ";
+        }
+        the_trigrams_as_stringstream << std::endl << std::endl;
     }
-    string the_sequences_as_string = the_dyads_as_stringstream.str();
+    string the_sequences_as_string = the_trigrams_as_stringstream.str();
     
     ASSERT_EQ(TestScore_Talent_mest_pris_repeats_Expected, the_sequences_as_string);
 }
