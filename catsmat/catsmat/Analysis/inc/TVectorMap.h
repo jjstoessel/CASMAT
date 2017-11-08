@@ -1,9 +1,11 @@
 //
-//  TSuffixTreeBuilder.hpp
+//  TVectorMap.hpp
 //  catsmat
 //
 //  Created by Jason Stoessel on 7/03/2017.
 //
+//  This base template class is designed to provide base functionality in which a map containg a series of vectors of type T
+//  with an integer identifier. Vectors are populated by a Visitor class to the Visit member function.
 //
 
 #ifndef TSuffixTreeBuilder_hpp

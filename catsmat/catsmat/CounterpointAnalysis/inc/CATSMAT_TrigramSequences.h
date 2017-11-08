@@ -39,18 +39,18 @@ namespace CATSMAT
         typedef unsigned int                Token;      //a token is a compressed representation of a trigram
         typedef std::array<signed int,3>    Trigram;    //a trigram is the two vertical intervals and the step in the lower voice
         typedef std::vector<Trigram>        Sentence;   //a sentence is a sequence of trigrams for a voice pair
-        typedef std::vector<vector<Token> > TokenVectors;
+        typedef std::vector<vector<unsigned int> > TokenVectors;
         enum    TrigramMembers { dyad1, dyad2, lowMelInterval };
         
         friend  ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences& sequences);
         friend  ostream& operator<<(ostream& os, const Trigram&);
         friend  ostream& operator<<(ostream& os, Trigram&);
-        friend  ostream& operator<<(ostream& os, const Token&);
-        friend  ostream& operator<<(ostream& os, Token&);
+        inline friend  ostream& operator<<(ostream& os, const Token&);
+        //inline friend  ostream& operator<<(ostream& os, Token&);
 
         void    Accept(::Loki::BaseVisitor& guest) const { return AcceptImpl(*this, guest); }
-        static  Trigram             Token2Triple(Token token);
-        static  Token               Triple2Token(const Trigram& triple);
+        static  Trigram             Token2Triple(unsigned int token);
+        static  unsigned int        Triple2Token(const Trigram& triple);
         
         CATSMAT_TrigramSequences() : CATSMAT_dyad_sequences_base<Sentence>() {}
         ~CATSMAT_TrigramSequences() {}
@@ -58,6 +58,8 @@ namespace CATSMAT
         void    Visit(const CATSMAT_cp_matrix& matrix);
         
         void    Print(ostream& os) const;
+        void    PrintTrigrams(ostream& os) const;
+        void    PrintTokens(ostream& os) const;
         
         TokenVectors   get_tokens() const { return tokens_; }
         
@@ -67,17 +69,17 @@ namespace CATSMAT
         void                Process(const list<S_CATSMAT_chord>& matrix); //overrides base class
         void                ConvertSentences2Tokens();
         void                PostprocessTokens();
-        static bool         IsRepeatedIntervalToken(const Token token);
-        static bool         IsZero(Token token1, Token token2);
-        static Token        TransformTokenUnaryOp(const Token& token);
-        bool                TokenContainsDissonantDyad(const Token& token, TrigramMembers& dissonant_dyad_index);
+        static bool         IsRepeatedIntervalToken(const unsigned int token);
+        static bool         IsZero(unsigned int token1, unsigned int token2);
+        static unsigned int TransformTokenUnaryOp(const unsigned int& token);
+        bool                TokenContainsDissonantDyad(const unsigned int token, TrigramMembers& dissonant_dyad_index);
     };
     
     //Visitor class to Trigram Sequences to extract trigram profile as all tokens from all sequences
     class CATSMAT_TrigramInformation : public BaseVisitor, public Visitor<CATSMAT_TrigramSequences, void, true>
     {
     public:
-        typedef map<CATSMAT_TrigramSequences::Token,int> PROFILE;
+        typedef map<unsigned int,int> PROFILE;
         
         friend  ostream& operator<< (ostream& os, const CATSMAT_TrigramInformation& trigram_info );
         
@@ -91,11 +93,13 @@ namespace CATSMAT
     private:
         PROFILE token_count_;
     };
-    
+
+    //friend function declarations
     ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences& sequences);
     ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences::Trigram&);
     ostream& operator<<(ostream& os, CATSMAT_TrigramSequences::Trigram&);
-    
+    //ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences::Token&);
+    //ostream& operator<<(ostream& os, CATSMAT_TrigramSequences::Token&);
 }
 
 

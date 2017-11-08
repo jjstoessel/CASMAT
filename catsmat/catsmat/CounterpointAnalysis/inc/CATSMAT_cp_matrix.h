@@ -37,9 +37,10 @@ namespace CATSMAT {
     public:
         
         LOKI_DEFINE_CONST_VISITABLE()
-        
+
+        typedef list< S_CATSMAT_chord > Matrix;
+
         friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_object<CATSMAT_cp_matrix>();
-        
         friend  ostream& operator<< (ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
         
         void    addpart();
@@ -50,7 +51,7 @@ namespace CATSMAT {
         void	clear() { fCPMatrix.clear(); }
         void    reindex();
         
-        const   list< S_CATSMAT_chord >& getCPmatrix() const { return fCPMatrix; }
+        const   Matrix& getCPmatrix() const { return fCPMatrix; }
         
         void    print(ostream& os);
         unsigned long partCount() const { return fCurrentPart + 1; }
@@ -73,13 +74,13 @@ namespace CATSMAT {
         void            split(const IMUSANT_note& note);
         IMUSANT_note    distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note = NULL);
 
-        
-        list< S_CATSMAT_chord >             fCPMatrix;            //the contrapuntal matrix; a vector of vectors, each column of which represents a chord;
+
+        Matrix             fCPMatrix;            //the contrapuntal matrix; a vector of vectors, each column of which represents a chord;
         S_IMUSANT_score                     fSourceScore = NULL;  //lookback pointer to source score; do not access if null
         
         //internal strictly private class variables
         int                                 fCurrentPart;
-        list<S_CATSMAT_chord>::iterator     fCurrentChord;
+        Matrix::iterator                    fCurrentChord;
         IMUSANT_time                        fCurrentTime;
         long                                fCurrentMeasureNumber;
         IMUSANT_duration                    fCumulativeMeasureDuration;

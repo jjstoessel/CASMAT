@@ -11,7 +11,7 @@
 
 namespace CATSMAT
 {
-    ostream& operator<<(ostream& os, const TRepeatedSubstring<CATSMAT_TrigramSequences::Token>& substring)
+    ostream& operator<<(ostream& os, const TRepeatedSubstring<unsigned int>& substring)
     {
         for (auto ii : substring.sequence)
         {

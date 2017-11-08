@@ -5,7 +5,7 @@
 //  Created by Jason Stoessel on 25/11/2016.
 //
 
-
+#include  <iomanip>
 #include "CATSMAT_TrigramSequences.h"
 #include "IMUSANT_generalised_interval.h"
 #include "CATSMAT_exception.h"
@@ -28,21 +28,15 @@ namespace CATSMAT
         
         return os;
     }
-    
+
     ostream& operator<<(ostream& os, CATSMAT_TrigramSequences::Trigram& trigram)
     {
         os << "[" << trigram[CATSMAT_TrigramSequences::dyad1] << ", " << trigram[CATSMAT_TrigramSequences::dyad2] << ", " << trigram[CATSMAT_TrigramSequences::lowMelInterval] << "] ";
         
         return os;
     }
-    
-    ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences::Token& token)
-    {
-        os << CATSMAT_TrigramSequences::Token2Triple(token);
-        return os;
-    }
-    
-    ostream& operator<<(ostream& os, CATSMAT_TrigramSequences::Token& token)
+
+    ostream& operator<<(ostream& os, const unsigned int token)
     {
         os << CATSMAT_TrigramSequences::Token2Triple(token);
         return os;
@@ -52,13 +46,13 @@ namespace CATSMAT
     CATSMAT_TrigramSequences::
     Visit(const CATSMAT_cp_matrix& matrix)
     {
-        matrix_ = &matrix;
+        matrix_ptr_ = &matrix;
         Process(matrix.getCPmatrix());
     }
 
 
     void CATSMAT_TrigramSequences::
-    Process(const list<S_CATSMAT_chord> &matrix)
+    Process(const CATSMAT_cp_matrix::Matrix &matrix)
     {
         if (!matrix.empty())
         {
@@ -137,14 +131,14 @@ namespace CATSMAT
     ConvertSentences2Tokens()
     {
         tokens_.resize(vectors_.size());
-        
-        vector<vector<CATSMAT_TrigramSequences::Token> >::iterator tokens = tokens_.begin();
+
+        TokenVectors::iterator tokens = tokens_.begin();
         
         for (vector<Sentence>::iterator i = vectors_.begin(); i != vectors_.end(); i++)
         {
             for (Sentence::iterator j = i->begin(); j!=i->end(); j++) {
                 Trigram trigram = *j;
-                CATSMAT_TrigramSequences::Token token = Triple2Token(trigram);
+                unsigned int token = Triple2Token(trigram);
                 tokens->push_back(token);
                 assert(Token2Triple(token)==trigram);
             }
@@ -235,7 +229,7 @@ namespace CATSMAT
         return (token1==0 && token2==0);
     }
     
-    CATSMAT_TrigramSequences::Token
+    unsigned int
     CATSMAT_TrigramSequences::TransformTokenUnaryOp(const Token& token)
     {
         Trigram trigram = Token2Triple(token);
@@ -259,7 +253,7 @@ namespace CATSMAT
     
     bool
     CATSMAT_TrigramSequences::
-    TokenContainsDissonantDyad(const Token& token, TrigramMembers& dissonant_dyad_index)
+    TokenContainsDissonantDyad(const unsigned int token, TrigramMembers& dissonant_dyad_index)
     {
         bool contains_dissonance = false;
         
@@ -294,7 +288,7 @@ namespace CATSMAT
         static member function
     */
     
-    CATSMAT_TrigramSequences::Token
+    unsigned int
     CATSMAT_TrigramSequences::
     Triple2Token(const Trigram& triple)
     {
@@ -327,6 +321,13 @@ namespace CATSMAT
     CATSMAT_TrigramSequences::
     Print(ostream& os) const
     {
+        PrintTrigrams(os);
+    }
+
+    void
+    CATSMAT_TrigramSequences::
+    PrintTrigrams(ostream& os) const
+    {
         int i = 1;
         for (auto triples : vectors_)
         {
@@ -339,6 +340,25 @@ namespace CATSMAT
             i++;
         }
     }
+
+    void
+    CATSMAT_TrigramSequences::
+    PrintTokens(ostream& os) const
+    {
+        int i = 1;
+        for (auto triples : vectors_)
+        {
+            os << "Voice pair " << i << ": ";
+            for (auto triple : triples)
+            {
+                os << "0x" << std::setfill('0') << std::setw(8) << std::hex << (int)Triple2Token(triple) << "\t";
+            }
+            os << std::endl;
+            i++;
+        }
+
+    }
+
     
     ostream& operator<< (ostream& os, const CATSMAT_TrigramInformation& trigram_info )
     {

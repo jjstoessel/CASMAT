@@ -35,7 +35,7 @@ public:
     void            set_ignore_dissonances(bool ignore) { ignore_dissonances_ = ignore; }
 protected:
     vector<T>           vectors_;
-    S_CATSMAT_cp_matrix matrix_ = NULL;
+    S_CATSMAT_cp_matrix matrix_ptr_ = NULL;
     bool                ignore_repeated_ = true;
     bool                ignore_dissonances_ = true;
 };

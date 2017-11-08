@@ -178,6 +178,8 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Talent_mest_pris_repeats) {
 
     for (auto repeat : repeats)
     {
+        //the following replaces for now the following call that no longer evokes the override friend function
+        //the_trigrams_as_stringstream << repeat;
         the_trigrams_as_stringstream << " ";
 
         for (auto token : repeat.sequence)
@@ -234,5 +236,33 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_Josquin_MAF_Kyrie_trigram_inform
     string the_sequences_as_string = the_info_as_stringstream.str();
     
     ASSERT_EQ(TestScore_Josquin_MAF_Kyrie_trigram_information_Expected, the_sequences_as_string);
+}
+
+TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures_WithQuaverPassingNotes_output) {
+
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures_WithQuaverPassingNotes.xml");
+    theSequences.set_ignore_dissonances(false);
+    the_matrix->Accept(theSequences);
+
+    std::stringstream ss;
+    theSequences.PrintTokens(ss);
+
+    string the_sequences_as_string = ss.str();
+
+    ASSERT_EQ(TestScore_4_Measures_WithQuaverPassingNotesOutput_Expected, the_sequences_as_string);
+}
+
+TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures_WithSemiQuaverPassingNotes_output) {
+
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("TestScore_4_Measures_WithSemiQuaverPassingNotes.xml");
+    theSequences.set_ignore_dissonances(false);
+    the_matrix->Accept(theSequences);
+
+    std::stringstream ss;
+    theSequences.PrintTokens(ss);
+
+    string the_sequences_as_string = ss.str();
+
+    ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_output, the_sequences_as_string);
 }
 

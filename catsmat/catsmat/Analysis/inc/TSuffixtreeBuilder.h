@@ -25,7 +25,7 @@
 #include "IMUSANT_processing.h"
 ****/
 
- #include "TRepeatedSubstring.h"
+#include "TRepeatedSubstring.h"
 #include "TVectorMap.h"
 #include "repeats.h"
 

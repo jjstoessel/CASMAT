@@ -4,7 +4,10 @@
 //
 //  Created by Jason Stoessel on 7/03/2017.
 //
-//
+//  This header defines specific instantiations of TVectorMapAnalysis for:
+//      - interval
+//      - contour
+//      - contour duple (a pair of contours)
 
 #ifndef ____VectorMapAnalysisTypes__
 #define ____VectorMapAnalysisTypes__

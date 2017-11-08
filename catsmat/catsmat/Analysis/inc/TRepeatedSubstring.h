@@ -77,7 +77,7 @@ namespace CATSMAT
             os << "[";
             for (typename vector<T>::const_iterator ii = substring.sequence.begin(); ii != substring.sequence.end(); ++ii)
             {
-                os << " " << T(*ii);
+                os << " " << *ii;
             }
             os << " ] ";
 
@@ -231,7 +231,7 @@ namespace CATSMAT
         
     };
     
-    class RepeatedTrigramTokenSubstring : public TRepeatedSubstring<CATSMAT_TrigramSequences::Token>
+    class RepeatedTrigramTokenSubstring : public TRepeatedSubstring<unsigned int>
     {
     public:
         static string  output_operator_help()
@@ -246,7 +246,7 @@ namespace CATSMAT
         }
         friend ostream& operator<<(ostream& os, const std::array<signed int,3>& trigram);
         
-        friend ostream& operator<<(ostream& os, const TRepeatedSubstring<CATSMAT_TrigramSequences::Token>& substring);
+        friend ostream& operator<<(ostream& os, const TRepeatedSubstring<unsigned int>& substring);
     };
     
 }

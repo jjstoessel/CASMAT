@@ -4,7 +4,8 @@
 //
 //  Created by Jason James Stoessel on 7/03/2017.
 //
-//
+//  TVectorMapAnalysis is a templated class that implements some analytical functions for the inherited vector map.
+//  The expectation is that the templated type T will have basic comparison operator functions.
 
 #ifndef ____TVectorMapAnalysis__
 #define ____TVectorMapAnalysis__

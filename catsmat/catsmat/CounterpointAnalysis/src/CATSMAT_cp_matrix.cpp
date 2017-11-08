@@ -129,7 +129,8 @@ namespace CATSMAT
         Inserts a note into the next chord (and following ones)
      
      */
-    void    CATSMAT_cp_matrix::
+    void
+    CATSMAT_cp_matrix::
     insert(const IMUSANT_note& note)
     {
         //call to distribute note and return remainder; if note duration less than current chord duration
