@@ -111,9 +111,7 @@ CATSMAT_test_utility::DiffFiles(string actual_file_path, string expected_file_pa
 string
 CATSMAT_test_utility::GetTempFilePath()
 {
-    //string ret_val = tmpnam(nullptr);
-    string ret_val = mktemp(NULL);
-
+    string ret_val = tmpnam(nullptr);
 #ifdef VERBOSE
     cout << "Temp file is: " << ret_val << endl;
 #endif

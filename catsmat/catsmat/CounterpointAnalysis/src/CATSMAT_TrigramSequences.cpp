@@ -119,7 +119,6 @@ namespace CATSMAT
                 if (size!=matrix.size()-1) throw catsmat_runtime_error("Bad size count in NGram_sequences::process");
             }
 #endif
-            
             ConvertSentences2Tokens();
             PostprocessTokens();
         }
@@ -348,7 +347,7 @@ namespace CATSMAT
         int i = 1;
         for (auto triples : vectors_)
         {
-            os << "Voice pair " << i << ": ";
+            os << "Voice pair " << i << ": " << "\t";
             for (auto triple : triples)
             {
                 os << "0x" << std::setfill('0') << std::setw(8) << std::hex << (int)Triple2Token(triple) << "\t";

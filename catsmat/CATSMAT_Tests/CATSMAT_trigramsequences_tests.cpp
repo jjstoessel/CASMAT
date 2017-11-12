@@ -266,3 +266,27 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures_WithSemiQuaverPassing
     ASSERT_EQ(TestScore_4_Measures_WithSemiQuaverPassingNotes_output, the_sequences_as_string);
 }
 
+TEST_F(CATSMAT_TrigramSequences_Test, Josquin_MAF_Kyrie_trigram_output) {
+
+    CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Josquin_MAF_Kyrie.xml");
+    theSequences.set_ignore_dissonances(false);
+    the_matrix->Accept(theSequences);
+
+    std::stringstream ss;
+    ss << "Indices: " << "\t";
+    for (auto chord : the_matrix->getCPmatrix())
+    {
+        ss << chord->begin()->second->getMeasureNum() << "." << chord->begin()->second->getNoteIndex() << "\t";
+    }
+    ss << std::endl;
+
+    theSequences.PrintTokens(ss);
+
+    string the_sequences_as_string = ss.str();
+
+#ifdef VERBOSE
+    cout << the_sequences_as_string << endl;
+#endif
+
+    ASSERT_EQ(Josquin_MAF_Kyrie_trigram_output, the_sequences_as_string);
+}

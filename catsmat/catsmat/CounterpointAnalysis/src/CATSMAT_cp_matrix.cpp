@@ -186,7 +186,7 @@ namespace CATSMAT
             
             (*(*fCurrentChord))[fCurrentPart] = part_note;
             //find the remainder of the duration left after the previous chord
-            //call recusively
+            //call recursively
             S_IMUSANT_duration dur = remainder.duration();
             *dur -= *part_duration;
             remainder.setDuration(*dur);
