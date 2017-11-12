@@ -19,7 +19,7 @@ const string TestScore_Josquin_MAF_Kyrie_canontype_Expected = "Canonic tool does
 
 const string TestScore_Machaut_Ma_fin_est_mon_commencement_Expected = "**** Canonic techniques for Ma fin est mon commencement ****\nNumber of voices: 2\nInterval: per1 / \nMelodically imitative: no\nStrict: yes\nRetrograde: yes\nContrary motion: no\nProportional: no\nStacked: no\nPart: Ca 1, Part ID: P1\nPart: Ca 2, Part ID: P2\n\n";
 
-const string TestScore_Cerreto_CM_canon_Expected = "**** Canonic techniques for Canon in Contrary Motion from Della prattica musica ****\nNumber of voices: 2\nIOI: 1 (unit: <RHYTHM_TYPE>breve<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>1/1<\\TIME_MOD>)\nInterval: maj2 / \nMelodically imitative: no\nStrict: yes\nRetrograde: no\nContrary motion: yes\nProportional: no\nStacked: no\nPart: Tenor, Part ID: P2\nPart: Alto, Part ID: P1\n\n";
+const string TestScore_Cerreto_CM_canon_Expected = "**** Canonic techniques for Contrary Motion Canon from Della prattica musica (p. 222) ****\nNumber of voices: 2\nIOI: 1 (unit: <RHYTHM_TYPE>breve<\\RHYTHM_TYPE><DOTS>0<\\DOTS><TIME_MOD>1/1<\\TIME_MOD>)\nInterval: maj2 / \nMelodically imitative: no\nStrict: yes\nRetrograde: no\nContrary motion: yes\nProportional: no\nStacked: no\nPart: Tenor, Part ID: P2\nPart: Alto, Part ID: P1\n\n";
 
 const string TestScore_Bononcini_RCM_canon_Expected = "**** Canonic techniques for Canon in Retrograde Contrary Motion from Musico prattico ****\nNumber of voices: 2\nInterval: maj2 \\ \nMelodically imitative: no\nStrict: yes\nRetrograde: yes\nContrary motion: yes\nProportional: no\nStacked: no\nPart: Alto 1, Part ID: P1\nPart: MusicXML Part, Part ID: P2\n\n";
 

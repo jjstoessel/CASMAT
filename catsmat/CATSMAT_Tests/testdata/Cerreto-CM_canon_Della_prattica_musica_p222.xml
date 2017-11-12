@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise version="3.0">
+  <work>
+    <work-title>Contrary Motion Canon from Della prattica musica (p. 222)</work-title>
+  </work>
   <identification>
     <rights>©</rights>
+    <creator type="composer">Scipione Cerreto</creator>
     <encoding>
       <software>Finale 2014.5 for Mac</software>
       <software>Dolet Light for Finale 2014.5</software>
@@ -372,7 +376,7 @@
       </note>
       <note default-x="198">
         <pitch>
-          <step>D</step>
+          <step>E</step>
           <octave>4</octave>
         </pitch>
         <duration>4</duration>
