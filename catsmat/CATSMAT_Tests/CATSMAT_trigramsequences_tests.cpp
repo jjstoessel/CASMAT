@@ -19,7 +19,7 @@
 #include "gtest/gtest.h"
 #include <boost/filesystem.hpp>
 
-#define VERBOSE
+//#define VERBOSE
 
 // The fixture for testing class CATSMAT_cp_matrix.
 class CATSMAT_TrigramSequences_Test : public ::testing::Test {
@@ -269,15 +269,21 @@ TEST_F(CATSMAT_TrigramSequences_Test, TestScore_4_Measures_WithSemiQuaverPassing
 TEST_F(CATSMAT_TrigramSequences_Test, Josquin_MAF_Kyrie_trigram_output) {
 
     CATSMAT::S_CATSMAT_cp_matrix the_matrix = testUtil.ConvertMusicXmlToCpmatrix("Josquin_MAF_Kyrie.xml");
-    theSequences.set_ignore_dissonances(false);
+    theSequences.set_ignore_dissonances(false); //never use true when requiring matrix of tokens as output
     the_matrix->Accept(theSequences);
 
     std::stringstream ss;
     ss << "Indices: " << "\t";
-    for (auto chord : the_matrix->getCPmatrix())
+    CATSMAT_cp_matrix::Matrix::const_iterator chord = the_matrix->getCPmatrix().begin();
+    for ( ; chord!=the_matrix->getCPmatrix().end(); chord++)
     {
-        ss << chord->begin()->second->getMeasureNum() << "." << chord->begin()->second->getNoteIndex() << "\t";
+        CATSMAT_cp_matrix::Matrix::const_iterator next_chord = std::next(chord);
+
+        if (next_chord == the_matrix->getCPmatrix().end()) break;
+        ss << (*chord)->begin()->second->getMeasureNum() << "." << (*chord)->begin()->second->getNoteIndex() << "-";
+        ss << (*next_chord)->begin()->second->getMeasureNum() << "." << (*next_chord)->begin()->second->getNoteIndex() << "\t";
     }
+
     ss << std::endl;
 
     theSequences.PrintTokens(ss);

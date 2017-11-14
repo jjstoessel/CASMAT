@@ -102,8 +102,6 @@ namespace CATSMAT
                         sentences_iter++;
                     }
                 }
-                
-                nextchord++;
             }
 
 #ifdef _DEBUG
@@ -119,10 +117,35 @@ namespace CATSMAT
                 if (size!=matrix.size()-1) throw catsmat_runtime_error("Bad size count in NGram_sequences::process");
             }
 #endif
+            MakePartNamesIndex();
             ConvertSentences2Tokens();
             PostprocessTokens();
         }
 
+    }
+
+    void
+    CATSMAT_TrigramSequences::
+    MakePartNamesIndex()
+    {
+        //make a index of part names
+        S_IMUSANT_partlist part_list = matrix_ptr_->getScore()->partlist();
+        size_t parts = part_list->parts().size();
+        int index = 0;
+
+        for ( size_t a = 0; a < parts; a++ )
+        {
+            for (size_t b = a + 1; b < parts; b++)
+            {
+                string part_a_name;
+                string part_b_name;
+                part_a_name = part_list->parts()[a]->getPartName();
+                part_b_name = part_list->parts()[b]->getPartName();
+                voice_pair_labels_[index] = part_a_name + " & " + part_b_name;
+                index++;
+            }
+
+        }
     }
 
     void
@@ -157,7 +180,6 @@ namespace CATSMAT
             {
                 //find and transform all trigram tokens that contain a dissonance. NB. won't work for consecutive dissonances.
                 //eg. [7,6,1],[6,5,1] becomes [7,5,2], i.e. octave to sixth by third step in bass
-                
                 std::vector<Token> without_dissonances;
                 
                 for (std::vector<Token>::iterator token = tokens->begin();
@@ -344,10 +366,10 @@ namespace CATSMAT
     CATSMAT_TrigramSequences::
     PrintTokens(ostream& os) const
     {
-        int i = 1;
+        int i = 0;
         for (auto triples : vectors_)
         {
-            os << "Voice pair " << i << ": " << "\t";
+            os << voice_pair_labels_.at(i) << ": " << "\t";
             for (auto triple : triples)
             {
                 os << "0x" << std::setfill('0') << std::setw(8) << std::hex << (int)Triple2Token(triple) << "\t";

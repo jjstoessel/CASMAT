@@ -23,6 +23,7 @@
 #include <stdio.h>
 #include <vector>
 #include <array>
+#include <map>
 #include "CATSMAT_dyad_sequences_base.h"
 
 using namespace std;
@@ -65,8 +66,10 @@ namespace CATSMAT
         
     private:
         TokenVectors        tokens_;
-        
+        map<int, string>    voice_pair_labels_;
+
         void                Process(const list<S_CATSMAT_chord>& matrix); //overrides base class
+        void                MakePartNamesIndex();
         void                ConvertSentences2Tokens();
         void                PostprocessTokens();
         static bool         IsRepeatedIntervalToken(const unsigned int token);
