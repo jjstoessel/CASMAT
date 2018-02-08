@@ -523,6 +523,7 @@ namespace IMUSANT
         fCurrentNote = new_IMUSANT_note();
         fCurrentNote->setMeasureNum(fCurrentMeasure->getMeasureNum());
         fCurrentNote->setNoteIndex(++fCurrentNoteIndex);
+        fCurrentNote->setStaffName(fCurrentPart->getPartName());
         fCurrentNumberofDotsOnNote = 0;
         fCurrentNoteTimeModification.set(1,1);
         fCurrentNoteDurationType.set(0,0);

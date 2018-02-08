@@ -61,6 +61,7 @@ namespace IMUSANT
         void setType( IMUSANT_NoteType::type aType ) { fType=aType; }
         void setVoice (int voice ) { fVoice=voice; }
         void setFermata(bool hasFermata) { fHasFermata = hasFermata; }
+        void setStaffName(const string name) { fStaff = name; }
         
         const long getMeasureNum() const { return fMeasureNumber; }
         const long getNoteIndex () const { return fNoteIndex; }
@@ -69,6 +70,7 @@ namespace IMUSANT
         const S_IMUSANT_note&	getNextTieNote() const { return fTieNext; }
         const S_IMUSANT_note&	getPreviousTieNote() const { return fTiePrevious; }
         const int getVoice() const { return fVoice; }
+        const string getStaffName() { return fStaff; }
         
         void addLyric(const S_IMUSANT_lyric lyric) { fLyrics.push_back(lyric); }
         

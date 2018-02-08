@@ -31,7 +31,7 @@ namespace CATSMAT {
         
         BuildVectorMap(collections);
         
-        tree_ptr_ = buildSuffixTree(id_vec_map_); //= buildIntervalSuffixTree(collections);
+        //tree_ptr_ = buildSuffixTree(id_vec_map_); //= buildIntervalSuffixTree(collections);
     }
     
     //Prepare list of interval strings and feed to template class to create actual tree

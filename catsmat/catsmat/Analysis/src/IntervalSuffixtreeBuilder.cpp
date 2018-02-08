@@ -18,9 +18,6 @@
 #include <utility>
 #include "boost/multi_array.hpp"
 #include "IntervalSuffixtreeBuilder.h"
-#include "repeats.h"
-
-
 
 using namespace std;
 
@@ -39,7 +36,7 @@ namespace CATSMAT {
         
         BuildVectorMap(collections);
         
-        tree_ptr_ = buildSuffixTree(id_vec_map_);
+        //tree_ptr_ = buildSuffixTree(id_vec_map_);
     }
     
     //Prepare list of interval strings and feed to template class to create actual tree
@@ -68,23 +65,5 @@ namespace CATSMAT {
     {
         return interval.getLocation();
     }
-    
-    /*string
-    IntervalSuffixTreeBuilder::
-    findAndPrintLcsPairsIntervals(bool consecutive, bool reverse_search, bool retrograde)
-    {
-        SUBSTR_VECTOR the_result;
-        the_result = findLcsPairsIntervals(consecutive,reverse_search,retrograde);
-        
-        stringstream the_result_as_stringstream;
-        for(int index = 0 ; index < the_result.size(); index++)
-        {
-            the_result_as_stringstream << the_result[index];
-        }
-        
-        the_result_as_stringstream << endl;
-        
-        return the_result_as_stringstream.str();
-    }*/
-    
+
 }
