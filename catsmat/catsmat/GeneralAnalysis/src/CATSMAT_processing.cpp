@@ -356,7 +356,7 @@ namespace CATSMAT
     CATSMAT_processing::
     FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads)
     {
-        CATSMAT_score_profile<CATSMAT_TrigramSequences::Token> trigrams_profile("trigrams");
+        CATSMAT_score_profile<Token> trigrams_profile("trigrams");
         
         for (auto score : this->getScores())
         {

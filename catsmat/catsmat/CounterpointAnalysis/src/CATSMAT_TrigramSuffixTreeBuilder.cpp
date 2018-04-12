@@ -27,7 +27,7 @@ namespace CATSMAT {
     {
         int ID = 0;
         
-        for (std::vector<vector<CATSMAT_TrigramSequences::Token> >::const_iterator i = tokens.begin(); i!=tokens.end(); i++)
+        for (std::vector<vector<Token> >::const_iterator i = tokens.begin(); i!=tokens.end(); i++)
         {
             ++ID;
             id_vec_map_[ID] = *i;
@@ -39,7 +39,7 @@ namespace CATSMAT {
     //overrides virtual methond in base class
     IMUSANT_range
     CATSMAT_TrigramSuffixTreeBuilder::
-    CalcRange(CATSMAT_TrigramSequences::Token& token) const
+    CalcRange(Token& token) const
     {
         return IMUSANT_range(); //do nothing for now
     }

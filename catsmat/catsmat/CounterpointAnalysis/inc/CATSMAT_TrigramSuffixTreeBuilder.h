@@ -18,7 +18,7 @@ using namespace std;
 namespace CATSMAT
 {
     //implementation to take TrigramSequences, i.e. one score
-    class CATSMAT_TrigramSuffixTreeBuilder : public TSuffixTreeBuilder<CATSMAT_TrigramSequences::Token, CATSMAT_TrigramSequences>
+    class CATSMAT_TrigramSuffixTreeBuilder : public TSuffixTreeBuilder<Token, CATSMAT_TrigramSequences>
     {
     public:
         
@@ -29,7 +29,7 @@ namespace CATSMAT
         void    BuildVectorMap(map<S_IMUSANT_score,IMUSANT_collection_visitor>&) {};
         void    BuildVectorMap(const CATSMAT_TrigramSequences::TokenVectors&);
         
-        IMUSANT_range CalcRange(CATSMAT_TrigramSequences::Token&) const;
+        IMUSANT_range CalcRange(Token&) const;
     };
 }
 #endif /* CATSMAT_TrigramSuffixTreeBuilder_hpp */

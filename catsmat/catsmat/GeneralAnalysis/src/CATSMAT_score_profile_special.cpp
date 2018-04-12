@@ -26,14 +26,14 @@ namespace CATSMAT {
 
     template<>
     void
-    CATSMAT_score_profile<typename CATSMAT_TrigramSequences::Token>::
+    CATSMAT_score_profile<Token>::
     print(ostream& os) const
     {
         ostringstream header,lines,total;
         header << fType << fDelimiter;
         total << "Total" << fDelimiter;
         
-        for (std::pair<CATSMAT_TrigramSequences::Token, int> data : fProfile)
+        for (std::pair<Token, int> data : fProfile)
         {
             CATSMAT_TrigramSequences::Trigram trigram = CATSMAT_TrigramSequences::Token2Triple(data.first);
             //add pitch name to header
@@ -48,7 +48,7 @@ namespace CATSMAT {
             
             for (auto data : fProfile)
             {
-                CATSMAT_TrigramSequences::Token t = data.first; //pitch type
+                Token t = data.first; //pitch type
                 //search table for occurrences of pitch in part
                 auto it = std::find_if(fTable.begin(), fTable.end(), [&s,&t](const TABLE_TUPLE& item)
                                        {
@@ -75,7 +75,7 @@ namespace CATSMAT {
     
     If a template, a member template or a member of a class template is explicitly specialized then that specialization shall be declared before the first use of that specialization that would cause an implicit instantiation to take place, in every translation unit in which such a use occurs; no diagnostic is required.*/
     
-    template class CATSMAT_score_profile<CATSMAT_TrigramSequences::Token>;
+    template class CATSMAT_score_profile<Token>;
     
     template<>
     void

@@ -36,7 +36,13 @@ namespace CATSMAT
         return os;
     }
 
-    ostream& operator<<(ostream& os, const unsigned int token)
+    ostream& operator<<(ostream& os, Token& token)
+    {
+        os << CATSMAT_TrigramSequences::Token2Triple(token);
+        return os;
+    }
+
+    ostream& operator<<(ostream& os, const Token& token)
     {
         os << CATSMAT_TrigramSequences::Token2Triple(token);
         return os;
@@ -160,7 +166,7 @@ namespace CATSMAT
         {
             for (Sentence::iterator j = i->begin(); j!=i->end(); j++) {
                 Trigram trigram = *j;
-                unsigned int token = Triple2Token(trigram);
+                Token token = Triple2Token(trigram);
                 tokens->push_back(token);
                 assert(Token2Triple(token)==trigram);
             }
@@ -175,7 +181,8 @@ namespace CATSMAT
         
         if (ignore_dissonances_)
         {
-            //simplest way is to look at token as triple and exclude and token that contains a vertical dissonance. Yet, this will require the removal of at least two tokens and replacement by a single one
+            //simplest way is to look at token as triple and exclude and token that contains a vertical dissonance.
+            //Yet, this will require the removal of at least two tokens and replacement by a single one
             for ( vector<vector<Token> >::iterator tokens = tokens_.begin(); tokens != tokens_.end(); tokens++)
             {
                 //find and transform all trigram tokens that contain a dissonance. NB. won't work for consecutive dissonances.
@@ -249,8 +256,8 @@ namespace CATSMAT
     {
         return (token1==0 && token2==0);
     }
-    
-    unsigned int
+
+    Token
     CATSMAT_TrigramSequences::TransformTokenUnaryOp(const Token& token)
     {
         Trigram trigram = Token2Triple(token);
@@ -274,7 +281,7 @@ namespace CATSMAT
     
     bool
     CATSMAT_TrigramSequences::
-    TokenContainsDissonantDyad(const unsigned int token, TrigramMembers& dissonant_dyad_index)
+    TokenContainsDissonantDyad(const Token token, TrigramMembers& dissonant_dyad_index)
     {
         bool contains_dissonance = false;
         
@@ -309,7 +316,7 @@ namespace CATSMAT
         static member function
     */
     
-    unsigned int
+    Token
     CATSMAT_TrigramSequences::
     Triple2Token(const Trigram& triple)
     {
@@ -317,7 +324,7 @@ namespace CATSMAT
         unsigned int token = 0;
         token = (triple[dyad1]&0x000000ff) | (triple[dyad2]&0x000000ff)<<8 | (triple[lowMelInterval]&0x000000ff)<<16;
         assert(triple==Token2Triple(token));
-        return token;
+        return Token(token);
 
     }
     
@@ -328,9 +335,9 @@ namespace CATSMAT
     {
         Trigram triple = {0, 0, 0};
         signed char s_dyad1, s_dyad2, s_mel_interval;
-        s_dyad1 = token & 0x000000ff;
-        s_dyad2 = (token & 0x0000ff00) >> 8;
-        s_mel_interval = (token & 0x00ff0000) >> 16;
+        s_dyad1 = token.token_ & 0x000000ff;
+        s_dyad2 = (token.token_ & 0x0000ff00) >> 8;
+        s_mel_interval = (token.token_ & 0x00ff0000) >> 16;
         //implicit type conversion retains sign (as two's complement)
         triple[dyad1] = s_dyad1;
         triple[dyad2] = s_dyad2;
@@ -372,7 +379,7 @@ namespace CATSMAT
             os << voice_pair_labels_.at(i) << ": " << "\t";
             for (auto triple : triples)
             {
-                os << "0x" << std::setfill('0') << std::setw(8) << std::hex << (int)Triple2Token(triple) << "\t";
+                os << "0x" << std::setfill('0') << std::setw(8) << std::hex << Triple2Token(triple).token_ << "\t";
             }
             os << std::endl;
             i++;
@@ -396,7 +403,7 @@ namespace CATSMAT
         {
             for (auto token : token_vector)
             {
-                token_count_[token] = token_count_[token] + 1 ;
+                token_count_[token.token_] = token_count_[token.token_] + 1 ;
             }
         }
     }

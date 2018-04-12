@@ -231,7 +231,7 @@ namespace CATSMAT
         
     };
     
-    class RepeatedTrigramTokenSubstring : public TRepeatedSubstring<unsigned int>
+    class RepeatedTrigramTokenSubstring : public TRepeatedSubstring<Token>
     {
     public:
         static string  output_operator_help()
@@ -244,9 +244,9 @@ namespace CATSMAT
             
             return ret_val;
         }
+
         friend ostream& operator<<(ostream& os, const std::array<signed int,3>& trigram);
-        
-        friend ostream& operator<<(ostream& os, const TRepeatedSubstring<unsigned int>& substring);
+        friend ostream& operator<<(ostream& os, const TRepeatedSubstring<Token>& substring);
     };
     
 }
