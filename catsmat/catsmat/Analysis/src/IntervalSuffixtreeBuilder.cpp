@@ -35,8 +35,6 @@ namespace CATSMAT {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
         BuildVectorMap(collections);
-        
-        //tree_ptr_ = buildSuffixTree(id_vec_map_);
     }
     
     //Prepare list of interval strings and feed to template class to create actual tree

@@ -17,8 +17,6 @@ namespace CATSMAT {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
         BuildVectorMap(collections);
-        
-        //tree_ptr_ = buildSuffixTree(id_vec_map_);
     }
     
     

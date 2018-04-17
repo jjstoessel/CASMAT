@@ -16,8 +16,6 @@ namespace CATSMAT {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         
         BuildVectorMap(collections);
-        
-        //tree_ptr_ = buildSuffixTree(id_vec_map_); //Undefined symbols for architecture x86_64: IMUSANT_pitch::operator!=(IMUSANT::IMUSANT_pitch const&) const
     }
     
     void
