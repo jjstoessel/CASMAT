@@ -163,7 +163,7 @@ repeats<V>::compute_supermax(const typename suffixtree_impl<V>::node* n, int min
 	for ( ; leaf_i!=leaves.end(); leaf_i++)
 	{
 		element_type elt = *(n->begin()-1);
-		add_value(n->give_number(), (n->give_number().second == 0 ? element_type(0x4fffffff) : elt), 1);
+		add_value(n->give_number(), (n->give_number().second == 0 ? element_type(-1) : elt), 1);
 	}
 	
 	/* Determine if current node is supermaximal or near super maximal
@@ -202,7 +202,7 @@ repeats<V>::compute_supermax(const typename suffixtree_impl<V>::node* n, int min
 			for ( ; leaf_i!=leaves.end(); leaf_i++)
 			{
 				element_type elt = *(child->begin()-1);
-				if (get_value(n->give_number(),(n->give_number().second == 0 ? element_type(0x4fffffff) : elt))==1)
+				if (get_value(n->give_number(),(n->give_number().second == 0 ? element_type(-1) : elt))==1)
 					witnesses++;
 			}
 
@@ -215,7 +215,7 @@ repeats<V>::compute_supermax(const typename suffixtree_impl<V>::node* n, int min
 	for ( ; leaf_i!=leaves.end(); leaf_i++)
 	{
 		element_type elt = *(n->begin()-1);
-		if (get_value(n->give_number(),(n->give_number().second == 0 ? element_type(0x4fffffff) : elt))==1)
+		if (get_value(n->give_number(),(n->give_number().second == 0 ? element_type(-1) : elt))==1)
 			witnesses++;
 		
 	}

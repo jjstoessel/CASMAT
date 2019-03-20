@@ -45,9 +45,9 @@ public:
 	typedef pair<int,size_type> number;
 	
 //protected:
-		class node; // forward reference
-	typedef pair<node*, index> position;
-	
+    class node; // forward reference
+    typedef pair<node*, index> position;
+
 	class node {
 		// node is a support class for the suffixtree_impl class. Each
 		// instance of node describes a part of the actual suffix tree. 
@@ -56,7 +56,7 @@ public:
 		// the begin of the (sub)string.
 public:
 		// node creates an empty node
-		node();
+		node ();
 		// node creates a node with substring (b, e). u denotes the node
 		// one level up, o is the owner of the node (the suffixtree_impl
 		// instance that it belongs to) and num is the offset in the
@@ -200,7 +200,7 @@ public:
 	// print writes the suffixtree on os.
 	void print(ostream& os) const;
 	
-	const node& root_node() const { return root; } 
+	const node& root_node() const { return root; }
 	
 	map<int,value_type> get_sentences() const { return sentences; }
 	
