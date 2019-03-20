@@ -45,17 +45,18 @@ public:
 	typedef pair<int,size_type> number;
 	
 //protected:
-    class node; // forward reference
-    typedef pair<node*, index> position;
+    //class node; // forward reference
+    //typedef pair<node*, index> position;
 
-	class node {
+    class node {
 		// node is a support class for the suffixtree_impl class. Each
 		// instance of node describes a part of the actual suffix tree. 
 		// Actually, node describes the (sub)string that is between two
 		// nodes. The node's suffixlink is attached to the node before
 		// the begin of the (sub)string.
 public:
-		// node creates an empty node
+        typedef pair<node*, index> position;
+	    // node creates an empty node
 		node ();
 		// node creates a node with substring (b, e). u denotes the node
 		// one level up, o is the owner of the node (the suffixtree_impl
@@ -224,7 +225,7 @@ protected:
 private:
 	size_type j_i;
 	bool rule3stopped;
-	position current;
+	typename node::position current;
 	map<int,element_type> terminators;
 	
 };
@@ -367,7 +368,7 @@ suffixtree_impl<V>::node::print_node(ostream& os, size_type
 }
 
 template <class V>
-typename suffixtree_impl<V>::position
+typename suffixtree_impl<V>::node::position
 suffixtree_impl<V>::node::SEA(index b, index e, size_type level, node*&
       longest, index cur, bool& cont, bool seek, int ID) {
 // SEA implements the Single Extension Algorithm (SEA) (see
@@ -524,7 +525,7 @@ suffixtree_impl<V>::node::children_size() const {
 }
 
 template <class V>
-typename suffixtree_impl<V>::node::node*
+typename suffixtree_impl<V>::node*
 suffixtree_impl<V>::node::find_sv(index cur, index& b, index e) {
 // find the sv node. This means going back from e towards b matching
 // from cur (cur is the current position, so the string ending with
@@ -547,7 +548,7 @@ suffixtree_impl<V>::node::find_sv(index cur, index& b, index e) {
 }
 
 template <class V>
-typename suffixtree_impl<V>::position
+typename suffixtree_impl<V>::node::position
 suffixtree_impl<V>::node::seek_gamma(index& b, index e) {
 // seek_gamma follows (b, e) from the end of the current node going
 // up.  New branches are selected, b will be adjusted.  seek_begin
@@ -570,7 +571,7 @@ suffixtree_impl<V>::node::seek_gamma(index& b, index e) {
 }
 
 template <class V>
-typename suffixtree_impl<V>::position
+typename suffixtree_impl<V>::node::position
 suffixtree_impl<V>::node::extend_gamma(index b, index e, index cur,
       typename suffixtree_impl<V>::size_type level, typename suffixtree_impl<V>::node*& longest, bool& cont, int ID) {
 	// extend_gamma adds the new letter at the end of the gamma. It
@@ -888,7 +889,7 @@ suffixtree_impl<V>::SPA(suffixtree_impl::index i, int ID) {
    static size_type j_i=0;
    e=i; //special case longest string, increase e
    size_type j_index=j_i+1;
-   static position current=make_pair(longest, longest->end());
+   static typename node::position current=make_pair(longest, longest->end());
    bool cont=true;
    static bool rule3stopped=false;
    if (rule3stopped) {// we already know where to extend

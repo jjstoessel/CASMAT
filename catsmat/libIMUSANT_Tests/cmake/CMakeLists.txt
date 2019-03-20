@@ -71,14 +71,32 @@ set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
 
 #######################################
 # create target and add executable
-set(target libIMUSANT_Test)
-add_executable(${target} ${SRC} )
+#set(target libIMUSANT_Test)
+#add_executable(${target} ${SRC} )
+#${HEADERS}
+
+#find boost
+FIND_PACKAGE( Boost 1.57.0 COMPONENTS filesystem system REQUIRED )
+
+if (Boost_FOUND)
+	#report boost status
+	message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
+	message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
+	message(STATUS "Boost_VERSION: ${Boost_VERSION}")
+	# set includes
+	include_directories( ${INCL};${Boost_INCLUDE_DIRS})
+	set_source_files_properties (${COREH} PROPERTIES HEADER_FILE_ONLY TRUE)
+	#set target, add executable and link libraries (default shared/dynamic libraries)
+	set(target libIMUSANT_Test)
+	add_executable(${target} ${SRC})   # We need the HEADERS to enable intellisence in CLion
+	TARGET_LINK_LIBRARIES(${target} libmusicxml2; libIMUSANT; gtest; ${Boost_LIBRARIES}  )
+endif()
 
 ###############  Targeted Libraries ###########
-TARGET_LINK_LIBRARIES(${target} ${Boost_LIBRARIES})
-TARGET_LINK_LIBRARIES(${target} libmusicxml2)
-TARGET_LINK_LIBRARIES(${target} libIMUSANT)
-TARGET_LINK_LIBRARIES(${target} gtest)
+# TARGET_LINK_LIBRARIES(${target} ${Boost_LIBRARIES})
+# TARGET_LINK_LIBRARIES(${target} libmusicxml2)
+# TARGET_LINK_LIBRARIES(${target} libIMUSANT)
+# TARGET_LINK_LIBRARIES(${target} gtest)
 
 
 # Copy the test data files.

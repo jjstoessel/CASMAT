@@ -60,7 +60,7 @@ class IMUSANT_visitor {
 
 /*!
 \brief interface for visitable IMUSANT objects.
-Can this be impliemented as a template clase with function?
+Can this be implemented as a template class with function?
 */
 class IMUSANT_visitable {
 	public:
