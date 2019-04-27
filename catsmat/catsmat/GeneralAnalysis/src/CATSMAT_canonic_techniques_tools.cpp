@@ -39,7 +39,7 @@ namespace CATSMAT
             return false;
         }
         
-        //Here is the place to search of sections, i.e. multiple canons in the one "piece"
+        //TO DO: Here is the place to search of sections, i.e. multiple canons in the one "piece"
         
         // adapted from IMUSANT_segmented_part_fixed_period
         // Sort the parts in the order in which they enter...
@@ -350,6 +350,7 @@ namespace CATSMAT
         n2 = part_two_notes[second_part_index];
         
         IMUSANT_interval interval(n1->pitch(),n2->pitch());
+        //TO DO: check this is consistent over the parts.
         
         return interval;
     }
@@ -502,6 +503,7 @@ namespace CATSMAT
     CATSMAT_CanonicTechniquesTools::
     IsMensurationCanon(const PartEntry& first_part, const PartEntry& second_part, double error_threshold)
     {
+        //TO DO
         //inject found mensurations into mensurations_
         return false; // does nothing for now
     }

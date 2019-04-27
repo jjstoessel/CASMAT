@@ -97,7 +97,7 @@ if(MSVC)
 	enable_language(RC)
 	set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_DIR}/win32/libIMUSANT/libIMUSANT.rc)
 else(MSVC)
-	set(LIBCONTENT ${CORESRC} ${COREH})
+	set(LIBCONTENT ${CORESRC} ${COREH} ../Converters/MusicXML_v3/src/IMUSANT_imusant_to_musicxml_visitor.cpp ../Converters/MusicXML_v3/inc/IMUSANT_imusant_to_musicxml_visitor.h)
 endif(MSVC)
 
 if(UNIX)

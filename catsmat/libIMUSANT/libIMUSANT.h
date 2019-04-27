@@ -22,6 +22,7 @@ class libIMUSANT
 #include "exports.h"
 #include "smartpointer.h"
 
+//Domain types
 #include "IMUSANT_types.h"
 #include "IMUSANT_pitch.h"
 #include "IMUSANT_duration.h"
@@ -36,10 +37,15 @@ class libIMUSANT
 #include "IMUSANT_part.h"
 #include "IMUSANT_partlist.h"
 #include "IMUSANT_score.h"
-#include "IMUSANT_processing.h"
-#include "IMUSANT_mxmlv3_exceptions.h"
 #include "IMUSANT_interval.h"
 #include "IMUSANT_interval_vector.h"
+
+//function types
+#include "IMUSANT_processing.h"
+#include "IMUSANT_mxmlv3_exceptions.h"
+
+//convertor types
+#include "IMUSANT_imusant_to_musicxml_visitor.h"
 
 #pragma GCC visibility pop
 #endif

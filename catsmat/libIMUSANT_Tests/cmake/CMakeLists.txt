@@ -8,6 +8,10 @@ if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug Release)
 endif()
 
+###############  ENSURE DEBUG SYMBOLS ###################
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
+
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
 
 ###############  BOOST LIBRARIES ###########
 message("INSIDE libIMUSANT_Test")
@@ -25,6 +29,7 @@ set (libIMUSANT_DIR 	    ${CMAKE_CURRENT_SOURCE_DIR}/../../libIMUSANT)
 set (LOKI_DIR               ${CMAKE_CURRENT_SOURCE_DIR}/../../Loki)
 set (SUFFIX_TREE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}/../../SuffixTree)
 set (GOOGLE_TEST_INC_DIR	${CMAKE_CURRENT_SOURCE_DIR}/../../googletest-master/googletest/include)
+set (libMUSICXML_DIR		${CMAKE_CURRENT_SOURCE_DIR}/../../libMusicXMLv3/libmusicxml-3.00-src/src)
 
 set (INCFOLDERS
 		${libIMUSANT_DIR}
@@ -38,6 +43,7 @@ set (INCFOLDERS
 		${LOKI_DIR}
 		${SUFFIX_TREE_DIR}
 		${GOOGLE_TEST_INC_DIR}
+		${libMUSICXML_DIR}
 		)
 
 set(SRC ${SRC}
@@ -54,6 +60,7 @@ set(SRC ${SRC}
 		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_pitch_Tests.cpp
 		${libIMUSANT_TESTS_DIR}/DomainObjects/IMUSANT_score_Tests.cpp
 		${libIMUSANT_TESTS_DIR}/Converters/IMUSANT_mxmlv3_to_imusant_visitor_Tests.cpp
+		${libIMUSANT_TESTS_DIR}/Converters/IMUSANT_imusant_to_musicxml_visitor_Tests.cpp
 		)
 
 
@@ -90,6 +97,11 @@ if (Boost_FOUND)
 	set(target libIMUSANT_Test)
 	add_executable(${target} ${SRC})   # We need the HEADERS to enable intellisence in CLion
 	TARGET_LINK_LIBRARIES(${target} libmusicxml2; libIMUSANT; gtest; ${Boost_LIBRARIES}  )
+	if (APPLE)
+		add_custom_command(TARGET ${target} POST_BUILD COMMAND install_name_tool -change libboost_filesystem.dylib /usr/local/boost/lib/libboost_filesystem.dylib $<TARGET_FILE:${target}>)
+		add_custom_command(TARGET ${target} POST_BUILD COMMAND install_name_tool -change libboost_system.dylib /usr/local/boost/lib/libboost_system.dylib $<TARGET_FILE:${target}>)
+		add_custom_command(TARGET ${target} POST_BUILD COMMAND sudo install_name_tool -change libboost_system.dylib /usr/local/boost/lib/libboost_system.dylib /usr/local/boost/lib/libboost_filesystem.dylib)
+	endif()
 endif()
 
 ###############  Targeted Libraries ###########
