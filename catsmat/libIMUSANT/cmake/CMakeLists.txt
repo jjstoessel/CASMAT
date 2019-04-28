@@ -26,6 +26,12 @@ if(WIN32)
  endif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
 endif(WIN32)
 
+###############  ENSURE DEBUG SYMBOLS ###################
+#if(DEBUG)
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
+	set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
+#endif()
+
 #######################################
 # set library target
 set(target libIMUSANT)

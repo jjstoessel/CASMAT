@@ -33,7 +33,7 @@ namespace IMUSANT
         enum mode {  generic = 0, dorian=1, hypodorian, phrygian, hypophrygian, lydian, hypolydian, mixolydian, hypomixolydian, aeolian,
                      locrian, ionian, major, minor, last=minor };
         
-        IMUSANT_key (long fifths=undefined, mode m=IMUSANT_key::generic, long cancel=undefined)
+        IMUSANT_key (int fifths=undefined, mode m=IMUSANT_key::generic, int cancel=undefined)
             :   fFifths(fifths),
                 fMode(m),
                 fCancel(cancel)
@@ -43,13 +43,13 @@ namespace IMUSANT
         bool operator==(const IMUSANT_key& key) const;
         bool operator!=(const IMUSANT_key& key) const;
         
-        long	getFifths()	const	{ return fFifths; }
+        int	    getFifths()	const	{ return fFifths; }
         mode	getMode() const		{ return fMode; }
-        long	getCancel()	const	{ return fCancel; }
+        int	    getCancel()	const	{ return fCancel; }
         
-        void	setFifths(const long fifths) { fFifths = fifths; }
+        void	setFifths(const int fifths) { fFifths = fifths; }
         void	setMode(const mode m) { fMode = m; }
-        void	setCancel(const long cancel) { fCancel = cancel; }
+        void	setCancel(const int cancel) { fCancel = cancel; }
         
         bool	isDefined() const { return (fMode != generic) && (fFifths!=undefined) && (fCancel!=undefined); }
         
@@ -64,10 +64,10 @@ namespace IMUSANT
     private:
         
 //        void	CalcMode(); //function determines mode based on signature (fifths) and tonic (or finalis)
-        
-        long	fFifths; //+/- 0-11 (or more), -1 = F maj or D min
+
+        int	    fFifths; //+/- 0-11 (or more), -1 = F maj or D min
         mode	fMode;
-        long	fCancel;
+        int	    fCancel;
         
         static const int            fModeTbl_Length = 14;
         static mode					fModeTbl[];

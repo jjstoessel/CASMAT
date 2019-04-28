@@ -49,7 +49,8 @@ namespace IMUSANT
         void				setTime (const IMUSANT_time&	time) { fTime = time; }
         void				setKey	(const IMUSANT_key&	key) { fKey = key; }
         void				setMeasureNum (const int measureNum) { fMeasNum = measureNum; }  //implement error checking!!!
-        
+        void                setAttributes (S_IMUSANT_attributes attributes) { fAttributes = attributes; }
+
         void				print(ostream& os);
         
         void				accept(IMUSANT_visitor& visitor);
@@ -63,6 +64,8 @@ namespace IMUSANT
         IMUSANT_clef	fClef;
         IMUSANT_time	fTime;
         IMUSANT_key		fKey;
+        //new
+        S_IMUSANT_attributes fAttributes;
         
         IMUSANT_vector<S_IMUSANT_element>   fElements;  //  may be notes, chords, comments or barline
         IMUSANT_vector<S_IMUSANT_note>      fNotes;     //  convenience for getting at notes regardless of other elements.

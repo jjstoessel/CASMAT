@@ -20,11 +20,16 @@ namespace IMUSANT
     {
         IMUSANT_accidental* o = new IMUSANT_accidental(); assert(o!=0); return o;
     }
-    
+
+    S_IMUSANT_attributes new_IMUSANT_attributes()
+    {
+        IMUSANT_attributes* o = new IMUSANT_attributes(); assert(o!=0); return o;
+    }
+
     //
     // ACCIDENTAL
     //
-    
+#pragma mark Accidental
     // String to value mapping tables...
     IMUSANT_accidental::accident IMUSANT_accidental::fAccidentTbl[] =
     {
@@ -109,7 +114,8 @@ namespace IMUSANT
     //
     // TIME
     //
-    
+#pragma mark Time
+
     //IMUSANT_time consts
     IMUSANT_time::symbol IMUSANT_time::fSymbolTbl[] =
     {
@@ -174,7 +180,7 @@ namespace IMUSANT
     
     void
     IMUSANT_time::
-    addNumerator(const long num)
+    addNumerator(const int num)
     {
         fBeatNum.push_back(num);
         //monitor symbol status
@@ -189,7 +195,7 @@ namespace IMUSANT
     
     void
     IMUSANT_time::
-    addDenominator(const long denom)
+    addDenominator(const int denom)
     {
         fBeatDenom.push_back(denom);
         //monitor symbol status
@@ -220,7 +226,7 @@ namespace IMUSANT
     print(ostream& os) const
     {
         os << "<TIME>";
-        vector<long>::const_iterator num=fBeatNum.begin();
+        vector<int>::const_iterator num=fBeatNum.begin();
         while (num!=fBeatNum.end())
         {
             os << *num;
@@ -230,7 +236,7 @@ namespace IMUSANT
         
         os << "/";
         
-        vector<long>::const_iterator denom=fBeatDenom.begin();
+        vector<int>::const_iterator denom=fBeatDenom.begin();
         while (denom!=fBeatDenom.end())
         {
             os << *denom;
@@ -244,7 +250,8 @@ namespace IMUSANT
     //
     //  LYRIC
     //
-    
+#pragma mark Lyric
+
     void
     IMUSANT_lyric::
     accept (IMUSANT_visitor& visitor)
@@ -256,7 +263,8 @@ namespace IMUSANT
     //
     //  CLEF
     //
-    
+#pragma mark Clef
+
     ostream& operator<< (ostream& os, const IMUSANT_clef& elt )
     {
         elt.print(os); return os;
@@ -317,6 +325,55 @@ namespace IMUSANT
     operator== (const IMUSANT_clef& clef) const
     {
         return (fSign == clef.getSign() && fLine == clef.getLine() && fOctaveChange == clef.getTransposition());
+    }
+
+#pragma mark Attributes
+
+    //IMUSANT_attributes::IMUSANT_attributes(){}
+
+    //IMUSANT_attributes::~IMUSANT_attributes(){}
+
+    void
+    IMUSANT_attributes::accept(IMUSANT_visitor& visitor)
+    {
+        S_IMUSANT_attributes ptr(this);
+        visitor.visit(ptr);
+    }
+
+    const IMUSANT_clef &
+    IMUSANT_attributes::getClef() const
+    {
+        return clef;
+    }
+
+    void
+    IMUSANT_attributes::setClef(const IMUSANT_clef &clef)
+    {
+        IMUSANT_attributes::clef = clef;
+    }
+
+    const IMUSANT_time &
+    IMUSANT_attributes::getTime() const
+    {
+        return time;
+    }
+
+    void
+    IMUSANT_attributes::setTime(const IMUSANT_time &time)
+    {
+        IMUSANT_attributes::time = time;
+    }
+
+    int
+    IMUSANT_attributes::getDivisions_() const
+    {
+        return divisions_;
+    }
+
+    void
+    IMUSANT_attributes::setDivisions_(int divisions_)
+    {
+        IMUSANT_attributes::divisions_ = divisions_;
     }
 }
 

@@ -93,7 +93,14 @@ namespace IMUSANT
     {
         return fDuration2Stringv1[d];
     }
-    
+
+    const string
+    IMUSANT_duration::
+    xmlv3(TRational d)
+    {
+        return fDuration2Stringv3[d];
+    }
+
     TRational
     IMUSANT_duration::
     xmlv1(const string str)
@@ -126,19 +133,19 @@ namespace IMUSANT
     }
     
     void
-    IMUSANT_duration::set(TRational dur, long dots)
+    IMUSANT_duration::set(TRational dur, int dots)
     {
         set(dur, dots, TRational(1,1), dur, 0);
     }
     
     void
-    IMUSANT_duration::set( TRational dur, long dots, TRational timemod)
+    IMUSANT_duration::set( TRational dur, int dots, TRational timemod)
     {
         set(dur, dots, timemod, dur, 0);
     }
     
     void
-    IMUSANT_duration::set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots)
+    IMUSANT_duration::set( TRational dur, int dots, TRational timemod, TRational normal_dur, int normal_dots)
     {
         
         duration_=dur;

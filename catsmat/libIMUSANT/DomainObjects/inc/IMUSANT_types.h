@@ -37,12 +37,10 @@ namespace IMUSANT
     
     class IMUSANT_clef;
     class IMUSANT_time;
-    
-    
+
     ostream& operator<< (ostream& os, const IMUSANT_clef& elt );
     ostream& operator<< (ostream& os, const IMUSANT_time& elt );
-    
-    
+
     //handling actual note attached accidentals
     class IMUSANT_accidental : public smartable
     {
@@ -165,15 +163,15 @@ namespace IMUSANT
         
         IMUSANT_time() : fSymbol(undefined) {}
         //IMUSANT_time(long num=-1, long denom=1, int symbol=IMUSANT_time::common);
-        IMUSANT_time(vector<long>& num, vector<long>& denom, symbol symbol)
+        IMUSANT_time(vector<int>& num, vector<int>& denom, symbol symbol)
         : fBeatNum(num), fBeatDenom(denom), fSymbol(symbol) {}
         
         virtual ~IMUSANT_time(){}
         
-        void addNumerator(const long num);
-        void addDenominator(const long denom);
-        const vector<long>&	getNumerator() const { return fBeatNum; }
-        const vector<long>&	getDenominator() const { return fBeatDenom; }
+        void addNumerator(const int num);
+        void addDenominator(const int denom);
+        const vector<int>&	getNumerator() const { return fBeatNum; }
+        const vector<int>&	getDenominator() const { return fBeatDenom; }
         
         symbol			getSymbol() const { return fSymbol; }
         
@@ -194,16 +192,15 @@ namespace IMUSANT
         static       symbol	xmlsymbol (const string str);
         
     private:
-        vector<long>	fBeatNum;	  //number of beats
-        vector<long>	fBeatDenom;  //beat type
+        vector<int>	fBeatNum;	  //number of beats
+        vector<int>	fBeatDenom;  //beat type
         symbol			fSymbol;
         
         static bimap<string, symbol>	fType2String;
         static symbol	fSymbolTbl[];
         static string	fSymbolStrings[];
     };
-    
-    
+
 #define CONTAINER_TYPE vector<std::string>
     
     //This is one lyric set to a note, may be multisyllabic
@@ -244,6 +241,33 @@ namespace IMUSANT
     typedef IMUSANT_SMARTP<IMUSANT_lyric> S_IMUSANT_lyric;
     
     IMUSANT_SMARTP<IMUSANT_lyric> new_IMUSANT_lyric();
+
+    class IMUSANT_attributes : public smartable, public IMUSANT_visitable
+    {
+    public:
+        friend  IMUSANT_SMARTP<IMUSANT_attributes> new_IMUSANT_attributes();
+
+        void    accept(IMUSANT_visitor& visitor);
+
+        void    setClef(const IMUSANT_clef &clef);
+        const   IMUSANT_time &getTime() const;
+        void    setTime(const IMUSANT_time &time);
+        int     getDivisions_() const;
+        void    setDivisions_(int divisions_);
+        const   IMUSANT_clef &getClef() const;
+
+    protected:
+        IMUSANT_attributes() = default;
+        virtual ~IMUSANT_attributes() {}
+
+    private:
+        IMUSANT_clef    clef;
+        IMUSANT_time    time;
+        int             divisions_ = 1;
+    };
+    typedef IMUSANT_SMARTP<IMUSANT_attributes> S_IMUSANT_attributes;
+
+    IMUSANT_SMARTP<IMUSANT_attributes> new_IMUSANT_attributes();
     
 } //namespace IMUSANT
 #endif

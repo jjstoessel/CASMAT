@@ -161,7 +161,15 @@ namespace IMUSANT
         fTransposeOctaveChange = 0;
         fTransposeDoubled = false;
     }
-    
+
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_attributes& elt)
+    {
+        fCurrent_attributes = new_IMUSANT_attributes();
+        assert(fCurrent_attributes);
+    }
+
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_divisions &elt)
@@ -169,6 +177,9 @@ namespace IMUSANT
         string divisions_str = elt->getValue();
         int divisions = atoi(divisions_str.c_str());
         fCurrentPart->setDivisions(divisions);
+        //new
+        fCurrent_attributes->setDivisions_(divisions);
+        //TO DO: remove divisions, etc. from part to IMUSANT_measure in attributes member
     }
     
     void
@@ -222,7 +233,6 @@ namespace IMUSANT
         debug("S_clef_octave_change");
         int octave_change = atoi(elt->getValue().c_str());
         fCurrentClef.setTransposition(octave_change);
-
     }
     
     void
@@ -234,6 +244,10 @@ namespace IMUSANT
         if (fCurrentMeasure != 0)
         {
             fCurrentMeasure->setClef(fCurrentClef);
+            //new
+            fCurrent_attributes->setClef(fCurrentClef);
+            fCurrentMeasure->setAttributes(fCurrent_attributes);
+            //TO DO: remove clef, etc. from IMUSANT_measure in favour of attributes member
         }
         else
         {

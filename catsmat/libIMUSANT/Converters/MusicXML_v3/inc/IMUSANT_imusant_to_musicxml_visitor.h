@@ -29,6 +29,7 @@ public:
     void visit(S_IMUSANT_lyric &elt);
     void visit(S_IMUSANT_measure &elt);
     void visit(S_IMUSANT_note &elt);
+    void visit(S_IMUSANT_duration &elt);
     void visit(S_IMUSANT_part &elt);
     void visit(S_IMUSANT_partlist &elt);
     void visit(S_IMUSANT_score &elt);
@@ -37,11 +38,14 @@ public:
 protected:
 
 private:
-    TFactory factory_;
+    TFactory    factory_;
     std::string current_part_id_;
-    TElement current_part_;
-    TElement current_measure_;
-    TElement current_note_;
+    TElement    current_part_;
+    TElement    current_measure_;
+    TElement    current_note_;
+    int         current_divisions_ = 0;
+    string      current_clef_;
+    string      current_time_;
 };
 
 }//namespace IMUSANT

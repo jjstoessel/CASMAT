@@ -116,11 +116,11 @@ namespace IMUSANT
         S_IMUSANT_duration              fDuration;
         S_IMUSANT_accidental            fAccidental;
         IMUSANT_vector<S_IMUSANT_lyric>	fLyrics;
-        IMUSANT_vector<S_IMUSANT_lyric>	fMSLyrics;		//for distinguising editorial underlay
+        IMUSANT_vector<S_IMUSANT_lyric>	fMSLyrics;		//for distinguishing editorial underlay
         string                          fStem;			//not implemented
         string                          fStaff;			//staff name
-        long                            fMeasureNumber;	//internal measure reference
-        long                            fNoteIndex;		//index of note in measure
+        int                             fMeasureNumber;	//internal measure reference
+        int                             fNoteIndex;		//index of note in measure
         S_IMUSANT_note                  fTieNext = NULL;
         S_IMUSANT_note                  fTiePrevious = NULL;
         IMUSANT_NoteStyle::type         fStyle;
