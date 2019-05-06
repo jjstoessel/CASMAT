@@ -275,8 +275,8 @@ namespace CATSMAT
     {
         if (fCurrentTime!=time && time!=IMUSANT_time()) {
             fCurrentTime = time;
-            vector<long> nums = fCurrentTime.getNumerator();
-            vector<long> doms = fCurrentTime.getDenominator();
+            vector<int> nums = fCurrentTime.getNumerator();
+            vector<int> doms = fCurrentTime.getDenominator();
             vector<TRational> rats;
             if (doms.size()<2) {
                 for (auto i = doms.begin(); i!=doms.end();i++) {

@@ -38,7 +38,7 @@ SXMLFile TXMLFile::create ()  { TXMLFile* o = new TXMLFile; assert(o!=0); return
 //______________________________________________________________________________
 TDocType::TDocType (const string start) : fStartElement(start), fPublic(true) 
 {
-	fPubLitteral = "-//Recordare//DTD MusicXML 2.0 Partwise//EN";
+	fPubLitteral = "-//Recordare//DTD MusicXML 3.0 Partwise//EN";
 	if (start == "score-partwise") {
 		fSysLitteral = "http://www.musicxml.org/dtds/partwise.dtd";
 	}
@@ -52,8 +52,9 @@ void TDocType::print (ostream& s)
 {
 	s	<< endl << "<!DOCTYPE " << fStartElement
 		<< (fPublic ? " PUBLIC " : " SYSTEM ") 
-		<< "\"" << fPubLitteral << "\"\n\t\t\t\"" 
-		<< fSysLitteral << "\">";	
+		//<< "\"" << fPubLitteral << "\"\n\t\t\t\""
+        << "\"" << fPubLitteral << "\" \""
+        << fSysLitteral << "\">";
 }
 
 //______________________________________________________________________________

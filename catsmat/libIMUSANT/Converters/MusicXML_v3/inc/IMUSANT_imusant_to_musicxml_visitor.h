@@ -46,6 +46,10 @@ private:
     int         current_divisions_ = 0;
     string      current_clef_;
     string      current_time_;
+
+    struct time {
+        time(int t, int b) { beats = t; beat = b; }
+        int beats, beat; } time_;
 };
 
 }//namespace IMUSANT

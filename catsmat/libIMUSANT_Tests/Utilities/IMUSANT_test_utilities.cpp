@@ -121,8 +121,8 @@ ExecuteSystemCommand(string system_command)
     {
         if (! WIFEXITED(status))
         {
-            cout << "IMUSANT_test_utilities::ExecuteSystemCommand() - Program exited abnormaly\n";
-            throw "IMUSANT_test_utilities::ExecuteSystemCommand() - Program exited abnormaly";
+            cout << "IMUSANT_test_utilities::ExecuteSystemCommand() - Program exited abnormally\n";
+            throw "IMUSANT_test_utilities::ExecuteSystemCommand() - Program exited abnormally";
         }
     }
 }

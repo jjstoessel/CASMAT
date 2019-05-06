@@ -11,7 +11,7 @@ using namespace std;
 namespace IMUSANT
 {
 
-IMUSANT_to_MusicXML_Visitor::IMUSANT_to_MusicXML_Visitor()
+IMUSANT_to_MusicXML_Visitor::IMUSANT_to_MusicXML_Visitor() : time_(0,0)
 {
     factory_ = factoryOpen();
     assert(factory_);
@@ -38,7 +38,7 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_barline &elt)
         barstyle = IMUSANT_barline::xmlstyle(elt->getBarStyle()).c_str();
         location = IMUSANT_barline::xmllocation(elt->getLocation()).c_str();
         if (elt->repeat())
-            IMUSANT_repeat::xml(elt->repeat()->getDirection()).c_str();
+            repeat = IMUSANT_repeat::xml(elt->repeat()->getDirection()).c_str();
 
         TElement barline = factoryBarline(factory_, location, barstyle, repeat);
         factoryAddElement(factory_, current_measure_, barline);
@@ -74,12 +74,13 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_duration &elt)
 
 void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_note &elt)
 {
-    int duration = elt->duration()->GetSimplifiedDuration().duration()*4*current_divisions_;
+    int duration;
     const char* type = nullptr;
 
+    duration = elt->duration()->GetSimplifiedDuration().duration()*4*current_divisions_;
     type = IMUSANT_duration::xmlv3(elt->duration()->duration()).c_str();
 
-    //TO DO: handle ties(√?), tuplets, voices, stems, accidentals√, beaming here
+    //TO DO: handle ties(√?), tuplets√, voices, stems, accidentals√, beaming here
     if (elt->getType() == IMUSANT_NoteType::pitch)
     {
         //create basic note
@@ -88,16 +89,6 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_note &elt)
         int octave = elt->pitch()->octave();
 
         current_note_ = factoryNote(factory_, step, alter, octave, duration, type);
-
-        //handle dot(s)
-        if (elt->duration()->dots())
-        {
-            for (int i = 0; i < elt->duration()->dots(); i++)
-            {
-                TElement dots = factoryElement(factory_,k_dot);
-                factoryAddElement(factory_, current_note_, dots);
-            }
-        }
 
         //handle grace
         if (elt->getStyle() == IMUSANT_NoteStyle::grace)
@@ -112,6 +103,14 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_note &elt)
             const char* accidental_name = IMUSANT_accidental::xml(elt->accidental()->getAccident()).c_str();
             TElement accidental = factoryStrElement(factory_, k_accidental, accidental_name);
             factoryAddElement(factory_, current_note_, accidental);
+        }
+
+        //handle stem
+        if (!elt->getStemDirection().empty())
+        {
+            const char* stem_direction = elt->getStemDirection().c_str();
+            TElement stem = factoryStrElement(factory_, k_stem, stem_direction);
+            factoryAddElement(factory_, current_note_, stem);
         }
 
         //handle ties
@@ -158,7 +157,6 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_note &elt)
             factoryAddAttribute(factory_, tie_started, started);
             factoryNotation(factory_,current_note_,tie_started);
         }
-
     }
     else if (elt->getType() == IMUSANT_NoteType::rest)
     {
@@ -166,11 +164,50 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_note &elt)
         //current_note_ = factoryNote(factory_, nullptr, 0, 0, duration, type); does not work for constructing a rest note element!
         current_note_ = factoryElement(factory_, MusicXML2::k_note);
         TElement rest = factoryRest(factory_, 0, 0);
-        TElement type_elt = factoryStrElement(factory_,k_type,type);
+
         TElement dur = factoryIntElement(factory_, k_duration, duration);
         factoryAddElement(factory_, current_note_, dur);
         factoryAddElement(factory_, current_note_, rest);
-        factoryAddElement(factory_, current_note_, type_elt);
+        int bar_duration = current_divisions_*4*time_.beats/time_.beat;
+        if (duration < bar_duration)
+        {
+            TElement type_elt = factoryStrElement(factory_, k_type, type);
+            factoryAddElement(factory_, current_note_, type_elt);
+        }
+    }
+
+    //handle dot(s)
+    if (elt->duration()->dots())
+    {
+        for (int i = 0; i < elt->duration()->dots(); i++)
+        {
+            TElement dots = factoryElement(factory_,k_dot);
+            factoryAddElement(factory_, current_note_, dots);
+        }
+    }
+
+    //handle tuplets/time modification
+    TRational time_mod = elt->duration()->time_modification();
+    if (time_mod!=TRational(1,1))
+    {
+        TElement time_modification, actual_notes, normal_notes, normal_note;
+
+        time_modification = factoryElement(factory_, k_time_modification);
+        actual_notes = factoryIntElement(factory_, k_actual_notes, time_mod.getNumerator());
+        normal_notes = factoryIntElement(factory_, k_normal_notes, time_mod.getDenominator());
+
+        factoryAddElement(factory_, time_modification, actual_notes);
+        factoryAddElement(factory_, time_modification, normal_notes);
+
+        if (elt->duration()->normal_duration()!=elt->duration()->GetSimplifiedDuration().duration())
+        {
+            const char* normal = nullptr;
+            normal = IMUSANT_duration::xmlv3(elt->duration()->normal_duration()).c_str();
+            TElement normal_type = factoryStrElement(factory_, k_normal_type, normal);
+            factoryAddElement(factory_, time_modification, normal_type);
+        }
+
+        factoryAddElement(factory_, current_note_, time_modification);
     }
 
     factoryAddElement(factory_,current_measure_,current_note_);
@@ -193,7 +230,9 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_measure &elt)
         vector<int> beat_count = elt->getTime().getNumerator();
         if (beat.size() == 1 && beat_count.size() == 1)
         {
-            time << beat_count[0] << "/" << beat[0] << ends;
+            time_.beats = beat_count[0];
+            time_.beat = beat[0];
+            time << time_.beats << "/" << time_.beat << ends;
         }
     }
 

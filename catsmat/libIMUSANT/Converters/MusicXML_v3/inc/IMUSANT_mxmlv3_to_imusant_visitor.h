@@ -73,6 +73,7 @@ namespace IMUSANT
     public visitor<S_note>,
     public visitor<S_rest>,
     public visitor<S_duration>,
+    public visitor<S_stem>,
     public visitor<S_fermata>,
     public visitor<S_type>,
     public visitor<S_dot>,
@@ -160,6 +161,7 @@ namespace IMUSANT
         virtual void visitEnd( S_note& elt);
         virtual void visitStart( S_rest& elt);
         virtual void visitStart( S_duration& elt);
+        virtual void visitStart( S_stem& elt);
         
         virtual void visitStart( S_fermata& elt);
         

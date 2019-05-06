@@ -247,7 +247,7 @@ namespace IMUSANT
             //new
             fCurrent_attributes->setClef(fCurrentClef);
             fCurrentMeasure->setAttributes(fCurrent_attributes);
-            //TO DO: remove clef, etc. from IMUSANT_measure in favour of attributes member
+            // TODO: remove clef, etc. from IMUSANT_measure in favour of attributes member
         }
         else
         {
@@ -696,7 +696,18 @@ namespace IMUSANT
             fCurrentNumberofDotsOnNote++;
         }
     }
-    
+
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_stem& elt)
+    {
+        debug("S_stem");
+
+        string direction = elt->getValue();
+        fCurrentNote->setStemDirection(direction);
+    }
+
+
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_time_modification& elt)
