@@ -18,14 +18,14 @@ using namespace IMUSANT;
 
 namespace CATSMAT {
 
-    GeneralisedIntervalSuffixTreeBuilder
-    ::GeneralisedIntervalSuffixTreeBuilder()
+    GeneralisedIntervalSuffixTreeBuilder::
+    GeneralisedIntervalSuffixTreeBuilder()
     {
     }
     
     void
-    GeneralisedIntervalSuffixTreeBuilder
-    ::Visit(const IMUSANT_processing& processing)
+    GeneralisedIntervalSuffixTreeBuilder::
+    Visit(const IMUSANT_processing& processing)
     {
         IMUSANT_processing::COLLECTIONMAP collections = processing.getCollections();
         

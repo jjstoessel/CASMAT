@@ -23,9 +23,11 @@ int CATSMAT_count::main() {
         bool generalised_interval_flag = ArgV.get<bool>(kGeneralisedIntervalSearchFlag);
         bool contour_flag = ArgV.get<bool>(kContourSearchFlag);
         bool pitch_flag = ArgV.get<bool>(kPitchSearchFlag);
+        bool interval_pitches_flag = ArgV.get<bool>(kIntervalPitchesFlag);
         bool dyad_search_flag = ArgV.get<bool>(kDyadSearchFlag);
         bool sonority_search_flag = ArgV.get<bool>(kSonoritySearchFlag);
         bool trigram_search_flag = ArgV.get<bool>(kTrigramSearchFlag);
+        bool trigram_table_flag = ArgV.get<bool>(kTrigramTableSearchFlag);
         bool duples_flag = ArgV.get<bool>(kDuples);
         bool x_score_search_flag = ArgV.get<bool>(kXScoreSearchFlag);
         bool include_dissonances = ArgV.get<bool>(kDissonancesFlag);
@@ -64,6 +66,11 @@ int CATSMAT_count::main() {
                 }
             }
 
+            if (trigram_table_flag)
+            {
+                processor.FindSummativeTrigramCountsByPart(!include_dissonances, !include_repeats);
+            }
+
             CATSMAT_scoredatacollector scoredatacollection;
             scoredatacollection.Visit(processor);
 
@@ -81,6 +88,12 @@ int CATSMAT_count::main() {
                     scoredata->score_generalised_interval_profile().print(std::cout);
                 }
             }
+
+            if (interval_pitches_flag)
+            {
+                processor.FindPitchIntervalCounts();
+            }
+
 
             if (contour_flag) {
                 for (auto scoredata : scoredatacollection.get()) {

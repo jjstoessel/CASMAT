@@ -73,7 +73,10 @@ namespace CATSMAT {
     
     /*n3376 14.7.3/6
     
-    If a template, a member template or a member of a class template is explicitly specialized then that specialization shall be declared before the first use of that specialization that would cause an implicit instantiation to take place, in every translation unit in which such a use occurs; no diagnostic is required.*/
+    If a template, a member template or a member of a class template is explicitly specialized
+     then that specialization shall be declared before the first use of that specialization
+     that would cause an implicit instantiation to take place, in every translation unit
+     in which such a use occurs; no diagnostic is required.*/
     
     template class CATSMAT_score_profile<Token>;
     

@@ -10,7 +10,6 @@ endif()
 
 ###############  ENSURE DEBUG SYMBOLS ###################
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
-
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
 
 ###############  BOOST LIBRARIES ###########

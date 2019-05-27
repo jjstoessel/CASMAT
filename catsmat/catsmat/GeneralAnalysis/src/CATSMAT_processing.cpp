@@ -384,7 +384,53 @@ namespace CATSMAT
         cout << trigrams_profile;
         
     }
-    
+
+    void
+    CATSMAT_processing::
+    FindSummativeTrigramCountsByPart(bool ignoreDissonances, bool ignoreRepeatedDyads)
+    {
+        CATSMAT_score_profile<Token> trigrams_profile("trigrams");
+
+        for (auto score : this->getScores())
+        {
+            CATSMAT_collection_visitor      score_to_matrix_translator;
+            CATSMAT_TrigramSequences        trigram_sequences;
+
+            trigram_sequences.set_ignore_dissonances(ignoreDissonances);
+            trigram_sequences.set_ignore_repeated(ignoreRepeatedDyads);
+            score->accept(score_to_matrix_translator);
+            score_to_matrix_translator.getCPMatrix()->Accept(trigram_sequences);
+            CATSMAT_TrigramSequences::TokenVectors tokens = trigram_sequences.get_tokens();
+            const map<int,string>& vocal_pairs = trigram_sequences.getVoicePairLabels();
+
+            if (tokens.size()!=vocal_pairs.size()) throw catsmat_runtime_error("Mismatched voice labels and token sequences.");
+
+            int voice_index = 0;
+
+            for(auto tv = tokens.begin(); tv!=tokens.end(); tv++)
+            {
+                string part_names;
+                part_names = vocal_pairs.at(voice_index);
+
+                voice_index++;
+                if (part_names.empty())
+                {
+                    part_names = "Pair " + voice_index;
+                }
+
+                CATSMAT_TrigramInformation  trigram_info;
+                trigram_info.addTokens(*tv);
+                auto part_tokens_by_count = trigram_info.token_count();
+
+                trigrams_profile.Accumulate(part_names, part_tokens_by_count);
+            }
+        }
+
+        cout << "Printing trigram table for inputed scores" << endl;
+
+        cout << trigrams_profile;
+
+    }
     /*!
      \fn CATSMAT_processing::FindMelodicDirectionCounts()
      
@@ -399,7 +445,7 @@ namespace CATSMAT
         
         for (auto score : this->getScores())
         {
-            S_CATSMAT_scoredata                 scoredata = new_CATSMAT_object<CATSMAT_scoredata>();
+            S_CATSMAT_scoredata         scoredata = new_CATSMAT_object<CATSMAT_scoredata>();
             ContourVectorMapAnalysis    cv_map;
             
             scoredata->findBasicDataFromScore(score);
@@ -413,12 +459,45 @@ namespace CATSMAT
             profiles.Accumulate(part_name, score_profile.profile());
         }
         
-        cout << "Printing trigram table for inputed scores" << endl;
+        cout << "Printing trigram table for inputted scores" << endl;
         
         cout << profiles;
         
     }
-    
+
+    /*!
+     \fn CATSMAT_processing::FindPitchIntervalCounts()
+
+     \brief returns a table that collects all results from multiple scores
+
+     */
+    void
+    CATSMAT_processing::FindPitchIntervalCounts()
+    {
+        for (auto score : this->getScores())
+        {
+            string work_name = score->getWorkTitle();
+
+            cout << "Printing pitch interval counts for: " << work_name << endl;
+
+            int part_count = 1;
+
+            for (auto part: score->partlist()->parts())
+            {
+                S_CATSMAT_partdata partdata = new_CATSMAT_object<CATSMAT_partdata>();
+                partdata->findBasicDataFromPart(part);
+                string part_name = part->getPartName();
+                if (part_name.empty())
+                    part_name = "P" + part_count;
+                cout << part_name << endl;
+                partdata->print_interval_pitch_matrix(cout);
+                cout << endl;
+
+                part_count++;
+            }
+        }
+    }
+
     void
     CATSMAT_processing::
     FindMelodicDirectionDupleCounts()

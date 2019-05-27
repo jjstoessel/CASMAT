@@ -13,7 +13,7 @@ if(UNIX)
 endif(UNIX)
 
 if(APPLE)
-    set(CMAKE_OSX_DEPLOYMENT_TARGET=10.5)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET=10.10)
     set(MACOSX_RPATH ON)
 endif(APPLE)
 
@@ -28,6 +28,7 @@ endif(WIN32)
 
 ###############  ENSURE DEBUG SYMBOLS ###################
 #if(DEBUG)
+	set(CMAKE_BUILD_TYPE Debug)
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
 	set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
 #endif()
@@ -103,12 +104,12 @@ if(MSVC)
 	enable_language(RC)
 	set(LIBCONTENT ${CORESRC} ${COREH} ${IMUSANT_DIR}/win32/libIMUSANT/libIMUSANT.rc)
 else(MSVC)
-	set(LIBCONTENT ${CORESRC} ${COREH} ../Converters/MusicXML_v3/src/IMUSANT_imusant_to_musicxml_visitor.cpp ../Converters/MusicXML_v3/inc/IMUSANT_imusant_to_musicxml_visitor.h)
+	set(LIBCONTENT ${CORESRC} ${COREH})
 endif(MSVC)
 
 if(UNIX)
 	add_library(${target} ${LIBCONTENT})
-else(UNIX )
+else(UNIX)
 	add_library(${target} SHARED ${LIBCONTENT})
 endif(UNIX)
 

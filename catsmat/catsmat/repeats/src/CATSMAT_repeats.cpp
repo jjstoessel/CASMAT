@@ -7,6 +7,7 @@
 #include "IntervalSuffixtreeBuilder.h"
 #include "PitchSuffixtreeBuilder.h"
 #include "ContourSuffixtreeBuilder.h"
+#include "GeneralisedIntervalSuffixtreeBuilder.h"
 
 using namespace CATSMAT;
 
@@ -52,6 +53,7 @@ int CATSMAT_repeats::main()
             IntervalSuffixTreeBuilder ip;
             PitchSuffixTreeBuilder pp;
             ContourSuffixTreeBuilder cp;
+            GeneralisedIntervalSuffixTreeBuilder gp;
 
             if (interval_flag) { //A
                 ip.Visit(processor);
@@ -73,7 +75,10 @@ int CATSMAT_repeats::main()
             }
 
             if (generalised_interval_flag) {
-                //To DO
+                //Todo: generalised interval search
+                gp.Visit(processor);
+                cout << "Performing repeated generalised interval substring search" << std::endl;
+                cout << gp.FindAndPrintRepeatedSubstrings(length);
             }
 
             if (dyad_search_flag) { //old option J and K

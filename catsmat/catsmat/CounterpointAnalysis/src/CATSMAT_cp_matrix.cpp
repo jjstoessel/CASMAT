@@ -174,7 +174,7 @@ namespace CATSMAT
              }*/
             //create and insert the note with a new duration
             //make sure new duration object is added.
-            //TO DO - add ties
+            //todo: add ties
 
             S_IMUSANT_note      part_note = new_IMUSANT_note();
             S_IMUSANT_duration  part_duration = new_IMUSANT_duration();

@@ -86,7 +86,7 @@ if (Boost_FOUND)
 	if (APPLE)
 		add_custom_command(TARGET ${target} POST_BUILD COMMAND install_name_tool -change libboost_filesystem.dylib /usr/local/boost/lib/libboost_filesystem.dylib $<TARGET_FILE:${target}>)
 		add_custom_command(TARGET ${target} POST_BUILD COMMAND install_name_tool -change libboost_system.dylib /usr/local/boost/lib/libboost_system.dylib $<TARGET_FILE:${target}>)
-		add_custom_command(TARGET ${target} POST_BUILD COMMAND sudo install_name_tool -change libboost_system.dylib /usr/local/boost/lib/libboost_system.dylib /usr/local/boost/lib/libboost_filesystem.dylib)
+		#add_custom_command(TARGET ${target} POST_BUILD COMMAND sudo install_name_tool -change libboost_system.dylib /usr/local/boost/lib/libboost_system.dylib /usr/local/boost/lib/libboost_filesystem.dylib)
 	endif()
 endif()
 
@@ -107,6 +107,7 @@ set(TEST_DATA ${TEST_DATA}
 		LBDM_Segmented_Part_Test_3.xml
 		Machaut-Ma_fin_est_mon_commencement.xml
 		Ockeghem_Prenez_sur_moi_Cop.xml
+		Ock1011a-Kyrie_II_simplified.musicxml
 		Sanctus.xml
 		TestScore_1_Measure.xml
 		TestScore_4_Measures.xml

@@ -12,6 +12,7 @@
 #include "CATSMAT_cp_matrix_Sanctus_Expected.h"
 #include "CATSMAT_cp_matrix_Josquin_MAF_Kyrie_Expected.h"
 #include "CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h"
+#include "CATSMAT_cp_matrix_Ockeghem_MP_Expected.h"
 
 #include "IMUSANT_score.h"
 
@@ -251,6 +252,23 @@ TEST_F(CATSMAT_cp_matrix_Test, Josquin_Missa_LHA_super_vocales_musicales_agnus_I
     ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
 }
 
+TEST_F(CATSMAT_cp_matrix_Test, Ockeghem_MP_Kyrie_2_Simplified)
+{
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Ock1011a-Kyrie_II_simplified.musicxml");
+    CATSMAT::S_CATSMAT_cp_matrix theMatrix = testUtil.ConvertImusantscoreToCpmatrix(imusant_score);
+    //assert(theMatrix->SelfTest());
+
+    string Ockeghem_MP_Kyrie_2_Simplified_Actual = testUtil.ConvertCpmatrixToString(theMatrix);
+#ifdef VERBOSE
+    cout << "Diff for Ockeghem_MP_Kyrie_2_Simplified_Actual and Ockeghem_MP_Kyrie_2_Simplified_Expected" << endl;
+    testUtil.DiffActualAndExpected(Ockeghem_MP_Kyrie_2_Simplified_Actual, Ockeghem_MP_Kyrie_2_Simplified_Expected);
+#endif
+
+    ASSERT_EQ(Ockeghem_MP_Kyrie_2_Simplified_Expected, Ockeghem_MP_Kyrie_2_Simplified_Actual);
+
+    unsigned long num_parts_in_score = testUtil.GetNumPartsInScore(imusant_score);
+    ASSERT_EQ(num_parts_in_score, theMatrix->partCount());
+}
 
 
 

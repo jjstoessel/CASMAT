@@ -72,11 +72,11 @@ namespace CATSMAT {
         
         void            insert(const IMUSANT_note& note);
         void            split(const IMUSANT_note& note);
-        IMUSANT_note    distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note = NULL);
+        IMUSANT_note    distribute(const IMUSANT_note& note, const S_IMUSANT_note previous_note = nullptr);
 
 
-        Matrix             fCPMatrix;            //the contrapuntal matrix; a vector of vectors, each column of which represents a chord;
-        S_IMUSANT_score                     fSourceScore = NULL;  //lookback pointer to source score; do not access if null
+        Matrix                              fCPMatrix;            //the contrapuntal matrix; a vector of vectors, each column of which represents a chord;
+        S_IMUSANT_score                     fSourceScore = nullptr;  //lookback pointer to source score; do not access if null
         
         //internal strictly private class variables
         int                                 fCurrentPart;

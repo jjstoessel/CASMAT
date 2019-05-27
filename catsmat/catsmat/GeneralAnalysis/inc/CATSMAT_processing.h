@@ -42,8 +42,10 @@ public:
     void FindRepeatedTrigramSequencesThreeVoices(int min=3, bool ignoreDissonances=true, bool ignoreRepeatedDyads=true);
     void FindTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads);
     void FindSummativeTrigramCounts(bool ignoreDissonances, bool ignoreRepeatedDyads);
+    void FindSummativeTrigramCountsByPart(bool ignoreDissonances, bool ignoreRepeatedDyads);
     void FindMelodicDirectionCounts();
     void FindMelodicDirectionDupleCounts();
+    void FindPitchIntervalCounts();
     void ListCanonicTechniques();
 private:
     typedef map<int, boost::filesystem::path> index_path_pair;

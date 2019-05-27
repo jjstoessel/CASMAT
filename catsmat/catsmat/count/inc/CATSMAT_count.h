@@ -22,9 +22,11 @@ namespace CATSMAT {
         const string kGeneralisedIntervalSearchFlag = "generalised";
         const string kContourSearchFlag = "contour";
         const string kPitchSearchFlag = "pitch";
+        const string kIntervalPitchesFlag = "interval_pitches";
         const string kDyadSearchFlag = "dyad";
         const string kSonoritySearchFlag = "sonority";
         const string kTrigramSearchFlag = "trigram";
+        const string kTrigramTableSearchFlag = "trigram_table";
         const string kDuples = "duples";
         const string kXScoreSearchFlag = "cross_score_search"; //default is false (0)
         const string kDissonancesFlag = "include_dissonances"; //for dyad and trigram searches only
@@ -41,14 +43,16 @@ namespace CATSMAT {
 
         CLI::Flag interval_             {kIntervalSearchFlag, "0", "Count intervals", "i"};
         CLI::Flag generalised_interval_ {kGeneralisedIntervalSearchFlag, "0", "Count generalised intervals", "g"};
+        CLI::Flag interval_pitches_     {kIntervalPitchesFlag, "0", "Count pairs of pitches that form horizontal intervals", "I"};
         CLI::Flag contour_              {kContourSearchFlag, "0", "Count contours", "c"};
         CLI::Flag pitch_                {kPitchSearchFlag, "0", "Count pitches", "p"};
         CLI::Flag dyad_                 {kDyadSearchFlag, "0", "Count dyads", "y"};
         CLI::Flag sonority_             {kSonoritySearchFlag, "0", "Count sonorities", "s"};
         CLI::Flag trigram_              {kTrigramSearchFlag, "0", "Count trigrams", "t"};
+        CLI::Flag trigram_table_         {kTrigramTableSearchFlag, "0", "Table of trigrams", "T"}; //FindSummativeTrigramCounts
         CLI::Flag duples_               {kDuples, "0", "Search across scores", "D"};
         CLI::Flag x_score_search_       {kXScoreSearchFlag, "0", "Search across scores", "x"};
-        CLI::Flag include_dissonances_  {kDissonancesFlag, "0", "Include dissonances (default: off). On = 1, Off = 0", "D"};
+        CLI::Flag include_dissonances_  {kDissonancesFlag, "0", "Include dissonances (default: off). On = 1, Off = 0", "!"};
         CLI::Flag include_repeats_      {kRepeatsFlag, "0", "Include repeats (default: off). On = 1, Off = 0", "r"};
         CLI::Flag general_              {kGeneral, "0", "General element count", "G"};
 
@@ -79,11 +83,13 @@ namespace CATSMAT {
 
             Register(&interval_);
             Register(&generalised_interval_);
+            Register(&interval_pitches_);
             Register(&contour_);
             Register(&pitch_);
             Register(&dyad_);
             Register(&sonority_);
             Register(&trigram_);
+            Register(&trigram_table_);
             Register(&duples_);
             Register(&x_score_search_);
             Register(&include_dissonances_);
