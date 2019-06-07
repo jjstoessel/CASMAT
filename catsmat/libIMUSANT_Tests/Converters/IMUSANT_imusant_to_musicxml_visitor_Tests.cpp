@@ -11,6 +11,7 @@
 #include "libIMUSANT.h"
 #include "IMUSANT_test_utilities.h"
 #include "IMUSANT_imusant_to_musicxml_visitor.h"
+#include <fstream>
 
 #define VERBOSE 1
 #define REMOVE 0//remove temp files from test directory

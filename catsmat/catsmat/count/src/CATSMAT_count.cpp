@@ -5,6 +5,7 @@
 #include "count/inc/CATSMAT_count.h"
 #include "GeneralAnalysis/inc/CATSMAT_processing.h"
 #include "CATSMAT_scoredatacollector.h"
+#include <fstream>
 
 using namespace CATSMAT;
 

@@ -45,7 +45,7 @@ class libIMUSANT
 #include "IMUSANT_mxmlv3_exceptions.h"
 
 //convertor types
-#include "IMUSANT_imusant_to_musicxml_visitor.h"
+//#include "IMUSANT_imusant_to_musicxml_visitor.h"
 
 #pragma GCC visibility pop
 #endif

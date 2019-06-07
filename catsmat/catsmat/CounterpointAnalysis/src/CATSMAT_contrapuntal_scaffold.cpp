@@ -2,47 +2,47 @@
 // Created by Jason Stoessel on 2019-05-07.
 //
 
-#include "CATSMAT_dyad_skeleton.h"
+#include "CATSMAT_contrapuntal_scaffold.h"
 #include "CATSMAT_cp_matrix.h"
 
 namespace CATSMAT
 {
 
-CATSMAT_dyad_skeleton::CATSMAT_dyad_skeleton(const IMUSANT_duration &cluster_duration_)
+CATSMAT_contrapuntal_scaffold::CATSMAT_contrapuntal_scaffold(const IMUSANT_duration &cluster_duration_)
     : cluster_duration_(cluster_duration_)
 {
 
 }
 
-CATSMAT_dyad_skeleton::~CATSMAT_dyad_skeleton()
+CATSMAT_contrapuntal_scaffold::~CATSMAT_contrapuntal_scaffold()
 {
 
 }
 
-const IMUSANT_duration &CATSMAT_dyad_skeleton::getCluster_duration_() const
+const IMUSANT_duration &CATSMAT_contrapuntal_scaffold::getCluster_duration_() const
 {
     return cluster_duration_;
 }
 
-void CATSMAT_dyad_skeleton::setCluster_duration_(const IMUSANT_duration &cluster_duration_)
+void CATSMAT_contrapuntal_scaffold::setCluster_duration_(const IMUSANT_duration &cluster_duration_)
 {
-    CATSMAT_dyad_skeleton::cluster_duration_ = cluster_duration_;
+    CATSMAT_contrapuntal_scaffold::cluster_duration_ = cluster_duration_;
 }
 
-ostream &operator<<(ostream &os, const CATSMAT_dyad_skeleton &skeleton)
+ostream &operator<<(ostream &os, const CATSMAT_contrapuntal_scaffold &skeleton)
 {
     skeleton.Print(os);
     return os;
 }
 
-void CATSMAT_dyad_skeleton::Visit(const CATSMAT_cp_matrix &matrix)
+void CATSMAT_contrapuntal_scaffold::Visit(const CATSMAT_cp_matrix &matrix)
 {
     part_count_ = matrix.partCount();
 
     process(matrix.getCPmatrix());
 }
 
-void CATSMAT_dyad_skeleton::process(const list<CATSMAT::S_CATSMAT_chord> &matrix)
+void CATSMAT_contrapuntal_scaffold::process(const list<CATSMAT::S_CATSMAT_chord> &matrix)
 {
     if (!matrix.empty())
     {
@@ -105,7 +105,7 @@ void CATSMAT_dyad_skeleton::process(const list<CATSMAT::S_CATSMAT_chord> &matrix
     }
 }
 
-void CATSMAT_dyad_skeleton::Print(ostream &os) const
+void CATSMAT_contrapuntal_scaffold::Print(ostream &os) const
 {
 
 }
