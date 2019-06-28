@@ -29,7 +29,7 @@ namespace CATSMAT
     void
     sonority::print(ostream& os) const
     {
-        os << "( " << mMeasure << ", " << mIndex << ", " << mQuality << ")" << endl;
+        os << "(" << mMeasure << ", " << mIndex << ", " << mQuality << ")" << endl;
     }
 
     ostream& operator<< (ostream& os, const sonority& elt )
@@ -50,7 +50,6 @@ namespace CATSMAT
     {
         if (!matrix.getCPmatrix().empty())
         {
-            
             for (list<S_CATSMAT_chord>::const_iterator chord = matrix.getCPmatrix().begin(); chord!=matrix.getCPmatrix().end(); chord++)
             {
                 //make a sorted copy of the chord by reversing key and value in templated utility
@@ -67,7 +66,6 @@ namespace CATSMAT
             
                 if (bass!=sorted_chord.rend())
                 {
-            
                     //start in the middle and move up
                     auto note = bass;
                     
@@ -101,12 +99,14 @@ namespace CATSMAT
 
     void CATSMAT_sonority_sequences::Print(ostream& os) const
     {
-        os << "sonority types: ";
+        os << "sonority types (measure, index, sonority type): " << endl;
         
         for (auto iter1 = vectors_.begin(); iter1 != vectors_.end(); iter1++)
         {
            os << *iter1; //uses tuple print member function
         }
+
+        cout << endl << "key: all perfect | perfect = 1; perfect | imperfect = 3; perfect | disonance = 5; imperfect | dissonance = 6, and Perf|Imp|Dis = 7" << endl;
 
     }
 
