@@ -14,25 +14,9 @@
 		1E450E1A1B7580A000BDF9EF /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		1E450E1B1B7580A000BDF9EF /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		1E5218B81BAD0A1E00FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */; };
-		1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E6C38D01BB662F80025BA7E /* IMUSANT_converters_shared_types.h */; };
+		1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E6C38D01BB662F80025BA7E /* IMUSANT_converters_shared_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E76912A1C81518500D371D8 /* MusicXML_ParserTest5.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E7691291C81511700D371D8 /* MusicXML_ParserTest5.xml */; };
 		490E3BB91CFA5EB90091A44E /* Kyrie.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA4207E11CE805BF007204AF /* Kyrie.xml */; };
-		492905B71EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B11EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp */; };
-		492905B81EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B21EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp */; };
-		492905B91EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B31EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp */; };
-		492905BA1EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */; };
-		492905BB1EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */; };
-		492905BC1EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */; };
-		492905C61EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */; };
-		492905C71EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */; };
-		492905C91EECD97E00B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */; };
-		492905CA1EECD97E00B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */; };
-		492905CC1EECD98400B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B11EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp */; };
-		492905CD1EECD98400B0D5A7 /* IMUSANT_LBDM_segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B21EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp */; };
-		492905CE1EECD98400B0D5A7 /* IMUSANT_segmented_note_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B31EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp */; };
-		492905CF1EECD98400B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */; };
-		492905D01EECD98400B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */; };
-		492905D11EECD98400B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */; };
 		492905D61EECE55100B0D5A7 /* FP_SegmentedScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */; };
 		492905D71EECE57100B0D5A7 /* FP_SegmentedScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */; };
 		492905D91EECE82900B0D5A7 /* FP_SegmentedScore_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D81EECE82900B0D5A7 /* FP_SegmentedScore_Tests.cpp */; };
@@ -59,13 +43,7 @@
 		4949DD3E1F2D6E9D00248DA4 /* Triplet-test.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA5D583D1E9095F200BFC95C /* Triplet-test.xml */; };
 		4949DD3F1F2D6E9D00248DA4 /* Yankee_Doodle.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 495435791EE3B3E400213203 /* Yankee_Doodle.xml */; };
 		494D25BD1BDAFEDD00141228 /* MusicXML_ParserTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */; };
-		495435081EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435011EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp */; };
 		495435091EE37E5C00213203 /* RepeatedIntervalSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* RepeatedIntervalSubstring.cpp */; };
-		4954350A1EE37E5C00213203 /* IMUSANT_t_repeated_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435031EE37E5C00213203 /* IMUSANT_t_repeated_substring.cpp */; };
-		495435451EE3A95400213203 /* IMUSANT_contour_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495434FE1EE37E5C00213203 /* IMUSANT_contour_suffixtree_builder.cpp */; };
-		495435461EE3A95400213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495434FF1EE37E5C00213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp */; };
-		495435471EE3A95400213203 /* IMUSANT_interval_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435001EE37E5C00213203 /* IMUSANT_interval_suffixtree_builder.cpp */; };
-		495435541EE3B05A00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435041EE37E5C00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp */; };
 		495435551EE3B0A800213203 /* CATSMAT_cp_matrix_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF7141B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp */; };
 		495435561EE3B0AC00213203 /* CATSMAT_dyad_sequences_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E1836281B477DDB009B5D2C /* CATSMAT_dyad_sequences_Test.cpp */; };
 		495435571EE3B0B400213203 /* CATSMAT_dyadtuple_sequences_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E08059B1B50B88E00765041 /* CATSMAT_dyadtuple_sequences_Tests.cpp */; };
@@ -77,15 +55,9 @@
 		4954355D1EE3B0CA00213203 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435381EE37FAB00213203 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp */; };
 		4954355E1EE3B0CE00213203 /* IMUSANT_segment_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435391EE37FAB00213203 /* IMUSANT_segment_Tests.cpp */; };
 		495435601EE3B0D500213203 /* IMUSANT_segmented_part_LBDM_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4954353C1EE37FAB00213203 /* IMUSANT_segmented_part_LBDM_Tests.cpp */; };
-		495435611EE3B13200213203 /* IMUSANT_contour_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495434FE1EE37E5C00213203 /* IMUSANT_contour_suffixtree_builder.cpp */; };
-		495435621EE3B13200213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495434FF1EE37E5C00213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp */; };
-		495435631EE3B13200213203 /* IMUSANT_interval_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435001EE37E5C00213203 /* IMUSANT_interval_suffixtree_builder.cpp */; };
-		495435641EE3B13200213203 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435011EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp */; };
 		495435651EE3B13200213203 /* RepeatedIntervalSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* RepeatedIntervalSubstring.cpp */; };
-		495435661EE3B13200213203 /* IMUSANT_t_repeated_substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435031EE37E5C00213203 /* IMUSANT_t_repeated_substring.cpp */; };
-		495435671EE3B13200213203 /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435041EE37E5C00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp */; };
 		4959E1371CF13BE300FAC403 /* exports.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1301CF13BE300FAC403 /* exports.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1311CF13BE300FAC403 /* smartpointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1311CF13BE300FAC403 /* smartpointer.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4959E1391CF13BE300FAC403 /* TRational.h in Headers */ = {isa = PBXBuildFile; fileRef = 4959E1321CF13BE300FAC403 /* TRational.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4959E13A1CF13BE300FAC403 /* smartpointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4959E1341CF13BE300FAC403 /* smartpointer.cpp */; };
 		4959E13B1CF13BE300FAC403 /* TRational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4959E1351CF13BE300FAC403 /* TRational.cpp */; };
@@ -107,7 +79,7 @@
 		496EF4C71B229D8100FE715F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF4C61B229D8100FE715F /* main.cpp */; };
 		496EF4D11B229EFB00FE715F /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		496EF4D21B229F0A00FE715F /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
-		496EF6BF1B22B01700FE715F /* libIMUSANT.h in Headers */ = {isa = PBXBuildFile; fileRef = 496EF6BE1B22B01700FE715F /* libIMUSANT.h */; };
+		496EF6BF1B22B01700FE715F /* libIMUSANT.h in Headers */ = {isa = PBXBuildFile; fileRef = 496EF6BE1B22B01700FE715F /* libIMUSANT.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		496EF6C81B22B04400FE715F /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		496EF6C91B22B04400FE715F /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		496EF6DE1B22B05500FE715F /* IMUSANT_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA670D200A10049A0072CE20 /* IMUSANT_types.cpp */; };
@@ -132,17 +104,9 @@
 		4970E0191B76B97F0052496C /* IMUSANT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 965209840A4D1C94006AFD81 /* IMUSANT_collectionvisitor.cpp */; };
 		49714EF11C015CFF00C0A52C /* MusicXML_ParserTest2.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49714EF01C014EFE00C0A52C /* MusicXML_ParserTest2.xml */; };
 		4973E9BA1C50DA8E0086AB4A /* MusicXML_ParserTest3.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4973E9B91C50DA640086AB4A /* MusicXML_ParserTest3.xml */; };
-		497FE7AB1EFF6E87008F066B /* IMUSANT_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497FE7A91EFF6E87008F066B /* IMUSANT_segment.cpp */; };
-		497FE7AC1EFF6E87008F066B /* IMUSANT_set_of_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497FE7AA1EFF6E87008F066B /* IMUSANT_set_of_segment.cpp */; };
-		497FE7AD1EFF6EA0008F066B /* IMUSANT_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497FE7A91EFF6E87008F066B /* IMUSANT_segment.cpp */; };
-		497FE7AE1EFF6EA4008F066B /* IMUSANT_set_of_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497FE7AA1EFF6E87008F066B /* IMUSANT_set_of_segment.cpp */; };
-		497FE7B71EFF8340008F066B /* SegmentContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497FE7B61EFF8340008F066B /* SegmentContext.cpp */; };
-		497FE7B81EFF8340008F066B /* SegmentContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 497FE7B61EFF8340008F066B /* SegmentContext.cpp */; };
 		498CFE551D7B0991006379F0 /* IMUSANT_transposer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 498CFE531D7B01D3006379F0 /* IMUSANT_transposer.cpp */; };
 		49A423381DB1F213003CA5DD /* Sanctus.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49A423371DB1F1B6003CA5DD /* Sanctus.xml */; };
 		49A4233A1DB220BF003CA5DD /* MusicXML_ParserTest_Transpose1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49A423391DB220A8003CA5DD /* MusicXML_ParserTest_Transpose1.xml */; };
-		49BAF89D1ED90470000C84C4 /* IMUSANT_mxmlv3_exceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE7EAD11D44582C00F3D342 /* IMUSANT_mxmlv3_exceptions.h */; };
-		49BAF89E1ED90473000C84C4 /* IMUSANT_mxmlv3_to_imusant_visitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E5218B51BAD029200FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.h */; };
 		49BAF89F1ED90575000C84C4 /* IMUSANT_conversions.h in Headers */ = {isa = PBXBuildFile; fileRef = 49EBE74D1CF18E6A009B110D /* IMUSANT_conversions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49BAF8A01ED90575000C84C4 /* IMUSANT_element.h in Headers */ = {isa = PBXBuildFile; fileRef = BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49BAF8A11ED90575000C84C4 /* IMUSANT_types.h in Headers */ = {isa = PBXBuildFile; fileRef = BA670D1F0A10049A0072CE20 /* IMUSANT_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -244,7 +208,6 @@
 		49C80DB01BA4E71300DCA903 /* unrolled_clonevisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D5A1BA4E5C900DCA903 /* unrolled_clonevisitor.cpp */; };
 		49C80DB11BA4E71300DCA903 /* xmlvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C80D5E1BA4E5C900DCA903 /* xmlvisitor.cpp */; };
 		49C80DB21BA4E77400DCA903 /* elements.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80CFF1BA4E5C900DCA903 /* elements.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49C80DB31BA4E77400DCA903 /* exports.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D011BA4E5C900DCA903 /* exports.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DB41BA4E77400DCA903 /* factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D031BA4E5C900DCA903 /* factory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DB51BA4E77400DCA903 /* typedefs.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D0B1BA4E5C900DCA903 /* typedefs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DB61BA4E77400DCA903 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D0C1BA4E5C900DCA903 /* types.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -268,7 +231,6 @@
 		49C80DC81BA4E77500DCA903 /* rational.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D321BA4E5C900DCA903 /* rational.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DC91BA4E77500DCA903 /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D331BA4E5C900DCA903 /* singleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DCA1BA4E77500DCA903 /* smartlist.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D341BA4E5C900DCA903 /* smartlist.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49C80DCB1BA4E77500DCA903 /* smartpointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D351BA4E5C900DCA903 /* smartpointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DCC1BA4E77500DCA903 /* tree_browser.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D361BA4E5C900DCA903 /* tree_browser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DCD1BA4E77500DCA903 /* transposition.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D3A1BA4E5C900DCA903 /* transposition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DCE1BA4E77500DCA903 /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D3D1BA4E5C900DCA903 /* reader.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -288,20 +250,250 @@
 		49C80DDC1BA4E77700DCA903 /* visitable.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D5C1BA4E5C900DCA903 /* visitable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DDD1BA4E77700DCA903 /* visitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D5D1BA4E5C900DCA903 /* visitor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49C80DDE1BA4E77700DCA903 /* xmlvisitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C80D5F1BA4E5C900DCA903 /* xmlvisitor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49C80DE01BA4EDED00DCA903 /* liblibMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */; };
-		49C80DE11BA4EFC100DCA903 /* liblibMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */; };
-		49C80DE41BA51E1B00DCA903 /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
-		49C80DE51BA51E5200DCA903 /* liblibMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */; };
+		49C80DE41BA51E1B00DCA903 /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		49D6903C1C8BC96B00EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49D6903B1C8BC91900EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml */; };
 		49DA50041DCE87F300AC1975 /* Josquin_MAF_Christe.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49DA50031DCE87AB00AC1975 /* Josquin_MAF_Christe.xml */; };
-		49F59B8A1BAE6DD30030FFF1 /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
-		49F59B8B1BAE6DD30030FFF1 /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		49FB9BD11C7879CB0008B46D /* libboost_filesystem.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		49FB9BD21C7879D80008B46D /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
 		49FB9BD41C7927690008B46D /* MusicXML_ParserTest4.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FB9BD31C7927180008B46D /* MusicXML_ParserTest4.xml */; };
 		96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49EBE74F1CF18E7A009B110D /* IMUSANT_conversions.cpp */; };
-		BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
-		BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		BA09FC2622C5F172001E1023 /* Flag.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCCA22C5D933002E486E /* Flag.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC2722C5F172001E1023 /* Argument.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCCB22C5D933002E486E /* Argument.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC2822C5F172001E1023 /* IO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCCC22C5D933002E486E /* IO.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC2922C5F172001E1023 /* List.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCCD22C5D933002E486E /* List.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC2A22C5F172001E1023 /* SingleMode.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCCE22C5D933002E486E /* SingleMode.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC2B22C5F172001E1023 /* ArgManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCCF22C5D933002E486E /* ArgManager.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC2C22C5F172001E1023 /* Terminator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCD022C5D933002E486E /* Terminator.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC2D22C5F172001E1023 /* Switch.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCD122C5D933002E486E /* Switch.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC2E22C5F172001E1023 /* Utilities.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCD222C5D933002E486E /* Utilities.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC2F22C5F172001E1023 /* Exceptions.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCD322C5D933002E486E /* Exceptions.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC3022C5F172001E1023 /* Required.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCD422C5D933002E486E /* Required.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC3122C5F172001E1023 /* MultiMode.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCD522C5D933002E486E /* MultiMode.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC3222C5F172001E1023 /* Default.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BA85CCD622C5D933002E486E /* Default.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA09FC3322C5F713001E1023 /* libMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */; };
+		BA09FC3C22C5F7E7001E1023 /* CATSMAT_repeats_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC3A22C5F7E7001E1023 /* CATSMAT_repeats_main.cpp */; };
+		BA09FC3D22C5F7E7001E1023 /* CATSMAT_repeats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC3B22C5F7E7001E1023 /* CATSMAT_repeats.cpp */; };
+		BA09FC3F22C5FC5F001E1023 /* libboost_filesystem.dylib in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC3E22C5FC5E001E1023 /* libboost_filesystem.dylib */; };
+		BA09FC4122C5FC67001E1023 /* libboost_system.dylib in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC4022C5FC67001E1023 /* libboost_system.dylib */; };
+		BA09FC4322C5FF70001E1023 /* CATSMAT_partdata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BC1ED9456C000C84C4 /* CATSMAT_partdata.cpp */; };
+		BA09FC4422C5FF76001E1023 /* CATSMAT_scoredata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C11ED9456C000C84C4 /* CATSMAT_scoredata.cpp */; };
+		BA09FC4522C5FF7A001E1023 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C21ED9456C000C84C4 /* CATSMAT_scoredatacollector.cpp */; };
+		BA09FC4622C5FF85001E1023 /* CATSMAT_score_profile_special.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BE1ED9456C000C84C4 /* CATSMAT_score_profile_special.cpp */; };
+		BA09FC4722C5FF88001E1023 /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BD1ED9456C000C84C4 /* CATSMAT_processing.cpp */; };
+		BA09FC4822C5FFA1001E1023 /* ContourSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */; };
+		BA09FC4922C5FFA5001E1023 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8C22C5D67D00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp */; };
+		BA09FC4A22C5FFA7001E1023 /* IntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8F22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp */; };
+		BA09FC4B22C5FFAA001E1023 /* PitchSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8D22C5D67D00EB37B4 /* PitchSuffixtreeBuilder.cpp */; };
+		BA09FC4C22C5FFAC001E1023 /* TRepeatedSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9022C5D67E00EB37B4 /* TRepeatedSubstring.cpp */; };
+		BA09FC4D22C5FFB2001E1023 /* VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8E22C5D67D00EB37B4 /* VectorMapAnalysisTypes.cpp */; };
+		BA09FC4E22C5FFB4001E1023 /* RepeatedIntervalSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* RepeatedIntervalSubstring.cpp */; };
+		BA09FC4F22C604BC001E1023 /* CATSMAT_canonic_techniques_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BB1ED9456C000C84C4 /* CATSMAT_canonic_techniques_tools.cpp */; };
+		BA09FC5022C604CA001E1023 /* CATSMAT_score_splitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C01ED9456C000C84C4 /* CATSMAT_score_splitter.cpp */; };
+		BA09FC5122C604DA001E1023 /* CATSMAT_chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D51ED94599000C84C4 /* CATSMAT_chord.cpp */; };
+		BA09FC5222C604DD001E1023 /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D61ED94599000C84C4 /* CATSMAT_collectionvisitor.cpp */; };
+		BA09FC5322C604E0001E1023 /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D71ED94599000C84C4 /* CATSMAT_cp_matrix.cpp */; };
+		BA09FC5422C604E3001E1023 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D81ED94599000C84C4 /* CATSMAT_dyad_sequences.cpp */; };
+		BA09FC5522C604E5001E1023 /* CATSMAT_dyadtuple_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D91ED94599000C84C4 /* CATSMAT_dyadtuple_sequences.cpp */; };
+		BA09FC5622C604E9001E1023 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DA1ED94599000C84C4 /* CATSMAT_sonority_sequences.cpp */; };
+		BA09FC5722C604EB001E1023 /* CATSMAT_TrigramSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DB1ED94599000C84C4 /* CATSMAT_TrigramSequences.cpp */; };
+		BA09FC5822C604ED001E1023 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DC1ED94599000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
+		BA09FC5922C60552001E1023 /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9F22C5D6CB00EB37B4 /* Segment.cpp */; };
+		BA09FC5A22C60554001E1023 /* SegmentContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDDA022C5D6CB00EB37B4 /* SegmentContext.cpp */; };
+		BA09FC5B22C60557001E1023 /* Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9D22C5D6CA00EB37B4 /* Segmenter.cpp */; };
+		BA09FC5C22C60559001E1023 /* SetOfSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9E22C5D6CA00EB37B4 /* SetOfSegment.cpp */; };
+		BA09FC5D22C60561001E1023 /* FP_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8922C5D768002E486E /* FP_Segmenter.cpp */; };
+		BA09FC5E22C60563001E1023 /* PartlistOrderedByPartEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8A22C5D768002E486E /* PartlistOrderedByPartEntry.cpp */; };
+		BA09FC5F22C60566001E1023 /* FP_SegmentedScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */; };
+		BA09FC6022C6056D001E1023 /* LBDM_IntervalProfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9522C5D79B002E486E /* LBDM_IntervalProfile.cpp */; };
+		BA09FC6122C6056D001E1023 /* LBDM_SegmentedNoteVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9722C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp */; };
+		BA09FC6222C6056D001E1023 /* LBDM_SegmentedPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9922C5D79B002E486E /* LBDM_SegmentedPart.cpp */; };
+		BA09FC6322C6056D001E1023 /* LBDM_SegmentedProfileVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9822C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp */; };
+		BA09FC6422C6056D001E1023 /* LBDM_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9A22C5D79B002E486E /* LBDM_Segmenter.cpp */; };
+		BA09FC6522C6056D001E1023 /* LBDM_WeightedStrengthVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9622C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp */; };
+		BA09FC6622C60600001E1023 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		BA09FC6722C60604001E1023 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		BA09FC6822C607F7001E1023 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		BA09FC6922C607FA001E1023 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		BA09FC6A22C6E4F3001E1023 /* CATSMAT_canonic_techniques_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BB1ED9456C000C84C4 /* CATSMAT_canonic_techniques_tools.cpp */; };
+		BA09FC6B22C6E4F3001E1023 /* CATSMAT_partdata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BC1ED9456C000C84C4 /* CATSMAT_partdata.cpp */; };
+		BA09FC6C22C6E4F3001E1023 /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BD1ED9456C000C84C4 /* CATSMAT_processing.cpp */; };
+		BA09FC6D22C6E4F3001E1023 /* CATSMAT_score_profile_special.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BE1ED9456C000C84C4 /* CATSMAT_score_profile_special.cpp */; };
+		BA09FC6E22C6E4F3001E1023 /* CATSMAT_score_splitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C01ED9456C000C84C4 /* CATSMAT_score_splitter.cpp */; };
+		BA09FC6F22C6E4F3001E1023 /* CATSMAT_scoredata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C11ED9456C000C84C4 /* CATSMAT_scoredata.cpp */; };
+		BA09FC7022C6E4F3001E1023 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C21ED9456C000C84C4 /* CATSMAT_scoredatacollector.cpp */; };
+		BA09FC7122C6E566001E1023 /* CATSMAT_chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D51ED94599000C84C4 /* CATSMAT_chord.cpp */; };
+		BA09FC7222C6E566001E1023 /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D61ED94599000C84C4 /* CATSMAT_collectionvisitor.cpp */; };
+		BA09FC7322C6E566001E1023 /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D71ED94599000C84C4 /* CATSMAT_cp_matrix.cpp */; };
+		BA09FC7422C6E566001E1023 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D81ED94599000C84C4 /* CATSMAT_dyad_sequences.cpp */; };
+		BA09FC7522C6E566001E1023 /* CATSMAT_dyadtuple_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D91ED94599000C84C4 /* CATSMAT_dyadtuple_sequences.cpp */; };
+		BA09FC7622C6E566001E1023 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DA1ED94599000C84C4 /* CATSMAT_sonority_sequences.cpp */; };
+		BA09FC7722C6E566001E1023 /* CATSMAT_TrigramSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DB1ED94599000C84C4 /* CATSMAT_TrigramSequences.cpp */; };
+		BA09FC7822C6E566001E1023 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DC1ED94599000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
+		BA09FC7922C6E5BA001E1023 /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9F22C5D6CB00EB37B4 /* Segment.cpp */; };
+		BA09FC7A22C6E5BA001E1023 /* SegmentContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDDA022C5D6CB00EB37B4 /* SegmentContext.cpp */; };
+		BA09FC7B22C6E5BA001E1023 /* Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9D22C5D6CA00EB37B4 /* Segmenter.cpp */; };
+		BA09FC7C22C6E5BA001E1023 /* SetOfSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9E22C5D6CA00EB37B4 /* SetOfSegment.cpp */; };
+		BA09FC7D22C6E5C1001E1023 /* FP_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8922C5D768002E486E /* FP_Segmenter.cpp */; };
+		BA09FC7E22C6E5C1001E1023 /* PartlistOrderedByPartEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8A22C5D768002E486E /* PartlistOrderedByPartEntry.cpp */; };
+		BA09FC7F22C6E5C1001E1023 /* FP_SegmentedScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */; };
+		BA09FC8022C6E5CF001E1023 /* LBDM_IntervalProfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9522C5D79B002E486E /* LBDM_IntervalProfile.cpp */; };
+		BA09FC8122C6E5CF001E1023 /* LBDM_SegmentedNoteVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9722C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp */; };
+		BA09FC8222C6E5CF001E1023 /* LBDM_SegmentedPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9922C5D79B002E486E /* LBDM_SegmentedPart.cpp */; };
+		BA09FC8322C6E5CF001E1023 /* LBDM_SegmentedProfileVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9822C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp */; };
+		BA09FC8422C6E5CF001E1023 /* LBDM_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9A22C5D79B002E486E /* LBDM_Segmenter.cpp */; };
+		BA09FC8522C6E5CF001E1023 /* LBDM_WeightedStrengthVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9622C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp */; };
+		BA09FC8622C6E606001E1023 /* ContourSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */; };
+		BA09FC8722C6E606001E1023 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8C22C5D67D00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp */; };
+		BA09FC8822C6E606001E1023 /* IntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8F22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp */; };
+		BA09FC8922C6E606001E1023 /* PitchSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8D22C5D67D00EB37B4 /* PitchSuffixtreeBuilder.cpp */; };
+		BA09FC8A22C6E606001E1023 /* TRepeatedSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9022C5D67E00EB37B4 /* TRepeatedSubstring.cpp */; };
+		BA09FC8B22C6E606001E1023 /* VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8E22C5D67D00EB37B4 /* VectorMapAnalysisTypes.cpp */; };
+		BA09FC8C22C6E606001E1023 /* RepeatedIntervalSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* RepeatedIntervalSubstring.cpp */; };
+		BA09FC8D22C6E837001E1023 /* libMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */; };
+		BA09FC9022C7338A001E1023 /* ContourSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */; };
+		BA09FC9122C7338A001E1023 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8C22C5D67D00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp */; };
+		BA09FC9222C7338A001E1023 /* IntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8F22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp */; };
+		BA09FC9322C7338A001E1023 /* PitchSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8D22C5D67D00EB37B4 /* PitchSuffixtreeBuilder.cpp */; };
+		BA09FC9422C7338A001E1023 /* TRepeatedSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9022C5D67E00EB37B4 /* TRepeatedSubstring.cpp */; };
+		BA09FC9522C7338A001E1023 /* VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8E22C5D67D00EB37B4 /* VectorMapAnalysisTypes.cpp */; };
+		BA09FC9622C7338A001E1023 /* RepeatedIntervalSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* RepeatedIntervalSubstring.cpp */; };
+		BA09FC9722C7338B001E1023 /* ContourSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */; };
+		BA09FC9822C7338B001E1023 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8C22C5D67D00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp */; };
+		BA09FC9922C7338B001E1023 /* IntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8F22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp */; };
+		BA09FC9A22C7338B001E1023 /* PitchSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8D22C5D67D00EB37B4 /* PitchSuffixtreeBuilder.cpp */; };
+		BA09FC9B22C7338B001E1023 /* TRepeatedSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9022C5D67E00EB37B4 /* TRepeatedSubstring.cpp */; };
+		BA09FC9C22C7338B001E1023 /* VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8E22C5D67D00EB37B4 /* VectorMapAnalysisTypes.cpp */; };
+		BA09FC9D22C7338B001E1023 /* RepeatedIntervalSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 495435021EE37E5C00213203 /* RepeatedIntervalSubstring.cpp */; };
+		BA09FC9E22C73397001E1023 /* CATSMAT_canonic_techniques_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BB1ED9456C000C84C4 /* CATSMAT_canonic_techniques_tools.cpp */; };
+		BA09FC9F22C73397001E1023 /* CATSMAT_partdata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BC1ED9456C000C84C4 /* CATSMAT_partdata.cpp */; };
+		BA09FCA022C73397001E1023 /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BD1ED9456C000C84C4 /* CATSMAT_processing.cpp */; };
+		BA09FCA122C73397001E1023 /* CATSMAT_score_profile_special.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BE1ED9456C000C84C4 /* CATSMAT_score_profile_special.cpp */; };
+		BA09FCA222C73397001E1023 /* CATSMAT_score_splitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C01ED9456C000C84C4 /* CATSMAT_score_splitter.cpp */; };
+		BA09FCA322C73397001E1023 /* CATSMAT_scoredata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C11ED9456C000C84C4 /* CATSMAT_scoredata.cpp */; };
+		BA09FCA422C73397001E1023 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C21ED9456C000C84C4 /* CATSMAT_scoredatacollector.cpp */; };
+		BA09FCA522C73398001E1023 /* CATSMAT_canonic_techniques_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BB1ED9456C000C84C4 /* CATSMAT_canonic_techniques_tools.cpp */; };
+		BA09FCA622C73398001E1023 /* CATSMAT_partdata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BC1ED9456C000C84C4 /* CATSMAT_partdata.cpp */; };
+		BA09FCA722C73398001E1023 /* CATSMAT_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BD1ED9456C000C84C4 /* CATSMAT_processing.cpp */; };
+		BA09FCA822C73398001E1023 /* CATSMAT_score_profile_special.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BE1ED9456C000C84C4 /* CATSMAT_score_profile_special.cpp */; };
+		BA09FCA922C73398001E1023 /* CATSMAT_score_splitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C01ED9456C000C84C4 /* CATSMAT_score_splitter.cpp */; };
+		BA09FCAA22C73398001E1023 /* CATSMAT_scoredata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C11ED9456C000C84C4 /* CATSMAT_scoredata.cpp */; };
+		BA09FCAB22C73398001E1023 /* CATSMAT_scoredatacollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9C21ED9456C000C84C4 /* CATSMAT_scoredatacollector.cpp */; };
+		BA09FCAC22C733A3001E1023 /* CATSMAT_chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D51ED94599000C84C4 /* CATSMAT_chord.cpp */; };
+		BA09FCAD22C733A3001E1023 /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D61ED94599000C84C4 /* CATSMAT_collectionvisitor.cpp */; };
+		BA09FCAE22C733A3001E1023 /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D71ED94599000C84C4 /* CATSMAT_cp_matrix.cpp */; };
+		BA09FCAF22C733A3001E1023 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D81ED94599000C84C4 /* CATSMAT_dyad_sequences.cpp */; };
+		BA09FCB022C733A3001E1023 /* CATSMAT_dyadtuple_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D91ED94599000C84C4 /* CATSMAT_dyadtuple_sequences.cpp */; };
+		BA09FCB122C733A3001E1023 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DA1ED94599000C84C4 /* CATSMAT_sonority_sequences.cpp */; };
+		BA09FCB222C733A3001E1023 /* CATSMAT_TrigramSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DB1ED94599000C84C4 /* CATSMAT_TrigramSequences.cpp */; };
+		BA09FCB322C733A3001E1023 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DC1ED94599000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
+		BA09FCB422C733A3001E1023 /* CATSMAT_chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D51ED94599000C84C4 /* CATSMAT_chord.cpp */; };
+		BA09FCB522C733A3001E1023 /* CATSMAT_collectionvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D61ED94599000C84C4 /* CATSMAT_collectionvisitor.cpp */; };
+		BA09FCB622C733A3001E1023 /* CATSMAT_cp_matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D71ED94599000C84C4 /* CATSMAT_cp_matrix.cpp */; };
+		BA09FCB722C733A3001E1023 /* CATSMAT_dyad_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D81ED94599000C84C4 /* CATSMAT_dyad_sequences.cpp */; };
+		BA09FCB822C733A3001E1023 /* CATSMAT_dyadtuple_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9D91ED94599000C84C4 /* CATSMAT_dyadtuple_sequences.cpp */; };
+		BA09FCB922C733A3001E1023 /* CATSMAT_sonority_sequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DA1ED94599000C84C4 /* CATSMAT_sonority_sequences.cpp */; };
+		BA09FCBA22C733A3001E1023 /* CATSMAT_TrigramSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DB1ED94599000C84C4 /* CATSMAT_TrigramSequences.cpp */; };
+		BA09FCBB22C733A3001E1023 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9DC1ED94599000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp */; };
+		BA09FCBC22C733A8001E1023 /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9F22C5D6CB00EB37B4 /* Segment.cpp */; };
+		BA09FCBD22C733A8001E1023 /* SegmentContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDDA022C5D6CB00EB37B4 /* SegmentContext.cpp */; };
+		BA09FCBE22C733A8001E1023 /* Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9D22C5D6CA00EB37B4 /* Segmenter.cpp */; };
+		BA09FCBF22C733A8001E1023 /* SetOfSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9E22C5D6CA00EB37B4 /* SetOfSegment.cpp */; };
+		BA09FCC022C733A9001E1023 /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9F22C5D6CB00EB37B4 /* Segment.cpp */; };
+		BA09FCC122C733A9001E1023 /* SegmentContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDDA022C5D6CB00EB37B4 /* SegmentContext.cpp */; };
+		BA09FCC222C733A9001E1023 /* Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9D22C5D6CA00EB37B4 /* Segmenter.cpp */; };
+		BA09FCC322C733A9001E1023 /* SetOfSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9E22C5D6CA00EB37B4 /* SetOfSegment.cpp */; };
+		BA09FCC422C733AF001E1023 /* FP_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8922C5D768002E486E /* FP_Segmenter.cpp */; };
+		BA09FCC522C733AF001E1023 /* PartlistOrderedByPartEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8A22C5D768002E486E /* PartlistOrderedByPartEntry.cpp */; };
+		BA09FCC622C733AF001E1023 /* FP_SegmentedScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */; };
+		BA09FCC722C733AF001E1023 /* FP_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8922C5D768002E486E /* FP_Segmenter.cpp */; };
+		BA09FCC822C733AF001E1023 /* PartlistOrderedByPartEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8A22C5D768002E486E /* PartlistOrderedByPartEntry.cpp */; };
+		BA09FCC922C733AF001E1023 /* FP_SegmentedScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */; };
+		BA09FCCA22C733B3001E1023 /* LBDM_IntervalProfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9522C5D79B002E486E /* LBDM_IntervalProfile.cpp */; };
+		BA09FCCB22C733B3001E1023 /* LBDM_SegmentedNoteVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9722C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp */; };
+		BA09FCCC22C733B3001E1023 /* LBDM_SegmentedPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9922C5D79B002E486E /* LBDM_SegmentedPart.cpp */; };
+		BA09FCCD22C733B3001E1023 /* LBDM_SegmentedProfileVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9822C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp */; };
+		BA09FCCE22C733B3001E1023 /* LBDM_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9A22C5D79B002E486E /* LBDM_Segmenter.cpp */; };
+		BA09FCCF22C733B3001E1023 /* LBDM_WeightedStrengthVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9622C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp */; };
+		BA09FCD022C733B4001E1023 /* LBDM_IntervalProfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9522C5D79B002E486E /* LBDM_IntervalProfile.cpp */; };
+		BA09FCD122C733B4001E1023 /* LBDM_SegmentedNoteVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9722C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp */; };
+		BA09FCD222C733B4001E1023 /* LBDM_SegmentedPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9922C5D79B002E486E /* LBDM_SegmentedPart.cpp */; };
+		BA09FCD322C733B4001E1023 /* LBDM_SegmentedProfileVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9822C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp */; };
+		BA09FCD422C733B4001E1023 /* LBDM_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9A22C5D79B002E486E /* LBDM_Segmenter.cpp */; };
+		BA09FCD522C733B4001E1023 /* LBDM_WeightedStrengthVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9622C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp */; };
+		BA09FCD622C73530001E1023 /* libMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */; };
+		BA09FCD722C73575001E1023 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		BA09FCD822C73575001E1023 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
+		BA09FCD922C73578001E1023 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		BA09FCDA22C73579001E1023 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
+		BA09FCDC22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCDB22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp */; };
+		BA09FCDD22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCDB22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp */; };
+		BA09FCDE22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCDB22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp */; };
+		BA09FCDF22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCDB22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp */; };
+		BA09FCE022C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCDB22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp */; };
+		BA09FCE122C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCDB22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp */; };
+		BA09FCE722C73677001E1023 /* SegmentationApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCE522C73677001E1023 /* SegmentationApplication.cpp */; };
+		BA09FCE822C73677001E1023 /* SegmentationApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCE522C73677001E1023 /* SegmentationApplication.cpp */; };
+		BA09FCE922C73677001E1023 /* SegmenterMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCE622C73677001E1023 /* SegmenterMain.cpp */; };
+		BA09FCEA22C73677001E1023 /* SegmenterMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCE622C73677001E1023 /* SegmenterMain.cpp */; };
+		BA09FCEC22C73C0E001E1023 /* IMUSANT_mxmlv3_exceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = BA09FCEB22C73C0E001E1023 /* IMUSANT_mxmlv3_exceptions.h */; };
+		BA09FCEE22C73C4E001E1023 /* IMUSANT_imusant_to_musicxml_visitor.h in Headers */ = {isa = PBXBuildFile; fileRef = BA09FCED22C73C4E001E1023 /* IMUSANT_imusant_to_musicxml_visitor.h */; };
+		BA09FCF022C73C5C001E1023 /* IMUSANT_imusant_to_musicxml_visitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCEF22C73C5C001E1023 /* IMUSANT_imusant_to_musicxml_visitor.cpp */; };
+		BA09FCF222C73CEB001E1023 /* IMUSANT_marker_interval.h in Headers */ = {isa = PBXBuildFile; fileRef = BA09FCF122C73CEB001E1023 /* IMUSANT_marker_interval.h */; };
+		BA09FCF422C73D55001E1023 /* IMUSANT_marker_interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA09FCF322C73D55001E1023 /* IMUSANT_marker_interval.cpp */; };
+		BA09FCF522C73FBA001E1023 /* libMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */; };
+		BA85CC8B22C5D768002E486E /* FP_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8922C5D768002E486E /* FP_Segmenter.cpp */; };
+		BA85CC8C22C5D768002E486E /* PartlistOrderedByPartEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8A22C5D768002E486E /* PartlistOrderedByPartEntry.cpp */; };
+		BA85CC9B22C5D79B002E486E /* LBDM_IntervalProfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9522C5D79B002E486E /* LBDM_IntervalProfile.cpp */; };
+		BA85CC9C22C5D79B002E486E /* LBDM_IntervalProfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9522C5D79B002E486E /* LBDM_IntervalProfile.cpp */; };
+		BA85CC9D22C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9622C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp */; };
+		BA85CC9E22C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9622C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp */; };
+		BA85CC9F22C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9722C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp */; };
+		BA85CCA022C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9722C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp */; };
+		BA85CCA122C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9822C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp */; };
+		BA85CCA222C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9822C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp */; };
+		BA85CCA322C5D79B002E486E /* LBDM_SegmentedPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9922C5D79B002E486E /* LBDM_SegmentedPart.cpp */; };
+		BA85CCA422C5D79B002E486E /* LBDM_SegmentedPart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9922C5D79B002E486E /* LBDM_SegmentedPart.cpp */; };
+		BA85CCA522C5D79B002E486E /* LBDM_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9A22C5D79B002E486E /* LBDM_Segmenter.cpp */; };
+		BA85CCA622C5D79B002E486E /* LBDM_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9A22C5D79B002E486E /* LBDM_Segmenter.cpp */; };
+		BA85CD1E22C5DC2B002E486E /* MultiMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CCE122C5D933002E486E /* MultiMode.cpp */; };
+		BA85CD1F22C5DC2B002E486E /* SingleMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CCE222C5D933002E486E /* SingleMode.cpp */; };
+		BA85CD2022C5DC47002E486E /* libCommando.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85CD1522C5DC0E002E486E /* libCommando.a */; };
+		BA85CD2422C5DCD2002E486E /* libCommando.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85CD1522C5DC0E002E486E /* libCommando.a */; };
+		BA85CD2522C5DCD2002E486E /* libCommando.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85CD1522C5DC0E002E486E /* libCommando.a */; };
+		BA85CD2622C5DCD3002E486E /* libCommando.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85CD1522C5DC0E002E486E /* libCommando.a */; };
+		BA85CD2A22C5DD04002E486E /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
+		BA85CD2B22C5DD04002E486E /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
+		BA85CD2C22C5DD05002E486E /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
+		BA85CD2D22C5DD08002E486E /* libIMUSANT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */; };
+		BA85CD4322C5EC7C002E486E /* CATSMAT_canonic_techniques.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD4122C5EC7C002E486E /* CATSMAT_canonic_techniques.cpp */; };
+		BA85CD4422C5EC7C002E486E /* CATSMAT_canonic_techniques_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD4222C5EC7C002E486E /* CATSMAT_canonic_techniques_main.cpp */; };
+		BA85CD4E22C5ECBA002E486E /* CATSMAT_general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD4C22C5ECBA002E486E /* CATSMAT_general.cpp */; };
+		BA85CD4F22C5ECBA002E486E /* CATSMAT_general_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD4D22C5ECBA002E486E /* CATSMAT_general_main.cpp */; };
+		BA85CD5522C5EDCF002E486E /* CATSMAT_count.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD5122C5EDCF002E486E /* CATSMAT_count.cpp */; };
+		BA85CD5622C5EDCF002E486E /* CATSMAT_count_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD5222C5EDCF002E486E /* CATSMAT_count_main.cpp */; };
+		BA85CD5B22C5EF3B002E486E /* libMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */; };
+		BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		BAEDDD9122C5D67E00EB37B4 /* ContourSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */; };
+		BAEDDD9222C5D67E00EB37B4 /* ContourSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */; };
+		BAEDDD9322C5D67E00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8C22C5D67D00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp */; };
+		BAEDDD9422C5D67E00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8C22C5D67D00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp */; };
+		BAEDDD9522C5D67E00EB37B4 /* PitchSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8D22C5D67D00EB37B4 /* PitchSuffixtreeBuilder.cpp */; };
+		BAEDDD9622C5D67E00EB37B4 /* PitchSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8D22C5D67D00EB37B4 /* PitchSuffixtreeBuilder.cpp */; };
+		BAEDDD9722C5D67E00EB37B4 /* VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8E22C5D67D00EB37B4 /* VectorMapAnalysisTypes.cpp */; };
+		BAEDDD9822C5D67E00EB37B4 /* VectorMapAnalysisTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8E22C5D67D00EB37B4 /* VectorMapAnalysisTypes.cpp */; };
+		BAEDDD9922C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8F22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp */; };
+		BAEDDD9A22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8F22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp */; };
+		BAEDDD9B22C5D67E00EB37B4 /* TRepeatedSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9022C5D67E00EB37B4 /* TRepeatedSubstring.cpp */; };
+		BAEDDD9C22C5D67E00EB37B4 /* TRepeatedSubstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9022C5D67E00EB37B4 /* TRepeatedSubstring.cpp */; };
+		BAEDDDA122C5D6CB00EB37B4 /* Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9D22C5D6CA00EB37B4 /* Segmenter.cpp */; };
+		BAEDDDA222C5D6CB00EB37B4 /* Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9D22C5D6CA00EB37B4 /* Segmenter.cpp */; };
+		BAEDDDA322C5D6CB00EB37B4 /* SetOfSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9E22C5D6CA00EB37B4 /* SetOfSegment.cpp */; };
+		BAEDDDA422C5D6CB00EB37B4 /* SetOfSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9E22C5D6CA00EB37B4 /* SetOfSegment.cpp */; };
+		BAEDDDA522C5D6CB00EB37B4 /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9F22C5D6CB00EB37B4 /* Segment.cpp */; };
+		BAEDDDA622C5D6CB00EB37B4 /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD9F22C5D6CB00EB37B4 /* Segment.cpp */; };
+		BAEDDDA722C5D6CB00EB37B4 /* SegmentContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDDA022C5D6CB00EB37B4 /* SegmentContext.cpp */; };
+		BAEDDDA822C5D6CB00EB37B4 /* SegmentContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDDA022C5D6CB00EB37B4 /* SegmentContext.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -319,19 +511,26 @@
 			remoteGlobalIDString = 496EF6BB1B22B01600FE715F;
 			remoteInfo = libIMUSANT;
 		};
-		49C80DED1BA5239A00DCA903 /* PBXContainerItemProxy */ = {
+		BA09FC8E22C72C3D001E1023 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 49C80D8F1BA4E69400DCA903;
-			remoteInfo = libMusicXML3;
+			remoteInfo = MusicXML3;
 		};
-		49F59B901BAE6DF00030FFF1 /* PBXContainerItemProxy */ = {
+		BA85CD3622C5E89D002E486E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 496EF6BB1B22B01600FE715F;
-			remoteInfo = libIMUSANT;
+			remoteInfo = IMUSANT;
+		};
+		BA85CD3922C5E91B002E486E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49C80D8F1BA4E69400DCA903;
+			remoteInfo = MusicXML3;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -423,14 +622,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BA85CCE522C5DA88002E486E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		BA85CCF022C5DADC002E486E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		BA85CCFB22C5DB0A002E486E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		BA85CD0622C5DB1C002E486E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		BAA8D8961AABFBA30053ADE3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = usr/share/man/man1;
 			dstSubfolderSpec = 16;
 			files = (
-				49F59B8A1BAE6DD30030FFF1 /* libboost_filesystem.dylib in CopyFiles */,
-				49F59B8B1BAE6DD30030FFF1 /* libboost_system.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,26 +702,7 @@
 		1EDE2F1E1B3E763900DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures_WithQuaverPassingNotes.mscz; sourceTree = "<group>"; };
 		1EDE2F201B3E7CC900DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.mscz; sourceTree = "<group>"; };
 		1EDE2F211B3E7CD600DB1BD0 /* TestScore_4_Measures_WithSemiQuaverPassingNotes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestScore_4_Measures_WithSemiQuaverPassingNotes.xml; sourceTree = "<group>"; };
-		1EE7EAD11D44582C00F3D342 /* IMUSANT_mxmlv3_exceptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMUSANT_mxmlv3_exceptions.h; sourceTree = "<group>"; };
 		4920C16A1E13A0EC00577FC6 /* Kyrie_TwoPartsOnly.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie_TwoPartsOnly.xml; sourceTree = "<group>"; };
-		492905A81EECD8D700B0D5A7 /* IMUSANT_consolidated_interval_profile_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_consolidated_interval_profile_LBDM.h; sourceTree = "<group>"; };
-		492905A91EECD8D700B0D5A7 /* IMUSANT_consolidated_interval_profile_LBDM_visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_consolidated_interval_profile_LBDM_visitor.h; sourceTree = "<group>"; };
-		492905AA1EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval_profile_LBDM.h; sourceTree = "<group>"; };
-		492905AB1EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_LBDM_segmenter.h; sourceTree = "<group>"; };
-		492905AC1EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segmented_note_vectors.h; sourceTree = "<group>"; };
-		492905AD1EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segmented_part_LBDM.h; sourceTree = "<group>"; };
-		492905AE1EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segmented_profile_vectors.h; sourceTree = "<group>"; };
-		492905AF1EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_weighted_strength_vectors.h; sourceTree = "<group>"; };
-		492905B11EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_profile_LBDM.cpp; sourceTree = "<group>"; };
-		492905B21EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_LBDM_segmenter.cpp; sourceTree = "<group>"; };
-		492905B31EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_note_vectors.cpp; sourceTree = "<group>"; };
-		492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_part_LBDM.cpp; sourceTree = "<group>"; };
-		492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_profile_vectors.cpp; sourceTree = "<group>"; };
-		492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_weighted_strength_vectors.cpp; sourceTree = "<group>"; };
-		492905BF1EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_fixed_period_segmenter.h; sourceTree = "<group>"; };
-		492905C01EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_partlist_ordered_by_part_entry.h; sourceTree = "<group>"; };
-		492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_fixed_period_segmenter.cpp; sourceTree = "<group>"; };
-		492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_partlist_ordered_by_part_entry.cpp; sourceTree = "<group>"; };
 		492905D21EECDE9F00B0D5A7 /* Kyrie_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kyrie_2.xml; sourceTree = "<group>"; };
 		492905D41EECE52E00B0D5A7 /* FP_SegmentedScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FP_SegmentedScore.h; sourceTree = "<group>"; };
 		492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FP_SegmentedScore.cpp; sourceTree = "<group>"; };
@@ -500,29 +714,13 @@
 		4949DD281F2D6CD000248DA4 /* Machaut-Ma_fin_est_mon_commencement.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Machaut-Ma_fin_est_mon_commencement.xml"; sourceTree = "<group>"; };
 		4949DD291F2D6CD000248DA4 /* Ockeghem_Prenez_sur_moi_Cop.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ockeghem_Prenez_sur_moi_Cop.xml; sourceTree = "<group>"; };
 		494D25BC1BDAFEB900141228 /* MusicXML_ParserTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest1.xml; sourceTree = "<group>"; };
-		495434F31EE37E5000213203 /* IMUSANT_contour_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_contour_suffixtree_builder.h; sourceTree = "<group>"; };
-		495434F41EE37E5000213203 /* IMUSANT_generalised_interval_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_generalised_interval_suffixtree_builder.h; sourceTree = "<group>"; };
-		495434F51EE37E5000213203 /* IMUSANT_interval_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_interval_suffixtree_builder.h; sourceTree = "<group>"; };
-		495434F61EE37E5000213203 /* IMUSANT_pitch_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_pitch_suffixtree_builder.h; sourceTree = "<group>"; };
 		495434F71EE37E5000213203 /* RepeatedIntervalSubstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepeatedIntervalSubstring.h; sourceTree = "<group>"; };
-		495434F81EE37E5000213203 /* IMUSANT_SuffixTreeBuilder.tpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMUSANT_SuffixTreeBuilder.tpp; sourceTree = "<group>"; };
-		495434F91EE37E5000213203 /* IMUSANT_t_repeated_substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_repeated_substring.h; sourceTree = "<group>"; };
-		495434FA1EE37E5000213203 /* IMUSANT_t_suffixtree_builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_suffixtree_builder.h; sourceTree = "<group>"; };
-		495434FE1EE37E5C00213203 /* IMUSANT_contour_suffixtree_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_contour_suffixtree_builder.cpp; sourceTree = "<group>"; };
-		495434FF1EE37E5C00213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_generalised_interval_suffixtree_builder.cpp; sourceTree = "<group>"; };
-		495435001EE37E5C00213203 /* IMUSANT_interval_suffixtree_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_suffixtree_builder.cpp; sourceTree = "<group>"; };
-		495435011EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_pitch_suffixtree_builder.cpp; sourceTree = "<group>"; };
 		495435021EE37E5C00213203 /* RepeatedIntervalSubstring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RepeatedIntervalSubstring.cpp; sourceTree = "<group>"; };
-		495435031EE37E5C00213203 /* IMUSANT_t_repeated_substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_t_repeated_substring.cpp; sourceTree = "<group>"; };
-		495435041EE37E5C00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_VectorMapAnalysisTypes.cpp; sourceTree = "<group>"; };
 		495435371EE37FAB00213203 /* IMUSANT_interval_profile_LBDM_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_interval_profile_LBDM_Tests.cpp; sourceTree = "<group>"; };
 		495435381EE37FAB00213203 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_partlist_ordered_by_part_entry_Tests.cpp; sourceTree = "<group>"; };
 		495435391EE37FAB00213203 /* IMUSANT_segment_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segment_Tests.cpp; sourceTree = "<group>"; };
 		4954353B1EE37FAB00213203 /* IMUSANT_segmented_part_LBDM_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segmented_part_LBDM_Expected.h; sourceTree = "<group>"; };
 		4954353C1EE37FAB00213203 /* IMUSANT_segmented_part_LBDM_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segmented_part_LBDM_Tests.cpp; sourceTree = "<group>"; };
-		495435421EE380CF00213203 /* IMUSANT_t_vectormap_analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_vectormap_analysis.h; sourceTree = "<group>"; };
-		495435431EE380CF00213203 /* IMUSANT_t_vectormap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_t_vectormap.h; sourceTree = "<group>"; };
-		495435441EE380CF00213203 /* IMUSANT_vectormap_analysis_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_vectormap_analysis_types.h; sourceTree = "<group>"; };
 		495435731EE3B2E600213203 /* LBDM_Segmented_Part_Test_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBDM_Segmented_Part_Test_1.xml; sourceTree = "<group>"; };
 		495435741EE3B2E600213203 /* LBDM_Segmented_Part_Test_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBDM_Segmented_Part_Test_2.xml; sourceTree = "<group>"; };
 		495435751EE3B2E600213203 /* LBDM_Segmented_Part_Test_3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBDM_Segmented_Part_Test_3.xml; sourceTree = "<group>"; };
@@ -555,14 +753,9 @@
 		4970E02E1B76DD870052496C /* suffixtree_inter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suffixtree_inter.h; sourceTree = "<group>"; };
 		49714EF01C014EFE00C0A52C /* MusicXML_ParserTest2.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MusicXML_ParserTest2.xml; sourceTree = "<group>"; };
 		4973E9B91C50DA640086AB4A /* MusicXML_ParserTest3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MusicXML_ParserTest3.xml; sourceTree = "<group>"; };
-		497FE7A61EFF6E7D008F066B /* IMUSANT_segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_segment.h; sourceTree = "<group>"; };
-		497FE7A71EFF6E7D008F066B /* IMUSANT_set_of_segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_set_of_segment.h; sourceTree = "<group>"; };
-		497FE7A91EFF6E87008F066B /* IMUSANT_segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_segment.cpp; sourceTree = "<group>"; };
-		497FE7AA1EFF6E87008F066B /* IMUSANT_set_of_segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_set_of_segment.cpp; sourceTree = "<group>"; };
 		497FE7B31EFF7001008F066B /* SegmentContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentContext.h; sourceTree = "<group>"; };
 		497FE7B41EFF74D3008F066B /* I_SetOfSegment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = I_SetOfSegment.h; sourceTree = "<group>"; };
 		497FE7B51EFF763D008F066B /* I_Segment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = I_Segment.h; sourceTree = "<group>"; };
-		497FE7B61EFF8340008F066B /* SegmentContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentContext.cpp; sourceTree = "<group>"; };
 		497FE7B91EFF92F9008F066B /* I_Segmented.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = I_Segmented.h; sourceTree = "<group>"; };
 		498CFE521D7B019C006379F0 /* IMUSANT_transposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_transposer.h; sourceTree = "<group>"; };
 		498CFE531D7B01D3006379F0 /* IMUSANT_transposer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_transposer.cpp; sourceTree = "<group>"; };
@@ -938,7 +1131,7 @@
 		49C80D1D1BA4E5C900DCA903 /* xmlreader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = xmlreader.cpp; sourceTree = "<group>"; };
 		49C80D1E1BA4E5C900DCA903 /* xmlreader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xmlreader.h; sourceTree = "<group>"; };
 		49C80D201BA4E5C900DCA903 /* guido.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = guido.cpp; sourceTree = "<group>"; };
-		49C80D211BA4E5C900DCA903 /* guido.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = guido.h; sourceTree = "<group>"; };
+		49C80D211BA4E5C900DCA903 /* guido.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = guido.h; sourceTree = "<group>"; };
 		49C80D221BA4E5C900DCA903 /* xml2guidovisitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = xml2guidovisitor.cpp; sourceTree = "<group>"; };
 		49C80D231BA4E5C900DCA903 /* xml2guidovisitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xml2guidovisitor.h; sourceTree = "<group>"; };
 		49C80D241BA4E5C900DCA903 /* xmlpart2guido.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = xmlpart2guido.cpp; sourceTree = "<group>"; };
@@ -956,7 +1149,7 @@
 		49C80D321BA4E5C900DCA903 /* rational.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rational.h; sourceTree = "<group>"; };
 		49C80D331BA4E5C900DCA903 /* singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
 		49C80D341BA4E5C900DCA903 /* smartlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartlist.h; sourceTree = "<group>"; };
-		49C80D351BA4E5C900DCA903 /* smartpointer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smartpointer.h; sourceTree = "<group>"; };
+		49C80D351BA4E5C900DCA903 /* smartpointer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = smartpointer.h; sourceTree = "<group>"; };
 		49C80D361BA4E5C900DCA903 /* tree_browser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tree_browser.h; sourceTree = "<group>"; };
 		49C80D371BA4E5C900DCA903 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		49C80D391BA4E5C900DCA903 /* transposition.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = transposition.cpp; sourceTree = "<group>"; };
@@ -1024,7 +1217,7 @@
 		49C80D871BA4E5C900DCA903 /* xmlclone.vcproj */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = xmlclone.vcproj; sourceTree = "<group>"; };
 		49C80D891BA4E5C900DCA903 /* xmliter.vcproj */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = xmliter.vcproj; sourceTree = "<group>"; };
 		49C80D8B1BA4E5C900DCA903 /* xmlread.vcproj */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = xmlread.vcproj; sourceTree = "<group>"; };
-		49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = liblibMusicXML3.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libMusicXML3.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CDADA81ED8FE6E003D6095 /* Anon-Talent_mest_pris_I-IV_115.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Talent_mest_pris_I-IV_115.xml"; sourceTree = "<group>"; };
 		49D6903B1C8BC91900EF18F6 /* RepeatedIntervalSubstrings_SimpleTest1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RepeatedIntervalSubstrings_SimpleTest1.xml; sourceTree = "<group>"; };
 		49DA50031DCE87AB00AC1975 /* Josquin_MAF_Christe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Josquin_MAF_Christe.xml; sourceTree = "<group>"; };
@@ -1088,6 +1281,21 @@
 		96E2173C1E7A8DA900D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx"; path = "Finale/Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.musx"; sourceTree = "<group>"; };
 		96E2173D1E7A8DD100D603C2 /* Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Josquin-Missa_Lhomme_arme_super_voces_musicales-Agnus_dei_II.xml"; sourceTree = "<group>"; };
 		96E2173E1E7A949F00D603C2 /* CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_cp_matrix_Josquin_Missa_LHASVM_Expected.h; sourceTree = "<group>"; };
+		BA09FC3622C5F7E7001E1023 /* CATSMAT_repeats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_repeats.h; sourceTree = "<group>"; };
+		BA09FC3A22C5F7E7001E1023 /* CATSMAT_repeats_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_repeats_main.cpp; sourceTree = "<group>"; };
+		BA09FC3B22C5F7E7001E1023 /* CATSMAT_repeats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_repeats.cpp; sourceTree = "<group>"; };
+		BA09FC3E22C5FC5E001E1023 /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libboost_filesystem.dylib; sourceTree = "<group>"; };
+		BA09FC4022C5FC67001E1023 /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libboost_system.dylib; sourceTree = "<group>"; };
+		BA09FCDB22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CATSMAT_contrapuntal_scaffold.cpp; path = src/CATSMAT_contrapuntal_scaffold.cpp; sourceTree = "<group>"; };
+		BA09FCE222C73625001E1023 /* CATSMAT_contrapuntal_scaffold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_contrapuntal_scaffold.h; path = inc/CATSMAT_contrapuntal_scaffold.h; sourceTree = "<group>"; };
+		BA09FCE422C73677001E1023 /* SegmentationApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentationApplication.h; sourceTree = "<group>"; };
+		BA09FCE522C73677001E1023 /* SegmentationApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentationApplication.cpp; sourceTree = "<group>"; };
+		BA09FCE622C73677001E1023 /* SegmenterMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmenterMain.cpp; sourceTree = "<group>"; };
+		BA09FCEB22C73C0E001E1023 /* IMUSANT_mxmlv3_exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_mxmlv3_exceptions.h; sourceTree = "<group>"; };
+		BA09FCED22C73C4E001E1023 /* IMUSANT_imusant_to_musicxml_visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUSANT_imusant_to_musicxml_visitor.h; path = inc/IMUSANT_imusant_to_musicxml_visitor.h; sourceTree = "<group>"; };
+		BA09FCEF22C73C5C001E1023 /* IMUSANT_imusant_to_musicxml_visitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUSANT_imusant_to_musicxml_visitor.cpp; path = src/IMUSANT_imusant_to_musicxml_visitor.cpp; sourceTree = "<group>"; };
+		BA09FCF122C73CEB001E1023 /* IMUSANT_marker_interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_marker_interval.h; sourceTree = "<group>"; };
+		BA09FCF322C73D55001E1023 /* IMUSANT_marker_interval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_marker_interval.cpp; sourceTree = "<group>"; };
 		BA10A5D61DA74217000679C5 /* CATSMAT_scoredatacollector_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_scoredatacollector_tests.cpp; sourceTree = "<group>"; };
 		BA10A5D71DA74217000679C5 /* CATSMAT_scoredatacollector_tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_scoredatacollector_tests.h; sourceTree = "<group>"; };
 		BA33CBB61D6FD7A8001B7FF3 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Talent_mest_pris_I-IV_115_52r-.xml"; sourceTree = "<group>"; };
@@ -1186,6 +1394,55 @@
 		BA7E94351B2AA55700818128 /* TypeTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeTraits.h; sourceTree = "<group>"; };
 		BA7E94361B2AA55700818128 /* Visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Visitor.h; path = Loki/Visitor.h; sourceTree = SOURCE_ROOT; };
 		BA8068E41B27BC5700AEFB27 /* test_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test_files; sourceTree = "<group>"; };
+		BA85CC8522C5D757002E486E /* FP_Segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FP_Segmenter.h; sourceTree = "<group>"; };
+		BA85CC8622C5D757002E486E /* PartlistOrderedByPartEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartlistOrderedByPartEntry.h; sourceTree = "<group>"; };
+		BA85CC8922C5D768002E486E /* FP_Segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FP_Segmenter.cpp; sourceTree = "<group>"; };
+		BA85CC8A22C5D768002E486E /* PartlistOrderedByPartEntry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PartlistOrderedByPartEntry.cpp; sourceTree = "<group>"; };
+		BA85CC8D22C5D789002E486E /* LBDM_SegmentedNoteVectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBDM_SegmentedNoteVectors.h; sourceTree = "<group>"; };
+		BA85CC8E22C5D789002E486E /* LBDM_Segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBDM_Segmenter.h; sourceTree = "<group>"; };
+		BA85CC8F22C5D789002E486E /* LBDM_SegmentedProfileVectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBDM_SegmentedProfileVectors.h; sourceTree = "<group>"; };
+		BA85CC9022C5D789002E486E /* LBDM_ConsolidatedIntervalProfileVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBDM_ConsolidatedIntervalProfileVisitor.h; sourceTree = "<group>"; };
+		BA85CC9122C5D789002E486E /* LBDM_ConsolidatedIntervalProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBDM_ConsolidatedIntervalProfile.h; sourceTree = "<group>"; };
+		BA85CC9222C5D789002E486E /* LBDM_WeightedStrengthVectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBDM_WeightedStrengthVectors.h; sourceTree = "<group>"; };
+		BA85CC9322C5D789002E486E /* LBDM_SegmentedPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBDM_SegmentedPart.h; sourceTree = "<group>"; };
+		BA85CC9422C5D789002E486E /* LBDM_IntervalProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBDM_IntervalProfile.h; sourceTree = "<group>"; };
+		BA85CC9522C5D79B002E486E /* LBDM_IntervalProfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LBDM_IntervalProfile.cpp; sourceTree = "<group>"; };
+		BA85CC9622C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LBDM_WeightedStrengthVectors.cpp; sourceTree = "<group>"; };
+		BA85CC9722C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LBDM_SegmentedNoteVectors.cpp; sourceTree = "<group>"; };
+		BA85CC9822C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LBDM_SegmentedProfileVectors.cpp; sourceTree = "<group>"; };
+		BA85CC9922C5D79B002E486E /* LBDM_SegmentedPart.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LBDM_SegmentedPart.cpp; sourceTree = "<group>"; };
+		BA85CC9A22C5D79B002E486E /* LBDM_Segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LBDM_Segmenter.cpp; sourceTree = "<group>"; };
+		BA85CCCA22C5D933002E486E /* Flag.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Flag.hpp; sourceTree = "<group>"; };
+		BA85CCCB22C5D933002E486E /* Argument.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Argument.hpp; sourceTree = "<group>"; };
+		BA85CCCC22C5D933002E486E /* IO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IO.hpp; sourceTree = "<group>"; };
+		BA85CCCD22C5D933002E486E /* List.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
+		BA85CCCE22C5D933002E486E /* SingleMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SingleMode.hpp; sourceTree = "<group>"; };
+		BA85CCCF22C5D933002E486E /* ArgManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ArgManager.hpp; sourceTree = "<group>"; };
+		BA85CCD022C5D933002E486E /* Terminator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Terminator.hpp; sourceTree = "<group>"; };
+		BA85CCD122C5D933002E486E /* Switch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Switch.hpp; sourceTree = "<group>"; };
+		BA85CCD222C5D933002E486E /* Utilities.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utilities.hpp; sourceTree = "<group>"; };
+		BA85CCD322C5D933002E486E /* Exceptions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Exceptions.hpp; sourceTree = "<group>"; };
+		BA85CCD422C5D933002E486E /* Required.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Required.hpp; sourceTree = "<group>"; };
+		BA85CCD522C5D933002E486E /* MultiMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MultiMode.hpp; sourceTree = "<group>"; };
+		BA85CCD622C5D933002E486E /* Default.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Default.hpp; sourceTree = "<group>"; };
+		BA85CCD722C5D933002E486E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BA85CCDA22C5D933002E486E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BA85CCE122C5D933002E486E /* MultiMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MultiMode.cpp; sourceTree = "<group>"; };
+		BA85CCE222C5D933002E486E /* SingleMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SingleMode.cpp; sourceTree = "<group>"; };
+		BA85CCE722C5DA88002E486E /* count */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = count; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA85CCF222C5DADC002E486E /* repeats */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = repeats; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA85CCFD22C5DB0A002E486E /* Canonics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Canonics; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA85CD0822C5DB1C002E486E /* general */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = general; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA85CD1522C5DC0E002E486E /* libCommando.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCommando.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA85CD3D22C5EC7C002E486E /* CATSMAT_canonic_techniques.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_canonic_techniques.h; sourceTree = "<group>"; };
+		BA85CD4122C5EC7C002E486E /* CATSMAT_canonic_techniques.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_canonic_techniques.cpp; sourceTree = "<group>"; };
+		BA85CD4222C5EC7C002E486E /* CATSMAT_canonic_techniques_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_canonic_techniques_main.cpp; sourceTree = "<group>"; };
+		BA85CD4822C5ECBA002E486E /* CATSMAT_general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_general.h; sourceTree = "<group>"; };
+		BA85CD4C22C5ECBA002E486E /* CATSMAT_general.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_general.cpp; sourceTree = "<group>"; };
+		BA85CD4D22C5ECBA002E486E /* CATSMAT_general_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_general_main.cpp; sourceTree = "<group>"; };
+		BA85CD5122C5EDCF002E486E /* CATSMAT_count.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_count.cpp; sourceTree = "<group>"; };
+		BA85CD5222C5EDCF002E486E /* CATSMAT_count_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_count_main.cpp; sourceTree = "<group>"; };
+		BA85CD5422C5EDCF002E486E /* CATSMAT_count.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATSMAT_count.h; sourceTree = "<group>"; };
 		BA9637861D77ABB500AB5948 /* IMUSANT_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMUSANT_common.h; sourceTree = "<group>"; };
 		BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_filesystem.dylib; path = /usr/local/boost/lib/libboost_filesystem.dylib; sourceTree = "<absolute>"; };
 		BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = /usr/local/boost/lib/libboost_system.dylib; sourceTree = "<absolute>"; };
@@ -1194,6 +1451,28 @@
 		BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_element.h; sourceTree = "<group>"; };
 		BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_element.cpp; sourceTree = "<group>"; };
 		BABAE0E31E78D3A4002F0CDD /* Du_Fay-Inclita_stella_maris.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Inclita_stella_maris.xml"; sourceTree = "<group>"; };
+		BAEDDD8222C5D64800EB37B4 /* TVectorMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVectorMap.h; sourceTree = "<group>"; };
+		BAEDDD8322C5D64800EB37B4 /* TSuffixtreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSuffixtreeBuilder.h; sourceTree = "<group>"; };
+		BAEDDD8422C5D64800EB37B4 /* ContourSuffixtreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourSuffixtreeBuilder.h; sourceTree = "<group>"; };
+		BAEDDD8522C5D64800EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralisedIntervalSuffixtreeBuilder.h; sourceTree = "<group>"; };
+		BAEDDD8622C5D64900EB37B4 /* PitchSuffixtreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchSuffixtreeBuilder.h; sourceTree = "<group>"; };
+		BAEDDD8722C5D64900EB37B4 /* IntervalSuffixtreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalSuffixtreeBuilder.h; sourceTree = "<group>"; };
+		BAEDDD8822C5D64900EB37B4 /* VectorMapAnalysisTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorMapAnalysisTypes.h; sourceTree = "<group>"; };
+		BAEDDD8922C5D64900EB37B4 /* TVectorMapAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVectorMapAnalysis.h; sourceTree = "<group>"; };
+		BAEDDD8A22C5D64900EB37B4 /* TRepeatedSubstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRepeatedSubstring.h; sourceTree = "<group>"; };
+		BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContourSuffixtreeBuilder.cpp; sourceTree = "<group>"; };
+		BAEDDD8C22C5D67D00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneralisedIntervalSuffixtreeBuilder.cpp; sourceTree = "<group>"; };
+		BAEDDD8D22C5D67D00EB37B4 /* PitchSuffixtreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PitchSuffixtreeBuilder.cpp; sourceTree = "<group>"; };
+		BAEDDD8E22C5D67D00EB37B4 /* VectorMapAnalysisTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VectorMapAnalysisTypes.cpp; sourceTree = "<group>"; };
+		BAEDDD8F22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntervalSuffixtreeBuilder.cpp; sourceTree = "<group>"; };
+		BAEDDD9022C5D67E00EB37B4 /* TRepeatedSubstring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TRepeatedSubstring.cpp; sourceTree = "<group>"; };
+		BAEDDD9D22C5D6CA00EB37B4 /* Segmenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Segmenter.cpp; sourceTree = "<group>"; };
+		BAEDDD9E22C5D6CA00EB37B4 /* SetOfSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetOfSegment.cpp; sourceTree = "<group>"; };
+		BAEDDD9F22C5D6CB00EB37B4 /* Segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Segment.cpp; sourceTree = "<group>"; };
+		BAEDDDA022C5D6CB00EB37B4 /* SegmentContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentContext.cpp; sourceTree = "<group>"; };
+		BAEDDDA922C5D6FE00EB37B4 /* SetOfSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetOfSegment.h; sourceTree = "<group>"; };
+		BAEDDDAA22C5D6FE00EB37B4 /* Segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
+		BAEDDDAB22C5D6FE00EB37B4 /* Segmenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segmenter.h; sourceTree = "<group>"; };
 		BAFC77340A228FDB00A4FACD /* IMUSANT_note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_note.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		BAFC77350A228FDB00A4FACD /* IMUSANT_note.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_note.cpp; sourceTree = "<group>"; };
 		BAFC777E0A22939500A4FACD /* IMUSANT_chord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_chord.h; sourceTree = "<group>"; };
@@ -1216,7 +1495,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C80DE11BA4EFC100DCA903 /* liblibMusicXML3.dylib in Frameworks */,
 				1E450E171B7580A000BDF9EF /* libIMUSANT.dylib in Frameworks */,
 				1E450E181B7580A000BDF9EF /* gtest.framework in Frameworks */,
 				1E450E1A1B7580A000BDF9EF /* libboost_filesystem.dylib in Frameworks */,
@@ -1239,7 +1517,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C80DE01BA4EDED00DCA903 /* liblibMusicXML3.dylib in Frameworks */,
+				BA85CD5B22C5EF3B002E486E /* libMusicXML3.dylib in Frameworks */,
 				496EF6C81B22B04400FE715F /* libboost_filesystem.dylib in Frameworks */,
 				496EF6C91B22B04400FE715F /* libboost_system.dylib in Frameworks */,
 			);
@@ -1252,11 +1530,65 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BA85CCE422C5DA88002E486E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA09FC3322C5F713001E1023 /* libMusicXML3.dylib in Frameworks */,
+				BA09FC6622C60600001E1023 /* libboost_filesystem.dylib in Frameworks */,
+				BA09FC6722C60604001E1023 /* libboost_system.dylib in Frameworks */,
+				BA85CD2022C5DC47002E486E /* libCommando.a in Frameworks */,
+				BA85CD2A22C5DD04002E486E /* libIMUSANT.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA85CCEF22C5DADC002E486E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA85CD2422C5DCD2002E486E /* libCommando.a in Frameworks */,
+				BA85CD2B22C5DD04002E486E /* libIMUSANT.dylib in Frameworks */,
+				BA09FCD622C73530001E1023 /* libMusicXML3.dylib in Frameworks */,
+				BA09FCD722C73575001E1023 /* libboost_filesystem.dylib in Frameworks */,
+				BA09FCD922C73578001E1023 /* libboost_system.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA85CCFA22C5DB0A002E486E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA09FCF522C73FBA001E1023 /* libMusicXML3.dylib in Frameworks */,
+				BA09FCD822C73575001E1023 /* libboost_filesystem.dylib in Frameworks */,
+				BA09FCDA22C73579001E1023 /* libboost_system.dylib in Frameworks */,
+				BA85CD2C22C5DD05002E486E /* libIMUSANT.dylib in Frameworks */,
+				BA85CD2522C5DCD2002E486E /* libCommando.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA85CD0522C5DB1C002E486E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA85CD2622C5DCD3002E486E /* libCommando.a in Frameworks */,
+				BA85CD2D22C5DD08002E486E /* libIMUSANT.dylib in Frameworks */,
+				BA09FC8D22C6E837001E1023 /* libMusicXML3.dylib in Frameworks */,
+				BA09FC6822C607F7001E1023 /* libboost_filesystem.dylib in Frameworks */,
+				BA09FC6922C607FA001E1023 /* libboost_system.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA85CD1322C5DC0E002E486E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BAA8D8951AABFBA30053ADE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C80DE51BA51E5200DCA903 /* liblibMusicXML3.dylib in Frameworks */,
 				49C80DE41BA51E1B00DCA903 /* libIMUSANT.dylib in Frameworks */,
 				BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */,
 				BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */,
@@ -1269,8 +1601,11 @@
 		08FB7794FE84155DC02AAC07 /* imusant */ = {
 			isa = PBXGroup;
 			children = (
+				BA09FC4022C5FC67001E1023 /* libboost_system.dylib */,
+				BA09FC3E22C5FC5E001E1023 /* libboost_filesystem.dylib */,
 				BAA8D8991AABFBA30053ADE3 /* CATSMAT */,
 				496EF4C51B229D8100FE715F /* CATSMAT_Tests */,
+				BA85CCC822C5D933002E486E /* Commando */,
 				496EF6BD1B22B01700FE715F /* libIMUSANT */,
 				1E450E041B75806400BDF9EF /* libIMUSANT_Tests */,
 				49C80BFD1BA4E5C800DCA903 /* libMusicXMLv3 */,
@@ -1281,6 +1616,7 @@
 				C6859E8C029090F304C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 				96BC9F83133B09AF00A65384 /* External Frameworks and Libraries */,
+				BA85CD3422C5E429002E486E /* Frameworks */,
 			);
 			name = imusant;
 			sourceTree = "<group>";
@@ -1292,7 +1628,12 @@
 				496EF4C41B229D8100FE715F /* CATSMAT_Tests */,
 				496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */,
 				1E450E271B7580A000BDF9EF /* IMUSANT_Tests */,
-				49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */,
+				49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */,
+				BA85CCE722C5DA88002E486E /* count */,
+				BA85CCF222C5DADC002E486E /* repeats */,
+				BA85CCFD22C5DB0A002E486E /* Canonics */,
+				BA85CD0822C5DB1C002E486E /* general */,
+				BA85CD1522C5DC0E002E486E /* libCommando.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1359,6 +1700,7 @@
 		1E5218B21BAD00EA00FDACB8 /* MusicXML_v3 */ = {
 			isa = PBXGroup;
 			children = (
+				BA09FCEB22C73C0E001E1023 /* IMUSANT_mxmlv3_exceptions.h */,
 				1E5218B31BAD011F00FDACB8 /* inc */,
 				1E5218B41BAD012400FDACB8 /* src */,
 			);
@@ -1369,7 +1711,7 @@
 			isa = PBXGroup;
 			children = (
 				1E5218B51BAD029200FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.h */,
-				1EE7EAD11D44582C00F3D342 /* IMUSANT_mxmlv3_exceptions.h */,
+				BA09FCED22C73C4E001E1023 /* IMUSANT_imusant_to_musicxml_visitor.h */,
 			);
 			name = inc;
 			sourceTree = "<group>";
@@ -1378,6 +1720,7 @@
 			isa = PBXGroup;
 			children = (
 				1E5218B61BAD09E800FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp */,
+				BA09FCEF22C73C5C001E1023 /* IMUSANT_imusant_to_musicxml_visitor.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -1405,14 +1748,14 @@
 		492905A71EECD8D700B0D5A7 /* inc */ = {
 			isa = PBXGroup;
 			children = (
-				492905AB1EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.h */,
-				492905A81EECD8D700B0D5A7 /* IMUSANT_consolidated_interval_profile_LBDM.h */,
-				492905A91EECD8D700B0D5A7 /* IMUSANT_consolidated_interval_profile_LBDM_visitor.h */,
-				492905AA1EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.h */,
-				492905AC1EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.h */,
-				492905AD1EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.h */,
-				492905AE1EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.h */,
-				492905AF1EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.h */,
+				BA85CC9122C5D789002E486E /* LBDM_ConsolidatedIntervalProfile.h */,
+				BA85CC9022C5D789002E486E /* LBDM_ConsolidatedIntervalProfileVisitor.h */,
+				BA85CC9422C5D789002E486E /* LBDM_IntervalProfile.h */,
+				BA85CC8D22C5D789002E486E /* LBDM_SegmentedNoteVectors.h */,
+				BA85CC9322C5D789002E486E /* LBDM_SegmentedPart.h */,
+				BA85CC8F22C5D789002E486E /* LBDM_SegmentedProfileVectors.h */,
+				BA85CC8E22C5D789002E486E /* LBDM_Segmenter.h */,
+				BA85CC9222C5D789002E486E /* LBDM_WeightedStrengthVectors.h */,
 			);
 			path = inc;
 			sourceTree = "<group>";
@@ -1420,12 +1763,12 @@
 		492905B01EECD8D700B0D5A7 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				492905B11EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp */,
-				492905B21EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp */,
-				492905B31EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp */,
-				492905B41EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp */,
-				492905B51EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp */,
-				492905B61EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp */,
+				BA85CC9522C5D79B002E486E /* LBDM_IntervalProfile.cpp */,
+				BA85CC9722C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp */,
+				BA85CC9922C5D79B002E486E /* LBDM_SegmentedPart.cpp */,
+				BA85CC9822C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp */,
+				BA85CC9A22C5D79B002E486E /* LBDM_Segmenter.cpp */,
+				BA85CC9622C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1443,8 +1786,8 @@
 			isa = PBXGroup;
 			children = (
 				492905D41EECE52E00B0D5A7 /* FP_SegmentedScore.h */,
-				492905BF1EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.h */,
-				492905C01EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.h */,
+				BA85CC8522C5D757002E486E /* FP_Segmenter.h */,
+				BA85CC8622C5D757002E486E /* PartlistOrderedByPartEntry.h */,
 			);
 			path = inc;
 			sourceTree = "<group>";
@@ -1452,9 +1795,9 @@
 		492905C21EECD92300B0D5A7 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				BA85CC8922C5D768002E486E /* FP_Segmenter.cpp */,
+				BA85CC8A22C5D768002E486E /* PartlistOrderedByPartEntry.cpp */,
 				492905D51EECE55100B0D5A7 /* FP_SegmentedScore.cpp */,
-				492905C31EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp */,
-				492905C41EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1472,17 +1815,16 @@
 		495434F01EE37E1600213203 /* inc */ = {
 			isa = PBXGroup;
 			children = (
-				495435421EE380CF00213203 /* IMUSANT_t_vectormap_analysis.h */,
-				495435431EE380CF00213203 /* IMUSANT_t_vectormap.h */,
-				495435441EE380CF00213203 /* IMUSANT_vectormap_analysis_types.h */,
-				495434F31EE37E5000213203 /* IMUSANT_contour_suffixtree_builder.h */,
-				495434F41EE37E5000213203 /* IMUSANT_generalised_interval_suffixtree_builder.h */,
-				495434F51EE37E5000213203 /* IMUSANT_interval_suffixtree_builder.h */,
-				495434F61EE37E5000213203 /* IMUSANT_pitch_suffixtree_builder.h */,
+				BAEDDD8422C5D64800EB37B4 /* ContourSuffixtreeBuilder.h */,
+				BAEDDD8522C5D64800EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.h */,
+				BAEDDD8722C5D64900EB37B4 /* IntervalSuffixtreeBuilder.h */,
+				BAEDDD8622C5D64900EB37B4 /* PitchSuffixtreeBuilder.h */,
+				BAEDDD8A22C5D64900EB37B4 /* TRepeatedSubstring.h */,
+				BAEDDD8322C5D64800EB37B4 /* TSuffixtreeBuilder.h */,
+				BAEDDD8222C5D64800EB37B4 /* TVectorMap.h */,
+				BAEDDD8922C5D64900EB37B4 /* TVectorMapAnalysis.h */,
+				BAEDDD8822C5D64900EB37B4 /* VectorMapAnalysisTypes.h */,
 				495434F71EE37E5000213203 /* RepeatedIntervalSubstring.h */,
-				495434F81EE37E5000213203 /* IMUSANT_SuffixTreeBuilder.tpp */,
-				495434F91EE37E5000213203 /* IMUSANT_t_repeated_substring.h */,
-				495434FA1EE37E5000213203 /* IMUSANT_t_suffixtree_builder.h */,
 			);
 			path = inc;
 			sourceTree = "<group>";
@@ -1490,13 +1832,13 @@
 		495434F11EE37E1D00213203 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				495434FE1EE37E5C00213203 /* IMUSANT_contour_suffixtree_builder.cpp */,
-				495434FF1EE37E5C00213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp */,
-				495435001EE37E5C00213203 /* IMUSANT_interval_suffixtree_builder.cpp */,
-				495435011EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp */,
+				BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */,
+				BAEDDD8C22C5D67D00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp */,
+				BAEDDD8F22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp */,
+				BAEDDD8D22C5D67D00EB37B4 /* PitchSuffixtreeBuilder.cpp */,
+				BAEDDD9022C5D67E00EB37B4 /* TRepeatedSubstring.cpp */,
+				BAEDDD8E22C5D67D00EB37B4 /* VectorMapAnalysisTypes.cpp */,
 				495435021EE37E5C00213203 /* RepeatedIntervalSubstring.cpp */,
-				495435031EE37E5C00213203 /* IMUSANT_t_repeated_substring.cpp */,
-				495435041EE37E5C00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1504,6 +1846,7 @@
 		495434F21EE37E2700213203 /* Segmentation */ = {
 			isa = PBXGroup;
 			children = (
+				BA09FCE322C73677001E1023 /* Application */,
 				497FE7A81EFF6E87008F066B /* src */,
 				497FE7A51EFF6E7D008F066B /* inc */,
 				492905BD1EECD92300B0D5A7 /* FixedPeriodDetection */,
@@ -1633,6 +1976,7 @@
 				BA697FAC0AA50A60002DC3B2 /* IMUSANT_key.h */,
 				BAFC778E0A22949700A4FACD /* IMUSANT_part.h */,
 				BAFC77940A22952100A4FACD /* IMUSANT_partlist.h */,
+				BA09FCF122C73CEB001E1023 /* IMUSANT_marker_interval.h */,
 				BAFC779A0A22956E00A4FACD /* IMUSANT_score.h */,
 				9695B52F1DE082BE000586D0 /* IMUSANT_generalised_interval.h */,
 				965209890A4D1CBE006AFD81 /* IMUSANT_interval.h */,
@@ -1662,6 +2006,7 @@
 				BAFC778F0A22949700A4FACD /* IMUSANT_part.cpp */,
 				BAFC77950A22952100A4FACD /* IMUSANT_partlist.cpp */,
 				BAFC779B0A22956E00A4FACD /* IMUSANT_score.cpp */,
+				BA09FCF322C73D55001E1023 /* IMUSANT_marker_interval.cpp */,
 				9652098F0A4D1CD8006AFD81 /* IMUSANT_record.cpp */,
 				BA4462680A9196520033DB86 /* IMUSANT_contour_symbol.cpp */,
 				9695B5301DE0832C000586D0 /* IMUSANT_generalised_interval.cpp */,
@@ -1733,9 +2078,10 @@
 		497FE7A51EFF6E7D008F066B /* inc */ = {
 			isa = PBXGroup;
 			children = (
+				BAEDDDAA22C5D6FE00EB37B4 /* Segment.h */,
+				BAEDDDAB22C5D6FE00EB37B4 /* Segmenter.h */,
+				BAEDDDA922C5D6FE00EB37B4 /* SetOfSegment.h */,
 				497FE7B31EFF7001008F066B /* SegmentContext.h */,
-				497FE7A61EFF6E7D008F066B /* IMUSANT_segment.h */,
-				497FE7A71EFF6E7D008F066B /* IMUSANT_set_of_segment.h */,
 				497FE7B41EFF74D3008F066B /* I_SetOfSegment.h */,
 				497FE7B51EFF763D008F066B /* I_Segment.h */,
 				497FE7B91EFF92F9008F066B /* I_Segmented.h */,
@@ -1746,9 +2092,10 @@
 		497FE7A81EFF6E87008F066B /* src */ = {
 			isa = PBXGroup;
 			children = (
-				497FE7A91EFF6E87008F066B /* IMUSANT_segment.cpp */,
-				497FE7AA1EFF6E87008F066B /* IMUSANT_set_of_segment.cpp */,
-				497FE7B61EFF8340008F066B /* SegmentContext.cpp */,
+				BAEDDD9F22C5D6CB00EB37B4 /* Segment.cpp */,
+				BAEDDDA022C5D6CB00EB37B4 /* SegmentContext.cpp */,
+				BAEDDD9D22C5D6CA00EB37B4 /* Segmenter.cpp */,
+				BAEDDD9E22C5D6CA00EB37B4 /* SetOfSegment.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1914,6 +2261,7 @@
 		49BAF9CA1ED94572000C84C4 /* inc */ = {
 			isa = PBXGroup;
 			children = (
+				BA09FCE222C73625001E1023 /* CATSMAT_contrapuntal_scaffold.h */,
 				49BAF9CC1ED9458F000C84C4 /* CATSMAT_chord.h */,
 				49BAF9CD1ED9458F000C84C4 /* CATSMAT_collectionvisitor.h */,
 				49BAF9CE1ED9458F000C84C4 /* CATSMAT_cp_matrix.h */,
@@ -1932,6 +2280,7 @@
 			children = (
 				49BAF9D51ED94599000C84C4 /* CATSMAT_chord.cpp */,
 				49BAF9D61ED94599000C84C4 /* CATSMAT_collectionvisitor.cpp */,
+				BA09FCDB22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp */,
 				49BAF9D71ED94599000C84C4 /* CATSMAT_cp_matrix.cpp */,
 				49BAF9D81ED94599000C84C4 /* CATSMAT_dyad_sequences.cpp */,
 				49BAF9D91ED94599000C84C4 /* CATSMAT_dyadtuple_sequences.cpp */,
@@ -2730,6 +3079,43 @@
 			name = Finale;
 			sourceTree = "<group>";
 		};
+		BA09FC3422C5F7E7001E1023 /* repeats */ = {
+			isa = PBXGroup;
+			children = (
+				BA09FC3522C5F7E7001E1023 /* inc */,
+				BA09FC3922C5F7E7001E1023 /* src */,
+			);
+			name = repeats;
+			path = catsmat/repeats;
+			sourceTree = SOURCE_ROOT;
+		};
+		BA09FC3522C5F7E7001E1023 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				BA09FC3622C5F7E7001E1023 /* CATSMAT_repeats.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		BA09FC3922C5F7E7001E1023 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BA09FC3A22C5F7E7001E1023 /* CATSMAT_repeats_main.cpp */,
+				BA09FC3B22C5F7E7001E1023 /* CATSMAT_repeats.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		BA09FCE322C73677001E1023 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BA09FCE422C73677001E1023 /* SegmentationApplication.h */,
+				BA09FCE522C73677001E1023 /* SegmentationApplication.cpp */,
+				BA09FCE622C73677001E1023 /* SegmenterMain.cpp */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		BA10A5D41D979F33000679C5 /* CounterpointAnalysis */ = {
 			isa = PBXGroup;
 			children = (
@@ -2881,13 +3267,145 @@
 			path = Loki;
 			sourceTree = "<group>";
 		};
+		BA85CCC822C5D933002E486E /* Commando */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CCC922C5D933002E486E /* inc */,
+				BA85CCD722C5D933002E486E /* LICENSE */,
+				BA85CCDA22C5D933002E486E /* README.md */,
+				BA85CCE022C5D933002E486E /* src */,
+			);
+			path = Commando;
+			sourceTree = SOURCE_ROOT;
+		};
+		BA85CCC922C5D933002E486E /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CCCA22C5D933002E486E /* Flag.hpp */,
+				BA85CCCB22C5D933002E486E /* Argument.hpp */,
+				BA85CCCC22C5D933002E486E /* IO.hpp */,
+				BA85CCCD22C5D933002E486E /* List.hpp */,
+				BA85CCCE22C5D933002E486E /* SingleMode.hpp */,
+				BA85CCCF22C5D933002E486E /* ArgManager.hpp */,
+				BA85CCD022C5D933002E486E /* Terminator.hpp */,
+				BA85CCD122C5D933002E486E /* Switch.hpp */,
+				BA85CCD222C5D933002E486E /* Utilities.hpp */,
+				BA85CCD322C5D933002E486E /* Exceptions.hpp */,
+				BA85CCD422C5D933002E486E /* Required.hpp */,
+				BA85CCD522C5D933002E486E /* MultiMode.hpp */,
+				BA85CCD622C5D933002E486E /* Default.hpp */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		BA85CCE022C5D933002E486E /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CCE122C5D933002E486E /* MultiMode.cpp */,
+				BA85CCE222C5D933002E486E /* SingleMode.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		BA85CD3422C5E429002E486E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA85CD3B22C5EC7C002E486E /* canonic_techniques */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CD3C22C5EC7C002E486E /* inc */,
+				BA85CD4022C5EC7C002E486E /* src */,
+			);
+			name = canonic_techniques;
+			path = CATSMAT/canonic_techniques;
+			sourceTree = SOURCE_ROOT;
+		};
+		BA85CD3C22C5EC7C002E486E /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CD3D22C5EC7C002E486E /* CATSMAT_canonic_techniques.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		BA85CD4022C5EC7C002E486E /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CD4122C5EC7C002E486E /* CATSMAT_canonic_techniques.cpp */,
+				BA85CD4222C5EC7C002E486E /* CATSMAT_canonic_techniques_main.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		BA85CD4522C5ECA7002E486E /* count */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CD5322C5EDCF002E486E /* inc */,
+				BA85CD5022C5EDCF002E486E /* src */,
+			);
+			name = count;
+			path = catsmat/count;
+			sourceTree = SOURCE_ROOT;
+		};
+		BA85CD4622C5ECBA002E486E /* general */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CD4722C5ECBA002E486E /* inc */,
+				BA85CD4B22C5ECBA002E486E /* src */,
+			);
+			name = general;
+			path = catsmat/general;
+			sourceTree = SOURCE_ROOT;
+		};
+		BA85CD4722C5ECBA002E486E /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CD4822C5ECBA002E486E /* CATSMAT_general.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		BA85CD4B22C5ECBA002E486E /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CD4C22C5ECBA002E486E /* CATSMAT_general.cpp */,
+				BA85CD4D22C5ECBA002E486E /* CATSMAT_general_main.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		BA85CD5022C5EDCF002E486E /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CD5122C5EDCF002E486E /* CATSMAT_count.cpp */,
+				BA85CD5222C5EDCF002E486E /* CATSMAT_count_main.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		BA85CD5322C5EDCF002E486E /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				BA85CD5422C5EDCF002E486E /* CATSMAT_count.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
 		BAA8D8991AABFBA30053ADE3 /* CATSMAT */ = {
 			isa = PBXGroup;
 			children = (
 				495434EC1EE37DC400213203 /* Analysis */,
 				49B727B41C14184600FCF494 /* Application */,
+				BA85CD3B22C5EC7C002E486E /* canonic_techniques */,
+				BA85CD4522C5ECA7002E486E /* count */,
 				BA10A5D51D979F5F000679C5 /* GeneralAnalysis */,
+				BA85CD4622C5ECBA002E486E /* general */,
 				BA10A5D41D979F33000679C5 /* CounterpointAnalysis */,
+				BA09FC3422C5F7E7001E1023 /* repeats */,
 				495434F21EE37E2700213203 /* Segmentation */,
 				49BAF9F41ED94704000C84C4 /* Utilities */,
 			);
@@ -2915,32 +3433,33 @@
 			files = (
 				4959E1391CF13BE300FAC403 /* TRational.h in Headers */,
 				4959E1371CF13BE300FAC403 /* exports.h in Headers */,
-				4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */,
-				49BAF89E1ED90473000C84C4 /* IMUSANT_mxmlv3_to_imusant_visitor.h in Headers */,
 				49BAF8A31ED90575000C84C4 /* IMUSANT_comment.h in Headers */,
 				49BAF8A41ED90575000C84C4 /* IMUSANT_duration.h in Headers */,
 				49BAF8A91ED90575000C84C4 /* IMUSANT_barline.h in Headers */,
-				496EF6BF1B22B01700FE715F /* libIMUSANT.h in Headers */,
 				49BAF8B51ED90575000C84C4 /* IMUSANT_collectionvisitor.h in Headers */,
 				49BAF8B31ED90575000C84C4 /* IMUSANT_interval_vector.h in Headers */,
 				49BAF8A71ED90575000C84C4 /* IMUSANT_note.h in Headers */,
 				49BAF8AB1ED90575000C84C4 /* IMUSANT_measure.h in Headers */,
+				BA09FCEC22C73C0E001E1023 /* IMUSANT_mxmlv3_exceptions.h in Headers */,
 				49BAF8A01ED90575000C84C4 /* IMUSANT_element.h in Headers */,
 				49BAF8B21ED90575000C84C4 /* IMUSANT_contour_symbol.h in Headers */,
+				BA09FCEE22C73C4E001E1023 /* IMUSANT_imusant_to_musicxml_visitor.h in Headers */,
 				49BAF8A51ED90575000C84C4 /* IMUSANT_pitch.h in Headers */,
 				49BAF8A61ED90575000C84C4 /* IMUSANT_transposer.h in Headers */,
 				49BAF9501ED9213E000C84C4 /* IMUSANT_processing.h in Headers */,
 				49BAF8AF1ED90575000C84C4 /* IMUSANT_score.h in Headers */,
 				49BAF8AA1ED90575000C84C4 /* IMUSANT_record.h in Headers */,
 				49BAF8B41ED90575000C84C4 /* IMUSANT_visitor.h in Headers */,
-				49BAF89D1ED90470000C84C4 /* IMUSANT_mxmlv3_exceptions.h in Headers */,
 				49BAF8AE1ED90575000C84C4 /* IMUSANT_partlist.h in Headers */,
 				49BAF8A11ED90575000C84C4 /* IMUSANT_types.h in Headers */,
+				BA09FCF222C73CEB001E1023 /* IMUSANT_marker_interval.h in Headers */,
 				49BAF8B11ED90575000C84C4 /* IMUSANT_interval.h in Headers */,
 				49BAF8A21ED90575000C84C4 /* IMUSANT_common.h in Headers */,
 				49BAF8A81ED90575000C84C4 /* IMUSANT_chord.h in Headers */,
 				49BAF8AC1ED90575000C84C4 /* IMUSANT_key.h in Headers */,
+				496EF6BF1B22B01700FE715F /* libIMUSANT.h in Headers */,
 				49BAF8AD1ED90575000C84C4 /* IMUSANT_part.h in Headers */,
+				4959E1381CF13BE300FAC403 /* smartpointer.h in Headers */,
 				1E6C38D11BB662F80025BA7E /* IMUSANT_converters_shared_types.h in Headers */,
 				49BAF8B01ED90575000C84C4 /* IMUSANT_generalised_interval.h in Headers */,
 				49BAF89F1ED90575000C84C4 /* IMUSANT_conversions.h in Headers */,
@@ -2952,7 +3471,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49C80DB21BA4E77400DCA903 /* elements.h in Headers */,
-				49C80DB31BA4E77400DCA903 /* exports.h in Headers */,
 				49C80DB41BA4E77400DCA903 /* factory.h in Headers */,
 				49C80DB51BA4E77400DCA903 /* typedefs.h in Headers */,
 				49C80DB61BA4E77400DCA903 /* types.h in Headers */,
@@ -2976,7 +3494,6 @@
 				49C80DC81BA4E77500DCA903 /* rational.h in Headers */,
 				49C80DC91BA4E77500DCA903 /* singleton.h in Headers */,
 				49C80DCA1BA4E77500DCA903 /* smartlist.h in Headers */,
-				49C80DCB1BA4E77500DCA903 /* smartpointer.h in Headers */,
 				49C80DCC1BA4E77500DCA903 /* tree_browser.h in Headers */,
 				49C80DCD1BA4E77500DCA903 /* transposition.h in Headers */,
 				49C80DCE1BA4E77500DCA903 /* reader.h in Headers */,
@@ -2996,6 +3513,26 @@
 				49C80DDC1BA4E77700DCA903 /* visitable.h in Headers */,
 				49C80DDD1BA4E77700DCA903 /* visitor.h in Headers */,
 				49C80DDE1BA4E77700DCA903 /* xmlvisitor.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA85CD1122C5DC0E002E486E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA09FC2622C5F172001E1023 /* Flag.hpp in Headers */,
+				BA09FC2722C5F172001E1023 /* Argument.hpp in Headers */,
+				BA09FC2822C5F172001E1023 /* IO.hpp in Headers */,
+				BA09FC2922C5F172001E1023 /* List.hpp in Headers */,
+				BA09FC2A22C5F172001E1023 /* SingleMode.hpp in Headers */,
+				BA09FC2B22C5F172001E1023 /* ArgManager.hpp in Headers */,
+				BA09FC2C22C5F172001E1023 /* Terminator.hpp in Headers */,
+				BA09FC2D22C5F172001E1023 /* Switch.hpp in Headers */,
+				BA09FC2E22C5F172001E1023 /* Utilities.hpp in Headers */,
+				BA09FC2F22C5F172001E1023 /* Exceptions.hpp in Headers */,
+				BA09FC3022C5F172001E1023 /* Required.hpp in Headers */,
+				BA09FC3122C5F172001E1023 /* MultiMode.hpp in Headers */,
+				BA09FC3222C5F172001E1023 /* Default.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3039,54 +3576,140 @@
 			productReference = 496EF4C41B229D8100FE715F /* CATSMAT_Tests */;
 			productType = "com.apple.product-type.tool";
 		};
-		496EF6BB1B22B01600FE715F /* libIMUSANT */ = {
+		496EF6BB1B22B01600FE715F /* IMUSANT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 496EF6C41B22B01700FE715F /* Build configuration list for PBXNativeTarget "libIMUSANT" */;
+			buildConfigurationList = 496EF6C41B22B01700FE715F /* Build configuration list for PBXNativeTarget "IMUSANT" */;
 			buildPhases = (
+				496EF6BA1B22B01600FE715F /* Headers */,
 				496EF6B81B22B01600FE715F /* Sources */,
 				496EF6B91B22B01600FE715F /* Frameworks */,
-				496EF6BA1B22B01600FE715F /* Headers */,
 				49FB9BD01C7879A30008B46D /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				49C80DEE1BA5239A00DCA903 /* PBXTargetDependency */,
+				BA09FC8F22C72C3D001E1023 /* PBXTargetDependency */,
 			);
-			name = libIMUSANT;
+			name = IMUSANT;
 			productName = libIMUSANT;
 			productReference = 496EF6BC1B22B01600FE715F /* libIMUSANT.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
-		49C80D8F1BA4E69400DCA903 /* libMusicXML3 */ = {
+		49C80D8F1BA4E69400DCA903 /* MusicXML3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 49C80D911BA4E69400DCA903 /* Build configuration list for PBXNativeTarget "libMusicXML3" */;
+			buildConfigurationList = 49C80D911BA4E69400DCA903 /* Build configuration list for PBXNativeTarget "MusicXML3" */;
 			buildPhases = (
 				49C80D8C1BA4E69400DCA903 /* Sources */,
-				49C80D8D1BA4E69400DCA903 /* Frameworks */,
 				49C80D8E1BA4E69400DCA903 /* Headers */,
+				49C80D8D1BA4E69400DCA903 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = libMusicXML3;
+			name = MusicXML3;
 			productName = libMusicXML3;
-			productReference = 49C80D901BA4E69400DCA903 /* liblibMusicXML3.dylib */;
+			productReference = 49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
+		};
+		BA85CCE622C5DA88002E486E /* count */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA85CCEB22C5DA88002E486E /* Build configuration list for PBXNativeTarget "count" */;
+			buildPhases = (
+				BA85CCE322C5DA88002E486E /* Sources */,
+				BA85CCE422C5DA88002E486E /* Frameworks */,
+				BA85CCE522C5DA88002E486E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = count;
+			productName = count;
+			productReference = BA85CCE722C5DA88002E486E /* count */;
+			productType = "com.apple.product-type.tool";
+		};
+		BA85CCF122C5DADC002E486E /* repeats */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA85CCF622C5DADC002E486E /* Build configuration list for PBXNativeTarget "repeats" */;
+			buildPhases = (
+				BA85CCEE22C5DADC002E486E /* Sources */,
+				BA85CCEF22C5DADC002E486E /* Frameworks */,
+				BA85CCF022C5DADC002E486E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = repeats;
+			productName = repeats;
+			productReference = BA85CCF222C5DADC002E486E /* repeats */;
+			productType = "com.apple.product-type.tool";
+		};
+		BA85CCFC22C5DB0A002E486E /* Canonics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA85CD0122C5DB0A002E486E /* Build configuration list for PBXNativeTarget "Canonics" */;
+			buildPhases = (
+				BA85CCF922C5DB0A002E486E /* Sources */,
+				BA85CCFA22C5DB0A002E486E /* Frameworks */,
+				BA85CCFB22C5DB0A002E486E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Canonics;
+			productName = Canonics;
+			productReference = BA85CCFD22C5DB0A002E486E /* Canonics */;
+			productType = "com.apple.product-type.tool";
+		};
+		BA85CD0722C5DB1C002E486E /* general */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA85CD0C22C5DB1C002E486E /* Build configuration list for PBXNativeTarget "general" */;
+			buildPhases = (
+				BA85CD0422C5DB1C002E486E /* Sources */,
+				BA85CD0522C5DB1C002E486E /* Frameworks */,
+				BA85CD0622C5DB1C002E486E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = general;
+			productName = general;
+			productReference = BA85CD0822C5DB1C002E486E /* general */;
+			productType = "com.apple.product-type.tool";
+		};
+		BA85CD1422C5DC0E002E486E /* Commando */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA85CD1B22C5DC0E002E486E /* Build configuration list for PBXNativeTarget "Commando" */;
+			buildPhases = (
+				BA85CD1122C5DC0E002E486E /* Headers */,
+				BA85CD1222C5DC0E002E486E /* Sources */,
+				BA85CD1322C5DC0E002E486E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Commando;
+			productName = Commando;
+			productReference = BA85CD1522C5DC0E002E486E /* libCommando.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		BAA8D8971AABFBA30053ADE3 /* CATSMAT */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAA8D89C1AABFBA30053ADE3 /* Build configuration list for PBXNativeTarget "CATSMAT" */;
 			buildPhases = (
-				BAA8D8941AABFBA30053ADE3 /* Sources */,
 				BAA8D8951AABFBA30053ADE3 /* Frameworks */,
+				BAA8D8941AABFBA30053ADE3 /* Sources */,
 				BAA8D8961AABFBA30053ADE3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				49F59B911BAE6DF00030FFF1 /* PBXTargetDependency */,
+				BA85CD3A22C5E91B002E486E /* PBXTargetDependency */,
+				BA85CD3722C5E89D002E486E /* PBXTargetDependency */,
 			);
 			name = CATSMAT;
 			productName = CATSMAT;
@@ -3099,7 +3722,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 1010;
 				TargetAttributes = {
 					496EF4C31B229D8100FE715F = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -3109,6 +3732,26 @@
 					};
 					49C80D8F1BA4E69400DCA903 = {
 						CreatedOnToolsVersion = 6.3.1;
+					};
+					BA85CCE622C5DA88002E486E = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+					BA85CCF122C5DADC002E486E = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+					BA85CCFC22C5DB0A002E486E = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+					BA85CD0722C5DB1C002E486E = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+					BA85CD1422C5DC0E002E486E = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 					};
 					BAA8D8971AABFBA30053ADE3 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -3131,9 +3774,14 @@
 			targets = (
 				BAA8D8971AABFBA30053ADE3 /* CATSMAT */,
 				496EF4C31B229D8100FE715F /* CATSMAT_Tests */,
-				496EF6BB1B22B01600FE715F /* libIMUSANT */,
+				496EF6BB1B22B01600FE715F /* IMUSANT */,
 				1E450E051B7580A000BDF9EF /* libIMUSANT_Tests */,
-				49C80D8F1BA4E69400DCA903 /* libMusicXML3 */,
+				49C80D8F1BA4E69400DCA903 /* MusicXML3 */,
+				BA85CCE622C5DA88002E486E /* count */,
+				BA85CCF122C5DADC002E486E /* repeats */,
+				BA85CCFC22C5DB0A002E486E /* Canonics */,
+				BA85CD0722C5DB1C002E486E /* general */,
+				BA85CD1422C5DC0E002E486E /* Commando */,
 			);
 		};
 /* End PBXProject section */
@@ -3162,54 +3810,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				492905CD1EECD98400B0D5A7 /* IMUSANT_LBDM_segmenter.cpp in Sources */,
 				496EF4C71B229D8100FE715F /* main.cpp in Sources */,
-				495435641EE3B13200213203 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */,
-				492905C91EECD97E00B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp in Sources */,
 				49BAF9EF1ED945E4000C84C4 /* CATSMAT_dyad_sequences.cpp in Sources */,
-				492905CE1EECD98400B0D5A7 /* IMUSANT_segmented_note_vectors.cpp in Sources */,
 				49BAF9F31ED945E4000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
+				BA85CCA222C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp in Sources */,
 				49BAF9E81ED945D1000C84C4 /* CATSMAT_score_profile_special.cpp in Sources */,
 				495435591EE3B0BB00213203 /* CATSMAT_scoredatacollector_tests.cpp in Sources */,
 				49BAF9E71ED945D1000C84C4 /* CATSMAT_processing.cpp in Sources */,
 				49BAF9ED1ED945E4000C84C4 /* CATSMAT_collectionvisitor.cpp in Sources */,
-				492905CC1EECD98400B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
-				495435631EE3B13200213203 /* IMUSANT_interval_suffixtree_builder.cpp in Sources */,
-				492905D01EECD98400B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */,
-				497FE7AE1EFF6EA4008F066B /* IMUSANT_set_of_segment.cpp in Sources */,
+				BAEDDD9C22C5D67E00EB37B4 /* TRepeatedSubstring.cpp in Sources */,
 				495435601EE3B0D500213203 /* IMUSANT_segmented_part_LBDM_Tests.cpp in Sources */,
 				495435651EE3B13200213203 /* RepeatedIntervalSubstring.cpp in Sources */,
 				49BAF9EB1ED945D5000C84C4 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				49BAF9F21ED945E4000C84C4 /* CATSMAT_TrigramSequences.cpp in Sources */,
+				BA85CC9E22C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp in Sources */,
+				BA09FCDD22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */,
+				BA85CCA622C5D79B002E486E /* LBDM_Segmenter.cpp in Sources */,
 				492905D71EECE57100B0D5A7 /* FP_SegmentedScore.cpp in Sources */,
-				495435621EE3B13200213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */,
 				49BAF9F11ED945E4000C84C4 /* CATSMAT_sonority_sequences.cpp in Sources */,
 				492905D91EECE82900B0D5A7 /* FP_SegmentedScore_Tests.cpp in Sources */,
 				49BAF9E51ED945D1000C84C4 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
-				497FE7AD1EFF6EA0008F066B /* IMUSANT_segment.cpp in Sources */,
-				492905CF1EECD98400B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
-				495435661EE3B13200213203 /* IMUSANT_t_repeated_substring.cpp in Sources */,
-				497FE7B81EFF8340008F066B /* SegmentContext.cpp in Sources */,
+				BAEDDDA222C5D6CB00EB37B4 /* Segmenter.cpp in Sources */,
 				49BAF9F01ED945E4000C84C4 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
 				4954355A1EE3B0BF00213203 /* CATSMAT_trigramsequences_tests.cpp in Sources */,
+				BA85CCA022C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp in Sources */,
 				4954355D1EE3B0CA00213203 /* IMUSANT_partlist_ordered_by_part_entry_Tests.cpp in Sources */,
 				49BAF9EA1ED945D5000C84C4 /* CATSMAT_scoredata.cpp in Sources */,
+				BAEDDD9622C5D67E00EB37B4 /* PitchSuffixtreeBuilder.cpp in Sources */,
+				BA09FCEA22C73677001E1023 /* SegmenterMain.cpp in Sources */,
 				1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */,
+				BAEDDDA622C5D6CB00EB37B4 /* Segment.cpp in Sources */,
+				BA09FCE822C73677001E1023 /* SegmentationApplication.cpp in Sources */,
 				4954355C1EE3B0C700213203 /* IMUSANT_interval_profile_LBDM_Tests.cpp in Sources */,
 				495435551EE3B0A800213203 /* CATSMAT_cp_matrix_Test.cpp in Sources */,
-				492905CA1EECD97E00B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */,
+				BAEDDD9A22C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp in Sources */,
 				49BAF9E91ED945D5000C84C4 /* CATSMAT_score_splitter.cpp in Sources */,
 				495435581EE3B0B800213203 /* CATSMAT_sonority_sequences_Tests.cpp in Sources */,
 				495435561EE3B0AC00213203 /* CATSMAT_dyad_sequences_Test.cpp in Sources */,
-				495435611EE3B13200213203 /* IMUSANT_contour_suffixtree_builder.cpp in Sources */,
-				495435671EE3B13200213203 /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */,
-				492905D11EECD98400B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */,
+				BAEDDD9822C5D67E00EB37B4 /* VectorMapAnalysisTypes.cpp in Sources */,
+				BA85CC9C22C5D79B002E486E /* LBDM_IntervalProfile.cpp in Sources */,
+				BAEDDD9222C5D67E00EB37B4 /* ContourSuffixtreeBuilder.cpp in Sources */,
 				49BAF9E61ED945D1000C84C4 /* CATSMAT_partdata.cpp in Sources */,
 				4954355E1EE3B0CE00213203 /* IMUSANT_segment_Tests.cpp in Sources */,
 				4954355B1EE3B0C200213203 /* CATSMAT_canonic_techniques_tools_tests.cpp in Sources */,
 				49BAF9EC1ED945E4000C84C4 /* CATSMAT_chord.cpp in Sources */,
+				BA85CCA422C5D79B002E486E /* LBDM_SegmentedPart.cpp in Sources */,
+				BAEDDD9422C5D67E00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */,
+				BAEDDDA422C5D6CB00EB37B4 /* SetOfSegment.cpp in Sources */,
 				49BAF9EE1ED945E4000C84C4 /* CATSMAT_cp_matrix.cpp in Sources */,
 				495435571EE3B0B400213203 /* CATSMAT_dyadtuple_sequences_Tests.cpp in Sources */,
+				BAEDDDA822C5D6CB00EB37B4 /* SegmentContext.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3218,6 +3868,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96E688431D06DB7300A8D62E /* IMUSANT_conversions.cpp in Sources */,
+				BA09FCF022C73C5C001E1023 /* IMUSANT_imusant_to_musicxml_visitor.cpp in Sources */,
 				4959E13A1CF13BE300FAC403 /* smartpointer.cpp in Sources */,
 				4959E13B1CF13BE300FAC403 /* TRational.cpp in Sources */,
 				1E5218B81BAD0A1E00FDACB8 /* IMUSANT_mxmlv3_to_imusant_visitor.cpp in Sources */,
@@ -3228,6 +3879,7 @@
 				496EF6DE1B22B05500FE715F /* IMUSANT_types.cpp in Sources */,
 				496EF6DF1B22B05500FE715F /* IMUSANT_pitch.cpp in Sources */,
 				498CFE551D7B0991006379F0 /* IMUSANT_transposer.cpp in Sources */,
+				BA09FCF422C73D55001E1023 /* IMUSANT_marker_interval.cpp in Sources */,
 				496EF6E01B22B05500FE715F /* IMUSANT_duration.cpp in Sources */,
 				496EF6E11B22B05500FE715F /* IMUSANT_key.cpp in Sources */,
 				496EF6E21B22B05500FE715F /* IMUSANT_element.cpp in Sources */,
@@ -3282,45 +3934,240 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BA85CCE322C5DA88002E486E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA09FC6522C6056D001E1023 /* LBDM_WeightedStrengthVectors.cpp in Sources */,
+				BA09FC4422C5FF76001E1023 /* CATSMAT_scoredata.cpp in Sources */,
+				BA09FC5822C604ED001E1023 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
+				BA09FC4F22C604BC001E1023 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
+				BA09FC5322C604E0001E1023 /* CATSMAT_cp_matrix.cpp in Sources */,
+				BA85CD5622C5EDCF002E486E /* CATSMAT_count_main.cpp in Sources */,
+				BA09FC6122C6056D001E1023 /* LBDM_SegmentedNoteVectors.cpp in Sources */,
+				BA09FC4D22C5FFB2001E1023 /* VectorMapAnalysisTypes.cpp in Sources */,
+				BA09FC4C22C5FFAC001E1023 /* TRepeatedSubstring.cpp in Sources */,
+				BA09FC4922C5FFA5001E1023 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */,
+				BA09FC6422C6056D001E1023 /* LBDM_Segmenter.cpp in Sources */,
+				BA09FC5D22C60561001E1023 /* FP_Segmenter.cpp in Sources */,
+				BA85CD5522C5EDCF002E486E /* CATSMAT_count.cpp in Sources */,
+				BA09FC5422C604E3001E1023 /* CATSMAT_dyad_sequences.cpp in Sources */,
+				BA09FC6222C6056D001E1023 /* LBDM_SegmentedPart.cpp in Sources */,
+				BA09FC5E22C60563001E1023 /* PartlistOrderedByPartEntry.cpp in Sources */,
+				BA09FC4722C5FF88001E1023 /* CATSMAT_processing.cpp in Sources */,
+				BA09FC5522C604E5001E1023 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
+				BA09FC4322C5FF70001E1023 /* CATSMAT_partdata.cpp in Sources */,
+				BA09FC5022C604CA001E1023 /* CATSMAT_score_splitter.cpp in Sources */,
+				BA09FC5122C604DA001E1023 /* CATSMAT_chord.cpp in Sources */,
+				BA09FC6022C6056D001E1023 /* LBDM_IntervalProfile.cpp in Sources */,
+				BA09FC3F22C5FC5F001E1023 /* libboost_filesystem.dylib in Sources */,
+				BA09FC4A22C5FFA7001E1023 /* IntervalSuffixtreeBuilder.cpp in Sources */,
+				BA09FC6322C6056D001E1023 /* LBDM_SegmentedProfileVectors.cpp in Sources */,
+				BA09FC4122C5FC67001E1023 /* libboost_system.dylib in Sources */,
+				BA09FC5F22C60566001E1023 /* FP_SegmentedScore.cpp in Sources */,
+				BA09FC5222C604DD001E1023 /* CATSMAT_collectionvisitor.cpp in Sources */,
+				BA09FC4622C5FF85001E1023 /* CATSMAT_score_profile_special.cpp in Sources */,
+				BA09FC4522C5FF7A001E1023 /* CATSMAT_scoredatacollector.cpp in Sources */,
+				BA09FC5722C604EB001E1023 /* CATSMAT_TrigramSequences.cpp in Sources */,
+				BA09FC4B22C5FFAA001E1023 /* PitchSuffixtreeBuilder.cpp in Sources */,
+				BA09FC5A22C60554001E1023 /* SegmentContext.cpp in Sources */,
+				BA09FC5622C604E9001E1023 /* CATSMAT_sonority_sequences.cpp in Sources */,
+				BA09FC4E22C5FFB4001E1023 /* RepeatedIntervalSubstring.cpp in Sources */,
+				BA09FC5B22C60557001E1023 /* Segmenter.cpp in Sources */,
+				BA09FC5C22C60559001E1023 /* SetOfSegment.cpp in Sources */,
+				BA09FC4822C5FFA1001E1023 /* ContourSuffixtreeBuilder.cpp in Sources */,
+				BA09FCDE22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */,
+				BA09FC5922C60552001E1023 /* Segment.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA85CCEE22C5DADC002E486E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA09FCA022C73397001E1023 /* CATSMAT_processing.cpp in Sources */,
+				BA09FC9E22C73397001E1023 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
+				BA09FC3D22C5F7E7001E1023 /* CATSMAT_repeats.cpp in Sources */,
+				BA09FCB322C733A3001E1023 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
+				BA09FC9122C7338A001E1023 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */,
+				BA09FCAF22C733A3001E1023 /* CATSMAT_dyad_sequences.cpp in Sources */,
+				BA09FC9422C7338A001E1023 /* TRepeatedSubstring.cpp in Sources */,
+				BA09FCCE22C733B3001E1023 /* LBDM_Segmenter.cpp in Sources */,
+				BA09FCDF22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */,
+				BA09FCBC22C733A8001E1023 /* Segment.cpp in Sources */,
+				BA09FCA222C73397001E1023 /* CATSMAT_score_splitter.cpp in Sources */,
+				BA09FCC522C733AF001E1023 /* PartlistOrderedByPartEntry.cpp in Sources */,
+				BA09FCA322C73397001E1023 /* CATSMAT_scoredata.cpp in Sources */,
+				BA09FCA122C73397001E1023 /* CATSMAT_score_profile_special.cpp in Sources */,
+				BA09FCA422C73397001E1023 /* CATSMAT_scoredatacollector.cpp in Sources */,
+				BA09FC9022C7338A001E1023 /* ContourSuffixtreeBuilder.cpp in Sources */,
+				BA09FCBE22C733A8001E1023 /* Segmenter.cpp in Sources */,
+				BA09FC3C22C5F7E7001E1023 /* CATSMAT_repeats_main.cpp in Sources */,
+				BA09FCAE22C733A3001E1023 /* CATSMAT_cp_matrix.cpp in Sources */,
+				BA09FCB222C733A3001E1023 /* CATSMAT_TrigramSequences.cpp in Sources */,
+				BA09FCCF22C733B3001E1023 /* LBDM_WeightedStrengthVectors.cpp in Sources */,
+				BA09FCAC22C733A3001E1023 /* CATSMAT_chord.cpp in Sources */,
+				BA09FCB022C733A3001E1023 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
+				BA09FCB122C733A3001E1023 /* CATSMAT_sonority_sequences.cpp in Sources */,
+				BA09FCAD22C733A3001E1023 /* CATSMAT_collectionvisitor.cpp in Sources */,
+				BA09FC9522C7338A001E1023 /* VectorMapAnalysisTypes.cpp in Sources */,
+				BA09FCCD22C733B3001E1023 /* LBDM_SegmentedProfileVectors.cpp in Sources */,
+				BA09FC9622C7338A001E1023 /* RepeatedIntervalSubstring.cpp in Sources */,
+				BA09FCC422C733AF001E1023 /* FP_Segmenter.cpp in Sources */,
+				BA09FC9F22C73397001E1023 /* CATSMAT_partdata.cpp in Sources */,
+				BA09FCC622C733AF001E1023 /* FP_SegmentedScore.cpp in Sources */,
+				BA09FC9222C7338A001E1023 /* IntervalSuffixtreeBuilder.cpp in Sources */,
+				BA09FCBF22C733A8001E1023 /* SetOfSegment.cpp in Sources */,
+				BA09FCCA22C733B3001E1023 /* LBDM_IntervalProfile.cpp in Sources */,
+				BA09FCCC22C733B3001E1023 /* LBDM_SegmentedPart.cpp in Sources */,
+				BA09FC9322C7338A001E1023 /* PitchSuffixtreeBuilder.cpp in Sources */,
+				BA09FCCB22C733B3001E1023 /* LBDM_SegmentedNoteVectors.cpp in Sources */,
+				BA09FCBD22C733A8001E1023 /* SegmentContext.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA85CCF922C5DB0A002E486E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA09FCA722C73398001E1023 /* CATSMAT_processing.cpp in Sources */,
+				BA09FCA522C73398001E1023 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
+				BA85CD4322C5EC7C002E486E /* CATSMAT_canonic_techniques.cpp in Sources */,
+				BA09FCBB22C733A3001E1023 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
+				BA09FC9822C7338B001E1023 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */,
+				BA09FCB722C733A3001E1023 /* CATSMAT_dyad_sequences.cpp in Sources */,
+				BA09FC9B22C7338B001E1023 /* TRepeatedSubstring.cpp in Sources */,
+				BA09FCD422C733B4001E1023 /* LBDM_Segmenter.cpp in Sources */,
+				BA09FCE022C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */,
+				BA09FCC022C733A9001E1023 /* Segment.cpp in Sources */,
+				BA09FCA922C73398001E1023 /* CATSMAT_score_splitter.cpp in Sources */,
+				BA09FCC822C733AF001E1023 /* PartlistOrderedByPartEntry.cpp in Sources */,
+				BA09FCAA22C73398001E1023 /* CATSMAT_scoredata.cpp in Sources */,
+				BA09FCA822C73398001E1023 /* CATSMAT_score_profile_special.cpp in Sources */,
+				BA09FCAB22C73398001E1023 /* CATSMAT_scoredatacollector.cpp in Sources */,
+				BA09FC9722C7338B001E1023 /* ContourSuffixtreeBuilder.cpp in Sources */,
+				BA09FCC222C733A9001E1023 /* Segmenter.cpp in Sources */,
+				BA85CD4422C5EC7C002E486E /* CATSMAT_canonic_techniques_main.cpp in Sources */,
+				BA09FCB622C733A3001E1023 /* CATSMAT_cp_matrix.cpp in Sources */,
+				BA09FCBA22C733A3001E1023 /* CATSMAT_TrigramSequences.cpp in Sources */,
+				BA09FCD522C733B4001E1023 /* LBDM_WeightedStrengthVectors.cpp in Sources */,
+				BA09FCB422C733A3001E1023 /* CATSMAT_chord.cpp in Sources */,
+				BA09FCB822C733A3001E1023 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
+				BA09FCB922C733A3001E1023 /* CATSMAT_sonority_sequences.cpp in Sources */,
+				BA09FCB522C733A3001E1023 /* CATSMAT_collectionvisitor.cpp in Sources */,
+				BA09FC9C22C7338B001E1023 /* VectorMapAnalysisTypes.cpp in Sources */,
+				BA09FCD322C733B4001E1023 /* LBDM_SegmentedProfileVectors.cpp in Sources */,
+				BA09FC9D22C7338B001E1023 /* RepeatedIntervalSubstring.cpp in Sources */,
+				BA09FCC722C733AF001E1023 /* FP_Segmenter.cpp in Sources */,
+				BA09FCA622C73398001E1023 /* CATSMAT_partdata.cpp in Sources */,
+				BA09FCC922C733AF001E1023 /* FP_SegmentedScore.cpp in Sources */,
+				BA09FC9922C7338B001E1023 /* IntervalSuffixtreeBuilder.cpp in Sources */,
+				BA09FCC322C733A9001E1023 /* SetOfSegment.cpp in Sources */,
+				BA09FCD022C733B4001E1023 /* LBDM_IntervalProfile.cpp in Sources */,
+				BA09FCD222C733B4001E1023 /* LBDM_SegmentedPart.cpp in Sources */,
+				BA09FC9A22C7338B001E1023 /* PitchSuffixtreeBuilder.cpp in Sources */,
+				BA09FCD122C733B4001E1023 /* LBDM_SegmentedNoteVectors.cpp in Sources */,
+				BA09FCC122C733A9001E1023 /* SegmentContext.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA85CD0422C5DB1C002E486E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA09FC6F22C6E4F3001E1023 /* CATSMAT_scoredata.cpp in Sources */,
+				BA85CD4E22C5ECBA002E486E /* CATSMAT_general.cpp in Sources */,
+				BA09FC8C22C6E606001E1023 /* RepeatedIntervalSubstring.cpp in Sources */,
+				BA09FC8122C6E5CF001E1023 /* LBDM_SegmentedNoteVectors.cpp in Sources */,
+				BA09FC8222C6E5CF001E1023 /* LBDM_SegmentedPart.cpp in Sources */,
+				BA09FC6A22C6E4F3001E1023 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
+				BA09FC7A22C6E5BA001E1023 /* SegmentContext.cpp in Sources */,
+				BA09FC8522C6E5CF001E1023 /* LBDM_WeightedStrengthVectors.cpp in Sources */,
+				BA09FCE122C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */,
+				BA09FC6B22C6E4F3001E1023 /* CATSMAT_partdata.cpp in Sources */,
+				BA85CD4F22C5ECBA002E486E /* CATSMAT_general_main.cpp in Sources */,
+				BA09FC8A22C6E606001E1023 /* TRepeatedSubstring.cpp in Sources */,
+				BA09FC7D22C6E5C1001E1023 /* FP_Segmenter.cpp in Sources */,
+				BA09FC7422C6E566001E1023 /* CATSMAT_dyad_sequences.cpp in Sources */,
+				BA09FC8422C6E5CF001E1023 /* LBDM_Segmenter.cpp in Sources */,
+				BA09FC7322C6E566001E1023 /* CATSMAT_cp_matrix.cpp in Sources */,
+				BA09FC8722C6E606001E1023 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */,
+				BA09FC7522C6E566001E1023 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
+				BA09FC8922C6E606001E1023 /* PitchSuffixtreeBuilder.cpp in Sources */,
+				BA09FC8B22C6E606001E1023 /* VectorMapAnalysisTypes.cpp in Sources */,
+				BA09FC6D22C6E4F3001E1023 /* CATSMAT_score_profile_special.cpp in Sources */,
+				BA09FC7F22C6E5C1001E1023 /* FP_SegmentedScore.cpp in Sources */,
+				BA09FC7622C6E566001E1023 /* CATSMAT_sonority_sequences.cpp in Sources */,
+				BA09FC6E22C6E4F3001E1023 /* CATSMAT_score_splitter.cpp in Sources */,
+				BA09FC8322C6E5CF001E1023 /* LBDM_SegmentedProfileVectors.cpp in Sources */,
+				BA09FC7B22C6E5BA001E1023 /* Segmenter.cpp in Sources */,
+				BA09FC8022C6E5CF001E1023 /* LBDM_IntervalProfile.cpp in Sources */,
+				BA09FC7722C6E566001E1023 /* CATSMAT_TrigramSequences.cpp in Sources */,
+				BA09FC6C22C6E4F3001E1023 /* CATSMAT_processing.cpp in Sources */,
+				BA09FC7E22C6E5C1001E1023 /* PartlistOrderedByPartEntry.cpp in Sources */,
+				BA09FC7222C6E566001E1023 /* CATSMAT_collectionvisitor.cpp in Sources */,
+				BA09FC8622C6E606001E1023 /* ContourSuffixtreeBuilder.cpp in Sources */,
+				BA09FC7822C6E566001E1023 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
+				BA09FC8822C6E606001E1023 /* IntervalSuffixtreeBuilder.cpp in Sources */,
+				BA09FC7122C6E566001E1023 /* CATSMAT_chord.cpp in Sources */,
+				BA09FC7C22C6E5BA001E1023 /* SetOfSegment.cpp in Sources */,
+				BA09FC7022C6E4F3001E1023 /* CATSMAT_scoredatacollector.cpp in Sources */,
+				BA09FC7922C6E5BA001E1023 /* Segment.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA85CD1222C5DC0E002E486E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA85CD1F22C5DC2B002E486E /* SingleMode.cpp in Sources */,
+				BA85CD1E22C5DC2B002E486E /* MultiMode.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BAA8D8941AABFBA30053ADE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA85CC8B22C5D768002E486E /* FP_Segmenter.cpp in Sources */,
+				BA85CC8C22C5D768002E486E /* PartlistOrderedByPartEntry.cpp in Sources */,
 				49BAF9C31ED9456C000C84C4 /* CATSMAT_canonic_techniques_tools.cpp in Sources */,
 				49BAF9AE1ED9420D000C84C4 /* CATSMAT_main.cpp in Sources */,
+				BAEDDDA522C5D6CB00EB37B4 /* Segment.cpp in Sources */,
 				49BAF9C61ED9456C000C84C4 /* CATSMAT_score_profile_special.cpp in Sources */,
-				492905BB1EECD8D700B0D5A7 /* IMUSANT_segmented_profile_vectors.cpp in Sources */,
+				BAEDDD9322C5D67E00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */,
 				49BAF9C81ED9456C000C84C4 /* CATSMAT_scoredata.cpp in Sources */,
+				BA09FCDC22C7360E001E1023 /* CATSMAT_contrapuntal_scaffold.cpp in Sources */,
 				49BAF9C51ED9456C000C84C4 /* CATSMAT_processing.cpp in Sources */,
 				49BAF9E01ED94599000C84C4 /* CATSMAT_dyad_sequences.cpp in Sources */,
-				495435081EE37E5C00213203 /* IMUSANT_pitch_suffixtree_builder.cpp in Sources */,
-				495435471EE3A95400213203 /* IMUSANT_interval_suffixtree_builder.cpp in Sources */,
-				495435451EE3A95400213203 /* IMUSANT_contour_suffixtree_builder.cpp in Sources */,
+				BAEDDD9922C5D67E00EB37B4 /* IntervalSuffixtreeBuilder.cpp in Sources */,
+				BAEDDD9522C5D67E00EB37B4 /* PitchSuffixtreeBuilder.cpp in Sources */,
+				BA85CCA322C5D79B002E486E /* LBDM_SegmentedPart.cpp in Sources */,
+				BA85CCA522C5D79B002E486E /* LBDM_Segmenter.cpp in Sources */,
+				BAEDDDA722C5D6CB00EB37B4 /* SegmentContext.cpp in Sources */,
 				49BAF9DF1ED94599000C84C4 /* CATSMAT_cp_matrix.cpp in Sources */,
-				4954350A1EE37E5C00213203 /* IMUSANT_t_repeated_substring.cpp in Sources */,
+				BA09FCE922C73677001E1023 /* SegmenterMain.cpp in Sources */,
 				49BAF9E11ED94599000C84C4 /* CATSMAT_dyadtuple_sequences.cpp in Sources */,
-				495435461EE3A95400213203 /* IMUSANT_generalised_interval_suffixtree_builder.cpp in Sources */,
-				492905B91EECD8D700B0D5A7 /* IMUSANT_segmented_note_vectors.cpp in Sources */,
-				497FE7AC1EFF6E87008F066B /* IMUSANT_set_of_segment.cpp in Sources */,
 				49BAF9C91ED9456C000C84C4 /* CATSMAT_scoredatacollector.cpp in Sources */,
 				49BAF9E21ED94599000C84C4 /* CATSMAT_sonority_sequences.cpp in Sources */,
-				492905C61EECD92300B0D5A7 /* IMUSANT_fixed_period_segmenter.cpp in Sources */,
 				495435091EE37E5C00213203 /* RepeatedIntervalSubstring.cpp in Sources */,
-				492905C71EECD92300B0D5A7 /* IMUSANT_partlist_ordered_by_part_entry.cpp in Sources */,
-				495435541EE3B05A00213203 /* IMUSANT_VectorMapAnalysisTypes.cpp in Sources */,
+				BA85CC9D22C5D79B002E486E /* LBDM_WeightedStrengthVectors.cpp in Sources */,
+				BA09FCE722C73677001E1023 /* SegmentationApplication.cpp in Sources */,
 				49BAF9C71ED9456C000C84C4 /* CATSMAT_score_splitter.cpp in Sources */,
 				49BAF9E31ED94599000C84C4 /* CATSMAT_TrigramSequences.cpp in Sources */,
-				497FE7AB1EFF6E87008F066B /* IMUSANT_segment.cpp in Sources */,
 				492905D61EECE55100B0D5A7 /* FP_SegmentedScore.cpp in Sources */,
-				492905BC1EECD8D700B0D5A7 /* IMUSANT_weighted_strength_vectors.cpp in Sources */,
-				497FE7B71EFF8340008F066B /* SegmentContext.cpp in Sources */,
+				BA85CC9F22C5D79B002E486E /* LBDM_SegmentedNoteVectors.cpp in Sources */,
+				BA85CCA122C5D79B002E486E /* LBDM_SegmentedProfileVectors.cpp in Sources */,
+				BAEDDD9B22C5D67E00EB37B4 /* TRepeatedSubstring.cpp in Sources */,
+				BAEDDDA322C5D6CB00EB37B4 /* SetOfSegment.cpp in Sources */,
+				BAEDDD9122C5D67E00EB37B4 /* ContourSuffixtreeBuilder.cpp in Sources */,
 				49BAF9C41ED9456C000C84C4 /* CATSMAT_partdata.cpp in Sources */,
-				492905BA1EECD8D700B0D5A7 /* IMUSANT_segmented_part_LBDM.cpp in Sources */,
 				49BAF9DE1ED94599000C84C4 /* CATSMAT_collectionvisitor.cpp in Sources */,
 				49BAF9E41ED94599000C84C4 /* CATSMAT_TrigramSuffixTreeBuilder.cpp in Sources */,
-				492905B81EECD8D700B0D5A7 /* IMUSANT_LBDM_segmenter.cpp in Sources */,
 				49BAF9DD1ED94599000C84C4 /* CATSMAT_chord.cpp in Sources */,
-				492905B71EECD8D700B0D5A7 /* IMUSANT_interval_profile_LBDM.cpp in Sources */,
+				BAEDDD9722C5D67E00EB37B4 /* VectorMapAnalysisTypes.cpp in Sources */,
+				BA85CC9B22C5D79B002E486E /* LBDM_IntervalProfile.cpp in Sources */,
+				BAEDDDA122C5D6CB00EB37B4 /* Segmenter.cpp in Sources */,
 				49BAF9AF1ED9420D000C84C4 /* CATSMAT_menu.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3330,23 +4177,28 @@
 /* Begin PBXTargetDependency section */
 		1E450E081B7580A000BDF9EF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 496EF6BB1B22B01600FE715F /* libIMUSANT */;
+			target = 496EF6BB1B22B01600FE715F /* IMUSANT */;
 			targetProxy = 1E450E091B7580A000BDF9EF /* PBXContainerItemProxy */;
 		};
 		496EF7111B22E28800FE715F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 496EF6BB1B22B01600FE715F /* libIMUSANT */;
+			target = 496EF6BB1B22B01600FE715F /* IMUSANT */;
 			targetProxy = 496EF7101B22E28800FE715F /* PBXContainerItemProxy */;
 		};
-		49C80DEE1BA5239A00DCA903 /* PBXTargetDependency */ = {
+		BA09FC8F22C72C3D001E1023 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 49C80D8F1BA4E69400DCA903 /* libMusicXML3 */;
-			targetProxy = 49C80DED1BA5239A00DCA903 /* PBXContainerItemProxy */;
+			target = 49C80D8F1BA4E69400DCA903 /* MusicXML3 */;
+			targetProxy = BA09FC8E22C72C3D001E1023 /* PBXContainerItemProxy */;
 		};
-		49F59B911BAE6DF00030FFF1 /* PBXTargetDependency */ = {
+		BA85CD3722C5E89D002E486E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 496EF6BB1B22B01600FE715F /* libIMUSANT */;
-			targetProxy = 49F59B901BAE6DF00030FFF1 /* PBXContainerItemProxy */;
+			target = 496EF6BB1B22B01600FE715F /* IMUSANT */;
+			targetProxy = BA85CD3622C5E89D002E486E /* PBXContainerItemProxy */;
+		};
+		BA85CD3A22C5E91B002E486E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49C80D8F1BA4E69400DCA903 /* MusicXML3 */;
+			targetProxy = BA85CD3922C5E91B002E486E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3359,12 +4211,22 @@
 				BOOST_ROOT_INC_DIR = $BOOST_ROOT_DIR/include;
 				BOOST_ROOT_LIB_DIR = $BOOST_ROOT_DIR/lib;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -3401,12 +4263,22 @@
 				BOOST_ROOT_INC_DIR = $BOOST_ROOT_DIR/include;
 				BOOST_ROOT_LIB_DIR = $BOOST_ROOT_DIR/lib;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -3700,7 +4572,7 @@
 				LOKI_INC_DIR = "$(PROJECT_DIR)/Loki";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "lib$(TARGET_NAME)";
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -3757,7 +4629,7 @@
 				LOKI_INC_DIR = "$(PROJECT_DIR)/Loki";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "lib$(TARGET_NAME)";
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -3848,6 +4720,367 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA85CCEC22C5DA88002E486E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BA85CCED22C5DA88002E486E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA85CCF722C5DADC002E486E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BA85CCF822C5DADC002E486E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA85CD0222C5DB0A002E486E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BA85CD0322C5DB0A002E486E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA85CD0D22C5DB1C002E486E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BA85CD0E22C5DB1C002E486E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/boost/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA85CD1C22C5DC0E002E486E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BA85CD1D22C5DC0E002E486E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -3984,7 +5217,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		496EF6C41B22B01700FE715F /* Build configuration list for PBXNativeTarget "libIMUSANT" */ = {
+		496EF6C41B22B01700FE715F /* Build configuration list for PBXNativeTarget "IMUSANT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				496EF6C51B22B01700FE715F /* Debug */,
@@ -3993,11 +5226,56 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49C80D911BA4E69400DCA903 /* Build configuration list for PBXNativeTarget "libMusicXML3" */ = {
+		49C80D911BA4E69400DCA903 /* Build configuration list for PBXNativeTarget "MusicXML3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				49C80D921BA4E69400DCA903 /* Debug */,
 				49C80D931BA4E69400DCA903 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA85CCEB22C5DA88002E486E /* Build configuration list for PBXNativeTarget "count" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA85CCEC22C5DA88002E486E /* Debug */,
+				BA85CCED22C5DA88002E486E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA85CCF622C5DADC002E486E /* Build configuration list for PBXNativeTarget "repeats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA85CCF722C5DADC002E486E /* Debug */,
+				BA85CCF822C5DADC002E486E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA85CD0122C5DB0A002E486E /* Build configuration list for PBXNativeTarget "Canonics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA85CD0222C5DB0A002E486E /* Debug */,
+				BA85CD0322C5DB0A002E486E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA85CD0C22C5DB1C002E486E /* Build configuration list for PBXNativeTarget "general" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA85CD0D22C5DB1C002E486E /* Debug */,
+				BA85CD0E22C5DB1C002E486E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA85CD1B22C5DC0E002E486E /* Build configuration list for PBXNativeTarget "Commando" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA85CD1C22C5DC0E002E486E /* Debug */,
+				BA85CD1D22C5DC0E002E486E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

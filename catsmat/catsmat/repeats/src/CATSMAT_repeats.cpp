@@ -2,8 +2,8 @@
 // Created by Jason Stoessel on 27/08/2017.
 //
 #include <iostream>
-#include "repeats/inc/CATSMAT_repeats.h"
-#include "GeneralAnalysis/inc/CATSMAT_processing.h"
+#include "CATSMAT_repeats.h"
+#include "CATSMAT_processing.h"
 #include "IntervalSuffixtreeBuilder.h"
 #include "PitchSuffixtreeBuilder.h"
 #include "ContourSuffixtreeBuilder.h"

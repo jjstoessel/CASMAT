@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "49C80D8F1BA4E69400DCA903"
                BuildableName = "liblibMusicXML3.dylib"
-               BlueprintName = "libMusicXML3"
+               BlueprintName = "MusicXML3"
                ReferencedContainer = "container:catsmat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49C80D8F1BA4E69400DCA903"
             BuildableName = "liblibMusicXML3.dylib"
-            BlueprintName = "libMusicXML3"
+            BlueprintName = "MusicXML3"
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,7 +65,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49C80D8F1BA4E69400DCA903"
             BuildableName = "liblibMusicXML3.dylib"
-            BlueprintName = "libMusicXML3"
+            BlueprintName = "MusicXML3"
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

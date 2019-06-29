@@ -2,7 +2,7 @@
 // Created by Jason Stoessel on 2019-06-07.
 //
 
-#include "general/inc/CATSMAT_general.h"
+#include "CATSMAT_general.h"
 
 using namespace CATSMAT;
 

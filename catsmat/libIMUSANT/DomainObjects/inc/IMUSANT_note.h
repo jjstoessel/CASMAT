@@ -53,8 +53,8 @@ namespace IMUSANT
         void setPitch( const IMUSANT_pitch& pitch ) { *fPitch = pitch; }
         void setDuration( const IMUSANT_duration& dur ) { *fDuration = dur; }
         void setAccidental( const IMUSANT_accidental& acc ) { *fAccidental = acc; }
-        void setMeasureNum (const long measureNum) { fMeasureNumber = measureNum; }
-        void setNoteIndex (const long noteIndex) { fNoteIndex = noteIndex; }
+        void setMeasureNum (const int measureNum) { fMeasureNumber = measureNum; }
+        void setNoteIndex (const int noteIndex) { fNoteIndex = noteIndex; }
         void setNextTieNote (const S_IMUSANT_note& next);
         void setPreviousTieNote (const S_IMUSANT_note& previous);
         void setStyle( IMUSANT_NoteStyle::type style ) { fStyle = style; }
@@ -109,6 +109,16 @@ namespace IMUSANT
         
         static bool higher(const IMUSANT_note& note1, const IMUSANT_note& note2);
 
+        struct less_than
+        {
+        public:
+            bool operator( )(const IMUSANT_note& note1, const IMUSANT_note& note2) const {
+                    return (note1 < note2);
+            }
+            bool operator( )(const S_IMUSANT_note note1, const S_IMUSANT_note note2) const {
+                return (*note1 < *note2);
+            }
+        };
         
     private:
         

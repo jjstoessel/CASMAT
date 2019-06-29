@@ -7,7 +7,7 @@
 #include "CATSMAT_scoredatacollector.h"
 #include <fstream>
 
-namespace CATSMAT {
+using namespace CATSMAT;
 
 int CATSMAT_count::main() {
 
@@ -135,6 +135,4 @@ int CATSMAT_count::main() {
     }
 
     return 0;
-}
-
 }

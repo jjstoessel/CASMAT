@@ -2,7 +2,7 @@
 // Created by Jason Stoessel on 27/08/2017.
 //
 
-#include "repeats/inc/CATSMAT_repeats.h"
+#include "CATSMAT_repeats.h"
 
 using namespace CATSMAT;
 
