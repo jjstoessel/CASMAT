@@ -2317,5 +2317,84 @@
             endingLineNumber = "21">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/Application/CATSMAT_menu.cpp"
+            timestampString = "522135628.789491"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "452"
+            endingLineNumber = "452"
+            landmarkName = "CATSMAT_menu:: runToolsMenu(CATSMAT_processing* processor)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/Analysis/inc/IMUSANT_t_suffixtree_builder.h"
+            timestampString = "522136244.986641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "FindRepeatedSubstrings(int min_length)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::IMUSANT_T_SuffixTreeBuilder&lt;unsigned int, CATSMAT::CATSMAT_TrigramSequences&gt;::FindRepeatedSubstrings(int) const"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/CATSMAT/../catsmat/Analysis/inc/IMUSANT_t_suffixtree_builder.h"
+                  timestampString = "522136244.991308"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "2073">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::IMUSANT_T_SuffixTreeBuilder&lt;IMUSANT::IMUSANT_interval, IMUSANT::IMUSANT_processing&gt;::FindRepeatedSubstrings(int) const"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/CATSMAT/../catsmat/Analysis/inc/IMUSANT_t_suffixtree_builder.h"
+                  timestampString = "522136244.993343"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "2073">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CATSMAT::IMUSANT_T_SuffixTreeBuilder&lt;IMUSANT::IMUSANT_contour_symbol, IMUSANT::IMUSANT_processing&gt;::FindRepeatedSubstrings(int) const"
+                  moduleName = "CATSMAT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonstoessel/Documents/Development/CATSMAT/catsmat/CATSMAT/../catsmat/Analysis/inc/IMUSANT_t_suffixtree_builder.h"
+                  timestampString = "522136244.995047"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "2073">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
