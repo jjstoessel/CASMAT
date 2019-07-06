@@ -40,7 +40,7 @@ namespace IMUSANT
         IMUSANT_vector<S_IMUSANT_barline>&  barlines();
         void                                addBarline(const S_IMUSANT_barline& barline);
 
-        long				getMeasureNum() { return fMeasNum; }
+        int				    getMeasureNum() { return fMeasNum; }
         IMUSANT_clef&		getClef() { return fClef; }
         IMUSANT_time&		getTime() { return fTime; }
         IMUSANT_key&		getKey()  { return fKey; }
@@ -48,8 +48,9 @@ namespace IMUSANT
         void				setClef (const IMUSANT_clef& clef) { fClef = clef; }
         void				setTime (const IMUSANT_time&	time) { fTime = time; }
         void				setKey	(const IMUSANT_key&	key) { fKey = key; }
-        void				setMeasureNum (const long measureNum) { fMeasNum = measureNum; }  //implement error checking!!!
-        
+        void				setMeasureNum (const int measureNum) { fMeasNum = measureNum; }  //implement error checking!!!
+        void                setAttributes (S_IMUSANT_attributes attributes) { fAttributes = attributes; }
+
         void				print(ostream& os);
         
         void				accept(IMUSANT_visitor& visitor);
@@ -63,11 +64,13 @@ namespace IMUSANT
         IMUSANT_clef	fClef;
         IMUSANT_time	fTime;
         IMUSANT_key		fKey;
+        //new
+        S_IMUSANT_attributes fAttributes;
         
         IMUSANT_vector<S_IMUSANT_element>   fElements;  //  may be notes, chords, comments or barline
         IMUSANT_vector<S_IMUSANT_note>      fNotes;     //  convenience for getting at notes regardless of other elements.
         IMUSANT_vector<S_IMUSANT_barline>   fBarlines;  //  convenience for getting at barlines regardless of other elements.
-        long                                fMeasNum;
+        int                                 fMeasNum;
     };
     typedef IMUSANT_SMARTP<IMUSANT_measure>	S_IMUSANT_measure;
     IMUSANT_SMARTP<IMUSANT_measure> new_IMUSANT_measure();

@@ -49,7 +49,6 @@ namespace IMUSANT
 
         enum music_file_format {musicxml1, musicxml2, musicxml3, mei, unknown};
         music_file_format decideFileType(const filesystem::path& path);
-        S_IMUSANT_score processMusicxml1File(const filesystem::path& path);
         S_IMUSANT_score processMusicxml3File(const filesystem::path& path);
         
         // One score for each file that has been added.

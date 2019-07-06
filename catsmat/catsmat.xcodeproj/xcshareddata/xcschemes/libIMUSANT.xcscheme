@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "496EF6BB1B22B01600FE715F"
                BuildableName = "libIMUSANT.dylib"
-               BlueprintName = "libIMUSANT"
+               BlueprintName = "IMUSANT"
                ReferencedContainer = "container:catsmat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "496EF6BB1B22B01600FE715F"
             BuildableName = "libIMUSANT.dylib"
-            BlueprintName = "libIMUSANT"
+            BlueprintName = "IMUSANT"
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,7 +65,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "496EF6BB1B22B01600FE715F"
             BuildableName = "libIMUSANT.dylib"
-            BlueprintName = "libIMUSANT"
+            BlueprintName = "IMUSANT"
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

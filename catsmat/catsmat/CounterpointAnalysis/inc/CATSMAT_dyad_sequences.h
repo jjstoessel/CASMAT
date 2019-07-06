@@ -45,9 +45,7 @@ namespace CATSMAT
                                          const interval_tree::node& n,
                                          int min_length=2);
         
-        //vector<S_IMUSANT_interval_vector>   fVIntervalVectors; //needs to be tied to part/location
-        
-        long                                fSaveI = 0;
+        long fSaveI = 0;
         
     };
     

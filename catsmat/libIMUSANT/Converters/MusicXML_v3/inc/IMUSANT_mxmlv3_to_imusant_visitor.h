@@ -52,6 +52,7 @@ namespace IMUSANT
     public visitor<S_part_name>,
     public visitor<S_part_abbreviation>,
     public visitor<S_part>,
+    public visitor<S_attributes>,
     public visitor<S_divisions>,
     public visitor<S_voice>,
     public visitor<S_clef>,
@@ -72,6 +73,7 @@ namespace IMUSANT
     public visitor<S_note>,
     public visitor<S_rest>,
     public visitor<S_duration>,
+    public visitor<S_stem>,
     public visitor<S_fermata>,
     public visitor<S_type>,
     public visitor<S_dot>,
@@ -127,7 +129,8 @@ namespace IMUSANT
         virtual void visitStart( S_part& elt);
         virtual void visitStart( S_divisions& elt);
         virtual void visitStart( S_voice& elt);
-        
+
+        virtual void visitStart( S_attributes& elt);
         virtual void visitStart( S_clef& elt);
         virtual void visitStart( S_sign& elt);
         virtual void visitStart( S_line& elt);
@@ -158,6 +161,7 @@ namespace IMUSANT
         virtual void visitEnd( S_note& elt);
         virtual void visitStart( S_rest& elt);
         virtual void visitStart( S_duration& elt);
+        virtual void visitStart( S_stem& elt);
         
         virtual void visitStart( S_fermata& elt);
         
@@ -197,14 +201,15 @@ namespace IMUSANT
         S_IMUSANT_score     fImusantScore;
         
         S_IMUSANT_part      fCurrentPart;
-        long                fCurrentMeasureNumber;
+        int                 fCurrentMeasureNumber;
         S_IMUSANT_measure   fCurrentMeasure;
+        S_IMUSANT_attributes fCurrent_attributes;
         IMUSANT_clef        fCurrentClef;
         bool                fInChord = false;
         bool                fCurrentNoteInChord = false;
         S_IMUSANT_chord     fCurrentChord;
         S_IMUSANT_barline   fCurrentBarline;
-        long                fCurrentNoteIndex;
+        int                 fCurrentNoteIndex;
         ACCIDENTALMAP       fCurrentAccidentals;
         bool                fInKeyElement = false;
         IMUSANT_key         fCurrentKey;
@@ -216,10 +221,10 @@ namespace IMUSANT
         S_IMUSANT_note      fCurrentNote;
         S_IMUSANT_note      fPreviousNote;
         TRational           fCurrentNoteDurationType;
-        long                fCurrentNumberofDotsOnNote;
+        int                 fCurrentNumberofDotsOnNote;
         TRational           fCurrentNoteTimeModification;
         TRational           fCurrentNormalNoteDurationType;
-        long                fCurrentNormalNumberofDotsOnNote;
+        int                 fCurrentNormalNumberofDotsOnNote;
         bool                fInLyricElement = false;
         S_IMUSANT_lyric     fCurrentLyric;
         bool                fInPitchElement = false;

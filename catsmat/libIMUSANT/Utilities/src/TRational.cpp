@@ -68,7 +68,7 @@ namespace IMUSANT
         if (denom) fDenominator = atol(denom);
     }
     
-    TRational::TRational(long int num, long int denom) : fNumerator(num), fDenominator(denom)
+    TRational::TRational(long num, long denom) : fNumerator(num), fDenominator(denom)
     {
         // don't allow zero denominators!
         //if (fDenominator == 0) fDenominator = 1;
@@ -101,11 +101,11 @@ namespace IMUSANT
         //return ret;
     }
     
-    TRational TRational::operator *(int num) const {
+    TRational TRational::operator *(long num) const {
         return TRational(fNumerator * num, fDenominator);
     }
     
-    TRational TRational::operator /(int num) const {
+    TRational TRational::operator /(long num) const {
         return TRational(fNumerator, fDenominator * num);
     }
     
@@ -196,7 +196,7 @@ namespace IMUSANT
     }
     
     // gcd(a, b) calculates the gcd of a and b using Euclid's algorithm.
-    long int TRational::gcd(long int a1, long int b1)
+    long int TRational::gcd(long a1, long b1)
     {
         long int r;
         

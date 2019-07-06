@@ -58,6 +58,7 @@ set (CATSMAT_SEGMENTATION_LBDM_INC_DIR      	${CATSMAT_DIR}/Segmentation/LocalBo
 set (CATSMAT_SEGMENTATION_FIXED_INC_DIR      	${CATSMAT_DIR}/Segmentation/FixedPeriodDetection/inc)
 set (CATSMAT_UTILITIES_INC_DIR      			${CATSMAT_DIR}/Utilities)
 set (LIBIMUSNT_HEADER_DIR						${CMAKE_BINARY_DIR}/catsmat/libIMUSANT/cmake/libIMUSANT.framework/Headers)
+set (LIBMUSXML_HEADER_DIR                       ${CMAKE_BINARY_DIR}/catsmat/libMusicXMLv3/libmusicxml-3.00-src/cmake/libmusicxml2.framework/Headers)
 
 set (INCFOLDERS
 		${CATSMAT_ANALYSIS_INC_DIR}
@@ -72,6 +73,7 @@ set (INCFOLDERS
 		${LOKI_DIR}
 		${SUFFIX_TREE_DIR}
 		${LIBIMUSNT_HEADER_DIR}
+		${LIBMUSXML_HEADER_DIR}
 		)
 
 set(SRC ${SRC}
@@ -91,6 +93,7 @@ set(SRC ${SRC}
 		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_sonority_sequences.cpp
 		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_TrigramSequences.cpp
 		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_TrigramSuffixTreeBuilder.cpp
+		${CATSMAT_COUNTERPOINT_ANALYSIS_SRC_DIR}/CATSMAT_contrapuntal_scaffold.cpp
 
 		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_canonic_techniques_tools.cpp
 		${CATSMAT_GENERAL_ANALYSIS_SRC_DIR}/CATSMAT_partdata.cpp
@@ -140,6 +143,7 @@ set(HEADERS ${HEADERS}
         ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_sonority_sequences.h
         ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_TrigramSequences.h
         ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_TrigramSuffixTreeBuilder.h
+        ${CATSMAT_COUNTERPOINT_ANALYSIS_INC_DIR}/CATSMAT_contrapuntal_scaffold.h
 
         ${CATSMAT_GENERAL_ANALYSIS_INC_DIR}/CATSMAT_canonic_techniques_tools.h
         ${CATSMAT_GENERAL_ANALYSIS_INC_DIR}/CATSMAT_partdata.h

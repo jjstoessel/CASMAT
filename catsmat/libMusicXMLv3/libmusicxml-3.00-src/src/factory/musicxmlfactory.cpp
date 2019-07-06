@@ -159,7 +159,7 @@ Sxmlelement musicxmlfactory::newnote (const char* step, float alter, int octave,
 //------------------------------------------------------------------------
 Sxmlelement musicxmlfactory::newrest (int duration, const char* type)
 {
-	Sxmlelement elt = element(k_note);
+	Sxmlelement elt = element(k_rest);
 	if (duration) elt->push(element(k_duration, duration));
 	if (type) elt->push(element(k_type, type));
 	return elt;

@@ -46,7 +46,6 @@ namespace CATSMAT
         
     private:
         
-        vector<vector<int> >                fSimpleVIntervalVector;
         long                                fSaveI = 0;
     };
     

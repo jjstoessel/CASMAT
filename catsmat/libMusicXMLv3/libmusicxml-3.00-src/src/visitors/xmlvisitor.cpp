@@ -41,7 +41,8 @@ ostream& operator<< (ostream& os, const xmlendl& endl)
 void xmlendl::print(std::ostream& os) const { 
 	int i = fIndent;
     os << std::endl;
-    while (i-- > 0)  os << "    ";
+    while (i-- > 0)
+    	os << "    ";
 }
 
 //______________________________________________________________________________
@@ -82,7 +83,7 @@ void xmlvisitor::visitEnd ( Sxmlelement& elt )
 	if (!elt->empty()) {
 		if (elt->size()) {
 			fendl--;
-			cout << fendl;
+			fOut << fendl;
 		}
 		fOut << "</" << elt->getName() << ">";
 	}

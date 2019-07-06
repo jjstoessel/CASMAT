@@ -68,7 +68,7 @@ namespace IMUSANT
      objects that implements the \e addReference and \e removeReference
      methods in a consistent way).
      */
-    template<class T> class IMUSANT_SMARTP {
+    template<typename T> class IMUSANT_SMARTP {
     private:
         //! the actual pointer to the class
         T* fSmartPtr;

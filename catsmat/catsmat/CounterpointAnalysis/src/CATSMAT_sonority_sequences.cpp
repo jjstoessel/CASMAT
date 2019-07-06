@@ -29,7 +29,7 @@ namespace CATSMAT
     void
     sonority::print(ostream& os) const
     {
-        os << "( " << mMeasure << ", " << mIndex << ", " << mQuality << ")" << endl;
+        os << "(" << mMeasure << ", " << mIndex << ", " << mDuration << ", " << mQuality << ")" << endl;
     }
 
     ostream& operator<< (ostream& os, const sonority& elt )
@@ -50,49 +50,49 @@ namespace CATSMAT
     {
         if (!matrix.getCPmatrix().empty())
         {
-            
             for (list<S_CATSMAT_chord>::const_iterator chord = matrix.getCPmatrix().begin(); chord!=matrix.getCPmatrix().end(); chord++)
             {
                 //make a sorted copy of the chord by reversing key and value in templated utility
-                multimap<S_IMUSANT_note, int> sorted_chord = flip_map(*(S_CATSMAT_chord)*chord);
+                S_CATSMAT_chord the_chord = *chord;
+                multimap<S_IMUSANT_note, int> flipped_chord = flip_map(*the_chord);
+                //insert in order (lowest to highest) in a new multimap, using custom compare function
+                multimap<S_IMUSANT_note, int, IMUSANT_note::less_than> sorted_chord;
+                for ( auto i : flipped_chord)
+                {
+                    sorted_chord.insert(i);
+                }
+                
                 //storage for calculated sonority
                 sonority* s = new sonority();
-                //find lowest note in chord which can contain rests.
-                auto bass = sorted_chord.rbegin();
-            
-                while ( bass != sorted_chord.rend() && bass->first->getType()==IMUSANT_NoteType::rest)
+                //get lowest note and calculate all intervals with respect to it
+                auto bass = sorted_chord.begin();
+                //ensure bass is a note
+                while (bass->first->getType()==IMUSANT_NoteType::rest) bass++;
+                s->setDuration(bass->first->duration()->AsAbsoluteNumeric());
+                
+                auto note = bass;
+                for (note++;
+                     note != sorted_chord.end();
+                     note++)
                 {
-                    bass++;
+                    //chord (or sonority) quality is ORing interval quality so that
+                    //all perfect | perfect = 1; imperfect | imperfect = 2; perfect | imperfect = 3;  imperfect | dissonance = 4; perfect | disonance = 5; imperfect | dissonance = 6, and Perf|Imp|Dis = 7
+                    //this functionality needs to be moved soon to chord
+                    //an interval is between two notes!
+                    if (note->first->getType()!=IMUSANT_NoteType::rest)
+                    {
+                        IMUSANT_interval interval(note->first->pitch(), bass->first->pitch());
+                        s->setQuality(s->getQuality() | interval.getQuality());
+                        s->setLocation(bass->first->getMeasureNum(),  bass->first->getNoteIndex());
+                    }
+                   
                 }
             
-                if (bass!=sorted_chord.rend())
-                {
-            
-                    //start in the middle and move up
-                    auto note = bass;
-                    
-                    for (note++;
-                         note != sorted_chord.rend();
-                         note++)
-                    {
-                        //chord (or sonority) quality is ORing interval quality so that
-                        //all perfect | perfect = 1; perfect | imperfect = 3; perfect | disonance = 5; imperfect | dissonance = 6, and Perf|Imp|Dis = 7
-                        //this functionality needs to be moved soon to chord
-                        //an interval is between two notes!
-                        if (note->first->getType()!=IMUSANT_NoteType::rest && bass->first->getType()!=IMUSANT_NoteType::rest )
-                        {
-                            IMUSANT_interval interval(note->first->pitch(), bass->first->pitch());
-                            s->setQuality(s->getQuality() | interval.getQuality());
-                            s->setLocation(bass->first->getMeasureNum(),  bass->first->getNoteIndex());
-                        }
-                       
-                    }
-                
-                    //only add sonority if it has a quality
-                    //NB. chord_quality.quality < 4 are consonant
-                    if (s->getQuality()!=0 && s->getQuality() < 4) {
-                        vectors_.push_back(*s);
-                    }
+                //only add sonority if it has a quality
+                //NB. chord_quality.quality < 4 are consonant
+                //if (s->getQuality()!=0 && s->getQuality() < 4) {
+                if (s->getQuality()!=0) {
+                    vectors_.push_back(*s);
                 }
             }
         }
@@ -101,12 +101,14 @@ namespace CATSMAT
 
     void CATSMAT_sonority_sequences::Print(ostream& os) const
     {
-        os << "sonority types: ";
+        os << "sonority types (measure, index, duration, sonority type): " << endl;
         
         for (auto iter1 = vectors_.begin(); iter1 != vectors_.end(); iter1++)
         {
            os << *iter1; //uses tuple print member function
         }
+
+        cout << endl << "all perfect | perfect = 1; imperfect | imperfect = 2; perfect | imperfect = 3;  imperfect | dissonance = 4; perfect | disonance = 5; imperfect | dissonance = 6, and Perf|Imp|Dis = 7" << endl;
 
     }
 

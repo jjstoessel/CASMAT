@@ -180,6 +180,7 @@ namespace IMUSANT
             const string xml_1_1 = "DTD MusicXML 1.1";
             const string xml_2 = "DTD MusicXML 2.0";
             const string xml_3 = "DTD MusicXML 3.0";
+            const string xml_3_1 = "DTD MusicXML 3.1"; //todo: full support for 3.1 to be verified.
             
             bool found = false;
             string next_line;
@@ -208,6 +209,12 @@ namespace IMUSANT
                     found = true;
                     return_val = musicxml3;
                 }
+                else if (next_line.find(xml_3_1) != string::npos)
+                {
+                    found = true;
+                    return_val = musicxml3;
+                }
+
             }
             
             music_file.close();

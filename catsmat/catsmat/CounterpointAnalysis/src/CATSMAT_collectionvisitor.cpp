@@ -85,7 +85,7 @@ namespace CATSMAT
     #pragma mark IMUSANT_score handler
     void CATSMAT_collection_visitor::visit ( S_IMUSANT_score& elt )
     {
-        if (fCPMatrix==NULL)
+        if (fCPMatrix==nullptr)
         {
             fCPMatrix = new_CATSMAT_object<CATSMAT_cp_matrix>();
             fCPMatrix->set(elt);

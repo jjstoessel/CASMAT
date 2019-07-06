@@ -13,7 +13,7 @@ if(UNIX)
 endif(UNIX)
 
 if(APPLE)
-    set(CMAKE_OSX_DEPLOYMENT_TARGET=10.5)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET=10.10)
     set(MACOSX_RPATH ON)
 endif(APPLE)
 
@@ -25,6 +25,13 @@ if(WIN32)
   add_definitions(-DVC2005)
  endif(${CMAKE_GENERATOR} STREQUAL "Visual Studio 6")
 endif(WIN32)
+
+###############  ENSURE DEBUG SYMBOLS ###################
+#if(DEBUG)
+	set(CMAKE_BUILD_TYPE Debug)
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
+	set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
+#endif()
 
 #######################################
 # set library target
@@ -102,7 +109,7 @@ endif(MSVC)
 
 if(UNIX)
 	add_library(${target} ${LIBCONTENT})
-else(UNIX )
+else(UNIX)
 	add_library(${target} SHARED ${LIBCONTENT})
 endif(UNIX)
 

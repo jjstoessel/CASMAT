@@ -61,8 +61,7 @@ namespace CATSMAT
     class CATSMAT_TrigramSequences : public CATSMAT_dyad_sequences_base<Sentence>, public BaseVisitable<void, DefaultCatchAll, true>
     {
     public:
-        
-        //typedef unsigned int                Token;      //a token is a compressed representation of a trigram
+
         typedef std::array<signed int,3>    Trigram;    //a trigram is the two vertical intervals and the step in the lower voice
         typedef std::vector<Trigram>        Sentence;   //a sentence is a sequence of trigrams for a voice pair
         typedef std::vector<vector<Token> > TokenVectors;
@@ -88,10 +87,11 @@ namespace CATSMAT
         void    PrintTokens(ostream& os) const;
         
         TokenVectors   get_tokens() const { return tokens_; }
-        
+        const map<int, string> &getVoicePairLabels() const;
+
     private:
-        TokenVectors        tokens_;
-        map<int, string>    voice_pair_labels_;
+        TokenVectors        tokens_; //vector of Token vectors
+        map<int, string>    voice_pair_labels_; //index of vocal pairs, corresponding in order to tokens_
 
         void                Process(const list<S_CATSMAT_chord>& matrix); //overrides base class
         void                MakePartNamesIndex();
@@ -104,7 +104,9 @@ namespace CATSMAT
     };
     
     //Visitor class to Trigram Sequences to extract trigram profile as all tokens from all sequences
-    class CATSMAT_TrigramInformation : public BaseVisitor, public Visitor<CATSMAT_TrigramSequences, void, true>
+    class CATSMAT_TrigramInformation :
+        public BaseVisitor,
+        public Visitor<CATSMAT_TrigramSequences, void, true>
     {
     public:
         typedef map<Token,int> PROFILE;
@@ -115,6 +117,7 @@ namespace CATSMAT
         ~CATSMAT_TrigramInformation() {}
         
         void Visit(const CATSMAT_TrigramSequences& sequences);
+        void addTokens(const vector<Token>& token_sentence);
         void Print(ostream& os) const;
         PROFILE& token_count() { return token_count_; }
         

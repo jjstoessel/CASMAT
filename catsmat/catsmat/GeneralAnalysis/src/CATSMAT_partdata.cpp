@@ -11,7 +11,6 @@
 
 namespace CATSMAT {
     
-    
     CATSMAT_partdata::CATSMAT_partdata()
     {
         fLastPitch = new_IMUSANT_pitch();
@@ -60,7 +59,15 @@ namespace CATSMAT {
                             fContourSymbolDupleProfile[contour_pair] = fContourSymbolDupleProfile[contour_pair] + 1;
                             
                         }
-                        
+
+                        //add pitches forming horizontal interval to profile
+                        if (fLastPitch->name()!=IMUSANT_pitch::type::undefined)
+                        {
+                            pair<IMUSANT_pitch,IMUSANT_pitch> interval_pitches(*fLastPitch, *note->pitch());
+                            fHIntervalPitchProfile[interval_pitches] = fHIntervalPitchProfile[interval_pitches] +1 ; //map<pair<IMUSANT_pitch,IMUSANT_pitch>,int>
+                        }
+
+                        //set records for next iteration
                         fLastContour = contour_symbol;
                         *fLastPitch=*note->pitch();
                     }
@@ -82,6 +89,7 @@ namespace CATSMAT {
         print_interval_profile(os);
         print_duration_profile(os);
         print_pitch_profile(os);
+        print_interval_pitch_matrix(os);
     }
     
     void
@@ -109,6 +117,33 @@ namespace CATSMAT {
     CATSMAT_partdata::print_pitch_profile(ostream& os)
     {
         
+    }
+
+    void
+    CATSMAT_partdata::print_interval_pitch_matrix(ostream& os)
+    {
+        os << "Printing interval print matrix form pitch in vertical axis, to pitch in horizontal axis." << endl << endl;
+
+        //map<pair<IMUSANT_pitch,IMUSANT_pitch>,int> fHIntervalPitchProfile;
+
+        for (auto pitch_count : fPitchProfile)
+        {
+            os << "\t" << pitch_count.first;
+        }
+
+        os << endl;
+
+        for (auto from_pitch_count : fPitchProfile)
+        {
+            os << from_pitch_count.first;
+
+            for (auto to_pitch_count : fPitchProfile)
+            {
+                os << "\t" << fHIntervalPitchProfile[make_pair(from_pitch_count.first,to_pitch_count.first)];
+            }
+
+            os << endl;
+        }
     }
 
 }

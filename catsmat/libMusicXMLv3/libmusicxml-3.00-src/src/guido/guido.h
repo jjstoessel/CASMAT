@@ -28,7 +28,7 @@
 #include <string>
 
 #include "exports.h"
-#include "smartpointer.h"
+#include "lib/smartpointer.h"
 
 namespace MusicXML2 
 {

@@ -81,18 +81,19 @@ namespace CATSMAT
                 {
                     for (int j=i; ++j<next_chord_size; /*nothing here*/)
                     {
-                       
-                        CATSMAT_TrigramSequences::Trigram triple = { 0, 0, 0 }; //default null triple - another value?
-                        
                         //only proceed if there are two intervals between voices
                         if (chord_notes[i]->getType()!=IMUSANT_NoteType::rest &&
                             chord_notes[j]->getType()!=IMUSANT_NoteType::rest &&
                             nextchord_notes[i]->getType()!=IMUSANT_NoteType::rest &&
                             nextchord_notes[j]->getType()!=IMUSANT_NoteType::rest)
                         {
+                            CATSMAT_TrigramSequences::Trigram triple = { 0, 0, 0 }; //default null triple - another value?
+
                             IMUSANT_generalised_interval v1(chord_notes[j]->pitch(), chord_notes[i]->pitch());
                             IMUSANT_generalised_interval v2(nextchord_notes[j]->pitch(), nextchord_notes[i]->pitch());
                             IMUSANT_generalised_interval h(chord_notes[j]->pitch(), nextchord_notes[j]->pitch());
+
+                            if ((abs(v1.getNumber()) == abs(v2.getNumber())) && h.getNumber()==0 && ignore_repeated_) break;
                             //=== added on 18 Mar 2017 - account for voice crossing; abs also added to triple creation
                             if (v1.getNumber()<0)
                             {
@@ -101,10 +102,9 @@ namespace CATSMAT
                             }
                             //===
                             triple = { abs(v1.getNumber()),abs(v2.getNumber()),h.getNumber() };
-                            
+                            sentences_iter->push_back(triple);
                         }
-                        
-                        sentences_iter->push_back(triple);
+
                         sentences_iter++;
                     }
                 }
@@ -178,7 +178,6 @@ namespace CATSMAT
     CATSMAT_TrigramSequences::
     PostprocessTokens()
     {
-        
         if (ignore_dissonances_)
         {
             //simplest way is to look at token as triple and exclude and token that contains a vertical dissonance.
@@ -224,7 +223,7 @@ namespace CATSMAT
                 *tokens = without_dissonances;
             }
         }
-        
+
         if (ignore_repeated_) //remove repeated trigrams (often caused by split in CPMatrix)
         {
             for ( vector<vector<Token> >::iterator tokens = tokens_.begin(); tokens != tokens_.end(); tokens++)
@@ -305,6 +304,7 @@ namespace CATSMAT
         
         return contains_dissonance;
     }
+
     /*
         \brief function to convert at triple to a token
      
@@ -315,7 +315,6 @@ namespace CATSMAT
         
         static member function
     */
-    
     Token
     CATSMAT_TrigramSequences::
     Triple2Token(const Trigram& triple)
@@ -387,7 +386,11 @@ namespace CATSMAT
 
     }
 
-    
+    const map<int, string> &CATSMAT_TrigramSequences::getVoicePairLabels() const
+    {
+        return voice_pair_labels_;
+    }
+
     ostream& operator<< (ostream& os, const CATSMAT_TrigramInformation& trigram_info )
     {
         trigram_info.Print(os);
@@ -401,13 +404,24 @@ namespace CATSMAT
         
         for (auto token_vector : token_vectors)
         {
-            for (auto token : token_vector)
+            /*for (auto token : token_vector)
             {
                 token_count_[token.token_] = token_count_[token.token_] + 1 ;
-            }
+            }*/
+            addTokens(token_vector);
         }
     }
-    
+
+    void
+    CATSMAT_TrigramInformation::
+    addTokens(const vector<Token>& token_sentence)
+    {
+        for (auto token : token_sentence)
+        {
+            token_count_[token.token_] = token_count_[token.token_] + 1 ;
+        }
+    }
+
     void
     CATSMAT_TrigramInformation::Print(ostream& os) const
     {

@@ -26,7 +26,7 @@ namespace IMUSANT
 typedef IMUSANT_SMARTP<class IMUSANT_element>			S_IMUSANT_element;
 typedef IMUSANT_SMARTP<class IMUSANT_note>				S_IMUSANT_note;
 typedef IMUSANT_SMARTP<class IMUSANT_comment>			S_IMUSANT_comment;
-typedef IMUSANT_SMARTP<class IMUSANT_part_attributes>	S_IMUSANT_attributes;
+typedef IMUSANT_SMARTP<class IMUSANT_attributes>	    S_IMUSANT_attributes;
 typedef IMUSANT_SMARTP<class IMUSANT_score>				S_IMUSANT_score;
 typedef IMUSANT_SMARTP<class IMUSANT_chord>				S_IMUSANT_chord;
 typedef IMUSANT_SMARTP<class IMUSANT_measure>			S_IMUSANT_measure;
@@ -44,7 +44,7 @@ class IMUSANT_visitor {
 		IMUSANT_visitor() {}
 		virtual ~IMUSANT_visitor() {}
 
-		virtual void visit ( S_IMUSANT_attributes& elt ) = 0;
+		virtual void visit ( S_IMUSANT_attributes& ) = 0;
 		virtual void visit ( S_IMUSANT_barline& ) = 0;
 		virtual void visit ( S_IMUSANT_chord& elt ) = 0;
 		virtual void visit ( S_IMUSANT_comment& elt ) = 0;
@@ -60,7 +60,7 @@ class IMUSANT_visitor {
 
 /*!
 \brief interface for visitable IMUSANT objects.
-Can this be impliemented as a template clase with function?
+Can this be implemented as a template class with function?
 */
 class IMUSANT_visitable {
 	public:

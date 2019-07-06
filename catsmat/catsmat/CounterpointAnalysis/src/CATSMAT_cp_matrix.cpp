@@ -174,7 +174,7 @@ namespace CATSMAT
              }*/
             //create and insert the note with a new duration
             //make sure new duration object is added.
-            //TO DO - add ties
+            //todo: add ties
 
             S_IMUSANT_note      part_note = new_IMUSANT_note();
             S_IMUSANT_duration  part_duration = new_IMUSANT_duration();
@@ -275,8 +275,8 @@ namespace CATSMAT
     {
         if (fCurrentTime!=time && time!=IMUSANT_time()) {
             fCurrentTime = time;
-            vector<long> nums = fCurrentTime.getNumerator();
-            vector<long> doms = fCurrentTime.getDenominator();
+            vector<int> nums = fCurrentTime.getNumerator();
+            vector<int> doms = fCurrentTime.getDenominator();
             vector<TRational> rats;
             if (doms.size()<2) {
                 for (auto i = doms.begin(); i!=doms.end();i++) {
@@ -319,8 +319,8 @@ namespace CATSMAT
     CATSMAT_cp_matrix::
     reindex()
     {
-        long measure_number = 0;
-        long note_index = 0;
+        int measure_number = 0;
+        int note_index = 0;
         
         for (list< S_CATSMAT_chord >::iterator chord = fCPMatrix.begin(); chord!=fCPMatrix.end(); chord++)
         {

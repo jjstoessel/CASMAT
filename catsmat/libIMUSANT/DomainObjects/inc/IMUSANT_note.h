@@ -53,8 +53,8 @@ namespace IMUSANT
         void setPitch( const IMUSANT_pitch& pitch ) { *fPitch = pitch; }
         void setDuration( const IMUSANT_duration& dur ) { *fDuration = dur; }
         void setAccidental( const IMUSANT_accidental& acc ) { *fAccidental = acc; }
-        void setMeasureNum (const long measureNum) { fMeasureNumber = measureNum; }
-        void setNoteIndex (const long noteIndex) { fNoteIndex = noteIndex; }
+        void setMeasureNum (const int measureNum) { fMeasureNumber = measureNum; }
+        void setNoteIndex (const int noteIndex) { fNoteIndex = noteIndex; }
         void setNextTieNote (const S_IMUSANT_note& next);
         void setPreviousTieNote (const S_IMUSANT_note& previous);
         void setStyle( IMUSANT_NoteStyle::type style ) { fStyle = style; }
@@ -62,15 +62,17 @@ namespace IMUSANT
         void setVoice (int voice ) { fVoice=voice; }
         void setFermata(bool hasFermata) { fHasFermata = hasFermata; }
         void setStaffName(const string name) { fStaff = name; }
+        void setStemDirection(const string direction) { fStem = direction; }
         
-        const long getMeasureNum() const { return fMeasureNumber; }
-        const long getNoteIndex () const { return fNoteIndex; }
+        const int getMeasureNum() const { return fMeasureNumber; }
+        const int getNoteIndex () const { return fNoteIndex; }
         const IMUSANT_NoteStyle::type	getStyle() const { return fStyle; }
         const IMUSANT_NoteType::type	getType() const { return fType; }
         const S_IMUSANT_note&	getNextTieNote() const { return fTieNext; }
         const S_IMUSANT_note&	getPreviousTieNote() const { return fTiePrevious; }
         const int getVoice() const { return fVoice; }
         const string getStaffName() { return fStaff; }
+        const string getStemDirection() { return fStem; }
         
         void addLyric(const S_IMUSANT_lyric lyric) { fLyrics.push_back(lyric); }
         
@@ -107,6 +109,16 @@ namespace IMUSANT
         
         static bool higher(const IMUSANT_note& note1, const IMUSANT_note& note2);
 
+        struct less_than
+        {
+        public:
+            bool operator( )(const IMUSANT_note& note1, const IMUSANT_note& note2) const {
+                    return (note1 < note2);
+            }
+            bool operator( )(const S_IMUSANT_note note1, const S_IMUSANT_note note2) const {
+                return (*note1 < *note2);
+            }
+        };
         
     private:
         
@@ -116,11 +128,11 @@ namespace IMUSANT
         S_IMUSANT_duration              fDuration;
         S_IMUSANT_accidental            fAccidental;
         IMUSANT_vector<S_IMUSANT_lyric>	fLyrics;
-        IMUSANT_vector<S_IMUSANT_lyric>	fMSLyrics;		//for distinguising editorial underlay
+        IMUSANT_vector<S_IMUSANT_lyric>	fMSLyrics;		//for distinguishing editorial underlay
         string                          fStem;			//not implemented
         string                          fStaff;			//staff name
-        long                            fMeasureNumber;	//internal measure reference
-        long                            fNoteIndex;		//index of note in measure
+        int                             fMeasureNumber;	//internal measure reference
+        int                             fNoteIndex;		//index of note in measure
         S_IMUSANT_note                  fTieNext = NULL;
         S_IMUSANT_note                  fTiePrevious = NULL;
         IMUSANT_NoteStyle::type         fStyle;

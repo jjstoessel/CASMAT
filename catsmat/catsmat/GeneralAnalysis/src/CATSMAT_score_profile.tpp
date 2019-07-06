@@ -78,8 +78,8 @@ namespace CATSMAT
             
             for (auto data : fProfile)
             {
-                T t = data.first; //pitch type
-                //search table for occurrences of pitch in part
+                T t = data.first; //element
+                //search table for occurrences of element in part
                 auto it = std::find_if(fTable.begin(), fTable.end(), [&s,&t](const TABLE_TUPLE& item)
                                        {
                                            return s == get<0>(item) && t == get<1>(item);

@@ -22,15 +22,17 @@ namespace CATSMAT
     {
     public:
         
-        sonority(int q = 0, int m = 0, int i = 0) : mQuality(q), mMeasure(m), mIndex(i) {}
-        sonority(const sonority& iv) : mQuality(iv.getQuality()), mMeasure(iv.getMeasure()), mIndex(iv.getIndex()) {}
+        sonority(int q = 0, int m = 0, int i = 0, float d = 0.0) : mQuality(q), mMeasure(m), mIndex(i), mDuration(d) {}
+        sonority(const sonority& iv) : mQuality(iv.getQuality()), mMeasure(iv.getMeasure()), mIndex(iv.getIndex()), mDuration (iv.getDuration()) {}
         
         int     getQuality() const { return mQuality; }
-        long    getMeasure() const { return mMeasure; }
-        long    getIndex() const  { return mIndex; }
+        int     getMeasure() const { return mMeasure; }
+        int     getIndex() const  { return mIndex; }
+        float   getDuration() const { return mDuration; }
         
         void    setQuality(const int q) { mQuality = q; }
-        void    setLocation(const long m, long i) { mMeasure = m; mIndex = i; }
+        void    setLocation(const int m, int i) { mMeasure = m; mIndex = i; }
+        void    setDuration(const float d) { mDuration = d; }
         
         friend  ostream& operator<< (ostream& os, const sonority& elt );
         void        print(ostream& os) const;
@@ -49,7 +51,8 @@ namespace CATSMAT
         signed int  compare(const sonority& i) const;
         
         int mQuality;
-        long mMeasure, mIndex;
+        int mMeasure, mIndex;
+        float mDuration;
     };
 
     class CATSMAT_sonority_sequences : public CATSMAT_dyad_sequences_base<sonority>
@@ -69,8 +72,6 @@ namespace CATSMAT
     
     private:
         void find_repeated_substrings(vector< pair<int_tree::size_type, int_tree::size_type> >& results, const int_tree::node& n, int min_length);
-        
-        //std::vector<sonority> fQualityVector;
     };
     
 } //namespace

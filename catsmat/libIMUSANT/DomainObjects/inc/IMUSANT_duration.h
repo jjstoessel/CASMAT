@@ -81,7 +81,7 @@ namespace IMUSANT
             \param  dur - a rational fraction indicating the duration relative to the semibreve
             \param  dots - number of dots on note represented by this duration
          */
-        void set(TRational dur, long dots = 0);
+        void set(TRational dur, int dots = 0);
         
         /**
          \fn     Set
@@ -89,7 +89,7 @@ namespace IMUSANT
          \param  dur - a rational fraction indicating the duration relative to the semibreve; same as normal_dur
          \param  dots - number of dots on note represented by this duration
          */
-        void set( TRational dur, long dots, TRational timemod);
+        void set( TRational dur, int dots, TRational timemod);
         
         /**
             \fn     Set
@@ -104,10 +104,10 @@ namespace IMUSANT
             D-01024.  The normal-dur and normal-dots parameters are ignored.  You can set them to whatever you like and
             the class will still behave correctly
          */
-        void set( TRational dur, long dots, TRational timemod, TRational normal_dur, long normal_dots=0);
+        void set( TRational dur, int dots, TRational timemod, TRational normal_dur, int normal_dots=0);
 
-        void set_dots(long dots) { dots_ = dots; }
-        void set_normal_dots(long dots) { dots_ = dots; }
+        void set_dots(int dots) { dots_ = dots; }
+        void set_normal_dots(int dots) { dots_ = dots; }
         
         IMUSANT_duration	GetSimplifiedDuration() const;
         float               AsAbsoluteNumeric() const;
@@ -119,21 +119,22 @@ namespace IMUSANT
         // * 3/4 represents a dotted crotchet (1/2 + 1/4), and so this function changes 3/4 to 1/2 and returns 1.
         // * 6/4 represents a dotted breive (1/1 + 1/2), and so this function changes 6/4 to 1/1 and returns 1.
         //
-        static long         NormaliseDuration(TRational& dur);
+        static int         NormaliseDuration(TRational& dur);
         
         static TRational    NormaliseTimeModification(TRational& dur);
         
         // Converters
         static const string	xmlv1(TRational d);
+        static const string xmlv3(TRational d);
         static TRational	xmlv1(const string str);
         static TRational	xmlv3(const string str);
         
         //getters
         TRational&          duration() { return duration_; }
-        long                dots() { return dots_; }
+        int                 dots() { return dots_; }
         TRational&          time_modification() { return time_modification_; }
         TRational&          normal_duration() { return normal_duration_; }
-        long                normal_dots() { return normal_dots_; }
+        int                 normal_dots() { return normal_dots_; }
         
         //values of std durations
         static TRational unmeasured;
@@ -159,10 +160,10 @@ namespace IMUSANT
     protected:
 
         TRational           duration_;          //duration as a fraction of semibreve/whole note
-        long                dots_;              //dots
+        int                 dots_;              //dots
         TRational           time_modification_;  //ratio of fDuration to normal_duration_
         TRational           normal_duration_;    //the duration subject to time_modification_ - default is fDuration
-        long                normal_dots_;        //dots to normal duration
+        int                 normal_dots_;        //dots to normal duration
         
         static bimap<string, TRational>	fDuration2Stringv1;
         static bimap<string, TRational>	fDuration2Stringv3;

@@ -280,7 +280,7 @@ namespace IMUSANT
     }
     
     //returns the interval numbers (Tanayev style) without quality, i.e. unison = 0, second = 1, etc.
-    int IMUSANT_interval::getNumber() const
+    int IMUSANT_interval::getNumber(bool compound) const
     {
         int ret;
         
@@ -333,10 +333,16 @@ namespace IMUSANT
                 ret = undefined;
                 break;
         }
-        
-        if (fOctaves>0 & ret==0)
-            ret+=7;//ret+=7*fOctaves + 1; //convert to a compound interval
-        
+
+        if (compound)
+        {
+            if (fOctaves>0)
+                ret+=7*fOctaves;
+        }
+        else
+            if (fOctaves>0 & ret==0)
+                ret+=7;
+
         if (this->fDirection==descending)
             ret *= -1;
         

@@ -39,7 +39,7 @@ namespace CATSMAT
             return false;
         }
         
-        //Here is the place to search of sections, i.e. multiple canons in the one "piece"
+        //todo: Here is the place to search for sections, i.e. multiple canons in the one "piece"
         
         // adapted from IMUSANT_segmented_part_fixed_period
         // Sort the parts in the order in which they enter...
@@ -56,11 +56,13 @@ namespace CATSMAT
         
         return true;
     }
-    
+
+
     void
     CATSMAT_CanonicTechniquesTools::
     Detect_Canon_Type(PartEntry& first_part, PartEntry& second_part, double error_threshold)
     {
+
         OUTPUT("+++++  Detecting canon between Part " +
                first_part.Part->getPartName() +
                " and Part " +
@@ -70,7 +72,9 @@ namespace CATSMAT
                std::to_string(error_threshold) +
                "\n") ;
         CATSMAT_CanonType canon_type; //defaults to no canon type
-        
+
+        //todo: Accommodate triple, etc. canons, i.e. more than two parts in imitation
+
         canon_type.score_ = score_;
         canon_type.imitative_ = IsIntervallicallyExact(first_part, second_part, error_threshold);
         canon_type.retrograde_ = IsRetrograde(first_part, second_part, error_threshold);
@@ -350,6 +354,7 @@ namespace CATSMAT
         n2 = part_two_notes[second_part_index];
         
         IMUSANT_interval interval(n1->pitch(),n2->pitch());
+        //TO DO: check this is consistent over the parts.
         
         return interval;
     }
@@ -502,6 +507,7 @@ namespace CATSMAT
     CATSMAT_CanonicTechniquesTools::
     IsMensurationCanon(const PartEntry& first_part, const PartEntry& second_part, double error_threshold)
     {
+        //TO DO
         //inject found mensurations into mensurations_
         return false; // does nothing for now
     }

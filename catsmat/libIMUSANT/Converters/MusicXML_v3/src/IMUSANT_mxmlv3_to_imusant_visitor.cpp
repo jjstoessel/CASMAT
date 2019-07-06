@@ -161,7 +161,15 @@ namespace IMUSANT
         fTransposeOctaveChange = 0;
         fTransposeDoubled = false;
     }
-    
+
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_attributes& elt)
+    {
+        fCurrent_attributes = new_IMUSANT_attributes();
+        assert(fCurrent_attributes);
+    }
+
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_divisions &elt)
@@ -169,6 +177,9 @@ namespace IMUSANT
         string divisions_str = elt->getValue();
         int divisions = atoi(divisions_str.c_str());
         fCurrentPart->setDivisions(divisions);
+        //new
+        fCurrent_attributes->setDivisions_(divisions);
+        //TO DO: remove divisions, etc. from part to IMUSANT_measure in attributes member
     }
     
     void
@@ -222,7 +233,6 @@ namespace IMUSANT
         debug("S_clef_octave_change");
         int octave_change = atoi(elt->getValue().c_str());
         fCurrentClef.setTransposition(octave_change);
-
     }
     
     void
@@ -234,6 +244,10 @@ namespace IMUSANT
         if (fCurrentMeasure != 0)
         {
             fCurrentMeasure->setClef(fCurrentClef);
+            //new
+            fCurrent_attributes->setClef(fCurrentClef);
+            fCurrentMeasure->setAttributes(fCurrent_attributes);
+            // TODO: remove clef, etc. from IMUSANT_measure in favour of attributes member
         }
         else
         {
@@ -250,12 +264,12 @@ namespace IMUSANT
     {
         debug("S_measure");
 
-        fCurrentMeasureNumber = elt->getAttributeLongValue("number", fCurrentMeasureNumber + 1);
+        fCurrentMeasureNumber = elt->getAttributeIntValue("number", fCurrentMeasureNumber + 1);
         fCurrentNoteIndex = 0;  //reset on measure entry
         fCurrentAccidentals.clear(); //reset
         
         S_IMUSANT_measure measure = new_IMUSANT_measure();
-        measure->setMeasureNum(fCurrentMeasureNumber);
+        measure->setMeasureNum(static_cast<int>(fCurrentMeasureNumber));
         fCurrentMeasure = measure;
         
         if (fImusantScore)  //assert that uberclass has been instantiated.
@@ -380,8 +394,8 @@ namespace IMUSANT
         if (fInKeyElement)
         {
             string fifths_value_str = elt->getValue();
-            long int fifths_value_long = atol(fifths_value_str.c_str());
-            fCurrentKey.setFifths(fifths_value_long);
+            long fifths_value_long = atol(fifths_value_str.c_str());
+            fCurrentKey.setFifths(static_cast<int>(fifths_value_long));
         }
         else
         {
@@ -440,7 +454,7 @@ namespace IMUSANT
         if (fInTimeElement)
         {
             string numerator_str = elt->getValue();
-            long int the_numerator = atol(numerator_str.c_str());
+            int the_numerator = atoi(numerator_str.c_str());
             fCurrentTime.addNumerator(the_numerator);
         }
         else
@@ -459,7 +473,7 @@ namespace IMUSANT
         if (fInTimeElement)
         {
             string denominator_str = elt->getValue();
-            long int the_denominator = atol(denominator_str.c_str());
+            int the_denominator = atoi(denominator_str.c_str());
             fCurrentTime.addDenominator(the_denominator);
         }
         else
@@ -682,7 +696,18 @@ namespace IMUSANT
             fCurrentNumberofDotsOnNote++;
         }
     }
-    
+
+    void
+    IMUSANT_mxmlv3_to_imusant_visitor::
+    visitStart( S_stem& elt)
+    {
+        debug("S_stem");
+
+        string direction = elt->getValue();
+        fCurrentNote->setStemDirection(direction);
+    }
+
+
     void
     IMUSANT_mxmlv3_to_imusant_visitor::
     visitStart( S_time_modification& elt)

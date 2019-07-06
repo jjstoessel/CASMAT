@@ -2,7 +2,7 @@
 // Created by Jason Stoessel on 09/09/2017.
 //
 
-#include "canonic_techniques/inc/CATSMAT_canonic_techniques.h"
+#include "CATSMAT_canonic_techniques.h"
 
 using namespace CATSMAT;
 
