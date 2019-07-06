@@ -45,7 +45,7 @@ namespace CATSMAT
                                          const interval_tree::node& n,
                                          int min_length=2);
         
-        long                                fSaveI = 0;
+        long fSaveI = 0;
         
     };
     

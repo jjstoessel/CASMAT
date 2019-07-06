@@ -43,7 +43,7 @@ private:
     TElement    current_part_;
     TElement    current_measure_;
     TElement    current_note_;
-    int         current_divisions_ = 0;
+    long        current_divisions_ = 0;
     string      current_clef_;
     string      current_time_;
 

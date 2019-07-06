@@ -209,13 +209,13 @@ namespace IMUSANT
     //  Dotted notes are a geometric series where the sum value of (S) of a duration with n dots is
     //      Sn = a (2 - pow(0.5, n))
     //
-    long
+    int
     IMUSANT_duration::
     NormaliseDuration(TRational& dur)
     {
         dur.rationalise();
         
-        long dots = 0;
+        int dots = 0;
         float r = 0.5; //ratio
         float gs = 0.0, intpart = 0.0;
         float base = dur; //cast to float

@@ -413,9 +413,10 @@ namespace CATSMAT
                 part_names = vocal_pairs.at(voice_index);
 
                 voice_index++;
+            
                 if (part_names.empty())
                 {
-                    part_names = "Pair " + voice_index;
+                    part_names = "Pair " + to_string(voice_index);
                 }
 
                 CATSMAT_TrigramInformation  trigram_info;
@@ -488,7 +489,7 @@ namespace CATSMAT
                 partdata->findBasicDataFromPart(part);
                 string part_name = part->getPartName();
                 if (part_name.empty())
-                    part_name = "P" + part_count;
+                    part_name = "P" + to_string(part_count);
                 cout << part_name << endl;
                 partdata->print_interval_pitch_matrix(cout);
                 cout << endl;

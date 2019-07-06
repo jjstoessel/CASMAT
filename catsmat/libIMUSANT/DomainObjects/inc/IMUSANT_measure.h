@@ -70,7 +70,7 @@ namespace IMUSANT
         IMUSANT_vector<S_IMUSANT_element>   fElements;  //  may be notes, chords, comments or barline
         IMUSANT_vector<S_IMUSANT_note>      fNotes;     //  convenience for getting at notes regardless of other elements.
         IMUSANT_vector<S_IMUSANT_barline>   fBarlines;  //  convenience for getting at barlines regardless of other elements.
-        int                                fMeasNum;
+        int                                 fMeasNum;
     };
     typedef IMUSANT_SMARTP<IMUSANT_measure>	S_IMUSANT_measure;
     IMUSANT_SMARTP<IMUSANT_measure> new_IMUSANT_measure();

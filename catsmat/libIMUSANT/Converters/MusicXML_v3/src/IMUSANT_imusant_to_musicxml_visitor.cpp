@@ -67,7 +67,7 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_lyric &elt)
 
 void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_duration &elt)
 {
-    int duration = elt->duration()*4*current_divisions_;
+    int duration = elt->duration()*long(4)*current_divisions_;
     TElement dur = factoryIntElement(factory_, k_duration,duration);
     factoryAddElement(factory_, current_note_, dur);
 }
@@ -77,7 +77,7 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_note &elt)
     int duration;
     const char* type = nullptr;
 
-    duration = elt->duration()->GetSimplifiedDuration().duration()*4*current_divisions_;
+    duration = elt->duration()->GetSimplifiedDuration().duration()*long(4)*current_divisions_;
     type = IMUSANT_duration::xmlv3(elt->duration()->duration()).c_str();
 
     //TO DO: handle ties(√?), tuplets√, voices, stems, accidentals√, beaming here
@@ -168,7 +168,7 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_note &elt)
         TElement dur = factoryIntElement(factory_, k_duration, duration);
         factoryAddElement(factory_, current_note_, dur);
         factoryAddElement(factory_, current_note_, rest);
-        int bar_duration = current_divisions_*4*time_.beats/time_.beat;
+        long bar_duration = current_divisions_*4*time_.beats/time_.beat;
         if (duration < bar_duration)
         {
             TElement type_elt = factoryStrElement(factory_, k_type, type);
@@ -193,8 +193,8 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_note &elt)
         TElement time_modification, actual_notes, normal_notes, normal_note;
 
         time_modification = factoryElement(factory_, k_time_modification);
-        actual_notes = factoryIntElement(factory_, k_actual_notes, time_mod.getNumerator());
-        normal_notes = factoryIntElement(factory_, k_normal_notes, time_mod.getDenominator());
+        actual_notes = factoryIntElement(factory_, k_actual_notes, static_cast<int>(time_mod.getNumerator()));
+        normal_notes = factoryIntElement(factory_, k_normal_notes, static_cast<int>(time_mod.getDenominator()));
 
         factoryAddElement(factory_, time_modification, actual_notes);
         factoryAddElement(factory_, time_modification, normal_notes);
@@ -268,7 +268,7 @@ void IMUSANT_to_MusicXML_Visitor::visit(S_IMUSANT_measure &elt)
                                                         t_clef,
                                                         line,
                                                         key,
-                                                        current_divisions_);
+                                                        static_cast<int>(current_divisions_));
         current_time_ = time.str();
         current_clef_ = clef.str();
     }

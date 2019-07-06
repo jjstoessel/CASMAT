@@ -201,7 +201,7 @@ namespace IMUSANT
         S_IMUSANT_score     fImusantScore;
         
         S_IMUSANT_part      fCurrentPart;
-        long                fCurrentMeasureNumber;
+        int                 fCurrentMeasureNumber;
         S_IMUSANT_measure   fCurrentMeasure;
         S_IMUSANT_attributes fCurrent_attributes;
         IMUSANT_clef        fCurrentClef;
@@ -209,7 +209,7 @@ namespace IMUSANT
         bool                fCurrentNoteInChord = false;
         S_IMUSANT_chord     fCurrentChord;
         S_IMUSANT_barline   fCurrentBarline;
-        long                fCurrentNoteIndex;
+        int                 fCurrentNoteIndex;
         ACCIDENTALMAP       fCurrentAccidentals;
         bool                fInKeyElement = false;
         IMUSANT_key         fCurrentKey;
@@ -221,10 +221,10 @@ namespace IMUSANT
         S_IMUSANT_note      fCurrentNote;
         S_IMUSANT_note      fPreviousNote;
         TRational           fCurrentNoteDurationType;
-        long                fCurrentNumberofDotsOnNote;
+        int                 fCurrentNumberofDotsOnNote;
         TRational           fCurrentNoteTimeModification;
         TRational           fCurrentNormalNoteDurationType;
-        long                fCurrentNormalNumberofDotsOnNote;
+        int                 fCurrentNormalNumberofDotsOnNote;
         bool                fInLyricElement = false;
         S_IMUSANT_lyric     fCurrentLyric;
         bool                fInPitchElement = false;

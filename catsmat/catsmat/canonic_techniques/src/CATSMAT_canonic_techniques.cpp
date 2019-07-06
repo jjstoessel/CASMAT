@@ -2,8 +2,8 @@
 // Created by Jason Stoessel on 9/9/17.
 //
 
-#include "canonic_techniques/inc/CATSMAT_canonic_techniques.h"
-#include "GeneralAnalysis/inc/CATSMAT_processing.h"
+#include "CATSMAT_canonic_techniques.h"
+#include "CATSMAT_processing.h"
 
 using namespace CATSMAT;
 

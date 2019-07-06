@@ -319,8 +319,8 @@ namespace CATSMAT
     CATSMAT_cp_matrix::
     reindex()
     {
-        long measure_number = 0;
-        long note_index = 0;
+        int measure_number = 0;
+        int note_index = 0;
         
         for (list< S_CATSMAT_chord >::iterator chord = fCPMatrix.begin(); chord!=fCPMatrix.end(); chord++)
         {

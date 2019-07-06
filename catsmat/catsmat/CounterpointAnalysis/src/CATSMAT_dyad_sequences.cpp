@@ -51,7 +51,7 @@ namespace CATSMAT
      \brief CATSMAT_dyad_sequences::process
      
      Takes a list of chords (from CPMatrix)
-     1. calculates all vertical intervals between voices
+     1. calculates all vertical intervals between voices and inserts in vectors_
      
      */
     

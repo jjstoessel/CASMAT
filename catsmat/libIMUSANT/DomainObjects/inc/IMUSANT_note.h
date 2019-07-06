@@ -64,8 +64,8 @@ namespace IMUSANT
         void setStaffName(const string name) { fStaff = name; }
         void setStemDirection(const string direction) { fStem = direction; }
         
-        const long getMeasureNum() const { return fMeasureNumber; }
-        const long getNoteIndex () const { return fNoteIndex; }
+        const int getMeasureNum() const { return fMeasureNumber; }
+        const int getNoteIndex () const { return fNoteIndex; }
         const IMUSANT_NoteStyle::type	getStyle() const { return fStyle; }
         const IMUSANT_NoteType::type	getType() const { return fType; }
         const S_IMUSANT_note&	getNextTieNote() const { return fTieNext; }

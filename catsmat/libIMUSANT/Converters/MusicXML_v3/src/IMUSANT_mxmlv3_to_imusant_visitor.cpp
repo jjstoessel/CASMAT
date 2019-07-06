@@ -264,12 +264,12 @@ namespace IMUSANT
     {
         debug("S_measure");
 
-        fCurrentMeasureNumber = elt->getAttributeLongValue("number", fCurrentMeasureNumber + 1);
+        fCurrentMeasureNumber = elt->getAttributeIntValue("number", fCurrentMeasureNumber + 1);
         fCurrentNoteIndex = 0;  //reset on measure entry
         fCurrentAccidentals.clear(); //reset
         
         S_IMUSANT_measure measure = new_IMUSANT_measure();
-        measure->setMeasureNum(fCurrentMeasureNumber);
+        measure->setMeasureNum(static_cast<int>(fCurrentMeasureNumber));
         fCurrentMeasure = measure;
         
         if (fImusantScore)  //assert that uberclass has been instantiated.
@@ -394,8 +394,8 @@ namespace IMUSANT
         if (fInKeyElement)
         {
             string fifths_value_str = elt->getValue();
-            long int fifths_value_long = atol(fifths_value_str.c_str());
-            fCurrentKey.setFifths(fifths_value_long);
+            long fifths_value_long = atol(fifths_value_str.c_str());
+            fCurrentKey.setFifths(static_cast<int>(fifths_value_long));
         }
         else
         {
@@ -454,7 +454,7 @@ namespace IMUSANT
         if (fInTimeElement)
         {
             string numerator_str = elt->getValue();
-            long int the_numerator = atol(numerator_str.c_str());
+            int the_numerator = atoi(numerator_str.c_str());
             fCurrentTime.addNumerator(the_numerator);
         }
         else
@@ -473,7 +473,7 @@ namespace IMUSANT
         if (fInTimeElement)
         {
             string denominator_str = elt->getValue();
-            long int the_denominator = atol(denominator_str.c_str());
+            int the_denominator = atoi(denominator_str.c_str());
             fCurrentTime.addDenominator(the_denominator);
         }
         else

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "49C80D8F1BA4E69400DCA903"
-               BuildableName = "liblibMusicXML3.dylib"
+               BuildableName = "libMusicXML3.dylib"
                BlueprintName = "MusicXML3"
                ReferencedContainer = "container:catsmat.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49C80D8F1BA4E69400DCA903"
-            BuildableName = "liblibMusicXML3.dylib"
+            BuildableName = "libMusicXML3.dylib"
             BlueprintName = "MusicXML3"
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49C80D8F1BA4E69400DCA903"
-            BuildableName = "liblibMusicXML3.dylib"
+            BuildableName = "libMusicXML3.dylib"
             BlueprintName = "MusicXML3"
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>

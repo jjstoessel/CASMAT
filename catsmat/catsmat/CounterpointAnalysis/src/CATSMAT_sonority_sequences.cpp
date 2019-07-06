@@ -29,7 +29,7 @@ namespace CATSMAT
     void
     sonority::print(ostream& os) const
     {
-        os << "(" << mMeasure << ", " << mIndex << ", " << mQuality << ")" << endl;
+        os << "(" << mMeasure << ", " << mIndex << ", " << mDuration << ", " << mQuality << ")" << endl;
     }
 
     ostream& operator<< (ostream& os, const sonority& elt )
@@ -68,8 +68,9 @@ namespace CATSMAT
                 auto bass = sorted_chord.begin();
                 //ensure bass is a note
                 while (bass->first->getType()==IMUSANT_NoteType::rest) bass++;
-                auto note = bass;
+                s->setDuration(bass->first->duration()->AsAbsoluteNumeric());
                 
+                auto note = bass;
                 for (note++;
                      note != sorted_chord.end();
                      note++)
@@ -100,7 +101,7 @@ namespace CATSMAT
 
     void CATSMAT_sonority_sequences::Print(ostream& os) const
     {
-        os << "sonority types (measure, index, sonority type): " << endl;
+        os << "sonority types (measure, index, duration, sonority type): " << endl;
         
         for (auto iter1 = vectors_.begin(); iter1 != vectors_.end(); iter1++)
         {

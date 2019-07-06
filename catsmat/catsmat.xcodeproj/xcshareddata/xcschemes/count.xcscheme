@@ -66,6 +66,12 @@
             ReferencedContainer = "container:catsmat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-y -f /Users/jasonstoessel/Documents/B-Tc_A.27-Ite_missa_est.musicxml"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

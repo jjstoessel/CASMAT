@@ -5,6 +5,8 @@
 #include "CATSMAT_contrapuntal_scaffold.h"
 #include "CATSMAT_cp_matrix.h"
 
+using namespace IMUSANT;
+
 namespace CATSMAT
 {
 
@@ -52,7 +54,19 @@ void CATSMAT_contrapuntal_scaffold::process(const list<CATSMAT::S_CATSMAT_chord>
 //        {
 //            interval_vectors->push_back(new_IMUSANT_interval_vector());
 //        } //pointers in interval_vectors self-destruct with destructor
-
+        switch (cr_) {
+            case regular:
+                ;
+                break;
+            case dynamic:
+                ;
+                break;
+            case salami:
+                ;
+                break;
+            default:
+                break;
+        };
 
         for (auto chord = matrix.begin(); chord!=matrix.end(); chord++)
         {

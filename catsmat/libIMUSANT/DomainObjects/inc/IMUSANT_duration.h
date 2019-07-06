@@ -119,7 +119,7 @@ namespace IMUSANT
         // * 3/4 represents a dotted crotchet (1/2 + 1/4), and so this function changes 3/4 to 1/2 and returns 1.
         // * 6/4 represents a dotted breive (1/1 + 1/2), and so this function changes 6/4 to 1/1 and returns 1.
         //
-        static long         NormaliseDuration(TRational& dur);
+        static int         NormaliseDuration(TRational& dur);
         
         static TRational    NormaliseTimeModification(TRational& dur);
         

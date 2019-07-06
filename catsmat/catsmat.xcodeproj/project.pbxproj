@@ -2261,9 +2261,9 @@
 		49BAF9CA1ED94572000C84C4 /* inc */ = {
 			isa = PBXGroup;
 			children = (
-				BA09FCE222C73625001E1023 /* CATSMAT_contrapuntal_scaffold.h */,
 				49BAF9CC1ED9458F000C84C4 /* CATSMAT_chord.h */,
 				49BAF9CD1ED9458F000C84C4 /* CATSMAT_collectionvisitor.h */,
+				BA09FCE222C73625001E1023 /* CATSMAT_contrapuntal_scaffold.h */,
 				49BAF9CE1ED9458F000C84C4 /* CATSMAT_cp_matrix.h */,
 				49BAF9CF1ED9458F000C84C4 /* CATSMAT_dyad_sequences_base.h */,
 				49BAF9D01ED9458F000C84C4 /* CATSMAT_dyad_sequences.h */,
@@ -3580,8 +3580,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 496EF6C41B22B01700FE715F /* Build configuration list for PBXNativeTarget "IMUSANT" */;
 			buildPhases = (
-				496EF6BA1B22B01600FE715F /* Headers */,
 				496EF6B81B22B01600FE715F /* Sources */,
+				496EF6BA1B22B01600FE715F /* Headers */,
 				496EF6B91B22B01600FE715F /* Frameworks */,
 				49FB9BD01C7879A30008B46D /* CopyFiles */,
 			);
