@@ -257,7 +257,7 @@ namespace CATSMAT
                 CATSMAT_TrigramSuffixTreeBuilder trigram_tree;
                 trigram_sequences.Accept(trigram_tree);
                 cout << "Repeated trigram sequences in " << (*score).getMovementTitle() << endl;
-                cout << trigram_tree.FindAndPrintRepeatedSubstrings().c_str();
+                cout << trigram_tree.FindAndPrintRepeatedSubstrings(min).c_str();
             }
             
         }

@@ -6,7 +6,7 @@
     \details    The CATSMAT_TrigramSequences class is an adaption of the N-gram contrapuntal word method proposed by
                 Schubert, Peter, and Julie Cumming. "Another Lesson from Lassus: Using Computers to Analyse Counterpoint." Early Music 43, no. 4 (November 1, 2015 2015): 577-86.
                 It relies upon CATSMAT_CPmatrix and IMUSANT_generalised_interval
-                Class takes CP_Matrix and convert to a series of trigrams for each voice pair. The number of trigrams for each pair will be equal to the number of columns in CP Matrix
+                Class takes CP_Matrix and converts to a series of trigrams for each voice pair. The number of trigrams for each pair will be equal to the number of columns in CP Matrix
     \author     Jason Stoessel
     \author
     \version
