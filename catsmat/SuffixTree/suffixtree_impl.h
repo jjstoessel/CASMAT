@@ -471,7 +471,7 @@ suffixtree_impl<V>::node::find_shared_nodes(vector< pair<vector<number>, int> > 
 	{
 		number test = number(*i,0);
 		if (find_if(leaves.begin(),leaves.end(), std::bind2nd(same_owner(),test))==leaves.end())
-		{
+        {
 			found = false;
 			break;
 		}

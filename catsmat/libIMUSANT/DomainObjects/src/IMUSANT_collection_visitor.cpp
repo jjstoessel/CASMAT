@@ -8,7 +8,7 @@
  *	This class is a visitor to IMUSANT_score for the purposes of collecting musical data for further manipulation.
  */
 
-#include "IMUSANT_collectionvisitor.h"
+#include "IMUSANT_collection_visitor.h"
 #include "IMUSANT_chord.h"
 #include "IMUSANT_measure.h"
 #include "IMUSANT_part.h"
@@ -41,9 +41,48 @@ IMUSANT_collection_visitor::IMUSANT_collection_visitor()
 	fCurrentPartID = 0;
 	fIgnoreRepeatedPitches = false;
 }
+    
+//IMUSANT_collection_visitor::IMUSANT_collection_visitor(IMUSANT_collection_visitor const& original)
+//{
+//    fCurrentIntervalVector = original.fCurrentIntervalVector;
+//    fCurrentMelodicContour = original.fCurrentMelodicContour;
+//    fCurrentPitchVector = original.fCurrentPitchVector;
+//    fCurrentRhythmVector = original.fCurrentRhythmVector;
+//
+//    //storage of vectors of elements in each part
+//    fPartwiseIntervalVectors = original.fPartwiseIntervalVectors;
+//    fPartwiseContourVectors = original.fPartwiseContourVectors;
+//    fPartwisePitchVectors = original.fPartwisePitchVectors;
+//    fPartwiseRhythmVectors = original.fPartwiseRhythmVectors;
+//
+//    fWorkTitle = original.fWorkTitle;
+//    fMovementTitle = original.fMovementTitle;
+//    fWorkNum = original.fWorkNum;
+//    fMovementNum = original.fMovementNum;
+//    fCreator = original.fCreator;
+//    fRights = original.fRights;
+//    fScoreComments = original.fScoreComments;
+//    fSource = original.fSource;
+//    fEditor = original.fEditor;
+//    fDate = original.fDate;
+//    fLyrics = original.fLyrics;
+//    fInChord = original.fInChord;
+//    fLastNote = original.fLastNote;
+//    fCurrentPartID = original.fCurrentPartID;
+//    fIgnoreRepeatedPitches = original.fIgnoreRepeatedPitches;
+//}
+    
+IMUSANT_collection_visitor::IMUSANT_collection_visitor(IMUSANT_collection_visitor const& original)
+{
+    *this = original;
+}
+    
+IMUSANT_collection_visitor::~IMUSANT_collection_visitor() noexcept
+{
+}
 
 #pragma mark IMUSANT_attribute handler
-void IMUSANT_collection_visitor::visit ( S_IMUSANT_attributes& elt )
+void IMUSANT_collection_visitor::visit ( S_IMUSANT_attributes& elt )    
 {
 }
 

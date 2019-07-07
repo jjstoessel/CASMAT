@@ -18,14 +18,14 @@ using namespace Loki;
 namespace CATSMAT
 {
 
-template <typename T> //T is a vector
+template <class T> //T is a vector
 class CATSMAT_dyad_sequences_base : public BaseVisitor, public Loki::Visitor<CATSMAT_cp_matrix, void, true>
 {
 public:
 
     friend  ostream& operator<< (ostream& os, const CATSMAT_dyad_sequences_base& elt );
     
-                    CATSMAT_dyad_sequences_base() {}
+    CATSMAT_dyad_sequences_base() {}
     virtual         ~CATSMAT_dyad_sequences_base() {}
     
     virtual void    Visit(const CATSMAT_cp_matrix& matrix) = 0;

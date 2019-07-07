@@ -59,9 +59,13 @@ namespace IMUSANT
     class IMUSANT_collection_visitor : public IMUSANT_visitor
     {
         public:
-                        IMUSANT_collection_visitor();
-            virtual		~IMUSANT_collection_visitor() {}
-            
+                    IMUSANT_collection_visitor();
+                    IMUSANT_collection_visitor(IMUSANT_collection_visitor const&);
+            ~IMUSANT_collection_visitor() noexcept;
+        
+            IMUSANT_collection_visitor& operator=(const IMUSANT_collection_visitor&) = default;
+            IMUSANT_collection_visitor& operator=(IMUSANT_collection_visitor&&) = default;
+        
             void visit ( S_IMUSANT_attributes& elt );
             void visit ( S_IMUSANT_barline& );
             void visit ( S_IMUSANT_chord& elt );

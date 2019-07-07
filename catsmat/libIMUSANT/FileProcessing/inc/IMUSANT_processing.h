@@ -18,7 +18,7 @@
 #include "exports.h"
 
 #include "IMUSANT_score.h"
-#include "IMUSANT_collectionvisitor.h"
+#include "IMUSANT_collection_visitor.h"
 
 using namespace std;
 using namespace boost;

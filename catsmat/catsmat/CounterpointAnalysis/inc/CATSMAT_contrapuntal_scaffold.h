@@ -24,8 +24,8 @@ namespace CATSMAT
 
         const IMUSANT_duration &getCluster_duration_() const;
         void  setCluster_duration_(const IMUSANT_duration &cluster_duration_);
-        const CR_type getContrapuntalRhythmType() const { return cr_; }
-        void  setContrapuntalRhythmType(const CR_type type) { cr_=type; }
+        const CR_type getContrapuntalRhythm() const { return cr_; }
+        void  setContrapuntalRhythm(const CR_type type) { cr_=type; }
         
         friend ostream &operator<<(ostream &os, const CATSMAT_contrapuntal_scaffold &skeleton);
         void Visit(const CATSMAT_cp_matrix &matrix) override;

@@ -3,7 +3,7 @@
 //
 
 #include "SegmentationApplication.h"
-#include "GeneralAnalysis/inc/CATSMAT_processing.h"
+#include "CATSMAT_processing.h"
 #include "LBDM_Segmenter.h"
 #include "FP_Segmenter.h"
 

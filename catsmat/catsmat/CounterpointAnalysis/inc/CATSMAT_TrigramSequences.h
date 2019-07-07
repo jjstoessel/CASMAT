@@ -56,15 +56,16 @@ namespace CATSMAT
         unsigned int token_;
     };
 
-    using Sentence = std::vector<std::array<signed int,3> >;
+    using Trigram = std::array<signed int,3>;
+    using Sentence = std::vector<Trigram>;
     
     class CATSMAT_TrigramSequences : public CATSMAT_dyad_sequences_base<Sentence>, public BaseVisitable<void, DefaultCatchAll, true>
     {
     public:
 
-        typedef std::array<signed int,3>    Trigram;    //a trigram is the two vertical intervals and the step in the lower voice
-        typedef std::vector<Trigram>        Sentence;   //a sentence is a sequence of trigrams for a voice pair
-        typedef std::vector<vector<Token> > TokenVectors;
+        using Trigram = Trigram;    //a trigram is the two vertical intervals and the step in the lower voice
+        using Sentence = Sentence;   //a sentence is a sequence of trigrams for a voice pair
+        using TokenVectors = std::vector<vector<Token> >;
         enum    TrigramMembers { dyad1, dyad2, lowMelInterval };
         
         friend  ostream& operator<<(ostream& os, const CATSMAT_TrigramSequences& sequences);
