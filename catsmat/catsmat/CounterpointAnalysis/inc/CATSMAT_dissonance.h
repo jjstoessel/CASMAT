@@ -20,33 +20,52 @@
 #define CATSMAT_dissonance_h
 
 #include <stdio.h>
+#include <array>
+
 #include "smartpointer.h"
 #include "IMUSANT_interval.h"
-#include "IMUSANT_duration.h"
+#include "IMUSANT_note.h"
 
 using namespace IMUSANT;
+
 
 namespace CATSMAT
 {
     class CATSMAT_dissonance : public IMUSANT_interval
     {
     public:
-        enum schemata {
-            unclassified,
-            upper_passing_tone,
-            lower_passing_tone,
-            upper_neighbour_tone,
-            lower_neighbour_tone,
-            suspension, //accented
-            ritardation, //unaccented
-            cambiata,
-            escape_tone,
-            pedal_point,
-            unknown,
+        enum schemata : int {
+            unclassified,               //0,0,0,0
+            ascending_passing_tone,     //unaccented, melodic upper 1, 1, lower 0,*
+            descending_passing_tone,    //unaccented, melodic upper -1, -1, lower 0,*
+            upper_neighbour_tone,       //unaccented, melodic upper 1,-1, lower 0,*
+            lower_neighbour_tone,       //unaccented, melodic upper -1, 1, lower 0,*
+            incomplete_lower_neighbour_tone,  //unaccented, melodic upper <-1, 1, lower 0,*
+            incomplete_upper_neighbour_tone,  //unaccended, melodic upper >1, -1, lower 0,*
+            anticipation,               //unaccented, melodic upper, -1, 0, lower 0,* NB. consonance anticipations
+            appoggiatura,               //accented, melodic upper *, -1, lower *,0
+            acciaccatura,               //accented, melodic upper *, -1, lower *,0, dissonance is shorter than appoggiatura
+            suspension,                 //accented, melodic upper 0, -1, lower -1, 0 (P,S,R)
+            retardation,                //accented, melodic upper 0, 1, lower, -1, 0 (P,S,R)
+            cambiata_w,                 //unaccented, melodic upper -1,2,-1, lower 0,0,*
+            cambiata_m,                 //unaccented, melodic upper 1,-2, 1, lower 0,0,*
+            upper_escape_tone,          //unaccented, melodic upper 1,<-1, lower 0, *
+            lower_escape_tone,          //unaccented, melodic upper -1,>1, lower 0, *
+            pedal_point,                //varies, melodic, *,*,*, lower is static
+            unknown                     //none of the above
         };
+        
+        //templates for each schemata behaviour, i.e. upper/lower melodies.
+        
+        using quingram = std::array<int,5>;
+        enum  quingram_elt : int { dyad1, dyad2, dyad3, lower_mel1, lowermel2 };
         
         CATSMAT_dissonance();
         ~CATSMAT_dissonance();
+        
+        void Calculate(IMUSANT_note& u1, IMUSANT_note& l1,
+                       IMUSANT_note& u2, IMUSANT_note& l2,
+                       IMUSANT_note& u3, IMUSANT_note& l3);
         
         const IMUSANT_duration& getDuration() { return duration_; }
         const schemata  getSchemata() { return schemata_; }
@@ -57,6 +76,7 @@ namespace CATSMAT
         
         IMUSANT_duration    duration_;
         schemata            schemata_ = unclassified;
+        quingram            quingram_;
     };
     
     using S_CATSMAT_dissonance = IMUSANT_SMARTP<CATSMAT_dissonance>;
