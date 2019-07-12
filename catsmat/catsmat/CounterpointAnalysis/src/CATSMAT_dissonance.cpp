@@ -16,41 +16,39 @@ namespace CATSMAT
     using namespace std;
     
     //map of lambda functions used to find a dissonance behaviour, avoiding long if … else search
-    const std::map<CATSMAT_dissonance::schemata::type, std::function<bool(const array<int,6>&)> > CATSMAT_dissonance::schemata::behaviours_ =
+    const std::map<CATSMAT_dissonance::schemata::type, std::function<bool(const array<int,6>&)>  > CATSMAT_dissonance::schemata::behaviours_ =
     {
-        { unclassified,
+        { CATSMAT_dissonance::schemata::unclassified,
             [](const array<int,6>& n){ return n[up_mel_to] == 0 && n[up_mel_from] == 0 && n[low_mel_to] == 0 && n[low_mel_from] == 0; } },
-        { ascending_passing_tone,
+        { CATSMAT_dissonance::schemata::ascending_passing_tone,
             [](const array<int,6>& n){ return n[up_mel_to] == 1 && n[up_mel_from] == 1 && n[low_mel_to] == 0; } },
-        { descending_passing_tone,
+        { CATSMAT_dissonance::schemata::descending_passing_tone,
             [](const array<int,6>& n){ return n[up_mel_to] == -1 && n[up_mel_from] == -1 && n[low_mel_to] == 0; } },
-        { upper_neighbour_tone,
+        { CATSMAT_dissonance::schemata::upper_neighbour_tone,
             [](const array<int,6>& n){ return n[up_mel_to] == 1 && n[up_mel_from] == -1 && n[low_mel_to] == 0; } },
-        { lower_neighbour_tone,
+        { CATSMAT_dissonance::schemata::lower_neighbour_tone,
             [](const array<int,6>& n){ return n[up_mel_to] == -1 && n[up_mel_from] == 1 && n[low_mel_to] == 0; } },
-        { incomplete_upper_neighbour_tone,
+        { CATSMAT_dissonance::schemata::incomplete_upper_neighbour_tone,
             [](const array<int,6>& n){ return n[up_mel_to] > 1 && n[up_mel_from] == -1 && n[low_mel_to] == 0; } },
-        { incomplete_lower_neighbour_tone,
+        { CATSMAT_dissonance::schemata::incomplete_lower_neighbour_tone,
             [](const array<int,6>& n){ return n[up_mel_to] < -1 && n[up_mel_from] == 1 && n[low_mel_to] == 0; } },
-        { anticipation,
-            [](const array<int,6>& n){ return n[up_mel_to] == -1 && n[up_mel_from] == 0 && n[low_mel_to] == 0; } },
-        { appoggiatura,
+        { CATSMAT_dissonance::schemata::appoggiatura,
             [](const array<int,6>& n){ return n[up_mel_from] == -1 && n[low_mel_from] == 0; } },
-        { suspension,
-            [](const array<int,6>& n){ return n[up_mel_to] == 0 && n[up_mel_from] == -1 && n[low_mel_to] == -1 && n[low_mel_from] == 0; } },
-        { retardation,
+        { CATSMAT_dissonance::schemata::suspension,
+            [](const array<int,6>& n){ return n[up_mel_to] == -1 && n[up_mel_from] == 0 && n[low_mel_to] == 0 && n[low_mel_from] == -1; } },
+        { CATSMAT_dissonance::schemata::retardation,
             [](const array<int,6>& n){ return n[up_mel_to] == 0 && n[up_mel_from] == 1 && n[low_mel_to] == -1 && n[low_mel_from] == 0; } },
-        { cambiata_w,
+        { CATSMAT_dissonance::schemata::cambiata_w,
             [](const array<int,6>& n){ return n[0] == -1 && n[1] == 2 && n[2] == -1 && n[3] == 0 && n[4] == 0; } },
-        { cambiata_m,
+        { CATSMAT_dissonance::schemata::cambiata_m,
             [](const array<int,6>& n){ return n[0] == 1 && n[1] == -2 && n[2] == 1 && n[3] == 0 && n[4] == 0; } }
     };
     
-    const std::multimap<std::function<bool(const array<int,6>&)>, CATSMAT_dissonance::schemata::type> CATSMAT_dissonance::schemata::behaviours_flip_ = flip_map<CATSMAT_dissonance::schemata::type, std::function<bool(const array<int,6>&)> >(CATSMAT_dissonance::schemata::behaviours_);
+    //const std::multimap<std::function<bool(const array<int,6>&)>, CATSMAT_dissonance::schemata::type> CATSMAT_dissonance::schemata::behaviours_flip_ = flip_map<CATSMAT_dissonance::schemata::type, std::function<bool(const array<int,6>&)> >(CATSMAT_dissonance::schemata::behaviours_);
     
     CATSMAT_dissonance::schemata::schemata(int up_mel_to, int up_mel_from, int low_mel_to, int low_mel_from, bool accented)
     {
-        behaviour_ = { up_mel_to, up_mel_from, low_mel_to, low_mel_from};
+        behaviour_ = { up_mel_to, up_mel_from, low_mel_to, low_mel_from, 0, 0};
         accented_ = accented;
         type_ = find_type(behaviour_);
     }
@@ -84,18 +82,19 @@ namespace CATSMAT
     }
     
     CATSMAT_dissonance::CATSMAT_dissonance()
-        : IMUSANT_interval(), schemata_() //default initialisers
+        : schemata_() //default initialisers
     {
         
     }
     
-    CATSMAT_dissonance::~CATSMAT_dissonance() {
     
-    }
+    //constructor for three element dissonance progression
     
-    int CATSMAT_dissonance::compare(const CATSMAT::CATSMAT_dissonance &i) const
+    //constructor for four element dissonance progression
+    
+    CATSMAT_dissonance::~CATSMAT_dissonance()
     {
-        return this->schemata_-i.schemata_;
+    
     }
     
     void CATSMAT_dissonance::Calculate(IMUSANT_note& u1, IMUSANT_note& l1,
@@ -103,13 +102,16 @@ namespace CATSMAT
                                        IMUSANT_note& u3, IMUSANT_note& l3)
     {
         
-        IMUSANT_generalised_interval v2(u1.pitch(),l2.pitch());
+        IMUSANT_generalised_interval v2(u2.pitch(),l2.pitch());
         
         
         if (v2.getQuality()!=IMUSANT_interval::dissonant) throw ("Non-dissonant interval passed as middle vertical interval in CATSMAT_dissonance::Calculate()");
         //could also test that note pairs u1 and l1, etc. are the same duration
+        dissonance_=v2;
         
-        (IMUSANT_interval)*this=v2;
+        if (u2.duration()->duration()!=l2.duration()->duration()) throw ("Notes passed for dissonance in CATSMAT_dissonance::Calculate() are not the same duration.");
+        
+        duration_.set(u2.duration()->duration());
         
         IMUSANT_generalised_interval upper_mel_to(u1.pitch(),u2.pitch());
         IMUSANT_generalised_interval upper_mel_from(u2.pitch(),u3.pitch());
@@ -123,18 +125,7 @@ namespace CATSMAT
         lmf = lower_mel_from.getNumber();
         
         //insert simplified representation
-    }
-    
-    
-    CATSMAT_dissonance::schemata::schemata(int up_mel_to, int up_mel_from, int low_mel_to, int low_mel_from, bool accented)
-    {
-        behaviour_= { up_mel_to, up_mel_from, low_mel_to, low_mel_from};
-        accented_ = accented;
-    }
-    
-    CATSMAT_dissonance::schemata::schemata(int up_intermed, int up_mel_to, int up_mel_from, int low_intermed, int low_mel_to, int low_mel_from, bool accented)
-    {
-        <#code#>;
+        schemata_ = schemata(umt, umf, lmt, lmf,false);
     }
     
 }

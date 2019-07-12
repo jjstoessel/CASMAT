@@ -22,6 +22,8 @@
 #include <stdio.h>
 #include <array>
 #include <map>
+#include <utility>
+#include <functional>
 
 #include "smartpointer.h"
 #include "IMUSANT_interval.h"
@@ -31,7 +33,7 @@ using namespace IMUSANT;
 
 namespace CATSMAT
 {
-    class CATSMAT_dissonance : public IMUSANT_interval
+    class CATSMAT_dissonance : public smartable
     {
     public:
         class schemata
@@ -45,9 +47,8 @@ namespace CATSMAT
                 lower_neighbour_tone,       //unaccented, melodic upper -1, 1, lower 0,*
                 incomplete_upper_neighbour_tone,  //unaccended, melodic upper >1, -1, lower 0,*
                 incomplete_lower_neighbour_tone,  //unaccented, melodic upper <-1, 1, lower 0,*
-                anticipation,               //unaccented, melodic upper, -1, 0, lower 0,* NB. consonance anticipations
                 appoggiatura,               //accented, melodic upper *, -1, lower *,0; includes acciaccatura (which is a shorted accented dissonance)
-                suspension,                 //accented, melodic upper 0, -1, lower -1, 0 (P,S,R)
+                suspension,                 //accented, melodic upper 0, -1, lower -1, 0 (P,S,R); is also an anticipation but the syncopated noted is struck again on the accent
                 retardation,                //accented, melodic upper 0, 1, lower, -1, 0 (P,S,R)
                 cambiata_w,                 //unaccented, melodic upper -1,2,-1, lower 0,0,*
                 cambiata_m,                 //unaccented, melodic upper 1,-2, 1, lower 0,0,*
@@ -56,22 +57,28 @@ namespace CATSMAT
                 pedal_point                 //varies, melodic, *,*,*, lower is static
             };
             
-            static const std::map<type, std::function<bool(const array<int,6>&)> > behaviours_;
-            static const std::multimap<std::function<bool(const array<int,6>&)>,type> behaviours_flip_;
-            
             enum b_index : int {
                 up_mel_to, up_mel_from, low_mel_to, low_mel_from
             };
             
-            schemata();
+            using eval_function_ = std::function<bool(const std::array<int,6>&)>;
+            static const std::map<type, eval_function_> behaviours_;
+            //static const std::multimap<std::function<bool(const array<int,6>&)>,type> behaviours_flip_;
+            
+            schemata() {}
             schemata(int up_mel_to, int up_mel_from, int low_mel_to, int low_mel_from, bool accented);
             schemata(int up_intermed, int up_mel_to, int up_mel_from, int low_intermed, int low_mel_to, int low_mel_from, bool accented); //cambiata only
+            
+            type getType() const { return type_; }
+            bool getAccented() { return accented_; }
+            
         private:
-            array<int,6> behaviour_ = {0,0,0,0}; //initialise as a vector of four elements
+            array<int,6> behaviour_ = {0,0,0,0,0,0}; //initialise as a vector of four elements
             bool        accented_ = false;
             type        type_ = unclassified;
             
-            static const type find_type(const array<int,6>& b); //determine type based upon initialisers
+            static const type find_type(const std::array<int,6>& b); //determine type based upon initialisers
+            
         };
         
         CATSMAT_dissonance();
@@ -82,12 +89,12 @@ namespace CATSMAT
                        IMUSANT_note& u3, IMUSANT_note& l3);
         
         const IMUSANT_duration& getDuration() { return duration_; }
-        const schemata  getSchemata() { return schemata_; }
+        const IMUSANT_interval& getInterval() { return dissonance_; }
+        const schemata&  getSchemata() { return schemata_; }
         
-        //override compare function
-        int                 compare(const CATSMAT_dissonance& i) const;
     private:
         
+        IMUSANT_interval    dissonance_;
         IMUSANT_duration    duration_;
         schemata            schemata_;
     };
