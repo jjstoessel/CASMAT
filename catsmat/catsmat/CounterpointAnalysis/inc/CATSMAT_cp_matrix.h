@@ -26,22 +26,19 @@
 #include "CATSMAT_t_utilities.h"
 #include "IMUSANT_score.h"
 
-using namespace std;
 using namespace IMUSANT;
 using namespace Loki;
 
 namespace CATSMAT {
     
-    class CATSMAT_cp_matrix : public smartable, public BaseVisitable<void, DefaultCatchAll, true> //make sure const
+    class CATSMAT_cp_matrix : public smartable //make sure const
     {
     public:
-        
-        LOKI_DEFINE_CONST_VISITABLE()
 
-        typedef list< S_CATSMAT_chord > Matrix;
+        typedef std::list< S_CATSMAT_chord > Matrix;
 
         friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_object<CATSMAT_cp_matrix>();
-        friend  ostream& operator<< (ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
+        friend  std::ostream& operator<< (std::ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
         
         void    addpart();
         void    add(const S_IMUSANT_part& part);
@@ -53,7 +50,7 @@ namespace CATSMAT {
         
         const   Matrix& getCPmatrix() const { return fCPMatrix; }
         
-        void    print(ostream& os);
+        void    print(std::ostream& os);
         unsigned long partCount() const { return fCurrentPart + 1; }
         
         void    setMeasureNumber(long currentMeasure);
@@ -88,7 +85,36 @@ namespace CATSMAT {
         IMUSANT_barline::type               fLeftBarline;
     };
 
-typedef IMUSANT_SMARTP<CATSMAT_cp_matrix> S_CATSMAT_cp_matrix;
+    class CATSMAT_cp_matrix_visitable : public CATSMAT_cp_matrix, public Loki::BaseVisitable<void, DefaultCatchAll, true>
+    {
+    public:
+        LOKI_DEFINE_CONST_VISITABLE()
+    };
+    
+    class CATSMAT_cp_matrix_visitor : public CATSMAT_cp_matrix, public IMUSANT_visitor
+    {
+    public:
+        CATSMAT_cp_matrix_visitor() {}
+        ~CATSMAT_cp_matrix_visitor() {}
+        
+        void visit ( S_IMUSANT_chord& elt );
+        void visit ( S_IMUSANT_measure& elt );
+        void visit ( S_IMUSANT_barline& );
+        void visit ( S_IMUSANT_note& elt );
+        void visit ( S_IMUSANT_part& elt );
+        void visit ( S_IMUSANT_score& elt );
+        
+        void visit ( S_IMUSANT_attributes& ) {}
+        void visit ( S_IMUSANT_comment& elt ) {}
+        void visit ( S_IMUSANT_element& elt ) {}
+        void visit ( S_IMUSANT_lyric& elt ) {}
+        void visit ( S_IMUSANT_partlist& elt );
+    };
+    
+    typedef IMUSANT_SMARTP<CATSMAT_cp_matrix> S_CATSMAT_cp_matrix;
+    typedef IMUSANT_SMARTP<CATSMAT_cp_matrix_visitable> S_CATSMAT_cp_matrix_visitable;
+    typedef IMUSANT_SMARTP<CATSMAT_cp_matrix_visitor> S_CATSMAT_cp_matrix_visitor;
+
     
 S_CATSMAT_cp_matrix new_CATSMAT_cp_matrix();
     

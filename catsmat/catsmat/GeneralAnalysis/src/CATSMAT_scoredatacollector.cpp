@@ -25,6 +25,8 @@ namespace CATSMAT {
             CATSMAT_dyad_sequences      dyads;
             
             score->accept(score_to_matrix_translator);
+            //S_CATSMAT_cp_matrix_visitable visitable_matrix = IMUSANT_SMARTP<CATSMAT::CATSMAT_cp_matrix_visitable>(score_to_matrix_translator.getCPMatrix());
+            //visitable_matrix->Accept(dyads);
             score_to_matrix_translator.getCPMatrix()->Accept(dyads);
             
             scoredata->findContrapuntalData(dyads);

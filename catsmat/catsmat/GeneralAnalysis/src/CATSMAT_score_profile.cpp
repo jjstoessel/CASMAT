@@ -9,6 +9,7 @@
         IMUSANT_pitch
         IMUSANT_duration
         IMUSANT_interval
+        IMUSANT_contour_symbol
  */
 
 #include <numeric>

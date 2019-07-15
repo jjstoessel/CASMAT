@@ -120,7 +120,7 @@ TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Machaut_Ma_fin_est_mon_commencement
 //test for contrary motion
 TEST_F(CATSMAT_Canonic_Tools_Test, TestScore_Cerreto_CM_canon) {
     
-    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Cerreto-CM_canon_Della_prattica_musica_p222.xml");
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Cerreto-CM_canon_Della_prattica_musica_p222.musicxml");
     
     S_CATSMAT_CanonicTechniquesTools tools = new_CATSMAT_object<CATSMAT_CanonicTechniquesTools>();
     tools->Initialise(imusant_score);

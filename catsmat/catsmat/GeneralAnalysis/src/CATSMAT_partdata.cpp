@@ -9,6 +9,8 @@
 #include "CATSMAT_partdata.h"
 #include "IMUSANT_note.h"
 
+using namespace std;
+
 namespace CATSMAT {
     
     CATSMAT_partdata::CATSMAT_partdata()

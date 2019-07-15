@@ -9,6 +9,8 @@
 #include "CATSMAT_scoredata.h"
 #include <numeric>
 
+using namespace std;
+
 namespace CATSMAT {
     
     CATSMAT_scoredata::
@@ -75,7 +77,7 @@ namespace CATSMAT {
     CATSMAT_scoredata::
     findContrapuntalData(CATSMAT_dyad_sequences& dyads)
     {
-        
+        //TODO: contrapuntal data such as dissonance handling, cadences, etc.
     }
 
     void

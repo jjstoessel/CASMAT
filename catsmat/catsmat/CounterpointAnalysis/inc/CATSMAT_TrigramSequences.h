@@ -8,7 +8,6 @@
                 It relies upon CATSMAT_CPmatrix and IMUSANT_generalised_interval
                 Class takes CP_Matrix and converts to a series of trigrams for each voice pair. The number of trigrams for each pair will be equal to the number of columns in CP Matrix
     \author     Jason Stoessel
-    \author
     \version
     \date       Created by Jason Stoessel on 25/11/2016
     \bug        1 Mar 2017 - representation does not currently consider tied dyads created by the split function in CP matrix. These can be eliminated later where dyad1 = dyad2 and lowMelInterval = 0
@@ -24,7 +23,7 @@
 #include <vector>
 #include <array>
 #include <map>
-#include "CATSMAT_dyad_sequences_base.h"
+#include "CATSMAT_sequences_base.h"
 
 using namespace std;
 
@@ -59,7 +58,7 @@ namespace CATSMAT
     using Trigram = std::array<signed int,3>;
     using Sentence = std::vector<Trigram>;
     
-    class CATSMAT_TrigramSequences : public CATSMAT_dyad_sequences_base<Sentence>, public BaseVisitable<void, DefaultCatchAll, true>
+    class CATSMAT_TrigramSequences : public CATSMAT_sequences_base<Sentence>, public BaseVisitable<void, DefaultCatchAll, true>
     {
     public:
 
@@ -78,7 +77,7 @@ namespace CATSMAT
         static  Trigram             Token2Triple(Token token);
         static  Token               Triple2Token(const Trigram& triple);
         
-        CATSMAT_TrigramSequences() : CATSMAT_dyad_sequences_base<Sentence>() {}
+        CATSMAT_TrigramSequences() : CATSMAT_sequences_base<Sentence>() {}
         ~CATSMAT_TrigramSequences() {}
         
         void    Visit(const CATSMAT_cp_matrix& matrix);

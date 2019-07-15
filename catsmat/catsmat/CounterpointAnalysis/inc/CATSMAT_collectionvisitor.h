@@ -39,7 +39,8 @@ class VEXP CATSMAT_collection_visitor : public IMUSANT_collection_visitor
 		void visit ( S_IMUSANT_score& elt );
     
     //virtual bool is_a_canon() = 0; //virtual function until written!
-    const S_CATSMAT_cp_matrix getCPMatrix() { return fCPMatrix; }
+    //const S_CATSMAT_cp_matrix getCPMatrix() { return fCPMatrix; }
+    const S_CATSMAT_cp_matrix_visitable getCPMatrix() const { return fCPMatrix; }
 
     void processCollections();
     
@@ -47,10 +48,8 @@ class VEXP CATSMAT_collection_visitor : public IMUSANT_collection_visitor
 		
 	private:
 		
-		
-		
         //local storage of counterpoint matrix                                                  
-        S_CATSMAT_cp_matrix    fCPMatrix;
+        S_CATSMAT_cp_matrix_visitable    fCPMatrix;
     
 };
 

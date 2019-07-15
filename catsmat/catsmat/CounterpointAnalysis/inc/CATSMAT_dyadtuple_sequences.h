@@ -10,7 +10,7 @@
 #define __imusant__CATSMAT_dyadtuple_sequences__
 
 #include <stdio.h>
-#include "CATSMAT_dyad_sequences_base.h"
+#include "CATSMAT_sequences_base.h"
 #include "boost/tuple/tuple.hpp"
 
 namespace CATSMAT
@@ -28,13 +28,13 @@ namespace CATSMAT
     };
     typedef vector<quadruple_int>           quadruple_int_vector;
     
-    class CATSMAT_dyadtuple_sequences : public CATSMAT_dyad_sequences_base<quadruple_int_vector>
+    class CATSMAT_dyadtuple_sequences : public CATSMAT_sequences_base<quadruple_int_vector>
     {
     public:
         
         friend  ostream& operator<<(ostream& os, const CATSMAT_dyadtuple_sequences& sequences);
         
-        CATSMAT_dyadtuple_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_dyad_sequences_base() {}
+        CATSMAT_dyadtuple_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_sequences_base() {}
         
         void Visit(const CATSMAT_cp_matrix& matrix);
         

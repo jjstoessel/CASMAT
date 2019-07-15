@@ -6,7 +6,7 @@
 #define CATSMAT_CATSMAT_CONTRAPUNTAL_SCAFFOLD_H
 
 #include <ostream>
-#include "CATSMAT_dyad_sequences_base.h"
+#include "CATSMAT_sequences_base.h"
 
 using namespace IMUSANT;
 
@@ -14,7 +14,7 @@ namespace CATSMAT
 {
     typedef vector<S_IMUSANT_interval_vector> CATSMAT_interval_cluster;
 
-    class CATSMAT_contrapuntal_scaffold : public CATSMAT_dyad_sequences_base<CATSMAT_interval_cluster>
+    class CATSMAT_contrapuntal_scaffold : public CATSMAT_sequences_base<CATSMAT_interval_cluster>
     {
     public:
         enum CR_type { dynamic, regular, salami };

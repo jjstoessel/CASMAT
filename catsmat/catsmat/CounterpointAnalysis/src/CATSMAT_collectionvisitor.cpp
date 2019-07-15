@@ -29,7 +29,7 @@ using namespace ns_suffixtree;
 namespace CATSMAT
 {
     
-    CATSMAT_collection_visitor::CATSMAT_collection_visitor() : fCPMatrix(NULL)
+    CATSMAT_collection_visitor::CATSMAT_collection_visitor() : fCPMatrix(nullptr)
     {
         
     }
@@ -87,7 +87,7 @@ namespace CATSMAT
     {
         if (fCPMatrix==nullptr)
         {
-            fCPMatrix = new_CATSMAT_object<CATSMAT_cp_matrix>();
+            fCPMatrix = new_CATSMAT_object<CATSMAT_cp_matrix_visitable>();
             fCPMatrix->set(elt);
             IMUSANT_collection_visitor::visit(elt);
         }

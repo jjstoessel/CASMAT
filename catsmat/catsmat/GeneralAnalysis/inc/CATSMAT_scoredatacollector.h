@@ -21,20 +21,20 @@ namespace CATSMAT {
     public Loki::Visitor<CATSMAT_processing, void, true>
     {
     public:
-        friend ostream& operator<< (ostream& os, const CATSMAT_scoredatacollector& elt );
+        friend std::ostream& operator<< (std::ostream& os, const CATSMAT_scoredatacollector& elt );
         
         CATSMAT_scoredatacollector() {}
         ~CATSMAT_scoredatacollector() {}
         
         void Visit(const CATSMAT_processing& processor);
         
-        void print(ostream& os) const;
+        void print(std::ostream& os) const;
 
-        vector<S_CATSMAT_scoredata> get() { return scoresdata; }
+        std::vector<S_CATSMAT_scoredata> get() { return scoresdata; }
         
     private:
         
-        vector<S_CATSMAT_scoredata>    scoresdata;
+        std::vector<S_CATSMAT_scoredata>    scoresdata;
     };
 }
 

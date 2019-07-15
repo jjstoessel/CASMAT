@@ -276,7 +276,7 @@ namespace CATSMAT
             for (auto canon : tools->GetCanonTypes())
             {
                 CATSMAT_TrigramSequences        trigram_sequences;
-                S_CATSMAT_cp_matrix matrix = new_CATSMAT_object<CATSMAT_cp_matrix>();
+                S_CATSMAT_cp_matrix_visitable matrix = new_CATSMAT_object<CATSMAT_cp_matrix_visitable>();
                 
                 trigram_sequences.set_ignore_dissonances(ignoreDissonances);
                 trigram_sequences.set_ignore_repeated(ignoreRepeatedDyads);
@@ -512,7 +512,7 @@ namespace CATSMAT
         
         for (auto score : this->getScores())
         {
-            S_CATSMAT_scoredata                 scoredata = new_CATSMAT_object<CATSMAT_scoredata>();
+            S_CATSMAT_scoredata              scoredata = new_CATSMAT_object<CATSMAT_scoredata>();
             ContourDupleVectorMapAnalysis    cv_map;
             
             scoredata->findBasicDataFromScore(score);

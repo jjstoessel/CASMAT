@@ -8,10 +8,11 @@
 
 #include <stdio.h>
 #include "CATSMAT_score_profile.h"
-#include "CATSMAT_score_profile.tpp"
+#include "CATSMAT_score_profile.cpp" //template function implementations
 #include "IMUSANT_generalised_interval.h"
 #include "CATSMAT_TrigramSequences.h"
 #include "IMUSANT_contour_symbol.h"
+#include "CATSMAT_dissonance.h"
 
 namespace CATSMAT {
     
@@ -21,6 +22,7 @@ namespace CATSMAT {
     template class CATSMAT_score_profile<IMUSANT_duration>;
     template class CATSMAT_score_profile<IMUSANT_contour_symbol>;
     template class CATSMAT_score_profile<int>; //basic interval/Taneyev interval index
+    template class CATSMAT_score_profile<CATSMAT_dissonance>;
     //Specialisation of CATSMAT_score_profile::print for CATSMAT_TrigramSequences::Token
     //required to ensure that trigram is printed (operator<<) rather than token
 

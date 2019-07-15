@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "CATSMAT_cp_matrix.h"
 #include "IMUSANT_interval_vector.h"
-#include "CATSMAT_dyad_sequences_base.h"
+#include "CATSMAT_sequences_base.h"
 #include "suffixtree.h"
 
 using namespace IMUSANT;
@@ -21,7 +21,7 @@ using namespace ns_suffixtree;
 
 namespace CATSMAT
 {
-    class CATSMAT_dyad_sequences: public CATSMAT_dyad_sequences_base<S_IMUSANT_interval_vector>
+    class CATSMAT_dyad_sequences: public CATSMAT_sequences_base<S_IMUSANT_interval_vector>
     {
     public:
         
@@ -44,7 +44,6 @@ namespace CATSMAT
         void    find_repeated_substrings(vector< pair<interval_tree::size_type, interval_tree::size_type> >& results,
                                          const interval_tree::node& n,
                                          int min_length=2);
-        
         long fSaveI = 0;
         
     };

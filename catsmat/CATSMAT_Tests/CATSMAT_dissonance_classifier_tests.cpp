@@ -12,6 +12,8 @@
 #include "CATSMAT_test_utility.h"
 #include "gtest/gtest.h"
 #include "CATSMAT_dissonance.h"
+#include "CATSMAT_score_profile.h"
+#include "CATSMAT_dyad_sequences.h"
 //#include "CATSMAT_dissonance_classifer.h"
 
 //#include "CATSMAT_canonic_techniques_tools_expected.h"
@@ -77,8 +79,252 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, Suspension_Test_1) {
     
     IMUSANT_note uto(utop, utodur), udiss(udissp,udissdur), ufrom(ufromp,ufromdur), lto(ltop,ltodur), ldiss(ldissp,ldissdur), lfrom(lfromp,lfromdur);
     
-    CATSMAT_dissonance dissonance;
-    dissonance.Calculate(uto, lto, udiss, ldiss, ufrom, lfrom);
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, true);
     
     ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::suspension);
+}
+
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Descending_Passing_Tone_Test_1) {
+    
+    S_IMUSANT_pitch utop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch udissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ufromp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ltop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ldissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch lfromp = new_IMUSANT_pitch();
+    
+    //void set(type name_as_written, unsigned short octave_as_written, unsigned short voice);
+    utop->set(IMUSANT_pitch::C, 4, 1);
+    udissp->set(IMUSANT_pitch::B, 3, 1);
+    ufromp->set(IMUSANT_pitch::A, 3, 1);
+    ltop->set(IMUSANT_pitch::F, 3, 2);
+    ldissp->set(IMUSANT_pitch::F, 3, 2);
+    lfromp->set(IMUSANT_pitch::F, 3, 2);
+    
+    S_IMUSANT_duration utodur, udissdur, ufromdur, ltodur, ldissdur, lfromdur;
+    
+    utodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    udissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ufromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ltodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ldissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    lfromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    
+    //IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration );
+    
+    IMUSANT_note uto(utop, utodur), udiss(udissp,udissdur), ufrom(ufromp,ufromdur), lto(ltop,ltodur), ldiss(ldissp,ldissdur), lfrom(lfromp,lfromdur);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::descending_passing_tone);
+}
+
+//upper_neighbour_tone,       //unaccented, melodic upper 1,-1, lower 0,*
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Upper_Neighbour_Tone_Test_1) {
+    
+    S_IMUSANT_pitch utop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch udissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ufromp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ltop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ldissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch lfromp = new_IMUSANT_pitch();
+    
+    //void set(type name_as_written, unsigned short octave_as_written, unsigned short voice);
+    utop->set(IMUSANT_pitch::C, 4, 1);
+    udissp->set(IMUSANT_pitch::D, 4, 1);
+    ufromp->set(IMUSANT_pitch::C, 4, 1);
+    ltop->set(IMUSANT_pitch::E, 3, 2);
+    ldissp->set(IMUSANT_pitch::E, 3, 2);
+    lfromp->set(IMUSANT_pitch::A, 3, 2);
+    
+    S_IMUSANT_duration utodur, udissdur, ufromdur, ltodur, ldissdur, lfromdur;
+    
+    utodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    udissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ufromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ltodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ldissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    lfromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    
+    //IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration );
+    
+    IMUSANT_note uto(utop, utodur), udiss(udissp,udissdur), ufrom(ufromp,ufromdur), lto(ltop,ltodur), ldiss(ldissp,ldissdur), lfrom(lfromp,lfromdur);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::upper_neighbour_tone);
+}
+
+//incomplete_lower_neighbour_tone,  //unaccented, melodic upper <-1, 1, lower 0,*
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Incomplete_Upper_Neighbour_Tone_Test_1) {
+    
+    S_IMUSANT_pitch utop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch udissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ufromp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ltop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ldissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch lfromp = new_IMUSANT_pitch();
+    
+    //void set(type name_as_written, unsigned short octave_as_written, unsigned short voice);
+    utop->set(IMUSANT_pitch::B, 3, 1);
+    udissp->set(IMUSANT_pitch::D, 4, 1);
+    ufromp->set(IMUSANT_pitch::C, 4, 1);
+    ltop->set(IMUSANT_pitch::E, 3, 2);
+    ldissp->set(IMUSANT_pitch::E, 3, 2);
+    lfromp->set(IMUSANT_pitch::A, 3, 2);
+    
+    S_IMUSANT_duration utodur, udissdur, ufromdur, ltodur, ldissdur, lfromdur;
+    
+    utodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    udissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ufromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ltodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ldissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    lfromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    
+    //IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration );
+    
+    IMUSANT_note uto(utop, utodur), udiss(udissp,udissdur), ufrom(ufromp,ufromdur), lto(ltop,ltodur), ldiss(ldissp,ldissdur), lfrom(lfromp,lfromdur);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::incomplete_upper_neighbour_tone);
+}
+
+//appoggiatura, //accented, melodic upper *, -1, lower *,0; includes acciaccatura (which is a shorted accented dissonance)
+TEST_F(CATSMAT_Dissonance_Classifier_Tests,Appoggiatura_Test_1) {
+    
+    S_IMUSANT_pitch utop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch udissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ufromp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ltop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ldissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch lfromp = new_IMUSANT_pitch();
+    
+    //void set(type name_as_written, unsigned short octave_as_written, unsigned short voice);
+    utop->set(IMUSANT_pitch::C, 4, 1);
+    udissp->set(IMUSANT_pitch::E, 4, 1);
+    ufromp->set(IMUSANT_pitch::D, 4, 1);
+    ltop->set(IMUSANT_pitch::E, 3, 2);
+    ldissp->set(IMUSANT_pitch::F, 3, 2);
+    lfromp->set(IMUSANT_pitch::F, 3, 2);
+    
+    S_IMUSANT_duration utodur, udissdur, ufromdur, ltodur, ldissdur, lfromdur;
+    
+    utodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    udissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ufromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ltodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ldissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    lfromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    
+    //IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration );
+    
+    IMUSANT_note uto(utop, utodur), udiss(udissp,udissdur), ufrom(ufromp,ufromdur), lto(ltop,ltodur), ldiss(ldissp,ldissdur), lfrom(lfromp,lfromdur);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, true);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::appoggiatura);
+}
+
+//cambiata,                 //unaccented, melodic upper -1,-2,1, lower 0,0,* ; dissonance always second element
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Cambiata_Test_1) {
+    
+    S_IMUSANT_pitch utop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch udissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch uintp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ufromp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ltop = new_IMUSANT_pitch();
+    S_IMUSANT_pitch ldissp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch lintp = new_IMUSANT_pitch();
+    S_IMUSANT_pitch lfromp = new_IMUSANT_pitch();
+    
+    //void set(type name_as_written, unsigned short octave_as_written, unsigned short voice);
+    utop->set(IMUSANT_pitch::C, 4, 1);
+    udissp->set(IMUSANT_pitch::B, 3, 1);
+    uintp->set(IMUSANT_pitch::G, 3, 1);
+    ufromp->set(IMUSANT_pitch::A, 3, 1);
+    ltop->set(IMUSANT_pitch::C, 3, 2);
+    ldissp->set(IMUSANT_pitch::C, 3, 2);
+    lintp->set(IMUSANT_pitch::C, 3, 2);
+    lfromp->set(IMUSANT_pitch::C, 3, 2);
+    
+    S_IMUSANT_duration utodur, udissdur, uintdur, ufromdur, ltodur, ldissdur, lintdur, lfromdur;
+    
+    utodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    udissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    uintdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ufromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ltodur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    ldissdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    lintdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    lfromdur = new_IMUSANT_duration(IMUSANT_duration::minim);
+    
+    //IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration );
+    
+    IMUSANT_note uto(utop, utodur), udiss(udissp,udissdur), uint(uintp, uintdur), ufrom(ufromp,ufromdur), lto(ltop,ltodur), ldiss(ldissp,ldissdur), lint(lintp, lintdur), lfrom(lfromp,lfromdur);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, uint, lint, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::cambiata);
+}
+
+//test for contrary motion
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon) {
+    
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Cerreto-CM_canon_Della_prattica_musica_p222.musicxml");
+    S_CATSMAT_cp_matrix_visitor matrix = new_CATSMAT_object<CATSMAT_cp_matrix_visitor>();
+    imusant_score->accept(*matrix);
+    //use profile to count dissonances
+    
+    std::map<CATSMAT_dissonance,int> dissonance_profile;
+    CATSMAT_dyad_sequences      dyads;
+    
+    //set internal parameters called within search functions
+    dyads.set_ignore_dissonances(false);
+    dyads.set_ignore_repeated(false);
+    
+    if (imusant_score!=nullptr)
+    {
+        dyads.Visit(*matrix);
+        for (auto dyads : dyads.getSequences())
+        {
+            vector<IMUSANT_interval> v = dyads->getIntervals();
+            for (auto dyad = v.begin(); dyad!=v.end(); ++dyad)
+            {
+                if (dyad->getQuality()==IMUSANT_interval::dissonant)
+                {
+                    //auto previous = std::prev(dyad);
+                    //auto next = std::next(dyad);
+                   
+                    //back reference to cp_matrix?
+                    IMUSANT_range location = dyad->getLocation();
+                    auto chord = matrix->getCPmatrix().begin();
+                    IMUSANT_note u1, u2, u3, l1, l2, l3;
+                    
+                    //rough test for known score parameters of two voices
+                    for ( ; chord != matrix->getCPmatrix().end(); chord++)
+                    {
+                        CATSMAT_chord i = **chord;
+                        u2 = *i[0];
+                        l2 = *i[1];
+                        if (i[0]->getMeasureNum() == location.first.measure && i[0]->getNoteIndex() == location.first.note_index)
+                        {
+                            CATSMAT_chord h = **std::prev(chord);
+                            CATSMAT_chord j = **std::next(chord);
+                            u1 = *h[0]; l1 = *h[1];
+                            u3 = *j[0]; l3 = *j[1];
+                            break;
+                        }
+                    }
+                    //find dissonance
+                    CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3);
+                    int  count = dissonance_profile[d] + 1;
+                    dissonance_profile[d] = count;
+                    
+                }
+            }
+        }
+    }
+    //ASSERT_EQ(TestScore_Cerreto_CM_canon_Expected, the_types_as_string);
 }

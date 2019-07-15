@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-#include "CATSMAT_dyad_sequences_base.h"
+#include "CATSMAT_sequences_base.h"
 #include "suffixtree.h"
 
 using namespace ns_suffixtree;
@@ -55,12 +55,12 @@ namespace CATSMAT
         float mDuration;
     };
 
-    class CATSMAT_sonority_sequences : public CATSMAT_dyad_sequences_base<sonority>
+    class CATSMAT_sonority_sequences : public CATSMAT_sequences_base<sonority>
     {
     public:
         typedef suffixtree< vector<sonority> > int_tree;
         
-        CATSMAT_sonority_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_dyad_sequences_base<sonority>() {}
+        CATSMAT_sonority_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_sequences_base<sonority>() {}
         
         friend  ostream& operator<<(ostream& os, const CATSMAT_sonority_sequences& sequences);
         

@@ -431,5 +431,66 @@ namespace CATSMAT
         return true;
     }
     
+#pragma mark IMUSANT_chord handler
+    void CATSMAT_cp_matrix_visitor::visit ( S_IMUSANT_chord& elt )
+    {
+        cerr << "Chord is currently not handled in CATSMAT_cp_matrix_visitor." << endl;
+        
+        //IMUSANT_visitor::visit(elt);
+    }
+    
+    
+#pragma mark IMUSANT_measure handler
+    void CATSMAT_cp_matrix_visitor::visit ( S_IMUSANT_measure& elt )
+    {
+        this->set(elt->getTime());
+        this->setMeasureNumber(elt->getMeasureNum());
+        //elt->barlines().accept(*this);
+        elt->notes().accept(*this);
+    }
+    
+#pragma mark IMUSANT_barline handler
+    void CATSMAT_cp_matrix_visitor::visit ( S_IMUSANT_barline& elt)
+    {
+        if (elt->getLocation()==IMUSANT_barline::left)
+        {
+            this->setCurrentLeftBarline(elt->getBarStyle());
+        }
+    }
+    
+#pragma mark IMUSANT_note handler
+    
+    void CATSMAT_cp_matrix_visitor::visit ( S_IMUSANT_note& elt )
+    {
+        //we ignore non-printing objects
+        if (elt->getStyle()!=IMUSANT_NoteStyle::hidden)
+        {
+            this->add(*elt);
+        }
+    
+        elt->lyrics().accept(*this);
+    }
+    
+#pragma mark IMUSANT_part handler
+    void CATSMAT_cp_matrix_visitor::visit ( S_IMUSANT_part& elt )
+    {
+        this->addpart();
+        elt->measures().accept(*this);
+    }
+    
+    void CATSMAT_cp_matrix_visitor::visit ( S_IMUSANT_partlist& elt )
+    {
+        elt->parts().accept(*this);
+    }
+    
+#pragma mark IMUSANT_score handler
+    void CATSMAT_cp_matrix_visitor::visit ( S_IMUSANT_score& elt )
+    {
+        this->set(elt);
+        elt->partlist()->accept(*this);
+        //ensure CP Matrix is indexed correctly
+        this->reindex();
+    }
+    
 }//namespace CATSMAT
 

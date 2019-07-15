@@ -22,7 +22,7 @@ namespace CATSMAT
     }
     
     CATSMAT_dyad_sequences::CATSMAT_dyad_sequences()
-        : CATSMAT_dyad_sequences_base<S_IMUSANT_interval_vector>()
+        : CATSMAT_sequences_base<S_IMUSANT_interval_vector>()
     {
     }
     

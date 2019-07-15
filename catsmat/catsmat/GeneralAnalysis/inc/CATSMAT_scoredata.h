@@ -26,7 +26,6 @@
 #include "IMUSANT_contour_symbol.h"
 
 using namespace IMUSANT;
-using namespace std;
 
 namespace CATSMAT {
 
@@ -46,8 +45,8 @@ namespace CATSMAT {
         CATSMAT_score_profile<IMUSANT_contour_symbol>& score_contour_symbol_profile(){ return  fScoreContourSymbolProfile; }
         CATSMAT_score_profile<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol> >& score_contour_symbol_duple_profile() { return fContourSymbolDupleProfile; }
         
-        void    print(ostream& os);
-        void    PrintTitle(ostream& os);
+        void    print(std::ostream& os);
+        void    PrintTitle(std::ostream& os);
 
     protected:
         
@@ -59,20 +58,20 @@ namespace CATSMAT {
         
         void    findBasicDataFromPart(S_IMUSANT_part part);
         void    PostProcess();
-        template <typename T> void PrintTable(ostream& os, const vector<tuple<string,T,int> >& table, const map<T,int>& profile, string& type);
+        template <typename T> void PrintTable(std::ostream& os, const std::vector<std::tuple<std::string,T,int> >& table, const map<T,int>& profile, std::string& type);
         
-        string          fWorkTitle;
-        string          fWorkNum;
-        string          fMovementTitle;
-        string          fMovementNum;
-        STRPAIRVECTOR   fCreator;
-        STRPAIRVECTOR   fRights;
-        string          fScoreComments;
-        string          fSource;
-        string          fEditor;
-        string          fDate;
+        std::string         fWorkTitle;
+        std::string         fWorkNum;
+        std::string         fMovementTitle;
+        std::string         fMovementNum;
+        STRPAIRVECTOR       fCreator;
+        STRPAIRVECTOR       fRights;
+        std::string         fScoreComments;
+        std::string         fSource;
+        std::string         fEditor;
+        std::string         fDate;
         
-        map<string,S_CATSMAT_partdata>  fPartsData;
+        std::map<std::string,S_CATSMAT_partdata>  fPartsData;
         int                             fTotalNoteCount = 0;
         int                             fTotalRestCount = 0;
         CATSMAT_score_profile<IMUSANT_pitch>    fScorePitchProfile;

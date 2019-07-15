@@ -21,7 +21,6 @@
 #include "smartpointer.h"
 
 using namespace IMUSANT;
-using namespace std;
 
 namespace CATSMAT {
     
@@ -31,20 +30,20 @@ namespace CATSMAT {
         friend  VEXP IMUSANT_SMARTP<CATSMAT_partdata> new_CATSMAT_object<CATSMAT_partdata>();
         
         void    findBasicDataFromPart(S_IMUSANT_part part);
-        void    print(ostream& os);
-        void    print_interval_profile(ostream& os);
-        void    print_duration_profile(ostream& os);
-        void    print_pitch_profile(ostream& os);
-        void    print_interval_pitch_matrix(ostream& os);
+        void    print(std::ostream& os);
+        void    print_interval_profile(std::ostream& os);
+        void    print_duration_profile(std::ostream& os);
+        void    print_pitch_profile(std::ostream& os);
+        void    print_interval_pitch_matrix(std::ostream& os);
         int     getNoteCount() { return fNoteCount; }
         int     getRestCount() { return fRestCount; }
-        const map<IMUSANT_pitch,int>& getPitchProfile() { return fPitchProfile; }
-        const map<IMUSANT_duration,int>& getDurationProfile() { return fDurationProfile; }
-        const map<IMUSANT_interval,int>& getHIntervalProfile() { return fHIntervalProfile; }
-        const map<IMUSANT_contour_symbol,int>& getContourSymbolProfile() { return fContourSymbolProfile; }
-        const map<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>, int>& getContourSymbolDupleProfile() { return fContourSymbolDupleProfile; }
-        const map<int,int>& getGeneralisedIntervalProfile() { return fGeneralisedIntervalProfile; }
-        const map<pair<IMUSANT_pitch,IMUSANT_pitch>,int>& getHIntervalPitchProfile() { return fHIntervalPitchProfile; }
+        const std::map<IMUSANT_pitch,int>& getPitchProfile() { return fPitchProfile; }
+        const std::map<IMUSANT_duration,int>& getDurationProfile() { return fDurationProfile; }
+        const std::map<IMUSANT_interval,int>& getHIntervalProfile() { return fHIntervalProfile; }
+        const std::map<IMUSANT_contour_symbol,int>& getContourSymbolProfile() { return fContourSymbolProfile; }
+        const std::map<std::pair<IMUSANT_contour_symbol,IMUSANT_contour_symbol>, int>& getContourSymbolDupleProfile() { return fContourSymbolDupleProfile; }
+        const std::map<int,int>& getGeneralisedIntervalProfile() { return fGeneralisedIntervalProfile; }
+        const std::map<std::pair<IMUSANT_pitch,IMUSANT_pitch>,int>& getHIntervalPitchProfile() { return fHIntervalPitchProfile; }
     protected:
         CATSMAT_partdata();
         ~CATSMAT_partdata() {}
@@ -52,16 +51,16 @@ namespace CATSMAT {
     private:
         int fNoteCount = 0;
         int fRestCount = 0;
-        S_IMUSANT_pitch             fLastPitch;
+        S_IMUSANT_pitch                  fLastPitch;
         //S_IMUSANT_note              fPreviousNote = NULL;
-        IMUSANT_contour_symbol      fLastContour;
-        map<IMUSANT_pitch,int>      fPitchProfile;
-        map<IMUSANT_duration,int>   fDurationProfile;
-        map<IMUSANT_interval, int>  fHIntervalProfile; //horizontal interval profile
-        map<IMUSANT_contour_symbol, int> fContourSymbolProfile;
-        map<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int > fContourSymbolDupleProfile;
-        map<int, int>               fGeneralisedIntervalProfile;
-        map<pair<IMUSANT_pitch,IMUSANT_pitch>,int> fHIntervalPitchProfile;
+        IMUSANT_contour_symbol           fLastContour;
+        std::map<IMUSANT_pitch,int>      fPitchProfile;
+        std::map<IMUSANT_duration,int>   fDurationProfile;
+        std::map<IMUSANT_interval, int>  fHIntervalProfile; //horizontal interval profile
+        std::map<IMUSANT_contour_symbol, int> fContourSymbolProfile;
+        std::map<std::pair<IMUSANT_contour_symbol, IMUSANT_contour_symbol>, int > fContourSymbolDupleProfile;
+        std::map<int, int>               fGeneralisedIntervalProfile;
+        std::map<pair<IMUSANT_pitch,IMUSANT_pitch>,int> fHIntervalPitchProfile;
     };
     
     typedef IMUSANT_SMARTP<CATSMAT_partdata> S_CATSMAT_partdata;

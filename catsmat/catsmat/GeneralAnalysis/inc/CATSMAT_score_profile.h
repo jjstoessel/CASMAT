@@ -23,7 +23,6 @@
 #include "CATSMAT_partdata.h"
 #include "CATSMAT_t_utilities.h"
 
-using namespace std;
 using namespace IMUSANT;
 
 namespace CATSMAT {
@@ -34,16 +33,16 @@ namespace CATSMAT {
     public:
         friend  VEXP IMUSANT_SMARTP<CATSMAT_score_profile> new_CATSMAT_object<CATSMAT_score_profile>();
         template <typename U>
-        friend  ostream& operator<<(ostream& os, const CATSMAT_score_profile<U>& elt );
+        friend  std::ostream& operator<<(ostream& os, const CATSMAT_score_profile<U>& elt );
         
-        typedef tuple<string,T,int> TABLE_TUPLE;    //!< \typedef TABLE_TUPLE. A tuple of part name, T, and T count
-        typedef map<T,int>          PROFILE;        //!< \typedef PROFILE. A map for T and T count
+        typedef std::tuple<string,T,int> TABLE_TUPLE;    //!< \typedef TABLE_TUPLE. A tuple of part name, T, and T count
+        typedef std::map<T,int>          PROFILE;        //!< \typedef PROFILE. A map for T and T count
         
         /// CATSMAT_score_profile constructor.
         /**
             \param profile_type  string describing element to be captured.
          */
-        CATSMAT_score_profile(const string& profile_type) : fDelimiter('\t') { fType = profile_type; }
+        CATSMAT_score_profile(const std::string& profile_type) : fDelimiter('\t') { fType = profile_type; }
         ~CATSMAT_score_profile() {}
         
         /// Accumulate
@@ -52,7 +51,7 @@ namespace CATSMAT {
             \param  partname    string containing name of part or string of element from score
             \param  pp          profile (map<element, int> counting frequency (as int) of elements in part/element string
          */
-        void Accumulate(const string& partname, const PROFILE& pp);
+        void Accumulate(const std::string& partname, const PROFILE& pp);
         /// Sort
         /**
             Call Sort after accumulating all profiles.
@@ -67,7 +66,7 @@ namespace CATSMAT {
             Total   Sum of E1 across Part1 … Partn
             \param  os an output stream
          */
-        void print(ostream& os) const;
+        void print(std::ostream& os) const;
         /// SetDeminiter
         /**
             Change delimiter using by print from default tab, e.g comma
@@ -82,10 +81,10 @@ namespace CATSMAT {
         
     private:
         
-        string              fType;      //!< /var fType. Name of element T in profile
-        vector<TABLE_TUPLE> fTable;     //!< /var fTable. A sparse "table" of T
+        std::string              fType;      //!< /var fType. Name of element T in profile
+        std::vector<TABLE_TUPLE> fTable;     //!< /var fTable. A sparse "table" of T
         PROFILE             fProfile;   //!< /var fProfile. An accumulated profile of T in a score
-        vector<string>      fPartNames; //!< /var fPartNames. Internal storage of partNames for accessing fTable
+        std::vector<string>      fPartNames; //!< /var fPartNames. Internal storage of partNames for accessing fTable
         char                fDelimiter; //!< /var fDelimiter. Delimiter character used in print function
         int                 fCount = 0; //!< /var fCount. Total number of elements in fTable.
     };

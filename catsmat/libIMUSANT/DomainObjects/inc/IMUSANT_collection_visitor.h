@@ -42,6 +42,7 @@ namespace IMUSANT
         vector<IMUSANT_pitch>& getPitches() { return *this; }
         
     };
+    
     typedef IMUSANT_SMARTP<IMUSANT_pitch_vector> S_IMUSANT_pitch_vector;
     S_IMUSANT_pitch_vector new_IMUSANT_pitch_vector();
     
@@ -53,6 +54,7 @@ namespace IMUSANT
         vector<IMUSANT_duration>& getDurations() { return *this; }
         
     };
+    
     typedef IMUSANT_SMARTP<IMUSANT_rhythm_vector> S_IMUSANT_rhythm_vector;
     S_IMUSANT_rhythm_vector new_IMUSTANT_rhythm_vector();
     
