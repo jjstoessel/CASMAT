@@ -57,6 +57,16 @@ namespace IMUSANT
         *this = note;
     }
     
+    IMUSANT_note::
+    IMUSANT_note(IMUSANT_pitch::type name_as_written, unsigned short octave_as_written, unsigned short voice,
+                 IMUSANT_pitch::inflection accidental_as_written, const TRational duration, int dots)
+    {
+        initialize();
+        fPitch->set(name_as_written, octave_as_written, voice, accidental_as_written);
+        fDuration->set(duration, dots);
+        //fAccidental->setAccident(); //TO DO: Add inflection to accidental convertor. Key sensitive!
+    }
+    
     IMUSANT_note::~IMUSANT_note(){}
     
     void

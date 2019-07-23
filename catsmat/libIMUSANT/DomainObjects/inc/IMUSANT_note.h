@@ -47,6 +47,8 @@ namespace IMUSANT
         IMUSANT_note();
         IMUSANT_note(S_IMUSANT_pitch& pitch, S_IMUSANT_duration& duration );
         IMUSANT_note(const IMUSANT_note& note);
+        IMUSANT_note(IMUSANT_pitch::type name_as_written, unsigned short octave_as_written, unsigned short voice=1,
+                     IMUSANT_pitch::inflection accidental_as_written=IMUSANT_pitch::natural, const TRational duration=IMUSANT_duration::semibreve, int dots=0);
         
         ~IMUSANT_note();
         

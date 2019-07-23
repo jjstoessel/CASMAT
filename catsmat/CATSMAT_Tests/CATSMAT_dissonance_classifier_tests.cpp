@@ -119,6 +119,21 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, Descending_Passing_Tone_Test_1) {
     ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::descending_passing_tone);
 }
 
+//note: new note constructor method added here
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Ascending_Passing_Tone_Test_1) {
+    
+    IMUSANT_note uto(IMUSANT_pitch::A, 3, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note udiss(IMUSANT_pitch::B, 3, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ufrom(IMUSANT_pitch::C, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lto(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ldiss(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lfrom(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::ascending_passing_tone);
+}
+
 //upper_neighbour_tone,       //unaccented, melodic upper 1,-1, lower 0,*
 TEST_F(CATSMAT_Dissonance_Classifier_Tests, Upper_Neighbour_Tone_Test_1) {
     
@@ -153,6 +168,21 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, Upper_Neighbour_Tone_Test_1) {
     CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, false);
     
     ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::upper_neighbour_tone);
+}
+
+//lower neighbour tone; note: new note constructor method added here
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Lower_Neighbour_Tone_Test_1) {
+    
+    IMUSANT_note uto(IMUSANT_pitch::F, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note udiss(IMUSANT_pitch::E, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ufrom(IMUSANT_pitch::F, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lto(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ldiss(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lfrom(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::lower_neighbour_tone);
 }
 
 //incomplete_lower_neighbour_tone,  //unaccented, melodic upper <-1, 1, lower 0,*
@@ -191,6 +221,21 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, Incomplete_Upper_Neighbour_Tone_Test
     ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::incomplete_upper_neighbour_tone);
 }
 
+//incomplete lower neighbour tone; unaccented, melodic upper <-1, 1, lower 0,*note: new note constructor method added here
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Incomplete_Lower_Neighbour_Tone_Test_1) {
+    
+    IMUSANT_note uto(IMUSANT_pitch::D, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note udiss(IMUSANT_pitch::B, 3, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ufrom(IMUSANT_pitch::C, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lto(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ldiss(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lfrom(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::incomplete_lower_neighbour_tone);
+}
+
 //appoggiatura, //accented, melodic upper *, -1, lower *,0; includes acciaccatura (which is a shorted accented dissonance)
 TEST_F(CATSMAT_Dissonance_Classifier_Tests,Appoggiatura_Test_1) {
     
@@ -225,6 +270,21 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests,Appoggiatura_Test_1) {
     CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, true);
     
     ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::appoggiatura);
+}
+
+//retardation; accented, melodic upper 0, 1, lower, -1, 0 (P,S,R)
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Retardation_Test_1) {
+    
+    IMUSANT_note uto(IMUSANT_pitch::D, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note udiss(IMUSANT_pitch::D, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ufrom(IMUSANT_pitch::E, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lto(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ldiss(IMUSANT_pitch::E, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lfrom(IMUSANT_pitch::E, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, true);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::retardation);
 }
 
 //cambiata,                 //unaccented, melodic upper -1,-2,1, lower 0,0,* ; dissonance always second element
@@ -269,7 +329,53 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, Cambiata_Test_1) {
     ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::cambiata);
 }
 
-//test for contrary motion
+//inverted cambiata; unaccented, melodic upper 1,2,-1, lower 0,0,*
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Inverted_Cambiata_Test_1) {
+    
+    IMUSANT_note uto(IMUSANT_pitch::G, 3, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note udiss(IMUSANT_pitch::A, 3, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note uint(IMUSANT_pitch::C, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ufrom(IMUSANT_pitch::B, 3, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lto(IMUSANT_pitch::E, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ldiss(IMUSANT_pitch::E, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lint(IMUSANT_pitch::E, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lfrom(IMUSANT_pitch::E, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, uint, lint, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::cambiata_i);
+}
+
+//upper_escape_tone; unaccented, melodic upper 1,<-1, lower 0, *
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Upper_Escape_Tone_Test_1) {
+    
+    IMUSANT_note uto(IMUSANT_pitch::B, 3, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note udiss(IMUSANT_pitch::C, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ufrom(IMUSANT_pitch::A, 3, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lto(IMUSANT_pitch::D, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ldiss(IMUSANT_pitch::D, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lfrom(IMUSANT_pitch::D, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::upper_escape_tone);
+}
+//lower_escape_tone; unaccented, melodic upper -1,>1, lower 0, *
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, Lower_Escape_Tone_Test_1) {
+    
+    IMUSANT_note uto(IMUSANT_pitch::C, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note udiss(IMUSANT_pitch::B, 3, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ufrom(IMUSANT_pitch::D, 4, 1, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lto(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note ldiss(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    IMUSANT_note lfrom(IMUSANT_pitch::F, 3, 2, IMUSANT_pitch::natural, IMUSANT_duration::minim);
+    
+    CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, false);
+    
+    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::lower_escape_tone);
+}
+
+//test for ascending and descending passing tones in canon in contrary motion
 TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon) {
     
     S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Cerreto-CM_canon_Della_prattica_musica_p222.musicxml");

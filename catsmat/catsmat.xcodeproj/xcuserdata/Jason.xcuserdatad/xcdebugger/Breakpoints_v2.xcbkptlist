@@ -243,12 +243,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CATSMAT_Tests/CATSMAT_test_utility.cpp"
-            timestampString = "487326404.688109"
+            timestampString = "585466082.707279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "213"
             endingLineNumber = "213"
-            landmarkName = "CATSMAT_test_utility::ConvertSonoritySequencesToString(CATSMAT_sonority_sequences the_sonority_sequences )"
+            landmarkName = "CATSMAT_test_utility::CreateNote(IMUSANT_pitch::type note_name, int octave, TRational note_duration)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1479,7 +1479,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "219"
             endingLineNumber = "219"
-            landmarkName = "TEST_F(CATSMAT_cp_matrix_Test, Josquin_Missa_LHA_super_vocales_musicales_agnus_II)"
+            landmarkName = "TEST_F(CATSMAT_cp_matrix_Test, Triplet_test)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
