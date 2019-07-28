@@ -375,14 +375,16 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, Lower_Escape_Tone_Test_1) {
     ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::lower_escape_tone);
 }
 
+const string TestScore_Cerreto_CM_canon_Dissonances_Expected = "";
 //test for ascending and descending passing tones in canon in contrary motion
 TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon) {
     
+    std::stringstream the_type_as_stringstream;
     S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Cerreto-CM_canon_Della_prattica_musica_p222.musicxml");
     S_CATSMAT_cp_matrix_visitor matrix = new_CATSMAT_object<CATSMAT_cp_matrix_visitor>();
     imusant_score->accept(*matrix);
-    //use profile to count dissonances
     
+    //use profile to count dissonances
     std::map<CATSMAT_dissonance,int> dissonance_profile;
     CATSMAT_dyad_sequences      dyads;
     
@@ -400,9 +402,6 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon) {
             {
                 if (dyad->getQuality()==IMUSANT_interval::dissonant)
                 {
-                    //auto previous = std::prev(dyad);
-                    //auto next = std::next(dyad);
-                   
                     //back reference to cp_matrix?
                     IMUSANT_range location = dyad->getLocation();
                     auto chord = matrix->getCPmatrix().begin();
@@ -425,12 +424,18 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon) {
                     }
                     //find dissonance
                     CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3);
-                    int  count = dissonance_profile[d] + 1;
-                    dissonance_profile[d] = count;
-                    
+                    dissonance_profile[d] = dissonance_profile[d] + 1;
                 }
             }
         }
+        
+        for (auto i: dissonance_profile)
+        {
+            the_type_as_stringstream << i.first << ": " << i.second << std::endl;;
+        }
+        
     }
-    //ASSERT_EQ(TestScore_Cerreto_CM_canon_Expected, the_types_as_string);
+    
+    string the_types_as_string = the_type_as_stringstream.str();
+    ASSERT_EQ(TestScore_Cerreto_CM_canon_Dissonances_Expected, the_types_as_string);
 }

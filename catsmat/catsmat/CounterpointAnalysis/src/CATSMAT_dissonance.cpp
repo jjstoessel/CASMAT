@@ -4,6 +4,7 @@
 //
 //  Created by Jason Stoessel on 7/7/19.
 //
+//  Class to categorise dissonance handling schematae
 
 #include "CATSMAT_dissonance.h"
 #include "IMUSANT_generalised_interval.h"
@@ -144,6 +145,26 @@ namespace CATSMAT
                 (b[up_mel_from] == 0 && b[low_mel_to] == -1 && b[low_mel_from] > 1 && !a);
             }
         }
+    };
+    
+    const map<CATSMAT_dissonance::schemata::type, string> CATSMAT_dissonance::schemata::type_strings =
+    {
+        { unclassified, "Unclassified" },
+        { ascending_passing_tone, "Ascending Passing Tone" },
+        { descending_passing_tone, "Descending Passing Tone" },
+        { upper_neighbour_tone, "Upper Neighbour Tone" },
+        { lower_neighbour_tone, "Lower Neighbour Tone" },
+        { incomplete_upper_neighbour_tone, "Incomplete Upper Neighbour Tone" },
+        { incomplete_lower_neighbour_tone, "Incomplete Lower Neighbour Tone" },
+        { appoggiatura, "Appoggiatura" },
+        { suspension, "Suspension" },
+        { anticipation, "Anticipation" },
+        { retardation, "Retardation" },
+        { cambiata, "Cambiata" },
+        { cambiata_i, "Inverted Cambiata" },
+        { upper_escape_tone, "Upper Escape Tone" },
+        { lower_escape_tone, "Lower Escape Tone" },
+        { pedal_point, "Pedal Point" }
     };
     
     CATSMAT_dissonance::schemata::schemata(int up_mel_to, int up_mel_from, int low_mel_to, int low_mel_from, bool accented)
@@ -323,7 +344,8 @@ namespace CATSMAT
     
     void CATSMAT_dissonance::print(std::ostream &os) const
     {
-        os << "Dissonance print to be implemented.";
+        string s = schemata::type_strings.at(schemata_.getType());
+        os << dissonance_ << ", " << duration_ << ": " << s;
     }
     
 }

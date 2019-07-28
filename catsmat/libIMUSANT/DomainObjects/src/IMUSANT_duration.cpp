@@ -125,11 +125,9 @@ namespace IMUSANT
     IMUSANT_duration::
     print (ostream& os) const
     {
-        os  //<< "<RHYTHM_TYPE>" << fDuration.toString() << "<\\RHYTHM_TYPE>"
-            << "<RHYTHM_TYPE>" << xmlv1(duration_) << "<\\RHYTHM_TYPE>"
+        os  << "<RHYTHM_TYPE>" << xmlv1(duration_) << "<\\RHYTHM_TYPE>"
             << "<DOTS>" << to_string(dots_) << "<\\DOTS>"
             << "<TIME_MOD>" << time_modification_.toString() << "<\\TIME_MOD>";
-      //   << "<TIME_MOD>" << time_modification_.toString() << " normal-type " << normal_duration_.toString() << " normal-dots " << normal_dots_ << "<\\TIME_MOD>";
     }
     
     void

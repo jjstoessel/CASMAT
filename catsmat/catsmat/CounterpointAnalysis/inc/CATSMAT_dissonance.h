@@ -40,7 +40,7 @@ namespace CATSMAT
         {
         public:
             enum type: int {
-                unclassified,               //0,0,0,0
+                unclassified,               
                 ascending_passing_tone,     //unaccented, melodic upper 1, 1, lower 0,*
                 descending_passing_tone,    //unaccented, melodic upper -1, -1, lower 0,*
                 upper_neighbour_tone,       //unaccented, melodic upper 1,-1, lower 0,*
@@ -57,6 +57,8 @@ namespace CATSMAT
                 lower_escape_tone,          //unaccented, melodic upper -1,>1, lower 0, *
                 pedal_point                 //varies, melodic, *,*,*, lower is static
             };
+            
+            static const std::map<type,std::string> type_strings;
             
             enum b_index : int {
                 up_mel_to, up_mel_from, low_mel_to, low_mel_from
