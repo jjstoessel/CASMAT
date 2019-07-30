@@ -345,7 +345,7 @@ namespace CATSMAT
     void CATSMAT_dissonance::print(std::ostream &os) const
     {
         string s = schemata::type_strings.at(schemata_.getType());
-        os << dissonance_ << ", " << duration_ << ": " << s;
+        os << dissonance_ << ", " << duration_ << ", " << s;
     }
     
 }

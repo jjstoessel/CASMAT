@@ -375,7 +375,7 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, Lower_Escape_Tone_Test_1) {
     ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::lower_escape_tone);
 }
 
-const string TestScore_Cerreto_CM_canon_Dissonances_Expected = "";
+const string TestScore_Cerreto_CM_canon_Dissonances_Expected = "-per4, quarter, Ascending Passing Tone: 5\n-per4, quarter, Descending Passing Tone: 5\n";
 //test for ascending and descending passing tones in canon in contrary motion
 TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon) {
     

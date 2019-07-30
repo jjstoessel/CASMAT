@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_dissonance.cpp"
-            timestampString = "584882316.848429"
+            timestampString = "586183307.316805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "178"
             endingLineNumber = "178"
-            landmarkName = "CATSMAT_dissonance::schemata::set(int up_mel_to, int up_mel_from, int low_mel_to, int low_mel_from, bool accented)"
+            landmarkName = "CATSMAT_dissonance::schemata::schemata(int up_intermed, int up_mel_to, int up_mel_from, int low_intermed, int low_mel_to, int low_mel_from, bool accented)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,14 +57,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
-            timestampString = "584882316.848762"
+            filePath = "libIMUSANT/DomainObjects/src/IMUSANT_duration.cpp"
+            timestampString = "586183307.316888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon)"
-            landmarkType = "9">
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "IMUSANT_duration:: xmlv3(TRational d)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,44 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
-            timestampString = "584882316.848859"
+            timestampString = "586183307.316952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
-            landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
-            timestampString = "584882316.848936"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
-            timestampString = "584882316.849142"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-            landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon)"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
+            landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, Lower_Escape_Tone_Test_1)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

@@ -29,7 +29,6 @@ namespace IMUSANT
     TRational IMUSANT_duration::fivetwelfth(1,512); // 512th
     TRational IMUSANT_duration::oneohtwofourth(1,1024); // 1024th
     
-    
     //ctor functions
     S_IMUSANT_duration new_IMUSANT_duration()
     {
@@ -67,7 +66,7 @@ namespace IMUSANT
     IMUSANT_duration::
     fDurationStringsv1[]	=
     {
-        "unmeasured", "maxima", "longa", "breve", "semibreve", "minim", "crochet", "quaver",
+        "unmeasured", "maxima", "long", "breve", "semibreve", "minim", "crochet", "quaver",
         "semiquaver", "demisemiquaver", "hemidemisemiquaver", "hundredandtwentyeighth"
     };
     
@@ -76,7 +75,7 @@ namespace IMUSANT
     fDurationStringsv3[]	=
     {
         "unmeasured", "maxima", "long", "breve", "whole", "half", "quarter", "eighth",
-        "16th","32nd", "64th","128th", "256th", "512th", "1024th"
+        "16th", "32nd", "64th", "128th", "256th", "512th", "1024th"
     };
     
     bimap<string, TRational>
@@ -125,9 +124,12 @@ namespace IMUSANT
     IMUSANT_duration::
     print (ostream& os) const
     {
-        os  << "<RHYTHM_TYPE>" << xmlv1(duration_) << "<\\RHYTHM_TYPE>"
-            << "<DOTS>" << to_string(dots_) << "<\\DOTS>"
-            << "<TIME_MOD>" << time_modification_.toString() << "<\\TIME_MOD>";
+       // os  << "<RHYTHM_TYPE>" << xmlv1(duration_) << "<\\RHYTHM_TYPE>"
+       //     << "<DOTS>" << to_string(dots_) << "<\\DOTS>"
+       //    << "<TIME_MOD>" << time_modification_.toString() << "<\\TIME_MOD>";
+        os << xmlv3(duration_);
+        if (dots_>0) os << " with " << to_string(dots_) << "dots";
+        if (time_modification_!=TRational(1,1)) os << "in " << time_modification_.toString();
     }
     
     void

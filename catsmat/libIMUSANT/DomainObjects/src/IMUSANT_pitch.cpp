@@ -294,7 +294,26 @@ namespace IMUSANT
     
     void IMUSANT_pitch::print (ostream& os) const
     {
-        os << IMUSANT_pitch::xml(fNameSounding) << fAlterationSounding << "@" << fOctaveSounding /*<< std::endl*/;
+        os << IMUSANT_pitch::xml(fNameSounding);
+        switch (fAlterationSounding) {
+            case double_flat:
+                os << "--";
+                break;
+            case flat:
+                os << "-";
+                break;
+            case natural:
+                break;
+            case sharp:
+                os << "+";
+                break;
+            case double_sharp:
+                os << "++";
+                break;
+            default:
+                break;
+        }
+        os << fOctaveSounding;
     }
     
     //Calculates the Pitch Class number as per traditional pitch class theory, octave agnostic

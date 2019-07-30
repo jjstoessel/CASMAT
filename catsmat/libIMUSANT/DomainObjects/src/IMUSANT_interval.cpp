@@ -53,11 +53,12 @@ namespace IMUSANT
     {
         if (i.fOctaves < IMUSANT_interval::undefined-FLAGSPACE) //don't try to print terminator elements.
         {
-            os << ((i.fInterval==IMUSANT_interval::per1 && i.fOctaves>0)? "8ve" : IMUSANT_interval::xmlinterval(i.fInterval)) << " ";
             if (i.fDirection!=IMUSANT_interval::vertical_bottomtotop)
             {
-                os << (((i.fDirection==IMUSANT_interval::descending)?("\\"):((i.fDirection==IMUSANT_interval::descending)?("\\"):("/")))) << " ";
+                os << (((i.fDirection==IMUSANT_interval::descending)?("-"):((i.fDirection==IMUSANT_interval::ascending)?("+"):(""))));
             }
+            
+            os << ((i.fInterval==IMUSANT_interval::per1 && i.fOctaves>0)? "8ve" : IMUSANT_interval::xmlinterval(i.fInterval));
         }
         else
             os << "undefined ";
@@ -198,7 +199,7 @@ namespace IMUSANT
         return out;
     }
 
-    IMUSANT_interval::IMUSANT_interval(interval_type iv) : fInterval(iv), fOctaves(0), fDirection(ascending)
+    IMUSANT_interval::IMUSANT_interval(interval_type iv) : fInterval(iv), fOctaves(0), fDirection(vertical_bottomtotop)
     {
         fQuality = calcQuality();
     }
