@@ -386,9 +386,9 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon) {
     
     //use profile to count dissonances
     std::map<CATSMAT_dissonance,int> dissonance_profile;
-    CATSMAT_dyad_sequences      dyads;
     
     //set internal parameters called within search functions
+    CATSMAT_dyad_sequences      dyads;
     dyads.set_ignore_dissonances(false);
     dyads.set_ignore_repeated(false);
     

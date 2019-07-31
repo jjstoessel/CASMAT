@@ -489,6 +489,7 @@
 		BA85CD4F22C5ECBA002E486E /* CATSMAT_general_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD4D22C5ECBA002E486E /* CATSMAT_general_main.cpp */; };
 		BA85CD5522C5EDCF002E486E /* CATSMAT_count.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD5122C5EDCF002E486E /* CATSMAT_count.cpp */; };
 		BA85CD5622C5EDCF002E486E /* CATSMAT_count_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD5222C5EDCF002E486E /* CATSMAT_count_main.cpp */; };
+		BA884EF922F0757D007B02B9 /* CATSMAT_cp_matrix_Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 496EF7141B22FCC500FE715F /* CATSMAT_cp_matrix_Test.cpp */; };
 		BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		BAEDDD9122C5D67E00EB37B4 /* ContourSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */; };
@@ -3879,6 +3880,7 @@
 				49BAF9EA1ED945D5000C84C4 /* CATSMAT_scoredata.cpp in Sources */,
 				BAEDDD9622C5D67E00EB37B4 /* PitchSuffixtreeBuilder.cpp in Sources */,
 				1E18362C1B48C4CF009B5D2C /* CATSMAT_test_utility.cpp in Sources */,
+				BA884EF922F0757D007B02B9 /* CATSMAT_cp_matrix_Test.cpp in Sources */,
 				BAEDDDA622C5D6CB00EB37B4 /* Segment.cpp in Sources */,
 				BA1CB08422D204AC00E2CBAF /* CATSMAT_dissonance.cpp in Sources */,
 				BA1CB06C22D1806600E2CBAF /* LBDM_SegmentedPart_Tests.cpp in Sources */,
