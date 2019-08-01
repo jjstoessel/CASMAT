@@ -141,5 +141,14 @@ namespace CATSMAT
     
     ostream& operator<< (ostream& os, const CATSMAT_dissonance& elt );
 
+    template<typename T>
+    inline void swap_less(T &x, T &y)
+    {
+        if (x<y)
+        {
+            T tmp = x;
+            x = y; y = tmp;
+        }
+    }
 }//namespace CATSMAT
 #endif /* CATSMAT_dissonance_h */

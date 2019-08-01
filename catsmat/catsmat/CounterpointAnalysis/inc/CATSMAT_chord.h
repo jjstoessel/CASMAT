@@ -29,6 +29,8 @@ namespace CATSMAT {
         void	print(ostream& os) const;
         void    print_short(ostream& os) const;
         
+        CATSMAT_chord& operator=(const CATSMAT_chord& rhs);
+        
     };
     
     typedef IMUSANT_SMARTP<CATSMAT_chord> S_CATSMAT_chord;

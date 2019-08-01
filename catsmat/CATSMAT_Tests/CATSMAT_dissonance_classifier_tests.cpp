@@ -439,3 +439,134 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon) {
     string the_types_as_string = the_type_as_stringstream.str();
     ASSERT_EQ(TestScore_Cerreto_CM_canon_Dissonances_Expected, the_types_as_string);
 }
+
+const string TestScore_Zarlino_Bicinia_1_Expected = "";
+
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1) {
+    
+    std::stringstream the_type_as_stringstream;
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Zarlino_Bicinia_1.xml");
+    S_CATSMAT_cp_matrix_visitor matrix = new_CATSMAT_object<CATSMAT_cp_matrix_visitor>();
+    imusant_score->accept(*matrix);
+    
+    //use profile to count dissonances
+    std::map<CATSMAT_dissonance,int> dissonance_profile;
+    CATSMAT_dyad_sequences      dyads;
+    
+    //set internal parameters called within search functions
+    dyads.set_ignore_dissonances(false);
+    dyads.set_ignore_repeated(false);
+    
+    if (imusant_score!=nullptr)
+    {
+        dyads.Visit(*matrix);
+        for (auto dyads : dyads.getSequences())
+        {
+            vector<IMUSANT_interval> v = dyads->getIntervals();
+            auto chord = matrix->getCPmatrix().begin(); //iterator
+            
+            for (auto dyad = v.begin(); dyad!=v.end(); ++dyad)
+            {
+                if (dyad->getQuality()==IMUSANT_interval::dissonant)
+                {
+                    //back reference to cp_matrix?
+                    IMUSANT_range location = dyad->getLocation();
+                    
+                    //rough test for known score parameters of two voices
+                    for ( ; chord != matrix->getCPmatrix().end(); chord++)
+                    {
+                        IMUSANT_note u1, u2, u3, l1, l2, l3, copy;
+                        CATSMAT_chord i = **chord;
+                        u2 = *i[0];
+                        l2 = *i[1];
+                        if (i[0]->getMeasureNum() == location.first.measure && i[0]->getNoteIndex() == location.first.note_index)
+                        {
+                            CATSMAT_chord h = **std::prev(chord);
+                            CATSMAT_chord j = **std::next(chord);
+                            u1 = *h[0]; l1 = *h[1];
+                            u3 = *j[0]; l3 = *j[1];
+                            
+                            //find dissonance
+                            CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3);
+                            dissonance_profile[d] = dissonance_profile[d] + 1;
+                            break;
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+        for (auto i: dissonance_profile)
+        {
+            the_type_as_stringstream << i.first << ": " << i.second << std::endl;;
+        }
+        
+    }
+    
+    string the_types_as_string = the_type_as_stringstream.str();
+    ASSERT_EQ(TestScore_Zarlino_Bicinia_1_Expected, the_types_as_string);
+}
+
+const string TestScore_Zarlino_Bicinia_1_2_Expected = "";
+
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
+    
+    std::stringstream the_type_as_stringstream;
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Zarlino_Bicinia_1.xml");
+    S_CATSMAT_cp_matrix_visitor matrix = new_CATSMAT_object<CATSMAT_cp_matrix_visitor>();
+    imusant_score->accept(*matrix);
+    
+    //use profile to count dissonances
+    std::map<CATSMAT_dissonance,int> dissonance_profile;
+    CATSMAT_dyad_sequences      dyads;
+    
+    //set internal parameters called within search functions
+    dyads.set_ignore_dissonances(false);
+    dyads.set_ignore_repeated(false);
+    
+    if (imusant_score!=nullptr)
+    {
+        dyads.Visit(*matrix);
+        for (auto dyads : dyads.getSequences())
+        {
+            vector<IMUSANT_interval> v = dyads->getIntervals();
+            auto chord = matrix->getCPmatrix().begin(); //iterator
+            
+            for (auto dyad = v.begin(); dyad!=v.end(); ++dyad)
+            {
+                if (dyad->getQuality()==IMUSANT_interval::dissonant)
+                {
+                    //back reference to cp_matrix?
+                    IMUSANT_range location = dyad->getLocation();
+                    
+                    //rough test for known score parameters of two voices
+                    for ( ; chord != matrix->getCPmatrix().end(); chord++)
+                    {
+                        IMUSANT_note u1, u2, u3, l1, l2, l3, copy;
+                        CATSMAT_chord i = **chord;
+                        u2 = *i[0];
+                        l2 = *i[1];
+                        if (i[0]->getMeasureNum() == location.first.measure && i[0]->getNoteIndex() == location.first.note_index)
+                        {
+                            CATSMAT_chord h = **std::prev(chord);
+                            CATSMAT_chord j = **std::next(chord);
+                            u1 = *h[0]; l1 = *h[1];
+                            u3 = *j[0]; l3 = *j[1];
+                            
+                            //find dissonance
+                            CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3);
+                            //dissonance_profile[d] = dissonance_profile[d] + 1;
+                            the_type_as_stringstream << "m." << location.first.measure << "." << location.first.note_index << ": " << d <<  std::endl;
+                            break;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    string the_types_as_string = the_type_as_stringstream.str();
+    ASSERT_EQ(TestScore_Zarlino_Bicinia_1_2_Expected, the_types_as_string);
+}

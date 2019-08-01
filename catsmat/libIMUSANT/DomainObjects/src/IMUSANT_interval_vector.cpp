@@ -37,7 +37,11 @@ namespace IMUSANT
             fIntervals.push_back(interval);
             return true;
         }
-        //If reached here, then vector is maxed out.
+        else //If reached here, then vector is maxed out.
+        {
+            fIntervals.emplace_back(interval);
+        }
+        
         return false;
     }
     

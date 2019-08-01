@@ -491,6 +491,7 @@
 		BA85CD5622C5EDCF002E486E /* CATSMAT_count_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CD5222C5EDCF002E486E /* CATSMAT_count_main.cpp */; };
 		BAA8D8FC1AABFDB90053ADE3 /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		BAA8D8FD1AABFDBC0053ADE3 /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		BAEB758D22F26B900039043F /* Zarlino_Bicinia_1.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAEB758C22F26AD40039043F /* Zarlino_Bicinia_1.xml */; };
 		BAEDDD9122C5D67E00EB37B4 /* ContourSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */; };
 		BAEDDD9222C5D67E00EB37B4 /* ContourSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8B22C5D67D00EB37B4 /* ContourSuffixtreeBuilder.cpp */; };
 		BAEDDD9322C5D67E00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAEDDD8C22C5D67D00EB37B4 /* GeneralisedIntervalSuffixtreeBuilder.cpp */; };
@@ -610,6 +611,7 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				BAEB758D22F26B900039043F /* Zarlino_Bicinia_1.xml in CopyFiles */,
 				BA1CB09E22D99C5400E2CBAF /* Cerreto-CM_canon_Della_prattica_musica_p222.musicxml in CopyFiles */,
 				4949DD2A1F2D6E9D00248DA4 /* Anon-Talent_mest_pris_I-IV_115.xml in CopyFiles */,
 				4949DD2B1F2D6E9D00248DA4 /* Bononcini-RCM_canon_Musico_prattico_p105.xml in CopyFiles */,
@@ -1481,6 +1483,7 @@
 		BAAB1A4309D0B32800673D3D /* IMUSANT_element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUSANT_element.h; sourceTree = "<group>"; };
 		BAAB1A4409D0B32800673D3D /* IMUSANT_element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMUSANT_element.cpp; sourceTree = "<group>"; };
 		BABAE0E31E78D3A4002F0CDD /* Du_Fay-Inclita_stella_maris.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Du_Fay-Inclita_stella_maris.xml"; sourceTree = "<group>"; };
+		BAEB758C22F26AD40039043F /* Zarlino_Bicinia_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Zarlino_Bicinia_1.xml; sourceTree = "<group>"; };
 		BAEDDD8222C5D64800EB37B4 /* TVectorMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVectorMap.h; sourceTree = "<group>"; };
 		BAEDDD8322C5D64800EB37B4 /* TSuffixtreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSuffixtreeBuilder.h; sourceTree = "<group>"; };
 		BAEDDD8422C5D64800EB37B4 /* ContourSuffixtreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourSuffixtreeBuilder.h; sourceTree = "<group>"; };
@@ -1689,6 +1692,7 @@
 				4949DD281F2D6CD000248DA4 /* Machaut-Ma_fin_est_mon_commencement.xml */,
 				4949DD291F2D6CD000248DA4 /* Ockeghem_Prenez_sur_moi_Cop.xml */,
 				1E2FA2C51B355A01002BB14F /* Sanctus.xml */,
+				BAEB758C22F26AD40039043F /* Zarlino_Bicinia_1.xml */,
 				1EDE2F151B3E0ABE00DB1BD0 /* TestScore_1_Measure.xml */,
 				1EDE2F191B3E0B2500DB1BD0 /* TestScore_4_Measures.xml */,
 				1EDE2F1D1B3E762400DB1BD0 /* TestScore_4_Measures_WithQuaverPassingNotes.xml */,
@@ -3618,8 +3622,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 496EF6C41B22B01700FE715F /* Build configuration list for PBXNativeTarget "IMUSANT" */;
 			buildPhases = (
-				496EF6B81B22B01600FE715F /* Sources */,
 				496EF6BA1B22B01600FE715F /* Headers */,
+				496EF6B81B22B01600FE715F /* Sources */,
 				496EF6B91B22B01600FE715F /* Frameworks */,
 				49FB9BD01C7879A30008B46D /* CopyFiles */,
 			);

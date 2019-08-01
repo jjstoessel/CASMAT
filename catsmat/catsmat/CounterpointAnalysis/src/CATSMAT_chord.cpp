@@ -36,4 +36,13 @@ namespace CATSMAT
         os << "<CHORD/>" << endl;
     }
     
+    CATSMAT_chord&
+    CATSMAT_chord::operator=(const CATSMAT_chord& rhs)
+    {
+        for (auto note : rhs)
+        {
+            this->insert(note);
+        }
+        return *this;
+    }
 }

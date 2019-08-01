@@ -103,8 +103,8 @@ namespace CATSMAT
             [](const CATSMAT_dissonance::schemata::behaviour_array& b, bool a)
             {
                 return
-                (b[up_mel_to] == 0 && b[up_mel_from] == 1 && b[low_mel_to] == -1 && b[low_mel_from] == 0 && a) ||
-                (b[up_mel_to] == -1 && b[up_mel_from] == 0 && b[low_mel_to] == 0 && b[low_mel_from] == 1 && a);
+                (b[up_mel_to] == 1 && b[up_mel_from] == 0 && b[low_mel_to] == 0 && b[low_mel_from] == -1 && a) ||
+                (b[up_mel_to] == 0 && b[up_mel_from] == -1 && b[low_mel_to] == 1 && b[low_mel_from] == 0 && a);
                 
             }
         },
@@ -243,8 +243,12 @@ namespace CATSMAT
                                          bool accented)
     {
         
-        IMUSANT_generalised_interval v2(u2.pitch(),l2.pitch());
+        //approximate approach to voice crossing
+        swap_less<IMUSANT_note>(u1, l1);
+        swap_less<IMUSANT_note>(u2, l2);
+        swap_less<IMUSANT_note>(u3, l3);
         
+        IMUSANT_generalised_interval v2(u2.pitch(),l2.pitch());
         
         if (v2.getQuality()!=IMUSANT_interval::dissonant) throw ("Non-dissonant interval passed as middle vertical interval in CATSMAT_dissonance::Calculate()");
         //could also test that note pairs u1 and l1, etc. are the same duration
@@ -274,6 +278,13 @@ namespace CATSMAT
                                          IMUSANT::IMUSANT_note &u3, IMUSANT::IMUSANT_note &l3,
                                          IMUSANT::IMUSANT_note &u4, IMUSANT::IMUSANT_note &l4, bool accented)
     {
+        
+        //approximate approach to voice crossing
+        swap_less<IMUSANT_note>(u1, l1);
+        swap_less<IMUSANT_note>(u2, l2);
+        swap_less<IMUSANT_note>(u3, l3);
+        swap_less<IMUSANT_note>(u4, l4);
+        
         IMUSANT_generalised_interval v2(u2.pitch(),l2.pitch());
         
         
