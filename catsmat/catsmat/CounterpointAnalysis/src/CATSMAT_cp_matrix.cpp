@@ -370,6 +370,29 @@ namespace CATSMAT
         return fSourceScore;
     }
     
+    bool
+    CATSMAT_cp_matrix::
+    isAccented(const Matrix_iterator& iter, const IMUSANT_duration& beat)
+    {
+        bool result = false;
+        
+        if (iter!=fCPMatrix.end())
+        {
+            Matrix_iterator first_chord = iter;
+            
+            CATSMAT_chord chord = **first_chord;
+            IMUSANT_note note = *chord[0];
+            while (note.getNoteIndex()!=1)
+            {
+                first_chord = std::prev(first_chord);
+                chord = **first_chord;
+                note = *chord[0];
+            }
+        }
+        
+        return result;
+    }
+    
     /*!
      \brief CATSMAT_cp_matrix::print
      

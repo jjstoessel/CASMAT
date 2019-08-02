@@ -35,7 +35,8 @@ namespace CATSMAT {
     {
     public:
 
-        typedef std::list< S_CATSMAT_chord > Matrix;
+        using Matrix = std::list<S_CATSMAT_chord>;
+        using Matrix_iterator = Matrix::iterator;
 
         friend  IMUSANT_SMARTP<CATSMAT_cp_matrix> new_CATSMAT_object<CATSMAT_cp_matrix>();
         friend  std::ostream& operator<< (std::ostream& os, const IMUSANT_SMARTP<CATSMAT_cp_matrix>& elt );
@@ -49,6 +50,7 @@ namespace CATSMAT {
         void    reindex();
         
         const   Matrix& getCPmatrix() const { return fCPMatrix; }
+        bool    isAccented(const Matrix_iterator& iter, const IMUSANT_duration& beat);
         
         void    print(std::ostream& os);
         unsigned long partCount() const { return fCurrentPart + 1; }

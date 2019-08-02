@@ -6,7 +6,7 @@
 //
 
 #include <stdio.h>
-
+#include <math.h>
 #include <boost/filesystem.hpp>
 
 #include "CATSMAT_test_utility.h"
@@ -531,10 +531,13 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
         for (auto dyads : dyads.getSequences())
         {
             vector<IMUSANT_interval> v = dyads->getIntervals();
-            auto chord = matrix->getCPmatrix().begin(); //iterator
+            CATSMAT_cp_matrix::Matrix_iterator chord = matrix->getCPmatrix().begin(); //iterator
+            
+            IMUSANT_duration cumulative_dur;
             
             for (auto dyad = v.begin(); dyad!=v.end(); ++dyad)
             {
+                
                 if (dyad->getQuality()==IMUSANT_interval::dissonant)
                 {
                     //back reference to cp_matrix?
@@ -547,15 +550,22 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
                         CATSMAT_chord i = **chord;
                         u2 = *i[0];
                         l2 = *i[1];
+                        
+                        cumulative_dur += u2.duration()->duration();
+                        
                         if (i[0]->getMeasureNum() == location.first.measure && i[0]->getNoteIndex() == location.first.note_index)
                         {
+                            bool accented = false;
+                            
                             CATSMAT_chord h = **std::prev(chord);
                             CATSMAT_chord j = **std::next(chord);
                             u1 = *h[0]; l1 = *h[1];
                             u3 = *j[0]; l3 = *j[1];
                             
+                            if ( matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::minim)))
+                                accented = true;
                             //find dissonance
-                            CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3);
+                            CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3,accented);
                             //dissonance_profile[d] = dissonance_profile[d] + 1;
                             the_type_as_stringstream << "m." << location.first.measure << "." << location.first.note_index << ": " << d <<  std::endl;
                             break;
