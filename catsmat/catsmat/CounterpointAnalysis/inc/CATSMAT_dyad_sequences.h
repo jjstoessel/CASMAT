@@ -32,15 +32,15 @@ namespace CATSMAT
         CATSMAT_dyad_sequences();
         ~CATSMAT_dyad_sequences();
         
-        void    Visit(const CATSMAT_cp_matrix& matrix);
+        void    Visit(CATSMAT_cp_matrix& matrix);
         
         void    FindRepeatedIn(int min=3);
         void    FindRepeatedAcross(int min=3);
-        void    Print(ostream& os) const;
+        void    Print(ostream& os) const ;
         
     private:
         
-        void    process(const list<S_CATSMAT_chord>& matrix);
+        void    process(CATSMAT_cp_matrix::Matrix& matrix);
         void    find_repeated_substrings(vector< pair<interval_tree::size_type, interval_tree::size_type> >& results,
                                          const interval_tree::node& n,
                                          int min_length=2);

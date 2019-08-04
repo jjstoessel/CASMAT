@@ -49,6 +49,7 @@ namespace CATSMAT
                 incomplete_lower_neighbour_tone,  //unaccented, melodic upper <-1, 1, lower 0,*
                 appoggiatura,               //accented, melodic upper *, -1, lower *,0; includes acciaccatura (which is a shorted accented dissonance)
                 suspension,                 //accented, melodic upper 0, -1, lower -1, 0 (P,S,R); is also an anticipation but the syncopated noted is struck again on the accent
+                suspension_by_third,        //accented, upper 0, -1, lower -2, 0
                 anticipation,               //unaccented suspension, without syncopation; unimpletemented - reserved for future enhancements
                 retardation,                //accented, melodic upper 0, 1, lower, -1, 0 (P,S,R)
                 cambiata,                 //unaccented, melodic upper -1,-2,1, lower 0,0,* ; dissonance always second element
@@ -77,6 +78,7 @@ namespace CATSMAT
             
             type getType() const { return type_; }
             bool getAccented() { return accented_; }
+            behaviour_array getBehaviour() const { return behaviour_; } 
             
             bool operator== (const schemata& rhs) const { return equal(rhs); }
             bool operator!= (const schemata& rhs) const { return equal(rhs)==false; }

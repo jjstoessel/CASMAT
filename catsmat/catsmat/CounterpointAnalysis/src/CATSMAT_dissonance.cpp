@@ -85,8 +85,8 @@ namespace CATSMAT
             [](const CATSMAT_dissonance::schemata::behaviour_array& b, bool a)
             {
                 return
-                (b[up_mel_to] > 1 && b[up_mel_from] == -1 && b[low_mel_from] == 0 && a) ||
-                (b[up_mel_from] == 0 && b[low_mel_to] > 1 && b[low_mel_from] == -1 && a);
+                ( b[up_mel_to] != 0 && b[up_mel_from] == -1 && b[low_mel_from] == 0 && a) ||
+                (b[up_mel_from] == 0 && b[low_mel_to] != 0 && b[low_mel_from] == -1 && a);
             }
         },
         {
@@ -96,6 +96,15 @@ namespace CATSMAT
                 return
                 (b[up_mel_to] == -1 && b[up_mel_from] == 0 && b[low_mel_to] == 0 && b[low_mel_from] == -1 && a) ||
                 (b[up_mel_to] == 0 && b[up_mel_from] == -1 && b[low_mel_to] == -1 && b[low_mel_from] == 0 && a);
+            }
+        },
+        {
+            CATSMAT_dissonance::schemata::suspension_by_third,
+            [](const CATSMAT_dissonance::schemata::behaviour_array& b, bool a)
+            {
+                return
+                (b[up_mel_to] == -2 && b[up_mel_from] == 0 && b[low_mel_to] == 0 && b[low_mel_from] == -1 && a) ||
+                (b[up_mel_to] == 0 && b[up_mel_from] == -1 && b[low_mel_to] == -2 && b[low_mel_from] == 0 && a);
             }
         },
         {
@@ -158,6 +167,7 @@ namespace CATSMAT
         { incomplete_lower_neighbour_tone, "Incomplete Lower Neighbour Tone" },
         { appoggiatura, "Appoggiatura" },
         { suspension, "Suspension" },
+        { suspension_by_third, "Suspension by third" },
         { anticipation, "Anticipation" },
         { retardation, "Retardation" },
         { cambiata, "Cambiata" },
@@ -244,9 +254,9 @@ namespace CATSMAT
     {
         
         //approximate approach to voice crossing
-        swap_less<IMUSANT_note>(u1, l1);
-        swap_less<IMUSANT_note>(u2, l2);
-        swap_less<IMUSANT_note>(u3, l3);
+        //swap_less<IMUSANT_note>(u1, l1);
+        //swap_less<IMUSANT_note>(u2, l2);
+        //swap_less<IMUSANT_note>(u3, l3);
         
         IMUSANT_generalised_interval v2(u2.pitch(),l2.pitch());
         
@@ -337,8 +347,7 @@ namespace CATSMAT
     {
         return dissonance_==dissonance.dissonance_ && duration_==dissonance.duration_ && schemata_==dissonance.schemata_;
     }
-    
-    bool CATSMAT_dissonance::operator>(const CATSMAT::CATSMAT_dissonance &dissonance) const
+        bool CATSMAT_dissonance::operator>(const CATSMAT::CATSMAT_dissonance &dissonance) const
     {
         return less(dissonance)>0;
     }
@@ -356,6 +365,7 @@ namespace CATSMAT
     void CATSMAT_dissonance::print(std::ostream &os) const
     {
         string s = schemata::type_strings.at(schemata_.getType());
+        string t = schemata_.getBehaviour();
         os << dissonance_ << ", " << duration_ << ", " << s;
     }
     

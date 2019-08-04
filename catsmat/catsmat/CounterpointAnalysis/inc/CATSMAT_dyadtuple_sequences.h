@@ -36,7 +36,7 @@ namespace CATSMAT
         
         CATSMAT_dyadtuple_sequences(bool ignoreRepeatedDyads=true) : CATSMAT_sequences_base() {}
         
-        void Visit(const CATSMAT_cp_matrix& matrix);
+        void Visit(CATSMAT_cp_matrix& matrix) override;
         
         void Print(ostream& os) const;
         

@@ -28,12 +28,12 @@ namespace CATSMAT
         void  setContrapuntalRhythm(const CR_type type) { cr_=type; }
         
         friend ostream &operator<<(ostream &os, const CATSMAT_contrapuntal_scaffold &skeleton);
-        void Visit(const CATSMAT_cp_matrix &matrix) override;
-        void Print(ostream &os) const override;
+        void Visit(CATSMAT_cp_matrix &matrix);
+        void Print(ostream &os) const;
         
     private:
 
-        void process(const list<S_CATSMAT_chord>& matrix);
+        void process(list<S_CATSMAT_chord>& matrix);
 
         CR_type          cr_;
         IMUSANT_duration cluster_duration_;

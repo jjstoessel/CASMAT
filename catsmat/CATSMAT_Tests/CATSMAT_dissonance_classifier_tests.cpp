@@ -6,7 +6,6 @@
 //
 
 #include <stdio.h>
-#include <math.h>
 #include <boost/filesystem.hpp>
 
 #include "CATSMAT_test_utility.h"
@@ -533,8 +532,6 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
             vector<IMUSANT_interval> v = dyads->getIntervals();
             CATSMAT_cp_matrix::Matrix_iterator chord = matrix->getCPmatrix().begin(); //iterator
             
-            IMUSANT_duration cumulative_dur;
-            
             for (auto dyad = v.begin(); dyad!=v.end(); ++dyad)
             {
                 
@@ -551,8 +548,6 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
                         u2 = *i[0];
                         l2 = *i[1];
                         
-                        cumulative_dur += u2.duration()->duration();
-                        
                         if (i[0]->getMeasureNum() == location.first.measure && i[0]->getNoteIndex() == location.first.note_index)
                         {
                             bool accented = false;
@@ -562,8 +557,8 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
                             u1 = *h[0]; l1 = *h[1];
                             u3 = *j[0]; l3 = *j[1];
                             
-                            if ( matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::minim)))
-                                accented = true;
+                            accented = matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::minim));
+                            
                             //find dissonance
                             CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3,accented);
                             //dissonance_profile[d] = dissonance_profile[d] + 1;

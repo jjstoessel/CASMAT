@@ -41,7 +41,9 @@ namespace CATSMAT
     {
         for (auto note : rhs)
         {
-            this->insert(note);
+            S_IMUSANT_note copy = new_IMUSANT_note();
+            *copy = *note.second;
+            this->insert(std::pair<int, S_IMUSANT_note>(note.first, copy));
         }
         return *this;
     }

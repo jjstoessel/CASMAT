@@ -19,7 +19,7 @@ namespace CATSMAT
 {
 
 template <class T> //T is a vector
-class CATSMAT_sequences_base : public BaseVisitor, public Loki::Visitor<CATSMAT_cp_matrix, void, true>
+class CATSMAT_sequences_base : public BaseVisitor, public Loki::Visitor<CATSMAT_cp_matrix>
 {
 public:
 
@@ -28,7 +28,7 @@ public:
                     CATSMAT_sequences_base() {}
     virtual         ~CATSMAT_sequences_base() {}
     
-    virtual void    Visit(const CATSMAT_cp_matrix& matrix) = 0;
+    virtual void    Visit(CATSMAT_cp_matrix& matrix) = 0;
     virtual void    Print(ostream& os) const = 0;
 
     void            set_ignore_repeated(bool ignore) { ignore_repeated_ = ignore; }

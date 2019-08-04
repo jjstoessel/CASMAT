@@ -64,7 +64,7 @@ namespace CATSMAT
         
         friend  ostream& operator<<(ostream& os, const CATSMAT_sonority_sequences& sequences);
         
-        void Visit(const CATSMAT_cp_matrix& matrix);
+        void Visit(CATSMAT_cp_matrix& matrix);
         
         void Print(ostream& os) const;
         

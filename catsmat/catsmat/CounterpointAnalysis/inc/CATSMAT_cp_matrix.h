@@ -49,8 +49,8 @@ namespace CATSMAT {
         void	clear() { fCPMatrix.clear(); }
         void    reindex();
         
-        const   Matrix& getCPmatrix() const { return fCPMatrix; }
-        bool    isAccented(const Matrix_iterator& iter, const IMUSANT_duration& beat);
+        Matrix& getCPmatrix() { return fCPMatrix; }
+        bool    isAccented(Matrix_iterator& iter, const IMUSANT_duration& beat);
         
         void    print(std::ostream& os);
         unsigned long partCount() const { return fCurrentPart + 1; }

@@ -50,7 +50,7 @@ namespace CATSMAT
 
     void
     CATSMAT_TrigramSequences::
-    Visit(const CATSMAT_cp_matrix& matrix)
+    Visit(CATSMAT_cp_matrix& matrix)
     {
         matrix_ptr_ = &matrix;
         Process(matrix.getCPmatrix());
@@ -58,7 +58,7 @@ namespace CATSMAT
 
 
     void CATSMAT_TrigramSequences::
-    Process(const CATSMAT_cp_matrix::Matrix &matrix)
+    Process(CATSMAT_cp_matrix::Matrix &matrix)
     {
         if (!matrix.empty())
         {

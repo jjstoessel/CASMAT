@@ -37,14 +37,14 @@ ostream &operator<<(ostream &os, const CATSMAT_contrapuntal_scaffold &skeleton)
     return os;
 }
 
-void CATSMAT_contrapuntal_scaffold::Visit(const CATSMAT_cp_matrix &matrix)
+void CATSMAT_contrapuntal_scaffold::Visit(CATSMAT_cp_matrix &matrix)
 {
     part_count_ = matrix.partCount();
 
     process(matrix.getCPmatrix());
 }
 
-void CATSMAT_contrapuntal_scaffold::process(const list<CATSMAT::S_CATSMAT_chord> &matrix)
+void CATSMAT_contrapuntal_scaffold::process(CATSMAT_cp_matrix::Matrix &matrix)
 {
     if (!matrix.empty())
     {

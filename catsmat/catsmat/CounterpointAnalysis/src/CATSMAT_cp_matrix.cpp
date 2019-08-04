@@ -11,6 +11,7 @@
 //  10 Nov 2016 - CPMatrix now copies the inserted note
 //
 #include <algorithm>
+#include <math.h>
 #include "CATSMAT_cp_matrix.h"
 #include "CATSMAT_exception.h"
 
@@ -372,22 +373,28 @@ namespace CATSMAT
     
     bool
     CATSMAT_cp_matrix::
-    isAccented(const Matrix_iterator& iter, const IMUSANT_duration& beat)
+    isAccented(Matrix_iterator& iter, const IMUSANT_duration& beat)
     {
         bool result = false;
         
         if (iter!=fCPMatrix.end())
         {
-            Matrix_iterator first_chord = iter;
+            IMUSANT_duration cumulative_dur;
+            std::reverse_iterator<Matrix_iterator> first_chord(iter);
             
-            CATSMAT_chord chord = **first_chord;
-            IMUSANT_note note = *chord[0];
-            while (note.getNoteIndex()!=1)
+            CATSMAT_chord chord = **iter;
+            int note_index = (*chord[0]).getNoteIndex();
+            while (note_index!=1)
             {
-                first_chord = std::prev(first_chord);
-                chord = **first_chord;
-                note = *chord[0];
+                CATSMAT_chord next_chord = **first_chord;
+                cumulative_dur += (*next_chord[0]).duration()->duration();
+                note_index = (*next_chord[0]).getNoteIndex();
+                first_chord++;
             }
+            float remainder = fmod(cumulative_dur.AsAbsoluteNumeric(),beat.AsAbsoluteNumeric());
+            if (remainder==0)
+                result = true;
+            
         }
         
         return result;

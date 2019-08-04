@@ -32,7 +32,7 @@ namespace CATSMAT
     }
     
     void
-    CATSMAT_dyad_sequences::Visit(const CATSMAT_cp_matrix& matrix)
+    CATSMAT_dyad_sequences::Visit(CATSMAT_cp_matrix& matrix)
     {
         //increase VectorInterval colection according to the formula of unique pairs n(n-1)/2
         unsigned long partCount = matrix.partCount();
@@ -56,7 +56,7 @@ namespace CATSMAT
      */
     
     void
-    CATSMAT_dyad_sequences::process(const list<S_CATSMAT_chord>& matrix)
+    CATSMAT_dyad_sequences::process(CATSMAT_cp_matrix::Matrix& matrix)
     {
         if (!matrix.empty())
         {
@@ -123,7 +123,6 @@ namespace CATSMAT
             {
                 if ((*i)->getIntervals().size()) //ignore empty vectors
                 {
-                
                     interval_tree* tree = new interval_tree((*i)->getIntervals(),1); //change last parameter to id for whole work tree.
                     vector<pair<interval_tree::size_type, interval_tree::size_type> >* results = new vector<pair<interval_tree::size_type, interval_tree::size_type> >();
                     find_repeated_substrings(*results, tree->root_node(), min);

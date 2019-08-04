@@ -46,7 +46,7 @@ namespace CATSMAT
         return os;
     }
     
-    void CATSMAT_sonority_sequences::Visit(const CATSMAT_cp_matrix& matrix)
+    void CATSMAT_sonority_sequences::Visit(CATSMAT_cp_matrix& matrix)
     {
         if (!matrix.getCPmatrix().empty())
         {

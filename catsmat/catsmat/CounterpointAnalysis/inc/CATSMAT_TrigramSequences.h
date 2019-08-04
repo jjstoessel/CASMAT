@@ -80,7 +80,7 @@ namespace CATSMAT
         CATSMAT_TrigramSequences() : CATSMAT_sequences_base<Sentence>() {}
         ~CATSMAT_TrigramSequences() {}
         
-        void    Visit(const CATSMAT_cp_matrix& matrix);
+        void    Visit(CATSMAT_cp_matrix& matrix);
         
         void    Print(ostream& os) const;
         void    PrintTrigrams(ostream& os) const;
@@ -93,7 +93,7 @@ namespace CATSMAT
         TokenVectors        tokens_; //vector of Token vectors
         map<int, string>    voice_pair_labels_; //index of vocal pairs, corresponding in order to tokens_
 
-        void                Process(const list<S_CATSMAT_chord>& matrix); //overrides base class
+        void                Process(CATSMAT_cp_matrix::Matrix& matrix); //overrides base class
         void                MakePartNamesIndex();
         void                ConvertSentences2Tokens();
         void                PostprocessTokens();

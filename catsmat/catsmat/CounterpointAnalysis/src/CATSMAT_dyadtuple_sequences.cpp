@@ -33,7 +33,7 @@ namespace CATSMAT
      
      */
     void
-    CATSMAT_dyadtuple_sequences::Visit(const CATSMAT_cp_matrix& matrix)
+    CATSMAT_dyadtuple_sequences::Visit(CATSMAT_cp_matrix& matrix)
     {
         if (!matrix.getCPmatrix().empty())
         {
