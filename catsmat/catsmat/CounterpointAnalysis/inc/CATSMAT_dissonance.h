@@ -119,7 +119,7 @@ namespace CATSMAT
                          bool accented);
         
         const IMUSANT_duration& getDuration() { return duration_; }
-        const IMUSANT_generalised_interval& getInterval() { return dissonance_; }
+        const int getInterval() { return dissonance_; }
         const schemata&  getSchemata() { return schemata_; }
         
         //operators
@@ -137,7 +137,7 @@ namespace CATSMAT
         
     private:
         
-        IMUSANT_generalised_interval    dissonance_;
+        int                 dissonance_;
         IMUSANT_duration    duration_;
         schemata            schemata_;
     };

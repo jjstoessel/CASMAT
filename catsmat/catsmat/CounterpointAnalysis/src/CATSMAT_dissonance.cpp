@@ -85,8 +85,8 @@ namespace CATSMAT
             [](const CATSMAT_dissonance::schemata::behaviour_array& b, bool a)
             {
                 return
-                ( b[up_mel_to] != 0 && b[up_mel_from] == -1 && b[low_mel_from] == 0 && a) ||
-                (b[up_mel_from] == 0 && b[low_mel_to] != 0 && b[low_mel_from] == -1 && a);
+                ( (b[up_mel_to] != -1 && b[up_mel_to] != 0) && b[up_mel_from] == -1 && b[low_mel_from] == 0 && a) ||
+                (b[up_mel_from] == 0 && (b[low_mel_to] != -1 && b[low_mel_to] != 0) && b[low_mel_from] == -1 && a);
             }
         },
         {
@@ -161,7 +161,7 @@ namespace CATSMAT
             {
                 return
                 (b[up_mel_to] == -1 && b[up_mel_from] > 1 && b[low_mel_to] == 0 && a) ||
-                (b[up_mel_from] == 0 && b[low_mel_to] == -1 && b[low_mel_from] < 1 && a); //possible?
+                (b[up_mel_from] == 0 && b[low_mel_to] == -1 && b[low_mel_from] > 1 && a); //possible?
             }
         },
     };
@@ -274,7 +274,7 @@ namespace CATSMAT
         
         if (v2.getQuality()!=IMUSANT_interval::dissonant) throw ("Non-dissonant interval passed as middle vertical interval in CATSMAT_dissonance::Calculate()");
         //could also test that note pairs u1 and l1, etc. are the same duration
-        dissonance_=v2;
+        dissonance_=abs(v2.getInterval());
         
         if (u2.duration()->duration()!=l2.duration()->duration()) throw ("Notes passed for dissonance in CATSMAT_dissonance::Calculate() are not the same duration.");
         
@@ -312,7 +312,7 @@ namespace CATSMAT
         
         if (v2.getQuality()!=IMUSANT_interval::dissonant) throw ("Non-dissonant interval passed as middle vertical interval in CATSMAT_dissonance::Calculate()");
         //could also test that note pairs u1 and l1, etc. are the same duration
-        dissonance_=v2;
+        dissonance_=abs(v2.getInterval());
         
         if (u2.duration()->duration()!=l2.duration()->duration()) throw ("Notes passed for dissonance in CATSMAT_dissonance::Calculate() are not the same duration.");
         
@@ -378,7 +378,7 @@ namespace CATSMAT
     {
         string s = schemata::type_strings.at(schemata_.getType());
         schemata::behaviour_array b = schemata_.getBehaviour();
-        string t = "behaviour: " + string("\t");
+        string t;
         int count = 0;
         for (int i : b)
         {
