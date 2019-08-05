@@ -562,7 +562,7 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
                             //find dissonance
                             CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3,accented);
                             //dissonance_profile[d] = dissonance_profile[d] + 1;
-                            the_type_as_stringstream << "m." << location.first.measure << "." << location.first.note_index << ": " << d <<  std::endl;
+                            the_type_as_stringstream << "m." << location.first.measure << "." << location.first.note_index << "\t" << d <<  std::endl;
                             break;
                         }
                     }

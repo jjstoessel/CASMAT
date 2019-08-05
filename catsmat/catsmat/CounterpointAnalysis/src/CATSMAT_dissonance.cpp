@@ -153,7 +153,17 @@ namespace CATSMAT
                 (b[up_mel_to] == -1 && b[up_mel_from] > 1 && b[low_mel_to] == 0 && !a) ||
                 (b[up_mel_from] == 0 && b[low_mel_to] == -1 && b[low_mel_from] > 1 && !a);
             }
-        }
+        },
+        //accented melodic upper -1, >1 (often 3), lower 0, * (often -1)
+        {
+            CATSMAT_dissonance::schemata::accented_lower_escape_tone,
+            [](const CATSMAT_dissonance::schemata::behaviour_array& b, bool a)
+            {
+                return
+                (b[up_mel_to] == -1 && b[up_mel_from] > 1 && b[low_mel_to] == 0 && a) ||
+                (b[up_mel_from] == 0 && b[low_mel_to] == -1 && b[low_mel_from] < 1 && a); //possible?
+            }
+        },
     };
     
     const map<CATSMAT_dissonance::schemata::type, string> CATSMAT_dissonance::schemata::type_strings =
@@ -174,6 +184,7 @@ namespace CATSMAT
         { cambiata_i, "Inverted Cambiata" },
         { upper_escape_tone, "Upper Escape Tone" },
         { lower_escape_tone, "Lower Escape Tone" },
+        { accented_lower_escape_tone, "Accented Lower Escape Tone" },
         { pedal_point, "Pedal Point" }
     };
     
@@ -214,6 +225,7 @@ namespace CATSMAT
         behaviour_ = { up_intermed, up_mel_to, up_mel_from, low_intermed, low_mel_to, low_mel_from };
         accented_ = accented;
         type_ = find_type(behaviour_, accented);
+        elements_ = 6;
     }
     
     bool CATSMAT_dissonance::schemata::equal(const CATSMAT::CATSMAT_dissonance::schemata &rhs) const { 
@@ -365,8 +377,17 @@ namespace CATSMAT
     void CATSMAT_dissonance::print(std::ostream &os) const
     {
         string s = schemata::type_strings.at(schemata_.getType());
-        string t = schemata_.getBehaviour();
-        os << dissonance_ << ", " << duration_ << ", " << s;
+        schemata::behaviour_array b = schemata_.getBehaviour();
+        string t = "behaviour: " + string("\t");
+        int count = 0;
+        for (int i : b)
+        {
+            if (count == schemata_.getElementCount()) break;
+            t += to_string(i);
+            count++;
+        }
+        //TO DO: see escape character.
+        os << dissonance_ << "\t" << duration_ << "\t" << s << "\t" << t;
     }
     
 }

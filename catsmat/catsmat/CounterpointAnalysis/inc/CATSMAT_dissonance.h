@@ -26,7 +26,7 @@
 #include <functional>
 
 #include "smartpointer.h"
-#include "IMUSANT_interval.h"
+#include "IMUSANT_generalised_interval.h"
 #include "IMUSANT_note.h"
 
 using namespace IMUSANT;
@@ -56,6 +56,7 @@ namespace CATSMAT
                 cambiata_i,                 //unaccented, melodic upper 1,2,-1, lower 0,0,*
                 upper_escape_tone,          //unaccented, melodic upper 1,<-1, lower 0, *
                 lower_escape_tone,          //unaccented, melodic upper -1,>1, lower 0, *
+                accented_lower_escape_tone,
                 pedal_point                 //varies, melodic, *,*,*, lower is static
             };
             
@@ -78,16 +79,18 @@ namespace CATSMAT
             
             type getType() const { return type_; }
             bool getAccented() { return accented_; }
-            behaviour_array getBehaviour() const { return behaviour_; } 
+            behaviour_array getBehaviour() const { return behaviour_; }
+            int  getElementCount() const { return elements_; }
             
             bool operator== (const schemata& rhs) const { return equal(rhs); }
             bool operator!= (const schemata& rhs) const { return equal(rhs)==false; }
             bool equal(const schemata& rhs) const;
             
         private:
-            behaviour_array behaviour_ = {0,0,0,0,0,0}; //initialise as a vector of four elements
+            behaviour_array behaviour_ = {0,0,0,0,0,0}; //initialise as a vector of elements
             bool        accented_ = false;
             type        type_ = unclassified;
+            int         elements_ = 4;
             
             static const type find_type(const behaviour_array& behaviour, const bool accented); //determine type based upon initialisers
             
@@ -116,7 +119,7 @@ namespace CATSMAT
                          bool accented);
         
         const IMUSANT_duration& getDuration() { return duration_; }
-        const IMUSANT_interval& getInterval() { return dissonance_; }
+        const IMUSANT_generalised_interval& getInterval() { return dissonance_; }
         const schemata&  getSchemata() { return schemata_; }
         
         //operators
@@ -134,7 +137,7 @@ namespace CATSMAT
         
     private:
         
-        IMUSANT_interval    dissonance_;
+        IMUSANT_generalised_interval    dissonance_;
         IMUSANT_duration    duration_;
         schemata            schemata_;
     };
