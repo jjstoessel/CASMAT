@@ -374,7 +374,7 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, Lower_Escape_Tone_Test_1) {
     ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::lower_escape_tone);
 }
 
-const string TestScore_Cerreto_CM_canon_Dissonances_Expected = "-per4, quarter, Ascending Passing Tone: 5\n-per4, quarter, Descending Passing Tone: 5\n";
+const string TestScore_Cerreto_CM_canon_Dissonances_Expected = "3\tquarter\tAscending Passing Tone\t1100: 5\n3\tquarter\tDescending Passing Tone\t00-1-1: 5\n";
 //test for ascending and descending passing tones in canon in contrary motion
 TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Cerreto_CM_canon) {
     
@@ -485,8 +485,9 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1) {
                             u1 = *h[0]; l1 = *h[1];
                             u3 = *j[0]; l3 = *j[1];
                             
+                            bool accented = matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::minim));
                             //find dissonance
-                            CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3);
+                            CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3, accented);
                             dissonance_profile[d] = dissonance_profile[d] + 1;
                             break;
                         }

@@ -379,7 +379,7 @@ namespace CATSMAT
         
         if (iter!=fCPMatrix.end())
         {
-            IMUSANT_duration cumulative_dur;
+            float cumulative_dur = 0.0;
             std::reverse_iterator<Matrix_iterator> first_chord(iter);
             
             CATSMAT_chord chord = **iter;
@@ -387,11 +387,11 @@ namespace CATSMAT
             while (note_index!=1)
             {
                 CATSMAT_chord next_chord = **first_chord;
-                cumulative_dur += (*next_chord[0]).duration()->duration();
+                cumulative_dur += (*next_chord[0]).duration()->AsAbsoluteNumeric();
                 note_index = (*next_chord[0]).getNoteIndex();
                 first_chord++;
             }
-            float remainder = fmod(cumulative_dur.AsAbsoluteNumeric(),beat.AsAbsoluteNumeric());
+            float remainder = fmod(cumulative_dur, beat.AsAbsoluteNumeric());
             if (remainder==0)
                 result = true;
             

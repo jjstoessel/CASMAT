@@ -43,6 +43,8 @@ namespace CATSMAT
                 unclassified,               
                 ascending_passing_tone,     //unaccented, melodic upper 1, 1, lower 0,*
                 descending_passing_tone,    //unaccented, melodic upper -1, -1, lower 0,*
+                accented_ascending_passing_tone, //accented, melodic upper 1, 1, lower 0,*
+                accented_descending_passing_tone, //accented, melodic upper -1, -1, lower 0,*
                 upper_neighbour_tone,       //unaccented, melodic upper 1,-1, lower 0,*
                 lower_neighbour_tone,       //unaccented, melodic upper -1, 1, lower 0,*
                 incomplete_upper_neighbour_tone,  //unaccented, melodic upper >1, -1, lower 0,*
@@ -106,6 +108,7 @@ namespace CATSMAT
                            IMUSANT_note& u3, IMUSANT_note& l3,
                            IMUSANT_note& u4, IMUSANT_note& l4,
                            bool accented = false);
+        CATSMAT_dissonance(const CATSMAT_dissonance&);
         ~CATSMAT_dissonance();
         
         void SetSchemata(IMUSANT_note& u1, IMUSANT_note& l1,
@@ -130,11 +133,11 @@ namespace CATSMAT
         // "greater than" is interpreted to mean
         bool operator> (const CATSMAT_dissonance& dissonance) const;
         bool operator< (const CATSMAT_dissonance& dissonance) const;
-        int  less(const CATSMAT_dissonance& dissonance) const;
+        bool  less(const CATSMAT_dissonance& dissonance) const;
         //output
         friend ostream& operator<< (ostream& os, const CATSMAT_dissonance& elt );
         void    print (ostream& os) const;
-        
+    
     private:
         
         int                 dissonance_;
