@@ -116,7 +116,7 @@ namespace CATSMAT
                          IMUSANT_note& u3, IMUSANT_note& l3,
                          bool accented);
         void SetSchemata(IMUSANT_note& u1, IMUSANT_note& l1,
-                         IMUSANT_note& u2, IMUSANT_note& l2,
+                          IMUSANT_note& u2, IMUSANT_note& l2,
                          IMUSANT_note& u3, IMUSANT_note& l3,
                          IMUSANT_note& u4, IMUSANT_note& l4,
                          bool accented);

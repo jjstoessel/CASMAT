@@ -474,6 +474,11 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1) {
                     //rough test for known score parameters of two voices
                     for ( ; chord != matrix->getCPmatrix().end(); chord++)
                     {
+                        /*
+                                approach    dissonance  regress
+                                u1          u2          u3
+                                l1          l2          l3
+                         */
                         IMUSANT_note u1, u2, u3, l1, l2, l3, copy;
                         CATSMAT_chord i = **chord;
                         u2 = *i[0];
