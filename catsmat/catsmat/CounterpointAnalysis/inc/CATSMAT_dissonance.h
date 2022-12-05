@@ -49,9 +49,11 @@ namespace CATSMAT
                 lower_neighbour_tone,       //unaccented, melodic upper -1, 1, lower 0,*
                 incomplete_upper_neighbour_tone,  //unaccented, melodic upper >1, -1, lower 0,*
                 incomplete_lower_neighbour_tone,  //unaccented, melodic upper <-1, 1, lower 0,*
-                appoggiatura,               //accented, melodic upper *, -1, lower *,0; includes acciaccatura (which is a shorted accented dissonance)
+                //appoggiatura,               //accented, melodic upper *, -1, lower *,0; includes acciaccatura (which is a shorted accented dissonance)
                 suspension,                 //accented, melodic upper 0, -1, lower -1, 0 (P,S,R); is also an anticipation but the syncopated noted is struck again on the accent
                 suspension_by_third,        //accented, upper 0, -1, lower -2, 0
+                suspension_by_fourth,        // upper 0. -1, lower 3, 0
+                leap_by_fourth_to_dissonance, //upper, 3, 0, lower -1, -1, and vice versa
                 anticipation,               //unaccented suspension, without syncopation; unimpletemented - reserved for future enhancements
                 retardation,                //accented, melodic upper 0, 1, lower, -1, 0 (P,S,R)
                 cambiata,                 //unaccented, melodic upper -1,-2,1, lower 0,0,* ; dissonance always second element
@@ -87,7 +89,9 @@ namespace CATSMAT
             bool operator== (const schemata& rhs) const { return equal(rhs); }
             bool operator!= (const schemata& rhs) const { return equal(rhs)==false; }
             bool equal(const schemata& rhs) const;
-            
+            bool operator> (const schemata& rhs) const;
+            bool operator< (const schemata& rhs) const;
+            bool  less(const schemata& rhs) const;
         private:
             behaviour_array behaviour_ = {0,0,0,0,0,0}; //initialise as a vector of elements
             bool        accented_ = false;
@@ -124,6 +128,7 @@ namespace CATSMAT
         const IMUSANT_duration& getDuration() { return duration_; }
         const int getInterval() { return dissonance_; }
         const schemata&  getSchemata() { return schemata_; }
+        void  setOctaveEquivalence(bool equivalent = true) { octave_equivalence_ = equivalent; }
         
         //operators
         CATSMAT_dissonance& operator= (const CATSMAT_dissonance& dissonance);
@@ -137,12 +142,18 @@ namespace CATSMAT
         //output
         friend ostream& operator<< (ostream& os, const CATSMAT_dissonance& elt );
         void    print (ostream& os) const;
+        
+        //friend const bool operator< ( const CATSMAT_dissonance &lhs, const CATSMAT_dissonance &rhs)
+        //{
+         //   return lhs.less(rhs);
+        //}
     
     private:
         
         int                 dissonance_;
         IMUSANT_duration    duration_;
         schemata            schemata_;
+        bool                octave_equivalence_ = true;
     };
     
     using S_CATSMAT_dissonance = IMUSANT_SMARTP<CATSMAT_dissonance>;

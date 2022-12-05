@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
             endingLineNumber = "110"
-            landmarkName = "CATSMAT_TrigramSequences:: Process(const CATSMAT_cp_matrix::Matrix &amp;matrix)"
+            landmarkName = "CATSMAT_TrigramSequences:: Process(CATSMAT_cp_matrix::Matrix &amp;matrix)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
             endingLineNumber = "78"
-            landmarkName = "CATSMAT_TrigramSequences:: Process(const CATSMAT_cp_matrix::Matrix &amp;matrix)"
+            landmarkName = "CATSMAT_TrigramSequences:: Process(CATSMAT_cp_matrix::Matrix &amp;matrix)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "libIMUSANT/DomainObjects/src/IMUSANT_note.cpp"
-            timestampString = "586316852.659668"
+            timestampString = "691277285.7032501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_chord.cpp"
-            timestampString = "586338842.416741"
+            timestampString = "690242574.9897979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_dissonance.cpp"
-            timestampString = "586936934.803931"
+            timestampString = "691283203.1822439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "411"
-            endingLineNumber = "411"
+            startingLineNumber = "448"
+            endingLineNumber = "448"
             landmarkName = "CATSMAT_dissonance::print(std::ostream &amp;os)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,27 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_dissonance.cpp"
-            timestampString = "586936934.8044389"
+            timestampString = "691283203.182331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "CATSMAT_dissonance::SetSchemata(IMUSANT_note&amp; u1, IMUSANT_note&amp; l1, IMUSANT_note&amp; u2, IMUSANT_note&amp; l2, IMUSANT_note&amp; u3, IMUSANT_note&amp; l3, bool accented)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_dissonance.cpp"
-            timestampString = "586936934.804782"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "CATSMAT_dissonance::SetSchemata(IMUSANT::IMUSANT_note &amp;u1, IMUSANT::IMUSANT_note &amp;l1, IMUSANT::IMUSANT_note &amp;u2, IMUSANT::IMUSANT_note &amp;l2, IMUSANT::IMUSANT_note &amp;u3, IMUSANT::IMUSANT_note &amp;l3, IMUSANT::IMUSANT_note &amp;u4, IMUSANT::IMUSANT_note &amp;l4, bool accented)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
-            timestampString = "688878383.716089"
+            timestampString = "691283203.18241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "561"
-            endingLineNumber = "561"
+            startingLineNumber = "569"
+            endingLineNumber = "569"
             landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2)"
             landmarkType = "9">
          </BreakpointContent>
@@ -154,12 +138,156 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_dissonance.cpp"
-            timestampString = "586936934.805508"
+            timestampString = "691283203.182905"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
-            landmarkName = "CATSMAT_dissonance::equal(const CATSMAT::CATSMAT_dissonance &amp;dissonance)"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
+            landmarkName = "CATSMAT_dissonance::CATSMAT_dissonance(const CATSMAT_dissonance&amp; input)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_dissonance.cpp"
+            timestampString = "691283203.182982"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
+            timestampString = "691283203.183054"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "617"
+            endingLineNumber = "617"
+            landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Willaert_Scimus)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
+            timestampString = "691283203.183445"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "709"
+            endingLineNumber = "709"
+            landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Willaert_Scimus)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
+            timestampString = "691283203.183797"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
+            landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Willaert_Scimus)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
+            timestampString = "691283203.184146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "883"
+            endingLineNumber = "883"
+            landmarkName = "Classify_Dissonance(vector&lt;IMUSANT_interval&gt; &amp;v, S_CATSMAT_cp_matrix_visitor matrix)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
+            timestampString = "691283203.184485"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "891"
+            endingLineNumber = "891"
+            landmarkName = "Classify_Dissonance(vector&lt;IMUSANT_interval&gt; &amp;v, S_CATSMAT_cp_matrix_visitor matrix)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
+            timestampString = "691283203.184816"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "911"
+            endingLineNumber = "911"
+            landmarkName = "Classify_Dissonance(vector&lt;IMUSANT_interval&gt; &amp;v, S_CATSMAT_cp_matrix_visitor matrix)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
+            timestampString = "691283203.185123"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "904"
+            endingLineNumber = "904"
+            landmarkName = "Classify_Dissonance(vector&lt;IMUSANT_interval&gt; &amp;v, S_CATSMAT_cp_matrix_visitor matrix)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_cp_matrix.cpp"
+            timestampString = "691283203.185437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
+            landmarkName = "CATSMAT_cp_matrix:: isAccented(Matrix_iterator&amp; iter, const IMUSANT_duration&amp; beat)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CATSMAT_Tests/CATSMAT_dissonance_classifier_tests.cpp"
-            timestampString = "688878383.7167031"
+            timestampString = "691283203.1855021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "491"
-            endingLineNumber = "491"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
             landmarkName = "TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1)"
             landmarkType = "9">
          </BreakpointContent>
@@ -185,13 +313,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_dissonance.cpp"
-            timestampString = "586936934.806132"
+            filePath = "catsmat/CounterpointAnalysis/src/CATSMAT_cp_matrix.cpp"
+            timestampString = "691283203.1857899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
-            landmarkName = "CATSMAT_dissonance::CATSMAT_dissonance(const CATSMAT_dissonance&amp; input)"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
+            landmarkName = "CATSMAT_cp_matrix:: isAccented(Matrix_iterator&amp; iter, const IMUSANT_duration&amp; beat)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

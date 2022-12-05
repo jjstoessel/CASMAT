@@ -18,6 +18,9 @@
 //#include "CATSMAT_canonic_techniques_tools_expected.h"
 
 // The fixture for testing class CATSMAT_cp_matrix.
+
+std::stringstream Classify_Dissonance(vector<IMUSANT_interval> &v, S_CATSMAT_cp_matrix_visitor matrix);
+
 class CATSMAT_Dissonance_Classifier_Tests : public ::testing::Test {
     
 protected:
@@ -268,7 +271,7 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests,Appoggiatura_Test_1) {
     
     CATSMAT_dissonance dissonance(uto, lto, udiss, ldiss, ufrom, lfrom, true);
     
-    ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::appoggiatura);
+    //ASSERT_EQ(dissonance.getSchemata().getType(), CATSMAT_dissonance::schemata::appoggiatura);
 }
 
 //retardation; accented, melodic upper 0, 1, lower, -1, 0 (P,S,R)
@@ -475,7 +478,7 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1) {
                     for ( ; chord != matrix->getCPmatrix().end(); chord++)
                     {
                         /*
-                                approach    dissonance  regress
+                                ingress    dissonance  regress
                                 u1          u2          u3
                                 l1          l2          l3
                          */
@@ -487,6 +490,7 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1) {
                         {
                             CATSMAT_chord h = **std::prev(chord);
                             CATSMAT_chord j = **std::next(chord);
+                            
                             u1 = *h[0]; l1 = *h[1];
                             u3 = *j[0]; l3 = *j[1];
                             
@@ -536,7 +540,7 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
         for (auto dyads : dyads.getSequences())
         {
             vector<IMUSANT_interval> v = dyads->getIntervals();
-            CATSMAT_cp_matrix::Matrix_iterator chord = matrix->getCPmatrix().begin(); //iterator
+            /*CATSMAT_cp_matrix::Matrix_iterator chord = matrix->getCPmatrix().begin(); //iterator
             
             for (auto dyad = v.begin(); dyad!=v.end(); ++dyad)
             {
@@ -563,7 +567,29 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
                             u1 = *h[0]; l1 = *h[1];
                             u3 = *j[0]; l3 = *j[1];
                             
-                            accented = matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::minim));
+                            accented = matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::semibreve));
+                            
+                            //if a long dissonance is preceeded by a short preparation, it is likely an ornamented type
+                            if (*u2.duration()==IMUSANT_duration::minim &&
+                                *u1.duration()==IMUSANT_duration::crochet &&
+                                accented)
+                            {
+                                CATSMAT_chord g = **std::prev(std::prev(chord));
+                                u1 = *g[0]; l1 = *g[1];
+                            }
+                            
+                            //quaver pairs (fusae) are likely to be ornamental, either as ornamented anticipations (the first is dissonant) or passing tones
+                            if (*u2.duration()==IMUSANT_duration::quaver && *u3.duration()==IMUSANT_duration::quaver)
+                            {
+                                break;
+                            }
+                            
+                            //if a pair of quavers (fusae), the second of which is dissonant, look ahead
+                            if (*u2.duration()==IMUSANT_duration::quaver)
+                            {
+                                CATSMAT_chord k = **std::prev(std::prev(std::prev(chord)));
+                                u1 = *k[0]; l1 = *k[1];
+                            }
                             
                             //find dissonance
                             CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3,accented);
@@ -574,10 +600,359 @@ TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Bicinia_1_2) {
                     }
                     
                 }
-            }
+            }*/
+            the_type_as_stringstream = Classify_Dissonance(v, matrix);
         }
     }
     
     string the_types_as_string = the_type_as_stringstream.str();
     ASSERT_EQ(TestScore_Zarlino_Bicinia_1_2_Expected, the_types_as_string);
+}
+
+const string TestScore_Zarlino_Willaert_Scimus_Expected = "";
+
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Zarlino_Willaert_Scimus) {
+    
+    std::stringstream the_type_as_stringstream;
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Zarlino-Willaert-Scimus_hoc_nostrum.xml");
+    S_CATSMAT_cp_matrix_visitor matrix = new_CATSMAT_object<CATSMAT_cp_matrix_visitor>();
+    imusant_score->accept(*matrix);
+    
+    //use profile to count dissonances
+    std::map<CATSMAT_dissonance,int> dissonance_profile;
+    CATSMAT_dyad_sequences      dyads;
+    
+    //set internal parameters called within search functions
+    dyads.set_ignore_dissonances(false);
+    dyads.set_ignore_repeated(false);
+    
+    if (imusant_score!=nullptr)
+    {
+        dyads.Visit(*matrix);
+        for (auto dyads : dyads.getSequences())
+        {
+            vector<IMUSANT_interval> v = dyads->getIntervals();
+            /*CATSMAT_cp_matrix::Matrix_iterator chord = matrix->getCPmatrix().begin(); //iterator
+            
+            for (auto dyad = v.begin(); dyad!=v.end(); ++dyad)
+            {
+                
+                if (dyad->getQuality()==IMUSANT_interval::dissonant)
+                {
+                    //back reference to cp_matrix?
+                    IMUSANT_range location = dyad->getLocation();
+                    
+                    //rough test for known score parameters of two voices
+                    for ( ; chord != matrix->getCPmatrix().end(); chord++)
+                    {
+                        IMUSANT_note u1, u2, u3, l1, l2, l3, copy;
+                        CATSMAT_chord i = **chord;
+                        u2 = *i[0];
+                        l2 = *i[1];
+                        
+                        if (i[0]->getMeasureNum() == location.first.measure && i[0]->getNoteIndex() == location.first.note_index)
+                        {
+                            bool accented = false;
+                            
+                            CATSMAT_chord h = **std::prev(chord);
+                            CATSMAT_chord j = **std::next(chord);
+                            u1 = *h[0]; l1 = *h[1];
+                            u3 = *j[0]; l3 = *j[1];
+                            
+                            accented = matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::semibreve));
+                            
+                            //if a long dissonance is preceeded by a short preparation, it is likely an ornamented type
+                            if (*u2.duration()==IMUSANT_duration::minim &&
+                                *u1.duration()==IMUSANT_duration::crochet &&
+                                accented)
+                            {
+                                CATSMAT_chord g = **std::prev(std::prev(chord));
+                                u1 = *g[0]; l1 = *g[1];
+                            }
+                            
+                            //quaver pairs (fusae) are likely to be ornamental, either as ornamented anticipations (the first is dissonant) or passing tones
+                            if (*u2.duration()==IMUSANT_duration::quaver && *u3.duration()==IMUSANT_duration::quaver)
+                            {
+                                break;
+                            }
+                            
+                            //if a pair of quavers (fusae), the second of which is dissonant, look ahead
+                            if (*u2.duration()==IMUSANT_duration::quaver)
+                            {
+                                CATSMAT_chord k = **std::prev(std::prev(std::prev(chord)));
+                                u1 = *k[0]; l1 = *k[1];
+                            }
+                            
+                            //find dissonance
+                            CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3,accented);
+                            //dissonance_profile[d] = dissonance_profile[d] + 1;
+                            the_type_as_stringstream << "m." << location.first.measure << "." << location.first.note_index << "\t" << d <<  std::endl;
+                            break;
+                        }
+                    }
+                    
+                }
+            }*/
+            the_type_as_stringstream = Classify_Dissonance(v, matrix);
+        }
+    }
+    
+    string the_types_as_string = the_type_as_stringstream.str();
+    ASSERT_EQ(TestScore_Zarlino_Willaert_Scimus_Expected , the_types_as_string);
+}
+
+const string TestScore_Willaert_Scimus_Expected = "";
+
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Willaert_Scimus) {
+    
+    std::stringstream the_type_as_stringstream;
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Willaert-Scimus_hoc_nostrum.xml");
+    S_CATSMAT_cp_matrix_visitor matrix = new_CATSMAT_object<CATSMAT_cp_matrix_visitor>();
+    imusant_score->accept(*matrix);
+    
+    CATSMAT_dyad_sequences      dyads;
+    
+    //set internal parameters called within search functions
+    dyads.set_ignore_dissonances(false);
+    dyads.set_ignore_repeated(false);
+    
+    if (imusant_score!=nullptr)
+    {
+        dyads.Visit(*matrix);
+        for (auto dyads : dyads.getSequences())
+        {
+            vector<IMUSANT_interval> v = dyads->getIntervals();
+            
+            /*CATSMAT_cp_matrix::Matrix_iterator chord = matrix->getCPmatrix().begin(); //iterator
+            
+            for (auto dyad = v.begin(); dyad!=v.end(); ++dyad)
+            {
+                
+                if (dyad->getQuality()==IMUSANT_interval::dissonant)
+                {
+                    //back reference to cp_matrix?
+                    IMUSANT_range location = dyad->getLocation();
+                    
+                    //rough test for known score parameters of two voices
+                    for ( ; chord != matrix->getCPmatrix().end(); chord++)
+                    {
+                        IMUSANT_note u1, u2, u3, l1, l2, l3, copy;
+                        CATSMAT_chord i = **chord;
+                        u2 = *i[0];
+                        l2 = *i[1];
+                        
+                        if (i[0]->getMeasureNum() == location.first.measure && i[0]->getNoteIndex() == location.first.note_index) //keeps chord in synch with dyad
+                        {
+                            bool accented = false;
+                            
+                            CATSMAT_chord h = **std::prev(chord);
+                            CATSMAT_chord j = **std::next(chord);
+                            u1 = *h[0]; l1 = *h[1];
+                            u3 = *j[0]; l3 = *j[1];
+                            
+                            accented = matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::semibreve));
+                            
+                            //if a long dissonance is preceeded by a short preparation, it is likely an ornamented type
+                            if (*u2.duration()>=IMUSANT_duration::minim &&
+                                *u1.duration()==IMUSANT_duration::crochet &&
+                                accented)
+                            {
+                                CATSMAT_chord g = **std::prev(std::prev(chord));
+                                u1 = *g[0]; l1 = *g[1];
+                            }
+                            
+                            //quaver pairs (fusae) are likely to be ornamental, either as ornamented anticipation to suspension (the first is dissonant) or passing tones
+                            //two conditions here: were a resolution to a suspension is anticipated by a pair of fusae, the first of which anticipates the resolution, the second being a lower neighbour tone; the other where
+                            if ((*u2.duration()==IMUSANT_duration::quaver && *u3.duration()==IMUSANT_duration::quaver) ||
+                                (*u2.duration()==IMUSANT_duration::crochet && *u3.duration()==IMUSANT_duration::crochet))
+                            {
+                                //break;
+                                CATSMAT_chord k = **std::next(chord,2); //get chord after the second quaver - should be dissonance
+                                CATSMAT_chord l = **std::next(chord,3); //get the next chord
+                                IMUSANT_interval uhi = IMUSANT_interval::calculate(&*u2.pitch(), &*u3.pitch());
+                                IMUSANT_interval lhi = IMUSANT_interval::calculate(&*l2.pitch(), &*l3.pitch());
+                                
+                                if (*k[0]->pitch()==*u2.pitch() && *k[1]->pitch()==*l2.pitch()) //the dissonant quaver is an anticipation tone
+                                {
+                                    u2 = *k[0];
+                                    l2 = *k[1];
+                                    u3 = *l[0];
+                                    l3 = *l[1];
+                                    std::advance(dyad, 2);
+                                    //std::advance(chord, 2);
+                                }
+                            }
+                            
+                            
+                            //find dissonance
+                            CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3,accented);
+                            //dissonance_profile[d] = dissonance_profile[d] + 1;
+                            the_type_as_stringstream << "m." << location.first.measure << "." << location.first.note_index << "\t" << d <<  std::endl;
+                            break;
+                        }
+                    }
+                }
+            }*/
+            the_type_as_stringstream = Classify_Dissonance(v, matrix);
+        }
+    }
+    
+    string the_types_as_string = the_type_as_stringstream.str();
+    ASSERT_EQ(TestScore_Willaert_Scimus_Expected , the_types_as_string);
+}
+
+const string TestScore_Lassus_Duets_Expected = "";
+
+TEST_F(CATSMAT_Dissonance_Classifier_Tests, TestScore_Lassus_Duets) {
+    
+    std::stringstream the_type_as_stringstream;
+    S_IMUSANT_score imusant_score =  testUtil.InitialiseScoreFromFile("Lassus-12_duets.musicxml");
+    S_CATSMAT_cp_matrix_visitor matrix = new_CATSMAT_object<CATSMAT_cp_matrix_visitor>();
+    imusant_score->accept(*matrix);
+    
+    CATSMAT_dyad_sequences      dyads;
+    
+    //set internal parameters called within search functions
+    dyads.set_ignore_dissonances(false);
+    dyads.set_ignore_repeated(false);
+    
+    if (imusant_score!=nullptr)
+    {
+        dyads.Visit(*matrix);
+        for (auto dyads : dyads.getSequences())
+        {
+            vector<IMUSANT_interval> v = dyads->getIntervals();
+            the_type_as_stringstream = Classify_Dissonance(v, matrix);
+        }
+    }
+    
+    string the_types_as_string = the_type_as_stringstream.str();
+    ASSERT_EQ(TestScore_Lassus_Duets_Expected, the_types_as_string);
+}
+
+std::stringstream Classify_Dissonance(vector<IMUSANT_interval> &v, S_CATSMAT_cp_matrix_visitor matrix)
+{
+    std::stringstream the_type_as_stringstream;
+    CATSMAT_cp_matrix::Matrix_iterator chord = matrix->getCPmatrix().begin(); //iterator
+    
+    //use profile to count dissonances
+    std::map<CATSMAT_dissonance,int> dissonance_profile;
+    
+    the_type_as_stringstream << "Total number of onsets/dyads: " << v.size() <<  std::endl;
+    
+    for (auto dyad = v.begin(); dyad!=v.end(); ++dyad)
+    {
+        
+        if (dyad->getQuality()==IMUSANT_interval::dissonant)
+        {
+            //back reference to cp_matrix?
+            IMUSANT_range location = dyad->getLocation();
+            int quaver_pairs = 0;
+            //rough test for known score parameters of two voices
+            for ( ; chord != matrix->getCPmatrix().end(); chord++)
+            {
+                IMUSANT_note u1, u2, u3, l1, l2, l3, copy;
+                CATSMAT_chord i = **chord;
+                u2 = *i[0];
+                l2 = *i[1];
+                
+                if (i[0]->getMeasureNum() == location.first.measure && i[0]->getNoteIndex() == location.first.note_index) //keeps chord in synch with dyad
+                {
+                    bool accented = false;
+                    
+                    CATSMAT_chord h = **std::prev(chord);
+                    CATSMAT_chord j = **std::next(chord);
+                    u1 = *h[0]; l1 = *h[1];
+                    u3 = *j[0]; l3 = *j[1];
+                    
+                    //if a long dissonance is preceeded by a short preparation, it is likely an ornamented type
+                    if (*u2.duration()>=IMUSANT_duration::minim &&
+                        *u1.duration()==IMUSANT_duration::crochet &&
+                        accented)
+                    {
+                        CATSMAT_chord g = **std::prev(std::prev(chord));
+                        u1 = *g[0]; l1 = *g[1];
+                    }
+                    
+                    //quaver pairs (fusae) are likely to be ornamental, either as ornamented anticipation to suspension (the first is dissonant) or passing tones
+                    //two conditions here: were a resolution to a suspension is anticipated by a pair of fusae, the first of which anticipates the resolution, the second being a lower neighbour tone; the other where
+                    if ((*u2.duration()==IMUSANT_duration::quaver && *u3.duration()==IMUSANT_duration::quaver) /*||
+                        (*u2.duration()==IMUSANT_duration::crochet && *u3.duration()==IMUSANT_duration::crochet)*/)
+                    {
+                        //break;
+                        CATSMAT_chord k = **std::next(chord,2); //get chord after the second quaver - should be dissonance
+                        CATSMAT_chord l = **std::next(chord,3); //get the next chord
+                        IMUSANT_interval uhi = IMUSANT_interval::calculate(&*u2.pitch(), &*u3.pitch());
+                        IMUSANT_interval lhi = IMUSANT_interval::calculate(&*l2.pitch(), &*l3.pitch());
+                        
+                        if (*k[0]->pitch()==*u2.pitch() || *k[1]->pitch()==*l2.pitch()) //the dissonant quaver is an anticipation tone
+                        {
+                            quaver_pairs++;
+                            u2 = *k[0];
+                            l2 = *k[1];
+                            u3 = *l[0];
+                            l3 = *l[1];
+                            std::advance(dyad, 2);
+                            std::advance(chord, 2);
+                            if (dyad->getQuality()!=IMUSANT_interval::dissonant) break; //anticipation of consonance
+                        }
+                    }
+                    
+                    /*if (*u2.duration()==IMUSANT_duration::crochet && *u3.duration()==IMUSANT_duration::crochet)
+                    {
+                        //break;
+                        CATSMAT_chord k = **std::next(chord,2); //get chord after the second crochet - should be dissonance
+                        CATSMAT_chord l = **std::next(chord,3); //get the next chord
+                        IMUSANT_interval uhi = IMUSANT_interval::calculate(&*u2.pitch(), &*u3.pitch());
+                        IMUSANT_interval lhi = IMUSANT_interval::calculate(&*l2.pitch(), &*l3.pitch());
+                        
+                        if (*k[0]->pitch()==*u2.pitch() && *k[1]->pitch()==*l2.pitch()) //the dissonant crochet is an accented anticipation tone
+                        {
+                            u2 = *k[0];
+                            l2 = *k[1];
+                            u3 = *l[0];
+                            l3 = *l[1];
+                            std::advance(dyad, 2);
+                            std::advance(chord, 2);
+                        }
+                    }*/
+                    
+                    if (*u1.duration()==IMUSANT_duration::quaver && *u2.duration()==IMUSANT_duration::quaver)
+                    {
+                        quaver_pairs++;
+                        break;
+                        /*if (*u1.pitch()==*u3.pitch() || *l1.pitch()==*l3.pitch()) //the dissonant quaver is an anticipation tone
+                        {
+                            CATSMAT_chord k = **std::prev(chord,2);
+                            CATSMAT_chord l = **std::next(chord,2);
+                            
+                            u2 = *k[0];
+                            l2 = *k[1];
+                        }*/
+                    }
+                    
+                    //accented = matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::semibreve));
+                    accented = matrix->isAccented(chord, IMUSANT_duration(IMUSANT_duration::semibreve));
+                    //find dissonance
+                    CATSMAT_dissonance d(u1,l1,u2,l2,u3,l3,accented);
+                    dissonance_profile[d] = dissonance_profile[d] + 1;
+                    
+                    the_type_as_stringstream << "m." << location.first.measure << "." << location.first.note_index << "\t" << d <<  std::endl;
+                    break;
+                }
+            }
+        }
+    }
+    
+    //the_type_as_stringstream << "================== DISSONANCES ===================" << std::endl;
+    // for (const auto& dc [key, value] : dissonance_profile ) { C++17
+    // the_type_as_stringstream << "[" << key << "]: " << value  << std::endl;
+    //}
+    
+    /*for (const auto& dc : dissonance_profile)
+    {
+        the_type_as_stringstream << "[" << dc.first << "]: " << dc.second << std::endl;
+    }*/
+    
+    return the_type_as_stringstream;
 }

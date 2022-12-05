@@ -432,7 +432,6 @@
 		BA1CB06B22D1806600E2CBAF /* Segmenter_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA1CB06422D1806600E2CBAF /* Segmenter_Tests.cpp */; };
 		BA1CB06C22D1806600E2CBAF /* LBDM_SegmentedPart_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA1CB06622D1806600E2CBAF /* LBDM_SegmentedPart_Tests.cpp */; };
 		BA1CB06D22D1806600E2CBAF /* FP_SegmentedScore_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA1CB06722D1806600E2CBAF /* FP_SegmentedScore_Tests.cpp */; };
-		BA1CB06E22D180C100E2CBAF /* libMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		BA1CB07922D1963F00E2CBAF /* libMusicXML3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C80D901BA4E69400DCA903 /* libMusicXML3.dylib */; };
 		BA1CB07C22D1975300E2CBAF /* libboost_filesystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88B1AA42E6A0053ADE3 /* libboost_filesystem.dylib */; };
 		BA1CB07D22D1975700E2CBAF /* libboost_system.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D88E1AA42E7E0053ADE3 /* libboost_system.dylib */; };
@@ -459,6 +458,10 @@
 		BA1CB09C22D9874700E2CBAF /* CATSMAT_score_profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BF1ED9456C000C84C4 /* CATSMAT_score_profile.cpp */; };
 		BA1CB09D22D99A9A00E2CBAF /* CATSMAT_score_profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF9BF1ED9456C000C84C4 /* CATSMAT_score_profile.cpp */; };
 		BA1CB09E22D99C5400E2CBAF /* Cerreto-CM_canon_Della_prattica_musica_p222.musicxml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA1CB09522D9852100E2CBAF /* Cerreto-CM_canon_Della_prattica_musica_p222.musicxml */; };
+		BA230B172924876200959474 /* Zarlino-Willaert-Scimus_hoc_nostrum.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA230B142924876200959474 /* Zarlino-Willaert-Scimus_hoc_nostrum.xml */; };
+		BA230B182924876200959474 /* Lassus-12_duets.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA230B152924876200959474 /* Lassus-12_duets.xml */; };
+		BA230B1B29248D5C00959474 /* Willaert-Scimus_hoc_nostrum.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA230B1A29248D5B00959474 /* Willaert-Scimus_hoc_nostrum.xml */; };
+		BA230B1D292B463800959474 /* Lassus-12_duets.musicxml in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA230B1C292B463800959474 /* Lassus-12_duets.musicxml */; };
 		BA85CC8B22C5D768002E486E /* FP_Segmenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8922C5D768002E486E /* FP_Segmenter.cpp */; };
 		BA85CC8C22C5D768002E486E /* PartlistOrderedByPartEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC8A22C5D768002E486E /* PartlistOrderedByPartEntry.cpp */; };
 		BA85CC9B22C5D79B002E486E /* LBDM_IntervalProfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA85CC9522C5D79B002E486E /* LBDM_IntervalProfile.cpp */; };
@@ -604,6 +607,10 @@
 			dstPath = testdata;
 			dstSubfolderSpec = 16;
 			files = (
+				BA230B1D292B463800959474 /* Lassus-12_duets.musicxml in CopyFiles */,
+				BA230B1B29248D5C00959474 /* Willaert-Scimus_hoc_nostrum.xml in CopyFiles */,
+				BA230B172924876200959474 /* Zarlino-Willaert-Scimus_hoc_nostrum.xml in CopyFiles */,
+				BA230B182924876200959474 /* Lassus-12_duets.xml in CopyFiles */,
 				BAEB758D22F26B900039043F /* Zarlino_Bicinia_1.xml in CopyFiles */,
 				BA1CB09E22D99C5400E2CBAF /* Cerreto-CM_canon_Della_prattica_musica_p222.musicxml in CopyFiles */,
 				4949DD2A1F2D6E9D00248DA4 /* Anon-Talent_mest_pris_I-IV_115.xml in CopyFiles */,
@@ -1323,6 +1330,10 @@
 		BA1CB09222D2128200E2CBAF /* CATSMAT_dissonance_classifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATSMAT_dissonance_classifier.h; path = inc/CATSMAT_dissonance_classifier.h; sourceTree = "<group>"; };
 		BA1CB09322D849D100E2CBAF /* CATSMAT_dissonance_classifier_tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CATSMAT_dissonance_classifier_tests.cpp; sourceTree = "<group>"; };
 		BA1CB09522D9852100E2CBAF /* Cerreto-CM_canon_Della_prattica_musica_p222.musicxml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Cerreto-CM_canon_Della_prattica_musica_p222.musicxml"; sourceTree = "<group>"; };
+		BA230B142924876200959474 /* Zarlino-Willaert-Scimus_hoc_nostrum.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Zarlino-Willaert-Scimus_hoc_nostrum.xml"; path = "CATSMAT_Tests/testdata/Zarlino-Willaert-Scimus_hoc_nostrum.xml"; sourceTree = "<group>"; };
+		BA230B152924876200959474 /* Lassus-12_duets.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Lassus-12_duets.xml"; path = "CATSMAT_Tests/testdata/Lassus-12_duets.xml"; sourceTree = "<group>"; };
+		BA230B1A29248D5B00959474 /* Willaert-Scimus_hoc_nostrum.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Willaert-Scimus_hoc_nostrum.xml"; path = "CATSMAT_Tests/testdata/Willaert-Scimus_hoc_nostrum.xml"; sourceTree = "<group>"; };
+		BA230B1C292B463800959474 /* Lassus-12_duets.musicxml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Lassus-12_duets.musicxml"; path = "CATSMAT_Tests/testdata/Lassus-12_duets.musicxml"; sourceTree = "<group>"; };
 		BA33CBB61D6FD7A8001B7FF3 /* Anon-Talent_mest_pris_I-IV_115_52r-.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Talent_mest_pris_I-IV_115_52r-.xml"; sourceTree = "<group>"; };
 		BA33CBB71D6FD7A8001B7FF3 /* Anon-Tres_dous_compains.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Tres_dous_compains.xml"; sourceTree = "<group>"; };
 		BA33CBB81D6FD7A8001B7FF3 /* Anon-Umblemens_vos_pri.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anon-Umblemens_vos_pri.xml"; sourceTree = "<group>"; };
@@ -1533,7 +1544,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				496EF70A1B22D2A000FE715F /* libIMUSANT.dylib in Frameworks */,
-				BA1CB06E22D180C100E2CBAF /* libMusicXML3.dylib in Frameworks */,
 				496EF71A1B23BF9C00FE715F /* gtest.framework in Frameworks */,
 				496EF4D21B229F0A00FE715F /* libboost_filesystem.dylib in Frameworks */,
 				496EF4D11B229EFB00FE715F /* libboost_system.dylib in Frameworks */,
@@ -1628,6 +1638,10 @@
 		08FB7794FE84155DC02AAC07 /* imusant */ = {
 			isa = PBXGroup;
 			children = (
+				BA230B1C292B463800959474 /* Lassus-12_duets.musicxml */,
+				BA230B1A29248D5B00959474 /* Willaert-Scimus_hoc_nostrum.xml */,
+				BA230B152924876200959474 /* Lassus-12_duets.xml */,
+				BA230B142924876200959474 /* Zarlino-Willaert-Scimus_hoc_nostrum.xml */,
 				BA09FC4022C5FC67001E1023 /* libboost_system.dylib */,
 				BA09FC3E22C5FC5E001E1023 /* libboost_filesystem.dylib */,
 				BAA8D8991AABFBA30053ADE3 /* CATSMAT */,
